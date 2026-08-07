@@ -8,21 +8,23 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#080b09;--side:#0c100d;--card:#10151b;--line:#1c2420;--line2:#26332b;--text:#eef3ee;--muted:#98a69c;--dim:#6b7a70;--yellow:#eab308;--red:#f87171}
-[data-theme="green"]{--acc:#4ade80;--acc2:#22c55e;--acc-soft:rgba(74,222,128,.10);--acc-border:rgba(74,222,128,.35)}
-[data-theme="blue"]{--acc:#60a5fa;--acc2:#3b82f6;--acc-soft:rgba(96,165,250,.10);--acc-border:rgba(96,165,250,.35)}
-[data-theme="orange"]{--acc:#fb923c;--acc2:#f97316;--acc-soft:rgba(251,146,60,.10);--acc-border:rgba(251,146,60,.35)}
-body{background:var(--bg);color:var(--text);font-family:'PT Serif',Georgia,serif}
+:root{--card:#10151b;--line:#1c2420;--line2:#26332b;--text:#eef3ee;--muted:#98a69c;--dim:#6b7a70;--yellow:#eab308;--red:#f87171}
+[data-theme="green"]{--bg:#07100a;--side:#08130c;--acc:#4ade80;--acc2:#22c55e;--acc-soft:rgba(74,222,128,.10);--acc-border:rgba(74,222,128,.35);--acc-glow:rgba(74,222,128,.35);--bg-glow:rgba(74,222,128,.08);--bg-glow-strong:rgba(74,222,128,.18)}
+[data-theme="blue"]{--bg:#060a12;--side:#070d18;--acc:#60a5fa;--acc2:#3b82f6;--acc-soft:rgba(96,165,250,.10);--acc-border:rgba(96,165,250,.35);--acc-glow:rgba(96,165,250,.35);--bg-glow:rgba(96,165,250,.08);--bg-glow-strong:rgba(96,165,250,.18)}
+[data-theme="orange"]{--bg:#110a06;--side:#150c07;--acc:#fb923c;--acc2:#f97316;--acc-soft:rgba(251,146,60,.10);--acc-border:rgba(251,146,60,.35);--acc-glow:rgba(251,146,60,.35);--bg-glow:rgba(251,146,60,.08);--bg-glow-strong:rgba(251,146,60,.18)}
+body{background-color:var(--bg);color:var(--text);font-family:'PT Serif',Georgia,serif;position:relative;min-height:100vh;overflow-x:hidden}
+body::before,body::after{content:'';position:fixed;pointer-events:none;z-index:0;transition:background .6s ease,opacity .6s ease}
+body::before{top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 85% 110%,var(--bg-glow-strong) 0%,var(--bg-glow) 25%,transparent 55%)}
+body::after{top:-20%;left:50%;transform:translateX(-50%);width:140%;height:60%;background:radial-gradient(ellipse at center top,var(--bg-glow) 0%,transparent 70%);opacity:.6}
+.layout,.sidebar,.main{position:relative;z-index:1}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0a0d0b}::-webkit-scrollbar-thumb{background:var(--acc2);border-radius:5px}
 a{color:var(--acc)}
+body,.sidebar,.card,.nav-item,.sub-item,.theme-btn,.btn-discord,.btn-tg,.status-card,.update-card,.stat,.hero-badge,.pill,.rule,.member,.m-ava,.logo-badge,.cta,.update-meta,.update-content,.pun,.side-bottom,.side-top,.us-item,.stub,.themes{transition:background-color .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease}
 .layout{display:flex;min-height:100vh}
-
-/* SIDEBAR */
-.sidebar{width:290px;flex:0 0 290px;background:var(--side);border-right:1px solid var(--line);
-  display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.sidebar{width:290px;flex:0 0 290px;background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
 .side-top{padding:22px 20px;border-bottom:1px solid var(--line);flex:0 0 auto}
 .logo-row{display:flex;gap:12px;align-items:center;margin-bottom:16px}
-.logo-badge{width:46px;height:46px;border:1px solid var(--acc-border);border-radius:12px;display:grid;place-items:center;color:var(--acc);background:var(--acc-soft)}
+.logo-badge{width:46px;height:46px;border:1px solid var(--acc-border);border-radius:12px;display:grid;place-items:center;color:var(--acc);background:var(--acc-soft);box-shadow:0 0 18px var(--acc-glow)}
 .logo-title{font-family:'JetBrains Mono';font-weight:700;letter-spacing:.14em;font-size:15px}
 .logo-title span{color:var(--yellow)}
 .logo-sub{font-family:'JetBrains Mono';font-size:9.5px;color:var(--dim);letter-spacing:.2em;display:flex;align-items:center;gap:6px;margin-top:5px}
@@ -34,7 +36,6 @@ a{color:var(--acc)}
 .side-nav{padding:18px 14px;flex:1 1 auto;overflow-y:auto;min-height:0}
 .side-nav::-webkit-scrollbar{width:6px}
 .side-nav::-webkit-scrollbar-thumb{background:var(--line2);border-radius:3px}
-.side-nav::-webkit-scrollbar-thumb:hover{background:var(--acc2)}
 .nav-label{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.24em;color:var(--dim);margin:4px 8px 12px}
 .nav-item{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;border-radius:10px;color:var(--muted);text-decoration:none;font-family:Manrope;font-weight:600;font-size:14.5px;background:none;border:1px solid transparent;cursor:pointer;margin-bottom:4px;text-align:left;transition:.15s}
 .nav-item:hover{color:var(--text);background:var(--acc-soft)}
@@ -55,14 +56,14 @@ a{color:var(--acc)}
 .themes{display:flex;gap:6px;background:#0f1410;border:1px solid var(--line);padding:6px;border-radius:10px;margin-bottom:14px}
 .theme-btn{flex:1;display:flex;gap:7px;align-items:center;justify-content:center;padding:8px 4px;border-radius:8px;border:1px solid transparent;background:none;color:var(--muted);font-family:Manrope;font-weight:600;font-size:12px;cursor:pointer}
 .theme-btn i{width:9px;height:9px;border-radius:50%;background:var(--c)}
-.theme-btn.active{color:var(--text);background:var(--acc-soft);border-color:var(--acc-border)}
+.theme-btn.active{color:var(--text);background:var(--acc-soft);border-color:var(--acc-border);box-shadow:0 0 10px var(--acc-glow)}
 .socials{display:flex;gap:10px}
 .socials a{flex:1;display:flex;gap:8px;justify-content:center;align-items:center;padding:11px;border-radius:10px;text-decoration:none;font-family:'JetBrains Mono';font-weight:700;font-size:11px;letter-spacing:.1em}
 .btn-discord{background:var(--acc2);color:#07130a}
 .btn-tg{border:1px solid var(--acc-border);color:var(--acc);background:var(--acc-soft)}
-.copy{margin-top:14px;text-align:center;font-family:'JetBrains Mono';font-size:10px;color:var(--dim)}
-
-/* MAIN */
+.copy{margin-top:10px;text-align:center;font-family:'JetBrains Mono';font-size:10px;color:var(--dim)}
+.mail{margin-top:8px;text-align:center;font-family:'JetBrains Mono';font-size:10px}
+.mail a{color:var(--muted);text-decoration:none}
 .main{flex:1;padding:48px 56px;max-width:1400px}
 .page{display:none}
 .page.active{display:block;animation:f .35s ease}
@@ -80,8 +81,6 @@ h1 em{color:var(--acc);font-style:normal}
 .card p:last-child{margin-bottom:0}
 .hl{color:var(--acc);font-weight:700}
 blockquote{border-left:3px solid var(--acc2);background:var(--acc-soft);padding:14px 18px;margin:16px 0;font-style:italic;color:var(--text);border-radius:0 8px 8px 0}
-
-/* HOME */
 .hero{text-align:center;padding:24px 0 8px}
 .hero-badge{display:inline-flex;gap:8px;align-items:center;margin-bottom:20px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.14em;color:var(--acc);border:1px solid var(--acc-border);background:var(--acc-soft);padding:7px 16px;border-radius:999px}
 .cta-row{display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap}
@@ -89,11 +88,10 @@ blockquote{border-left:3px solid var(--acc2);background:var(--acc-soft);padding:
 .cta.fill{background:var(--acc2);color:#07130a}
 .cta.ghost{border:1px solid var(--acc-border);color:var(--acc)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.stats.three{grid-template-columns:repeat(3,1fr)}
 .stat{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--acc2);border-radius:12px;padding:22px;text-align:center}
 .stat b{display:block;font-family:'JetBrains Mono';font-size:34px;color:var(--acc);font-weight:700}
 .stat span{font-family:Manrope;font-size:12.5px;color:var(--muted);letter-spacing:.08em}
-
-/* RULES */
 .rule{padding:18px 0;border-bottom:1px dashed var(--line2)}
 .rule:first-of-type{padding-top:4px}
 .rule:last-of-type{border-bottom:0;padding-bottom:0}
@@ -102,8 +100,6 @@ blockquote{border-left:3px solid var(--acc2);background:var(--acc-soft);padding:
 .rule p{font-size:14px !important;margin-bottom:8px !important}
 .rule ul{margin:0 0 8px 18px;color:var(--muted);font-size:14px;line-height:1.7}
 .pun{font-family:'JetBrains Mono';font-size:10px;color:var(--red);background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.3);padding:3px 9px;border-radius:6px}
-
-/* UPDATES */
 .updates-list{display:flex;flex-direction:column;gap:20px}
 .update-card{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--acc2);border-radius:12px;padding:22px 28px}
 .update-meta{display:flex;align-items:center;gap:14px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed var(--line2)}
@@ -113,60 +109,42 @@ blockquote{border-left:3px solid var(--acc2);background:var(--acc-soft);padding:
 .update-content h1,.update-content h2,.update-content h3{font-family:Manrope;margin:14px 0 10px;font-weight:700;line-height:1.3}
 .update-content h1{font-size:20px;color:var(--acc)}
 .update-content h2{font-size:17px}
-.update-content h3{font-size:15px;color:var(--muted)}
 .update-content strong,.update-content b{color:var(--text);font-weight:700}
-.update-content em,.update-content i{font-style:italic;color:var(--muted)}
 .update-content a{color:var(--acc);word-break:break-all}
-.update-content ul,.update-content ol{margin:6px 0 6px 20px}
-.update-content li{margin-bottom:4px}
-.update-content .attachment-note,.update-content .reply{
-  display:inline-block;font-family:'JetBrains Mono';font-size:10.5px;
-  color:var(--dim);background:rgba(255,255,255,.03);border:1px solid var(--line2);
-  padding:2px 8px;border-radius:4px;margin:6px 0}
+.update-content .attachment-note,.update-content .reply{display:inline-block;font-family:'JetBrains Mono';font-size:10.5px;color:var(--dim);background:rgba(255,255,255,.03);border:1px solid var(--line2);padding:2px 8px;border-radius:4px;margin:6px 0}
 .update-content .reply{font-style:italic;color:var(--muted);margin-bottom:8px;display:block}
+.update-content .small-text{display:block;margin:6px 0;font-size:12.5px;line-height:1.5;color:var(--dim);font-family:'JetBrains Mono',monospace;opacity:.75}
+.update-content .dc-h2{display:block;margin:12px 0 6px;font-size:16px;line-height:1.4;color:var(--text);font-family:Manrope,sans-serif;font-weight:700}
 .updates-stats{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
-.us-item{font-family:'JetBrains Mono';font-size:11.5px;color:var(--muted);letter-spacing:.1em;
-  background:#0f1410;border:1px solid var(--line);padding:8px 14px;border-radius:8px}
+.us-item{font-family:'JetBrains Mono';font-size:11.5px;color:var(--muted);letter-spacing:.1em;background:#0f1410;border:1px solid var(--line);padding:8px 14px;border-radius:8px}
 .us-item b{color:var(--acc);margin-right:6px}
 .loading{font-family:'JetBrains Mono';font-size:13px;color:var(--dim);animation:p 2s infinite}
-
-/* STUB */
 .stub{text-align:center;padding:60px 20px}
 .stub .icon{font-size:54px;margin-bottom:18px;opacity:.7}
 .stub h3{font-family:Manrope;font-size:22px;margin-bottom:12px;color:var(--text)}
 .stub p{color:var(--muted);font-size:15px}
-
-/* STAFF */
 .member{display:flex;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line2)}
 .member:last-child{border-bottom:0}
 .m-ava{width:44px;height:44px;flex:none;border-radius:10px;background:var(--acc-soft);border:1px solid var(--acc-border);color:var(--acc);display:grid;place-items:center;font-family:'JetBrains Mono';font-weight:700;font-size:14px}
 .member b{font-family:Manrope;font-size:15px}
 .m-role{display:block;font-family:'JetBrains Mono';font-size:9.5px;color:var(--acc);letter-spacing:.12em;margin:3px 0 6px}
 .member p{font-size:13.5px;color:var(--muted);line-height:1.6;margin:0}
+.m-sub{font-family:'JetBrains Mono';font-size:11px;color:var(--dim);letter-spacing:.14em;margin:18px 0 10px}
 .sec-title{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.24em;color:var(--dim);margin:36px 0 16px}
 .sec-title:first-child{margin-top:0}
-
-/* Длинные раскрывающиеся списки (награды/обвинения) */
-details.long-list{margin-top:10px;background:#0c1116;border:1px solid var(--line2);border-radius:8px;padding:0}
+details.long-list{margin-top:10px;background:#0c1116;border:1px solid var(--line2);border-radius:8px}
 details.long-list summary{padding:10px 14px;cursor:pointer;font-family:Manrope;font-weight:600;font-size:12.5px;color:var(--muted);list-style:none;display:flex;align-items:center;gap:8px}
 details.long-list summary::-webkit-details-marker{display:none}
 details.long-list summary::before{content:'▶';color:var(--acc);font-size:9px;transition:.2s;display:inline-block}
 details.long-list[open] summary::before{transform:rotate(90deg)}
-details.long-list .list-body{padding:4px 14px 14px;display:flex;flex-wrap:wrap;gap:6px}
-.long-tag{font-family:'JetBrains Mono';font-size:10px;padding:4px 9px;border-radius:6px;border:1px solid var(--line2);color:var(--muted);background:#0a0f0c}
-.long-tag.red{color:var(--red);border-color:rgba(248,113,113,.3);background:rgba(248,113,113,.05)}
-.long-tag.gold{color:var(--yellow);border-color:rgba(234,179,8,.35);background:rgba(234,179,8,.08)}
-details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';font-size:10px;color:var(--dim);background:#080b09;padding:2px 8px;border-radius:5px;border:1px solid var(--line2)}
-
-@media(max-width:960px){
-  .layout{flex-direction:column}
-  .sidebar{width:100%;flex:none;height:auto;position:static}
-  .side-nav{max-height:55vh}
-  .main{padding:28px 20px}
-  .grid-2,.stats{grid-template-columns:1fr 1fr}
-  h1{font-size:30px}
-}
-@media(max-width:600px){.grid-2,.grid-3,.stats{grid-template-columns:1fr}}
+details.long-list .list-body{padding:4px 14px 14px;display:flex;flex-direction:column;gap:10px}
+.award{font-size:12.5px;line-height:1.55}
+.award b{display:block;font-family:Manrope;font-weight:600;font-size:12.5px;color:var(--yellow)}
+.award.red b{color:var(--red)}
+.award span{color:var(--muted)}
+.award .lbl{font-family:'JetBrains Mono';font-size:10px;color:var(--dim);letter-spacing:.12em;display:block;margin-top:6px}
+@media(max-width:960px){.layout{flex-direction:column}.sidebar{width:100%;flex:none;height:auto;position:static}.side-nav{max-height:55vh}.main{padding:28px 20px}.grid-2,.stats{grid-template-columns:1fr 1fr}h1{font-size:30px}}
+@media(max-width:600px){.grid-2,.grid-3,.stats,.stats.three{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -179,7 +157,6 @@ details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';f
     </div>
     <div class="status-card"><span class="dot pulse"></span>Сезон 25 Активен<span class="badge-online">ONLINE</span></div>
   </div>
-
   <nav class="side-nav">
     <div class="nav-label">НАВИГАЦИЯ ПОРТАЛА</div>
     <a class="nav-item active" href="#" data-go="home"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Главная</a>
@@ -200,20 +177,13 @@ details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';f
       </div>
     </div>
     <a class="nav-item" href="#" data-go="features"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Возможности<span class="pill">Новое</span></a>
-    <a class="nav-item" href="#" data-go="season"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Текущий Сезон<span class="pill">25</span></a>
+    <a class="nav-item" href="#" data-go="season"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Текущий Сезон<span class="pill">S25</span></a>
     <a class="nav-item" href="#" data-go="staff"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.8"/><path d="M16 14.7c2.6.3 4.6 2.1 5.3 5.3"/></svg>Состав Команды</a>
-
     <div class="nav-label" style="margin-top:24px">ДОПОЛНИТЕЛЬНО</div>
-    <a class="nav-item" href="#" data-go="donate">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z"/></svg>
-      Донат магазин<span class="pill soon">Скоро</span>
-    </a>
-    <a class="nav-item" href="#" data-go="archives">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg>
-      Архивы<span class="pill soon">Скоро</span>
-    </a>
+    <a class="nav-item" href="#" data-go="press"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6Z"/></svg>Пресса<span class="pill soon">Скоро</span></a>
+    <a class="nav-item" href="#" data-go="donate"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z"/></svg>Донат магазин<span class="pill soon">Скоро</span></a>
+    <a class="nav-item" href="#" data-go="archives"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg>Архивы<span class="pill soon">Скоро</span></a>
   </nav>
-
   <div class="side-bottom">
     <div class="theme-row"><span class="nav-label" style="margin:0">ЦВЕТОВАЯ ТЕМА</span><span class="theme-name" id="themeName">Green</span></div>
     <div class="themes">
@@ -225,7 +195,8 @@ details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';f
       <a class="btn-discord" href="https://discord.gg/edPpSRmRNu">DISCORD</a>
       <a class="btn-tg" href="https://t.me/+5DaqxYO3H6VlMzhi">TELEGRAM</a>
     </div>
-    <div class="copy">© 2024-2026 Global Lens</div>
+    <div class="mail"><a href="mailto:global_lenz.rp@bk.ru">📧 global_lenz.rp@bk.ru</a></div>
+    <div class="copy">© 2024-2026 Global Lens. Все права защищены. 🌍</div>
   </div>
 </aside>
 
@@ -233,7 +204,7 @@ details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';f
   <!-- ГЛАВНАЯ -->
   <section class="page active" id="page-home">
     <div class="hero">
-      <div class="hero-badge">● СЕЗОН 20 В САМОМ РАЗГАРЕ</div>
+      <div class="hero-badge">● СЕЗОН 25 В САМОМ РАЗГАРЕ</div>
       <h1>Мир без фильтров <em>и клише</em></h1>
       <p class="lead">Русскоязычное ВПИ-сообщество для тех, кто смотрит глубже. Геополитика, военное дело, экономика и скрытые механизмы мировой политики. Здесь вы не просто читаете новости — вы становитесь частью процесса.</p>
       <div class="cta-row">
@@ -253,93 +224,87 @@ details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';f
     </article>
   </section>
 
-  <!-- О ПРОЕКТЕ -->
+  <!-- О СЕРВЕРЕ (полный текст) -->
   <section class="page" id="page-about">
-    <h1>Что такое <em>Global Lens</em>?</h1>
-    <p class="lead">Погрузитесь в детальное геополитическое моделирование, где правила диктуют сами игроки.</p>
-    <div class="grid-2">
-      <article class="card"><h3>🌍 Полноценное ВПИ-сообщество</h3><p>Global Lens — это русскоязычное ВПИ-сообщество нового поколения, где каждый участник становится полноценным игроком на мировой арене. Здесь нет готовых линейных ответов — есть только реальные последствия ваших взвешенных или импульсивных решений.</p></article>
-      <article class="card"><h3>⚔️ Живой механизм геополитики</h3><p>Геополитика, военное дело, глубоко проработанная экономика и скрытые интриги мировой политики — всё это по-настоящему оживает в нашем проекте. Каждый ход меняет хрупкий баланс сил, каждое решение навсегда влияет на судьбы виртуальных государств.</p></article>
-    </div>
-    <article class="card wide"><h3>✨ Станьте частью глобального процесса</h3>
-      <p>Надоели поверхностные политические выводы и навязанные шаблонные интерпретации? В Global Lens вы не просто пассивный читатель хроники — вы <span class="hl">становитесь создателем истории</span>.</p>
-      <p>Управляйте экономическим развитием, выстраивайте сложные союзы, ведите локальные гибридные или полномасштабные войны, боритесь с коррупцией в собственном правительстве или устраивайте революции в автономиях противников. Границы игры ограничиваются лишь вашей фантазией.</p></article>
+    <h1>О <em>сервере</em></h1>
+    <p class="lead">ВПИ-сообщество нового уровня</p>
+    <article class="card wide" style="margin-top:0"><h3>🌍 Что такое Global Lens?</h3>
+      <p>Global Lens — это русскоязычное ВПИ-сообщество, где каждый участник становится полноценным игроком на мировой арене. Здесь нет готовых ответов — есть реальные последствия ваших решений.</p>
+      <p>Геополитика, военное дело, экономика и скрытые механизмы мировой политики — всё это оживает в нашем проекте. Каждый ход меняет баланс сил, каждое решение влияет на судьбы виртуальных государств.</p>
+      <p>Надоели поверхностные выводы и навязанные интерпретации? Здесь вы не просто читаете новости — вы становитесь частью процесса.</p></article>
   </section>
 
-  <!-- НОВОСТИ -->
+  <!-- НОВОСТИ (полный текст) -->
   <section class="page" id="page-news">
     <h1>Новости <em>проекта</em></h1>
     <p class="lead">Актуальные события и анонсы</p>
     <article class="card wide" style="margin-top:0"><h3>📢 Старт 20-го сезона!</h3>
       <p>В эту пятницу начался юбилейный 20-й сезон Global Lens. Предыдущий сезон был досрочно завершён, чтобы дать дорогу масштабному обновлению и новым механикам.</p>
       <p>Новый сезон — это время переосмысления и фундаментальных перемен. Традиционные методы ведения политики уступают место новым реалиям, а прежние устои начинают рушиться. Политика малых стран способна изменить расклад сил целых регионов.</p>
-      <p>Каждое слово обретает вес, определяя уровень поддержки внутри страны. Отныне каждый правитель стоит перед выбором: утонет ли его страна в междоусобицах или же вознесётся на мировой пьедестал.</p>
+      <p>Каждое слово обретает вес, определяя уровень поддержки внутри страны. Отныне каждый правитель стоит перед выбором: утонет ли его страна в междоусобицах или же вознесется на мировой пьедестал.</p>
       <blockquote>«Война, подпитываемая жгучим пламенем попранной веры, превращённой в ненависть, не знает иного конца, кроме истребления.»</blockquote>
       <p>Полный список изменений читайте <a href="#" data-go="updates">на странице обновлений</a>.</p></article>
   </section>
 
-  <!-- ОБНОВЛЕНИЯ (загрузка с GitHub) -->
+  <!-- ОБНОВЛЕНИЯ (автозагрузка с GitHub) -->
   <section class="page" id="page-updates">
     <h1>Обновления <em>проекта</em></h1>
-    <p class="lead">Полная история изменений и улучшений бота</p>
+    <p class="lead">История изменений и улучшений</p>
     <div class="updates-stats" id="updatesStats"></div>
     <div class="updates-list" id="updatesBody"><p class="loading">Загрузка истории обновлений...</p></div>
   </section>
 
-  <!-- ============ ПРАВИЛА СЕРВЕРА (ПОЛНОСТЬЮ) ============ -->
+  <!-- ПРАВИЛА СЕРВЕРА (ПОЛНОСТЬЮ, БЕЗ СОКРАЩЕНИЙ) -->
   <section class="page" id="page-rules-server">
     <h1>Правила <em>сервера</em></h1>
     <p class="lead">Для поддержания порядка и продуктивной игры</p>
-
-    <article class="card wide" style="margin-top:0"><h3>📜 Общие правила</h3>
+    <article class="card wide" style="margin-top:0"><h3>📜 Правила сервера</h3>
+      <p>Для поддержания порядка и обеспечения продуктивной игры, при использовании сервера "Global Lens", вы соглашаетесь с нижеизложенными правилами. Все правила применяются ко всем каналам на сервере, если не указано иное.</p>
       <div class="rule"><b>Правило <i>1.1</i> — Зона действия правил и личные границы</b>
         <p>Правила проекта обязательны для соблюдения во всех публичных каналах. Личная переписка участников не модерируется, однако рассылка рекламы в ЛС или публикация чужих личных сообщений (включая скриншоты и видео) в открытом доступе строго наказывается.</p>
         <span class="pun">Наказание: от мута до бана</span></div>
-      <div class="rule"><b>Правило <i>1.2</i> — Учётные записи и ролевой процесс</b>
-        <p>На проекте разрешено использовать только один основной профиль, а дополнительный аккаунт допускается исключительно в осведомительных целях — например, если основной был временно ограничен самой платформой Discord, либо технические неполадки не позволяют зайти с главной учётной записи. При этом создание таких резервных профилей для обхода выданных локальных наказаний, создания беспорядка или получения выгоды в процессе ролевой игры приведёт к блокировке всех ваших аккаунтов.</p>
-        <span class="pun">Наказание: бан всех учётных записей</span></div>
+      <div class="rule"><b>Правило <i>1.2</i> — Учетные записи и ролевой процесс</b>
+        <p>На проекте разрешено использовать только один основной профиль, а дополнительный аккаунт допускается исключительно в осведомительных целях — например, если основной был временно ограничен самой платформой Discord, либо технические неполадки не позволяют зайти с главной учетной записи. При этом создание таких резервных профилей для обхода выданных локальных наказаний, создания беспорядка или получения выгоды в процессе ролевой игры приведет к блокировке всех ваших аккаунтов.</p>
+        <span class="pun">Наказание: бан всех учетных записей</span></div>
       <div class="rule"><b>Правило <i>1.3</i> — Субординация и служба поддержки</b>
         <p>Любые пресекательные меры применяются на усмотрение персонала, а обоснованные решения высшего руководства не подлежат публичному оспариванию. Запрещено беспричинно упоминать высшую администрацию — со всеми вопросами, жалобами и апелляциями необходимо обращаться напрямую в службу поддержки.</p></div>
     </article>
 
     <article class="card wide"><h3>🧾 Правила регистрации</h3>
       <div class="rule"><b>Правило <i>2.1</i> — Регистрация и управление страной</b>
-        <p>Подать заявку на создание страны могут только владельцы учётных записей, зарегистрированных не менее трёх дней назад. Анкета должна строго соответствовать установленной форме подачи, в противном случае анкетолог вправе её отклонить. Важно учитывать, что при смене игровой страны весь прогресс, достигнутый за предыдущее государство, полностью и безвозвратно обнуляется.</p></div>
+        <p>Подать заявку на создание страны могут только владельцы учетных записей, зарегистрированных не менее трех дней назад. Анкета должна строго соответствовать установленной форме подачи, в противном случае анкетолог вправе её отклонить. Важно учитывать, что при смене игровой страны весь прогресс, достигнутый за предыдущее государство, полностью и безвозвратно обнуляется.</p></div>
       <div class="rule"><b>Правило <i>2.2</i> — Техническая честность и использование бота</b>
         <p>Любое намеренное использование уязвимостей, багов или ошибок серверного бота в личных целях или во вред проекту категорически запрещено. Подобные действия расцениваются как отказ от услуг бота и ведут к автоматическому снятию с регистрации (потере страны). В зависимости от тяжести нарушения, администрация может дополнительно применить длительный мут, запрет на повторную регистрацию или полную блокировку на сервере.</p>
         <span class="pun">Наказание: снятие с регистрации, вплоть до бана</span></div>
-    </article>
-
-    <article class="card wide"><h3>💬 Правила общения</h3>
       <div class="rule"><b>Правило <i>3.1</i> — Уважительное общение и запрет конфликтов</b>
         <p>Запрещены любые оскорбления, угрозы, травля и дискриминация. Оскорбление или упоминание родственников в негативном ключе категорически запрещено даже в шуточной форме. Также запрещено подстрекать участников к конфликтам, разжигать ссоры или активно в них участвовать. Администрация оставляет за собой право наказать как исключительно инициатора, так и всех участников перепалки.</p>
         <span class="pun">Наказание: от мута до 1 дня (за родственников — удвоение)</span></div>
-      <div class="rule"><b>Правило <i>3.2</i> — Запрещённый контент и реальная политика</b>
-        <p>Запрещена публикация, обмен и оправдание нелегальных материалов, порнографии, шокирующего контента (NSFW), распространение тоталитарной символики, а также оправдание всех нарушений прав против общества. Проект находится вне реальной политики. Строго запрещена политическая агитация, пропаганда и обсуждение реальных вооружённых конфликтов (включая войну между Украиной и Россией). Защита или продвижение позиций любых сторон из реального мира не приветствуется и пресекается.</p>
+      <div class="rule"><b>Правило <i>3.2</i> — Запрещенный контент и реальная политика</b>
+        <p>Запрещена публикация, обмен и оправдание нелегальных материалов, порнографии, шокирующего контента (NSFW), распространение тоталитарной символики, а также оправдание всех нарушений прав против общества. Проект находится вне реальной политики. Строго запрещена политическая агитация, пропаганда и обсуждение реальных вооруженных конфликтов (включая войну между Украиной и Россией). Защита или продвижение позиций любых сторон из реального мира не приветствуется и пресекается.</p>
         <span class="pun">Наказание: мут от 3 часов до 1 дня</span></div>
       <div class="rule"><b>Правило <i>3.3</i> — Конфиденциальность</b>
         <p>Категорически запрещено разглашать личную информацию других участников без их прямого согласия. Это касается реальных адресов, номеров телефонов, электронных почт, фотографий и любых других персональных данных.</p>
         <span class="pun">Наказание: мут от 6 часов до 1 дня</span></div>
       <div class="rule"><b>Правило <i>3.4</i> — Чистота чата: спам и реклама</b>
-        <p>Запрещено засорять чаты повторяющимися сообщениями, бессмысленным текстом, чрезмерным использованием CAPS LOCK или огромным количеством эмодзи. Оффтоп в тематических каналах также наказуем. Любой пиар сторонних проектов, серверов или продуктов без предварительного одобрения высшей администрации сервера запрещён и может привести к вечной блокировке аккаунта.</p>
+        <p>Запрещено засорять чаты повторяющимися сообщениями, бессмысленным текстом, чрезмерным использованием CAPS LOCK или огромным количеством эмодзи. Оффтоп в тематических каналах также наказуем. Любой пиар сторонних проектов, серверов или продуктов без предварительного одобрения высшей администрации сервера запрещен и может привести к вечной блокировке аккаунта.</p>
         <span class="pun">Наказание: от мута до бана</span></div>
     </article>
 
     <article class="card wide"><h3>🎮 Правила игры</h3>
       <div class="rule"><b>Правило <i>4.1</i> — Общение и публикация новостей</b><ul>
-        <li><b>Тематика чатов:</b> строго соблюдайте назначение каналов. Использование скобок // не освобождает от ответственности за оффтоп.</li>
-        <li><b>Формат новостей:</b> все игровые сводки публикуются на грамотном русском языке (допускаются аутентичные заголовки, фразы в цитатах и очень минимальные ошибки). Новость должна полностью раскрывать суть события и включать комментарии участвующих лиц или гос. деятелей.</li>
-        <li><b>Объём:</b> минимальный размер новости — 30 слов, а для государств со статусом сверхдержавы — 50 слов. Неформатные новости подлежат откату.</li>
+        <li><b>Тематика чатов.</b> Строго соблюдайте назначение каналов. Использование скобок // не освобождает от ответственности за оффтоп.</li>
+        <li><b>Формат новостей.</b> Все игровые сводки публикуются на грамотном русском языке (допускаются аутентичные заголовки, фразы в цитатах и очень минимальные ошибки). Новость должна полностью раскрывать суть события и включать комментарии участвующих лиц или гос. деятелей.</li>
+        <li><b>Объем.</b> Минимальный размер новости — 30 слов, а для государств со статусом сверхдержавы — 50 слов. Неформатные новости подлежат откату.</li>
       </ul></div>
       <div class="rule"><b>Правило <i>4.2</i> — Дипломатия, переговоры и транзакции</b><ul>
-        <li><b>Прозрачность переговоров:</b> любые переговоры (включая секретные) ведутся исключительно в соответствующих форумных каналах. Соглашения и новости, основанные на договорённостях из ЛС или голосовых чатов, считаются недействительными, не влияют на RP-процесс и подлежат откату.</li>
-        <li><b>Передача ресурсов:</b> любая передача финансов или военных сил требует полноценного RP-обоснования. Скрытые переводы без отыгровки ведут к изъятию средств без права возврата.</li>
-        <li><b>Преемственность договоров:</b> при смене игрока на государстве, автономии или организации все ранее заключённые им пакты и договоры сохраняют свою силу. Новый правитель имеет полное право их денонсировать. Политологи при проверке соглашений обязаны сохранять абсолютный нейтралитет.</li>
+        <li><b>Прозрачность переговоров.</b> Любые переговоры (включая секретные) ведутся исключительно в соответствующих форумных каналах. Соглашения и новости, основанные на договоренностях из личных сообщений (ЛС) или голосовых чатов, считаются недействительными, не влияют на RP-процесс и подлежат откату.</li>
+        <li><b>Передача ресурсов.</b> Любая передача финансов или военных сил требует полноценного RP-обоснования. Скрытые переводы без отыгровки ведут к изъятию средств без права возврата.</li>
+        <li><b>Преемственность договоров.</b> При смене игрока на государстве, автономии или организации все ранее заключенные им пакты и договоры сохраняют свою силу. Новый правитель имеет полное право их денонсировать. Политологи при проверке соглашений обязаны сохранять абсолютный нейтралитет.</li>
       </ul></div>
       <div class="rule"><b>Правило <i>4.3</i> — Игровые механики: щиты, ультиматумы и NPC</b><ul>
-        <li><b>Защитный щит:</b> после регистрации новое государство, автономия или организация получает иммунитет на 3 суток (если администрацией не указано иное). В этот период запрещено объявлять войны, получать и отправлять санкции, а также выдвигать или получать ультиматумы.</li>
-        <li><b>Ультиматумы:</b> стандартный срок действия любого ультиматума автоматически фиксируется на реальных 24 часах.</li>
-        <li><b>Роль политологов:</b> политолог (даже если он сам является игроком) имеет право отыгрывать войны, дипломатию и отвечать на ультиматумы от лица государств, не занятых игроками (NPC).</li>
+        <li><b>Защитный щит.</b> После регистрации новое государство, автономия или организация получает иммунитет на 3 суток (если администрацией не указано иное). В этот период запрещено объявлять войны, получать и отправлять санкции, а также выдвигать или получать ультиматумы.</li>
+        <li><b>Ультиматумы.</b> Стандартный срок действия любого ультиматума автоматически фиксируется на реальных 24 часах.</li>
+        <li><b>Роль политологов.</b> Политолог (даже если он сам является игроком) имеет право отыгрывать войны, дипломатию и отвечать на ультиматумы от лица государств, не занятых игроками (NPC).</li>
       </ul></div>
       <div class="rule"><b>Правило <i>4.4</i> — Дополнительные игровые регламенты</b>
         <p>Помимо основного свода, на проекте действуют детализированные правила для конкретных RP-механик:</p>
@@ -347,10 +312,9 @@ details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';f
           <li><b>Правила войн:</b> регулируют порядок ведения боевых действий, включая обоснование для начала конфликта (казус белли), причины для отката, механику сражений, а также назначение и процедуру смены ведущего политолога.</li>
           <li><b>Правила соглашений:</b> устанавливают стандартизированную форму для заключения международных договоров и регламентируют обязательный состав участников сделки.</li>
           <li><b>Правила военной активности:</b> закрепляют строгие шаблоны оформления военных действий, существующие лимиты, а также штрафные санкции за несоблюдение установленных форматов подачи.</li>
-        </ul>
-      </div>
+        </ul></div>
       <div class="rule"><b>Другое</b>
-        <p>Руководство и администрация может лишь частично гарантировать неприкосновенность личной жизни. Каждый участник в обсуждении своей личной жизни с другими участниками сам обязуется выстроить определённые рамки, за которые не стоит переходить в диалоге. Если определённого выстраивания рамок не произошло, то руководство и администрация вправе мутить исключительно по общесерверным правилам. Также участник сам решает, какую информацию про себя распространять. Если эта информация была использована другими сторонами против него же, то наказание на проекте совершается по соответствующему правилу.</p></div>
+        <p>Руководство и администрация может лишь частично гарантировать неприкосновенность личной жизни. Каждый участник в обсуждении своей личной жизни с другими участниками сам обязуется выстроить определённые рамки за которые не стоит переходить в диалоге. Если определённого выстроения рамок не произошло, то руководство и администрация в праве мутить исключительно по общесерверным правилам. Также, участник сам решает какую информацию про себя распространять. Если эта информация было использована другими сторонами против него же, то наказание на проекте совершается по соответственному правилу.</p></div>
     </article>
   </section>
 
@@ -372,248 +336,239 @@ details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';f
     </article>
   </section>
 
-  <!-- ВОЗМОЖНОСТИ -->
+  <!-- ВОЗМОЖНОСТИ (полный текст) -->
   <section class="page" id="page-features">
     <h1>Возможности <em>Global Lens</em></h1>
     <p class="lead">Шесть причин, почему тысячи игроков выбирают нас</p>
     <div class="grid-3">
-      <article class="card"><h3>🤖 Продуманный бот</h3><p>Стабильный, надёжный и глубоко влияющий на игровой процесс. Торговля, ресурсы, производство — всё работает в реальном времени.</p></article>
+      <article class="card"><h3>🤖 Продуманный бот</h3><p>Стабильный, надёжный и глубоко влияющий на игровой процесс. Торговля, ресурсы, производство — всё работает в реальном времени и определяет судьбу вашего государства.</p></article>
       <article class="card"><h3>🧩 Глубокие системы</h3><p>Каждая механика тщательно выверена и имеет реальные последствия. Дипломатия, война, экономика, внутренняя политика — всё взаимосвязано.</p></article>
       <article class="card"><h3>🎭 Регулярные ивенты</h3><p>Живые ролевые события, которые меняют ход сезона. Кризисы, революции, международные конференции — ни один ход не бывает скучным.</p></article>
-      <article class="card"><h3>💬 Острые дискуссии</h3><p>Спорьте, анализируйте и оттачивайте взгляды. Наше сообщество — интеллектуальная среда, где ценится аргументация.</p></article>
-      <article class="card"><h3>📚 Эксклюзивный контент</h3><p>Уникальные системы, аналитика и новости, которых нет нигде. Каждый сезон приносит новые механики и повороты сюжета.</p></article>
+      <article class="card"><h3>💬 Острые дискуссии</h3><p>Спорьте, анализируйте и оттачивайте свои взгляды. Наше сообщество — это интеллектуальная среда, где ценится аргументация и глубина мысли.</p></article>
+      <article class="card"><h3>📚 Эксклюзивный контент</h3><p>Уникальные системы, аналитика и новости, которых нет нигде. Каждый сезон приносит новые механики и неожиданные повороты сюжета.</p></article>
       <article class="card"><h3>🤝 Зрелое сообщество</h3><p>Уважительный диалог без троллинга и пустых срачей. Мы создали среду, в которой хочется развиваться и играть.</p></article>
     </div>
   </section>
 
-  <!-- СЕЗОН -->
+  <!-- СЕЗОН (полный текст) -->
   <section class="page" id="page-season">
-    <h1>Сезон <em>20</em></h1>
+    <h1>Сезон <em>25</em></h1>
     <p class="lead">Юбилейный сезон — старт в эту пятницу!</p>
-    <article class="card wide" style="margin-top:0"><p>Двадцатый сезон Global Lens только что начался. Это юбилейный рубеж, который приносит кардинальные изменения в экономику, автономии, дипломатию и многое другое.</p></article>
-    <div class="stats">
-      <div class="stat"><b>24</b><span>Государства</span></div>
-      <div class="stat"><b>1</b><span>ЧВК</span></div>
-      <div class="stat"><b>1</b><span>Автономия</span></div>
-      <div class="stat"><b>20</b><span>Сезонов</span></div>
+    <article class="card wide" style="margin-top:0"><p>Двадцать пятый сезон Global Lens только что начался. Это юбилейный рубеж, который приносит кардинальные изменения в экономику, автономии, дипломатию и многое другое. Узнайте все подробности на странице <a href="#" data-go="news">новостей</a> и <a href="#" data-go="updates">обновлений</a>.</p></article>
+    <div class="stats three">
+      <div class="stat"><b>44</b><span>Государства</span></div>
+      <div class="stat"><b>5</b><span>ЧВК</span></div>
+      <div class="stat"><b>3</b><span>Автономии</span></div>
     </div>
     <div class="cta-row"><a class="cta fill" href="https://discord.gg/edPpSRmRNu">Вступить в игру</a></div>
   </section>
 
-  <!-- ============ ПЕРСОНАЛ (ПОЛНОСТЬЮ) ============ -->
+  <!-- ПЕРСОНАЛ (ПОЛНОСТЬЮ, БЕЗ СОКРАЩЕНИЙ) -->
   <section class="page" id="page-staff">
     <h1>Персонал <em>Global Lens</em></h1>
     <p class="lead">Люди, которые делают проект лучше каждый день</p>
 
-    <!-- ЛИДЕРСТВО -->
-    <div class="sec-title">👑 ЛИДЕРСТВО</div>
+    <div class="sec-title">👑 ЛИДЕРСТВО / ОСНОВАТЕЛЬ</div>
     <article class="card" style="margin-top:0">
       <div class="member"><span class="m-ava">A</span><div><b>AytacOnan2</b><span class="m-role">ОСНОВАТЕЛЬ</span><p>Владелец сервера. Создал бота, который делает всю тяжёлую работу. Просто хороший человек, без которого этого проекта не существовало бы.</p></div></div>
     </article>
 
-    <!-- ПРИЗНАТЕЛЬНОСТЬ -->
     <div class="sec-title">🙏 ПРИЗНАТЕЛЬНОСТЬ / ОТДЕЛЬНАЯ БЛАГОДАРНОСТЬ</div>
     <p class="lead" style="margin-top:0;margin-bottom:24px">Люди, внёсшие особый вклад в развитие проекта</p>
     <article class="card" style="margin-top:0">
       <div class="member"><span class="m-ava">К</span><div><b>Китаёзик</b><span class="m-role">АДМИНИСТРАТОР</span><p>Создатель данного сайта. Сделал всё, что вы сейчас видите — от дизайна до реализации.</p></div></div>
-      <div class="member"><span class="m-ava">R</span><div><b>Riy</b><span class="m-role">СОВЛАДЕЛЕЦ EVENT HORIZON</span><p>Совладелец сервера Event Horizon. Придумывал прикольные идеи и помогал делать бота.</p></div></div>
+      <div class="member"><span class="m-ava">R</span><div><b>Riy</b><span class="m-role">СОВЛАДЕЛЕЦ EVENT HORIZON</span><p>Совладелец сервера Event Horizon. Придумывал прикольные идеи и помогал делать бота. Партнёрка... хыххыыхы..ы.ы.ы.ыххы4.</p></div></div>
       <div class="member"><span class="m-ava">Y</span><div><b>Yabl1ch</b><span class="m-role">КУРАТОР АНКЕТОЛОГОВ</span><p>Самый лучший куратор анкетологов, и ещё и самый лучший анкетолог, и по совместительству заслуженный человек в политологии.</p></div></div>
       <div class="member"><span class="m-ava">L</span><div><b>LayBay</b><span class="m-role">СПЕЦИАЛИСТ ПО ТЕХНИКЕ</span><p>Реализовал процесс по созданию, оценке и принятию техники. Также является заместителем куратора картографии и заместителем куратора технологов.</p></div></div>
       <div class="member"><span class="m-ava">Ф</span><div><b>[ВНК] Феникс Единорогович</b><span class="m-role">БЫВШИЙ АДМИНИСТРАТОР</span><p>Единорожка. Да, просто единорожка. 🦄✨</p></div></div>
       <div class="member"><span class="m-ava">Q</span><div><b>QWERTX</b><span class="m-role">КУРАТОР ПОЛИТОЛОГОВ</span>
-        <p>Прошёл полную карьерную лестницу от простого игрока до заместителя. За время работы на шампур пытались насадить минимум 5 раз (включая AytacOnan2 и прочих неравнодушных), но он выжил. Легенда сервера.</p>
-        <details class="long-list">
-          <summary>⚖️ Обвиняется в...<span class="count">42 пункта</span></summary>
-          <div class="list-body">
-            <span class="long-tag red">Массовое убийство</span>
-            <span class="long-tag red">Принужденный каннибализм</span>
-            <span class="long-tag red">Преступления против человечества</span>
-            <span class="long-tag red">Вандализм</span>
-            <span class="long-tag red">Каннибализм</span>
-            <span class="long-tag red">Геноцид</span>
-            <span class="long-tag red">Похищение</span>
-            <span class="long-tag red">Незаконный оборот оружия</span>
-            <span class="long-tag red">Кража</span>
-            <span class="long-tag red">Мошенничество</span>
-            <span class="long-tag red">Изготовление и сбыт поддельных документов</span>
-            <span class="long-tag red">Незаконный оборот наркотиков</span>
-            <span class="long-tag red">Пиратство</span>
-            <span class="long-tag red">Коррупция</span>
-            <span class="long-tag red">Ловушка на дороге</span>
-            <span class="long-tag red">Грабеж</span>
-            <span class="long-tag red">Вымогательство</span>
-            <span class="long-tag red">Политическая угроза</span>
-            <span class="long-tag red">Угон транспортного средства</span>
-            <span class="long-tag red">Изнасилование</span>
-            <span class="long-tag red">Торговля людьми</span>
-            <span class="long-tag red">Нарушение авторского права</span>
-            <span class="long-tag red">Киберпреступления</span>
-            <span class="long-tag red">Сексуальное насилие</span>
-            <span class="long-tag red">Нарушение законов о защите окружающей среды</span>
-            <span class="long-tag red">Организация органов поддельной власти</span>
-            <span class="long-tag red">Военное преступление</span>
-            <span class="long-tag red">Утеря или уничтожение доказательств</span>
-            <span class="long-tag red">Неуплата налогов</span>
-            <span class="long-tag red">Организация или участие в мятеже</span>
-            <span class="long-tag red">Содействие террористической деятельности</span>
-            <span class="long-tag red">Следование расистским или ксенофобским взглядам</span>
-            <span class="long-tag red">Сотрудничество с преступной организацией</span>
-            <span class="long-tag red">Нарушение прав человека</span>
-            <span class="long-tag red">Неисполнение профессиональных обязанностей</span>
-            <span class="long-tag red">Уклонение от армейской службы</span>
-            <span class="long-tag red">Незаконное получение конфиденциальной информации</span>
-            <span class="long-tag red">Неправомерные действия в сфере финансов</span>
-            <span class="long-tag red">Саботаж или умышленное повреждение имущества</span>
-            <span class="long-tag red">Использование нарушенных законов для личной выгоды</span>
-            <span class="long-tag red">Нарушение законов о безопасности</span>
-            <span class="long-tag red">Жестокое обращение с животными</span>
-            <span class="long-tag red">Браконьерство</span>
-            <span class="long-tag red">Массовое убийство животных</span>
-            <span class="long-tag red">Побег из тюрьмы</span>
-            <span class="long-tag red">Сопротивление аресту</span>
-            <span class="long-tag red">Нападение и побои</span>
-            <span class="long-tag red">Обвинение в коррупции</span>
-            <span class="long-tag red">Преследование</span>
-            <span class="long-tag red">Заговор</span>
-            <span class="long-tag red">Контрабанда</span>
-            <span class="long-tag red">Незаконное пересечение границы</span>
-            <span class="long-tag red">Проникновение на чужую территорию</span>
-            <span class="long-tag red">Рабство</span>
-            <span class="long-tag red">Опасное вождение</span>
-            <span class="long-tag red">Создание опасной ситуации для жизни и здоровья</span>
-            <span class="long-tag red">Порча имущества</span>
-            <span class="long-tag red">Убийство</span>
-            <span class="long-tag red">Незаконная охота</span>
-          </div>
-        </details>
+        <p>Прошёл полную карьерную лестницу от простого игрока до заместителя. За время работы на шампур пытались насадить минимум 5 раз (включая AytacOnan2 и прочих неравнодушных), но он выжил. Легенда сервера. Обвиняется в:</p>
+        <details class="long-list"><summary>⚖️ Полный список обвинений<span class="count" style="margin-left:auto;font-family:'JetBrains Mono';font-size:10px;color:var(--dim);background:#080b09;padding:2px 8px;border-radius:5px;border:1px solid var(--line2)">56</span></summary>
+        <div class="list-body">
+          <div class="award red"><b>Массовое убийство</b></div>
+          <div class="award red"><b>Принужденный каннибализм</b></div>
+          <div class="award red"><b>Преступления против человечества</b></div>
+          <div class="award red"><b>Вандализм</b></div>
+          <div class="award red"><b>Каннибализм</b></div>
+          <div class="award red"><b>Геноцид</b></div>
+          <div class="award red"><b>Похищение</b></div>
+          <div class="award red"><b>Незаконный оборот оружия</b></div>
+          <div class="award red"><b>Кража</b></div>
+          <div class="award red"><b>Мошенничество</b></div>
+          <div class="award red"><b>Изготовление и сбыт поддельных документов</b></div>
+          <div class="award red"><b>Незаконный оборот наркотиков</b></div>
+          <div class="award red"><b>Пиратство</b></div>
+          <div class="award red"><b>Коррупция</b></div>
+          <div class="award red"><b>Ловушка на дороге</b></div>
+          <div class="award red"><b>Грабеж</b></div>
+          <div class="award red"><b>Вымогательство</b></div>
+          <div class="award red"><b>Политическая угроза</b></div>
+          <div class="award red"><b>Угон транспортного средства</b></div>
+          <div class="award red"><b>Изнасилование</b></div>
+          <div class="award red"><b>Торговля людьми промышленной</b></div>
+          <div class="award red"><b>Нарушение авторского права</b></div>
+          <div class="award red"><b>Киберпреступления</b></div>
+          <div class="award red"><b>Сексуальное насилие</b></div>
+          <div class="award red"><b>Нарушение законов о защите окружающей среды</b></div>
+          <div class="award red"><b>Организация органов поддельной власти</b></div>
+          <div class="award red"><b>Военное преступление</b></div>
+          <div class="award red"><b>Утеря или уничтожение доказательств</b></div>
+          <div class="award red"><b>Неуплата налогов</b></div>
+          <div class="award red"><b>Организация или участие в мятеже</b></div>
+          <div class="award red"><b>Содействие террористической деятельности</b></div>
+          <div class="award red"><b>Следование расистским или ксенофобским взглядам</b></div>
+          <div class="award red"><b>Сотрудничество с преступной организацией</b></div>
+          <div class="award red"><b>Нарушение прав человека</b></div>
+          <div class="award red"><b>Неисполнение профессиональных обязанностей</b></div>
+          <div class="award red"><b>Уклонение от армейской службы</b></div>
+          <div class="award red"><b>Незаконное получение конфиденциальной информации</b></div>
+          <div class="award red"><b>Неправомерные действия в сфере финансов</b></div>
+          <div class="award red"><b>Саботаж или умышленное повреждение имущества</b></div>
+          <div class="award red"><b>Использование нарушенных законов для личной выгоды</b></div>
+          <div class="award red"><b>Нарушение законов о безопасности</b></div>
+          <div class="award red"><span class="lbl">ДОПОЛНИТЕЛЬНО:</span></div>
+          <div class="award red"><b>Жестокое обращение с животными</b></div>
+          <div class="award red"><b>Браконьерство</b></div>
+          <div class="award red"><b>Массовое убийство животных</b></div>
+          <div class="award red"><b>Побег из тюрьмы</b></div>
+          <div class="award red"><b>Сопротивление аресту</b></div>
+          <div class="award red"><b>Нападение и побои</b></div>
+          <div class="award red"><b>Обвинение в коррупции</b></div>
+          <div class="award red"><b>Преследование</b></div>
+          <div class="award red"><b>Заговор</b></div>
+          <div class="award red"><b>Контрабанда</b></div>
+          <div class="award red"><b>Незаконное пересечение границы</b></div>
+          <div class="award red"><b>Проникновение на чужую территорию</b></div>
+          <div class="award red"><b>Рабство</b></div>
+          <div class="award red"><b>Опасное вождение</b></div>
+          <div class="award red"><b>Создание опасной ситуации для жизни и здоровья</b></div>
+          <div class="award red"><b>Порча имущества</b></div>
+          <div class="award red"><b>Убийство</b></div>
+          <div class="award red"><b>Незаконная охота</b></div>
+        </div></details>
       </div></div>
     </article>
 
-    <!-- УПРАВЛЕНИЕ -->
     <div class="sec-title">🛡️ УПРАВЛЕНИЕ / АДМИНИСТРАТОРЫ</div>
     <article class="card" style="margin-top:0">
       <div class="member"><span class="m-ava">F</span><div><b>FFlowy</b><span class="m-role">АДМИНИСТРАТОР</span><p>Самый добрый и лучший человек в мире с большим сердцем. Всегда поможет, всегда поддержит.</p></div></div>
       <div class="member"><span class="m-ava">К</span><div><b>Китаёзик</b><span class="m-role">АДМИНИСТРАТОР</span><p>Создатель данного сайта. Сделал всё, что вы сейчас видите.</p></div></div>
     </article>
 
-    <!-- НАПРАВЛЕНИЯ / КУРАТОРЫ -->
     <div class="sec-title">🧭 НАПРАВЛЕНИЯ / КУРАТОРЫ</div>
     <article class="card" style="margin-top:0">
       <div class="member"><span class="m-ava">P</span><div><b>pponzc</b><span class="m-role">КУРАТОР КАРТОГРАФОВ</span>
-        <p>Смог восстановить и сделать стабильной работу картографии.</p>
-        <details class="long-list">
-          <summary>🏅 Награды и знаки отличия<span class="count">80+ пунктов</span></summary>
-          <div class="list-body">
-            <span class="long-tag gold">Орден «Волчья тропа» I степени</span>
-            <span class="long-tag gold">Медаль «За взятие блокпоста без очереди»</span>
-            <span class="long-tag gold">Знак отличия «Мастер горного эха»</span>
-            <span class="long-tag gold">Орден «Сломанный КПП»</span>
-            <span class="long-tag gold">Медаль «За отстрел тепловизора из рогатки»</span>
-            <span class="long-tag gold">Крест «Ночной абрек»</span>
-            <span class="long-tag gold">Медаль «За бой в тапочках»</span>
-            <span class="long-tag gold">Знак «Ветеран битвы за урожай конопли»</span>
-            <span class="long-tag gold">Орден «Скрытый Шамиль»</span>
-            <span class="long-tag gold">Медаль «За меткий плевок в глаз БТРу»</span>
-            <span class="long-tag gold">Почетный знак «Горец-невидимка»</span>
-            <span class="long-tag gold">Орден «Бородатый джигит»</span>
-            <span class="long-tag gold">Медаль «Снайпер-хлеборез»</span>
-            <span class="long-tag gold">Знак «За взятие языка глухонемого»</span>
-            <span class="long-tag gold">Орден «Аллаху Акбар Бар» I степени</span>
-            <span class="long-tag gold">Медаль «За угон БТР-80 с охраняемой стоянки»</span>
-            <span class="long-tag gold">Знак «Повелитель "Зелёнки"»</span>
-            <span class="long-tag gold">Орден «Волчья сыть»</span>
-            <span class="long-tag gold">Медаль «За форсирование Сунжи вброд в минус 20»</span>
-            <span class="long-tag gold">Знак «Тень Аргуна»</span>
-            <span class="long-tag gold">Орден «Золотой кнопочный телефон»</span>
-            <span class="long-tag gold">Медаль «За взятие бюджета»</span>
-            <span class="long-tag gold">Знак «Почетный тамада Военно-Полевого Совета»</span>
-            <span class="long-tag gold">Орден «Ватсап-Дипломат»</span>
-            <span class="long-tag gold">Медаль «За отжатие гуманитарки у своих»</span>
-            <span class="long-tag gold">Знак «Главный по печенькам ЮНИСЕФ»</span>
-            <span class="long-tag gold">Орден «Друг детей и сирот»</span>
-            <span class="long-tag gold">Медаль «За отважную коррупцию»</span>
-            <span class="long-tag gold">Знак «Хранитель общака» I степени с бриллиантами</span>
-            <span class="long-tag gold">Орден «Свой в доску»</span>
-            <span class="long-tag gold">Медаль «За вклад в черный рынок Грозного»</span>
-            <span class="long-tag gold">Знак «Почетный смотрящий за нефтяной скважиной»</span>
-            <span class="long-tag gold">Орден «Ковровая дорожка Шали»</span>
-            <span class="long-tag gold">Медаль «За дипломатическое решение вопроса с помощью ПЗРК»</span>
-            <span class="long-tag gold">Знак «Спикер Совета Старейшин»</span>
-            <span class="long-tag gold">Орден «Мирный атом»</span>
-            <span class="long-tag gold">Медаль «За вхождение в положение»</span>
-            <span class="long-tag gold">Знак «Ветеран Кадыровско-Масхадовских разборок»</span>
-            <span class="long-tag gold">Орден «Примиритель кровников»</span>
-            <span class="long-tag gold">Медаль «За отстаивание суверенитета кухни»</span>
-            <span class="long-tag gold">Медаль «За варку хинкала в полевых условиях»</span>
-            <span class="long-tag gold">Орден «Золотой Газырь»</span>
-            <span class="long-tag gold">Знак «Чеченский йог»</span>
-            <span class="long-tag gold">Медаль «За рекордное количество нашивок на форме»</span>
-            <span class="long-tag gold">Орден «Почетный пастух боевых баранов»</span>
-            <span class="long-tag gold">Медаль «За отлов волка голыми руками»</span>
-            <span class="long-tag gold">Знак «Самый быстрый разбор-сбор АК под пловом»</span>
-            <span class="long-tag gold">Орден «Скала Кавказа»</span>
-            <span class="long-tag gold">Медаль «За спасение папахи из огня»</span>
-            <span class="long-tag gold">Знак «Чтец Корана на бис»</span>
-            <span class="long-tag gold">Орден «Лучший водитель "Девятки" по серпантину»</span>
-            <span class="long-tag gold">Медаль «За поднятие тоста стоя на бруствере»</span>
-            <span class="long-tag gold">Знак «Хранитель традиций»</span>
-            <span class="long-tag gold">Орден «Самогонщик Веденского района»</span>
-            <span class="long-tag gold">Медаль «За лезгинку на броне»</span>
-            <span class="long-tag gold">Знак «Гроза ГАИ»</span>
-            <span class="long-tag gold">Орден «Кунак Доку Умарова»</span>
-            <span class="long-tag gold">Медаль «За сохранение чеченского языка в нецензурной форме»</span>
-            <span class="long-tag gold">Знак «Золотая бормашина»</span>
-            <span class="long-tag gold">Медаль «За изобретение тушенки из барана»</span>
-            <span class="long-tag gold">Орден «Страж Вайнахской этики»</span>
-            <span class="long-tag gold">Медаль «За 1000 и одну историю про первую войну»</span>
-            <span class="long-tag gold">Знак «Повелитель УАЗика»</span>
-            <span class="long-tag gold">Медаль «За усмирение коня во время салюта»</span>
-            <span class="long-tag gold">Орден «Золотой чеченский акцент»</span>
-            <span class="long-tag gold">Медаль «За пробитие брони взглядом»</span>
-            <span class="long-tag gold">Орден «Альфа-самец блокпоста»</span>
-            <span class="long-tag gold">Знак «Почетный ныряльщик в Каспийское море за патронами»</span>
-            <span class="long-tag gold">Медаль «За вынос мозга пленному ФСБшнику»</span>
-            <span class="long-tag gold">Орден «Спин-офф Кавказской пленницы»</span>
-            <span class="long-tag gold">Медаль «За взятие языка жестов»</span>
-            <span class="long-tag gold">Знак «Обладатель госномера "КРА 001"»</span>
-            <span class="long-tag gold">Орден «За разминирование минёта»</span>
-            <span class="long-tag gold">Медаль «За оскорбление чувств верующих соседнего вилаята»</span>
-            <span class="long-tag gold">Знак «Ветеран форумной войны в разделе "Чечня.ру"»</span>
-            <span class="long-tag gold">Орден «Золотой свисток»</span>
-            <span class="long-tag gold">Медаль «За утилизацию стратегического запаса вермишели "Роллтон"»</span>
-            <span class="long-tag gold">Знак «Почетный наблюдатель за спутниками НАТО»</span>
-            <span class="long-tag gold">Орден «За победу в тендере на откат»</span>
-            <span class="long-tag gold">Медаль «За художественный свист пули над ухом»</span>
-            <span class="long-tag gold">Знак «Крестный отец Центороя»</span>
-            <span class="long-tag gold">Медаль «За подрыв доверия»</span>
-            <span class="long-tag gold">Орден «Черная вдова»</span>
-            <span class="long-tag gold">Медаль «За взятие высоты 776.0 в компьютерной игре»</span>
-            <span class="long-tag gold">Знак «Мастер спорта по спортивному минированию»</span>
-            <span class="long-tag gold">Орден «Святой Георгий Победоносец»</span>
-            <span class="long-tag gold">Медаль «Ветеран Чеченской Республики Ичкерия»</span>
-            <span class="long-tag gold">Знак «Гвардия Дудаева»</span>
-            <span class="long-tag gold">Орден «Рука Кремля»</span>
-            <span class="long-tag gold">Медаль «За взятие Грозного»</span>
-            <span class="long-tag gold">Знак «Участник Бородинского сражения»</span>
-            <span class="long-tag gold">Орден «Асса»</span>
-            <span class="long-tag gold">Медаль «За поимку шпиона»</span>
-            <span class="long-tag gold">Знак «Хранитель Зелимхана»</span>
-            <span class="long-tag gold">Орден «Ичкерийский Суворов»</span>
-            <span class="long-tag gold">Медаль «За оборону подвала собственного дома»</span>
-            <span class="long-tag gold">Знак «Друг Арби Бараева»</span>
-            <span class="long-tag gold">Орден «Красная звезда»</span>
-            <span class="long-tag gold">Медаль «За отвагу на диване»</span>
-            <span class="long-tag gold">Знак «Герой Чеченской Республики Ичкерия»</span>
-          </div>
-        </details>
+        <p>Смог восстановить и сделать стабильную работу картографии. 🏅 Награды:</p>
+        <details class="long-list"><summary>🏅 Полный список наград<span class="count" style="margin-left:auto;font-family:'JetBrains Mono';font-size:10px;color:var(--dim);background:#080b09;padding:2px 8px;border-radius:5px;border:1px solid var(--line2)">100</span></summary>
+        <div class="list-body">
+          <div class="award"><b>🏅 Орден «Волчья тропа» I степени</b><span>— за скрытное перемещение по тылам врага без карты и фонарика</span></div>
+          <div class="award"><b>🏅 Медаль «За взятие блокпоста без очереди»</b><span>— за проезд через КПП по звонку старшему</span></div>
+          <div class="award"><b>🏅 Знак отличия «Мастер горного эха»</b><span>— за успешную дезинформацию противника криками «Аллах Акбар» с разных сторон</span></div>
+          <div class="award"><b>🏅 Орден «Сломанный КПП»</b><span>— за физическое уничтожение шлагбаума лбом или бампером</span></div>
+          <div class="award"><b>🏅 Медаль «За отстрел тепловизора из рогатки»</b><span>— за ювелирную точность попадания галькой в дорогую оптику</span></div>
+          <div class="award"><b>🏅 Крест «Ночной абрек»</b><span>— за 10+ успешных ночных рейдов в тапочках, чтоб не шуметь</span></div>
+          <div class="award"><b>🏅 Медаль «За бой в тапочках»</b><span>— за внезапное боестолкновение прямо во время омовения</span></div>
+          <div class="award"><b>🏅 Знак «Ветеран битвы за урожай конопли»</b><span>— за оборону стратегического сырья от чужих рук</span></div>
+          <div class="award"><b>🏅 Орден «Скрытый Шамиль»</b><span>— за партизанскую хитрость, достойную имама</span></div>
+          <div class="award"><b>🏅 Медаль «За меткий плевок в глаз БТРу»</b><span>— за временное ослепление механика-водителя подручными средствами</span></div>
+          <div class="award"><b>🏅 Почетный знак «Горец-невидимка»</b><span>— за умение раствориться в буковом лесу за секунду до обыска</span></div>
+          <div class="award"><b>🏅 Орден «Бородатый джигит»</b><span>— за ношение бороды в условиях отсутствия воды и бритвы более 40 дней</span></div>
+          <div class="award"><b>🏅 Медаль «Снайпер-хлеборез»</b><span>— за точное попадание из СВД в ящик с сухпайком противника</span></div>
+          <div class="award"><b>🏅 Знак «За взятие языка глухонемого»</b><span>— за бесполезный, но героический захват пленного, который ничего не рассказал</span></div>
+          <div class="award"><b>🏅 Орден «Аллаху Акбар Бар» I степени</b><span>— за самый громкий тактический крик, поднявший боевой дух роты</span></div>
+          <div class="award"><b>🏅 Медаль «За угон БТР-80 с охраняемой стоянки»</b><span>— за наглость и знание где ключи оставляет механик</span></div>
+          <div class="award"><b>🏅 Знак «Повелитель "Зелёнки"»</b><span>— за умение ориентироваться в лесу с точностью GPS</span></div>
+          <div class="award"><b>🏅 Орден «Волчья сыть»</b><span>— за употребление просроченной тушенки 1985 года без последствий для желудка</span></div>
+          <div class="award"><b>🏅 Медаль «За форсирование Сунжи вброд в минус 20»</b><span>— за ледяное мужество и отсутствие резиновых сапог</span></div>
+          <div class="award"><b>🏅 Знак «Тень Аргуна»</b><span>— за бесшумное перемещение по Аргунскому ущелью</span></div>
+          <div class="award"><b>🏅 Орден «Золотой кнопочный телефон»</b><span>— за решение всех вопросов одним звонком нужному человеку</span></div>
+          <div class="award"><b>🏅 Медаль «За взятие бюджета»</b><span>— за успешное освоение выделенных средств без остатка в казне</span></div>
+          <div class="award"><b>🏅 Знак «Почетный тамада Военно-Полевого Совета»</b><span>— за умение вести заседание и тосты одновременно</span></div>
+          <div class="award"><b>🏅 Орден «Ватсап-Дипломат»</b><span>— за урегулирование конфликта через голосовые сообщения в мессенджере</span></div>
+          <div class="award"><b>🏅 Медаль «За отжатие гуманитарки у своих»</b><span>— за перераспределение помощи в пользу своего подразделения</span></div>
+          <div class="award"><b>🏅 Знак «Главный по печенькам ЮНИСЕФ»</b><span>— за контроль над сладким гуманитарным грузом</span></div>
+          <div class="award"><b>🏅 Орден «Друг детей и сирот»</b><span>— за раздачу конфет перед объективами камер</span></div>
+          <div class="award"><b>🏅 Медаль «За отважную коррупцию»</b><span>— за взятие отката в особо крупном размере под носом у проверки</span></div>
+          <div class="award"><b>🏅 Знак «Хранитель общака» I степени с бриллиантами</b><span>— за сохранность общей кассы при отступлении</span></div>
+          <div class="award"><b>🏅 Орден «Свой в доску»</b><span>— за умение договориться с кем угодно на любом уровне</span></div>
+          <div class="award"><b>🏅 Медаль «За вклад в черный рынок Грозного»</b><span>— за налаживание поставок дефицитных товаров</span></div>
+          <div class="award"><b>🏅 Знак «Почетный смотрящий за нефтяной скважиной»</b><span>— за контроль кустарного нефтепромысла</span></div>
+          <div class="award"><b>🏅 Орден «Ковровая дорожка Шали»</b><span>— за умение красиво встретить высокого гостя в полевых условиях</span></div>
+          <div class="award"><b>🏅 Медаль «За дипломатическое решение вопроса с помощью ПЗРК»</b><span>— за убеждение оппонента силой аргументов на плече</span></div>
+          <div class="award"><b>🏅 Знак «Спикер Совета Старейшин»</b><span>— за способность говорить три часа и ничего не сказать по делу</span></div>
+          <div class="award"><b>🏅 Орден «Мирный атом»</b><span>— за хранение ртути и прочих полезных веществ в гараже</span></div>
+          <div class="award"><b>🏅 Медаль «За вхождение в положение»</b><span>— за умение войти в любую ситуацию и не выйти без выгоды</span></div>
+          <div class="award"><b>🏅 Знак «Ветеран Кадыровско-Масхадовских разборок»</b><span>— за выживание при любом режиме и власти</span></div>
+          <div class="award"><b>🏅 Орден «Примиритель кровников»</b><span>— за примирение двух враждующих родов путем устранения обоих</span></div>
+          <div class="award"><b>🏅 Медаль «За отстаивание суверенитета кухни»</b><span>— за недопуск женщин к приготовлению плова</span></div>
+          <div class="award"><b>🏅 Медаль «За варку хинкала в полевых условиях»</b><span>— за кулинарный подвиг под обстрелом</span></div>
+          <div class="award"><b>🏅 Орден «Золотой Газырь»</b><span>— за эталонное ношение кавказской формы с газырями</span></div>
+          <div class="award"><b>🏅 Знак «Чеченский йог»</b><span>— за способность выспаться на голых камнях за час</span></div>
+          <div class="award"><b>🏅 Медаль «За рекордное количество нашивок на форме»</b><span>— за превращение камуфляжа в иконостас</span></div>
+          <div class="award"><b>🏅 Орден «Почетный пастух боевых баранов»</b><span>— за успешную эвакуацию отары из зоны боевых действий</span></div>
+          <div class="award"><b>🏅 Медаль «За отлов волка голыми руками»</b><span>— на самом деле соседская овчарка, но звучит грозно</span></div>
+          <div class="award"><b>🏅 Знак «Самый быстрый разбор-сбор АК под пловом»</b><span>— за рекордное время обслуживания автомата в перерыве между блюдами</span></div>
+          <div class="award"><b>🏅 Орден «Скала Кавказа»</b><span>— за богатырское телосложение и вес свыше центнера</span></div>
+          <div class="award"><b>🏅 Медаль «За спасение папахи из огня»</b><span>— за риск жизнью ради головного убора</span></div>
+          <div class="award"><b>🏅 Знак «Чтец Корана на бис»</b><span>— за красивое чтение сур под аплодисменты моджахедов</span></div>
+          <div class="award"><b>🏅 Орден «Лучший водитель "Девятки" по серпантину»</b><span>— за дрифт по горной дороге с полным салоном бойцов</span></div>
+          <div class="award"><b>🏅 Медаль «За поднятие тоста стоя на бруствере»</b><span>— за ораторское искусство под свистом пуль</span></div>
+          <div class="award"><b>🏅 Знак «Хранитель традиций»</b><span>— за постоянное ношение кинжала даже в бане</span></div>
+          <div class="award"><b>🏅 Орден «Самогонщик Веденского района»</b><span>— за обеспечение фронта стратегическим напитком</span></div>
+          <div class="award"><b>🏅 Медаль «За лезгинку на броне»</b><span>— за исполнение национального танца на движущемся БТРе</span></div>
+          <div class="award"><b>🏅 Знак «Гроза ГАИ»</b><span>— за езду без прав и номеров с 1994 года без единого штрафа</span></div>
+          <div class="award"><b>🏅 Орден «Кунак Доку Умарова»</b><span>— за близкое знакомство с одиозным полевым командиром</span></div>
+          <div class="award"><b>🏅 Медаль «За сохранение чеченского языка в нецензурной форме»</b><span>— за виртуозное владение родной обсценной лексикой</span></div>
+          <div class="award"><b>🏅 Знак «Золотая бормашина»</b><span>— за стоматологическую помощь бойцам в полевом лазарете</span></div>
+          <div class="award"><b>🏅 Медаль «За изобретение тушенки из барана»</b><span>— за кулинарный прорыв в полевой кухне</span></div>
+          <div class="award"><b>🏅 Орден «Страж Вайнахской этики»</b><span>— за соблюдение кодекса чести даже при дележе добычи</span></div>
+          <div class="award"><b>🏅 Медаль «За 1000 и одну историю про первую войну»</b><span>— за неиссякаемый запас баек у костра</span></div>
+          <div class="award"><b>🏅 Знак «Повелитель УАЗика»</b><span>— за умение починить «буханку» молотком и матом</span></div>
+          <div class="award"><b>🏅 Медаль «За усмирение коня во время салюта»</b><span>— за удержание скакуна при автоматной очереди в воздух</span></div>
+          <div class="award"><b>🏅 Орден «Золотой чеченский акцент»</b><span>— за речь, которую понимают только земляки</span></div>
+          <div class="award"><b>🏅 Медаль «За пробитие брони взглядом»</b><span>— за фирменный тяжелый взгляд исподлобья</span></div>
+          <div class="award"><b>🏅 Орден «Альфа-самец блокпоста»</b><span>— за доминирование над всеми на КПП</span></div>
+          <div class="award"><b>🏅 Знак «Почетный ныряльщик в Каспийское море за патронами»</b><span>— за подъем утопленного боезапаса</span></div>
+          <div class="award"><b>🏅 Медаль «За вынос мозга пленному ФСБшнику»</b><span>— за успешную дезинформацию вражеского агента</span></div>
+          <div class="award"><b>🏅 Орден «Спин-офф Кавказской пленницы»</b><span>— за похищение невесты с элементами экшена</span></div>
+          <div class="award"><b>🏅 Медаль «За взятие языка жестов»</b><span>— за допрос глухонемого пленного из награды №14</span></div>
+          <div class="award"><b>🏅 Знак «Обладатель госномера "КРА 001"»</b><span>— за езду с картонным блатным номером</span></div>
+          <div class="award"><b>🏅 Орден «За разминирование минёта»</b><span>— за исправление опечатки в боевом приказе ценой здоровья</span></div>
+          <div class="award"><b>🏅 Медаль «За оскорбление чувств верующих соседнего вилаята»</b><span>— за излишне громкий такбир не в том месте</span></div>
+          <div class="award"><b>🏅 Знак «Ветеран форумной войны в разделе "Чечня.ру"»</b><span>— за тысячи постов в интернет-баталиях</span></div>
+          <div class="award"><b>🏅 Орден «Золотой свисток»</b><span>— за сотрудничество со всеми сторонами конфликта одновременно</span></div>
+          <div class="award"><b>🏅 Медаль «За утилизацию стратегического запаса вермишели "Роллтон"»</b><span>— за съедение НЗ в мирное время</span></div>
+          <div class="award"><b>🏅 Знак «Почетный наблюдатель за спутниками НАТО»</b><span>— за высматривание вражеских аппаратов в небе</span></div>
+          <div class="award"><b>🏅 Орден «За победу в тендере на откат»</b><span>— за предложение лучшего процента нужному чиновнику</span></div>
+          <div class="award"><b>🏅 Медаль «За художественный свист пули над ухом»</b><span>— за виртуозное уклонение от выстрела</span></div>
+          <div class="award"><b>🏅 Знак «Крестный отец Центороя»</b><span>— за неформальное влияние в родовом селе Кадырова</span></div>
+          <div class="award"><b>🏅 Медаль «За подрыв доверия»</b><span>— за успешное внедрение дезинформации в ряды противника</span></div>
+          <div class="award"><b>🏅 Орден «Черная вдова»</b><span>— за переживание четырех жен и поиск пятой</span></div>
+          <div class="award"><b>🏅 Медаль «За взятие высоты 776.0 в компьютерной игре»</b><span>— за виртуальный реванш в шутере</span></div>
+          <div class="award"><b>🏅 Знак «Мастер спорта по спортивному минированию»</b><span>— за установку растяжек с олимпийским спокойствием</span></div>
+          <div class="award"><b>🏅 Орден «Святой Георгий Победоносец»</b><span>— за победу в рукопашной схватке с более сильным противником</span></div>
+          <div class="award"><b>🏅 Медаль «Ветеран Чеченской Республики Ичкерия»</b><span>— за выслугу лет при любом режиме</span></div>
+          <div class="award"><b>🏅 Знак «Гвардия Дудаева»</b><span>— за службу еще при первом президенте ЧРИ</span></div>
+          <div class="award"><b>🏅 Орден «Рука Кремля»</b><span>— за умение получать финансирование с обеих сторон конфликта</span></div>
+          <div class="award"><b>🏅 Медаль «За взятие Грозного»</b><span>— за успешную навигацию по городу без карты и навигатора</span></div>
+          <div class="award"><b>🏅 Знак «Участник Бородинского сражения»</b><span>— за то, что перепутал эпохи, но сражался достойно</span></div>
+          <div class="award"><b>🏅 Орден «Асса»</b><span>— за самый громкий и протяжный боевой клич в истории подразделения</span></div>
+          <div class="award"><b>🏅 Медаль «За поимку шпиона»</b><span>— за нейтрализацию соседского кота, воровавшего рыбу</span></div>
+          <div class="award"><b>🏅 Знак «Хранитель Зелимхана»</b><span>— за подражание легендарному абреку Зелимхану Харачоевскому</span></div>
+          <div class="award"><b>🏅 Орден «Ичкерийский Суворов»</b><span>— за науку отступать без потерь личного состава</span></div>
+          <div class="award"><b>🏅 Медаль «За оборону подвала собственного дома»</b><span>— за героическое удержание личного погреба</span></div>
+          <div class="award"><b>🏅 Знак «Друг Арби Бараева»</b><span>— за знакомство с известным полевым командиром</span></div>
+          <div class="award"><b>🏅 Орден «Красная звезда»</b><span>— за найденный в горах советский орден, покрашенный в зеленый</span></div>
+          <div class="award"><b>🏅 Медаль «За отвагу на диване»</b><span>— за стратегическое планирование операций не вставая с лежанки</span></div>
+          <div class="award"><b>🏅 Знак «Герой Чеченской Республики Ичкерия»</b><span>— за самопровозглашенный подвиг перед зеркалом</span></div>
+        </div></details>
       </div></div>
       <div class="member"><span class="m-ava">Q</span><div><b>QWERTX</b><span class="m-role">КУРАТОР ПОЛИТОЛОГИИ</span><p>Тот самый единственный человек, которого заставлял работать [ARIMA] Yagami. Ненавидит nefusad.</p></div></div>
       <div class="member"><span class="m-ava">Y</span><div><b>Yabl1ch</b><span class="m-role">КУРАТОР АНКЕТОЛОГОВ</span><p>Самый лучший куратор анкетологов, и ещё и самый лучший политолог.</p></div></div>
       <div class="member"><span class="m-ava">!</span><div><b>ксайлеz</b><span class="m-role">КУРАТОР МОДЕРАТОРОВ</span><p>В прошлом устроил революцию против владельца... 10/10, рекомендую.</p></div></div>
     </article>
 
-    <!-- ЗАМЕСТЕЛИ -->
-    <div class="sec-title">🧩 ЗАМЕСТЕЛИ</div>
+    <div class="sec-title">🧩 ЗАМЕСТИТЕЛИ / ЗАМЫ КУРАТОРОВ</div>
     <article class="card" style="margin-top:0">
       <div class="member"><span class="m-ava">L</span><div><b>LayBay</b><span class="m-role">ЗАМ ТЕХНОЛОГОВ</span><p>Следит за всей принятой техникой.</p></div></div>
       <div class="member"><span class="m-ava">D</span><div><b>Dina</b><span class="m-role">ЗАМ МОДЕРАТОРОВ</span><p>Настоящий хранитель порядка. Разбирается в людях и правилах так же хорошо, как в сортах чая. Может одновременно успокоить спорщика и найти идеальный рецепт сырников.</p></div></div>
@@ -622,46 +577,47 @@ details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';f
       <div class="member"><span class="m-ava">n</span><div><b>nefusad</b><span class="m-role">ЗАМ КУРАТОРА ВОЕН. ВЕДУЩИХ</span><p>Отличный человек. Любит спорить. Ненавидит QWERTX.</p></div></div>
     </article>
 
-    <!-- СОТРУДНИКИ -->
     <div class="sec-title">👥 СОТРУДНИКИ / ПРОСТОЙ ПЕРСОНАЛ</div>
     <p class="lead" style="margin-top:0;margin-bottom:24px">Люди, которые работают каждый день</p>
-
     <div class="grid-2">
-      <!-- Политологи -->
       <article class="card" style="margin-top:0"><h3>🏛️ Политологи</h3>
+        <div class="m-sub">ОТВЕЧАЮТ ЗА ПОЛИТИЧЕСКУЮ ДЕЯТЕЛЬНОСТЬ НА СЕРВЕРЕ</div>
         <div class="member"><span class="m-ava">C</span><div><b>Cesare</b><span class="m-role">ПОЛИТОЛОГ</span><p>Искусный стратег, который просчитывает политические ходы на десять шагов вперёд. Его прогнозы редко ошибаются, а советы ценятся на вес золота.</p></div></div>
         <div class="member"><span class="m-ava">г</span><div><b>гипоальбуминемия</b><span class="m-role">ПОЛИТОЛОГ</span><p>Истинный мастер слова, способный найти дипломатический путь даже в самые тёмные времена.</p></div></div>
         <div class="member"><span class="m-ava">_</span><div><b>_ilovevodka</b><span class="m-role">ПОЛИТОЛОГ</span><p>Горящий факел политики, который зажигает сердца и умы.</p></div></div>
         <div class="member"><span class="m-ava">G</span><div><b>Gleipø</b><span class="m-role">ПОЛИТОЛОГ</span><p>Невозмутимый аналитик, способный найти логику даже в самом хаотичном международном кризисе. Мастер компромиссов и тайных переговоров.</p></div></div>
       </article>
-
-      <!-- Картографы -->
       <article class="card" style="margin-top:0"><h3>🗺️ Картографы</h3>
+        <div class="m-sub">СОЗДАЮТ И ПОДДЕРЖИВАЮТ КАРТЫ СЕРВЕРА</div>
         <div class="member"><span class="m-ava">P</span><div><b>pponzc</b><span class="m-role">КАРТОГРАФ</span><p>Восстановил работу картографии.</p></div></div>
       </article>
-
-      <!-- Анкетологи -->
       <article class="card" style="margin-top:0"><h3>📋 Анкетологи</h3>
+        <div class="m-sub">ПРОВЕРЯЮТ И ОДОБРЯЮТ АНКЕТЫ НОВЫХ УЧАСТНИКОВ</div>
         <div class="member"><span class="m-ava">D</span><div><b>Dima</b><span class="m-role">АНКЕТОЛОГ</span><p>Активный участник команды.</p></div></div>
         <div class="member"><span class="m-ava">Q</span><div><b>QWERTX</b><span class="m-role">АНКЕТОЛОГ</span><p>Проверяет анкеты.</p></div></div>
       </article>
-
-      <!-- Модераторы -->
       <article class="card" style="margin-top:0"><h3>⚔️ Модераторы</h3>
+        <div class="m-sub">СЛЕДЯТ ЗА ПОРЯДКОМ НА СЕРВЕРЕ</div>
         <div class="member"><span class="m-ava">G</span><div><b>Gleipø</b><span class="m-role">МОДЕРАТОР</span><p>Следит за порядком.</p></div></div>
         <div class="member"><span class="m-ava">Y</span><div><b>[ARIMA] Yagami</b><span class="m-role">МОДЕРАТОР</span><p>Следит за порядком.</p></div></div>
         <div class="member"><span class="m-ava">D</span><div><b>Dena</b><span class="m-role">МОДЕРАТОР</span><p>Следит за порядком.</p></div></div>
         <div class="member"><span class="m-ava">C</span><div><b>🇧🇬Cortez🇲🇩</b><span class="m-role">МОДЕРАТОР</span><p>Пидорас. Не работает. Совсем. Пустая трата слота.</p></div></div>
       </article>
-
-      <!-- Технологи -->
       <article class="card" style="margin-top:0;grid-column:1/-1"><h3>🔧 Технологи</h3>
+        <div class="m-sub">ПРИНИМАЮТ ТЕХНИКУ НА СЕРВЕРЕ</div>
         <div class="member"><span class="m-ava">B</span><div><b>BeeZymEaS</b><span class="m-role">ТЕХНОЛОГ</span><p>Принимают технику.</p></div></div>
         <div class="member"><span class="m-ava">A</span><div><b>Adolf_Hit</b><span class="m-role">ТЕХНОЛОГ</span><p>Был куратором модерации и благополучно просрал свой пост, наверное, потому что из-за него 3 человека покинуло сервер, а один перестал играть.</p></div></div>
         <div class="member"><span class="m-ava">D</span><div><b>Dina</b><span class="m-role">ТЕХНОЛОГ</span><p>Принимают технику.</p></div></div>
         <div class="member"><span class="m-ava">ф</span><div><b>фанклаб</b><span class="m-role">ТЕХНОЛОГ</span><p>Принимают технику.</p></div></div>
       </article>
     </div>
+  </section>
+
+  <!-- ПРЕССА -->
+  <section class="page" id="page-press">
+    <h1>Пресса <em>сервера</em></h1>
+    <p class="lead">Краткая информация всех событий (РП и не-РП) за определённый период</p>
+    <div class="stub"><div class="icon">📰</div><h3>Ведутся технические работы</h3><p>Раздел находится в разработке. Ожидайте скорого открытия.</p></div>
   </section>
 
   <!-- ДОНАТ -->
@@ -674,137 +630,72 @@ details.long-list summary .count{margin-left:auto;font-family:'JetBrains Mono';f
   <!-- АРХИВЫ -->
   <section class="page" id="page-archives">
     <h1>Архивы <em>сезонов</em></h1>
-    <p class="lead">История всех завершённых сезонов Global Lens</p>
+    <p class="lead">История всех завершённых сезонов</p>
     <div class="stub"><div class="icon">📦</div><h3>Ведутся технические работы</h3><p>Архивы ещё не готовы к показу. Ожидайте скорого открытия.</p></div>
   </section>
 </main>
 </div>
 
 <script>
-/* ====== АВТОЗАГРУЗКА С GITHUB ====== */
 const GH_URLS = {
   updates: 'https://raw.githubusercontent.com/Burgero4ec/Burgero4ec.github.io/refs/heads/main/Archive_%F0%9F%93%94%E3%83%BB%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.html',
   bot:     'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/TERMS_OF_SERVICE.md',
   privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
 };
-
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function parseTs(s){
-  const m = (s||'').match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
-  if(!m) return 0;
-  return new Date(+m[3], +m[2]-1, +m[1], +m[4], +m[5]).getTime();
+function parseTs(s){const m=(s||'').match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);if(!m)return 0;return new Date(+m[3],+m[2]-1,+m[1],+m[4],+m[5]).getTime()}
+function applyDiscordMarkdown(html){
+  return html.split('\n').map(line=>{
+    const h2=line.match(/^(\s*)##\s*(.+)$/);
+    if(h2)return h2[1]+'<span class="dc-h2">'+h2[2]+'</span>';
+    const sm=line.match(/^(\s*)-#\s*(.+)$/);
+    if(sm)return sm[1]+'<span class="small-text">'+sm[2]+'</span>';
+    return line;
+  }).join('\n');
 }
-
 async function loadUpdates(){
-  const el = document.getElementById('updatesBody');
-  const stats = document.getElementById('updatesStats');
+  const el=document.getElementById('updatesBody'),stats=document.getElementById('updatesStats');
   try{
-    const r = await fetch(GH_URLS.updates);
-    if(!r.ok) throw 0;
-    const html = await r.text();
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    const messages = [...doc.querySelectorAll('.message')];
-    const items = messages.map(m=>{
-      const content = m.querySelector('.content');
-      if(!content) return null;
-      const ts = m.querySelector('.timestamp');
-      const author = m.querySelector('.author');
-      const reply = m.querySelector('.reply');
-      const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
-      return {
-        date: parseTs(rawTs),
-        dateStr: rawTs,
-        author: author ? author.textContent.trim() : 'Global Lens BOT',
-        content: content.innerHTML.trim(),
-        reply: reply ? reply.textContent.trim() : ''
-      };
-    }).filter(x => x && x.content);
-    items.sort((a,b)=>b.date - a.date);
-    if(!items.length){ el.innerHTML = '<p class="loading">В истории обновлений пока нет сообщений.</p>'; return; }
-    const authors = new Set(items.map(i=>i.author));
-    const first = items[items.length-1].dateStr.split(' ')[0];
-    const last  = items[0].dateStr.split(' ')[0];
-    stats.innerHTML = `
-      <div class="us-item"><b>${items.length}</b>сообщений</div>
-      <div class="us-item"><b>${authors.size}</b>авторов</div>
-      <div class="us-item"><b>${first}</b>первое</div>
-      <div class="us-item"><b>${last}</b>последнее</div>`;
-    el.innerHTML = items.map(i=>`
-      <article class="update-card">
-        <div class="update-meta">
-          <span class="update-author">${esc(i.author)}</span>
-          <span class="update-date">${esc(i.dateStr)}</span>
-        </div>
-        ${i.reply ? '<div class="update-content"><div class="reply">↪ '+esc(i.reply)+'</div></div>' : ''}
-        <div class="update-content">${i.content}</div>
-      </article>`).join('');
-    el.querySelectorAll('a[href^="http"]').forEach(a=>{a.target='_blank';a.rel='noopener'});
-  }catch(e){
-    el.innerHTML = '<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>';
-  }
-}
-
-function md(t){
-  return t.split(/\r?\n/).map(line=>{
-    const l=line.trim();
-    if(!l)return '';
-    if(l.startsWith('### '))return '<h4>'+esc(l.slice(4))+'</h4>';
-    if(l.startsWith('## '))return '<h4>'+esc(l.slice(3))+'</h4>';
-    if(l.startsWith('# '))return '<h3>'+esc(l.slice(2))+'</h3>';
-    if(/^[-*] /.test(l))return '<p style="margin-left:16px">— '+esc(l.slice(2))+'</p>';
-    return '<p>'+esc(l)+'</p>';
-  }).join('');
-}
-async function loadRules(key,elId){
-  const el=document.getElementById(elId);
-  try{
-    const r=await fetch(GH_URLS[key]);
+    const r=await fetch(GH_URLS.updates);
     if(!r.ok)throw 0;
-    el.innerHTML=md(await r.text());
-  }catch(e){
-    el.innerHTML='<p class="loading">Не удалось загрузить правила. Проверьте ссылки в GH_URLS.</p>';
-  }
+    const doc=new DOMParser().parseFromString(await r.text(),'text/html');
+    const items=[...doc.querySelectorAll('.message')].map(m=>{
+      const content=m.querySelector('.content');
+      if(!content)return null;
+      const ts=m.querySelector('.timestamp'),author=m.querySelector('.author'),reply=m.querySelector('.reply');
+      const rawTs=ts?ts.textContent.split('|')[0].trim():'';
+      return {date:parseTs(rawTs),dateStr:rawTs,author:author?author.textContent.trim():'Global Lens BOT',content:content.innerHTML.trim(),reply:reply?reply.textContent.trim():''};
+    }).filter(x=>x&&x.content);
+    items.sort((a,b)=>b.date-a.date);
+    if(!items.length){el.innerHTML='<p class="loading">В истории обновлений пока нет сообщений.</p>';return}
+    const authors=new Set(items.map(i=>i.author));
+    stats.innerHTML=`<div class="us-item"><b>${items.length}</b>сообщений</div><div class="us-item"><b>${authors.size}</b>авторов</div><div class="us-item"><b>${items[items.length-1].dateStr.split(' ')[0]}</b>первое</div><div class="us-item"><b>${items[0].dateStr.split(' ')[0]}</b>последнее</div>`;
+    el.innerHTML=items.map(i=>`<article class="update-card"><div class="update-meta"><span class="update-author">${esc(i.author)}</span><span class="update-date">${esc(i.dateStr)}</span></div>${i.reply?'<div class="update-content"><div class="reply">↪ '+esc(i.reply)+'</div></div>':''}<div class="update-content">${applyDiscordMarkdown(i.content)}</div></article>`).join('');
+    el.querySelectorAll('a[href^="http"]').forEach(a=>{a.target='_blank';a.rel='noopener'});
+  }catch(e){el.innerHTML='<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>'}
 }
-loadRules('bot','rulesBotBody');
-loadRules('privacy','rulesPrivacyBody');
-loadUpdates();
-
-/* ====== АНИМАЦИЯ СЧЁТЧИКОВ ====== */
-function animateStats(){
-  document.querySelectorAll('#page-home .stat b[data-count]').forEach(el=>{
-    const target=+el.dataset.count,dur=1400,t0=performance.now();
-    (function tick(t){
-      const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
-      el.textContent=Math.round(target*e);
-      if(p<1)requestAnimationFrame(tick);
-    })(t0);
-  });
-}
-
-/* ====== НАВИГАЦИЯ ====== */
+function md(t){return t.split(/\r?\n/).map(line=>{const l=line.trim();if(!l)return '';if(l.startsWith('### '))return '<h4>'+esc(l.slice(4))+'</h4>';if(l.startsWith('## '))return '<h4>'+esc(l.slice(3))+'</h4>';if(l.startsWith('# '))return '<h3>'+esc(l.slice(2))+'</h3>';if(/^[-*] /.test(l))return '<p style="margin-left:16px">— '+esc(l.slice(2))+'</p>';return '<p>'+esc(l)+'</p>'}).join('')}
+async function loadRules(key,elId){const el=document.getElementById(elId);try{const r=await fetch(GH_URLS[key]);if(!r.ok)throw 0;el.innerHTML=md(await r.text())}catch(e){el.innerHTML='<p class="loading">Не удалось загрузить правила. Проверьте ссылки в GH_URLS.</p>'}}
+loadRules('bot','rulesBotBody');loadRules('privacy','rulesPrivacyBody');loadUpdates();
+function animateStats(){document.querySelectorAll('#page-home .stat b[data-count]').forEach(el=>{const target=+el.dataset.count,dur=1400,t0=performance.now();(function tick(t){const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(tick)})(t0)})}
 const infoIds=['about','news','updates'],ruleIds=['rules-server','rules-bot','rules-privacy'];
 function go(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+id));
   document.querySelectorAll('.side-nav .active').forEach(x=>x.classList.remove('active'));
-  if(infoIds.includes(id)||ruleIds.includes(id)){
-    document.getElementById('infoBtn').classList.add('active');
-    document.getElementById('infoGroup').classList.add('open');
-  }
+  if(infoIds.includes(id)||ruleIds.includes(id)){document.getElementById('infoBtn').classList.add('active');document.getElementById('infoGroup').classList.add('open')}
   if(ruleIds.includes(id))document.getElementById('rulesGroup').classList.add('open');
   const sel=document.querySelector('.side-nav [data-go="'+id+'"]');
   if(sel)sel.classList.add('active');
   if(id==='home')animateStats();
   window.scrollTo({top:0,behavior:'smooth'});
 }
-document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(el.dataset.go);}));
+document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(el.dataset.go)}));
 document.getElementById('infoBtn').addEventListener('click',()=>document.getElementById('infoGroup').classList.toggle('open'));
 document.getElementById('rulesBtn').addEventListener('click',()=>document.getElementById('rulesGroup').classList.toggle('open'));
 const names={green:'Green',blue:'Blue',orange:'Orange'};
-document.querySelectorAll('[data-theme-set]').forEach(b=>b.addEventListener('click',()=>{
-  document.documentElement.dataset.theme=b.dataset.themeSet;
-  document.querySelectorAll('.theme-btn').forEach(x=>x.classList.toggle('active',x===b));
-  document.getElementById('themeName').textContent=names[b.dataset.themeSet];
-}));
+function applyTheme(theme,save=true){if(!names[theme])theme='green';document.documentElement.dataset.theme=theme;document.querySelectorAll('.theme-btn').forEach(x=>x.classList.toggle('active',x.dataset.themeSet===theme));document.getElementById('themeName').textContent=names[theme];if(save)try{localStorage.setItem('gl-theme',theme)}catch(e){}}
+(function(){let s=null;try{s=localStorage.getItem('gl-theme')}catch(e){}applyTheme(s||'green',false)})();
+document.querySelectorAll('[data-theme-set]').forEach(b=>b.addEventListener('click',()=>applyTheme(b.dataset.themeSet,true)));
 animateStats();
 </script>
 </body>
