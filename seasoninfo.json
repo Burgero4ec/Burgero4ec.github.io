@@ -1,0 +1,6159 @@
+{
+    "1137392083821416478": {
+        "type": "country",
+        "country": "Германия",
+        "gdp": 29950312987765,
+        "base_gdp": 3894200000000,
+        "population": 90708409,
+        "balance": 0,
+        "imf_investment": 16346190665353,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇺🇸 | Boeing E-3 Sentry": 4,
+                "🇩🇪 | Eurofighter Typhoon Tranche 3A": 80,
+                "🇺🇸 | F-35C": 60,
+                "🇺🇸 | Boeing EA-18G Growler": 12,
+                "🇩🇪 | Panavia Tornado ECR": 20,
+                "🇩🇪 | Airbus A310 MRTT": 10,
+                "🇺🇸 | MQ-9 Reaper": 26,
+                "🇺🇸 | GBU-38 JDAM-ER": 3000,
+                "🇩🇪 | MBDA Meteor": 1200,
+                "🇺🇸 | USS America": 1,
+                "🇩🇪 | Hamburg": 3,
+                "🇺🇸 | F-35B Lightning II": 20,
+                "🇩🇪 | Sikorsky CH-53GA": 5,
+                "🇩🇪 | MEADS": 3,
+                "🇩🇪 | IRIS-T": 4,
+                "🇩🇪 | IRIS-T SLM": 4,
+                "🇩🇪 | TRML 3D": 4,
+                "Противоракета большой дальности": 300,
+                "Контрактник": 5000,
+                "🇺🇸 | RQ-4B Global Hawk": 20,
+                "🇺🇸 | Ground-based Midcourse Defense": 300,
+                "🇺🇸 | AN/FPS-132": 10
+            }
+        },
+        "industry": {
+            "met": {
+                "count": 6120,
+                "total_jobs": 24485257
+            },
+            "npp": {
+                "count": 310,
+                "total_jobs": 1071074
+            },
+            "greenhouse": {
+                "count": 55000,
+                "total_jobs": 10451013
+            },
+            "mall": {
+                "count": 19117,
+                "total_jobs": 7640520
+            },
+            "market": {
+                "count": 30000,
+                "total_jobs": 9754077
+            },
+            "clinic": {
+                "count": 7600,
+                "total_jobs": 3584403
+            },
+            "port": {
+                "count": 4620,
+                "total_jobs": 6298449
+            },
+            "university": {
+                "count": 3777,
+                "total_jobs": 3406324
+            },
+            "log_center": {
+                "count": 1292,
+                "total_jobs": 647188
+            },
+            "mach": {
+                "count": 2,
+                "total_jobs": 5339
+            },
+            "food": {
+                "count": 7,
+                "total_jobs": 3429
+            },
+            "wood": {
+                "count": 5,
+                "total_jobs": 2604
+            },
+            "chem": {
+                "count": 4,
+                "total_jobs": 3465
+            },
+            "light": {
+                "count": 5,
+                "total_jobs": 2945
+            }
+        },
+        "birth_rate": 8.6,
+        "resource_index": 4.0,
+        "continent": "Европа",
+        "reform_limit_used": 8446405309375,
+        "license_role_id": 1531283401514942525,
+        "invest_mode": "free",
+        "pay_mode": "free",
+        "registration_date": "2026-07-27T12:53:33.043745+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 14384506274553,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "830428424677490728",
+                "investor_country": "Бразилия",
+                "amount": 7448360800647,
+                "share_percent": 13.101221457123458,
+                "date": "2026-07-28"
+            },
+            {
+                "investor_id": "955060237449166938",
+                "investor_country": "США",
+                "amount": 9991266678811,
+                "share_percent": 10.361726859776683,
+                "date": "2026-07-30"
+            },
+            {
+                "investor_id": "967200323909349396",
+                "investor_country": "Индонезия",
+                "amount": 3770892042557,
+                "share_percent": 2.5592241375879263,
+                "date": "2026-07-30"
+            },
+            {
+                "investor_id": "758391187911868457",
+                "investor_country": "Франция",
+                "amount": 1114768399064,
+                "share_percent": 2.054338383420544,
+                "date": "2026-07-30"
+            },
+            {
+                "investor_id": "1532495116747538538",
+                "investor_country": "Канада",
+                "amount": 832413143712,
+                "share_percent": 0.9609970293720705,
+                "date": "2026-08-02"
+            },
+            {
+                "investor_id": "743237681424629780",
+                "investor_country": "Египет",
+                "amount": 1227546503741,
+                "share_percent": 0.6714439031753132,
+                "date": "2026-08-02"
+            },
+            {
+                "investor_id": "484044030640914437",
+                "investor_country": "ЮАР",
+                "amount": 8913965600860,
+                "share_percent": 3.1677976768896876,
+                "date": "2026-08-04"
+            },
+            {
+                "investor_id": "1111681490976264214",
+                "investor_country": "Израиль",
+                "amount": 161531415686,
+                "share_percent": 0.03369122301521728,
+                "date": "2026-08-08"
+            }
+        ],
+        "licenses": [
+            "955060237449166938"
+        ],
+        "license_price": 10000000000,
+        "support": 91.9,
+        "corruption": 2.5013770035209446,
+        "corruption_reform": [
+            {
+                "effect": 14.0,
+                "timestamp": "2026-08-07T20:28:10.206398+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Прочее",
+                "amount": 59844316337572
+            }
+        ],
+        "credits": {
+            "DEACC7": {
+                "id": "DEACC7",
+                "amount_taken": 10000000000,
+                "debt_total": 11500000000,
+                "debt_current": 10079775692,
+                "hourly_payment": 159722222,
+                "term_hours_total": 72,
+                "term_hours_left": 65,
+                "tax_rate": 0.15,
+                "date_taken": "2026-08-08T09:16:10.636843+00:00",
+                "reason": "Ыыыыыыы"
+            }
+        },
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": "СГО",
+            "intergovernmental": "ЕС"
+        },
+        "last_collect": "2026-08-08T17:14:41.745439+00:00",
+        "taxes": {
+            "nds": 35,
+            "ndfl": 35
+        },
+        "last_tax_change": "2026-07-30T07:20:51.385370+00:00",
+        "ideology": {
+            "state": "Смешанная республика",
+            "economy": "Смешанная экономика"
+        },
+        "infrastructure": {
+            "npp": 310
+        },
+        "received_reset": "2026-08-08",
+        "imf_profit_available": 1887719109.364454,
+        "imf_profit_claimed": 612083045339.0,
+        "daily_received": 50000000001,
+        "transfer_reset_date": "2026-08-02",
+        "reform_reset_date": "2026-08-08",
+        "last_sanction_date": "2026-08-07T19:40:11.493066+00:00",
+        "last_gdp_news": "2026-08-07T14:04:03.429243+00:00",
+        "license_dates": {
+            "955060237449166938": "2026-08-02T13:38:39.965181+00:00"
+        }
+    },
+    "830428424677490728": {
+        "type": "country",
+        "country": "Бразилия",
+        "gdp": 14850616435226,
+        "base_gdp": 2577134000000,
+        "population": 234982475,
+        "balance": 0,
+        "imf_investment": 31197230640812,
+        "inventory": {
+            "active": {
+                "Контрактник": 2000
+            },
+            "non_active": {}
+        },
+        "industry": {
+            "wood": {
+                "count": 95554,
+                "total_jobs": 57344893
+            },
+            "light": {
+                "count": 45,
+                "total_jobs": 26389
+            },
+            "chem": {
+                "count": 35,
+                "total_jobs": 26139
+            },
+            "market": {
+                "count": 130881,
+                "total_jobs": 42575904
+            },
+            "met": {
+                "count": 32,
+                "total_jobs": 136688
+            },
+            "food": {
+                "count": 29,
+                "total_jobs": 12424
+            },
+            "tpp": {
+                "count": 12000,
+                "total_jobs": 4551629
+            },
+            "mach": {
+                "count": 26,
+                "total_jobs": 51498
+            },
+            "plantation": {
+                "count": 213012,
+                "total_jobs": 25561673
+            },
+            "warehouse": {
+                "count": 102278,
+                "total_jobs": 15866264
+            },
+            "clinic": {
+                "count": 18016,
+                "total_jobs": 8527178
+            },
+            "university": {
+                "count": 9490,
+                "total_jobs": 8515623
+            },
+            "diesel_gen": {
+                "count": 162240,
+                "total_jobs": 2110131
+            },
+            "npp": {
+                "count": 6,
+                "total_jobs": 22448
+            }
+        },
+        "birth_rate": 14.9,
+        "resource_index": 2.0,
+        "continent": "Южная Америка",
+        "reform_limit_used": 7144448221854,
+        "license_role_id": 1531283442325651647,
+        "invest_mode": "free",
+        "pay_mode": "free",
+        "registration_date": "2026-07-27T12:53:42.632068+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 3554844795180,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "1137392083821416478",
+                "investor_country": "Германия",
+                "amount": 2375605350251,
+                "share_percent": 26.33105153503008,
+                "date": "2026-07-28"
+            },
+            {
+                "investor_id": "955060237449166938",
+                "investor_country": "США",
+                "amount": 5589828068013,
+                "share_percent": 4.999445744251975,
+                "date": "2026-07-29"
+            },
+            {
+                "investor_id": "967200323909349396",
+                "investor_country": "Индонезия",
+                "amount": 7131175461916,
+                "share_percent": 17.487327513755474,
+                "date": "2026-07-31"
+            },
+            {
+                "investor_id": "1532495116747538538",
+                "investor_country": "Канада",
+                "amount": 100000000000,
+                "share_percent": 0.28143839219994793,
+                "date": "2026-08-03"
+            },
+            {
+                "investor_id": "484044030640914437",
+                "investor_country": "ЮАР",
+                "amount": 625812067214,
+                "share_percent": 1.2094733328727398,
+                "date": "2026-08-03"
+            }
+        ],
+        "licenses": [
+            "955060237449166938"
+        ],
+        "license_price": 0,
+        "support": 100.0,
+        "corruption": 10.403614715011834,
+        "corruption_reform": [
+            {
+                "effect": 13.0,
+                "timestamp": "2026-08-06T09:11:28.155257+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Промышленность",
+                "amount": 27199104521754
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": "СГО"
+        },
+        "taxes": {
+            "nds": 35,
+            "ndfl": 35
+        },
+        "last_tax_change": "2026-07-29T06:24:46.655480+00:00",
+        "ideology": {
+            "state": "Смешанная республика",
+            "economy": "Смешанная экономика"
+        },
+        "imf_profit_available": 3651931858.1320205,
+        "imf_profit_claimed": 1645321587076.0,
+        "last_collect": "2026-08-08T12:08:41.412683+00:00",
+        "infrastructure": {
+            "tpp": 12000,
+            "diesel_gen": 162240,
+            "npp": 6
+        },
+        "received_reset": "2026-08-08",
+        "license_dates": {
+            "955060237449166938": "2026-07-29T17:59:26.228452+00:00"
+        },
+        "daily_received": 0,
+        "transfer_reset_date": "2026-08-02",
+        "last_gdp_news": "2026-08-06T09:24:49.049936+00:00",
+        "reform_reset_date": "2026-08-08",
+        "last_sanction_date": "2026-08-07T21:50:24.632356+00:00"
+    },
+    "955060237449166938": {
+        "type": "country",
+        "country": "США",
+        "gdp": 30738344504228,
+        "base_gdp": 17608100000000,
+        "population": 363307160,
+        "balance": 29478381306430,
+        "imf_investment": 11041397587688,
+        "inventory": {
+            "active": {
+                "🇺🇸 | AGM-114M": 5000
+            },
+            "non_active": {
+                "🇺🇸 | AN/FPS-132": 10,
+                "🇺🇸 | Ground-based Midcourse Defense": 250,
+                "Противоракета большой дальности": 400,
+                "🇺🇸 | F-22 Raptor": 501,
+                "🇺🇸 | USS Porter": 10,
+                "🇺🇸 | USS Cape St. George": 2,
+                "🇺🇸 | USS Michael Murphy": 6,
+                "🇺🇸 | МН-60G Pave Hawk": 10,
+                "🇺🇸 | MH-47G Chinook": 10,
+                "🇺🇸 | M109A6 Paladin": 50,
+                "🇺🇸 | M2A3": 100,
+                "🇺🇸 | AN/MPQ-64 Sentinel": 3,
+                "🇺🇸 | Switchblade 300": 2200
+            }
+        },
+        "industry": {
+            "mach": {
+                "count": 1741,
+                "total_jobs": 3554399
+            },
+            "met": {
+                "count": 16351,
+                "total_jobs": 65453034
+            },
+            "food": {
+                "count": 4076,
+                "total_jobs": 1934676
+            },
+            "light": {
+                "count": 30041,
+                "total_jobs": 18030926
+            },
+            "chem": {
+                "count": 55,
+                "total_jobs": 39011
+            },
+            "wood": {
+                "count": 49,
+                "total_jobs": 27972
+            },
+            "agrocomplex": {
+                "count": 20000,
+                "total_jobs": 1499768
+            },
+            "plantation": {
+                "count": 330000,
+                "total_jobs": 39612397
+            },
+            "market": {
+                "count": 198506,
+                "total_jobs": 64458208
+            },
+            "hydro_dam": {
+                "count": 1800,
+                "total_jobs": 1621985
+            },
+            "sorting": {
+                "count": 62000,
+                "total_jobs": 19215901
+            },
+            "warehouse": {
+                "count": 35000,
+                "total_jobs": 5429249
+            },
+            "clinic": {
+                "count": 30000,
+                "total_jobs": 14240251
+            },
+            "pharma": {
+                "count": 20000,
+                "total_jobs": 3808528
+            }
+        },
+        "birth_rate": 12.5,
+        "resource_index": 2.0,
+        "continent": "Северная Америка",
+        "reform_limit_used": 0,
+        "license_role_id": 1531283455139123322,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-07-27T12:53:45.715436+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 1009678295301,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "1137392083821416478",
+                "investor_country": "Германия",
+                "amount": 4794031077698,
+                "share_percent": 1.4813332510593873,
+                "date": "2026-07-27"
+            },
+            {
+                "investor_id": "830428424677490728",
+                "investor_country": "Бразилия",
+                "amount": 5670630718412,
+                "share_percent": 2.2655859565686693,
+                "date": "2026-07-30"
+            },
+            {
+                "investor_id": "1532495116747538538",
+                "investor_country": "Канада",
+                "amount": 1800000000000,
+                "share_percent": 0.6967762316755867,
+                "date": "2026-08-02"
+            },
+            {
+                "investor_id": "967200323909349396",
+                "investor_country": "Индонезия",
+                "amount": 531863559085,
+                "share_percent": 0.20650280177832264,
+                "date": "2026-08-02"
+            }
+        ],
+        "licenses": [
+            "967200323909349396",
+            "1127720130885992510"
+        ],
+        "license_price": 10000000000,
+        "support": 85.80000000000003,
+        "corruption": 7.749895786838651,
+        "corruption_reform": [
+            {
+                "effect": 13.0,
+                "timestamp": "2026-08-07T17:57:44.699926+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Прочее",
+                "amount": 19000000000000
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": "СГО"
+        },
+        "taxes": {
+            "nds": 35,
+            "ndfl": 35
+        },
+        "last_tax_change": "2026-08-06T18:05:16.652106+00:00",
+        "last_collect": "2026-08-08T13:41:35.351942+00:00",
+        "received_reset": "2026-08-08",
+        "ideology": {
+            "economy": "Смешанная экономика",
+            "state": "Смешанная республика"
+        },
+        "imf_profit_available": 81360251306.54472,
+        "imf_profit_claimed": 471088966784.0,
+        "infrastructure": {
+            "hydro_dam": 1800
+        },
+        "reform_reset_date": "2026-08-07",
+        "license_dates": {
+            "967200323909349396": "2026-07-31T12:25:44.245185+00:00"
+        },
+        "last_sanction_date": "2026-08-07T19:38:57.261850+00:00",
+        "last_gdp_news": "2026-08-04T07:32:47.526649+00:00",
+        "daily_received": 0,
+        "transfer_reset_date": "2026-08-02"
+    },
+    "784140901600591963": {
+        "type": "organization",
+        "country": "Вагнер",
+        "org_type": "Государственная",
+        "host_country": "Россия",
+        "gdp": 0,
+        "base_gdp": 0,
+        "balance": 242103368947,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {
+                "Наёмник": 28000,
+                "🇷🇺 | 9К333 «Верба»": 1500,
+                "🇷🇺 | Панцирь-С1": 5,
+                "🇷🇺 | БТР-82А": 120,
+                "🇷🇺 | БМП-3М": 80,
+                "🇷🇺 | Т-80УЕ-1": 40,
+                "🇷🇺 | Д-30А (2А18М)": 220,
+                "🇷🇺 | КамАЗ-5350-379": 340,
+                "🇷🇺 | 1РЛ257": 4,
+                "🇷🇺 | 9К51М Торнадо-Г": 20,
+                "🇷🇺 | Орлан-10": 75,
+                "🇷🇺 | Элерон-3СВ": 120
+            },
+            "non_active": {}
+        },
+        "license_role_id": null,
+        "pay_mode": "free",
+        "registration_date": "2026-07-27T12:53:48.507069+00:00",
+        "shield": null,
+        "licenses": [
+            "1387216418566574160"
+        ],
+        "invest_mode": "free",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "license_price": 0,
+        "energy_shield": null,
+        "last_collect": "2026-07-30T18:33:39.115091+00:00",
+        "daily_received": 0,
+        "transfer_reset_date": "2026-07-31",
+        "support": 51.2
+    },
+    "743237681424629780": {
+        "type": "country",
+        "country": "Египет",
+        "gdp": 1638956867229,
+        "base_gdp": 303795000000,
+        "population": 111134923,
+        "balance": 1894163294069,
+        "imf_investment": 170469156356,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "Контрактник": 94492,
+                "🇮🇱 | SPYDER": 25,
+                "🇺🇸 | F-22 Raptor": 9,
+                "🇺🇸 | Boeing E-3 Sentry": 2,
+                "🇺🇸 | KC-135R Stratotanker": 1,
+                "🇺🇸 | GBU-38 JDAM-ER": 128,
+                "🇺🇸 | Switchblade 300": 69,
+                "🇩🇪 | Wiesel 2 LeFlaSys": 50,
+                "🇩🇪 | Fennek": 415,
+                "🇺🇸 | M142 HIMARS": 74,
+                "🇺🇸 | M2A3": 37,
+                "🇺🇸 | M1A2 SEP V2": 38,
+                "🇺🇸 | Oshkosh M-ATV (TOW)": 250,
+                "🇺🇸 | CATTB": 85,
+                "🇺🇸 | Lockheed Martin RQ-170 Sentinel": 30,
+                "🇺🇸 | AGM-114R9X": 476,
+                "🇺🇸 | M1134 Anti-Tank Guided Missile Vehicle": 199
+            }
+        },
+        "industry": {
+            "mach": {
+                "count": 959,
+                "total_jobs": 1995723
+            },
+            "light": {
+                "count": 15585,
+                "total_jobs": 9376376
+            },
+            "met": {
+                "count": 3237,
+                "total_jobs": 12875298
+            },
+            "chem": {
+                "count": 5658,
+                "total_jobs": 4099792
+            },
+            "wood": {
+                "count": 2747,
+                "total_jobs": 1671528
+            },
+            "npp": {
+                "count": 16,
+                "total_jobs": 62682
+            },
+            "food": {
+                "count": 6590,
+                "total_jobs": 3102052
+            },
+            "hydro_dam": {
+                "count": 100,
+                "total_jobs": 91314
+            },
+            "greenhouse": {
+                "count": 75392,
+                "total_jobs": 14320394
+            },
+            "garden": {
+                "count": 45000,
+                "total_jobs": 1687894
+            },
+            "tpp": {
+                "count": 350,
+                "total_jobs": 133117
+            },
+            "university": {
+                "count": 10000,
+                "total_jobs": 9003805
+            },
+            "mall": {
+                "count": 12000,
+                "total_jobs": 4818060
+            },
+            "port": {
+                "count": 1000,
+                "total_jobs": 1349749
+            },
+            "pharma": {
+                "count": 3000,
+                "total_jobs": 573105
+            }
+        },
+        "birth_rate": 28.1,
+        "resource_index": 5.0,
+        "continent": "Африка",
+        "reform_limit_used": 0,
+        "license_role_id": 1531285279703306280,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-07-27T13:01:00.798888+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "1137392083821416478",
+                "investor_country": "Германия",
+                "amount": 614619688310,
+                "share_percent": 16.59582557266792,
+                "date": "2026-07-27"
+            },
+            {
+                "investor_id": "955060237449166938",
+                "investor_country": "США",
+                "amount": 179473295334,
+                "share_percent": 7.407407407415816,
+                "date": "2026-07-28"
+            },
+            {
+                "investor_id": "758391187911868457",
+                "investor_country": "Франция",
+                "amount": 85051688238,
+                "share_percent": 2.3760947052754884,
+                "date": "2026-07-30"
+            },
+            {
+                "investor_id": "484044030640914437",
+                "investor_country": "ЮАР",
+                "amount": 537160547558,
+                "share_percent": 6.542056074767038,
+                "date": "2026-08-02"
+            }
+        ],
+        "licenses": [
+            "1137392083821416478",
+            "955060237449166938"
+        ],
+        "license_price": 0,
+        "support": 100.0,
+        "corruption": 9.207991852060488,
+        "corruption_reform": [
+            {
+                "effect": 14.0,
+                "timestamp": "2026-08-04T12:12:37.154641+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Прочее",
+                "amount": 767947630221
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "taxes": {
+            "nds": 35,
+            "ndfl": 38
+        },
+        "last_tax_change": "2026-07-28T08:42:01.642749+00:00",
+        "ideology": {
+            "state": "Дуалистическая монархия",
+            "economy": "Рыночная экономика"
+        },
+        "last_collect": "2026-08-05T19:26:15.583475+00:00",
+        "received_reset": "2026-08-07",
+        "infrastructure": {
+            "npp": 16,
+            "hydro_dam": 100,
+            "tpp": 350
+        },
+        "imf_profit_available": 8647760514.147755,
+        "last_sanction_date": "2026-07-31T12:46:36.671641+00:00",
+        "license_dates": {
+            "1137392083821416478": "2026-07-31T13:05:25.949439+00:00",
+            "955060237449166938": "2026-07-31T17:31:30.847011+00:00"
+        },
+        "reform_reset_date": "2026-08-05"
+    },
+    "484044030640914437": {
+        "type": "country",
+        "country": "ЮАР",
+        "gdp": 3362958570932,
+        "base_gdp": 350697000000,
+        "population": 74900163,
+        "balance": 295509218459,
+        "imf_investment": 3718365174772,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "light": {
+                "count": 19711,
+                "total_jobs": 11835068
+            },
+            "met": {
+                "count": 672,
+                "total_jobs": 2714122
+            },
+            "food": {
+                "count": 6585,
+                "total_jobs": 3135981
+            },
+            "greenhouse": {
+                "count": 66406,
+                "total_jobs": 12618107
+            },
+            "log_center": {
+                "count": 8080,
+                "total_jobs": 4035817
+            },
+            "npp": {
+                "count": 32,
+                "total_jobs": 112539
+            },
+            "market": {
+                "count": 45636,
+                "total_jobs": 14824138
+            },
+            "mall": {
+                "count": 2322,
+                "total_jobs": 929384
+            },
+            "plantation": {
+                "count": 5299,
+                "total_jobs": 633442
+            },
+            "pharmacy": {
+                "count": 10000,
+                "total_jobs": 80045
+            },
+            "wood": {
+                "count": 28,
+                "total_jobs": 18423
+            },
+            "supermarket": {
+                "count": 4740,
+                "total_jobs": 476190
+            },
+            "chem": {
+                "count": 2035,
+                "total_jobs": 1468737
+            },
+            "mach": {
+                "count": 22,
+                "total_jobs": 50232
+            },
+            "hydro_dam": {
+                "count": 160,
+                "total_jobs": 150012
+            },
+            "port": {
+                "count": 40,
+                "total_jobs": 50266
+            },
+            "warehouse": {
+                "count": 6000,
+                "total_jobs": 921393
+            },
+            "sorting": {
+                "count": 3500,
+                "total_jobs": 1078812
+            },
+            "clinic": {
+                "count": 2400,
+                "total_jobs": 1133465
+            },
+            "pharma": {
+                "count": 6437,
+                "total_jobs": 1229349
+            },
+            "kindergarten": {
+                "count": 9156,
+                "total_jobs": 364860
+            },
+            "school": {
+                "count": 3000,
+                "total_jobs": 286023
+            },
+            "college": {
+                "count": 4666,
+                "total_jobs": 1211115
+            },
+            "dentistry": {
+                "count": 5000,
+                "total_jobs": 162857
+            },
+            "ambulatory": {
+                "count": 20000,
+                "total_jobs": 259505
+            },
+            "university": {
+                "count": 1000,
+                "total_jobs": 894555
+            },
+            "tpp": {
+                "count": 743,
+                "total_jobs": 286192
+            }
+        },
+        "birth_rate": 21.6,
+        "resource_index": 3.0,
+        "continent": "Африка",
+        "reform_limit_used": 1385666766708,
+        "license_role_id": 1531285440261394542,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-07-27T13:01:39.365861+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 600000000000,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "1137392083821416478",
+                "investor_country": "Германия",
+                "amount": 241841258232,
+                "share_percent": 8.603812534945149,
+                "date": "2026-07-27"
+            },
+            {
+                "investor_id": "830428424677490728",
+                "investor_country": "Бразилия",
+                "amount": 1605459765950,
+                "share_percent": 12.043615417265507,
+                "date": "2026-07-29"
+            },
+            {
+                "investor_id": "967200323909349396",
+                "investor_country": "Индонезия",
+                "amount": 1095309641163,
+                "share_percent": 13.518800260806913,
+                "date": "2026-07-30"
+            },
+            {
+                "investor_id": "758391187911868457",
+                "investor_country": "Франция",
+                "amount": 38607773327,
+                "share_percent": 0.45585635872030517,
+                "date": "2026-07-31"
+            },
+            {
+                "investor_id": "743237681424629780",
+                "investor_country": "Египет",
+                "amount": 88080233663,
+                "share_percent": 0.9141441753430988,
+                "date": "2026-07-31"
+            },
+            {
+                "investor_id": "916907042545999883",
+                "investor_country": "Мозамбик",
+                "amount": 614403207,
+                "share_percent": 0.005754028798881622,
+                "date": "2026-08-03"
+            },
+            {
+                "investor_id": "867726527688081408",
+                "investor_country": "КНР",
+                "amount": 610260885512,
+                "share_percent": 4.574621632765533,
+                "date": "2026-08-05"
+            },
+            {
+                "investor_id": "1246466628863004692",
+                "investor_country": "Венгрия",
+                "amount": 16360849926,
+                "share_percent": 0.08160771720724222,
+                "date": "2026-08-07"
+            },
+            {
+                "investor_id": "571014843860123648",
+                "investor_country": "Нигерия",
+                "amount": 600000000000,
+                "share_percent": 2.140971959105822,
+                "date": "2026-08-08"
+            }
+        ],
+        "licenses": [],
+        "license_price": 0,
+        "support": 96.7,
+        "corruption": 18.813111963224063,
+        "corruption_reform": [
+            {
+                "effect": 13.0,
+                "timestamp": "2026-08-06T10:57:55.409167+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Прочее",
+                "amount": 3150206318908
+            },
+            {
+                "sphere": "Промышленность",
+                "amount": 974935253358
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": "Сообщество развития Юга Африки",
+            "military": null
+        },
+        "last_collect": "2026-08-08T00:10:55.897011+00:00",
+        "taxes": {
+            "nds": 25,
+            "ndfl": 25
+        },
+        "last_tax_change": "2026-07-27T13:13:11.919536+00:00",
+        "ideology": {
+            "economy": "Рыночная экономика",
+            "state": "Парламентская республика"
+        },
+        "infrastructure": {
+            "npp": 32,
+            "hydro_dam": 160,
+            "tpp": 743
+        },
+        "imf_profit_available": 39375552683.91449,
+        "received_reset": "2026-08-08",
+        "imf_profit_claimed": 694985712874.0,
+        "reform_reset_date": "2026-08-08",
+        "last_gdp_news": "2026-08-08T16:30:58.278722+00:00"
+    },
+    "758391187911868457": {
+        "type": "country",
+        "country": "Франция",
+        "gdp": 3678904837706,
+        "base_gdp": 2862080000000,
+        "population": 72271950,
+        "balance": 3525609536494,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "met": {
+                "count": 4349,
+                "total_jobs": 17357162
+            },
+            "mach": {
+                "count": 19,
+                "total_jobs": 41355
+            },
+            "light": {
+                "count": 20,
+                "total_jobs": 12224
+            },
+            "wood": {
+                "count": 34533,
+                "total_jobs": 20743923
+            },
+            "chem": {
+                "count": 2122,
+                "total_jobs": 1511383
+            },
+            "food": {
+                "count": 19,
+                "total_jobs": 9535
+            },
+            "npp": {
+                "count": 60,
+                "total_jobs": 216060
+            },
+            "greenhouse": {
+                "count": 135000,
+                "total_jobs": 25626830
+            },
+            "clinic": {
+                "count": 6500,
+                "total_jobs": 3104277
+            },
+            "port": {
+                "count": 1000,
+                "total_jobs": 1352489
+            },
+            "log_center": {
+                "count": 15000,
+                "total_jobs": 7479966
+            },
+            "tpp": {
+                "count": 250,
+                "total_jobs": 97178
+            }
+        },
+        "birth_rate": 12.4,
+        "resource_index": 4.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1531285521739943936,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-07-27T13:01:58.415174+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "743237681424629780",
+                "investor_country": "Египет",
+                "amount": 3796161782510,
+                "share_percent": 12.955801572644742,
+                "date": "2026-07-31"
+            }
+        ],
+        "licenses": [],
+        "license_price": 0,
+        "support": 35.8,
+        "corruption": 2.8190867905833343,
+        "corruption_reform": [
+            {
+                "effect": 12.0,
+                "timestamp": "2026-08-05T13:05:13.207115+00:00"
+            }
+        ],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null,
+            "intergovernmental": "ЕС"
+        },
+        "ideology": {
+            "state": "Президентская республика",
+            "economy": "Смешанная экономика"
+        },
+        "taxes": {
+            "nds": 35,
+            "ndfl": 35
+        },
+        "last_tax_change": "2026-07-30T13:52:44.325325+00:00",
+        "last_collect": "2026-08-02T16:22:26.169293+00:00",
+        "infrastructure": {
+            "npp": 60,
+            "tpp": 250
+        },
+        "received_reset": "2026-08-05",
+        "last_gdp_news": "2026-08-02T09:04:32.977015+00:00"
+    },
+    "1127720130885992510": {
+        "type": "autonomy",
+        "country": "Калифорния",
+        "host_country": "США",
+        "gdp": 6244134248745,
+        "base_gdp": 2310000000000,
+        "population": 42019067,
+        "balance": 0,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "light": {
+                "count": 10000,
+                "total_jobs": 6004750
+            },
+            "food": {
+                "count": 9000,
+                "total_jobs": 4274500
+            },
+            "chem": {
+                "count": 8000,
+                "total_jobs": 5746585
+            },
+            "wood": {
+                "count": 200,
+                "total_jobs": 117574
+            },
+            "mach": {
+                "count": 6000,
+                "total_jobs": 12317052
+            },
+            "met": {
+                "count": 2000,
+                "total_jobs": 7976598
+            },
+            "npp": {
+                "count": 60,
+                "total_jobs": 201664
+            },
+            "hydro_dam": {
+                "count": 200,
+                "total_jobs": 187557
+            },
+            "pharmacy": {
+                "count": 10000,
+                "total_jobs": 80430
+            },
+            "salon": {
+                "count": 10000,
+                "total_jobs": 249807
+            },
+            "shop": {
+                "count": 10000,
+                "total_jobs": 125146
+            },
+            "market": {
+                "count": 18000,
+                "total_jobs": 5820951
+            },
+            "supermarket": {
+                "count": 8000,
+                "total_jobs": 801102
+            },
+            "mall": {
+                "count": 4000,
+                "total_jobs": 1610258
+            },
+            "ambulatory": {
+                "count": 10000,
+                "total_jobs": 130009
+            },
+            "dentistry": {
+                "count": 12000,
+                "total_jobs": 389323
+            },
+            "pharma": {
+                "count": 3000,
+                "total_jobs": 566155
+            },
+            "clinic": {
+                "count": 4000,
+                "total_jobs": 1914571
+            },
+            "kindergarten": {
+                "count": 20000,
+                "total_jobs": 800987
+            },
+            "school": {
+                "count": 15000,
+                "total_jobs": 1423931
+            },
+            "college": {
+                "count": 10000,
+                "total_jobs": 2618448
+            },
+            "university": {
+                "count": 7000,
+                "total_jobs": 6318628
+            },
+            "port": {
+                "count": 1000,
+                "total_jobs": 1343783
+            },
+            "warehouse": {
+                "count": 10000,
+                "total_jobs": 1555725
+            },
+            "log_center": {
+                "count": 6000,
+                "total_jobs": 3008996
+            },
+            "sorting": {
+                "count": 6000,
+                "total_jobs": 1867870
+            },
+            "plantation": {
+                "count": 90000,
+                "total_jobs": 10789492
+            },
+            "fish": {
+                "count": 6000,
+                "total_jobs": 300043
+            },
+            "agrocomplex": {
+                "count": 4000,
+                "total_jobs": 301256
+            },
+            "garden": {
+                "count": 3000,
+                "total_jobs": 112251
+            },
+            "greenhouse": {
+                "count": 2000,
+                "total_jobs": 383619
+            }
+        },
+        "birth_rate": 12.9,
+        "resource_index": 3.0,
+        "continent": "Северная Америка",
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-07-27T13:06:08.175641+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "licenses": [
+            "955060237449166938"
+        ],
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "955060237449166938",
+                "investor_country": "США",
+                "amount": 6281626873808,
+                "share_percent": 23.209241029097644,
+                "date": "2026-07-27"
+            }
+        ],
+        "license_price": 0,
+        "support": 66.69999999999999,
+        "corruption": 2.312480338431809,
+        "corruption_reform": [
+            {
+                "effect": 12.0,
+                "timestamp": "2026-08-07T15:54:03.519664+00:00"
+            }
+        ],
+        "reform_limit_used": 939961387647,
+        "reforms": [
+            {
+                "sphere": "Прочее",
+                "amount": 7873332028287
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "is_independent": false,
+        "taxes": {
+            "nds": 30,
+            "ndfl": 30
+        },
+        "last_tax_change": "2026-07-27T13:08:38.742099+00:00",
+        "last_collect": "2026-08-08T14:18:40.254297+00:00",
+        "reform_reset_date": "2026-08-08",
+        "received_reset": "2026-08-03",
+        "infrastructure": {
+            "npp": 60,
+            "hydro_dam": 200
+        }
+    },
+    "1523871329651134546": {
+        "type": "country",
+        "country": "Уругвай",
+        "gdp": 155494635002,
+        "base_gdp": 57790000000,
+        "population": 3774570,
+        "balance": 155084329134,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {},
+        "birth_rate": 14.1,
+        "resource_index": 5.0,
+        "continent": "Южная Америка",
+        "reform_limit_used": 0,
+        "license_role_id": 1531288419928641545,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-07-27T13:13:29.431642+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 88.9,
+        "corruption": 25.636908316067206,
+        "corruption_reform": [
+            {
+                "effect": 13.0,
+                "timestamp": "2026-08-07T20:27:57.952819+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Прочее",
+                "amount": 147862970299
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-07T20:24:45.755336+00:00",
+        "reform_reset_date": "2026-08-07"
+    },
+    "967200323909349396": {
+        "type": "country",
+        "country": "Индонезия",
+        "gdp": 10733361134601,
+        "base_gdp": 890815000000,
+        "population": 296123514,
+        "balance": 0,
+        "imf_investment": 17363219322564,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇺🇸 | RQ-4B Global Hawk": 100,
+                "🇺🇸 | F-35B Lightning II": 300,
+                "🇺🇸 | MQ-9 Reaper": 300,
+                "🇺🇸 | MH-47G Chinook": 100,
+                "🇺🇸 | Bell Boeing V-22 Osprey": 600,
+                "🇺🇸 | GBU-38 JDAM-ER": 1000,
+                "🇺🇸 | AH-64E Guardian": 200
+            }
+        },
+        "industry": {
+            "wood": {
+                "count": 110025,
+                "total_jobs": 66031333
+            },
+            "light": {
+                "count": 10043,
+                "total_jobs": 6019342
+            },
+            "chem": {
+                "count": 37,
+                "total_jobs": 27302
+            },
+            "food": {
+                "count": 27,
+                "total_jobs": 13891
+            },
+            "met": {
+                "count": 40,
+                "total_jobs": 169483
+            },
+            "mach": {
+                "count": 29,
+                "total_jobs": 53693
+            },
+            "market": {
+                "count": 184267,
+                "total_jobs": 59958115
+            },
+            "npp": {
+                "count": 27,
+                "total_jobs": 93988
+            },
+            "hydro_dam": {
+                "count": 500,
+                "total_jobs": 450589
+            },
+            "plantation": {
+                "count": 259998,
+                "total_jobs": 31204109
+            },
+            "warehouse": {
+                "count": 120000,
+                "total_jobs": 18591685
+            },
+            "dentistry": {
+                "count": 360997,
+                "total_jobs": 11732102
+            },
+            "diesel_gen": {
+                "count": 299997,
+                "total_jobs": 3902102
+            },
+            "school": {
+                "count": 126486,
+                "total_jobs": 12018856
+            },
+            "wind_turbine": {
+                "count": 10088,
+                "total_jobs": 660439
+            }
+        },
+        "birth_rate": 19.6,
+        "resource_index": 4.0,
+        "continent": "Азия",
+        "reform_limit_used": 4381966218000,
+        "license_role_id": 1532055228541571134,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-07-29T16:00:31.073114+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 4812233697415,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "955060237449166938",
+                "investor_country": "США",
+                "amount": 576201387253,
+                "share_percent": 6.542056074768585,
+                "date": "2026-07-30"
+            },
+            {
+                "investor_id": "830428424677490728",
+                "investor_country": "Бразилия",
+                "amount": 1017067982131,
+                "share_percent": 6.542056074767379,
+                "date": "2026-08-01"
+            },
+            {
+                "investor_id": "1532495116747538538",
+                "investor_country": "Канада",
+                "amount": 400000000000,
+                "share_percent": 2.4987768011362976,
+                "date": "2026-08-02"
+            },
+            {
+                "investor_id": "484044030640914437",
+                "investor_country": "ЮАР",
+                "amount": 178624164324,
+                "share_percent": 0.5415255607309498,
+                "date": "2026-08-03"
+            },
+            {
+                "investor_id": "1137392083821416478",
+                "investor_country": "Германия",
+                "amount": 6421228051460,
+                "share_percent": 6.3585863004284535,
+                "date": "2026-08-04"
+            }
+        ],
+        "licenses": [
+            "1137392083821416478",
+            "955060237449166938"
+        ],
+        "license_price": 10000000000,
+        "support": 80.10000000000001,
+        "corruption": 0.0,
+        "corruption_reform": [
+            {
+                "effect": 13.0,
+                "timestamp": "2026-08-08T14:00:06.856957+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Промышленность",
+                "amount": 22688838739908
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": "АЭС",
+            "military": "СГО",
+            "intergovernmental": null
+        },
+        "last_collect": "2026-08-08T13:44:00.624129+00:00",
+        "taxes": {
+            "nds": 35,
+            "ndfl": 35
+        },
+        "last_tax_change": "2026-07-29T16:06:26.180954+00:00",
+        "ideology": {
+            "state": "Парламентская монархия",
+            "economy": "Рыночная экономика"
+        },
+        "daily_received": 0,
+        "transfer_reset_date": "2026-07-29",
+        "infrastructure": {
+            "npp": 27,
+            "hydro_dam": 500,
+            "diesel_gen": 299997,
+            "wind_turbine": 10088
+        },
+        "reform_reset_date": "2026-08-08",
+        "received_reset": "2026-08-08",
+        "imf_profit_available": 2032529571.50549,
+        "imf_profit_claimed": 36081435529.0,
+        "license_dates": {
+            "1137392083821416478": "2026-07-31T12:00:15.097814+00:00",
+            "955060237449166938": "2026-07-31T12:27:08.886989+00:00"
+        },
+        "last_sanction_date": "2026-08-08T08:32:13.608863+00:00",
+        "last_gdp_news": "2026-08-07T10:10:17.598128+00:00"
+    },
+    "925805041732976762": {
+        "type": "country",
+        "country": "Испания",
+        "gdp": 1770003906269,
+        "base_gdp": 1377755000000,
+        "population": 48153716,
+        "balance": 245300940746,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "supermarket": {
+                "count": 18,
+                "total_jobs": 1758
+            },
+            "market": {
+                "count": 39,
+                "total_jobs": 13257
+            },
+            "shop": {
+                "count": 75,
+                "total_jobs": 944
+            },
+            "mall": {
+                "count": 7,
+                "total_jobs": 2774
+            }
+        },
+        "birth_rate": 9.2,
+        "resource_index": 4.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1532686739280363720,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-07-31T09:49:54.727061+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 54.5,
+        "corruption": 17.485412895296875,
+        "corruption_reform": [
+            {
+                "effect": 2.0,
+                "timestamp": "2026-08-08T13:22:06.037182+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Прочее",
+                "amount": 1038759121996
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "trade",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-07T21:35:20.288585+00:00",
+        "reform_reset_date": "2026-08-06",
+        "ideology": {
+            "state": "Парламентская республика",
+            "economy": "Смешанная экономика"
+        },
+        "taxes": {
+            "nds": 25,
+            "ndfl": 25
+        },
+        "last_tax_change": "2026-08-03T11:38:55.492981+00:00"
+    },
+    "1532495116747538538": {
+        "type": "country",
+        "country": "Канада",
+        "gdp": 5920712204784,
+        "base_gdp": 1800263000000,
+        "population": 39364212,
+        "balance": 434639073066,
+        "imf_investment": 4500000000000,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇺🇸 | CH-53E Super Stallion": 10,
+                "🇺🇸 | USS John Finn": 105,
+                "🇺🇸 | F-22 Raptor": 520,
+                "Контрактник": 525000,
+                "🇺🇸 | F-35B Lightning II": 20,
+                "🇺🇸 | USS Nimitz": 4,
+                "🇺🇸 | USS John P. Murtha": 180,
+                "🇺🇸 | USS Cape St. George": 200,
+                "🇺🇸 | USS Michael Murphy": 150,
+                "🇺🇸 | USS Georgia": 12,
+                "🇺🇸 | F-15E Strike Eagle": 300,
+                "🇺🇸 | F/A-18F Super Hornet Block II": 400,
+                "🇺🇸 | M142 HIMARS": 250,
+                "🇺🇸 | M1128 mobile gun system": 500,
+                "🇺🇸 | M109A6 Paladin": 800,
+                "🇺🇸 | Oshkosh M-ATV (TOW)": 1200,
+                "🇺🇸 | MIM-104 «Пэтриот»": 60,
+                "🇺🇸 | Ground-based Midcourse Defense": 10,
+                "🇺🇸 | AN/TPS-70": 50,
+                "🇺🇸 | THAAD": 100,
+                "🇺🇸 | M1296 Stryker Dragoon": 2000,
+                "🇺🇸 | FIM-92 Stinger": 4000,
+                "🇺🇸 | M2A3": 900,
+                "🇺🇸 | M1134 Anti-Tank Guided Missile Vehicle": 1000,
+                "🇺🇸 | M1A2 SEP V2": 1500,
+                "FPV-дрон": 5000,
+                "ЗУР Малой дальности": 3000,
+                "ЗУР Средней дальности": 2001,
+                "ЗУР Большой дальности": 1000,
+                "🇺🇸 | BGM-109 Block IV": 2000
+            }
+        },
+        "industry": {
+            "hydro_dam": {
+                "count": 13,
+                "total_jobs": 9806
+            },
+            "chem": {
+                "count": 2213,
+                "total_jobs": 1600569
+            },
+            "npp": {
+                "count": 72,
+                "total_jobs": 252653
+            },
+            "college": {
+                "count": 1614,
+                "total_jobs": 412903
+            },
+            "mall": {
+                "count": 2130,
+                "total_jobs": 845570
+            },
+            "met": {
+                "count": 1877,
+                "total_jobs": 7515668
+            },
+            "port": {
+                "count": 503,
+                "total_jobs": 683645
+            },
+            "university": {
+                "count": 1520,
+                "total_jobs": 1359371
+            },
+            "school": {
+                "count": 2120,
+                "total_jobs": 199944
+            },
+            "light": {
+                "count": 1816,
+                "total_jobs": 1095470
+            },
+            "food": {
+                "count": 2224,
+                "total_jobs": 1042209
+            },
+            "mach": {
+                "count": 1565,
+                "total_jobs": 3176905
+            },
+            "wood": {
+                "count": 2016,
+                "total_jobs": 1204783
+            },
+            "supermarket": {
+                "count": 5350,
+                "total_jobs": 538208
+            },
+            "market": {
+                "count": 16200,
+                "total_jobs": 5262308
+            },
+            "shop": {
+                "count": 5120,
+                "total_jobs": 63926
+            },
+            "salon": {
+                "count": 5100,
+                "total_jobs": 126904
+            },
+            "pharmacy": {
+                "count": 4250,
+                "total_jobs": 34020
+            },
+            "agrocomplex": {
+                "count": 6220,
+                "total_jobs": 463254
+            },
+            "greenhouse": {
+                "count": 4760,
+                "total_jobs": 903425
+            },
+            "plantation": {
+                "count": 19220,
+                "total_jobs": 2288798
+            },
+            "fish": {
+                "count": 2030,
+                "total_jobs": 103113
+            },
+            "garden": {
+                "count": 11000,
+                "total_jobs": 413521
+            },
+            "clinic": {
+                "count": 2700,
+                "total_jobs": 1296554
+            },
+            "kindergarten": {
+                "count": 1200,
+                "total_jobs": 47218
+            },
+            "pharma": {
+                "count": 1750,
+                "total_jobs": 331172
+            },
+            "warehouse": {
+                "count": 2450,
+                "total_jobs": 379775
+            },
+            "log_center": {
+                "count": 1700,
+                "total_jobs": 845016
+            },
+            "sorting": {
+                "count": 2300,
+                "total_jobs": 704564
+            },
+            "dentistry": {
+                "count": 1700,
+                "total_jobs": 55457
+            },
+            "ambulatory": {
+                "count": 2000,
+                "total_jobs": 26169
+            }
+        },
+        "birth_rate": 10.7,
+        "resource_index": 2.0,
+        "continent": "Северная Америка",
+        "reform_limit_used": 500000000000,
+        "license_role_id": 1532798369922027791,
+        "invest_mode": "free",
+        "pay_mode": "ask",
+        "registration_date": "2026-07-31T17:13:29.573767+00:00",
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 2930164166272,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "1137392083821416478",
+                "investor_country": "Германия",
+                "amount": 1152783326276,
+                "share_percent": 5.88228032793248,
+                "date": "2026-08-01"
+            },
+            {
+                "investor_id": "967200323909349396",
+                "investor_country": "Индонезия",
+                "amount": 1393357787057,
+                "share_percent": 5.968701305831566,
+                "date": "2026-08-01"
+            },
+            {
+                "investor_id": "830428424677490728",
+                "investor_country": "Бразилия",
+                "amount": 2191805286996,
+                "share_percent": 6.952320385129139,
+                "date": "2026-08-01"
+            },
+            {
+                "investor_id": "955060237449166938",
+                "investor_country": "США",
+                "amount": 3620083180686,
+                "share_percent": 12.20570007614652,
+                "date": "2026-08-02"
+            },
+            {
+                "investor_id": "1111681490976264214",
+                "investor_country": "Израиль",
+                "amount": 603838722393,
+                "share_percent": 1.0198751459412125,
+                "date": "2026-08-08"
+            }
+        ],
+        "licenses": [
+            "955060237449166938"
+        ],
+        "license_price": 0,
+        "support": 93.6,
+        "corruption": 18.832671964577543,
+        "corruption_reform": [
+            {
+                "effect": 14.0,
+                "timestamp": "2026-08-08T13:32:54.097878+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Промышленность",
+                "amount": 1500000000000
+            },
+            {
+                "sphere": "Сельское хозяйство",
+                "amount": 500000000000
+            },
+            {
+                "sphere": "Образование",
+                "amount": 200000000000
+            },
+            {
+                "sphere": "Инфраструктура",
+                "amount": 300000000000
+            },
+            {
+                "sphere": "Прочее",
+                "amount": 1500000000000
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": "СГО"
+        },
+        "last_collect": "2026-08-08T13:16:41.553739+00:00",
+        "infrastructure": {
+            "npp": 59,
+            "hydro_dam": 8
+        },
+        "ideology": {
+            "state": "Президентская республика",
+            "economy": "Смешанная экономика"
+        },
+        "daily_received": 568651693902,
+        "transfer_reset_date": "2026-08-06",
+        "received_reset": "2026-08-08",
+        "taxes": {
+            "nds": 32,
+            "ndfl": 32
+        },
+        "last_tax_change": "2026-08-03T14:06:52.427957+00:00",
+        "reform_reset_date": "2026-08-08",
+        "last_gdp_news": "2026-08-03T07:37:31.651443+00:00",
+        "last_sanction_date": "2026-08-07T21:23:00.021870+00:00",
+        "shield": null,
+        "license_dates": {
+            "955060237449166938": "2026-08-02T18:41:38.662485+00:00"
+        },
+        "imf_profit_available": 526767698.1555287,
+        "imf_profit_claimed": 60447009052.0
+    },
+    "1246466628863004692": {
+        "type": "country",
+        "country": "Венгрия",
+        "gdp": 904324913740,
+        "base_gdp": 138676000000,
+        "population": 10190503,
+        "balance": 0,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {
+                "🇩🇪 | Leopard 2A7": 201,
+                "FPV-дрон": 45001,
+                "Контрактник": 130000,
+                "🇩🇪 | Wiesel 2 LeFlaSys": 1001,
+                "🇩🇪 | MAN HX58": 2000,
+                "🇩🇪 | FH70": 300
+            },
+            "non_active": {
+                "Контрактник": 70000,
+                "FPV-дрон": 15000,
+                "🇩🇪 | Leopard 2A7": 200
+            }
+        },
+        "industry": {
+            "mach": {
+                "count": 25,
+                "total_jobs": 50215
+            },
+            "tpp": {
+                "count": 1450,
+                "total_jobs": 552514
+            },
+            "plantation": {
+                "count": 300,
+                "total_jobs": 36420
+            },
+            "pharma": {
+                "count": 1620,
+                "total_jobs": 305085
+            },
+            "food": {
+                "count": 626,
+                "total_jobs": 301944
+            },
+            "sorting": {
+                "count": 600,
+                "total_jobs": 188494
+            },
+            "kindergarten": {
+                "count": 1350,
+                "total_jobs": 54907
+            },
+            "school": {
+                "count": 1200,
+                "total_jobs": 113500
+            },
+            "warehouse": {
+                "count": 4200,
+                "total_jobs": 646115
+            },
+            "supermarket": {
+                "count": 3600,
+                "total_jobs": 356901
+            },
+            "chem": {
+                "count": 2042,
+                "total_jobs": 1499423
+            },
+            "light": {
+                "count": 126,
+                "total_jobs": 74021
+            },
+            "wood": {
+                "count": 3000,
+                "total_jobs": 1803478
+            },
+            "market": {
+                "count": 4600,
+                "total_jobs": 1480390
+            },
+            "met": {
+                "count": 20,
+                "total_jobs": 89655
+            },
+            "mall": {
+                "count": 3000,
+                "total_jobs": 1197222
+            },
+            "greenhouse": {
+                "count": 12000,
+                "total_jobs": 2279002
+            },
+            "port": {
+                "count": 19,
+                "total_jobs": 29422
+            },
+            "clinic": {
+                "count": 300,
+                "total_jobs": 143939
+            },
+            "college": {
+                "count": 500,
+                "total_jobs": 132235
+            },
+            "university": {
+                "count": 200,
+                "total_jobs": 177450
+            }
+        },
+        "birth_rate": 9.3,
+        "resource_index": 5.0,
+        "continent": "Европа",
+        "reform_limit_used": 300000000000,
+        "license_role_id": 1533238706125930496,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-01T22:23:13.880836+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 400000000000,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "1532495116747538538",
+                "investor_country": "Канада",
+                "amount": 469338000000,
+                "share_percent": 14.891664215897155,
+                "date": "2026-08-01"
+            },
+            {
+                "investor_id": "955060237449166938",
+                "investor_country": "США",
+                "amount": 102461709113,
+                "share_percent": 7.340403673221181,
+                "date": "2026-08-02"
+            }
+        ],
+        "licenses": [
+            "1137392083821416478"
+        ],
+        "license_price": 0,
+        "support": 89.6,
+        "corruption": 15.545363186136694,
+        "corruption_reform": [
+            {
+                "effect": 6.0,
+                "timestamp": "2026-08-07T17:24:24.571424+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Инфраструктура",
+                "amount": 10632762201
+            },
+            {
+                "sphere": "Промышленность",
+                "amount": 750000000
+            },
+            {
+                "sphere": "Здравоохранение",
+                "amount": 12200000000
+            },
+            {
+                "sphere": "Прочее",
+                "amount": 1102876854330
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "tech",
+        "alliance_type": {
+            "economic": null,
+            "military": null,
+            "intergovernmental": "ЕС"
+        },
+        "last_collect": "2026-08-08T12:35:48.261468+00:00",
+        "ideology": {
+            "state": "Абсолютная монархия",
+            "economy": "Смешанная экономика"
+        },
+        "received_reset": "2026-08-08",
+        "reform_reset_date": "2026-08-08",
+        "daily_received": 300000000000,
+        "transfer_reset_date": "2026-08-02",
+        "infrastructure": {
+            "tpp": 1450
+        },
+        "taxes": {
+            "nds": 27,
+            "ndfl": 20
+        },
+        "last_tax_change": "2026-08-04T10:39:15.297850+00:00",
+        "last_gdp_news": "2026-08-06T12:04:24.226857+00:00",
+        "license_dates": {
+            "1137392083821416478": "2026-08-06T16:33:31.164497+00:00"
+        },
+        "last_sanction_date": "2026-08-06T19:07:53.149263+00:00"
+    },
+    "1246053606835355729": {
+        "type": "country",
+        "country": "Новая Зеландия",
+        "gdp": 237491535000,
+        "base_gdp": 204551000000,
+        "population": 4703735,
+        "balance": 195504777173,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇳🇿 | HMNZS Te Mana": 20,
+                "🇳🇿 | NZLAV": 100,
+                "🇳🇿 | HMNZS Taupo": 50
+            }
+        },
+        "industry": {
+            "school": {
+                "count": 421,
+                "total_jobs": 39656
+            },
+            "college": {
+                "count": 307,
+                "total_jobs": 81347
+            },
+            "light": {
+                "count": 206,
+                "total_jobs": 124975
+            },
+            "wood": {
+                "count": 1408,
+                "total_jobs": 858694
+            },
+            "npp": {
+                "count": 5,
+                "total_jobs": 19737
+            },
+            "met": {
+                "count": 137,
+                "total_jobs": 542249
+            },
+            "log_center": {
+                "count": 100,
+                "total_jobs": 47499
+            },
+            "mall": {
+                "count": 100,
+                "total_jobs": 39243
+            },
+            "mach": {
+                "count": 311,
+                "total_jobs": 661067
+            },
+            "food": {
+                "count": 1502,
+                "total_jobs": 711538
+            },
+            "clinic": {
+                "count": 50,
+                "total_jobs": 22443
+            },
+            "kindergarten": {
+                "count": 400,
+                "total_jobs": 15861
+            },
+            "university": {
+                "count": 250,
+                "total_jobs": 216932
+            },
+            "hydro_dam": {
+                "count": 15,
+                "total_jobs": 14752
+            },
+            "pharma": {
+                "count": 100,
+                "total_jobs": 18987
+            },
+            "dentistry": {
+                "count": 490,
+                "total_jobs": 15951
+            },
+            "greenhouse": {
+                "count": 500,
+                "total_jobs": 93789
+            },
+            "agrocomplex": {
+                "count": 350,
+                "total_jobs": 26296
+            },
+            "garden": {
+                "count": 1000,
+                "total_jobs": 37641
+            },
+            "port": {
+                "count": 100,
+                "total_jobs": 147780
+            },
+            "sorting": {
+                "count": 100,
+                "total_jobs": 28611
+            },
+            "warehouse": {
+                "count": 250,
+                "total_jobs": 36659
+            },
+            "ambulatory": {
+                "count": 300,
+                "total_jobs": 3870
+            },
+            "supermarket": {
+                "count": 1500,
+                "total_jobs": 148729
+            },
+            "market": {
+                "count": 200,
+                "total_jobs": 66512
+            },
+            "pharmacy": {
+                "count": 4000,
+                "total_jobs": 32094
+            },
+            "shop": {
+                "count": 5000,
+                "total_jobs": 62624
+            },
+            "salon": {
+                "count": 200,
+                "total_jobs": 5187
+            },
+            "plantation": {
+                "count": 1000,
+                "total_jobs": 118502
+            },
+            "chem": {
+                "count": 264,
+                "total_jobs": 194168
+            },
+            "fish": {
+                "count": 5000,
+                "total_jobs": 249559
+            }
+        },
+        "birth_rate": 13.0,
+        "resource_index": 4.0,
+        "continent": "Австралия и Океания",
+        "reform_limit_used": 0,
+        "license_role_id": 1533461053483122820,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-02T13:06:45.698854+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 52.400000000000006,
+        "corruption": 34.33343320178542,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": "СГО"
+        },
+        "ideology": {
+            "economy": "Плановая экономика",
+            "state": "Парламентская монархия"
+        },
+        "last_collect": "2026-08-07T19:01:14.901391+00:00",
+        "taxes": {
+            "nds": 20,
+            "ndfl": 27
+        },
+        "last_tax_change": "2026-08-03T19:55:13.123406+00:00",
+        "infrastructure": {
+            "npp": 5,
+            "hydro_dam": 15
+        },
+        "received_reset": "2026-08-03"
+    },
+    "916907042545999883": {
+        "type": "country",
+        "country": "Мозамбик",
+        "gdp": 124942871066,
+        "base_gdp": 17852000000,
+        "population": 30997974,
+        "balance": 38022965963,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {
+                "Контрактник": 10000
+            },
+            "non_active": {}
+        },
+        "industry": {
+            "agrocomplex": {
+                "count": 284,
+                "total_jobs": 21672
+            },
+            "greenhouse": {
+                "count": 3344,
+                "total_jobs": 637828
+            },
+            "plantation": {
+                "count": 86,
+                "total_jobs": 9333
+            },
+            "fish": {
+                "count": 3084,
+                "total_jobs": 154611
+            },
+            "garden": {
+                "count": 16084,
+                "total_jobs": 605307
+            },
+            "tpp": {
+                "count": 2,
+                "total_jobs": 421
+            },
+            "wood": {
+                "count": 8810,
+                "total_jobs": 5281031
+            },
+            "log_center": {
+                "count": 635,
+                "total_jobs": 313569
+            },
+            "mall": {
+                "count": 55,
+                "total_jobs": 21756
+            },
+            "hydro_dam": {
+                "count": 14,
+                "total_jobs": 13464
+            },
+            "met": {
+                "count": 296,
+                "total_jobs": 1233915
+            },
+            "school": {
+                "count": 10,
+                "total_jobs": 876
+            },
+            "clinic": {
+                "count": 205,
+                "total_jobs": 95935
+            },
+            "market": {
+                "count": 110,
+                "total_jobs": 36398
+            },
+            "food": {
+                "count": 4255,
+                "total_jobs": 2026822
+            },
+            "port": {
+                "count": 4,
+                "total_jobs": 5689
+            },
+            "chem": {
+                "count": 890,
+                "total_jobs": 654912
+            },
+            "mach": {
+                "count": 145,
+                "total_jobs": 298133
+            },
+            "university": {
+                "count": 105,
+                "total_jobs": 97930
+            },
+            "light": {
+                "count": 18500,
+                "total_jobs": 11099017
+            },
+            "pharma": {
+                "count": 110,
+                "total_jobs": 19844
+            },
+            "kindergarten": {
+                "count": 300,
+                "total_jobs": 12130
+            },
+            "supermarket": {
+                "count": 525,
+                "total_jobs": 53033
+            },
+            "shop": {
+                "count": 2100,
+                "total_jobs": 26174
+            },
+            "pharmacy": {
+                "count": 200,
+                "total_jobs": 1620
+            },
+            "npp": {
+                "count": 2,
+                "total_jobs": 7139
+            },
+            "salon": {
+                "count": 500,
+                "total_jobs": 12154
+            }
+        },
+        "birth_rate": 39.4,
+        "resource_index": 4.0,
+        "continent": "Африка",
+        "reform_limit_used": 0,
+        "license_role_id": 1533802184402272256,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-03T11:42:17.537979+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "484044030640914437",
+                "investor_country": "ЮАР",
+                "amount": 19722927385,
+                "share_percent": 15.770345230921722,
+                "date": "2026-08-03"
+            },
+            {
+                "investor_id": "1246466628863004692",
+                "investor_country": "Венгрия",
+                "amount": 2494650512,
+                "share_percent": 1.664595246196681,
+                "date": "2026-08-04"
+            },
+            {
+                "investor_id": "925805041732976762",
+                "investor_country": "Испания",
+                "amount": 97792277,
+                "share_percent": 0.062279260156453804,
+                "date": "2026-08-04"
+            },
+            {
+                "investor_id": "867726527688081408",
+                "investor_country": "КНР",
+                "amount": 17118159516,
+                "share_percent": 9.090909090715977,
+                "date": "2026-08-05"
+            }
+        ],
+        "licenses": [],
+        "license_price": 0,
+        "support": 56.2,
+        "corruption": 22.51076095087441,
+        "corruption_reform": [
+            {
+                "effect": 12.0,
+                "timestamp": "2026-08-08T06:53:58.833962+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Инфраструктура",
+                "amount": 9600000000
+            },
+            {
+                "sphere": "Сельское хозяйство",
+                "amount": 18300000000
+            },
+            {
+                "sphere": "Здравоохранение",
+                "amount": 8300000000
+            },
+            {
+                "sphere": "Образование",
+                "amount": 5200000000
+            },
+            {
+                "sphere": "Промышленность",
+                "amount": 22500000000
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "agriculture",
+        "alliance_type": {
+            "economic": "Сообщество развития Юга Африки",
+            "military": null
+        },
+        "ideology": {
+            "state": "Президентская республика",
+            "economy": "Смешанная экономика"
+        },
+        "last_collect": "2026-08-08T16:34:11.919748+00:00",
+        "reform_reset_date": "2026-08-07",
+        "received_reset": "2026-08-05",
+        "infrastructure": {
+            "tpp": 2,
+            "hydro_dam": 14,
+            "npp": 2
+        },
+        "taxes": {
+            "nds": 25,
+            "ndfl": 25
+        },
+        "last_tax_change": "2026-08-04T05:31:44.634938+00:00",
+        "daily_received": 212937437511,
+        "transfer_reset_date": "2026-08-07"
+    },
+    "863788821899509770": {
+        "type": "country",
+        "country": "Латвия",
+        "gdp": 47789267977,
+        "base_gdp": 34690000000,
+        "population": 2002598,
+        "balance": 87278590947,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {
+                "Контрактник": 10000,
+                "FPV-дрон": 1000
+            },
+            "non_active": {}
+        },
+        "industry": {
+            "solar_farm": {
+                "count": 1,
+                "total_jobs": 65
+            },
+            "met": {
+                "count": 31,
+                "total_jobs": 115174
+            },
+            "mall": {
+                "count": 1,
+                "total_jobs": 419
+            },
+            "wind_turbine": {
+                "count": 53,
+                "total_jobs": 3547
+            },
+            "wood": {
+                "count": 453,
+                "total_jobs": 266491
+            },
+            "tpp": {
+                "count": 3,
+                "total_jobs": 1355
+            },
+            "light": {
+                "count": 302,
+                "total_jobs": 188723
+            },
+            "port": {
+                "count": 1,
+                "total_jobs": 1523
+            },
+            "log_center": {
+                "count": 5,
+                "total_jobs": 2023
+            },
+            "warehouse": {
+                "count": 20,
+                "total_jobs": 2980
+            },
+            "hydro_dam": {
+                "count": 1,
+                "total_jobs": 1130
+            },
+            "food": {
+                "count": 2,
+                "total_jobs": 1096
+            },
+            "mach": {
+                "count": 3,
+                "total_jobs": 5845
+            },
+            "chem": {
+                "count": 2,
+                "total_jobs": 1074
+            }
+        },
+        "birth_rate": 10.8,
+        "resource_index": 5.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1533913695770509583,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-03T19:05:23.932475+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.4,
+        "corruption": 16.19248044813889,
+        "corruption_reform": [],
+        "reforms": [
+            {
+                "sphere": "Промышленность",
+                "amount": 19181000000
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null,
+            "intergovernmental": null
+        },
+        "last_collect": "2026-08-04T19:55:52.505416+00:00",
+        "infrastructure": {
+            "solar_farm": 1,
+            "wind_turbine": 53,
+            "tpp": 3,
+            "hydro_dam": 1
+        },
+        "ideology": {
+            "state": "Парламентская республика",
+            "economy": "Смешанная экономика"
+        },
+        "received_reset": "2026-08-03",
+        "reform_reset_date": "2026-08-04",
+        "daily_received": 100000000000,
+        "transfer_reset_date": "2026-08-04"
+    },
+    "848822433398259723": {
+        "type": "country",
+        "country": "Сербия",
+        "gdp": 45710739000,
+        "base_gdp": 45450000000,
+        "population": 7151589,
+        "balance": 22864316160,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "Контрактник": 165,
+                "FPV-дрон": 150
+            }
+        },
+        "industry": {
+            "light": {
+                "count": 63,
+                "total_jobs": 38200
+            },
+            "supermarket": {
+                "count": 30,
+                "total_jobs": 2754
+            }
+        },
+        "birth_rate": 9.3,
+        "resource_index": 5.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1533960386058129569,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-03T22:10:55.743749+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 43.8,
+        "corruption": 15.826781987777778,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-04T20:29:21.404373+00:00"
+    },
+    "1011900625673531403": {
+        "type": "country",
+        "country": "Финляндия",
+        "gdp": 313910221306,
+        "base_gdp": 274116000000,
+        "population": 5491767,
+        "balance": 12671416993,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "school": {
+                "count": 5000,
+                "total_jobs": 478241
+            },
+            "mall": {
+                "count": 500,
+                "total_jobs": 196130
+            },
+            "clinic": {
+                "count": 900,
+                "total_jobs": 422606
+            },
+            "university": {
+                "count": 100,
+                "total_jobs": 84566
+            },
+            "hydro_dam": {
+                "count": 5,
+                "total_jobs": 3847
+            },
+            "tpp": {
+                "count": 100,
+                "total_jobs": 35423
+            },
+            "chem": {
+                "count": 300,
+                "total_jobs": 218852
+            },
+            "met": {
+                "count": 60,
+                "total_jobs": 242452
+            }
+        },
+        "birth_rate": 10.5,
+        "resource_index": 4.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1534267319587573920,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-04T18:30:34.516624+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 44.3,
+        "corruption": 10.684884259585722,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-04T20:14:51.468154+00:00",
+        "infrastructure": {
+            "hydro_dam": 5,
+            "tpp": 100
+        },
+        "ideology": {
+            "state": "Президентская республика",
+            "economy": "Рыночная экономика"
+        }
+    },
+    "867726527688081408": {
+        "type": "country",
+        "country": "КНР",
+        "gdp": 21754215843219,
+        "base_gdp": 10475686000000,
+        "population": 1526153260,
+        "balance": 46262814677,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇨🇳 | KJ-2000": 7,
+                "🇨🇳 | \"Куньмин\"": 11,
+                "Контрактник": 100000,
+                "FPV-дрон": 500000,
+                "ЗУР Малой дальности": 20000,
+                "ЗУР Средней дальности": 5000,
+                "ЗУР Большой дальности": 2000,
+                "🇨🇳 | \"Чанбайшань\"": 20,
+                "🇨🇳 | \"Сюйчжоу\"": 20,
+                "🇨🇳 | \"Пётр Великий\"": 1,
+                "🇨🇳 | \"342\"": 10,
+                "🇨🇳 | \"Changzheng 7\"": 3,
+                "🇨🇳 | \"Ляолин\"": 1,
+                "🇨🇳 | Yu-6": 1000,
+                "🇨🇳 | \"Бизон\"": 10,
+                "🇨🇳 | Тип 724 LCAC": 80,
+                "🇨🇳 | Z-8JH": 100,
+                "🇨🇳 | WZ-10": 50,
+                "🇨🇳 | Wing Loong 1": 50,
+                "🇨🇳 | Y-9": 70,
+                "🇨🇳 | JH-7A": 60,
+                "🇨🇳 | Шэньян J-11B": 150,
+                "🇨🇳 | Шэньян J-15": 30,
+                "🇨🇳 | Шэньян J-31": 20,
+                "🇨🇳 | H-6G": 4,
+                "🇨🇳 | H-6M": 20,
+                "🇨🇳 | HJ-12": 1000,
+                "🇨🇳 | Тип 87 82мм": 1000,
+                "🇨🇳 | FN-16": 1000,
+                "🇨🇳 | FAW MV3": 5000,
+                "🇨🇳 | PGZ-09": 200,
+                "🇨🇳 | PLL-05": 50,
+                "🇨🇳 | HQ-17": 30,
+                "🇨🇳 | 90Н6-М \"Дарьял\"": 5,
+                "🇨🇳 | 55Ж6М \"Небо-М\"": 10,
+                "🇨🇳 | 92Н6Е (С-400)": 10,
+                "🇨🇳 | C-400": 10,
+                "🇨🇳 | ZTZ-99A2": 400,
+                "🇨🇳 | SCL-2": 10,
+                "🇨🇳 | WS2600": 10,
+                "🇨🇳 | WS2400": 40,
+                "🇨🇳 | ZBD-04": 600,
+                "🇨🇳 | PLZ-05": 400,
+                "🇨🇳 | AFT-9": 15,
+                "🇨🇳 | ST1": 50,
+                "🇨🇳 | GZM-003": 30,
+                "🇨🇳 | Тип 653": 30,
+                "🇨🇳 | PHL-11": 300,
+                "🇨🇳 | PHL-03": 300,
+                "🇨🇳 | Тип 66": 300,
+                "🇨🇳 | PL-12A": 3000,
+                "🇨🇳 | PL-8B": 6000,
+                "🇨🇳 | CJ-10A": 100,
+                "🇨🇳 | DF-15C": 50,
+                "🇨🇳 | YJ-18": 100,
+                "🇨🇳 | CJ-20": 100,
+                "🇨🇳 | П-700 \"Гранит\"": 20
+            }
+        },
+        "industry": {
+            "tpp": {
+                "count": 1666,
+                "total_jobs": 629670
+            },
+            "light": {
+                "count": 275019,
+                "total_jobs": 164871650
+            },
+            "wood": {
+                "count": 90014,
+                "total_jobs": 53909634
+            },
+            "npp": {
+                "count": 154,
+                "total_jobs": 527932
+            },
+            "mach": {
+                "count": 14823,
+                "total_jobs": 30357199
+            },
+            "chem": {
+                "count": 70018,
+                "total_jobs": 50952567
+            },
+            "met": {
+                "count": 9812,
+                "total_jobs": 39128509
+            },
+            "hydro_dam": {
+                "count": 3000,
+                "total_jobs": 2697339
+            },
+            "food": {
+                "count": 70013,
+                "total_jobs": 33234591
+            },
+            "shop": {
+                "count": 99999,
+                "total_jobs": 1249300
+            },
+            "mall": {
+                "count": 110000,
+                "total_jobs": 44082015
+            },
+            "market": {
+                "count": 244998,
+                "total_jobs": 79623220
+            },
+            "pharmacy": {
+                "count": 99999,
+                "total_jobs": 800190
+            },
+            "port": {
+                "count": 10000,
+                "total_jobs": 13559323
+            },
+            "log_center": {
+                "count": 46000,
+                "total_jobs": 23016232
+            },
+            "warehouse": {
+                "count": 99999,
+                "total_jobs": 15503881
+            }
+        },
+        "birth_rate": 12.4,
+        "resource_index": 3.0,
+        "continent": "Азия",
+        "reform_limit_used": 0,
+        "license_role_id": 1534287800537579581,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-04T19:51:57.448088+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [
+            "743928599316398152"
+        ],
+        "license_price": 0,
+        "support": 43.900000000000006,
+        "corruption": 6.552684799004185,
+        "corruption_reform": [
+            {
+                "effect": 6.0,
+                "timestamp": "2026-08-04T20:14:32.473508+00:00"
+            }
+        ],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "ideology": {
+            "state": "Однопартийная республика",
+            "economy": "Смешанная экономика"
+        },
+        "last_collect": "2026-08-05T10:37:39.781772+00:00",
+        "infrastructure": {
+            "hydro_dam": 1800,
+            "npp": 100,
+            "tpp": 1000
+        }
+    },
+    "1135494383773433937": {
+        "type": "organization",
+        "country": "DynCorp",
+        "org_type": "Частная",
+        "host_country": "США",
+        "gdp": 0,
+        "base_gdp": 0,
+        "balance": 10805443856735,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {
+                "ЗУР Малой дальности": 2000,
+                "ЗУР Средней дальности": 1000,
+                "ЗУР Большой дальности": 500,
+                "Противоракета большой дальности": 200,
+                "🇺🇸 | AN/TPQ-36": 100,
+                "🇺🇸 | AN/MPQ-64 Sentinel": 100
+            },
+            "non_active": {
+                "Наёмник": 600000,
+                "🇩🇪 | MAN HX58": 10000,
+                "🇩🇪 | Airbus A400M": 300,
+                "🇩🇪 | Dingo ATF": 1600,
+                "🇩🇪 | Gepard": 300,
+                "🇩🇪 | FH70": 600,
+                "🇺🇸 | C-5M Super Galaxy": 10,
+                "🇺🇸 | CH-53E Super Stallion": 60,
+                "FPV-дрон": 100000,
+                "🇺🇸 | GBU-38 JDAM-ER": 2000,
+                "🇺🇸 | F-15E Strike Eagle": 100,
+                "🇺🇸 | Boeing EA-18G Growler": 5,
+                "🇺🇸 | Boeing E-3 Sentry": 3,
+                "🇺🇸 | RQ-4B Global Hawk": 20,
+                "🇺🇸 | AGM-158B JASSM-ER": 584,
+                "🇺🇸 | B-1B Lancer": 10,
+                "🇺🇸 | AIM-120D AMRAAM": 100,
+                "🇩🇪 | MBDA Meteor": 100,
+                "🇺🇸 | FGM-148 Javelin": 2000,
+                "🇺🇸 | M88A2 Hercules": 100,
+                "🇺🇸 | M1097 Avenger": 200,
+                "🇺🇸 | M2A3": 700,
+                "🇺🇸 | M1A2 SEP V2": 200,
+                "🇩🇪 | IRIS-T SLM": 50,
+                "🇩🇪 | Leguan": 50,
+                "🇩🇪 | PzH 2000": 200,
+                "🇩🇪 | Fennek": 500,
+                "🇺🇸 | MIM-104 «Пэтриот»": 100
+            }
+        },
+        "license_role_id": null,
+        "pay_mode": "ask",
+        "registration_date": "2026-08-04T19:58:03.000633+00:00",
+        "shield": null,
+        "licenses": [
+            "1137392083821416478",
+            "955060237449166938"
+        ],
+        "invest_mode": "free",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "license_price": 0,
+        "energy_shield": null,
+        "license_dates": {
+            "1137392083821416478": "2026-08-05T15:43:45.652553+00:00",
+            "955060237449166938": "2026-08-05T15:47:37.010398+00:00"
+        }
+    },
+    "1197560940661571597": {
+        "type": "country",
+        "country": "Хорватия",
+        "gdp": 102148748440,
+        "base_gdp": 57697000000,
+        "population": 4345331,
+        "balance": 48260731641,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇭🇷 | M-84A4 Snajper": 20,
+                "🇭🇷 | LOV-1": 30,
+                "Контрактник": 20000,
+                "🇩🇪 | FH70": 10,
+                "🇩🇪 | MAN HX58": 20
+            }
+        },
+        "industry": {
+            "hydro_dam": {
+                "count": 1,
+                "total_jobs": 1318
+            },
+            "greenhouse": {
+                "count": 22966,
+                "total_jobs": 4378958
+            },
+            "mach": {
+                "count": 2,
+                "total_jobs": 4843
+            },
+            "agrocomplex": {
+                "count": 57,
+                "total_jobs": 4441
+            },
+            "plantation": {
+                "count": 57,
+                "total_jobs": 7038
+            },
+            "fish": {
+                "count": 57,
+                "total_jobs": 2604
+            },
+            "garden": {
+                "count": 57,
+                "total_jobs": 2201
+            },
+            "npp": {
+                "count": 3,
+                "total_jobs": 10635
+            },
+            "met": {
+                "count": 45,
+                "total_jobs": 194883
+            }
+        },
+        "birth_rate": 9.3,
+        "resource_index": 5.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1534298023037767702,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-04T20:32:35.108740+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "897130924951634021",
+                "investor_country": "Италия",
+                "amount": 84484952059,
+                "share_percent": 16.513761467841725,
+                "date": "2026-08-06"
+            }
+        ],
+        "licenses": [],
+        "license_price": 0,
+        "support": 69.49999999999999,
+        "corruption": 15.595222011539722,
+        "corruption_reform": [
+            {
+                "effect": 13.0,
+                "timestamp": "2026-08-06T08:51:02.966982+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Сельское хозяйство",
+                "amount": 30953414316
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "agriculture",
+        "alliance_type": {
+            "economic": null,
+            "military": null,
+            "intergovernmental": "ЕС"
+        },
+        "ideology": {
+            "state": "Парламентская республика",
+            "economy": "Смешанная экономика"
+        },
+        "last_collect": "2026-08-08T09:26:17.651795+00:00",
+        "infrastructure": {
+            "hydro_dam": 1,
+            "npp": 3
+        },
+        "reform_reset_date": "2026-08-06",
+        "daily_received": 180121630821,
+        "transfer_reset_date": "2026-08-05",
+        "taxes": {
+            "nds": 20,
+            "ndfl": 20
+        },
+        "last_tax_change": "2026-08-05T22:48:53.229952+00:00",
+        "received_reset": "2026-08-07"
+    },
+    "641170156357419009": {
+        "type": "country",
+        "country": "Замбия",
+        "gdp": 73761675000,
+        "base_gdp": 27100000000,
+        "population": 16453223,
+        "balance": 28003350000,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "light": {
+                "count": 6610,
+                "total_jobs": 3952348
+            },
+            "supermarket": {
+                "count": 340,
+                "total_jobs": 33697
+            },
+            "chem": {
+                "count": 7,
+                "total_jobs": 5860
+            },
+            "met": {
+                "count": 7,
+                "total_jobs": 27621
+            },
+            "plantation": {
+                "count": 15680,
+                "total_jobs": 1888000
+            },
+            "wood": {
+                "count": 4,
+                "total_jobs": 1960
+            },
+            "mach": {
+                "count": 8,
+                "total_jobs": 15334
+            },
+            "food": {
+                "count": 2,
+                "total_jobs": 945
+            },
+            "sorting": {
+                "count": 1000,
+                "total_jobs": 306729
+            },
+            "warehouse": {
+                "count": 5000,
+                "total_jobs": 770376
+            },
+            "diesel_gen": {
+                "count": 50000,
+                "total_jobs": 651617
+            },
+            "port": {
+                "count": 30,
+                "total_jobs": 45529
+            },
+            "clinic": {
+                "count": 1544,
+                "total_jobs": 732318
+            },
+            "market": {
+                "count": 10060,
+                "total_jobs": 3262866
+            },
+            "university": {
+                "count": 1000,
+                "total_jobs": 885508
+            }
+        },
+        "birth_rate": 39.5,
+        "resource_index": 5.0,
+        "continent": "Африка",
+        "reform_limit_used": 0,
+        "license_role_id": 1534480434543726592,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-05T08:37:25.004982+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 20.680293008291663,
+        "corruption_reform": [
+            {
+                "effect": 5.0,
+                "timestamp": "2026-08-06T14:58:22.921856+00:00"
+            }
+        ],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": "Сообщество развития Юга Африки",
+            "military": null
+        },
+        "last_collect": "2026-08-08T16:22:32.918821+00:00",
+        "ideology": {
+            "state": "Теократия",
+            "economy": "Плановая экономика"
+        },
+        "taxes": {
+            "nds": 35,
+            "ndfl": 35
+        },
+        "last_tax_change": "2026-08-06T13:23:04.948513+00:00",
+        "infrastructure": {
+            "diesel_gen": 50000
+        }
+    },
+    "1334532453238440000": {
+        "type": "country",
+        "country": "Зимбабве",
+        "gdp": 28605850000,
+        "base_gdp": 19400000000,
+        "population": 13775696,
+        "balance": 19700000,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "wood": {
+                "count": 4944,
+                "total_jobs": 2963547
+            },
+            "mach": {
+                "count": 1,
+                "total_jobs": 1428
+            },
+            "light": {
+                "count": 2,
+                "total_jobs": 490
+            },
+            "chem": {
+                "count": 3,
+                "total_jobs": 1923
+            },
+            "met": {
+                "count": 1,
+                "total_jobs": 5217
+            },
+            "mall": {
+                "count": 511,
+                "total_jobs": 202856
+            }
+        },
+        "birth_rate": 34.0,
+        "resource_index": 5.0,
+        "continent": "Африка",
+        "reform_limit_used": 0,
+        "license_role_id": 1534574961786884188,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-05T14:53:02.094525+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 15.235658979961805,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": "Сообщество развития Юга Африки",
+            "military": null
+        },
+        "received_reset": "2026-08-05",
+        "ideology": {
+            "state": "Однопартийная республика",
+            "economy": "Смешанная экономика"
+        },
+        "last_collect": "2026-08-06T08:05:41.650448+00:00"
+    },
+    "743928599316398152": {
+        "type": "autonomy",
+        "country": "Маньчжурия",
+        "host_country": "КНР",
+        "gdp": 585493046993,
+        "base_gdp": 574000000000,
+        "population": 109463652,
+        "balance": 0,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {},
+        "birth_rate": 6.5,
+        "resource_index": 2.0,
+        "continent": "Азия",
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-05T16:53:43.674622+00:00",
+        "shield": null,
+        "energy_shield": null,
+        "licenses": [
+            "867726527688081408"
+        ],
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 10.536998722569443,
+        "corruption_reform": [],
+        "reform_limit_used": 0,
+        "reforms": [
+            {
+                "sphere": "Здравоохранение",
+                "amount": 16128331598
+            },
+            {
+                "sphere": "Инфраструктура",
+                "amount": 18699083534
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "is_independent": false,
+        "last_collect": "2026-08-05T20:11:29.237832+00:00",
+        "reform_reset_date": "2026-08-05"
+    },
+    "694159294786043954": {
+        "type": "country",
+        "country": "Бурунди",
+        "gdp": 3000000000,
+        "base_gdp": 3000000000,
+        "population": 9890000,
+        "balance": 0,
+        "imf_investment": 0,
+        "inventory": {},
+        "industry": {},
+        "birth_rate": 43.1,
+        "resource_index": 6.0,
+        "continent": "Африка",
+        "reform_limit_used": 0,
+        "license_role_id": 1534667801439109160,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-05T21:01:56.766694+00:00",
+        "shield": "2026-08-08T21:01:56.766694+00:00",
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 10.0,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        }
+    },
+    "836570890102636577": {
+        "type": "country",
+        "country": "Сирия",
+        "gdp": 81082931332,
+        "base_gdp": 40400000000,
+        "population": 18063087,
+        "balance": 33310479325,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {
+                "Контрактник": 2000
+            },
+            "non_active": {}
+        },
+        "industry": {
+            "mach": {
+                "count": 346,
+                "total_jobs": 697922
+            },
+            "met": {
+                "count": 7,
+                "total_jobs": 25740
+            },
+            "light": {
+                "count": 5376,
+                "total_jobs": 3234980
+            },
+            "chem": {
+                "count": 111,
+                "total_jobs": 83192
+            },
+            "wood": {
+                "count": 100,
+                "total_jobs": 58396
+            },
+            "food": {
+                "count": 1105,
+                "total_jobs": 529554
+            },
+            "port": {
+                "count": 2,
+                "total_jobs": 2015
+            },
+            "mall": {
+                "count": 400,
+                "total_jobs": 158893
+            },
+            "salon": {
+                "count": 7000,
+                "total_jobs": 175737
+            },
+            "market": {
+                "count": 1000,
+                "total_jobs": 321668
+            },
+            "pharmacy": {
+                "count": 3000,
+                "total_jobs": 24050
+            },
+            "shop": {
+                "count": 1574,
+                "total_jobs": 19465
+            },
+            "supermarket": {
+                "count": 700,
+                "total_jobs": 68045
+            }
+        },
+        "birth_rate": 23.5,
+        "resource_index": 5.0,
+        "continent": "Азия",
+        "reform_limit_used": 0,
+        "license_role_id": 1534669682043387934,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-05T21:09:25.144432+00:00",
+        "shield": "2026-08-08T21:09:25.144432+00:00",
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 20996330776,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "1246466628863004692",
+                "investor_country": "Венгрия",
+                "amount": 65785162963,
+                "share_percent": 22.842897249277478,
+                "date": "2026-08-05"
+            }
+        ],
+        "licenses": [],
+        "license_price": 0,
+        "support": 46.5,
+        "corruption": 9.851577024060488,
+        "corruption_reform": [
+            {
+                "effect": 14.0,
+                "timestamp": "2026-08-08T09:12:18.783129+00:00"
+            }
+        ],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T13:08:50.810086+00:00",
+        "ideology": {
+            "state": "Смешанная республика",
+            "economy": "Смешанная экономика"
+        },
+        "received_reset": "2026-08-08",
+        "last_gdp_news": "2026-08-05T23:52:30.229654+00:00"
+    },
+    "928574978142634005": {
+        "type": "organization",
+        "country": "Asgaard",
+        "org_type": "Частная",
+        "host_country": "Германия",
+        "gdp": 0,
+        "base_gdp": 0,
+        "balance": 116737660858,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "license_role_id": null,
+        "pay_mode": "ask",
+        "registration_date": "2026-08-05T21:25:26.182421+00:00",
+        "shield": null,
+        "licenses": [],
+        "invest_mode": "free",
+        "business": {
+            "bank": 2,
+            "plant": 2,
+            "mine": 1
+        },
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "license_price": 0,
+        "energy_shield": null,
+        "last_collect": "2026-08-05T21:56:26.835450+00:00"
+    },
+    "571014843860123648": {
+        "type": "country",
+        "country": "Нигерия",
+        "gdp": 1196526298744,
+        "base_gdp": 574251000000,
+        "population": 187887062,
+        "balance": 0,
+        "imf_investment": 571937085354,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "food": {
+                "count": 8,
+                "total_jobs": 4956
+            },
+            "wood": {
+                "count": 10,
+                "total_jobs": 5248
+            },
+            "mach": {
+                "count": 4,
+                "total_jobs": 6531
+            },
+            "met": {
+                "count": 255,
+                "total_jobs": 1029612
+            },
+            "light": {
+                "count": 89004,
+                "total_jobs": 53394160
+            },
+            "chem": {
+                "count": 5807,
+                "total_jobs": 4192248
+            },
+            "hydro_dam": {
+                "count": 200,
+                "total_jobs": 180061
+            },
+            "mall": {
+                "count": 29600,
+                "total_jobs": 11843035
+            },
+            "market": {
+                "count": 30000,
+                "total_jobs": 9763389
+            },
+            "agrocomplex": {
+                "count": 209998,
+                "total_jobs": 15770815
+            }
+        },
+        "birth_rate": 39.7,
+        "resource_index": 4.0,
+        "continent": "Африка",
+        "reform_limit_used": 0,
+        "license_role_id": 1534675066699256001,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-05T21:30:49.043242+00:00",
+        "shield": "2026-08-08T21:30:49.043242+00:00",
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 57.2,
+        "corruption": 9.856484753251456,
+        "corruption_reform": [
+            {
+                "effect": 13.0,
+                "timestamp": "2026-08-08T17:35:49.744441+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Промышленность",
+                "amount": 327136732278
+            }
+        ],
+        "credits": {
+            "4CDFB2": {
+                "id": "4CDFB2",
+                "amount_taken": 170000000000,
+                "debt_total": 195500000000,
+                "debt_current": 10627780509,
+                "hourly_payment": 2715277777,
+                "term_hours_total": 72,
+                "term_hours_left": 11,
+                "tax_rate": 0.15,
+                "date_taken": "2026-08-05T21:38:03.401418+00:00",
+                "reason": "На развитие промышленности"
+            },
+            "25FFC8": {
+                "id": "25FFC8",
+                "amount_taken": 195000000000,
+                "debt_total": 224249999999,
+                "debt_current": 51925371834,
+                "hourly_payment": 3114583333,
+                "term_hours_total": 72,
+                "term_hours_left": 22,
+                "tax_rate": 0.15,
+                "date_taken": "2026-08-06T10:24:12.280221+00:00",
+                "reason": "На развитие промышленности"
+            },
+            "B2A065": {
+                "id": "B2A065",
+                "amount_taken": 180000000000,
+                "debt_total": 206999999999,
+                "debt_current": 47931112501,
+                "hourly_payment": 2874999999,
+                "term_hours_total": 72,
+                "term_hours_left": 22,
+                "tax_rate": 0.15,
+                "date_taken": "2026-08-06T10:31:41.100605+00:00",
+                "reason": "На развитие промышленности"
+            }
+        },
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T17:37:18.628098+00:00",
+        "ideology": {
+            "economy": "Рыночная экономика",
+            "state": "Президентская республика"
+        },
+        "taxes": {
+            "nds": 35,
+            "ndfl": 35
+        },
+        "last_tax_change": "2026-08-05T21:35:03.801702+00:00",
+        "reform_reset_date": "2026-08-06",
+        "infrastructure": {
+            "hydro_dam": 200
+        },
+        "last_gdp_news": "2026-08-07T18:06:42.553937+00:00"
+    },
+    "1109502394674462770": {
+        "type": "country",
+        "country": "ОАЭ",
+        "gdp": 748534110869,
+        "base_gdp": 414106000000,
+        "population": 9286378,
+        "balance": 0,
+        "imf_investment": 25563715820,
+        "inventory": {
+            "active": {
+                "Контрактник": 10001,
+                "FPV-дрон": 100,
+                "🇦🇪 | Revolution MBT": 5
+            },
+            "non_active": {}
+        },
+        "industry": {
+            "mall": {
+                "count": 1734,
+                "total_jobs": 685183
+            },
+            "port": {
+                "count": 12,
+                "total_jobs": 16607
+            },
+            "clinic": {
+                "count": 110,
+                "total_jobs": 51964
+            },
+            "plantation": {
+                "count": 13000,
+                "total_jobs": 1559181
+            },
+            "npp": {
+                "count": 13,
+                "total_jobs": 46489
+            },
+            "mach": {
+                "count": 100,
+                "total_jobs": 205628
+            },
+            "shop": {
+                "count": 59,
+                "total_jobs": 732
+            },
+            "met": {
+                "count": 230,
+                "total_jobs": 925696
+            },
+            "chem": {
+                "count": 1500,
+                "total_jobs": 1099550
+            },
+            "light": {
+                "count": 1100,
+                "total_jobs": 654354
+            },
+            "market": {
+                "count": 2874,
+                "total_jobs": 922843
+            },
+            "supermarket": {
+                "count": 104,
+                "total_jobs": 9975
+            },
+            "sorting": {
+                "count": 3100,
+                "total_jobs": 956726
+            },
+            "pharma": {
+                "count": 2500,
+                "total_jobs": 473891
+            },
+            "school": {
+                "count": 3600,
+                "total_jobs": 342581
+            },
+            "university": {
+                "count": 25,
+                "total_jobs": 23528
+            },
+            "warehouse": {
+                "count": 100,
+                "total_jobs": 15314
+            },
+            "log_center": {
+                "count": 100,
+                "total_jobs": 49703
+            },
+            "kindergarten": {
+                "count": 4100,
+                "total_jobs": 162784
+            },
+            "college": {
+                "count": 100,
+                "total_jobs": 26109
+            },
+            "dentistry": {
+                "count": 100,
+                "total_jobs": 3359
+            },
+            "ambulatory": {
+                "count": 100,
+                "total_jobs": 1338
+            },
+            "greenhouse": {
+                "count": 100,
+                "total_jobs": 18305
+            },
+            "fish": {
+                "count": 100,
+                "total_jobs": 5136
+            },
+            "garden": {
+                "count": 200,
+                "total_jobs": 7401
+            }
+        },
+        "birth_rate": 11.2,
+        "resource_index": 4.0,
+        "continent": "Азия",
+        "reform_limit_used": 0,
+        "license_role_id": 1534678422561751110,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-05T21:44:09.112912+00:00",
+        "shield": "2026-08-08T21:44:09.112912+00:00",
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 10.0,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "imf_profit_available": 373432075.87468153
+    },
+    "1060644884781994126": {
+        "type": "country",
+        "country": "Тайвань",
+        "gdp": 535047000000,
+        "base_gdp": 535047000000,
+        "population": 23686556,
+        "balance": 178448819064,
+        "imf_investment": 41654106575,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {},
+        "birth_rate": 9.0,
+        "resource_index": 6.0,
+        "continent": "Азия",
+        "reform_limit_used": 0,
+        "license_role_id": 1534801244441411604,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-06T05:52:12.045911+00:00",
+        "shield": "2026-08-09T05:52:12.045911+00:00",
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 24.04917661194444,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T13:04:00.189123+00:00",
+        "imf_profit_available": 330596943.7143109
+    },
+    "740078273501069353": {
+        "type": "country",
+        "country": "Аргентина",
+        "gdp": 526319000000,
+        "base_gdp": 526319000000,
+        "population": 42981000,
+        "balance": 0,
+        "imf_investment": 0,
+        "inventory": {},
+        "industry": {},
+        "birth_rate": 17.7,
+        "resource_index": 3.0,
+        "continent": "Южная Америка",
+        "reform_limit_used": 0,
+        "license_role_id": 1534939294710501549,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-06T15:00:45.776522+00:00",
+        "shield": "2026-08-09T15:00:45.776522+00:00",
+        "energy_shield": null,
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 10.0,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        }
+    },
+    "1353812382983389306": {
+        "type": "country",
+        "country": "Алжир",
+        "gdp": 217605000000,
+        "base_gdp": 213810000000,
+        "population": 40284083,
+        "balance": 69571832610,
+        "imf_investment": 1076806454,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "clinic": {
+                "count": 110,
+                "total_jobs": 54247
+            },
+            "greenhouse": {
+                "count": 100,
+                "total_jobs": 17960
+            },
+            "port": {
+                "count": 2,
+                "total_jobs": 3247
+            },
+            "food": {
+                "count": 51,
+                "total_jobs": 22912
+            },
+            "mall": {
+                "count": 30,
+                "total_jobs": 11752
+            },
+            "dentistry": {
+                "count": 100,
+                "total_jobs": 3215
+            },
+            "npp": {
+                "count": 1,
+                "total_jobs": 4625
+            },
+            "hydro_dam": {
+                "count": 2,
+                "total_jobs": 1642
+            },
+            "school": {
+                "count": 300,
+                "total_jobs": 28327
+            },
+            "market": {
+                "count": 800,
+                "total_jobs": 261959
+            },
+            "supermarket": {
+                "count": 200,
+                "total_jobs": 19245
+            },
+            "met": {
+                "count": 12,
+                "total_jobs": 50729
+            },
+            "kindergarten": {
+                "count": 500,
+                "total_jobs": 20291
+            },
+            "wood": {
+                "count": 7,
+                "total_jobs": 4620
+            },
+            "chem": {
+                "count": 2,
+                "total_jobs": 1466
+            },
+            "light": {
+                "count": 7,
+                "total_jobs": 5057
+            },
+            "mach": {
+                "count": 5,
+                "total_jobs": 10167
+            }
+        },
+        "birth_rate": 25.5,
+        "resource_index": 4.0,
+        "continent": "Африка",
+        "reform_limit_used": 0,
+        "license_role_id": 1534985761693106277,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-06T18:05:26.946552+00:00",
+        "shield": "2026-08-09T18:05:26.946552+00:00",
+        "energy_shield": "2026-08-08T18:05:26.946552+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 53.7,
+        "corruption": 20.017969798993054,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {
+            "03A176": {
+                "lender_id": "1380006129731506286",
+                "debt_total": 675905595,
+                "debt_current": 454052135,
+                "hourly_payment": 9387577,
+                "term_hours_initial": 72,
+                "term_hours_left": 49,
+                "tax_rate": 0.15,
+                "date": "2026-08-07T13:12:22.115480+00:00"
+            }
+        },
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "ideology": {
+            "economy": "Плановая экономика",
+            "state": "Абсолютная монархия"
+        },
+        "last_collect": "2026-08-08T11:16:18.278242+00:00",
+        "infrastructure": {
+            "npp": 1,
+            "hydro_dam": 2
+        },
+        "imf_profit_available": 8267998.9493296705
+    },
+    "1380006129731506286": {
+        "type": "country",
+        "country": "Ливия",
+        "gdp": 47932750000,
+        "base_gdp": 44926000000,
+        "population": 6416858,
+        "balance": 6398007476,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "chem": {
+                "count": 4,
+                "total_jobs": 1964
+            },
+            "mach": {
+                "count": 3,
+                "total_jobs": 5787
+            },
+            "wood": {
+                "count": 3,
+                "total_jobs": 1283
+            },
+            "fish": {
+                "count": 350,
+                "total_jobs": 17558
+            },
+            "wind_turbine": {
+                "count": 110,
+                "total_jobs": 7061
+            },
+            "light": {
+                "count": 52,
+                "total_jobs": 30849
+            },
+            "met": {
+                "count": 3,
+                "total_jobs": 10415
+            },
+            "food": {
+                "count": 1,
+                "total_jobs": 361
+            },
+            "npp": {
+                "count": 2,
+                "total_jobs": 5362
+            },
+            "kindergarten": {
+                "count": 200,
+                "total_jobs": 8117
+            },
+            "school": {
+                "count": 500,
+                "total_jobs": 47541
+            },
+            "college": {
+                "count": 550,
+                "total_jobs": 144685
+            }
+        },
+        "birth_rate": 21.0,
+        "resource_index": 4.0,
+        "continent": "Африка",
+        "reform_limit_used": 0,
+        "license_role_id": 1534985776381690027,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-06T18:05:28.045755+00:00",
+        "shield": "2026-08-09T18:05:28.045755+00:00",
+        "energy_shield": "2026-08-08T18:05:28.045755+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "1353812382983389306",
+                "investor_country": "Алжир",
+                "amount": 5000000000,
+                "share_percent": 2.0862562652883465,
+                "date": "2026-08-07"
+            }
+        ],
+        "licenses": [],
+        "license_price": 0,
+        "support": 53.2,
+        "corruption": 16.12927995325,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "ideology": {
+            "economy": "Плановая экономика",
+            "state": "Абсолютная монархия"
+        },
+        "last_collect": "2026-08-07T18:53:55.026099+00:00",
+        "infrastructure": {
+            "wind_turbine": 110,
+            "npp": 2
+        },
+        "received_reset": "2026-08-07"
+    },
+    "1435524555249549373": {
+        "type": "country",
+        "country": "Швейцария",
+        "gdp": 718816875000,
+        "base_gdp": 709325000000,
+        "population": 8321039,
+        "balance": 501753138710,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "wood": {
+                "count": 701,
+                "total_jobs": 421618
+            },
+            "supermarket": {
+                "count": 72,
+                "total_jobs": 7438
+            },
+            "agrocomplex": {
+                "count": 28,
+                "total_jobs": 2176
+            },
+            "log_center": {
+                "count": 28,
+                "total_jobs": 13884
+            },
+            "solar_farm": {
+                "count": 3,
+                "total_jobs": 133
+            },
+            "clinic": {
+                "count": 43,
+                "total_jobs": 20582
+            },
+            "school": {
+                "count": 110,
+                "total_jobs": 9991
+            },
+            "chem": {
+                "count": 628,
+                "total_jobs": 447998
+            },
+            "mach": {
+                "count": 219,
+                "total_jobs": 451072
+            },
+            "met": {
+                "count": 20,
+                "total_jobs": 84387
+            },
+            "food": {
+                "count": 731,
+                "total_jobs": 355756
+            },
+            "light": {
+                "count": 761,
+                "total_jobs": 449580
+            },
+            "greenhouse": {
+                "count": 94,
+                "total_jobs": 17048
+            },
+            "plantation": {
+                "count": 339,
+                "total_jobs": 41230
+            },
+            "fish": {
+                "count": 115,
+                "total_jobs": 5480
+            },
+            "garden": {
+                "count": 148,
+                "total_jobs": 5570
+            },
+            "warehouse": {
+                "count": 39,
+                "total_jobs": 5483
+            },
+            "port": {
+                "count": 7,
+                "total_jobs": 6804
+            },
+            "sorting": {
+                "count": 21,
+                "total_jobs": 6183
+            },
+            "market": {
+                "count": 21,
+                "total_jobs": 6721
+            },
+            "shop": {
+                "count": 106,
+                "total_jobs": 1246
+            },
+            "mall": {
+                "count": 18,
+                "total_jobs": 6843
+            },
+            "salon": {
+                "count": 60,
+                "total_jobs": 1517
+            },
+            "pharmacy": {
+                "count": 160,
+                "total_jobs": 1254
+            },
+            "ambulatory": {
+                "count": 158,
+                "total_jobs": 2185
+            },
+            "dentistry": {
+                "count": 72,
+                "total_jobs": 2371
+            },
+            "pharma": {
+                "count": 18,
+                "total_jobs": 3305
+            },
+            "university": {
+                "count": 22,
+                "total_jobs": 19985
+            },
+            "college": {
+                "count": 34,
+                "total_jobs": 9664
+            },
+            "kindergarten": {
+                "count": 155,
+                "total_jobs": 6283
+            },
+            "tpp": {
+                "count": 5,
+                "total_jobs": 1731
+            },
+            "npp": {
+                "count": 1,
+                "total_jobs": 2671
+            },
+            "hydro_dam": {
+                "count": 3,
+                "total_jobs": 2222
+            }
+        },
+        "birth_rate": 10.3,
+        "resource_index": 6.0,
+        "continent": "Европа",
+        "reform_limit_used": 500000000,
+        "license_role_id": 1534996649766682715,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-06T18:48:40.397053+00:00",
+        "shield": "2026-08-09T18:48:40.397053+00:00",
+        "energy_shield": "2026-08-08T18:48:40.397053+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 21.694418897986107,
+        "corruption_reform": [],
+        "reforms": [
+            {
+                "sphere": "Промышленность",
+                "amount": 500000000
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T16:35:20.029184+00:00",
+        "infrastructure": {
+            "solar_farm": 3,
+            "tpp": 5,
+            "npp": 1,
+            "hydro_dam": 3
+        },
+        "ideology": {
+            "economy": "Смешанная экономика"
+        },
+        "daily_received": 300000000000,
+        "transfer_reset_date": "2026-08-07",
+        "reform_reset_date": "2026-08-08",
+        "taxes": {
+            "nds": 21,
+            "ndfl": 21
+        },
+        "last_tax_change": "2026-08-08T07:18:05.913782+00:00"
+    },
+    "1472186998432464966": {
+        "type": "country",
+        "country": "Южная Корея",
+        "gdp": 1716276188285,
+        "base_gdp": 1410468000000,
+        "population": 51149464,
+        "balance": 465847401174,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "ambulatory": {
+                "count": 1000,
+                "total_jobs": 12940
+            },
+            "clinic": {
+                "count": 1300,
+                "total_jobs": 614757
+            },
+            "dentistry": {
+                "count": 1000,
+                "total_jobs": 32358
+            },
+            "hydro_dam": {
+                "count": 273,
+                "total_jobs": 251777
+            },
+            "school": {
+                "count": 30,
+                "total_jobs": 2835
+            },
+            "college": {
+                "count": 1010,
+                "total_jobs": 262600
+            },
+            "mall": {
+                "count": 3546,
+                "total_jobs": 1416972
+            },
+            "npp": {
+                "count": 20,
+                "total_jobs": 71352
+            },
+            "chem": {
+                "count": 2015,
+                "total_jobs": 1452704
+            },
+            "light": {
+                "count": 3045,
+                "total_jobs": 1824890
+            },
+            "food": {
+                "count": 2545,
+                "total_jobs": 1233391
+            },
+            "mach": {
+                "count": 2500,
+                "total_jobs": 5154814
+            },
+            "met": {
+                "count": 3500,
+                "total_jobs": 13978049
+            },
+            "pharma": {
+                "count": 2000,
+                "total_jobs": 381459
+            },
+            "supermarket": {
+                "count": 4000,
+                "total_jobs": 400617
+            },
+            "port": {
+                "count": 200,
+                "total_jobs": 274646
+            },
+            "university": {
+                "count": 500,
+                "total_jobs": 442917
+            },
+            "wood": {
+                "count": 1500,
+                "total_jobs": 907547
+            }
+        },
+        "birth_rate": 8.6,
+        "resource_index": 6.0,
+        "continent": "Азия",
+        "reform_limit_used": 0,
+        "license_role_id": 1535021788382236802,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-06T20:28:33.794446+00:00",
+        "shield": "2026-08-09T20:28:33.794446+00:00",
+        "energy_shield": "2026-08-08T20:28:33.794446+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 51.0,
+        "corruption": 16.61537096931483,
+        "corruption_reform": [
+            {
+                "effect": 2.0,
+                "timestamp": "2026-08-07T17:01:39.514181+00:00"
+            }
+        ],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "tech",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T17:35:48.730614+00:00",
+        "taxes": {
+            "nds": 21,
+            "ndfl": 20
+        },
+        "last_tax_change": "2026-08-07T12:03:19.568707+00:00",
+        "ideology": {
+            "state": "Президентская республика",
+            "economy": "Смешанная экономика"
+        },
+        "infrastructure": {
+            "npp": 20
+        }
+    },
+    "897130924951634021": {
+        "type": "country",
+        "country": "Италия",
+        "gdp": 3342678271375,
+        "base_gdp": 2159039000000,
+        "population": 64659758,
+        "balance": 337546454696,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇮🇹 | Alpino (F 594)": 1,
+                "🇮🇹 | Trieste": 1,
+                "🇮🇹 | San Marco (L 9893)": 1,
+                "🇮🇹 | Gianfranco Gazzana Priaroggia (S 525)": 1,
+                "🇮🇹 | Cavour": 1,
+                "🇮🇹 | MU90 Impact": 550,
+                "🇮🇹 | Black Shark": 560,
+                "🇮🇹 | A184": 560,
+                "Контрактник": 25000,
+                "🇮🇹 | Eurofighter Typhoon Tranche 3A": 20
+            }
+        },
+        "industry": {
+            "met": {
+                "count": 1205,
+                "total_jobs": 4794017
+            },
+            "log_center": {
+                "count": 1400,
+                "total_jobs": 703582
+            },
+            "supermarket": {
+                "count": 5150,
+                "total_jobs": 513322
+            },
+            "tpp": {
+                "count": 21,
+                "total_jobs": 7670
+            },
+            "chem": {
+                "count": 11,
+                "total_jobs": 8646
+            },
+            "light": {
+                "count": 697,
+                "total_jobs": 419722
+            },
+            "food": {
+                "count": 31,
+                "total_jobs": 14549
+            },
+            "mach": {
+                "count": 557,
+                "total_jobs": 1132569
+            },
+            "wood": {
+                "count": 52502,
+                "total_jobs": 31423185
+            },
+            "npp": {
+                "count": 80,
+                "total_jobs": 277876
+            },
+            "port": {
+                "count": 2503,
+                "total_jobs": 3373347
+            },
+            "mall": {
+                "count": 18100,
+                "total_jobs": 7228099
+            },
+            "clinic": {
+                "count": 12500,
+                "total_jobs": 5907604
+            },
+            "sorting": {
+                "count": 5500,
+                "total_jobs": 1716412
+            },
+            "agrocomplex": {
+                "count": 1000,
+                "total_jobs": 75192
+            },
+            "university": {
+                "count": 6000,
+                "total_jobs": 5381929
+            },
+            "school": {
+                "count": 1000,
+                "total_jobs": 96313
+            },
+            "kindergarten": {
+                "count": 2000,
+                "total_jobs": 79662
+            },
+            "hydro_dam": {
+                "count": 250,
+                "total_jobs": 217925
+            },
+            "solar_farm": {
+                "count": 500,
+                "total_jobs": 22292
+            },
+            "college": {
+                "count": 5000,
+                "total_jobs": 1304211
+            },
+            "plantation": {
+                "count": 209000,
+                "total_jobs": 25103718
+            },
+            "pharmacy": {
+                "count": 50000,
+                "total_jobs": 400714
+            },
+            "market": {
+                "count": 15000,
+                "total_jobs": 4874687
+            }
+        },
+        "birth_rate": 8.3,
+        "resource_index": 5.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1535030345580417144,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-06T21:02:34.022335+00:00",
+        "shield": "2026-08-08T21:37:54.357097+00:00",
+        "energy_shield": "2026-08-08T21:02:34.022335+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 47.9,
+        "corruption": 11.8161769655625,
+        "corruption_reform": [
+            {
+                "effect": 3.0,
+                "timestamp": "2026-08-07T15:05:37.826668+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Прочее",
+                "amount": 418719194667
+            },
+            {
+                "sphere": "Промышленность",
+                "amount": 698160477783
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": "СГО",
+            "intergovernmental": "ЕС"
+        },
+        "infrastructure": {
+            "npp": 35,
+            "hydro_dam": 50
+        },
+        "ideology": {
+            "state": "Парламентская республика",
+            "economy": "Смешанная экономика"
+        },
+        "taxes": {
+            "nds": 30,
+            "ndfl": 30
+        },
+        "last_tax_change": "2026-08-06T21:24:06.684075+00:00",
+        "reform_reset_date": "2026-08-07",
+        "last_collect": "2026-08-07T20:24:26.490860+00:00",
+        "received_reset": "2026-08-08"
+    },
+    "1201069545411051571": {
+        "type": "country",
+        "country": "Польша",
+        "gdp": 567126931847,
+        "base_gdp": 542289000000,
+        "population": 39062306,
+        "balance": 33712999918,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇵🇱 | ZSU-23-4MP Biała": 361,
+                "🇵🇱 | Jelcz 662D.35": 800,
+                "🇵🇱 | AMZ Dzik-1": 50,
+                "🇵🇱 | WR-40 Langusta": 5,
+                "🇵🇱 | AHS Krab": 20,
+                "🇵🇱 | ZDPS Soła": 1,
+                "🇵🇱 | NUR-15 Odra": 2,
+                "🇵🇱 | WB Electronics Warmate": 1200,
+                "🇵🇱 | PT-91 Twardy": 71,
+                "🇵🇱 | WB Electronics FlyEye": 2,
+                "🇵🇱 | PZL M28 Skytruck R1 Bryza": 2,
+                "🇵🇱 | PZL W-3A Sokół": 2,
+                "🇵🇱 | PZL TS-11 Iskra bis DF": 2,
+                "🇵🇱 | PZL W-3PL Głuszec": 2,
+                "🇵🇱 | PZL Mi-2URP Salamandra": 1,
+                "🇵🇱 | ORP Resko": 1,
+                "🇵🇱 | PPZR Grom": 1040,
+                "FPV-дрон": 2700,
+                "Срочник": 499001,
+                "Контрактник": 42500
+            }
+        },
+        "industry": {
+            "agrocomplex": {
+                "count": 500,
+                "total_jobs": 37423
+            },
+            "met": {
+                "count": 224,
+                "total_jobs": 886165
+            },
+            "wind_turbine": {
+                "count": 4,
+                "total_jobs": 255
+            },
+            "food": {
+                "count": 12,
+                "total_jobs": 5965
+            },
+            "light": {
+                "count": 7017,
+                "total_jobs": 4247397
+            },
+            "mach": {
+                "count": 1192,
+                "total_jobs": 2355390
+            },
+            "npp": {
+                "count": 7,
+                "total_jobs": 23684
+            },
+            "chem": {
+                "count": 411,
+                "total_jobs": 300896
+            },
+            "log_center": {
+                "count": 1,
+                "total_jobs": 694
+            },
+            "wood": {
+                "count": 3122,
+                "total_jobs": 1875587
+            },
+            "greenhouse": {
+                "count": 100,
+                "total_jobs": 19455
+            },
+            "mall": {
+                "count": 50,
+                "total_jobs": 19383
+            },
+            "clinic": {
+                "count": 38,
+                "total_jobs": 19745
+            },
+            "fish": {
+                "count": 500,
+                "total_jobs": 25157
+            },
+            "university": {
+                "count": 100,
+                "total_jobs": 94507
+            }
+        },
+        "birth_rate": 9.9,
+        "resource_index": 4.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1535217207297048586,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-07T09:25:05.310503+00:00",
+        "shield": "2026-08-10T09:25:05.310503+00:00",
+        "energy_shield": "2026-08-09T09:25:05.310503+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 11.853304244375,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-07T15:49:52.891622+00:00"
+    },
+    "891283282824667157": {
+        "type": "country",
+        "country": "Великобритания",
+        "gdp": 3359510132510,
+        "base_gdp": 3033703000000,
+        "population": 64829778,
+        "balance": 605623714176,
+        "imf_investment": 100999999999,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "met": {
+                "count": 3320,
+                "total_jobs": 13350995
+            },
+            "log_center": {
+                "count": 20,
+                "total_jobs": 9831
+            },
+            "tpp": {
+                "count": 2,
+                "total_jobs": 661
+            },
+            "food": {
+                "count": 926,
+                "total_jobs": 445909
+            },
+            "supermarket": {
+                "count": 50,
+                "total_jobs": 4977
+            },
+            "pharmacy": {
+                "count": 20,
+                "total_jobs": 163
+            },
+            "clinic": {
+                "count": 51,
+                "total_jobs": 27705
+            },
+            "greenhouse": {
+                "count": 7050,
+                "total_jobs": 1338283
+            },
+            "college": {
+                "count": 600,
+                "total_jobs": 156179
+            },
+            "chem": {
+                "count": 2076,
+                "total_jobs": 1501292
+            },
+            "sorting": {
+                "count": 30,
+                "total_jobs": 9585
+            },
+            "mach": {
+                "count": 1543,
+                "total_jobs": 3173197
+            },
+            "salon": {
+                "count": 100,
+                "total_jobs": 2573
+            },
+            "wood": {
+                "count": 515,
+                "total_jobs": 314394
+            },
+            "pharma": {
+                "count": 40,
+                "total_jobs": 6773
+            },
+            "dentistry": {
+                "count": 200,
+                "total_jobs": 6553
+            },
+            "light": {
+                "count": 201,
+                "total_jobs": 121228
+            },
+            "fish": {
+                "count": 600,
+                "total_jobs": 30420
+            },
+            "agrocomplex": {
+                "count": 700,
+                "total_jobs": 53336
+            },
+            "npp": {
+                "count": 100,
+                "total_jobs": 355046
+            },
+            "kindergarten": {
+                "count": 100,
+                "total_jobs": 4099
+            },
+            "school": {
+                "count": 1000,
+                "total_jobs": 95511
+            },
+            "university": {
+                "count": 600,
+                "total_jobs": 544605
+            },
+            "mall": {
+                "count": 5550,
+                "total_jobs": 2226240
+            },
+            "port": {
+                "count": 900,
+                "total_jobs": 1206901
+            }
+        },
+        "birth_rate": 12.0,
+        "resource_index": 4.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1535223725979471954,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-07T09:50:59.625629+00:00",
+        "shield": "2026-08-10T09:50:59.625629+00:00",
+        "energy_shield": "2026-08-09T09:50:59.625629+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 54.400000000000006,
+        "corruption": 9.85205830542214,
+        "corruption_reform": [
+            {
+                "effect": 2.0,
+                "timestamp": "2026-08-07T10:47:44.174071+00:00"
+            }
+        ],
+        "reforms": [
+            {
+                "sphere": "Промышленность",
+                "amount": 276400000000
+            },
+            {
+                "sphere": "Прочее",
+                "amount": 10000000000
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null,
+            "intergovernmental": "ЕС"
+        },
+        "last_collect": "2026-08-07T22:57:02.321789+00:00",
+        "ideology": {
+            "state": "Парламентская республика",
+            "economy": "Смешанная экономика"
+        },
+        "infrastructure": {
+            "tpp": 2,
+            "npp": 100
+        },
+        "reform_reset_date": "2026-08-07",
+        "daily_received": 3000000000000,
+        "transfer_reset_date": "2026-08-07",
+        "imf_profit_available": 749268225.8731745
+    },
+    "1387216418566574160": {
+        "type": "country",
+        "country": "Россия",
+        "gdp": 309783989863,
+        "base_gdp": 2055057000000,
+        "population": 12882113,
+        "balance": 28800417723,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {
+                "🇷🇺 | Панцирь-С1": 300,
+                "ЗУР Малой дальности": 3600,
+                "🇷🇺 | ГАЗ-233114 «Тигр-М»": 100,
+                "🇷🇺 | БРДМ-2": 100,
+                "🇷🇺 | БТР-80А": 100,
+                "🇷🇺 | 9П157-2 «Хризантема-С»": 50
+            },
+            "non_active": {
+                "🇺🇸 | AH-64E Guardian": 200,
+                "🇺🇸 | M2A3": 100,
+                "🇺🇸 | M1A2 SEP V2": 100,
+                "Контрактник": 100000,
+                "FPV-дрон": 50000,
+                "🇺🇸 | Oshkosh M-ATV": 2500,
+                "🇺🇸 | M1296 Stryker Dragoon": 1000,
+                "🇺🇸 | M1128 mobile gun system": 100
+            }
+        },
+        "industry": {
+            "npp": {
+                "count": 50,
+                "total_jobs": 183149
+            },
+            "mach": {
+                "count": 230,
+                "total_jobs": 476602
+            },
+            "food": {
+                "count": 21,
+                "total_jobs": 9735
+            },
+            "market": {
+                "count": 2449,
+                "total_jobs": 810846
+            },
+            "met": {
+                "count": 46,
+                "total_jobs": 193032
+            },
+            "chem": {
+                "count": 27,
+                "total_jobs": 22266
+            },
+            "clinic": {
+                "count": 13428,
+                "total_jobs": 6405005
+            },
+            "college": {
+                "count": 36000,
+                "total_jobs": 9368414
+            },
+            "hydro_dam": {
+                "count": 33,
+                "total_jobs": 28090
+            },
+            "wood": {
+                "count": 2506,
+                "total_jobs": 1518430
+            },
+            "plantation": {
+                "count": 60000,
+                "total_jobs": 7188570
+            },
+            "port": {
+                "count": 100,
+                "total_jobs": 134944
+            },
+            "warehouse": {
+                "count": 5000,
+                "total_jobs": 770928
+            },
+            "light": {
+                "count": 1,
+                "total_jobs": 570
+            }
+        },
+        "birth_rate": 13.3,
+        "resource_index": 1.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1535261093570551878,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-07T12:19:28.694941+00:00",
+        "shield": "2026-08-10T12:19:28.694941+00:00",
+        "energy_shield": "2026-08-09T12:19:28.694941+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "955060237449166938",
+                "investor_country": "США",
+                "amount": 93501331000,
+                "share_percent": 8.256880733944955,
+                "date": "2026-08-07"
+            }
+        ],
+        "licenses": [
+            "784140901600591963",
+            "1038163713397620758",
+            "1249266271967510601"
+        ],
+        "license_price": 0,
+        "support": 43.5,
+        "corruption": 16.191888661595556,
+        "corruption_reform": [],
+        "reforms": [
+            {
+                "sphere": "Промышленность",
+                "amount": 108134259950
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "ideology": {
+            "economy": "Смешанная экономика"
+        },
+        "last_collect": "2026-08-08T11:57:56.237109+00:00",
+        "infrastructure": {
+            "npp": 5,
+            "hydro_dam": 33
+        },
+        "daily_received": 561007986000,
+        "transfer_reset_date": "2026-08-07",
+        "reform_reset_date": "2026-08-07",
+        "received_reset": "2026-08-07",
+        "taxes": {
+            "nds": 30,
+            "ndfl": 30
+        },
+        "last_tax_change": "2026-08-07T21:56:36.972085+00:00"
+    },
+    "1469060963360575548": {
+        "type": "country",
+        "country": "Босния и Герцеговина",
+        "gdp": 18515100000,
+        "base_gdp": 18500000000,
+        "population": 3570651,
+        "balance": 1366013,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "hydro_dam": {
+                "count": 1,
+                "total_jobs": 541
+            },
+            "mach": {
+                "count": 1,
+                "total_jobs": 2663
+            },
+            "mall": {
+                "count": 1,
+                "total_jobs": 263
+            }
+        },
+        "birth_rate": 8.3,
+        "resource_index": 5.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1535274431415591022,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-07T13:12:28.598670+00:00",
+        "shield": "2026-08-10T13:12:28.598670+00:00",
+        "energy_shield": "2026-08-09T13:12:28.598670+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 10.263714150972222,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "trade",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-07T13:15:46.082444+00:00",
+        "infrastructure": {
+            "hydro_dam": 1
+        },
+        "taxes": {
+            "nds": 10,
+            "ndfl": 40
+        },
+        "last_tax_change": "2026-08-07T13:21:02.396676+00:00",
+        "ideology": {
+            "state": "Парламентская республика",
+            "economy": "Смешанная экономика"
+        }
+    },
+    "1111681490976264214": {
+        "type": "country",
+        "country": "Израиль",
+        "gdp": 1110490717144,
+        "base_gdp": 313385000000,
+        "population": 8697931,
+        "balance": 1183127656872,
+        "imf_investment": 187101521507,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇮🇱 | Spike-ER": 3200,
+                "🇮🇱 | SPYDER": 703,
+                "🇮🇱 | ATMOS 2000": 20,
+                "🇮🇱 | IAI Harop": 6499,
+                "🇮🇱 | F-15I «Ra'am": 35,
+                "🇮🇱 | LORA": 100,
+                "🇮🇱 | Иерехон-3 с ЯО": 1,
+                "🇮🇱 | Protector USV": 700,
+                "🇮🇱 | Ханит": 5,
+                "🇮🇱 | Rahav": 5,
+                "🇮🇱 | Ткума": 5,
+                "🇮🇱 | Elbit Hermes 900": 305,
+                "🇮🇱 | F-16I «Суфа»": 60,
+                "🇮🇱 | Python 5": 3000,
+                "🇮🇱 | Rafael Derby": 5000,
+                "🇮🇱 | Spice 2000": 3000,
+                "🇮🇱 | MPR-2000": 500,
+                "🇮🇱 | M462 Abir": 4000,
+                "🇮🇱 | Strom Mark 3": 3000,
+                "🇮🇱 | AvantGuard": 300,
+                "🇮🇱 | Guardium": 300,
+                "🇮🇱 | Нагмахон": 500,
+                "🇮🇱 | Намер": 500,
+                "🇮🇱 | PULS калибра 370мм": 300,
+                "🇮🇱 | Железный купол": 300,
+                "🇮🇱 | Праща Давида": 300,
+                "🇮🇱 | Меркава Mk.4": 500
+            }
+        },
+        "industry": {
+            "mach": {
+                "count": 1100,
+                "total_jobs": 2263843
+            },
+            "chem": {
+                "count": 26,
+                "total_jobs": 18354
+            },
+            "light": {
+                "count": 18082,
+                "total_jobs": 10901529
+            },
+            "food": {
+                "count": 76,
+                "total_jobs": 34536
+            },
+            "greenhouse": {
+                "count": 1500,
+                "total_jobs": 286441
+            },
+            "plantation": {
+                "count": 242998,
+                "total_jobs": 29172263
+            },
+            "mall": {
+                "count": 7477,
+                "total_jobs": 3022438
+            },
+            "npp": {
+                "count": 52,
+                "total_jobs": 187927
+            },
+            "met": {
+                "count": 101,
+                "total_jobs": 410083
+            },
+            "wood": {
+                "count": 5,
+                "total_jobs": 2824
+            },
+            "port": {
+                "count": 500,
+                "total_jobs": 681377
+            },
+            "pharma": {
+                "count": 1700,
+                "total_jobs": 318091
+            },
+            "university": {
+                "count": 1000,
+                "total_jobs": 906261
+            }
+        },
+        "birth_rate": 21.5,
+        "resource_index": 6.0,
+        "continent": "Азия",
+        "reform_limit_used": 0,
+        "license_role_id": 1535322621615276032,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-07T16:23:58.030059+00:00",
+        "shield": "2026-08-10T16:23:58.030059+00:00",
+        "energy_shield": "2026-08-09T16:23:58.030059+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 53.4,
+        "corruption": 15.927270886274306,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "industry",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T15:58:57.024892+00:00",
+        "imf_profit_available": 1388012129.4961336,
+        "taxes": {
+            "nds": 20,
+            "ndfl": 35
+        },
+        "last_tax_change": "2026-08-08T15:29:20.152675+00:00",
+        "ideology": {
+            "state": "Парламентская республика",
+            "economy": "Смешанная экономика"
+        }
+    },
+    "1482440823378280654": {
+        "type": "country",
+        "country": "Украина",
+        "gdp": 218916000000,
+        "base_gdp": 131805000000,
+        "population": 31247632,
+        "balance": 119483563672,
+        "imf_investment": 40163876936,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇺🇦 | Козак-2": 1000,
+                "🇺🇦 | Eurofighter Typhoon FGR4": 115,
+                "🇺🇦 | 1Л220У «Зоопарк-2»": 100,
+                "🇺🇦 | Ми-24ПУ1": 500,
+                "🇺🇦 | БТР-4Е «Буцефал»": 1000,
+                "FPV-дрон": 110070,
+                "Контрактник": 1489770,
+                "🇺🇦 | Storm Shadow": 150,
+                "🇺🇦 | MBDA Meteor": 1100,
+                "🇺🇦 | «Бастион-01»": 770,
+                "🇺🇦 | БТР-3М2": 2000,
+                "Срочник": 500000,
+                "🇺🇦 | «Барьер»": 2499,
+                "🇩🇪 | Dornier DAR": 3000,
+                "🇩🇪 | FH70": 1000,
+                "🇩🇪 | Gepard": 1000,
+                "🇩🇪 | Leopard 2A7": 1000,
+                "🇩🇪 | MEADS": 500,
+                "🇩🇪 | Puma": 1000,
+                "🇩🇪 | PzH 2000": 1000,
+                "🇩🇪 | Wiesel 1 MELLS: Spike": 500,
+                "ЗУР Большой дальности": 1000,
+                "🇺🇦 | БПЛА «Spectator»": 70,
+                "🇺🇦 | БМ «Оплот»": 320,
+                "🇺🇦 | Су-25М1": 30,
+                "🇺🇦 | БМП-1У «Шквал»": 41,
+                "🇺🇦 | Ан-26 «Vita»": 30,
+                "🇺🇦 | Су-27-1М": 20,
+                "🇺🇦 | «Прилуки»": 10,
+                "🇺🇦 | «Ромны» (A732)": 10
+            }
+        },
+        "industry": {
+            "food": {
+                "count": 148,
+                "total_jobs": 68085
+            },
+            "mach": {
+                "count": 2384,
+                "total_jobs": 4900339
+            },
+            "chem": {
+                "count": 33,
+                "total_jobs": 22847
+            },
+            "light": {
+                "count": 12069,
+                "total_jobs": 7252164
+            },
+            "npp": {
+                "count": 6,
+                "total_jobs": 22683
+            },
+            "greenhouse": {
+                "count": 53113,
+                "total_jobs": 10100685
+            },
+            "market": {
+                "count": 27821,
+                "total_jobs": 9067318
+            },
+            "tpp": {
+                "count": 300,
+                "total_jobs": 113812
+            },
+            "log_center": {
+                "count": 5000,
+                "total_jobs": 2480704
+            },
+            "port": {
+                "count": 250,
+                "total_jobs": 338309
+            }
+        },
+        "birth_rate": 10.8,
+        "resource_index": 4.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1535396844153217096,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-07T21:18:54.045397+00:00",
+        "shield": "2026-08-10T21:18:54.045397+00:00",
+        "energy_shield": "2026-08-09T21:18:54.045397+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [
+            {
+                "investor_id": "1532495116747538538",
+                "investor_country": "Канада",
+                "amount": 101350000000,
+                "share_percent": 7.4074074074074066,
+                "date": "2026-08-07"
+            }
+        ],
+        "licenses": [],
+        "license_price": 0,
+        "support": 54.5,
+        "corruption": 10.271481613541667,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": "СГО"
+        },
+        "last_collect": "2026-08-07T21:24:03.380632+00:00",
+        "received_reset": "2026-08-07",
+        "imf_profit_available": 293112643.7329693
+    },
+    "1038163713397620758": {
+        "type": "organization",
+        "country": "RSB-Group",
+        "org_type": "Государственная",
+        "host_country": "Россия",
+        "gdp": 0,
+        "base_gdp": 0,
+        "balance": 0,
+        "imf_investment": 0,
+        "inventory": {},
+        "license_role_id": null,
+        "pay_mode": "ask",
+        "registration_date": "2026-08-07T23:24:15.211084+00:00",
+        "shield": "2026-08-09T23:24:15.211084+00:00",
+        "licenses": [
+            "1387216418566574160"
+        ],
+        "invest_mode": "free",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "license_price": 0
+    },
+    "1317409468685877339": {
+        "type": "country",
+        "country": "Австралия",
+        "gdp": 1672532028307,
+        "base_gdp": 1454044000000,
+        "population": 23966719,
+        "balance": 267318093551,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "solar_farm": {
+                "count": 6940,
+                "total_jobs": 312443
+            },
+            "npp": {
+                "count": 2,
+                "total_jobs": 8285
+            },
+            "shop": {
+                "count": 12,
+                "total_jobs": 134
+            },
+            "supermarket": {
+                "count": 16,
+                "total_jobs": 1740
+            },
+            "market": {
+                "count": 5203,
+                "total_jobs": 1688217
+            },
+            "met": {
+                "count": 100,
+                "total_jobs": 410816
+            },
+            "port": {
+                "count": 100,
+                "total_jobs": 137604
+            },
+            "clinic": {
+                "count": 1200,
+                "total_jobs": 572832
+            },
+            "university": {
+                "count": 200,
+                "total_jobs": 184515
+            },
+            "greenhouse": {
+                "count": 1000,
+                "total_jobs": 190355
+            },
+            "agrocomplex": {
+                "count": 1000,
+                "total_jobs": 73736
+            },
+            "mall": {
+                "count": 254,
+                "total_jobs": 99934
+            },
+            "light": {
+                "count": 2000,
+                "total_jobs": 1198673
+            },
+            "plantation": {
+                "count": 72483,
+                "total_jobs": 8709241
+            },
+            "warehouse": {
+                "count": 3000,
+                "total_jobs": 464035
+            }
+        },
+        "birth_rate": 13.3,
+        "resource_index": 2.0,
+        "continent": "Австралия и Океания",
+        "reform_limit_used": 0,
+        "license_role_id": 1535518921015165019,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-08T05:23:59.715527+00:00",
+        "shield": "2026-08-11T05:23:59.715527+00:00",
+        "energy_shield": "2026-08-10T05:23:59.715527+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 10.0,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        }
+    },
+    "1062354359268163605": {
+        "type": "autonomy",
+        "country": "Гренландия",
+        "host_country": "Дания",
+        "gdp": 2583381841,
+        "base_gdp": 2500000000,
+        "population": 56134,
+        "balance": 1081491341,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {},
+        "birth_rate": 13.5,
+        "resource_index": 3.0,
+        "continent": "Северная Америка",
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-08T08:03:24.046406+00:00",
+        "shield": "2026-08-11T08:03:24.046406+00:00",
+        "energy_shield": "2026-08-10T08:03:24.046406+00:00",
+        "licenses": [],
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "license_price": 0,
+        "support": 51.2,
+        "corruption": 11.066673123020832,
+        "corruption_reform": [],
+        "reform_limit_used": 173712170,
+        "reforms": [
+            {
+                "sphere": "Промышленность",
+                "amount": 173712170
+            }
+        ],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "is_independent": false,
+        "last_collect": "2026-08-08T15:35:24.232349+00:00",
+        "taxes": {
+            "nds": 24,
+            "ndfl": 24
+        },
+        "last_tax_change": "2026-08-08T08:26:51.689644+00:00",
+        "reform_reset_date": "2026-08-08"
+    },
+    "928360132482572371": {
+        "type": "country",
+        "country": "Беларусь",
+        "gdp": 76729430529,
+        "base_gdp": 78810000000,
+        "population": 9482006,
+        "balance": 1323046826,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {},
+        "birth_rate": 12.5,
+        "resource_index": 5.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1535559112673337394,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-08T08:03:41.946534+00:00",
+        "shield": "2026-08-11T08:03:41.946534+00:00",
+        "energy_shield": "2026-08-10T08:03:41.946534+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 44.7,
+        "corruption": 0.0,
+        "corruption_reform": [
+            {
+                "effect": 13.0,
+                "timestamp": "2026-08-08T08:18:53.622601+00:00"
+            }
+        ],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "tech",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T08:04:29.654256+00:00",
+        "ideology": {
+            "state": "Однопартийная республика",
+            "economy": "Рыночная экономика"
+        }
+    },
+    "1517646828777111613": {
+        "type": "country",
+        "country": "КНДР",
+        "gdp": 290159420524,
+        "base_gdp": 34919000000,
+        "population": 17469036,
+        "balance": 19735715,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {
+            "hydro_dam": {
+                "count": 3,
+                "total_jobs": 3307
+            },
+            "tpp": {
+                "count": 243,
+                "total_jobs": 93211
+            },
+            "mach": {
+                "count": 22,
+                "total_jobs": 41514
+            },
+            "chem": {
+                "count": 39,
+                "total_jobs": 25052
+            },
+            "food": {
+                "count": 10,
+                "total_jobs": 4374
+            },
+            "wood": {
+                "count": 2701,
+                "total_jobs": 1621577
+            },
+            "met": {
+                "count": 362,
+                "total_jobs": 1512762
+            },
+            "light": {
+                "count": 11,
+                "total_jobs": 8248
+            },
+            "mall": {
+                "count": 20,
+                "total_jobs": 7809
+            },
+            "greenhouse": {
+                "count": 200,
+                "total_jobs": 38267
+            },
+            "npp": {
+                "count": 6,
+                "total_jobs": 20110
+            },
+            "sorting": {
+                "count": 120,
+                "total_jobs": 36378
+            },
+            "log_center": {
+                "count": 120,
+                "total_jobs": 61423
+            },
+            "port": {
+                "count": 50,
+                "total_jobs": 67604
+            },
+            "pharma": {
+                "count": 2120,
+                "total_jobs": 405695
+            },
+            "dentistry": {
+                "count": 5000,
+                "total_jobs": 160280
+            },
+            "ambulatory": {
+                "count": 5000,
+                "total_jobs": 64699
+            },
+            "kindergarten": {
+                "count": 18278,
+                "total_jobs": 731387
+            },
+            "supermarket": {
+                "count": 868,
+                "total_jobs": 86341
+            },
+            "market": {
+                "count": 1000,
+                "total_jobs": 328149
+            },
+            "university": {
+                "count": 2000,
+                "total_jobs": 1808151
+            },
+            "shop": {
+                "count": 25000,
+                "total_jobs": 311657
+            },
+            "garden": {
+                "count": 35562,
+                "total_jobs": 1332613
+            },
+            "clinic": {
+                "count": 7587,
+                "total_jobs": 3601160
+            }
+        },
+        "birth_rate": 14.2,
+        "resource_index": 5.0,
+        "continent": "Азия",
+        "reform_limit_used": 0,
+        "license_role_id": 1535643045989716028,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-08T13:37:13.292909+00:00",
+        "shield": "2026-08-11T13:37:13.292909+00:00",
+        "energy_shield": "2026-08-10T13:37:13.292909+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 52.5,
+        "corruption": 10.253682458125,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T13:38:06.320306+00:00"
+    },
+    "1249266271967510601": {
+        "type": "organization",
+        "country": "Патриот",
+        "org_type": "Государственная",
+        "host_country": "Россия",
+        "gdp": 0,
+        "base_gdp": 0,
+        "balance": 142707344,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {
+                "🇷🇺 | 9К135 «Корнет»": 45,
+                "Наёмник": 4001
+            },
+            "non_active": {}
+        },
+        "license_role_id": null,
+        "pay_mode": "ask",
+        "registration_date": "2026-08-08T15:33:10.269781+00:00",
+        "shield": "2026-08-10T15:33:10.269781+00:00",
+        "licenses": [
+            "1387216418566574160"
+        ],
+        "invest_mode": "free",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "license_price": 0,
+        "last_collect": "2026-08-08T15:35:35.625030+00:00",
+        "energy_shield": null
+    },
+    "1015608164445605888": {
+        "type": "country",
+        "country": "Нидерланды",
+        "gdp": 877840000000,
+        "base_gdp": 877840000000,
+        "population": 16846940,
+        "balance": 6816846574,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {}
+        },
+        "industry": {},
+        "birth_rate": 10.4,
+        "resource_index": 5.0,
+        "continent": "Европа",
+        "reform_limit_used": 0,
+        "license_role_id": 1535690852310057072,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-08T16:47:11.085766+00:00",
+        "shield": "2026-08-11T16:47:11.085766+00:00",
+        "energy_shield": "2026-08-10T16:47:11.085766+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 10.269960045277777,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": "trade",
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T16:51:58.510418+00:00",
+        "taxes": {
+            "nds": 17,
+            "ndfl": 16
+        },
+        "last_tax_change": "2026-08-08T16:55:54.349391+00:00",
+        "ideology": {
+            "state": "Парламентская монархия",
+            "economy": "Рыночная экономика"
+        }
+    },
+    "1425152489493102697": {
+        "type": "country",
+        "country": "Иран",
+        "gdp": 829289132977,
+        "base_gdp": 438340000000,
+        "population": 88047433,
+        "balance": 2729655194187,
+        "imf_investment": 0,
+        "inventory": {
+            "active": {},
+            "non_active": {
+                "🇨🇳 | \"342\"": 2,
+                "🇨🇳 | \"Сюйчжоу\"": 4,
+                "🇨🇳 | \"Куньмин\"": 2,
+                "Контрактник": 100000,
+                "🇮🇷 | HQ-9B": 600,
+                "🇮🇷 | Shahed-129": 1000,
+                "🇨🇳 | Шэньян J-11B": 100,
+                "🇨🇳 | Y-9": 70,
+                "🇮🇷 | Rakhsh": 800,
+                "🇮🇷 | Fajr-3": 300,
+                "🇮🇷 | Раад-2": 1000,
+                "🇮🇷 | Zulfiqar 3": 800,
+                "🇮🇷 | Ghamar": 10,
+                "🇮🇷 | Emad": 100,
+                "🇮🇷 | YJ-83": 200,
+                "🇮🇷 | YJ-18": 200
+            }
+        },
+        "industry": {
+            "light": {
+                "count": 2670,
+                "total_jobs": 1614189
+            },
+            "diesel_gen": {
+                "count": 1,
+                "total_jobs": 7
+            },
+            "mach": {
+                "count": 1787,
+                "total_jobs": 3647941
+            },
+            "chem": {
+                "count": 11,
+                "total_jobs": 7884
+            },
+            "food": {
+                "count": 18,
+                "total_jobs": 9536
+            },
+            "wood": {
+                "count": 26955,
+                "total_jobs": 16147282
+            },
+            "met": {
+                "count": 12,
+                "total_jobs": 54717
+            },
+            "mall": {
+                "count": 1574,
+                "total_jobs": 626566
+            },
+            "greenhouse": {
+                "count": 50328,
+                "total_jobs": 9565643
+            },
+            "market": {
+                "count": 48030,
+                "total_jobs": 15607625
+            },
+            "npp": {
+                "count": 100,
+                "total_jobs": 344848
+            },
+            "university": {
+                "count": 4000,
+                "total_jobs": 3630693
+            },
+            "log_center": {
+                "count": 12284,
+                "total_jobs": 6188568
+            },
+            "clinic": {
+                "count": 6522,
+                "total_jobs": 3107606
+            }
+        },
+        "birth_rate": 19.3,
+        "resource_index": 3.0,
+        "continent": "Азия",
+        "reform_limit_used": 0,
+        "license_role_id": 1535691271199264921,
+        "invest_mode": "ask",
+        "pay_mode": "ask",
+        "registration_date": "2026-08-08T16:48:51.033441+00:00",
+        "shield": "2026-08-11T16:48:51.033441+00:00",
+        "energy_shield": "2026-08-10T16:48:51.033441+00:00",
+        "business": {},
+        "total_incoming_investments": 0,
+        "total_outgoing_investments": 0,
+        "investments": [],
+        "licenses": [],
+        "license_price": 0,
+        "support": 50.0,
+        "corruption": 10.264399970277777,
+        "corruption_reform": [],
+        "reforms": [],
+        "credits": {},
+        "sanctions": [],
+        "un_tax": 0,
+        "specialization": null,
+        "alliance_type": {
+            "economic": null,
+            "military": null
+        },
+        "last_collect": "2026-08-08T16:52:18.393013+00:00"
+    }
+}
