@@ -420,7 +420,8 @@
       <section class="page" id="page-press">
         <h1>Пресса <em>сервера</em></h1>
         <p class="lead">Краткая информация всех событий (РП и не-РП) за определённый период</p>
-        <div class="stub"><svg class="ic"><use href="#i-news"/></svg><h3>Ведутся технические работы</h3><p>Раздел находится в разработке. Ожидайте скорого открытия.</p></div>
+        <div class="updates-stats" id="pressStats"></div>
+        <div class="updates-list" id="pressBody"><p class="loading">Загрузка прессы...</p></div>
       </section>
       <section class="page" id="page-donate">
         <h1>Донат <em>магазин</em></h1>
@@ -463,55 +464,112 @@
       }).join('\n');
     }
 
-    /* ===== ОБНОВЛЕНИЯ ===== */
-    async function loadUpdates() {
-      const el = document.getElementById('updatesBody');
-      const stats = document.getElementById('updatesStats');
-      try {
-        const r = await fetch(GH_URLS.updates);
-        if (!r.ok) throw 0;
-        const doc = new DOMParser().parseFromString(await r.text(), 'text/html');
-        const items = [...doc.querySelectorAll('.message')].map(m => {
-          const content = m.querySelector('.content');
-          if (!content) return null;
-          const ts = m.querySelector('.timestamp');
-          const author = m.querySelector('.author');
-          const reply = m.querySelector('.reply');
-          const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
-          return {
-            date: parseTs(rawTs),
-            dateStr: rawTs,
-            author: author ? author.textContent.trim() : 'Global Lens BOT',
-            content: content.innerHTML.trim(),
-            reply: reply ? reply.textContent.trim() : ''
-          };
-        }).filter(x => x && x.content);
-        items.sort((a, b) => b.date - a.date);
-        if (!items.length) {
-          el.innerHTML = '<p class="loading">В истории обновлений пока нет сообщений.</p>';
-          return;
-        }
-        const authors = new Set(items.map(i => i.author));
-        stats.innerHTML =
-          '<div class="us-item"><b>' + items.length + '</b>сообщений</div>' +
-          '<div class="us-item"><b>' + authors.size + '</b>авторов</div>' +
-          '<div class="us-item"><b>' + items[items.length - 1].dateStr.split(' ')[0] + '</b>первое</div>' +
-          '<div class="us-item"><b>' + items[0].dateStr.split(' ')[0] + '</b>последнее</div>';
-        el.innerHTML = items.map(i =>
-          '<article class="update-card">' +
-            '<div class="update-meta">' +
-              '<span class="update-author">' + esc(i.author) + '</span>' +
-              '<span class="update-date">' + esc(i.dateStr) + '</span>' +
-            '</div>' +
-            (i.reply ? '<div class="update-content"><div class="reply">↪ ' + esc(i.reply) + '</div></div>' : '') +
-            '<div class="update-content">' + applyDiscordMarkdown(i.content) + '</div>' +
-          '</article>'
-        ).join('');
-        el.querySelectorAll('a[href^="http"]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
-      } catch (e) {
-        el.innerHTML = '<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>';
+    /* ===== ОБЩАЯ ФУНКЦИЯ: рендеринг Discord-сообщений ===== */
+    /* Группирует подряд идущие сообщения одного автора в одну карточку */
+    function renderDiscordMessages(doc, container, statsContainer) {
+      const items = [...doc.querySelectorAll('.message')].map(m => {
+        const content = m.querySelector('.content');
+        if (!content) return null;
+        const ts = m.querySelector('.timestamp');
+        const author = m.querySelector('.author');
+        const reply = m.querySelector('.reply');
+        const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
+        return {
+          date: parseTs(rawTs),
+          dateStr: rawTs,
+          author: author ? author.textContent.trim() : 'Global Lens BOT',
+          content: content.innerHTML.trim(),
+          reply: reply ? reply.textContent.trim() : ''
+        };
+      }).filter(x => x && x.content);
+      items.sort((a, b) => b.date - a.date);
+
+      if (!items.length) {
+        container.innerHTML = '<p class="loading">Пока нет сообщений.</p>';
+        return;
       }
+
+  /* Группировка: склеиваем подряд идущие сообщения одного автора */
+  const groups = [];
+  for (const item of items) {
+    const last = groups[groups.length - 1];
+    if (last && last.author === item.author) {
+      last.contents.push(item.content);
+      if (item.reply && !last.reply) last.reply = item.reply;
+      if (!last.firstDate) last.firstDate = item.dateStr;
+      last.lastDate = item.dateStr;
+    } else {
+      groups.push({
+        author: item.author,
+        contents: [item.content],
+        reply: item.reply,
+        firstDate: item.dateStr,
+        lastDate: item.dateStr
+      });
     }
+  }
+
+  const authors = new Set(groups.map(g => g.author));
+  const firstMsg = items[items.length - 1];
+  const lastMsg = items[0];
+
+  if (statsContainer) {
+    statsContainer.innerHTML =
+      '<div class="us-item"><b>' + items.length + '</b>сообщений</div>' +
+      '<div class="us-item"><b>' + groups.length + '</b>постов</div>' +
+      '<div class="us-item"><b>' + authors.size + '</b>авторов</div>' +
+      '<div class="us-item"><b>' + firstMsg.dateStr.split(' ')[0] + '</b>первое</div>' +
+      '<div class="us-item"><b>' + lastMsg.dateStr.split(' ')[0] + '</b>последнее</div>';
+  }
+
+  container.innerHTML = groups.map(g => {
+    const dateLine = g.firstDate === g.lastDate
+      ? g.firstDate
+      : g.firstDate + ' — ' + g.lastDate;
+    const contentsHtml = g.contents.map(c => applyDiscordMarkdown(c)).join('\n\n');
+    return '<article class="update-card">' +
+      '<div class="update-meta">' +
+        '<span class="update-author">' + esc(g.author) + '</span>' +
+        '<span class="update-date">' + esc(dateLine) + '</span>' +
+      '</div>' +
+      (g.reply ? '<div class="update-content"><div class="reply">↪ ' + esc(g.reply) + '</div></div>' : '') +
+      '<div class="update-content">' + contentsHtml + '</div>' +
+      '</article>';
+  }).join('');
+
+  container.querySelectorAll('a[href^="http"]').forEach(a => {
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+}
+
+/* ===== ОБНОВЛЕНИЯ (с GitHub) ===== */
+async function loadUpdates() {
+  const el = document.getElementById('updatesBody');
+  const stats = document.getElementById('updatesStats');
+  try {
+    const r = await fetch(GH_URLS.updates);
+    if (!r.ok) throw 0;
+    const doc = new DOMParser().parseFromString(await r.text(), 'text/html');
+    renderDiscordMessages(doc, el, stats);
+  } catch (e) {
+    el.innerHTML = '<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>';
+  }
+}
+
+/* ===== ПРЕССА (локальный файл press_content.html) ===== */
+async function loadPress() {
+  const el = document.getElementById('pressBody');
+  const stats = document.getElementById('pressStats');
+  try {
+    const r = await fetch('press_content.html');
+    if (!r.ok) throw 0;
+    const doc = new DOMParser().parseFromString(await r.text(), 'text/html');
+    renderDiscordMessages(doc, el, stats);
+  } catch (e) {
+    el.innerHTML = '<p class="loading">Не удалось загрузить прессу. Файл press_content.html должен лежать рядом с index.html.</p>';
+  }
+}
 
     /* ===== ПРАВИЛА БОТА / ПРИВАТНОСТЬ (markdown с GitHub) ===== */
     function md(t) {
@@ -686,6 +744,7 @@
 
     /* ===== ЗАПУСК ЗАГРУЗОК ===== */
     loadUpdates();                                  /* <-- вот этого вызова не хватало */
+    loadPress()
     loadRules('bot', 'rulesBotBody');
     loadRules('privacy', 'rulesPrivacyBody');
     loadFragment('rules_server_content.html', 'rulesServerBody');
