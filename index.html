@@ -180,6 +180,11 @@
     .search-input { width: 100%; padding: 12px 16px 12px 40px; border-radius: 10px; border: 1px solid var(--line2); background: var(--card); color: var(--text); font-family: Manrope; font-size: 14px; outline: none; transition: border-color .2s; }
     .search-input:focus { border-color: var(--acc-border); }
     .search-input::placeholder { color: var(--dim); }
+    /* Переключатель порядка чтения */
+    .order-toggle { display: flex; justify-content: center; gap: 0; margin-bottom: 24px; background: var(--card); border: 1px solid var(--line2); border-radius: 10px; padding: 4px; max-width: 360px; margin-left: auto; margin-right: auto; }
+    .order-toggle button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 7px; border: none; background: none; color: var(--muted); font-family: Manrope; font-weight: 600; font-size: 12.5px; cursor: pointer; transition: .2s; }
+    .order-toggle button:hover { color: var(--text); }
+    .order-toggle button.active { background: var(--acc-soft); color: var(--acc); border: 1px solid var(--acc-border); }
     @media (max-width: 960px) {
       .layout { flex-direction: column; }
       .sidebar { width: 100%; flex: none; height: auto; position: static; }
@@ -215,6 +220,7 @@
     <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
   </svg>
 
   <div class="layout">
@@ -270,10 +276,10 @@
         </a>
         <div class="nav-label" style="margin-top:24px">ДОПОЛНИТЕЛЬНО</div>
         <a class="nav-item" href="#" data-go="press">
-          <svg class="ic" viewBox="0 0 24 24"><use href="#i-news"/></svg>Пресса<span class="pill soon">Скоро</span>
+          <svg class="ic" viewBox="0 0 24 24"><use href="#i-news"/></svg>Пресса
         </a>
         <a class="nav-item" href="#" data-go="donate">
-          <svg class="ic" viewBox="0 0 24 24"><use href="#i-heart"/></svg>Донат магазин<span class="pill soon">Скоро</span>
+          <svg class="ic" viewBox="0 0 24 24"><use href="#i-bag"/></svg>Донат магазин<span class="pill soon">Скоро</span>
         </a>
         <a class="nav-item" href="#" data-go="archives">
           <svg class="ic" viewBox="0 0 24 24"><use href="#i-box"/></svg>Архивы<span class="pill soon">Скоро</span>
@@ -350,11 +356,15 @@
 
       <!-- ОБНОВЛЕНИЯ (с GitHub) -->
       <section class="page" id="page-updates">
-        <h1>Обновления <em>проекта</em></h1>
-        <p class="lead">История изменений и улучшений</p>
-        <div class="updates-stats" id="updatesStats"></div>
-        <div class="updates-list" id="updatesBody"><p class="loading">Загрузка истории обновлений...</p></div>
-      </section>
+          <h1>Обновления <em>проекта</em></h1>
+          <p class="lead">История изменений и улучшений</p>
+          <div class="order-toggle" data-for="updates">
+            <button data-order="desc" class="active">↓ Новые сверху</button>
+            <button data-order="asc">↑ Старые сверху</button>
+          </div>
+          <div class="updates-stats" id="updatesStats"></div>
+          <div class="updates-list" id="updatesBody"><p class="loading">Загрузка истории обновлений...</p></div>
+        </section>
 
       <!-- ПРАВИЛА СЕРВЕРА (фрагмент) -->
       <section class="page" id="page-rules-server">
@@ -417,16 +427,20 @@
       </section>
 
       <!-- ЗАГЛУШКИ -->
-      <section class="page" id="page-press">
-        <h1>Пресса <em>сервера</em></h1>
-        <p class="lead">Краткая информация всех событий (РП и не-РП) за определённый период</p>
-        <div class="updates-stats" id="pressStats"></div>
-        <div class="updates-list" id="pressBody"><p class="loading">Загрузка прессы...</p></div>
-      </section>
+        <section class="page" id="page-press">
+         <h1>Пресса <em>сервера</em></h1>
+          <p class="lead">Краткая информация всех событий (РП и не-РП) за определённый период</p>
+          <div class="order-toggle" data-for="press">
+            <button data-order="desc" class="active">↓ Новые сверху</button>
+            <button data-order="asc">↑ Старые сверху</button>
+          </div>
+          <div class="updates-stats" id="pressStats"></div>
+          <div class="updates-list" id="pressBody"><p class="loading">Загрузка прессы...</p></div>
+        </section>
       <section class="page" id="page-donate">
         <h1>Донат <em>магазин</em></h1>
         <p class="lead">Поддержи проект и получи эксклюзивные награды</p>
-        <div class="stub"><svg class="ic"><use href="#i-hammer"/></svg><h3>Ведутся технические работы</h3><p>Раздел находится в разработке. Ожидайте скорого открытия.</p></div>
+        <div class="stub"><svg class="ic"><use href="#i-bag"/></svg><h3>Ведутся технические работы</h3><p>Раздел находится в разработке. Ожидайте скорого открытия.</p></div>
       </section>
       <section class="page" id="page-archives">
         <h1>Архивы <em>сезонов</em></h1>
@@ -464,14 +478,14 @@
       }).join('\n');
     }
 
-/* ===== ОБЩАЯ ФУНКЦИЯ: рендеринг Discord-сообщений ===== */
-/* Читаем сверху вниз (старые → новые).
-   Склеиваем в одну карточку только сообщения ОДНОГО автора,
-   идущие подряд И с разницей ≤ 5 минут. */
-const MERGE_GAP_MS = 5 * 60 * 1000; // 5 минут
+/* ===== КЕШ И СОСТОЯНИЕ ПОРЯДКА ЧТЕНИЯ ===== */
+const cache = { updates: null, press: null };
+const readOrder = { updates: 'desc', press: 'desc' };
+const MERGE_GAP_MS = 5 * 60 * 1000;
 
-function renderDiscordMessages(doc, container, statsContainer) {
-  const items = [...doc.querySelectorAll('.message')].map(m => {
+/* Парсинг сырого HTML-документа в массив сообщений */
+function parseMessages(doc) {
+  return [...doc.querySelectorAll('.message')].map(m => {
     const content = m.querySelector('.content');
     if (!content) return null;
     const ts = m.querySelector('.timestamp');
@@ -486,18 +500,23 @@ function renderDiscordMessages(doc, container, statsContainer) {
       reply: reply ? reply.textContent.trim() : ''
     };
   }).filter(x => x && x.content);
+}
 
-  /* сортируем по возрастанию — старые сверху */
-  items.sort((a, b) => a.date - b.date);
+/* ===== ОБЩАЯ ФУНКЦИЯ: рендеринг Discord-сообщений ===== */
+function renderDiscordMessages(items, container, statsContainer, order) {
+  /* сортируем по возрастанию или убыванию */
+  const sorted = items.slice().sort((a, b) =>
+    order === 'asc' ? a.date - b.date : b.date - a.date
+  );
 
-  if (!items.length) {
+  if (!sorted.length) {
     container.innerHTML = '<p class="loading">Пока нет сообщений.</p>';
     return;
   }
 
-  /* группировка: один автор + разница ≤ 5 минут */
+  /* группировка: один автор + разница ≤ 5 минут (по соседству в отсортированном списке) */
   const groups = [];
-  for (const item of items) {
+  for (const item of sorted) {
     const last = groups[groups.length - 1];
     const sameAuthor = last && last.author === item.author;
     const closeTime  = sameAuthor && Math.abs(item.date - last.lastDateMs) <= MERGE_GAP_MS;
@@ -519,8 +538,8 @@ function renderDiscordMessages(doc, container, statsContainer) {
   }
 
   const authors = new Set(groups.map(g => g.author));
-  const firstMsg = items[0];
-  const lastMsg  = items[items.length - 1];
+  const firstMsg = sorted[0];
+  const lastMsg  = sorted[sorted.length - 1];
 
   if (statsContainer) {
     statsContainer.innerHTML =
@@ -551,6 +570,54 @@ function renderDiscordMessages(doc, container, statsContainer) {
     a.rel = 'noopener';
   });
 }
+
+function rerender(type) {
+  if (!cache[type]) return;
+  const container = document.getElementById(type === 'updates' ? 'updatesBody' : 'pressBody');
+  const stats     = document.getElementById(type === 'updates' ? 'updatesStats' : 'pressStats');
+  renderDiscordMessages(cache[type], container, stats, readOrder[type]);
+}
+
+/* ===== ОБНОВЛЕНИЯ (с GitHub) ===== */
+async function loadUpdates() {
+  const el = document.getElementById('updatesBody');
+  try {
+    const r = await fetch(GH_URLS.updates);
+    if (!r.ok) throw 0;
+    const doc = new DOMParser().parseFromString(await r.text(), 'text/html');
+    cache.updates = parseMessages(doc);
+    rerender('updates');
+  } catch (e) {
+    el.innerHTML = '<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>';
+  }
+}
+
+/* ===== ПРЕССА (локальный файл press_content.html) ===== */
+async function loadPress() {
+  const el = document.getElementById('pressBody');
+  try {
+    const r = await fetch('press_content.html');
+    if (!r.ok) throw 0;
+    const doc = new DOMParser().parseFromString(await r.text(), 'text/html');
+    cache.press = parseMessages(doc);
+    rerender('press');
+  } catch (e) {
+    el.innerHTML = '<p class="loading">Не удалось загрузить прессу. Файл press_content.html должен лежать рядом с index.html.</p>';
+  }
+}
+
+/* ===== ПЕРЕКЛЮЧАТЕЛИ ПОРЯДКА ===== */
+document.querySelectorAll('.order-toggle').forEach(toggle => {
+  const type = toggle.dataset.for;
+  toggle.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggle.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      readOrder[type] = btn.dataset.order;
+      rerender(type);
+    });
+  });
+});
 
 /* ===== ОБНОВЛЕНИЯ (с GitHub) ===== */
 async function loadUpdates() {
