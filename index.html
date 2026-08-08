@@ -19,12 +19,17 @@ body::after{top:-20%;left:50%;transform:translateX(-50%);width:140%;height:60%;b
 .layout,.sidebar,.main{position:relative;z-index:1}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0a0d0b}::-webkit-scrollbar-thumb{background:var(--acc2);border-radius:5px}
 a{color:var(--acc)}
+.ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 body,.sidebar,.card,.nav-item,.sub-item,.theme-btn,.btn-discord,.btn-tg,.status-card,.update-card,.stat,.hero-badge,.pill,.rule,.member,.m-ava,.logo-badge,.cta,.update-meta,.update-content,.pun,.side-bottom,.side-top,.us-item,.stub,.themes{transition:background-color .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease}
 .layout{display:flex;min-height:100vh}
 .sidebar{width:290px;flex:0 0 290px;background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
 .side-top{padding:22px 20px;border-bottom:1px solid var(--line);flex:0 0 auto}
 .logo-row{display:flex;gap:12px;align-items:center;margin-bottom:16px}
-.logo-badge{width:46px;height:46px;border:1px solid var(--acc-border);border-radius:12px;display:grid;place-items:center;color:var(--acc);background:var(--acc-soft);box-shadow:0 0 18px var(--acc-glow)}
+.logo-badge{width:46px;height:46px;flex:none;border-radius:12px;overflow:hidden;border:1px solid var(--acc-border);box-shadow:0 0 18px var(--acc-glow);background:var(--side);transition:border-color .35s ease,box-shadow .35s ease}
+.logo-badge img{width:100%;height:100%;object-fit:cover;display:none}
+[data-theme="green"] .logo-green{display:block}
+[data-theme="blue"] .logo-blue{display:block}
+[data-theme="orange"] .logo-orange{display:block}
 .logo-title{font-family:'JetBrains Mono';font-weight:700;letter-spacing:.14em;font-size:15px}
 .logo-title span{color:var(--yellow)}
 .logo-sub{font-family:'JetBrains Mono';font-size:9.5px;color:var(--dim);letter-spacing:.2em;display:flex;align-items:center;gap:6px;margin-top:5px}
@@ -61,9 +66,11 @@ body,.sidebar,.card,.nav-item,.sub-item,.theme-btn,.btn-discord,.btn-tg,.status-
 .socials a{flex:1;display:flex;gap:8px;justify-content:center;align-items:center;padding:11px;border-radius:10px;text-decoration:none;font-family:'JetBrains Mono';font-weight:700;font-size:11px;letter-spacing:.1em}
 .btn-discord{background:var(--acc2);color:#07130a}
 .btn-tg{border:1px solid var(--acc-border);color:var(--acc);background:var(--acc-soft)}
-.copy{margin-top:10px;text-align:center;font-family:'JetBrains Mono';font-size:10px;color:var(--dim)}
-.mail{margin-top:8px;text-align:center;font-family:'JetBrains Mono';font-size:10px}
+.mail{margin-top:10px;text-align:center;font-family:'JetBrains Mono';font-size:10px}
 .mail a{color:var(--muted);text-decoration:none}
+.mail .ic{width:12px;height:12px;vertical-align:-2px}
+.copy{margin-top:6px;text-align:center;font-family:'JetBrains Mono';font-size:10px;color:var(--dim)}
+.copy .ic{width:11px;height:11px;vertical-align:-2px}
 .main{flex:1;padding:48px 56px;max-width:1400px}
 .page{display:none}
 .page.active{display:block;animation:f .35s ease}
@@ -75,7 +82,8 @@ h1 em{color:var(--acc);font-style:normal}
 .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
 .card{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--acc2);border-radius:12px;padding:26px 30px}
 .card.wide{margin-top:24px}
-.card h3{font-family:Manrope;font-weight:700;font-size:19px;margin-bottom:14px}
+.card h3{font-family:Manrope;font-weight:700;font-size:19px;margin-bottom:14px;display:flex;align-items:flex-start;gap:10px}
+.card h3 .ic{color:var(--acc);margin-top:3px}
 .card h4{font-family:Manrope;font-weight:700;font-size:15px;color:var(--acc);margin:16px 0 8px}
 .card p{color:var(--muted);line-height:1.8;font-size:15.5px;margin-bottom:12px}
 .card p:last-child{margin-bottom:0}
@@ -120,7 +128,7 @@ blockquote{border-left:3px solid var(--acc2);background:var(--acc-soft);padding:
 .us-item b{color:var(--acc);margin-right:6px}
 .loading{font-family:'JetBrains Mono';font-size:13px;color:var(--dim);animation:p 2s infinite}
 .stub{text-align:center;padding:60px 20px}
-.stub .icon{font-size:54px;margin-bottom:18px;opacity:.7}
+.stub .ic{width:56px;height:56px;stroke-width:1.4;color:var(--acc);opacity:.85;margin-bottom:18px}
 .stub h3{font-family:Manrope;font-size:22px;margin-bottom:12px;color:var(--text)}
 .stub p{color:var(--muted);font-size:15px}
 .member{display:flex;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line2)}
@@ -130,16 +138,20 @@ blockquote{border-left:3px solid var(--acc2);background:var(--acc-soft);padding:
 .m-role{display:block;font-family:'JetBrains Mono';font-size:9.5px;color:var(--acc);letter-spacing:.12em;margin:3px 0 6px}
 .member p{font-size:13.5px;color:var(--muted);line-height:1.6;margin:0}
 .m-sub{font-family:'JetBrains Mono';font-size:11px;color:var(--dim);letter-spacing:.14em;margin:18px 0 10px}
-.sec-title{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.24em;color:var(--dim);margin:36px 0 16px}
+.sec-title{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.24em;color:var(--dim);margin:36px 0 16px;display:flex;align-items:center;gap:8px}
+.sec-title .ic{width:14px;height:14px;color:var(--acc)}
 .sec-title:first-child{margin-top:0}
 details.long-list{margin-top:10px;background:#0c1116;border:1px solid var(--line2);border-radius:8px}
 details.long-list summary{padding:10px 14px;cursor:pointer;font-family:Manrope;font-weight:600;font-size:12.5px;color:var(--muted);list-style:none;display:flex;align-items:center;gap:8px}
 details.long-list summary::-webkit-details-marker{display:none}
 details.long-list summary::before{content:'▶';color:var(--acc);font-size:9px;transition:.2s;display:inline-block}
 details.long-list[open] summary::before{transform:rotate(90deg)}
+details.long-list summary .ic{width:15px;height:15px;color:var(--yellow)}
+details.long-list .count{margin-left:auto;font-family:'JetBrains Mono';font-size:10px;color:var(--dim);background:#080b09;padding:2px 8px;border-radius:5px;border:1px solid var(--line2)}
 details.long-list .list-body{padding:4px 14px 14px;display:flex;flex-direction:column;gap:10px}
 .award{font-size:12.5px;line-height:1.55}
 .award b{display:block;font-family:Manrope;font-weight:600;font-size:12.5px;color:var(--yellow)}
+.award:not(.red) b::before{content:'';display:inline-block;width:12px;height:12px;margin-right:7px;vertical-align:-2px;background:var(--yellow);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Ccircle cx='12' cy='9' r='6'/%3E%3Cpath d='M9 14l-2 8 5-3 5 3-2-8'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Ccircle cx='12' cy='9' r='6'/%3E%3Cpath d='M9 14l-2 8 5-3 5 3-2-8'/%3E%3C/svg%3E") center/contain no-repeat}
 .award.red b{color:var(--red)}
 .award span{color:var(--muted)}
 .award .lbl{font-family:'JetBrains Mono';font-size:10px;color:var(--dim);letter-spacing:.12em;display:block;margin-top:6px}
@@ -148,491 +160,208 @@ details.long-list .list-body{padding:4px 14px 14px;display:flex;flex-direction:c
 </style>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13.5 13.5 0 0 1 0 18 13.5 13.5 0 0 1 0-18z"/></symbol>
+<symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+<symbol id="i-scroll" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1.5 2 1.5 2-1.5 2 1.5 2-1.5 2 1.5 2-1.5 2 1.5V2z"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h5"/></symbol>
+<symbol id="i-gamepad" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M8 10v4"/><path d="M15 11h.01"/><path d="M18 13h.01"/></symbol>
+<symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 8V5"/><circle cx="12" cy="4" r="1"/><path d="M9 13h.01"/><path d="M15 13h.01"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.7a2 2 0 0 0 1.4 1.4L21 12l-5.7 1.9a2 2 0 0 0-1.4 1.4L12 21l-1.9-5.7a2 2 0 0 0-1.4-1.4L3 12l5.7-1.9a2 2 0 0 0 1.4-1.4z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.8"/><path d="M16 14.7c2.6.3 4.6 2.1 5.3 5.3"/></symbol>
+<symbol id="i-crown" viewBox="0 0 24 24"><path d="M4 18l-1.5-11L9 11l3-6 3 6 6.5-4L20 18z"/><path d="M5 21h14"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+<symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 18h14"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 3l9 6H3z"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14"/><path d="M15 6v14"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></symbol>
+<symbol id="i-swords" viewBox="0 0 24 24"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/><path d="M14.5 6.5L18 3h3v3l-3.5 3.5"/><path d="M5 14l4 4"/><path d="M7 17l-3 3"/><path d="M3 19l2 2"/></symbol>
+<symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+<symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15L22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
+<symbol id="i-news" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10"/><path d="M7 12h10"/><path d="M7 16h6"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+<symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></symbol>
+<symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="m5 7-3 8c.9.65 1.92 1 3 1s2.1-.35 3-1z"/><path d="m19 7-3 8c.9.65 1.92 1 3 1s2.1-.35 3-1z"/></symbol>
+</svg>
+
 <div class="layout">
 <aside class="sidebar">
-  <div class="side-top">
-    <div class="logo-row">
-      <div class="logo-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13.5 13.5 0 0 1 0 18 13.5 13.5 0 0 1 0-18z"/></svg></div>
-      <div><div class="logo-title">GLOBAL <span>LENS</span></div><div class="logo-sub"><i class="dot"></i>ВПИ МОДЕЛИРОВАНИЕ</div></div>
-    </div>
-    <div class="status-card"><span class="dot pulse"></span>Сезон 25 Активен<span class="badge-online">ONLINE</span></div>
-  </div>
-  <nav class="side-nav">
-    <div class="nav-label">НАВИГАЦИЯ ПОРТАЛА</div>
-    <a class="nav-item active" href="#" data-go="home"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Главная</a>
-    <div class="nav-group open" id="infoGroup">
-      <button class="nav-item" id="infoBtn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>Информация<svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
-      <div class="subnav">
-        <a class="sub-item" href="#" data-go="about">О проекте</a>
-        <a class="sub-item" href="#" data-go="news">Новости</a>
-        <a class="sub-item" href="#" data-go="updates">Обновления</a>
-        <div class="nav-group" id="rulesGroup">
-          <button class="sub-item" id="rulesBtn">Правила<svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button>
-          <div class="subnav">
-            <a class="sub-item" href="#" data-go="rules-server">Правила сервера</a>
-            <a class="sub-item" href="#" data-go="rules-bot">Правила бота</a>
-            <a class="sub-item" href="#" data-go="rules-privacy">Приватность</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a class="nav-item" href="#" data-go="features"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Возможности<span class="pill">Новое</span></a>
-    <a class="nav-item" href="#" data-go="season"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Текущий Сезон<span class="pill">S25</span></a>
-    <a class="nav-item" href="#" data-go="staff"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17.5" cy="9" r="2.8"/><path d="M16 14.7c2.6.3 4.6 2.1 5.3 5.3"/></svg>Состав Команды</a>
-    <div class="nav-label" style="margin-top:24px">ДОПОЛНИТЕЛЬНО</div>
-    <a class="nav-item" href="#" data-go="press"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6Z"/></svg>Пресса<span class="pill soon">Скоро</span></a>
-    <a class="nav-item" href="#" data-go="donate"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z"/></svg>Донат магазин<span class="pill soon">Скоро</span></a>
-    <a class="nav-item" href="#" data-go="archives"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg>Архивы<span class="pill soon">Скоро</span></a>
-  </nav>
-  <div class="side-bottom">
-    <div class="theme-row"><span class="nav-label" style="margin:0">ЦВЕТОВАЯ ТЕМА</span><span class="theme-name" id="themeName">Green</span></div>
-    <div class="themes">
-      <button class="theme-btn active" data-theme-set="green"><i style="--c:#4ade80"></i>Зелёная</button>
-      <button class="theme-btn" data-theme-set="blue"><i style="--c:#3b82f6"></i>Синяя</button>
-      <button class="theme-btn" data-theme-set="orange"><i style="--c:#f97316"></i>Оранж</button>
-    </div>
-    <div class="socials">
-      <a class="btn-discord" href="https://discord.gg/edPpSRmRNu">DISCORD</a>
-      <a class="btn-tg" href="https://t.me/+5DaqxYO3H6VlMzhi">TELEGRAM</a>
-    </div>
-    <div class="mail"><a href="mailto:global_lenz.rp@bk.ru">📧 global_lenz.rp@bk.ru</a></div>
-    <div class="copy">© 2024-2026 Global Lens. Все права защищены. 🌍</div>
-  </div>
+<div class="side-top">
+<div class="logo-row">
+<div class="logo-badge">
+<img class="logo-green" src="logo-green.png" alt="Global Lens">
+<img class="logo-blue" src="logo-blue.png" alt="Global Lens">
+<img class="logo-orange" src="logo-orange.png" alt="Global Lens">
+</div>
+<div><div class="logo-title">GLOBAL <span>LENS</span></div><div class="logo-sub"><i class="dot"></i>ВПИ МОДЕЛИРОВАНИЕ</div></div>
+</div>
+<div class="status-card"><span class="dot pulse"></span>Сезон 25 Активен<span class="badge-online">ONLINE</span></div>
+</div>
+<nav class="side-nav">
+<div class="nav-label">НАВИГАЦИЯ ПОРТАЛА</div>
+<a class="nav-item active" href="#" data-go="home"><svg class="ic" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Главная</a>
+<div class="nav-group open" id="infoGroup">
+<button class="nav-item" id="infoBtn"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>Информация<svg class="chev ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+<div class="subnav">
+<a class="sub-item" href="#" data-go="about">О проекте</a>
+<a class="sub-item" href="#" data-go="news">Новости</a>
+<a class="sub-item" href="#" data-go="updates">Обновления</a>
+<div class="nav-group" id="rulesGroup">
+<button class="sub-item" id="rulesBtn">Правила<svg class="chev ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+<div class="subnav">
+<a class="sub-item" href="#" data-go="rules-server">Правила сервера</a>
+<a class="sub-item" href="#" data-go="rules-bot">Правила бота</a>
+<a class="sub-item" href="#" data-go="rules-privacy">Приватность</a>
+</div></div></div></div>
+<a class="nav-item" href="#" data-go="features"><svg class="ic" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Возможности<span class="pill">Новое</span></a>
+<a class="nav-item" href="#" data-go="season"><svg class="ic" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Текущий Сезон<span class="pill">S25</span></a>
+<a class="nav-item" href="#" data-go="staff"><svg class="ic" viewBox="0 0 24 24"><use href="#i-users"/></svg>Состав Команды</a>
+<div class="nav-label" style="margin-top:24px">ДОПОЛНИТЕЛЬНО</div>
+<a class="nav-item" href="#" data-go="press"><svg class="ic" viewBox="0 0 24 24"><use href="#i-news"/></svg>Пресса<span class="pill soon">Скоро</span></a>
+<a class="nav-item" href="#" data-go="donate"><svg class="ic" viewBox="0 0 24 24"><use href="#i-heart"/></svg>Донат магазин<span class="pill soon">Скоро</span></a>
+<a class="nav-item" href="#" data-go="archives"><svg class="ic" viewBox="0 0 24 24"><use href="#i-box"/></svg>Архивы<span class="pill soon">Скоро</span></a>
+</nav>
+<div class="side-bottom">
+<div class="theme-row"><span class="nav-label" style="margin:0">ЦВЕТОВАЯ ТЕМА</span><span class="theme-name" id="themeName">Green</span></div>
+<div class="themes">
+<button class="theme-btn active" data-theme-set="green"><i style="--c:#4ade80"></i>Зелёная</button>
+<button class="theme-btn" data-theme-set="blue"><i style="--c:#3b82f6"></i>Синяя</button>
+<button class="theme-btn" data-theme-set="orange"><i style="--c:#f97316"></i>Оранж</button>
+</div>
+<div class="socials">
+<a class="btn-discord" href="https://discord.gg/edPpSRmRNu">DISCORD</a>
+<a class="btn-tg" href="https://t.me/+5DaqxYO3H6VlMzhi">TELEGRAM</a>
+</div>
+<div class="mail"><a href="mailto:global_lenz.rp@bk.ru"><svg class="ic"><use href="#i-mail"/></svg> global_lenz.rp@bk.ru</a></div>
+<div class="copy">© 2024-2026 Global Lens. Все права защищены. <svg class="ic"><use href="#i-globe"/></svg></div>
+</div>
 </aside>
 
 <main class="main">
-  <!-- ГЛАВНАЯ -->
-  <section class="page active" id="page-home">
-    <div class="hero">
-      <div class="hero-badge">● СЕЗОН 25 В САМОМ РАЗГАРЕ</div>
-      <h1>Мир без фильтров <em>и клише</em></h1>
-      <p class="lead">Русскоязычное ВПИ-сообщество для тех, кто смотрит глубже. Геополитика, военное дело, экономика и скрытые механизмы мировой политики. Здесь вы не просто читаете новости — вы становитесь частью процесса.</p>
-      <div class="cta-row">
-        <a class="cta fill" href="https://discord.gg/edPpSRmRNu">Присоединиться к Discord</a>
-        <a class="cta ghost" href="#" data-go="about">Узнать больше</a>
-      </div>
-    </div>
-    <div class="stats">
-      <div class="stat"><b data-count="44">0</b><span>Государства</span></div>
-      <div class="stat"><b data-count="5">0</b><span>ЧВК</span></div>
-      <div class="stat"><b data-count="3">0</b><span>Автономия</span></div>
-      <div class="stat"><b data-count="25">0</b><span>Сезонов</span></div>
-    </div>
-    <article class="card wide"><h3>Готов взглянуть на мир по-новому?</h3>
-      <p>Global Lens — это не просто ВПИ. Это способ взглянуть на мир иначе.</p>
-      <div class="cta-row" style="justify-content:flex-start"><a class="cta fill" href="https://discord.gg/edPpSRmRNu">Присоединиться к Discord</a></div>
-    </article>
-  </section>
+<section class="page active" id="page-home">
+<div class="hero">
+<div class="hero-badge"><i class="dot"></i>СЕЗОН 25 В САМОМ РАЗГАРЕ</div>
+<h1>Мир без фильтров <em>и клише</em></h1>
+<p class="lead">Русскоязычное ВПИ-сообщество для тех, кто смотрит глубже. Геополитика, военное дело, экономика и скрытые механизмы мировой политики. Здесь вы не просто читаете новости — вы становитесь частью процесса.</p>
+<div class="cta-row">
+<a class="cta fill" href="https://discord.gg/edPpSRmRNu">Присоединиться к Discord</a>
+<a class="cta ghost" href="#" data-go="about">Узнать больше</a>
+</div></div>
+<div class="stats">
+<div class="stat"><b data-count="44">0</b><span>Государства</span></div>
+<div class="stat"><b data-count="5">0</b><span>ЧВК</span></div>
+<div class="stat"><b data-count="3">0</b><span>Автономия</span></div>
+<div class="stat"><b data-count="25">0</b><span>Сезонов</span></div>
+</div>
+<article class="card wide"><h3>Готов взглянуть на мир по-новому?</h3>
+<p>Global Lens — это не просто ВПИ. Это способ взглянуть на мир иначе.</p>
+<div class="cta-row" style="justify-content:flex-start"><a class="cta fill" href="https://discord.gg/edPpSRmRNu">Присоединиться к Discord</a></div>
+</article>
+</section>
 
-  <!-- О СЕРВЕРЕ (полный текст) -->
-  <section class="page" id="page-about">
-    <h1>О <em>сервере</em></h1>
-    <p class="lead">ВПИ-сообщество нового уровня</p>
-    <article class="card wide" style="margin-top:0"><h3>🌍 Что такое Global Lens?</h3>
-      <p>Global Lens — это русскоязычное ВПИ-сообщество, где каждый участник становится полноценным игроком на мировой арене. Здесь нет готовых ответов — есть реальные последствия ваших решений.</p>
-      <p>Геополитика, военное дело, экономика и скрытые механизмы мировой политики — всё это оживает в нашем проекте. Каждый ход меняет баланс сил, каждое решение влияет на судьбы виртуальных государств.</p>
-      <p>Надоели поверхностные выводы и навязанные интерпретации? Здесь вы не просто читаете новости — вы становитесь частью процесса.</p></article>
-  </section>
+<section class="page" id="page-about">
+<h1>О <em>сервере</em></h1>
+<p class="lead">ВПИ-сообщество нового уровня</p>
+<article class="card wide" style="margin-top:0"><h3><svg class="ic"><use href="#i-globe"/></svg>Что такое Global Lens?</h3>
+<p>Global Lens — это русскоязычное ВПИ-сообщество, где каждый участник становится полноценным игроком на мировой арене. Здесь нет готовых ответов — есть реальные последствия ваших решений.</p>
+<p>Геополитика, военное дело, экономика и скрытые механизмы мировой политики — всё это оживает в нашем проекте. Каждый ход меняет баланс сил, каждое решение влияет на судьбы виртуальных государств.</p>
+<p>Надоели поверхностные выводы и навязанные интерпретации? Здесь вы не просто читаете новости — вы становитесь частью процесса.</p></article>
+</section>
 
-  <!-- НОВОСТИ (полный текст) -->
-  <section class="page" id="page-news">
-    <h1>Новости <em>проекта</em></h1>
-    <p class="lead">Актуальные события и анонсы</p>
-    <article class="card wide" style="margin-top:0"><h3>📢 Старт 20-го сезона!</h3>
-      <p>В эту пятницу начался юбилейный 20-й сезон Global Lens. Предыдущий сезон был досрочно завершён, чтобы дать дорогу масштабному обновлению и новым механикам.</p>
-      <p>Новый сезон — это время переосмысления и фундаментальных перемен. Традиционные методы ведения политики уступают место новым реалиям, а прежние устои начинают рушиться. Политика малых стран способна изменить расклад сил целых регионов.</p>
-      <p>Каждое слово обретает вес, определяя уровень поддержки внутри страны. Отныне каждый правитель стоит перед выбором: утонет ли его страна в междоусобицах или же вознесется на мировой пьедестал.</p>
-      <blockquote>«Война, подпитываемая жгучим пламенем попранной веры, превращённой в ненависть, не знает иного конца, кроме истребления.»</blockquote>
-      <p>Полный список изменений читайте <a href="#" data-go="updates">на странице обновлений</a>.</p></article>
-  </section>
+<section class="page" id="page-news">
+<h1>Новости <em>проекта</em></h1>
+<p class="lead">Актуальные события и анонсы</p>
+<article class="card wide" style="margin-top:0"><h3><svg class="ic"><use href="#i-megaphone"/></svg>Старт 20-го сезона!</h3>
+<p>В эту пятницу начался юбилейный 20-й сезон Global Lens. Предыдущий сезон был досрочно завершён, чтобы дать дорогу масштабному обновлению и новым механикам.</p>
+<p>Новый сезон — это время переосмысления и фундаментальных перемен. Традиционные методы ведения политики уступают место новым реалиям, а прежние устои начинают рушиться. Политика малых стран способна изменить расклад сил целых регионов.</p>
+<p>Каждое слово обретает вес, определяя уровень поддержки внутри страны. Отныне каждый правитель стоит перед выбором: утонет ли его страна в междоусобицах или же вознесется на мировой пьедестал.</p>
+<blockquote>«Война, подпитываемая жгучим пламенем попранной веры, превращённой в ненависть, не знает иного конца, кроме истребления.»</blockquote>
+<p>Полный список изменений читайте <a href="#" data-go="updates">на странице обновлений</a>.</p></article>
+</section>
 
-  <!-- ОБНОВЛЕНИЯ (автозагрузка с GitHub) -->
-  <section class="page" id="page-updates">
-    <h1>Обновления <em>проекта</em></h1>
-    <p class="lead">История изменений и улучшений</p>
-    <div class="updates-stats" id="updatesStats"></div>
-    <div class="updates-list" id="updatesBody"><p class="loading">Загрузка истории обновлений...</p></div>
-  </section>
+<section class="page" id="page-updates">
+<h1>Обновления <em>проекта</em></h1>
+<p class="lead">История изменений и улучшений</p>
+<div class="updates-stats" id="updatesStats"></div>
+<div class="updates-list" id="updatesBody"><p class="loading">Загрузка истории обновлений...</p></div>
+</section>
 
-  <!-- ПРАВИЛА СЕРВЕРА (ПОЛНОСТЬЮ, БЕЗ СОКРАЩЕНИЙ) -->
-  <section class="page" id="page-rules-server">
-    <h1>Правила <em>сервера</em></h1>
-    <p class="lead">Для поддержания порядка и продуктивной игры</p>
-    <article class="card wide" style="margin-top:0"><h3>📜 Правила сервера</h3>
-      <p>Для поддержания порядка и обеспечения продуктивной игры, при использовании сервера "Global Lens", вы соглашаетесь с нижеизложенными правилами. Все правила применяются ко всем каналам на сервере, если не указано иное.</p>
-      <div class="rule"><b>Правило <i>1.1</i> — Зона действия правил и личные границы</b>
-        <p>Правила проекта обязательны для соблюдения во всех публичных каналах. Личная переписка участников не модерируется, однако рассылка рекламы в ЛС или публикация чужих личных сообщений (включая скриншоты и видео) в открытом доступе строго наказывается.</p>
-        <span class="pun">Наказание: от мута до бана</span></div>
-      <div class="rule"><b>Правило <i>1.2</i> — Учетные записи и ролевой процесс</b>
-        <p>На проекте разрешено использовать только один основной профиль, а дополнительный аккаунт допускается исключительно в осведомительных целях — например, если основной был временно ограничен самой платформой Discord, либо технические неполадки не позволяют зайти с главной учетной записи. При этом создание таких резервных профилей для обхода выданных локальных наказаний, создания беспорядка или получения выгоды в процессе ролевой игры приведет к блокировке всех ваших аккаунтов.</p>
-        <span class="pun">Наказание: бан всех учетных записей</span></div>
-      <div class="rule"><b>Правило <i>1.3</i> — Субординация и служба поддержки</b>
-        <p>Любые пресекательные меры применяются на усмотрение персонала, а обоснованные решения высшего руководства не подлежат публичному оспариванию. Запрещено беспричинно упоминать высшую администрацию — со всеми вопросами, жалобами и апелляциями необходимо обращаться напрямую в службу поддержки.</p></div>
-    </article>
+<!-- ПРАВИЛА СЕРВЕРА: контент из отдельного файла -->
+<section class="page" id="page-rules-server">
+<h1>Правила <em>сервера</em></h1>
+<p class="lead">Для поддержания порядка и продуктивной игры</p>
+<div id="rulesServerBody"><p class="loading">Загрузка правил...</p></div>
+</section>
 
-    <article class="card wide"><h3>🧾 Правила регистрации</h3>
-      <div class="rule"><b>Правило <i>2.1</i> — Регистрация и управление страной</b>
-        <p>Подать заявку на создание страны могут только владельцы учетных записей, зарегистрированных не менее трех дней назад. Анкета должна строго соответствовать установленной форме подачи, в противном случае анкетолог вправе её отклонить. Важно учитывать, что при смене игровой страны весь прогресс, достигнутый за предыдущее государство, полностью и безвозвратно обнуляется.</p></div>
-      <div class="rule"><b>Правило <i>2.2</i> — Техническая честность и использование бота</b>
-        <p>Любое намеренное использование уязвимостей, багов или ошибок серверного бота в личных целях или во вред проекту категорически запрещено. Подобные действия расцениваются как отказ от услуг бота и ведут к автоматическому снятию с регистрации (потере страны). В зависимости от тяжести нарушения, администрация может дополнительно применить длительный мут, запрет на повторную регистрацию или полную блокировку на сервере.</p>
-        <span class="pun">Наказание: снятие с регистрации, вплоть до бана</span></div>
-      <div class="rule"><b>Правило <i>3.1</i> — Уважительное общение и запрет конфликтов</b>
-        <p>Запрещены любые оскорбления, угрозы, травля и дискриминация. Оскорбление или упоминание родственников в негативном ключе категорически запрещено даже в шуточной форме. Также запрещено подстрекать участников к конфликтам, разжигать ссоры или активно в них участвовать. Администрация оставляет за собой право наказать как исключительно инициатора, так и всех участников перепалки.</p>
-        <span class="pun">Наказание: от мута до 1 дня (за родственников — удвоение)</span></div>
-      <div class="rule"><b>Правило <i>3.2</i> — Запрещенный контент и реальная политика</b>
-        <p>Запрещена публикация, обмен и оправдание нелегальных материалов, порнографии, шокирующего контента (NSFW), распространение тоталитарной символики, а также оправдание всех нарушений прав против общества. Проект находится вне реальной политики. Строго запрещена политическая агитация, пропаганда и обсуждение реальных вооруженных конфликтов (включая войну между Украиной и Россией). Защита или продвижение позиций любых сторон из реального мира не приветствуется и пресекается.</p>
-        <span class="pun">Наказание: мут от 3 часов до 1 дня</span></div>
-      <div class="rule"><b>Правило <i>3.3</i> — Конфиденциальность</b>
-        <p>Категорически запрещено разглашать личную информацию других участников без их прямого согласия. Это касается реальных адресов, номеров телефонов, электронных почт, фотографий и любых других персональных данных.</p>
-        <span class="pun">Наказание: мут от 6 часов до 1 дня</span></div>
-      <div class="rule"><b>Правило <i>3.4</i> — Чистота чата: спам и реклама</b>
-        <p>Запрещено засорять чаты повторяющимися сообщениями, бессмысленным текстом, чрезмерным использованием CAPS LOCK или огромным количеством эмодзи. Оффтоп в тематических каналах также наказуем. Любой пиар сторонних проектов, серверов или продуктов без предварительного одобрения высшей администрации сервера запрещен и может привести к вечной блокировке аккаунта.</p>
-        <span class="pun">Наказание: от мута до бана</span></div>
-    </article>
+<section class="page" id="page-rules-bot">
+<h1>Правила <em>бота</em></h1>
+<p class="lead">Условия использования автоматизированных систем</p>
+<article class="card wide" style="margin-top:0"><h3><svg class="ic"><use href="#i-bot"/></svg>Правила пользования бота</h3>
+<div id="rulesBotBody"><p class="loading">Загрузка правил...</p></div></article>
+</section>
 
-    <article class="card wide"><h3>🎮 Правила игры</h3>
-      <div class="rule"><b>Правило <i>4.1</i> — Общение и публикация новостей</b><ul>
-        <li><b>Тематика чатов.</b> Строго соблюдайте назначение каналов. Использование скобок // не освобождает от ответственности за оффтоп.</li>
-        <li><b>Формат новостей.</b> Все игровые сводки публикуются на грамотном русском языке (допускаются аутентичные заголовки, фразы в цитатах и очень минимальные ошибки). Новость должна полностью раскрывать суть события и включать комментарии участвующих лиц или гос. деятелей.</li>
-        <li><b>Объем.</b> Минимальный размер новости — 30 слов, а для государств со статусом сверхдержавы — 50 слов. Неформатные новости подлежат откату.</li>
-      </ul></div>
-      <div class="rule"><b>Правило <i>4.2</i> — Дипломатия, переговоры и транзакции</b><ul>
-        <li><b>Прозрачность переговоров.</b> Любые переговоры (включая секретные) ведутся исключительно в соответствующих форумных каналах. Соглашения и новости, основанные на договоренностях из личных сообщений (ЛС) или голосовых чатов, считаются недействительными, не влияют на RP-процесс и подлежат откату.</li>
-        <li><b>Передача ресурсов.</b> Любая передача финансов или военных сил требует полноценного RP-обоснования. Скрытые переводы без отыгровки ведут к изъятию средств без права возврата.</li>
-        <li><b>Преемственность договоров.</b> При смене игрока на государстве, автономии или организации все ранее заключенные им пакты и договоры сохраняют свою силу. Новый правитель имеет полное право их денонсировать. Политологи при проверке соглашений обязаны сохранять абсолютный нейтралитет.</li>
-      </ul></div>
-      <div class="rule"><b>Правило <i>4.3</i> — Игровые механики: щиты, ультиматумы и NPC</b><ul>
-        <li><b>Защитный щит.</b> После регистрации новое государство, автономия или организация получает иммунитет на 3 суток (если администрацией не указано иное). В этот период запрещено объявлять войны, получать и отправлять санкции, а также выдвигать или получать ультиматумы.</li>
-        <li><b>Ультиматумы.</b> Стандартный срок действия любого ультиматума автоматически фиксируется на реальных 24 часах.</li>
-        <li><b>Роль политологов.</b> Политолог (даже если он сам является игроком) имеет право отыгрывать войны, дипломатию и отвечать на ультиматумы от лица государств, не занятых игроками (NPC).</li>
-      </ul></div>
-      <div class="rule"><b>Правило <i>4.4</i> — Дополнительные игровые регламенты</b>
-        <p>Помимо основного свода, на проекте действуют детализированные правила для конкретных RP-механик:</p>
-        <ul>
-          <li><b>Правила войн:</b> регулируют порядок ведения боевых действий, включая обоснование для начала конфликта (казус белли), причины для отката, механику сражений, а также назначение и процедуру смены ведущего политолога.</li>
-          <li><b>Правила соглашений:</b> устанавливают стандартизированную форму для заключения международных договоров и регламентируют обязательный состав участников сделки.</li>
-          <li><b>Правила военной активности:</b> закрепляют строгие шаблоны оформления военных действий, существующие лимиты, а также штрафные санкции за несоблюдение установленных форматов подачи.</li>
-        </ul></div>
-      <div class="rule"><b>Другое</b>
-        <p>Руководство и администрация может лишь частично гарантировать неприкосновенность личной жизни. Каждый участник в обсуждении своей личной жизни с другими участниками сам обязуется выстроить определённые рамки за которые не стоит переходить в диалоге. Если определённого выстроения рамок не произошло, то руководство и администрация в праве мутить исключительно по общесерверным правилам. Также, участник сам решает какую информацию про себя распространять. Если эта информация было использована другими сторонами против него же, то наказание на проекте совершается по соответственному правилу.</p></div>
-    </article>
-  </section>
+<section class="page" id="page-rules-privacy">
+<h1>Политика <em>конфиденциальности</em></h1>
+<p class="lead">Как мы обрабатываем и защищаем ваши данные</p>
+<article class="card wide" style="margin-top:0"><h3><svg class="ic"><use href="#i-lock"/></svg>Правила приватности</h3>
+<div id="rulesPrivacyBody"><p class="loading">Загрузка правил...</p></div></article>
+</section>
 
-  <!-- ПРАВИЛА БОТА (автозагрузка) -->
-  <section class="page" id="page-rules-bot">
-    <h1>Правила <em>бота</em></h1>
-    <p class="lead">Условия использования автоматизированных систем</p>
-    <article class="card wide" style="margin-top:0"><h3>🤖 Правила пользования бота</h3>
-      <div id="rulesBotBody"><p class="loading">Загрузка правил...</p></div>
-    </article>
-  </section>
+<section class="page" id="page-features">
+<h1>Возможности <em>Global Lens</em></h1>
+<p class="lead">Шесть причин, почему тысячи игроков выбирают нас</p>
+<div class="grid-3">
+<article class="card"><h3><svg class="ic"><use href="#i-bot"/></svg>Продуманный бот</h3><p>Стабильный, надёжный и глубоко влияющий на игровой процесс. Торговля, ресурсы, производство — всё работает в реальном времени и определяет судьбу вашего государства.</p></article>
+<article class="card"><h3><svg class="ic"><use href="#i-grid"/></svg>Глубокие системы</h3><p>Каждая механика тщательно выверена и имеет реальные последствия. Дипломатия, война, экономика, внутренняя политика — всё взаимосвязано.</p></article>
+<article class="card"><h3><svg class="ic"><use href="#i-sparkles"/></svg>Регулярные ивенты</h3><p>Живые ролевые события, которые меняют ход сезона. Кризисы, революции, международные конференции — ни один ход не бывает скучным.</p></article>
+<article class="card"><h3><svg class="ic"><use href="#i-chat"/></svg>Острые дискуссии</h3><p>Спорьте, анализируйте и оттачивайте свои взгляды. Наше сообщество — это интеллектуальная среда, где ценится аргументация и глубина мысли.</p></article>
+<article class="card"><h3><svg class="ic"><use href="#i-book"/></svg>Эксклюзивный контент</h3><p>Уникальные системы, аналитика и новости, которых нет нигде. Каждый сезон приносит новые механики и неожиданные повороты сюжета.</p></article>
+<article class="card"><h3><svg class="ic"><use href="#i-users"/></svg>Зрелое сообщество</h3><p>Уважительный диалог без троллинга и пустых срачей. Мы создали среду, в которой хочется развиваться и играть.</p></article>
+</div>
+</section>
 
-  <!-- ПРИВАТНОСТЬ (автозагрузка) -->
-  <section class="page" id="page-rules-privacy">
-    <h1>Политика <em>конфиденциальности</em></h1>
-    <p class="lead">Как мы обрабатываем и защищаем ваши данные</p>
-    <article class="card wide" style="margin-top:0"><h3>🔒 Правила приватности</h3>
-      <div id="rulesPrivacyBody"><p class="loading">Загрузка правил...</p></div>
-    </article>
-  </section>
+<section class="page" id="page-season">
+<h1>Сезон <em>25</em></h1>
+<p class="lead">Юбилейный сезон — старт в эту пятницу!</p>
+<article class="card wide" style="margin-top:0"><p>Двадцать пятый сезон Global Lens только что начался. Это юбилейный рубеж, который приносит кардинальные изменения в экономику, автономии, дипломатию и многое другое. Узнайте все подробности на странице <a href="#" data-go="news">новостей</a> и <a href="#" data-go="updates">обновлений</a>.</p></article>
+<div class="stats three">
+<div class="stat"><b>44</b><span>Государства</span></div>
+<div class="stat"><b>5</b><span>ЧВК</span></div>
+<div class="stat"><b>3</b><span>Автономии</span></div>
+</div>
+<div class="cta-row"><a class="cta fill" href="https://discord.gg/edPpSRmRNu">Вступить в игру</a></div>
+</section>
 
-  <!-- ВОЗМОЖНОСТИ (полный текст) -->
-  <section class="page" id="page-features">
-    <h1>Возможности <em>Global Lens</em></h1>
-    <p class="lead">Шесть причин, почему тысячи игроков выбирают нас</p>
-    <div class="grid-3">
-      <article class="card"><h3>🤖 Продуманный бот</h3><p>Стабильный, надёжный и глубоко влияющий на игровой процесс. Торговля, ресурсы, производство — всё работает в реальном времени и определяет судьбу вашего государства.</p></article>
-      <article class="card"><h3>🧩 Глубокие системы</h3><p>Каждая механика тщательно выверена и имеет реальные последствия. Дипломатия, война, экономика, внутренняя политика — всё взаимосвязано.</p></article>
-      <article class="card"><h3>🎭 Регулярные ивенты</h3><p>Живые ролевые события, которые меняют ход сезона. Кризисы, революции, международные конференции — ни один ход не бывает скучным.</p></article>
-      <article class="card"><h3>💬 Острые дискуссии</h3><p>Спорьте, анализируйте и оттачивайте свои взгляды. Наше сообщество — это интеллектуальная среда, где ценится аргументация и глубина мысли.</p></article>
-      <article class="card"><h3>📚 Эксклюзивный контент</h3><p>Уникальные системы, аналитика и новости, которых нет нигде. Каждый сезон приносит новые механики и неожиданные повороты сюжета.</p></article>
-      <article class="card"><h3>🤝 Зрелое сообщество</h3><p>Уважительный диалог без троллинга и пустых срачей. Мы создали среду, в которой хочется развиваться и играть.</p></article>
-    </div>
-  </section>
+<!-- ПЕРСОНАЛ: контент из отдельного файла -->
+<section class="page" id="page-staff">
+<h1>Персонал <em>Global Lens</em></h1>
+<p class="lead">Люди, которые делают проект лучше каждый день</p>
+<div id="staffBody"><p class="loading">Загрузка персонала...</p></div>
+</section>
 
-  <!-- СЕЗОН (полный текст) -->
-  <section class="page" id="page-season">
-    <h1>Сезон <em>25</em></h1>
-    <p class="lead">Юбилейный сезон — старт в эту пятницу!</p>
-    <article class="card wide" style="margin-top:0"><p>Двадцать пятый сезон Global Lens только что начался. Это юбилейный рубеж, который приносит кардинальные изменения в экономику, автономии, дипломатию и многое другое. Узнайте все подробности на странице <a href="#" data-go="news">новостей</a> и <a href="#" data-go="updates">обновлений</a>.</p></article>
-    <div class="stats three">
-      <div class="stat"><b>44</b><span>Государства</span></div>
-      <div class="stat"><b>5</b><span>ЧВК</span></div>
-      <div class="stat"><b>3</b><span>Автономии</span></div>
-    </div>
-    <div class="cta-row"><a class="cta fill" href="https://discord.gg/edPpSRmRNu">Вступить в игру</a></div>
-  </section>
+<section class="page" id="page-press">
+<h1>Пресса <em>сервера</em></h1>
+<p class="lead">Краткая информация всех событий (РП и не-РП) за определённый период</p>
+<div class="stub"><svg class="ic"><use href="#i-news"/></svg><h3>Ведутся технические работы</h3><p>Раздел находится в разработке. Ожидайте скорого открытия.</p></div>
+</section>
 
-  <!-- ПЕРСОНАЛ (ПОЛНОСТЬЮ, БЕЗ СОКРАЩЕНИЙ) -->
-  <section class="page" id="page-staff">
-    <h1>Персонал <em>Global Lens</em></h1>
-    <p class="lead">Люди, которые делают проект лучше каждый день</p>
+<section class="page" id="page-donate">
+<h1>Донат <em>магазин</em></h1>
+<p class="lead">Поддержи проект и получи эксклюзивные награды</p>
+<div class="stub"><svg class="ic"><use href="#i-hammer"/></svg><h3>Ведутся технические работы</h3><p>Раздел находится в разработке. Ожидайте скорого открытия.</p></div>
+</section>
 
-    <div class="sec-title">👑 ЛИДЕРСТВО / ОСНОВАТЕЛЬ</div>
-    <article class="card" style="margin-top:0">
-      <div class="member"><span class="m-ava">A</span><div><b>AytacOnan2</b><span class="m-role">ОСНОВАТЕЛЬ</span><p>Владелец сервера. Создал бота, который делает всю тяжёлую работу. Просто хороший человек, без которого этого проекта не существовало бы.</p></div></div>
-    </article>
-
-    <div class="sec-title">🙏 ПРИЗНАТЕЛЬНОСТЬ / ОТДЕЛЬНАЯ БЛАГОДАРНОСТЬ</div>
-    <p class="lead" style="margin-top:0;margin-bottom:24px">Люди, внёсшие особый вклад в развитие проекта</p>
-    <article class="card" style="margin-top:0">
-      <div class="member"><span class="m-ava">К</span><div><b>Китаёзик</b><span class="m-role">АДМИНИСТРАТОР</span><p>Создатель данного сайта. Сделал всё, что вы сейчас видите — от дизайна до реализации.</p></div></div>
-      <div class="member"><span class="m-ava">R</span><div><b>Riy</b><span class="m-role">СОВЛАДЕЛЕЦ EVENT HORIZON</span><p>Совладелец сервера Event Horizon. Придумывал прикольные идеи и помогал делать бота. Партнёрка... хыххыыхы..ы.ы.ы.ыххы4.</p></div></div>
-      <div class="member"><span class="m-ava">Y</span><div><b>Yabl1ch</b><span class="m-role">КУРАТОР АНКЕТОЛОГОВ</span><p>Самый лучший куратор анкетологов, и ещё и самый лучший анкетолог, и по совместительству заслуженный человек в политологии.</p></div></div>
-      <div class="member"><span class="m-ava">L</span><div><b>LayBay</b><span class="m-role">СПЕЦИАЛИСТ ПО ТЕХНИКЕ</span><p>Реализовал процесс по созданию, оценке и принятию техники. Также является заместителем куратора картографии и заместителем куратора технологов.</p></div></div>
-      <div class="member"><span class="m-ava">Ф</span><div><b>[ВНК] Феникс Единорогович</b><span class="m-role">БЫВШИЙ АДМИНИСТРАТОР</span><p>Единорожка. Да, просто единорожка. 🦄✨</p></div></div>
-      <div class="member"><span class="m-ava">Q</span><div><b>QWERTX</b><span class="m-role">КУРАТОР ПОЛИТОЛОГОВ</span>
-        <p>Прошёл полную карьерную лестницу от простого игрока до заместителя. За время работы на шампур пытались насадить минимум 5 раз (включая AytacOnan2 и прочих неравнодушных), но он выжил. Легенда сервера. Обвиняется в:</p>
-        <details class="long-list"><summary>⚖️ Полный список обвинений<span class="count" style="margin-left:auto;font-family:'JetBrains Mono';font-size:10px;color:var(--dim);background:#080b09;padding:2px 8px;border-radius:5px;border:1px solid var(--line2)">56</span></summary>
-        <div class="list-body">
-          <div class="award red"><b>Массовое убийство</b></div>
-          <div class="award red"><b>Принужденный каннибализм</b></div>
-          <div class="award red"><b>Преступления против человечества</b></div>
-          <div class="award red"><b>Вандализм</b></div>
-          <div class="award red"><b>Каннибализм</b></div>
-          <div class="award red"><b>Геноцид</b></div>
-          <div class="award red"><b>Похищение</b></div>
-          <div class="award red"><b>Незаконный оборот оружия</b></div>
-          <div class="award red"><b>Кража</b></div>
-          <div class="award red"><b>Мошенничество</b></div>
-          <div class="award red"><b>Изготовление и сбыт поддельных документов</b></div>
-          <div class="award red"><b>Незаконный оборот наркотиков</b></div>
-          <div class="award red"><b>Пиратство</b></div>
-          <div class="award red"><b>Коррупция</b></div>
-          <div class="award red"><b>Ловушка на дороге</b></div>
-          <div class="award red"><b>Грабеж</b></div>
-          <div class="award red"><b>Вымогательство</b></div>
-          <div class="award red"><b>Политическая угроза</b></div>
-          <div class="award red"><b>Угон транспортного средства</b></div>
-          <div class="award red"><b>Изнасилование</b></div>
-          <div class="award red"><b>Торговля людьми промышленной</b></div>
-          <div class="award red"><b>Нарушение авторского права</b></div>
-          <div class="award red"><b>Киберпреступления</b></div>
-          <div class="award red"><b>Сексуальное насилие</b></div>
-          <div class="award red"><b>Нарушение законов о защите окружающей среды</b></div>
-          <div class="award red"><b>Организация органов поддельной власти</b></div>
-          <div class="award red"><b>Военное преступление</b></div>
-          <div class="award red"><b>Утеря или уничтожение доказательств</b></div>
-          <div class="award red"><b>Неуплата налогов</b></div>
-          <div class="award red"><b>Организация или участие в мятеже</b></div>
-          <div class="award red"><b>Содействие террористической деятельности</b></div>
-          <div class="award red"><b>Следование расистским или ксенофобским взглядам</b></div>
-          <div class="award red"><b>Сотрудничество с преступной организацией</b></div>
-          <div class="award red"><b>Нарушение прав человека</b></div>
-          <div class="award red"><b>Неисполнение профессиональных обязанностей</b></div>
-          <div class="award red"><b>Уклонение от армейской службы</b></div>
-          <div class="award red"><b>Незаконное получение конфиденциальной информации</b></div>
-          <div class="award red"><b>Неправомерные действия в сфере финансов</b></div>
-          <div class="award red"><b>Саботаж или умышленное повреждение имущества</b></div>
-          <div class="award red"><b>Использование нарушенных законов для личной выгоды</b></div>
-          <div class="award red"><b>Нарушение законов о безопасности</b></div>
-          <div class="award red"><span class="lbl">ДОПОЛНИТЕЛЬНО:</span></div>
-          <div class="award red"><b>Жестокое обращение с животными</b></div>
-          <div class="award red"><b>Браконьерство</b></div>
-          <div class="award red"><b>Массовое убийство животных</b></div>
-          <div class="award red"><b>Побег из тюрьмы</b></div>
-          <div class="award red"><b>Сопротивление аресту</b></div>
-          <div class="award red"><b>Нападение и побои</b></div>
-          <div class="award red"><b>Обвинение в коррупции</b></div>
-          <div class="award red"><b>Преследование</b></div>
-          <div class="award red"><b>Заговор</b></div>
-          <div class="award red"><b>Контрабанда</b></div>
-          <div class="award red"><b>Незаконное пересечение границы</b></div>
-          <div class="award red"><b>Проникновение на чужую территорию</b></div>
-          <div class="award red"><b>Рабство</b></div>
-          <div class="award red"><b>Опасное вождение</b></div>
-          <div class="award red"><b>Создание опасной ситуации для жизни и здоровья</b></div>
-          <div class="award red"><b>Порча имущества</b></div>
-          <div class="award red"><b>Убийство</b></div>
-          <div class="award red"><b>Незаконная охота</b></div>
-        </div></details>
-      </div></div>
-    </article>
-
-    <div class="sec-title">🛡️ УПРАВЛЕНИЕ / АДМИНИСТРАТОРЫ</div>
-    <article class="card" style="margin-top:0">
-      <div class="member"><span class="m-ava">F</span><div><b>FFlowy</b><span class="m-role">АДМИНИСТРАТОР</span><p>Самый добрый и лучший человек в мире с большим сердцем. Всегда поможет, всегда поддержит.</p></div></div>
-      <div class="member"><span class="m-ava">К</span><div><b>Китаёзик</b><span class="m-role">АДМИНИСТРАТОР</span><p>Создатель данного сайта. Сделал всё, что вы сейчас видите.</p></div></div>
-    </article>
-
-    <div class="sec-title">🧭 НАПРАВЛЕНИЯ / КУРАТОРЫ</div>
-    <article class="card" style="margin-top:0">
-      <div class="member"><span class="m-ava">P</span><div><b>pponzc</b><span class="m-role">КУРАТОР КАРТОГРАФОВ</span>
-        <p>Смог восстановить и сделать стабильную работу картографии. 🏅 Награды:</p>
-        <details class="long-list"><summary>🏅 Полный список наград<span class="count" style="margin-left:auto;font-family:'JetBrains Mono';font-size:10px;color:var(--dim);background:#080b09;padding:2px 8px;border-radius:5px;border:1px solid var(--line2)">100</span></summary>
-        <div class="list-body">
-          <div class="award"><b>🏅 Орден «Волчья тропа» I степени</b><span>— за скрытное перемещение по тылам врага без карты и фонарика</span></div>
-          <div class="award"><b>🏅 Медаль «За взятие блокпоста без очереди»</b><span>— за проезд через КПП по звонку старшему</span></div>
-          <div class="award"><b>🏅 Знак отличия «Мастер горного эха»</b><span>— за успешную дезинформацию противника криками «Аллах Акбар» с разных сторон</span></div>
-          <div class="award"><b>🏅 Орден «Сломанный КПП»</b><span>— за физическое уничтожение шлагбаума лбом или бампером</span></div>
-          <div class="award"><b>🏅 Медаль «За отстрел тепловизора из рогатки»</b><span>— за ювелирную точность попадания галькой в дорогую оптику</span></div>
-          <div class="award"><b>🏅 Крест «Ночной абрек»</b><span>— за 10+ успешных ночных рейдов в тапочках, чтоб не шуметь</span></div>
-          <div class="award"><b>🏅 Медаль «За бой в тапочках»</b><span>— за внезапное боестолкновение прямо во время омовения</span></div>
-          <div class="award"><b>🏅 Знак «Ветеран битвы за урожай конопли»</b><span>— за оборону стратегического сырья от чужих рук</span></div>
-          <div class="award"><b>🏅 Орден «Скрытый Шамиль»</b><span>— за партизанскую хитрость, достойную имама</span></div>
-          <div class="award"><b>🏅 Медаль «За меткий плевок в глаз БТРу»</b><span>— за временное ослепление механика-водителя подручными средствами</span></div>
-          <div class="award"><b>🏅 Почетный знак «Горец-невидимка»</b><span>— за умение раствориться в буковом лесу за секунду до обыска</span></div>
-          <div class="award"><b>🏅 Орден «Бородатый джигит»</b><span>— за ношение бороды в условиях отсутствия воды и бритвы более 40 дней</span></div>
-          <div class="award"><b>🏅 Медаль «Снайпер-хлеборез»</b><span>— за точное попадание из СВД в ящик с сухпайком противника</span></div>
-          <div class="award"><b>🏅 Знак «За взятие языка глухонемого»</b><span>— за бесполезный, но героический захват пленного, который ничего не рассказал</span></div>
-          <div class="award"><b>🏅 Орден «Аллаху Акбар Бар» I степени</b><span>— за самый громкий тактический крик, поднявший боевой дух роты</span></div>
-          <div class="award"><b>🏅 Медаль «За угон БТР-80 с охраняемой стоянки»</b><span>— за наглость и знание где ключи оставляет механик</span></div>
-          <div class="award"><b>🏅 Знак «Повелитель "Зелёнки"»</b><span>— за умение ориентироваться в лесу с точностью GPS</span></div>
-          <div class="award"><b>🏅 Орден «Волчья сыть»</b><span>— за употребление просроченной тушенки 1985 года без последствий для желудка</span></div>
-          <div class="award"><b>🏅 Медаль «За форсирование Сунжи вброд в минус 20»</b><span>— за ледяное мужество и отсутствие резиновых сапог</span></div>
-          <div class="award"><b>🏅 Знак «Тень Аргуна»</b><span>— за бесшумное перемещение по Аргунскому ущелью</span></div>
-          <div class="award"><b>🏅 Орден «Золотой кнопочный телефон»</b><span>— за решение всех вопросов одним звонком нужному человеку</span></div>
-          <div class="award"><b>🏅 Медаль «За взятие бюджета»</b><span>— за успешное освоение выделенных средств без остатка в казне</span></div>
-          <div class="award"><b>🏅 Знак «Почетный тамада Военно-Полевого Совета»</b><span>— за умение вести заседание и тосты одновременно</span></div>
-          <div class="award"><b>🏅 Орден «Ватсап-Дипломат»</b><span>— за урегулирование конфликта через голосовые сообщения в мессенджере</span></div>
-          <div class="award"><b>🏅 Медаль «За отжатие гуманитарки у своих»</b><span>— за перераспределение помощи в пользу своего подразделения</span></div>
-          <div class="award"><b>🏅 Знак «Главный по печенькам ЮНИСЕФ»</b><span>— за контроль над сладким гуманитарным грузом</span></div>
-          <div class="award"><b>🏅 Орден «Друг детей и сирот»</b><span>— за раздачу конфет перед объективами камер</span></div>
-          <div class="award"><b>🏅 Медаль «За отважную коррупцию»</b><span>— за взятие отката в особо крупном размере под носом у проверки</span></div>
-          <div class="award"><b>🏅 Знак «Хранитель общака» I степени с бриллиантами</b><span>— за сохранность общей кассы при отступлении</span></div>
-          <div class="award"><b>🏅 Орден «Свой в доску»</b><span>— за умение договориться с кем угодно на любом уровне</span></div>
-          <div class="award"><b>🏅 Медаль «За вклад в черный рынок Грозного»</b><span>— за налаживание поставок дефицитных товаров</span></div>
-          <div class="award"><b>🏅 Знак «Почетный смотрящий за нефтяной скважиной»</b><span>— за контроль кустарного нефтепромысла</span></div>
-          <div class="award"><b>🏅 Орден «Ковровая дорожка Шали»</b><span>— за умение красиво встретить высокого гостя в полевых условиях</span></div>
-          <div class="award"><b>🏅 Медаль «За дипломатическое решение вопроса с помощью ПЗРК»</b><span>— за убеждение оппонента силой аргументов на плече</span></div>
-          <div class="award"><b>🏅 Знак «Спикер Совета Старейшин»</b><span>— за способность говорить три часа и ничего не сказать по делу</span></div>
-          <div class="award"><b>🏅 Орден «Мирный атом»</b><span>— за хранение ртути и прочих полезных веществ в гараже</span></div>
-          <div class="award"><b>🏅 Медаль «За вхождение в положение»</b><span>— за умение войти в любую ситуацию и не выйти без выгоды</span></div>
-          <div class="award"><b>🏅 Знак «Ветеран Кадыровско-Масхадовских разборок»</b><span>— за выживание при любом режиме и власти</span></div>
-          <div class="award"><b>🏅 Орден «Примиритель кровников»</b><span>— за примирение двух враждующих родов путем устранения обоих</span></div>
-          <div class="award"><b>🏅 Медаль «За отстаивание суверенитета кухни»</b><span>— за недопуск женщин к приготовлению плова</span></div>
-          <div class="award"><b>🏅 Медаль «За варку хинкала в полевых условиях»</b><span>— за кулинарный подвиг под обстрелом</span></div>
-          <div class="award"><b>🏅 Орден «Золотой Газырь»</b><span>— за эталонное ношение кавказской формы с газырями</span></div>
-          <div class="award"><b>🏅 Знак «Чеченский йог»</b><span>— за способность выспаться на голых камнях за час</span></div>
-          <div class="award"><b>🏅 Медаль «За рекордное количество нашивок на форме»</b><span>— за превращение камуфляжа в иконостас</span></div>
-          <div class="award"><b>🏅 Орден «Почетный пастух боевых баранов»</b><span>— за успешную эвакуацию отары из зоны боевых действий</span></div>
-          <div class="award"><b>🏅 Медаль «За отлов волка голыми руками»</b><span>— на самом деле соседская овчарка, но звучит грозно</span></div>
-          <div class="award"><b>🏅 Знак «Самый быстрый разбор-сбор АК под пловом»</b><span>— за рекордное время обслуживания автомата в перерыве между блюдами</span></div>
-          <div class="award"><b>🏅 Орден «Скала Кавказа»</b><span>— за богатырское телосложение и вес свыше центнера</span></div>
-          <div class="award"><b>🏅 Медаль «За спасение папахи из огня»</b><span>— за риск жизнью ради головного убора</span></div>
-          <div class="award"><b>🏅 Знак «Чтец Корана на бис»</b><span>— за красивое чтение сур под аплодисменты моджахедов</span></div>
-          <div class="award"><b>🏅 Орден «Лучший водитель "Девятки" по серпантину»</b><span>— за дрифт по горной дороге с полным салоном бойцов</span></div>
-          <div class="award"><b>🏅 Медаль «За поднятие тоста стоя на бруствере»</b><span>— за ораторское искусство под свистом пуль</span></div>
-          <div class="award"><b>🏅 Знак «Хранитель традиций»</b><span>— за постоянное ношение кинжала даже в бане</span></div>
-          <div class="award"><b>🏅 Орден «Самогонщик Веденского района»</b><span>— за обеспечение фронта стратегическим напитком</span></div>
-          <div class="award"><b>🏅 Медаль «За лезгинку на броне»</b><span>— за исполнение национального танца на движущемся БТРе</span></div>
-          <div class="award"><b>🏅 Знак «Гроза ГАИ»</b><span>— за езду без прав и номеров с 1994 года без единого штрафа</span></div>
-          <div class="award"><b>🏅 Орден «Кунак Доку Умарова»</b><span>— за близкое знакомство с одиозным полевым командиром</span></div>
-          <div class="award"><b>🏅 Медаль «За сохранение чеченского языка в нецензурной форме»</b><span>— за виртуозное владение родной обсценной лексикой</span></div>
-          <div class="award"><b>🏅 Знак «Золотая бормашина»</b><span>— за стоматологическую помощь бойцам в полевом лазарете</span></div>
-          <div class="award"><b>🏅 Медаль «За изобретение тушенки из барана»</b><span>— за кулинарный прорыв в полевой кухне</span></div>
-          <div class="award"><b>🏅 Орден «Страж Вайнахской этики»</b><span>— за соблюдение кодекса чести даже при дележе добычи</span></div>
-          <div class="award"><b>🏅 Медаль «За 1000 и одну историю про первую войну»</b><span>— за неиссякаемый запас баек у костра</span></div>
-          <div class="award"><b>🏅 Знак «Повелитель УАЗика»</b><span>— за умение починить «буханку» молотком и матом</span></div>
-          <div class="award"><b>🏅 Медаль «За усмирение коня во время салюта»</b><span>— за удержание скакуна при автоматной очереди в воздух</span></div>
-          <div class="award"><b>🏅 Орден «Золотой чеченский акцент»</b><span>— за речь, которую понимают только земляки</span></div>
-          <div class="award"><b>🏅 Медаль «За пробитие брони взглядом»</b><span>— за фирменный тяжелый взгляд исподлобья</span></div>
-          <div class="award"><b>🏅 Орден «Альфа-самец блокпоста»</b><span>— за доминирование над всеми на КПП</span></div>
-          <div class="award"><b>🏅 Знак «Почетный ныряльщик в Каспийское море за патронами»</b><span>— за подъем утопленного боезапаса</span></div>
-          <div class="award"><b>🏅 Медаль «За вынос мозга пленному ФСБшнику»</b><span>— за успешную дезинформацию вражеского агента</span></div>
-          <div class="award"><b>🏅 Орден «Спин-офф Кавказской пленницы»</b><span>— за похищение невесты с элементами экшена</span></div>
-          <div class="award"><b>🏅 Медаль «За взятие языка жестов»</b><span>— за допрос глухонемого пленного из награды №14</span></div>
-          <div class="award"><b>🏅 Знак «Обладатель госномера "КРА 001"»</b><span>— за езду с картонным блатным номером</span></div>
-          <div class="award"><b>🏅 Орден «За разминирование минёта»</b><span>— за исправление опечатки в боевом приказе ценой здоровья</span></div>
-          <div class="award"><b>🏅 Медаль «За оскорбление чувств верующих соседнего вилаята»</b><span>— за излишне громкий такбир не в том месте</span></div>
-          <div class="award"><b>🏅 Знак «Ветеран форумной войны в разделе "Чечня.ру"»</b><span>— за тысячи постов в интернет-баталиях</span></div>
-          <div class="award"><b>🏅 Орден «Золотой свисток»</b><span>— за сотрудничество со всеми сторонами конфликта одновременно</span></div>
-          <div class="award"><b>🏅 Медаль «За утилизацию стратегического запаса вермишели "Роллтон"»</b><span>— за съедение НЗ в мирное время</span></div>
-          <div class="award"><b>🏅 Знак «Почетный наблюдатель за спутниками НАТО»</b><span>— за высматривание вражеских аппаратов в небе</span></div>
-          <div class="award"><b>🏅 Орден «За победу в тендере на откат»</b><span>— за предложение лучшего процента нужному чиновнику</span></div>
-          <div class="award"><b>🏅 Медаль «За художественный свист пули над ухом»</b><span>— за виртуозное уклонение от выстрела</span></div>
-          <div class="award"><b>🏅 Знак «Крестный отец Центороя»</b><span>— за неформальное влияние в родовом селе Кадырова</span></div>
-          <div class="award"><b>🏅 Медаль «За подрыв доверия»</b><span>— за успешное внедрение дезинформации в ряды противника</span></div>
-          <div class="award"><b>🏅 Орден «Черная вдова»</b><span>— за переживание четырех жен и поиск пятой</span></div>
-          <div class="award"><b>🏅 Медаль «За взятие высоты 776.0 в компьютерной игре»</b><span>— за виртуальный реванш в шутере</span></div>
-          <div class="award"><b>🏅 Знак «Мастер спорта по спортивному минированию»</b><span>— за установку растяжек с олимпийским спокойствием</span></div>
-          <div class="award"><b>🏅 Орден «Святой Георгий Победоносец»</b><span>— за победу в рукопашной схватке с более сильным противником</span></div>
-          <div class="award"><b>🏅 Медаль «Ветеран Чеченской Республики Ичкерия»</b><span>— за выслугу лет при любом режиме</span></div>
-          <div class="award"><b>🏅 Знак «Гвардия Дудаева»</b><span>— за службу еще при первом президенте ЧРИ</span></div>
-          <div class="award"><b>🏅 Орден «Рука Кремля»</b><span>— за умение получать финансирование с обеих сторон конфликта</span></div>
-          <div class="award"><b>🏅 Медаль «За взятие Грозного»</b><span>— за успешную навигацию по городу без карты и навигатора</span></div>
-          <div class="award"><b>🏅 Знак «Участник Бородинского сражения»</b><span>— за то, что перепутал эпохи, но сражался достойно</span></div>
-          <div class="award"><b>🏅 Орден «Асса»</b><span>— за самый громкий и протяжный боевой клич в истории подразделения</span></div>
-          <div class="award"><b>🏅 Медаль «За поимку шпиона»</b><span>— за нейтрализацию соседского кота, воровавшего рыбу</span></div>
-          <div class="award"><b>🏅 Знак «Хранитель Зелимхана»</b><span>— за подражание легендарному абреку Зелимхану Харачоевскому</span></div>
-          <div class="award"><b>🏅 Орден «Ичкерийский Суворов»</b><span>— за науку отступать без потерь личного состава</span></div>
-          <div class="award"><b>🏅 Медаль «За оборону подвала собственного дома»</b><span>— за героическое удержание личного погреба</span></div>
-          <div class="award"><b>🏅 Знак «Друг Арби Бараева»</b><span>— за знакомство с известным полевым командиром</span></div>
-          <div class="award"><b>🏅 Орден «Красная звезда»</b><span>— за найденный в горах советский орден, покрашенный в зеленый</span></div>
-          <div class="award"><b>🏅 Медаль «За отвагу на диване»</b><span>— за стратегическое планирование операций не вставая с лежанки</span></div>
-          <div class="award"><b>🏅 Знак «Герой Чеченской Республики Ичкерия»</b><span>— за самопровозглашенный подвиг перед зеркалом</span></div>
-        </div></details>
-      </div></div>
-      <div class="member"><span class="m-ava">Q</span><div><b>QWERTX</b><span class="m-role">КУРАТОР ПОЛИТОЛОГИИ</span><p>Тот самый единственный человек, которого заставлял работать [ARIMA] Yagami. Ненавидит nefusad.</p></div></div>
-      <div class="member"><span class="m-ava">Y</span><div><b>Yabl1ch</b><span class="m-role">КУРАТОР АНКЕТОЛОГОВ</span><p>Самый лучший куратор анкетологов, и ещё и самый лучший политолог.</p></div></div>
-      <div class="member"><span class="m-ava">!</span><div><b>ксайлеz</b><span class="m-role">КУРАТОР МОДЕРАТОРОВ</span><p>В прошлом устроил революцию против владельца... 10/10, рекомендую.</p></div></div>
-    </article>
-
-    <div class="sec-title">🧩 ЗАМЕСТИТЕЛИ / ЗАМЫ КУРАТОРОВ</div>
-    <article class="card" style="margin-top:0">
-      <div class="member"><span class="m-ava">L</span><div><b>LayBay</b><span class="m-role">ЗАМ ТЕХНОЛОГОВ</span><p>Следит за всей принятой техникой.</p></div></div>
-      <div class="member"><span class="m-ava">D</span><div><b>Dina</b><span class="m-role">ЗАМ МОДЕРАТОРОВ</span><p>Настоящий хранитель порядка. Разбирается в людях и правилах так же хорошо, как в сортах чая. Может одновременно успокоить спорщика и найти идеальный рецепт сырников.</p></div></div>
-      <div class="member"><span class="m-ava">M</span><div><b>Maksim</b><span class="m-role">ЗАМ АНКЕТОЛОГИИ</span><p>Самый лучший анкетолог, после Yabl1ch, конечно же.</p></div></div>
-      <div class="member"><span class="m-ava">Y</span><div><b>Yabl1ch</b><span class="m-role">ЗАМ ПОЛИТОЛОГОВ</span><p>Отличный человек, работает так же, как и в анкетологии.</p></div></div>
-      <div class="member"><span class="m-ava">n</span><div><b>nefusad</b><span class="m-role">ЗАМ КУРАТОРА ВОЕН. ВЕДУЩИХ</span><p>Отличный человек. Любит спорить. Ненавидит QWERTX.</p></div></div>
-    </article>
-
-    <div class="sec-title">👥 СОТРУДНИКИ / ПРОСТОЙ ПЕРСОНАЛ</div>
-    <p class="lead" style="margin-top:0;margin-bottom:24px">Люди, которые работают каждый день</p>
-    <div class="grid-2">
-      <article class="card" style="margin-top:0"><h3>🏛️ Политологи</h3>
-        <div class="m-sub">ОТВЕЧАЮТ ЗА ПОЛИТИЧЕСКУЮ ДЕЯТЕЛЬНОСТЬ НА СЕРВЕРЕ</div>
-        <div class="member"><span class="m-ava">C</span><div><b>Cesare</b><span class="m-role">ПОЛИТОЛОГ</span><p>Искусный стратег, который просчитывает политические ходы на десять шагов вперёд. Его прогнозы редко ошибаются, а советы ценятся на вес золота.</p></div></div>
-        <div class="member"><span class="m-ava">г</span><div><b>гипоальбуминемия</b><span class="m-role">ПОЛИТОЛОГ</span><p>Истинный мастер слова, способный найти дипломатический путь даже в самые тёмные времена.</p></div></div>
-        <div class="member"><span class="m-ava">_</span><div><b>_ilovevodka</b><span class="m-role">ПОЛИТОЛОГ</span><p>Горящий факел политики, который зажигает сердца и умы.</p></div></div>
-        <div class="member"><span class="m-ava">G</span><div><b>Gleipø</b><span class="m-role">ПОЛИТОЛОГ</span><p>Невозмутимый аналитик, способный найти логику даже в самом хаотичном международном кризисе. Мастер компромиссов и тайных переговоров.</p></div></div>
-      </article>
-      <article class="card" style="margin-top:0"><h3>🗺️ Картографы</h3>
-        <div class="m-sub">СОЗДАЮТ И ПОДДЕРЖИВАЮТ КАРТЫ СЕРВЕРА</div>
-        <div class="member"><span class="m-ava">P</span><div><b>pponzc</b><span class="m-role">КАРТОГРАФ</span><p>Восстановил работу картографии.</p></div></div>
-      </article>
-      <article class="card" style="margin-top:0"><h3>📋 Анкетологи</h3>
-        <div class="m-sub">ПРОВЕРЯЮТ И ОДОБРЯЮТ АНКЕТЫ НОВЫХ УЧАСТНИКОВ</div>
-        <div class="member"><span class="m-ava">D</span><div><b>Dima</b><span class="m-role">АНКЕТОЛОГ</span><p>Активный участник команды.</p></div></div>
-        <div class="member"><span class="m-ava">Q</span><div><b>QWERTX</b><span class="m-role">АНКЕТОЛОГ</span><p>Проверяет анкеты.</p></div></div>
-      </article>
-      <article class="card" style="margin-top:0"><h3>⚔️ Модераторы</h3>
-        <div class="m-sub">СЛЕДЯТ ЗА ПОРЯДКОМ НА СЕРВЕРЕ</div>
-        <div class="member"><span class="m-ava">G</span><div><b>Gleipø</b><span class="m-role">МОДЕРАТОР</span><p>Следит за порядком.</p></div></div>
-        <div class="member"><span class="m-ava">Y</span><div><b>[ARIMA] Yagami</b><span class="m-role">МОДЕРАТОР</span><p>Следит за порядком.</p></div></div>
-        <div class="member"><span class="m-ava">D</span><div><b>Dena</b><span class="m-role">МОДЕРАТОР</span><p>Следит за порядком.</p></div></div>
-        <div class="member"><span class="m-ava">C</span><div><b>🇧🇬Cortez🇲🇩</b><span class="m-role">МОДЕРАТОР</span><p>Пидорас. Не работает. Совсем. Пустая трата слота.</p></div></div>
-      </article>
-      <article class="card" style="margin-top:0;grid-column:1/-1"><h3>🔧 Технологи</h3>
-        <div class="m-sub">ПРИНИМАЮТ ТЕХНИКУ НА СЕРВЕРЕ</div>
-        <div class="member"><span class="m-ava">B</span><div><b>BeeZymEaS</b><span class="m-role">ТЕХНОЛОГ</span><p>Принимают технику.</p></div></div>
-        <div class="member"><span class="m-ava">A</span><div><b>Adolf_Hit</b><span class="m-role">ТЕХНОЛОГ</span><p>Был куратором модерации и благополучно просрал свой пост, наверное, потому что из-за него 3 человека покинуло сервер, а один перестал играть.</p></div></div>
-        <div class="member"><span class="m-ava">D</span><div><b>Dina</b><span class="m-role">ТЕХНОЛОГ</span><p>Принимают технику.</p></div></div>
-        <div class="member"><span class="m-ava">ф</span><div><b>фанклаб</b><span class="m-role">ТЕХНОЛОГ</span><p>Принимают технику.</p></div></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ПРЕССА -->
-  <section class="page" id="page-press">
-    <h1>Пресса <em>сервера</em></h1>
-    <p class="lead">Краткая информация всех событий (РП и не-РП) за определённый период</p>
-    <div class="stub"><div class="icon">📰</div><h3>Ведутся технические работы</h3><p>Раздел находится в разработке. Ожидайте скорого открытия.</p></div>
-  </section>
-
-  <!-- ДОНАТ -->
-  <section class="page" id="page-donate">
-    <h1>Донат <em>магазин</em></h1>
-    <p class="lead">Поддержи проект и получи эксклюзивные награды</p>
-    <div class="stub"><div class="icon">🛠️</div><h3>Ведутся технические работы</h3><p>Раздел находится в разработке. Ожидайте скорого открытия.</p></div>
-  </section>
-
-  <!-- АРХИВЫ -->
-  <section class="page" id="page-archives">
-    <h1>Архивы <em>сезонов</em></h1>
-    <p class="lead">История всех завершённых сезонов</p>
-    <div class="stub"><div class="icon">📦</div><h3>Ведутся технические работы</h3><p>Архивы ещё не готовы к показу. Ожидайте скорого открытия.</p></div>
-  </section>
+<section class="page" id="page-archives">
+<h1>Архивы <em>сезонов</em></h1>
+<p class="lead">История всех завершённых сезонов</p>
+<div class="stub"><svg class="ic"><use href="#i-box"/></svg><h3>Ведутся технические работы</h3><p>Архивы ещё не готовы к показу. Ожидайте скорого открытия.</p></div>
+</section>
 </main>
 </div>
 
@@ -653,6 +382,19 @@ function applyDiscordMarkdown(html){
     return line;
   }).join('\n');
 }
+/* Загрузка локальных файлов-фрагментов (правила сервера, персонал) */
+async function loadFragment(url,id){
+  const el=document.getElementById(id);
+  try{
+    const r=await fetch(url);
+    if(!r.ok)throw 0;
+    el.innerHTML=await r.text();
+  }catch(e){
+    el.innerHTML='<p class="loading">Не удалось загрузить раздел. Файлы-фрагменты работают только на хостинге (GitHub Pages), не через file://.</p>';
+  }
+}
+loadFragment('rules_server_content.html','rulesServerBody');
+loadFragment('staff_content.html','staffBody');
 async function loadUpdates(){
   const el=document.getElementById('updatesBody'),stats=document.getElementById('updatesStats');
   try{
