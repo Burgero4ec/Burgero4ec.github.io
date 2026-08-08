@@ -464,54 +464,63 @@
       }).join('\n');
     }
 
-    /* ===== ОБЩАЯ ФУНКЦИЯ: рендеринг Discord-сообщений ===== */
-    /* Группирует подряд идущие сообщения одного автора в одну карточку */
-    function renderDiscordMessages(doc, container, statsContainer) {
-      const items = [...doc.querySelectorAll('.message')].map(m => {
-        const content = m.querySelector('.content');
-        if (!content) return null;
-        const ts = m.querySelector('.timestamp');
-        const author = m.querySelector('.author');
-        const reply = m.querySelector('.reply');
-        const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
-        return {
-          date: parseTs(rawTs),
-          dateStr: rawTs,
-          author: author ? author.textContent.trim() : 'Global Lens BOT',
-          content: content.innerHTML.trim(),
-          reply: reply ? reply.textContent.trim() : ''
-        };
-      }).filter(x => x && x.content);
-      items.sort((a, b) => b.date - a.date);
+/* ===== ОБЩАЯ ФУНКЦИЯ: рендеринг Discord-сообщений ===== */
+/* Читаем сверху вниз (старые → новые).
+   Склеиваем в одну карточку только сообщения ОДНОГО автора,
+   идущие подряд И с разницей ≤ 5 минут. */
+const MERGE_GAP_MS = 5 * 60 * 1000; // 5 минут
 
-      if (!items.length) {
-        container.innerHTML = '<p class="loading">Пока нет сообщений.</p>';
-        return;
-      }
+function renderDiscordMessages(doc, container, statsContainer) {
+  const items = [...doc.querySelectorAll('.message')].map(m => {
+    const content = m.querySelector('.content');
+    if (!content) return null;
+    const ts = m.querySelector('.timestamp');
+    const author = m.querySelector('.author');
+    const reply = m.querySelector('.reply');
+    const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
+    return {
+      date: parseTs(rawTs),
+      dateStr: rawTs,
+      author: author ? author.textContent.trim() : 'Global Lens BOT',
+      content: content.innerHTML.trim(),
+      reply: reply ? reply.textContent.trim() : ''
+    };
+  }).filter(x => x && x.content);
 
-  /* Группировка: склеиваем подряд идущие сообщения одного автора */
+  /* сортируем по возрастанию — старые сверху */
+  items.sort((a, b) => a.date - b.date);
+
+  if (!items.length) {
+    container.innerHTML = '<p class="loading">Пока нет сообщений.</p>';
+    return;
+  }
+
+  /* группировка: один автор + разница ≤ 5 минут */
   const groups = [];
   for (const item of items) {
     const last = groups[groups.length - 1];
-    if (last && last.author === item.author) {
+    const sameAuthor = last && last.author === item.author;
+    const closeTime  = sameAuthor && Math.abs(item.date - last.lastDateMs) <= MERGE_GAP_MS;
+    if (sameAuthor && closeTime) {
       last.contents.push(item.content);
       if (item.reply && !last.reply) last.reply = item.reply;
-      if (!last.firstDate) last.firstDate = item.dateStr;
       last.lastDate = item.dateStr;
+      last.lastDateMs = item.date;
     } else {
       groups.push({
         author: item.author,
         contents: [item.content],
         reply: item.reply,
         firstDate: item.dateStr,
-        lastDate: item.dateStr
+        lastDate: item.dateStr,
+        lastDateMs: item.date
       });
     }
   }
 
   const authors = new Set(groups.map(g => g.author));
-  const firstMsg = items[items.length - 1];
-  const lastMsg = items[0];
+  const firstMsg = items[0];
+  const lastMsg  = items[items.length - 1];
 
   if (statsContainer) {
     statsContainer.innerHTML =
