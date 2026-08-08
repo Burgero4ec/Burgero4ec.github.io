@@ -31,7 +31,11 @@
     .side-top { padding: 22px 20px; border-bottom: 1px solid var(--line); flex: 0 0 auto; }
     .logo-row { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
     .logo-badge { width: 46px; height: 46px; flex: none; border-radius: 12px; overflow: hidden; border: 1px solid var(--acc-border); box-shadow: 0 0 18px var(--acc-glow); background: var(--side); }
-    .logo-badge img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .logo-badge img { width: 100%; height: 100%; object-fit: contain; display: none; }
+    /* Синий и оранжевый PNG шире по холсту — компенсируем масштабом,
+     чтобы все три логотипа выглядели одного размера и не обрезались */
+    .logo-blue, .logo-orange { transform: scale(1.3); }
+    .logo-green { transform: scale(1.6); }
     [data-theme="green"] .logo-green { display: block; }
     [data-theme="blue"] .logo-blue { display: block; }
     [data-theme="orange"] .logo-orange { display: block; }
