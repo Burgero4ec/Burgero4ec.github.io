@@ -20,12 +20,12 @@ body::after{top:-20%;left:50%;transform:translateX(-50%);width:140%;height:60%;b
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0a0d0b}::-webkit-scrollbar-thumb{background:var(--acc2);border-radius:5px}
 a{color:var(--acc)}
 .ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-body,.sidebar,.card,.nav-item,.sub-item,.theme-btn,.btn-discord,.btn-tg,.status-card,.update-card,.stat,.hero-badge,.pill,.rule,.member,.m-ava,.logo-badge,.cta,.update-meta,.update-content,.pun,.side-bottom,.side-top,.us-item,.stub,.themes{transition:background-color .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease}
+body,.sidebar,.card,.nav-item,.sub-item,.theme-btn,.btn-discord,.btn-tg,.status-card,.update-card,.stat,.hero-badge,.pill,.rule,.member,.m-ava,.logo-badge,.cta,.update-meta,.update-content,.pun,.side-bottom,.side-top,.us-item,.stub,.themes,.c-card{transition:background-color .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease}
 .layout{display:flex;min-height:100vh}
 .sidebar{width:290px;flex:0 0 290px;background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
 .side-top{padding:22px 20px;border-bottom:1px solid var(--line);flex:0 0 auto}
 .logo-row{display:flex;gap:12px;align-items:center;margin-bottom:16px}
-.logo-badge{width:46px;height:46px;flex:none;border-radius:12px;overflow:hidden;border:1px solid var(--acc-border);box-shadow:0 0 18px var(--acc-glow);background:var(--side);transition:border-color .35s ease,box-shadow .35s ease}
+.logo-badge{width:46px;height:46px;flex:none;border-radius:12px;overflow:hidden;border:1px solid var(--acc-border);box-shadow:0 0 18px var(--acc-glow);background:var(--side)}
 .logo-badge img{width:100%;height:100%;object-fit:cover;display:none}
 [data-theme="green"] .logo-green{display:block}
 [data-theme="blue"] .logo-blue{display:block}
@@ -96,7 +96,6 @@ blockquote{border-left:3px solid var(--acc2);background:var(--acc-soft);padding:
 .cta.fill{background:var(--acc2);color:#07130a}
 .cta.ghost{border:1px solid var(--acc-border);color:var(--acc)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
-.stats.three{grid-template-columns:repeat(3,1fr)}
 .stat{background:var(--card);border:1px solid var(--line);border-top:2px solid var(--acc2);border-radius:12px;padding:22px;text-align:center}
 .stat b{display:block;font-family:'JetBrains Mono';font-size:34px;color:var(--acc);font-weight:700}
 .stat span{font-family:Manrope;font-size:12.5px;color:var(--muted);letter-spacing:.08em}
@@ -155,8 +154,23 @@ details.long-list .list-body{padding:4px 14px 14px;display:flex;flex-direction:c
 .award.red b{color:var(--red)}
 .award span{color:var(--muted)}
 .award .lbl{font-family:'JetBrains Mono';font-size:10px;color:var(--dim);letter-spacing:.12em;display:block;margin-top:6px}
+/* СЕЗОН: карточки из БД */
+.c-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.c-flag{font-size:28px;line-height:1;flex:none}
+.c-flag.c-ic{color:var(--acc)}
+.c-flag.c-ic .ic{width:26px;height:26px}
+.c-info{min-width:0}
+.c-name{font-family:Manrope;font-weight:700;font-size:14px;color:var(--text)}
+.c-sub{font-family:'JetBrains Mono';font-size:10px;color:var(--dim);margin-top:3px}
+.badge-taken{margin-left:auto;flex:none;font-family:'JetBrains Mono';font-size:9px;letter-spacing:.1em;color:var(--red);background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.3);padding:3px 8px;border-radius:6px}
+.badge-free{margin-left:auto;flex:none;font-family:'JetBrains Mono';font-size:9px;letter-spacing:.1em;color:var(--acc);background:var(--acc-soft);border:1px solid var(--acc-border);padding:3px 8px;border-radius:6px}
+.search-wrap{position:relative;max-width:440px;margin:0 auto 30px}
+.search-wrap>.ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--dim);width:16px;height:16px}
+.search-input{width:100%;padding:12px 16px 12px 40px;border-radius:10px;border:1px solid var(--line2);background:var(--card);color:var(--text);font-family:Manrope;font-size:14px;outline:none;transition:border-color .2s}
+.search-input:focus{border-color:var(--acc-border)}
+.search-input::placeholder{color:var(--dim)}
 @media(max-width:960px){.layout{flex-direction:column}.sidebar{width:100%;flex:none;height:auto;position:static}.side-nav{max-height:55vh}.main{padding:28px 20px}.grid-2,.stats{grid-template-columns:1fr 1fr}h1{font-size:30px}}
-@media(max-width:600px){.grid-2,.grid-3,.stats,.stats.three{grid-template-columns:1fr}}
+@media(max-width:600px){.grid-2,.grid-3,.stats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -188,6 +202,7 @@ details.long-list .list-body{padding:4px 14px 14px;display:flex;flex-direction:c
 <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
 <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 8-5-3-5 3 1.5-8"/></symbol>
 <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="m5 7-3 8c.9.65 1.92 1 3 1s2.1-.35 3-1z"/><path d="m19 7-3 8c.9.65 1.92 1 3 1s2.1-.35 3-1z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
 </svg>
 
 <div class="layout">
@@ -292,7 +307,6 @@ details.long-list .list-body{padding:4px 14px 14px;display:flex;flex-direction:c
 <div class="updates-list" id="updatesBody"><p class="loading">Загрузка истории обновлений...</p></div>
 </section>
 
-<!-- ПРАВИЛА СЕРВЕРА: контент из отдельного файла -->
 <section class="page" id="page-rules-server">
 <h1>Правила <em>сервера</em></h1>
 <p class="lead">Для поддержания порядка и продуктивной игры</p>
@@ -329,16 +343,15 @@ details.long-list .list-body{padding:4px 14px 14px;display:flex;flex-direction:c
 <section class="page" id="page-season">
 <h1>Сезон <em>25</em></h1>
 <p class="lead">Юбилейный сезон — старт в эту пятницу!</p>
-<article class="card wide" style="margin-top:0"><p>Двадцать пятый сезон Global Lens только что начался. Это юбилейный рубеж, который приносит кардинальные изменения в экономику, автономии, дипломатию и многое другое. Узнайте все подробности на странице <a href="#" data-go="news">новостей</a> и <a href="#" data-go="updates">обновлений</a>.</p></article>
-<div class="stats three">
-<div class="stat"><b>44</b><span>Государства</span></div>
-<div class="stat"><b>5</b><span>ЧВК</span></div>
-<div class="stat"><b>3</b><span>Автономии</span></div>
+<div class="stats">
+<div class="stat"><b id="stCountries">0</b><span>Государства</span></div>
+<div class="stat"><b id="stOrgs">0</b><span>Организации</span></div>
+<div class="stat"><b id="stAutos">0</b><span>Автономии</span></div>
+<div class="stat"><b>25</b><span>Сезонов</span></div>
 </div>
-<div class="cta-row"><a class="cta fill" href="https://discord.gg/edPpSRmRNu">Вступить в игру</a></div>
+<div id="seasonBody"><p class="loading">Загрузка данных сезона...</p></div>
 </section>
 
-<!-- ПЕРСОНАЛ: контент из отдельного файла -->
 <section class="page" id="page-staff">
 <h1>Персонал <em>Global Lens</em></h1>
 <p class="lead">Люди, которые делают проект лучше каждый день</p>
@@ -366,70 +379,112 @@ details.long-list .list-body{padding:4px 14px 14px;display:flex;flex-direction:c
 </div>
 
 <script>
-const GH_URLS = {
-  updates: 'https://raw.githubusercontent.com/Burgero4ec/Burgero4ec.github.io/refs/heads/main/Archive_%F0%9F%93%94%E3%83%BB%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.html',
-  bot:     'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/TERMS_OF_SERVICE.md',
-  privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
+const GH_URLS={
+updates:'https://raw.githubusercontent.com/Burgero4ec/Burgero4ec.github.io/refs/heads/main/Archive_%F0%9F%93%94%E3%83%BB%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.html',
+bot:'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/TERMS_OF_SERVICE.md',
+privacy:'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
 };
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function parseTs(s){const m=(s||'').match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);if(!m)return 0;return new Date(+m[3],+m[2]-1,+m[1],+m[4],+m[5]).getTime()}
 function applyDiscordMarkdown(html){
-  return html.split('\n').map(line=>{
-    const h2=line.match(/^(\s*)##\s*(.+)$/);
-    if(h2)return h2[1]+'<span class="dc-h2">'+h2[2]+'</span>';
-    const sm=line.match(/^(\s*)-#\s*(.+)$/);
-    if(sm)return sm[1]+'<span class="small-text">'+sm[2]+'</span>';
-    return line;
-  }).join('\n');
+return html.split('\n').map(line=>{
+const h2=line.match(/^(\s*)##\s*(.+)$/);
+if(h2)return h2[1]+'<span class="dc-h2">'+h2[2]+'</span>';
+const sm=line.match(/^(\s*)-#\s*(.+)$/);
+if(sm)return sm[1]+'<span class="small-text">'+sm[2]+'</span>';
+return line;
+}).join('\n');
 }
-/* Загрузка локальных файлов-фрагментов (правила сервера, персонал) */
-async function loadFragment(url,id){
-  const el=document.getElementById(id);
-  try{
-    const r=await fetch(url);
-    if(!r.ok)throw 0;
-    el.innerHTML=await r.text();
-  }catch(e){
-    el.innerHTML='<p class="loading">Не удалось загрузить раздел. Файлы-фрагменты работают только на хостинге (GitHub Pages), не через file://.</p>';
-  }
-}
-loadFragment('rules_server_content.html','rulesServerBody');
-loadFragment('staff_content.html','staffBody');
 async function loadUpdates(){
-  const el=document.getElementById('updatesBody'),stats=document.getElementById('updatesStats');
-  try{
-    const r=await fetch(GH_URLS.updates);
-    if(!r.ok)throw 0;
-    const doc=new DOMParser().parseFromString(await r.text(),'text/html');
-    const items=[...doc.querySelectorAll('.message')].map(m=>{
-      const content=m.querySelector('.content');
-      if(!content)return null;
-      const ts=m.querySelector('.timestamp'),author=m.querySelector('.author'),reply=m.querySelector('.reply');
-      const rawTs=ts?ts.textContent.split('|')[0].trim():'';
-      return {date:parseTs(rawTs),dateStr:rawTs,author:author?author.textContent.trim():'Global Lens BOT',content:content.innerHTML.trim(),reply:reply?reply.textContent.trim():''};
-    }).filter(x=>x&&x.content);
-    items.sort((a,b)=>b.date-a.date);
-    if(!items.length){el.innerHTML='<p class="loading">В истории обновлений пока нет сообщений.</p>';return}
-    const authors=new Set(items.map(i=>i.author));
-    stats.innerHTML=`<div class="us-item"><b>${items.length}</b>сообщений</div><div class="us-item"><b>${authors.size}</b>авторов</div><div class="us-item"><b>${items[items.length-1].dateStr.split(' ')[0]}</b>первое</div><div class="us-item"><b>${items[0].dateStr.split(' ')[0]}</b>последнее</div>`;
-    el.innerHTML=items.map(i=>`<article class="update-card"><div class="update-meta"><span class="update-author">${esc(i.author)}</span><span class="update-date">${esc(i.dateStr)}</span></div>${i.reply?'<div class="update-content"><div class="reply">↪ '+esc(i.reply)+'</div></div>':''}<div class="update-content">${applyDiscordMarkdown(i.content)}</div></article>`).join('');
-    el.querySelectorAll('a[href^="http"]').forEach(a=>{a.target='_blank';a.rel='noopener'});
-  }catch(e){el.innerHTML='<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>'}
+const el=document.getElementById('updatesBody'),stats=document.getElementById('updatesStats');
+try{
+const r=await fetch(GH_URLS.updates);
+if(!r.ok)throw 0;
+const doc=new DOMParser().parseFromString(await r.text(),'text/html');
+const items=[...doc.querySelectorAll('.message')].map(m=>{
+const content=m.querySelector('.content');
+if(!content)return null;
+const ts=m.querySelector('.timestamp'),author=m.querySelector('.author'),reply=m.querySelector('.reply');
+const rawTs=ts?ts.textContent.split('|')[0].trim():'';
+return{date:parseTs(rawTs),dateStr:rawTs,author:author?author.textContent.trim():'Global Lens BOT',content:content.innerHTML.trim(),reply:reply?reply.textContent.trim():''};
+}).filter(x=>x&&x.content);
+items.sort((a,b)=>b.date-a.date);
+if(!items.length){el.innerHTML='<p class="loading">В истории обновлений пока нет сообщений.</p>';return}
+const authors=new Set(items.map(i=>i.author));
+stats.innerHTML=`<div class="us-item"><b>${items.length}</b>сообщений</div><div class="us-item"><b>${authors.size}</b>авторов</div><div class="us-item"><b>${items[items.length-1].dateStr.split(' ')[0]}</b>первое</div><div class="us-item"><b>${items[0].dateStr.split(' ')[0]}</b>последнее</div>`;
+el.innerHTML=items.map(i=>`<article class="update-card"><div class="update-meta"><span class="update-author">${esc(i.author)}</span><span class="update-date">${esc(i.dateStr)}</span></div>${i.reply?'<div class="update-content"><div class="reply">↪ '+esc(i.reply)+'</div></div>':''}<div class="update-content">${applyDiscordMarkdown(i.content)}</div></article>`).join('');
+el.querySelectorAll('a[href^="http"]').forEach(a=>{a.target='_blank';a.rel='noopener'});
+}catch(e){el.innerHTML='<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>'}
 }
 function md(t){return t.split(/\r?\n/).map(line=>{const l=line.trim();if(!l)return '';if(l.startsWith('### '))return '<h4>'+esc(l.slice(4))+'</h4>';if(l.startsWith('## '))return '<h4>'+esc(l.slice(3))+'</h4>';if(l.startsWith('# '))return '<h3>'+esc(l.slice(2))+'</h3>';if(/^[-*] /.test(l))return '<p style="margin-left:16px">— '+esc(l.slice(2))+'</p>';return '<p>'+esc(l)+'</p>'}).join('')}
 async function loadRules(key,elId){const el=document.getElementById(elId);try{const r=await fetch(GH_URLS[key]);if(!r.ok)throw 0;el.innerHTML=md(await r.text())}catch(e){el.innerHTML='<p class="loading">Не удалось загрузить правила. Проверьте ссылки в GH_URLS.</p>'}}
-loadRules('bot','rulesBotBody');loadRules('privacy','rulesPrivacyBody');loadUpdates();
+async function loadFragment(url,id){const el=document.getElementById(id);try{const r=await fetch(url);if(!r.ok)throw 0;el.innerHTML=await r.text()}catch(e){el.innerHTML='<p class="loading">Не удалось загрузить раздел. Файлы-фрагменты работают только на хостинге (GitHub Pages), не через file://.</p>'}}
+loadRules('bot','rulesBotBody');
+loadRules('privacy','rulesPrivacyBody');
+loadFragment('rules_server_content.html','rulesServerBody');
+loadFragment('staff_content.html','staffBody');
+/* ===== СЕЗОН: ДАННЫЕ ИЗ БД ===== */
+async function loadSeason(){
+const body=document.getElementById('seasonBody');
+try{
+const [cr,sr]=await Promise.all([fetch('countries2014.json'),fetch('seasoninfo.json')]);
+if(!cr.ok||!sr.ok)throw 0;
+const countries=await cr.json(),season=await sr.json();
+const C={};
+for(const [k,v] of Object.entries(countries)){const name=k.trim();C[name]={name,flag:String(v.flag||'').trim(),continent:String(v.continent||'').trim()}}
+const taken=new Set(),states=[],orgs=[],autos=[];
+for(const p of Object.values(season)){
+const type=String(p.type||'').trim(),name=String(p.country||'').trim(),host=String(p.host_country||'').trim();
+if(type==='country'){taken.add(name);states.push({name,info:C[name]})}
+else if(type==='organization'){orgs.push({name})}
+else if(type==='autonomy'){autos.push({name,host})}
+}
+const ru=(a,b)=>a.name.localeCompare(b.name,'ru');
+states.sort(ru);orgs.sort(ru);autos.sort(ru);
+const FREE=Object.values(C).filter(c=>!taken.has(c.name));
+document.getElementById('stCountries').textContent=states.length;
+document.getElementById('stOrgs').textContent=orgs.length;
+document.getElementById('stAutos').textContent=autos.length;
+const flagOf=n=>(C[n]&&C[n].flag)||'🏳️';
+const cardState=s=>`<div class="c-card"><span class="c-flag">${s.info?s.info.flag:'🏳️'}</span><div class="c-info"><div class="c-name">${s.name}</div><div class="c-sub">${s.info?s.info.continent:'—'}</div></div><span class="badge-taken">ЗАНЯТО</span></div>`;
+const cardOrg=o=>`<div class="c-card"><span class="c-flag c-ic"><svg class="ic"><use href="#i-shield"/></svg></span><div class="c-info"><div class="c-name">${o.name}</div><div class="c-sub">Организация</div></div><span class="badge-taken">ЗАНЯТО</span></div>`;
+const cardAuto=a=>`<div class="c-card"><span class="c-flag">${flagOf(a.host)}</span><div class="c-info"><div class="c-name">${a.name}</div><div class="c-sub">Автономия: ${a.host}</div></div><span class="badge-taken">ЗАНЯТО</span></div>`;
+const cardFree=c=>`<div class="c-card"><span class="c-flag">${c.flag}</span><div class="c-info"><div class="c-name">${c.name}</div><div class="c-sub">${c.continent}</div></div><span class="badge-free">СВОБОДНО</span></div>`;
+function renderFree(q){
+q=(q||'').trim().toLowerCase();
+const list=FREE.filter(c=>c.name.toLowerCase().includes(q));
+const by={};list.forEach(c=>{(by[c.continent]=by[c.continent]||[]).push(c)});
+const order=['Европа','Азия','Африка','Северная Америка','Южная Америка','Австралия и Океания'];
+const conts=Object.keys(by).sort((a,b)=>(order.indexOf(a)+1||99)-(order.indexOf(b)+1||99));
+document.getElementById('freeCount').textContent=list.length;
+document.getElementById('freeGroups').innerHTML=conts.length?conts.map(cont=>`<div class="m-sub">${cont.toUpperCase()} (${by[cont].length})</div><div class="grid-3" style="margin-bottom:26px">${by[cont].sort(ru).map(cardFree).join('')}</div>`).join(''):'<p class="loading">Ничего не найдено.</p>';
+}
+body.innerHTML=`
+<div class="sec-title"><svg class="ic"><use href="#i-globe"/></svg>ГОСУДАРСТВА</div>
+<div class="grid-3">${states.map(cardState).join('')||'<p class="loading">Нет данных.</p>'}</div>
+<div class="sec-title"><svg class="ic"><use href="#i-shield"/></svg>ОРГАНИЗАЦИИ</div>
+<div class="grid-3">${orgs.map(cardOrg).join('')||'<p class="loading">Нет данных.</p>'}</div>
+<div class="sec-title"><svg class="ic"><use href="#i-map"/></svg>АВТОНОМИИ</div>
+<div class="grid-3">${autos.map(cardAuto).join('')||'<p class="loading">Нет данных.</p>'}</div>
+<div class="sec-title"><svg class="ic"><use href="#i-compass"/></svg>СВОБОДНЫЕ СТРАНЫ — <span id="freeCount">${FREE.length}</span></div>
+<div class="search-wrap"><svg class="ic"><use href="#i-search"/></svg><input id="countrySearch" class="search-input" type="text" placeholder="Поиск страны..."></div>
+<div id="freeGroups"></div>`;
+renderFree('');
+document.getElementById('countrySearch').addEventListener('input',e=>renderFree(e.target.value));
+}catch(e){body.innerHTML='<p class="loading">Не удалось загрузить данные сезона. Файлы countries2014.json и seasoninfo.json должны лежать рядом с index.html.</p>'}
+}
+loadSeason();
 function animateStats(){document.querySelectorAll('#page-home .stat b[data-count]').forEach(el=>{const target=+el.dataset.count,dur=1400,t0=performance.now();(function tick(t){const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(tick)})(t0)})}
 const infoIds=['about','news','updates'],ruleIds=['rules-server','rules-bot','rules-privacy'];
 function go(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+id));
-  document.querySelectorAll('.side-nav .active').forEach(x=>x.classList.remove('active'));
-  if(infoIds.includes(id)||ruleIds.includes(id)){document.getElementById('infoBtn').classList.add('active');document.getElementById('infoGroup').classList.add('open')}
-  if(ruleIds.includes(id))document.getElementById('rulesGroup').classList.add('open');
-  const sel=document.querySelector('.side-nav [data-go="'+id+'"]');
-  if(sel)sel.classList.add('active');
-  if(id==='home')animateStats();
-  window.scrollTo({top:0,behavior:'smooth'});
+document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+id));
+document.querySelectorAll('.side-nav .active').forEach(x=>x.classList.remove('active'));
+if(infoIds.includes(id)||ruleIds.includes(id)){document.getElementById('infoBtn').classList.add('active');document.getElementById('infoGroup').classList.add('open')}
+if(ruleIds.includes(id))document.getElementById('rulesGroup').classList.add('open');
+const sel=document.querySelector('.side-nav [data-go="'+id+'"]');
+if(sel)sel.classList.add('active');
+if(id==='home')animateStats();
+window.scrollTo({top:0,behavior:'smooth'});
 }
 document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();go(el.dataset.go)}));
 document.getElementById('infoBtn').addEventListener('click',()=>document.getElementById('infoGroup').classList.toggle('open'));
