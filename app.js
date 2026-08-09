@@ -1,0 +1,312 @@
+const GH_URLS = {
+  updates: 'https://raw.githubusercontent.com/Burgero4ec/Burgero4ec.github.io/refs/heads/main/Archive_%F0%9F%93%94%E3%83%BB%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.html',
+  bot: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/TERMS_OF_SERVICE.md',
+  privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
+};
+
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+function parseTs(s) {
+  const m = (s || '').match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
+  if (!m) return 0;
+  return new Date(+m[3], +m[2] - 1, +m[1], +m[4], +m[5]).getTime();
+}
+
+/* ===== Discord inline-форматирование ===== */
+function inline(s) {
+  s = String(s).replace(/<:[a-zA-Z0-9_]+:\d+>/g, '');
+  s = esc(s);
+  s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+  s = s.replace(/\|\|([\s\S]+?)\|\|/g, '<span class="spoiler">$1</span>');
+  s = s.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/__([^_]+)__/g, '<u>$1</u>');
+  s = s.replace(/~~([^~]+)~~/g, '<s>$1</s>');
+  s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+  s = s.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  return s;
+}
+
+/* ===== Discord блочное форматирование ===== */
+function renderMarkdown(raw) {
+  const src = String(raw)
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<span class=['"]?attachment-note['"]?>([\s\S]*?)<\/span>/gi, (m, c) => '\n-# 📎 ' + c.trim());
+  const lines = src.split('\n');
+  let html = '', inCode = false, codeBuf = [], listType = null;
+  const closeList = () => { if (listType) { html += '</' + listType + '>'; listType = null; } };
+  for (const line of lines) {
+    if (line.trim().startsWith('```')) {
+      if (!inCode) { closeList(); inCode = true; codeBuf = []; }
+      else { html += '<pre class="dc-code">' + esc(codeBuf.join('\n')) + '</pre>'; inCode = false; }
+      continue;
+    }
+    if (inCode) { codeBuf.push(line); continue; }
+    const t = line.trim();
+    if (!t) { closeList(); continue; }
+    if (/^─+$/.test(t)) { closeList(); html += '<div class="dc-divider"></div>'; continue; }
+    if (/^⠀+$/.test(t)) { closeList(); html += '<div class="dc-gap"></div>'; continue; }
+    if (t.startsWith('-# ')) { closeList(); html += '<div class="small-text">' + inline(t.slice(3)) + '</div>'; continue; }
+    if (t.startsWith('### ')) { closeList(); html += '<div class="dc-h3">' + inline(t.slice(4)) + '</div>'; continue; }
+    if (t.startsWith('## ')) { closeList(); html += '<div class="dc-h2">' + inline(t.slice(3)) + '</div>'; continue; }
+    if (t.startsWith('# ')) { closeList(); html += '<div class="dc-h1">' + inline(t.slice(2)) + '</div>'; continue; }
+    const ulm = t.match(/^[-*] (.+)/);
+    if (ulm) { if (listType !== 'ul') { closeList(); html += '<ul class="dc-list">'; listType = 'ul'; } html += '<li>' + inline(ulm[1]) + '</li>'; continue; }
+    const olm = t.match(/^\d+[.)] (.+)/);
+    if (olm) { if (listType !== 'ol') { closeList(); html += '<ol class="dc-list">'; listType = 'ol'; } html += '<li>' + inline(olm[1]) + '</li>'; continue; }
+    closeList();
+    html += '<p class="dc-p">' + inline(t) + '</p>';
+  }
+  if (inCode) html += '<pre class="dc-code">' + esc(codeBuf.join('\n')) + '</pre>';
+  closeList();
+  return html;
+}
+
+/* ===== ОБНОВЛЕНИЯ / ПРЕССА ===== */
+const cache = { updates: null, press: null };
+const readOrder = { updates: 'desc', press: 'desc' }; /* по умолчанию новые сверху */
+const MERGE_GAP_MS = 5 * 60 * 1000;
+
+function parseMessages(doc) {
+  return [...doc.querySelectorAll('.message')].map(m => {
+    const content = m.querySelector('.content');
+    if (!content) return null;
+    const ts = m.querySelector('.timestamp');
+    const author = m.querySelector('.author');
+    const reply = m.querySelector('.reply');
+    const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
+    return {
+      date: parseTs(rawTs),
+      dateStr: rawTs,
+      author: author ? author.textContent.trim() : 'Global Lens BOT',
+      content: content.innerHTML.trim(),
+      reply: reply ? reply.textContent.trim() : ''
+    };
+  }).filter(x => x && x.content);
+}
+
+function renderDiscordMessages(items, container, statsContainer, order) {
+  const sorted = items.slice().sort((a, b) => order === 'asc' ? a.date - b.date : b.date - a.date);
+  if (!sorted.length) { container.innerHTML = '<p class="loading">Пока нет сообщений.</p>'; return; }
+  const groups = [];
+  for (const item of sorted) {
+    const last = groups[groups.length - 1];
+    const sameAuthor = last && last.author === item.author;
+    const closeTime = sameAuthor && Math.abs(item.date - last.lastDateMs) <= MERGE_GAP_MS;
+    if (sameAuthor && closeTime) {
+      last.contents.push(item.content);
+      if (item.reply && !last.reply) last.reply = item.reply;
+      last.lastDate = item.dateStr;
+      last.lastDateMs = item.date;
+    } else {
+      groups.push({ author: item.author, contents: [item.content], reply: item.reply, firstDate: item.dateStr, lastDate: item.dateStr, lastDateMs: item.date });
+    }
+  }
+  const authors = new Set(groups.map(g => g.author));
+  const oldest = sorted[0], newest = sorted[sorted.length - 1];
+  if (statsContainer) {
+    statsContainer.innerHTML =
+      '<div class="us-item"><b>' + items.length + '</b>сообщений</div>' +
+      '<div class="us-item"><b>' + groups.length + '</b>постов</div>' +
+      '<div class="us-item"><b>' + authors.size + '</b>авторов</div>' +
+      '<div class="us-item"><b>' + oldest.dateStr.split(' ')[0] + '</b>первое</div>' +
+      '<div class="us-item"><b>' + newest.dateStr.split(' ')[0] + '</b>последнее</div>';
+  }
+  container.innerHTML = groups.map(g => {
+    const dateLine = g.firstDate === g.lastDate ? g.firstDate : g.firstDate + ' — ' + g.lastDate;
+    return '<article class="update-card">' +
+      '<div class="update-meta"><span class="update-author">' + esc(g.author) + '</span>' +
+      '<span class="update-date">' + esc(dateLine) + '</span></div>' +
+      (g.reply ? '<div class="update-content"><div class="small-text">↪ ' + esc(g.reply) + '</div></div>' : '') +
+      '<div class="update-content">' + g.contents.map(c => renderMarkdown(c)).join('') + '</div></article>';
+  }).join('');
+  container.querySelectorAll('.spoiler').forEach(sp => sp.addEventListener('click', () => sp.classList.toggle('revealed')));
+}
+
+function rerender(type) {
+  if (!cache[type]) return;
+  renderDiscordMessages(
+    cache[type],
+    document.getElementById(type === 'updates' ? 'updatesBody' : 'pressBody'),
+    document.getElementById(type === 'updates' ? 'updatesStats' : 'pressStats'),
+    readOrder[type]
+  );
+}
+
+async function loadUpdates() {
+  const el = document.getElementById('updatesBody');
+  try {
+    const r = await fetch(GH_URLS.updates);
+    if (!r.ok) throw 0;
+    cache.updates = parseMessages(new DOMParser().parseFromString(await r.text(), 'text/html'));
+    rerender('updates');
+  } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>'; }
+}
+
+async function loadPress() {
+  const el = document.getElementById('pressBody');
+  try {
+    const r = await fetch('press_content.html');
+    if (!r.ok) throw 0;
+    cache.press = parseMessages(new DOMParser().parseFromString(await r.text(), 'text/html'));
+    rerender('press');
+  } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить прессу. Файл press_content.html должен лежать рядом с index.html.</p>'; }
+}
+
+/* Переключатели порядка чтения */
+document.querySelectorAll('.order-toggle').forEach(toggle => {
+  const type = toggle.dataset.for;
+  const btns = toggle.querySelectorAll('button');
+  const sync = () => btns.forEach(b => b.classList.toggle('active', b.dataset.order === readOrder[type]));
+  sync();
+  btns.forEach(btn => btn.addEventListener('click', () => { readOrder[type] = btn.dataset.order; sync(); rerender(type); }));
+});
+
+/* ===== ПРАВИЛА БОТА / ПРИВАТНОСТЬ (markdown с GitHub) ===== */
+function md(t) {
+  return t.split(/\r?\n/).map(line => {
+    const l = line.trim();
+    if (!l) return '';
+    if (l.startsWith('### ')) return '<h4>' + esc(l.slice(4)) + '</h4>';
+    if (l.startsWith('## ')) return '<h4>' + esc(l.slice(3)) + '</h4>';
+    if (l.startsWith('# ')) return '<h3>' + esc(l.slice(2)) + '</h3>';
+    if (/^[-*] /.test(l)) return '<p style="margin-left:16px">— ' + esc(l.slice(2)) + '</p>';
+    return '<p>' + esc(l) + '</p>';
+  }).join('');
+}
+async function loadRules(key, elId) {
+  const el = document.getElementById(elId);
+  try {
+    const r = await fetch(GH_URLS[key]);
+    if (!r.ok) throw 0;
+    el.innerHTML = md(await r.text());
+  } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить правила. Проверьте ссылки в GH_URLS.</p>'; }
+}
+async function loadFragment(url, id) {
+  const el = document.getElementById(id);
+  try {
+    const r = await fetch(url);
+    if (!r.ok) throw 0;
+    el.innerHTML = await r.text();
+  } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить раздел. Файл ' + url + ' должен лежать рядом с index.html.</p>'; }
+}
+loadRules('bot', 'rulesBotBody');
+loadRules('privacy', 'rulesPrivacyBody');
+loadFragment('rules_server_content.html', 'rulesServerBody');
+loadFragment('staff_content.html', 'staffBody');
+
+/* ===== СЧЁТЧИКИ ===== */
+function countUp(el, target) {
+  const dur = 1400, t0 = performance.now();
+  (function tick(t) {
+    const p = Math.min((t - t0) / dur, 1);
+    const e = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(target * e);
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+function countUpAll(key, target) { document.querySelectorAll('[data-stat="' + key + '"]').forEach(el => countUp(el, target)); }
+function animateStats() { document.querySelectorAll('#page-home .stat b[data-count]').forEach(el => countUp(el, +el.dataset.count)); }
+
+/* ===== СЕЗОН ИЗ БД ===== */
+async function loadSeason() {
+  const body = document.getElementById('seasonBody');
+  try {
+    const [cr, sr] = await Promise.all([fetch('countries2014.json'), fetch('seasoninfo.json')]);
+    if (!cr.ok || !sr.ok) throw 0;
+    const countries = await cr.json(), season = await sr.json();
+    const C = {};
+    for (const [k, v] of Object.entries(countries)) {
+      const name = k.trim();
+      C[name] = { name, flag: String(v.flag || '').trim(), continent: String(v.continent || '').trim() };
+    }
+    const taken = new Set(), states = [], orgs = [], autos = [];
+    for (const p of Object.values(season)) {
+      const type = String(p.type || '').trim();
+      const name = String(p.country || '').trim();
+      const host = String(p.host_country || '').trim();
+      if (type === 'country') { taken.add(name); states.push({ name, info: C[name] }); }
+      else if (type === 'organization') { orgs.push({ name }); }
+      else if (type === 'autonomy') { autos.push({ name, host }); }
+    }
+    const ru = (a, b) => a.name.localeCompare(b.name, 'ru');
+    states.sort(ru); orgs.sort(ru); autos.sort(ru);
+    const FREE = Object.values(C).filter(c => !taken.has(c.name));
+    countUpAll('countries', states.length);
+    countUpAll('orgs', orgs.length);
+    countUpAll('autos', autos.length);
+    const flagOf = n => (C[n] && C[n].flag) || '🏳️';
+    const cardState = s => '<div class="c-card"><span class="c-flag">' + (s.info ? s.info.flag : '🏳️') + '</span><div class="c-info"><div class="c-name">' + s.name + '</div><div class="c-sub">' + (s.info ? s.info.continent : '—') + '</div></div><span class="badge-taken">ЗАНЯТО</span></div>';
+    const cardOrg = o => '<div class="c-card"><span class="c-flag c-ic"><svg class="ic"><use href="#i-shield"/></svg></span><div class="c-info"><div class="c-name">' + o.name + '</div><div class="c-sub">Организация</div></div><span class="badge-taken">ЗАНЯТО</span></div>';
+    const cardAuto = a => '<div class="c-card"><span class="c-flag">' + flagOf(a.host) + '</span><div class="c-info"><div class="c-name">' + a.name + '</div><div class="c-sub">Автономия: ' + a.host + '</div></div><span class="badge-taken">ЗАНЯТО</span></div>';
+    const cardFree = c => '<div class="c-card"><span class="c-flag">' + c.flag + '</span><div class="c-info"><div class="c-name">' + c.name + '</div><div class="c-sub">' + c.continent + '</div></div><span class="badge-free">СВОБОДНО</span></div>';
+    function renderFree(q) {
+      q = (q || '').trim().toLowerCase();
+      const list = FREE.filter(c => c.name.toLowerCase().includes(q));
+      const by = {};
+      list.forEach(c => { (by[c.continent] = by[c.continent] || []).push(c); });
+      const order = ['Европа', 'Азия', 'Африка', 'Северная Америка', 'Южная Америка', 'Австралия и Океания'];
+      const conts = Object.keys(by).sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
+      document.getElementById('freeCount').textContent = list.length;
+      document.getElementById('freeGroups').innerHTML = conts.length
+        ? conts.map(cont => '<div class="m-sub">' + cont.toUpperCase() + ' (' + by[cont].length + ')</div><div class="grid-3" style="margin-bottom:26px">' + by[cont].sort(ru).map(cardFree).join('') + '</div>').join('')
+        : '<p class="loading">Ничего не найдено.</p>';
+    }
+    body.innerHTML =
+      '<div class="sec-title"><svg class="ic"><use href="#i-globe"/></svg>ГОСУДАРСТВА</div>' +
+      '<div class="grid-3">' + (states.map(cardState).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
+      '<div class="sec-title"><svg class="ic"><use href="#i-shield"/></svg>ОРГАНИЗАЦИИ</div>' +
+      '<div class="grid-3">' + (orgs.map(cardOrg).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
+      '<div class="sec-title"><svg class="ic"><use href="#i-map"/></svg>АВТОНОМИИ</div>' +
+      '<div class="grid-3">' + (autos.map(cardAuto).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
+      '<div class="sec-title"><svg class="ic"><use href="#i-compass"/></svg>СВОБОДНЫЕ СТРАНЫ — <span id="freeCount">' + FREE.length + '</span></div>' +
+      '<div class="search-wrap"><svg class="ic"><use href="#i-search"/></svg><input id="countrySearch" class="search-input" type="text" placeholder="Поиск страны..."></div>' +
+      '<div id="freeGroups"></div>';
+    renderFree('');
+    document.getElementById('countrySearch').addEventListener('input', e => renderFree(e.target.value));
+  } catch (e) {
+    body.innerHTML = '<p class="loading">Не удалось загрузить данные сезона. Файлы countries2014.json и seasoninfo.json должны лежать рядом с index.html.</p>';
+  }
+}
+loadSeason();
+
+/* ===== НАВИГАЦИЯ ===== */
+const infoIds = ['about', 'news', 'updates'];
+const ruleIds = ['rules-server', 'rules-bot', 'rules-privacy'];
+function go(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === 'page-' + id));
+  document.querySelectorAll('.side-nav .active').forEach(x => x.classList.remove('active'));
+  if (infoIds.includes(id) || ruleIds.includes(id)) {
+    document.getElementById('infoBtn').classList.add('active');
+    document.getElementById('infoGroup').classList.add('open');
+  }
+  if (ruleIds.includes(id)) document.getElementById('rulesGroup').classList.add('open');
+  const sel = document.querySelector('.side-nav [data-go="' + id + '"]');
+  if (sel) sel.classList.add('active');
+  if (id === 'home') animateStats();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+document.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
+document.getElementById('infoBtn').addEventListener('click', () => document.getElementById('infoGroup').classList.toggle('open'));
+document.getElementById('rulesBtn').addEventListener('click', () => document.getElementById('rulesGroup').classList.toggle('open'));
+
+/* ===== ТЕМЫ ===== */
+const names = { green: 'Green', blue: 'Blue', orange: 'Orange' };
+function applyTheme(theme, save = true) {
+  if (!names[theme]) theme = 'green';
+  document.documentElement.dataset.theme = theme;
+  document.querySelectorAll('.theme-btn').forEach(x => x.classList.toggle('active', x.dataset.themeSet === theme));
+  document.getElementById('themeName').textContent = names[theme];
+  if (save) try { localStorage.setItem('gl-theme', theme); } catch (e) {}
+}
+(function () {
+  let s = null;
+  try { s = localStorage.getItem('gl-theme'); } catch (e) {}
+  applyTheme(s || 'green', false);
+})();
+document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.themeSet, true)));
+animateStats();
+
+/* ===== ЗАПУСК ЗАГРУЗОК ===== */
+loadUpdates();
+loadPress();
