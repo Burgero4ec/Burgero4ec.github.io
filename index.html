@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Global Lens — мир без фильтров и клише</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@600;700;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --card:#10151b; --line:#1c2420; --line2:#26332b; --text:#eef3ee; --muted:#98a69c; --dim:#6b7a70; --yellow:#eab308; --red:#f87171; }
+    :root { --card:#10151b; --line:#1c2420; --line2:#26332b; --text:#e9eee9; --muted:#9aa89e; --dim:#6b7a70; --yellow:#eab308; --red:#f87171; }
     [data-theme="green"]  { --bg:#07100a; --side:#08130c; --acc:#4ade80; --acc2:#22c55e; --acc-soft:rgba(74,222,128,.10); --acc-border:rgba(74,222,128,.35); --acc-glow:rgba(74,222,128,.35); --bg-glow:rgba(74,222,128,.08); --bg-glow-strong:rgba(74,222,128,.18); }
     [data-theme="blue"]   { --bg:#060a12; --side:#070d18; --acc:#60a5fa; --acc2:#3b82f6; --acc-soft:rgba(96,165,250,.10); --acc-border:rgba(96,165,250,.35); --acc-glow:rgba(96,165,250,.35); --bg-glow:rgba(96,165,250,.08); --bg-glow-strong:rgba(96,165,250,.18); }
     [data-theme="orange"] { --bg:#110a06; --side:#150c07; --acc:#fb923c; --acc2:#f97316; --acc-soft:rgba(251,146,60,.10); --acc-border:rgba(251,146,60,.35); --acc-glow:rgba(251,146,60,.35); --bg-glow:rgba(251,146,60,.08); --bg-glow-strong:rgba(251,146,60,.18); }
-    body { background-color: var(--bg); color: var(--text); font-family: 'PT Serif', Georgia, serif; position: relative; min-height: 100vh; overflow-x: hidden; }
+    body { background-color: var(--bg); color: var(--text); font-family: 'Nunito', 'Segoe UI', sans-serif; position: relative; min-height: 100vh; overflow-x: hidden; font-weight: 400; }
     body::before, body::after { content: ''; position: fixed; pointer-events: none; z-index: 0; transition: background .6s ease, opacity .6s ease; }
     body::before { top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 85% 110%, var(--bg-glow-strong) 0%, var(--bg-glow) 25%, transparent 55%); }
     body::after { top: -20%; left: 50%; transform: translateX(-50%); width: 140%; height: 60%; background: radial-gradient(ellipse at center top, var(--bg-glow) 0%, transparent 70%); opacity: .6; }
@@ -24,39 +24,35 @@
     .ic { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
     body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, .status-card, .update-card, .stat,
     .hero-badge, .pill, .rule, .member, .m-ava, .logo-badge, .cta, .update-meta, .update-content, .pun, .side-bottom,
-    .side-top, .us-item, .stub, .themes, .c-card { transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease; }
+    .side-top, .us-item, .stub, .themes, .c-card, .logo-title span { transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease; }
     .layout { display: flex; min-height: 100vh; }
     /* ===== SIDEBAR ===== */
     .sidebar { width: 290px; flex: 0 0 290px; background: var(--side); border-right: 1px solid var(--line); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; }
     .side-top { padding: 22px 20px; border-bottom: 1px solid var(--line); flex: 0 0 auto; }
     .logo-row { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
     .logo-badge { width: 46px; height: 46px; flex: none; border-radius: 12px; overflow: hidden; border: 1px solid var(--acc-border); box-shadow: 0 0 18px var(--acc-glow); background: var(--side); }
-    .logo-badge img { width: 100%; height: 100%; object-fit: contain; display: none; }
-    /* Синий и оранжевый PNG шире по холсту — компенсируем масштабом,
-     чтобы все три логотипа выглядели одного размера и не обрезались */
-    .logo-blue, .logo-orange { transform: scale(1.3); }
-    .logo-green { transform: scale(1.6); }
+    .logo-badge img { width: 100%; height: 100%; object-fit: cover; display: none; }
     [data-theme="green"] .logo-green { display: block; }
     [data-theme="blue"] .logo-blue { display: block; }
     [data-theme="orange"] .logo-orange { display: block; }
     .logo-title { font-family: 'JetBrains Mono'; font-weight: 700; letter-spacing: .14em; font-size: 15px; }
-    .logo-title span { color: var(--yellow); }
+    .logo-title span { color: var(--acc); }
     .logo-sub { font-family: 'JetBrains Mono'; font-size: 9.5px; color: var(--dim); letter-spacing: .2em; display: flex; align-items: center; gap: 6px; margin-top: 5px; }
     .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--acc); display: inline-block; flex: none; }
     .dot.pulse { animation: p 2s infinite; }
     @keyframes p { 0%,100% { box-shadow: 0 0 0 0 var(--acc-soft); } 50% { box-shadow: 0 0 0 5px var(--acc-soft); } }
-    .status-card { display: flex; align-items: center; gap: 10px; background: #0f1511; border: 1px solid var(--line2); border-radius: 10px; padding: 12px 14px; font-family: Manrope; font-weight: 600; font-size: 13px; }
+    .status-card { display: flex; align-items: center; gap: 10px; background: #0f1511; border: 1px solid var(--line2); border-radius: 10px; padding: 12px 14px; font-family: Nunito; font-weight: 700; font-size: 13px; }
     .badge-online { margin-left: auto; font-family: 'JetBrains Mono'; font-size: 9.5px; color: var(--acc); background: var(--acc-soft); border: 1px solid var(--acc-border); padding: 3px 8px; border-radius: 6px; letter-spacing: .14em; }
     .side-nav { padding: 18px 14px; flex: 1 1 auto; overflow-y: auto; min-height: 0; }
     .side-nav::-webkit-scrollbar { width: 6px; }
     .side-nav::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 3px; }
     .nav-label { font-family: 'JetBrains Mono'; font-size: 10px; letter-spacing: .24em; color: var(--dim); margin: 4px 8px 12px; }
-    .nav-item { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border-radius: 10px; color: var(--muted); text-decoration: none; font-family: Manrope; font-weight: 600; font-size: 14.5px; background: none; border: 1px solid transparent; cursor: pointer; margin-bottom: 4px; text-align: left; transition: .15s; }
+    .nav-item { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border-radius: 10px; color: var(--muted); text-decoration: none; font-family: Nunito; font-weight: 700; font-size: 14.5px; background: none; border: 1px solid transparent; cursor: pointer; margin-bottom: 4px; text-align: left; transition: .15s; }
     .nav-item:hover { color: var(--text); background: var(--acc-soft); }
     .nav-item.active { color: var(--acc); background: var(--acc-soft); border-color: var(--acc-border); }
     .nav-group .subnav { display: none; margin: 2px 0 10px 27px; padding-left: 14px; border-left: 1px solid var(--line2); }
     .nav-group.open > .subnav { display: block; }
-    .sub-item { display: flex; gap: 10px; align-items: center; width: 100%; padding: 10px 12px; border-radius: 9px; color: var(--muted); font-family: Manrope; font-weight: 600; font-size: 13.5px; text-decoration: none; margin-bottom: 4px; border: 1px solid transparent; background: none; cursor: pointer; text-align: left; }
+    .sub-item { display: flex; gap: 10px; align-items: center; width: 100%; padding: 10px 12px; border-radius: 9px; color: var(--muted); font-family: Nunito; font-weight: 600; font-size: 13.5px; text-decoration: none; margin-bottom: 4px; border: 1px solid transparent; background: none; cursor: pointer; text-align: left; }
     .sub-item:hover { color: var(--text); }
     .sub-item.active { color: var(--text); background: var(--acc-soft); border-color: var(--acc-border); }
     .subnav .nav-group .subnav { margin-left: 12px; }
@@ -68,7 +64,7 @@
     .theme-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
     .theme-name { font-family: 'JetBrains Mono'; font-size: 11px; color: var(--muted); }
     .themes { display: flex; gap: 6px; background: #0f1410; border: 1px solid var(--line); padding: 6px; border-radius: 10px; margin-bottom: 14px; }
-    .theme-btn { flex: 1; display: flex; gap: 7px; align-items: center; justify-content: center; padding: 8px 4px; border-radius: 8px; border: 1px solid transparent; background: none; color: var(--muted); font-family: Manrope; font-weight: 600; font-size: 12px; cursor: pointer; }
+    .theme-btn { flex: 1; display: flex; gap: 7px; align-items: center; justify-content: center; padding: 8px 4px; border-radius: 8px; border: 1px solid transparent; background: none; color: var(--muted); font-family: Nunito; font-weight: 700; font-size: 12px; cursor: pointer; }
     .theme-btn i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
     .theme-btn.active { color: var(--text); background: var(--acc-soft); border-color: var(--acc-border); box-shadow: 0 0 10px var(--acc-glow); }
     .socials { display: flex; gap: 10px; }
@@ -85,19 +81,19 @@
     .page { display: none; }
     .page.active { display: block; animation: f .35s ease; }
     @keyframes f { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-    h1 { font-family: Manrope; font-weight: 800; font-size: 42px; text-align: center; }
+    h1 { font-family: Nunito; font-weight: 800; font-size: 40px; text-align: center; letter-spacing: .01em; }
     h1 em { color: var(--acc); font-style: normal; }
-    .lead { color: var(--muted); text-align: center; max-width: 680px; margin: 16px auto 44px; font-size: 17px; line-height: 1.65; }
+    .lead { color: var(--muted); text-align: center; max-width: 680px; margin: 16px auto 44px; font-size: 16.5px; line-height: 1.7; font-weight: 400; }
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    #page-features .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .card { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--acc2); border-radius: 12px; padding: 26px 30px; }
     .card.wide { margin-top: 24px; }
-    .card h3 { font-family: Manrope; font-weight: 700; font-size: 19px; margin-bottom: 14px; display: flex; align-items: flex-start; gap: 10px; }
+    .card h3 { font-family: Nunito; font-weight: 800; font-size: 18px; margin-bottom: 14px; display: flex; align-items: flex-start; gap: 10px; }
     .card h3 .ic { color: var(--acc); margin-top: 3px; }
-    .card h4 { font-family: Manrope; font-weight: 700; font-size: 15px; color: var(--acc); margin: 16px 0 8px; }
-    .card p { color: var(--muted); line-height: 1.8; font-size: 15.5px; margin-bottom: 12px; }
+    .card p { color: var(--muted); line-height: 1.8; font-size: 15px; margin-bottom: 12px; font-weight: 400; }
     .card p:last-child { margin-bottom: 0; }
-    .hl { color: var(--acc); font-weight: 700; }
+    .hl { color: var(--acc); font-weight: 800; }
     blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); padding: 14px 18px; margin: 16px 0; font-style: italic; color: var(--text); border-radius: 0 8px 8px 0; }
     .hero { text-align: center; padding: 24px 0 8px; }
     .hero-badge { display: inline-flex; gap: 8px; align-items: center; margin-bottom: 20px; font-family: 'JetBrains Mono'; font-size: 11px; letter-spacing: .14em; color: var(--acc); border: 1px solid var(--acc-border); background: var(--acc-soft); padding: 7px 16px; border-radius: 999px; }
@@ -109,11 +105,11 @@
     .stats.three { grid-template-columns: repeat(3, 1fr); }
     .stat { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--acc2); border-radius: 12px; padding: 22px; text-align: center; }
     .stat b { display: block; font-family: 'JetBrains Mono'; font-size: 34px; color: var(--acc); font-weight: 700; }
-    .stat span { font-family: Manrope; font-size: 12.5px; color: var(--muted); letter-spacing: .08em; }
+    .stat span { font-family: Nunito; font-size: 12.5px; color: var(--muted); letter-spacing: .08em; font-weight: 600; }
     .rule { padding: 18px 0; border-bottom: 1px dashed var(--line2); }
     .rule:first-of-type { padding-top: 4px; }
     .rule:last-of-type { border-bottom: 0; padding-bottom: 0; }
-    .rule b { display: block; font-family: Manrope; font-size: 15px; color: var(--text); margin-bottom: 10px; }
+    .rule b { display: block; font-family: Nunito; font-size: 15px; color: var(--text); margin-bottom: 10px; font-weight: 800; }
     .rule b i { font-style: normal; color: var(--acc); }
     .rule p { font-size: 14px !important; margin-bottom: 8px !important; }
     .rule ul { margin: 0 0 8px 18px; color: var(--muted); font-size: 14px; line-height: 1.7; }
@@ -123,28 +119,39 @@
     .update-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px dashed var(--line2); }
     .update-author { font-family: 'JetBrains Mono'; font-size: 12px; color: var(--acc); font-weight: 700; letter-spacing: .06em; }
     .update-date { font-family: 'JetBrains Mono'; font-size: 11px; color: var(--dim); }
-    .update-content { color: var(--text); font-size: 15px; line-height: 1.75; white-space: pre-wrap; word-wrap: break-word; }
-    .update-content h1, .update-content h2, .update-content h3 { font-family: Manrope; margin: 14px 0 10px; font-weight: 700; line-height: 1.3; }
-    .update-content h1 { font-size: 20px; color: var(--acc); }
-    .update-content h2 { font-size: 17px; }
-    .update-content strong, .update-content b { color: var(--text); font-weight: 700; }
+    .update-content { color: var(--text); font-size: 15px; line-height: 1.75; }
+    .update-content strong, .update-content b { color: var(--text); font-weight: 800; }
     .update-content a { color: var(--acc); word-break: break-all; }
-    .update-content .attachment-note, .update-content .reply { display: inline-block; font-family: 'JetBrains Mono'; font-size: 10.5px; color: var(--dim); background: rgba(255,255,255,.03); border: 1px solid var(--line2); padding: 2px 8px; border-radius: 4px; margin: 6px 0; }
-    .update-content .reply { font-style: italic; color: var(--muted); margin-bottom: 8px; display: block; }
-    .update-content .small-text { display: block; margin: 6px 0; font-size: 12.5px; line-height: 1.5; color: var(--dim); font-family: 'JetBrains Mono', monospace; opacity: .75; }
-    .update-content .dc-h2 { display: block; margin: 12px 0 6px; font-size: 16px; line-height: 1.4; color: var(--text); font-family: Manrope, sans-serif; font-weight: 700; }
+    /* Discord-разметка */
+    .dc-h1 { font-family: Nunito; font-weight: 800; font-size: 20px; color: var(--acc); margin: 14px 0 10px; }
+    .dc-h2 { font-family: Nunito; font-weight: 800; font-size: 17px; color: var(--text); margin: 14px 0 8px; }
+    .dc-h3 { font-family: Nunito; font-weight: 700; font-size: 15px; color: var(--text); margin: 12px 0 6px; }
+    .dc-p { margin: 6px 0; color: var(--muted); font-size: 14.5px; line-height: 1.7; }
+    .dc-list { margin: 8px 0 8px 20px; color: var(--muted); font-size: 14.5px; line-height: 1.7; }
+    .dc-list li { margin-bottom: 4px; }
+    .dc-code { background: #0b0f14; border: 1px solid var(--line2); border-radius: 8px; padding: 12px 14px; font-family: 'JetBrains Mono'; font-size: 12.5px; color: #c9d4cc; overflow: auto; margin: 10px 0; white-space: pre; }
+    .update-content code { font-family: 'JetBrains Mono'; font-size: 12.5px; background: #0b0f14; border: 1px solid var(--line2); border-radius: 5px; padding: 1px 6px; color: #c9d4cc; }
+    .dc-divider { height: 1px; background: var(--line2); margin: 14px 0; }
+    .dc-gap { height: 10px; }
+    .small-text { display: block; margin: 6px 0; font-size: 12.5px; line-height: 1.5; color: var(--dim); font-family: 'JetBrains Mono', monospace; opacity: .8; }
+    .spoiler { background: #1a2028; border-radius: 4px; padding: 0 6px; color: transparent; cursor: pointer; transition: .2s; user-select: none; }
+    .spoiler:hover, .spoiler.revealed { color: var(--text); background: rgba(255,255,255,.08); }
+    .order-toggle { display: flex; justify-content: center; gap: 0; margin: 0 auto 24px; background: var(--card); border: 1px solid var(--line2); border-radius: 10px; padding: 4px; max-width: 360px; }
+    .order-toggle button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 7px; border: none; background: none; color: var(--muted); font-family: Nunito; font-weight: 700; font-size: 12.5px; cursor: pointer; transition: .2s; }
+    .order-toggle button:hover { color: var(--text); }
+    .order-toggle button.active { background: var(--acc-soft); color: var(--acc); border: 1px solid var(--acc-border); }
     .updates-stats { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
     .us-item { font-family: 'JetBrains Mono'; font-size: 11.5px; color: var(--muted); letter-spacing: .1em; background: #0f1410; border: 1px solid var(--line); padding: 8px 14px; border-radius: 8px; }
     .us-item b { color: var(--acc); margin-right: 6px; }
     .loading { font-family: 'JetBrains Mono'; font-size: 13px; color: var(--dim); animation: p 2s infinite; }
     .stub { text-align: center; padding: 60px 20px; }
     .stub .ic { width: 56px; height: 56px; stroke-width: 1.4; color: var(--acc); opacity: .85; margin-bottom: 18px; }
-    .stub h3 { font-family: Manrope; font-size: 22px; margin-bottom: 12px; color: var(--text); }
+    .stub h3 { font-family: Nunito; font-size: 22px; margin-bottom: 12px; color: var(--text); font-weight: 800; }
     .stub p { color: var(--muted); font-size: 15px; }
     .member { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px dashed var(--line2); }
     .member:last-child { border-bottom: 0; }
     .m-ava { width: 44px; height: 44px; flex: none; border-radius: 10px; background: var(--acc-soft); border: 1px solid var(--acc-border); color: var(--acc); display: grid; place-items: center; font-family: 'JetBrains Mono'; font-weight: 700; font-size: 14px; }
-    .member b { font-family: Manrope; font-size: 15px; }
+    .member b { font-family: Nunito; font-size: 15px; font-weight: 800; }
     .m-role { display: block; font-family: 'JetBrains Mono'; font-size: 9.5px; color: var(--acc); letter-spacing: .12em; margin: 3px 0 6px; }
     .member p { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin: 0; }
     .m-sub { font-family: 'JetBrains Mono'; font-size: 11px; color: var(--dim); letter-spacing: .14em; margin: 18px 0 10px; }
@@ -152,7 +159,7 @@
     .sec-title .ic { width: 14px; height: 14px; color: var(--acc); }
     .sec-title:first-child { margin-top: 0; }
     details.long-list { margin-top: 10px; background: #0c1116; border: 1px solid var(--line2); border-radius: 8px; }
-    details.long-list summary { padding: 10px 14px; cursor: pointer; font-family: Manrope; font-weight: 600; font-size: 12.5px; color: var(--muted); list-style: none; display: flex; align-items: center; gap: 8px; }
+    details.long-list summary { padding: 10px 14px; cursor: pointer; font-family: Nunito; font-weight: 700; font-size: 12.5px; color: var(--muted); list-style: none; display: flex; align-items: center; gap: 8px; }
     details.long-list summary::-webkit-details-marker { display: none; }
     details.long-list summary::before { content: '▶'; color: var(--acc); font-size: 9px; transition: .2s; display: inline-block; }
     details.long-list[open] summary::before { transform: rotate(90deg); }
@@ -160,44 +167,38 @@
     details.long-list .count { margin-left: auto; font-family: 'JetBrains Mono'; font-size: 10px; color: var(--dim); background: #080b09; padding: 2px 8px; border-radius: 5px; border: 1px solid var(--line2); }
     details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direction: column; gap: 10px; }
     .award { font-size: 12.5px; line-height: 1.55; }
-    .award b { display: block; font-family: Manrope; font-weight: 600; font-size: 12.5px; color: var(--yellow); }
+    .award b { display: block; font-family: Nunito; font-weight: 700; font-size: 12.5px; color: var(--yellow); }
     .award:not(.red) b::before { content: ''; display: inline-block; width: 12px; height: 12px; margin-right: 7px; vertical-align: -2px; background: var(--yellow); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Ccircle cx='12' cy='9' r='6'/%3E%3Cpath d='M9 14l-2 8 5-3 5 3-2-8'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3'%3E%3Ccircle cx='12' cy='9' r='6'/%3E%3Cpath d='M9 14l-2 8 5-3 5 3-2-8'/%3E%3C/svg%3E") center/contain no-repeat; }
     .award.red b { color: var(--red); }
     .award span { color: var(--muted); }
     .award .lbl { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--dim); letter-spacing: .12em; display: block; margin-top: 6px; }
-    /* ===== СЕЗОН: карточки из БД ===== */
     .c-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
     .c-flag { font-size: 28px; line-height: 1; flex: none; }
     .c-flag.c-ic { color: var(--acc); }
     .c-flag.c-ic .ic { width: 26px; height: 26px; }
     .c-info { min-width: 0; }
-    .c-name { font-family: Manrope; font-weight: 700; font-size: 14px; color: var(--text); }
+    .c-name { font-family: Nunito; font-weight: 800; font-size: 14px; color: var(--text); }
     .c-sub { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--dim); margin-top: 3px; }
     .badge-taken { margin-left: auto; flex: none; font-family: 'JetBrains Mono'; font-size: 9px; letter-spacing: .1em; color: var(--red); background: rgba(248,113,113,.08); border: 1px solid rgba(248,113,113,.3); padding: 3px 8px; border-radius: 6px; }
     .badge-free { margin-left: auto; flex: none; font-family: 'JetBrains Mono'; font-size: 9px; letter-spacing: .1em; color: var(--acc); background: var(--acc-soft); border: 1px solid var(--acc-border); padding: 3px 8px; border-radius: 6px; }
     .search-wrap { position: relative; max-width: 440px; margin: 0 auto 30px; }
     .search-wrap > .ic { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--dim); width: 16px; height: 16px; }
-    .search-input { width: 100%; padding: 12px 16px 12px 40px; border-radius: 10px; border: 1px solid var(--line2); background: var(--card); color: var(--text); font-family: Manrope; font-size: 14px; outline: none; transition: border-color .2s; }
+    .search-input { width: 100%; padding: 12px 16px 12px 40px; border-radius: 10px; border: 1px solid var(--line2); background: var(--card); color: var(--text); font-family: Nunito; font-size: 14px; outline: none; transition: border-color .2s; }
     .search-input:focus { border-color: var(--acc-border); }
     .search-input::placeholder { color: var(--dim); }
-    /* Переключатель порядка чтения */
-    .order-toggle { display: flex; justify-content: center; gap: 0; margin-bottom: 24px; background: var(--card); border: 1px solid var(--line2); border-radius: 10px; padding: 4px; max-width: 360px; margin-left: auto; margin-right: auto; }
-    .order-toggle button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 7px; border: none; background: none; color: var(--muted); font-family: Manrope; font-weight: 600; font-size: 12.5px; cursor: pointer; transition: .2s; }
-    .order-toggle button:hover { color: var(--text); }
-    .order-toggle button.active { background: var(--acc-soft); color: var(--acc); border: 1px solid var(--acc-border); }
     @media (max-width: 960px) {
       .layout { flex-direction: column; }
       .sidebar { width: 100%; flex: none; height: auto; position: static; }
       .side-nav { max-height: 55vh; }
       .main { padding: 28px 20px; }
       .grid-2, .stats, .stats.three { grid-template-columns: 1fr 1fr; }
+      #page-features .grid-3 { grid-template-columns: 1fr 1fr; }
       h1 { font-size: 30px; }
     }
-    @media (max-width: 600px) { .grid-2, .grid-3, .stats, .stats.three { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .grid-2, .grid-3, .stats, .stats.three, #page-features .grid-3 { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <!-- SVG-спрайт иконок -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
     <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13.5 13.5 0 0 1 0 18 13.5 13.5 0 0 1 0-18z"/></symbol>
     <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
@@ -211,11 +212,6 @@
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></symbol>
     <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14"/><path d="M15 6v14"/></symbol>
     <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
-    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 18h14"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 3l9 6H3z"/></symbol>
-    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></symbol>
-    <symbol id="i-swords" viewBox="0 0 24 24"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/><path d="M14.5 6.5L18 3h3v3l-3.5 3.5"/><path d="M5 14l4 4"/><path d="M7 17l-3 3"/><path d="M3 19l2 2"/></symbol>
-    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
-    <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15L22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
     <symbol id="i-news" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10"/><path d="M7 12h10"/><path d="M7 16h6"/></symbol>
     <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
@@ -224,7 +220,6 @@
   </svg>
 
   <div class="layout">
-    <!-- ===== SIDEBAR ===== -->
     <aside class="sidebar">
       <div class="side-top">
         <div class="logo-row">
@@ -240,17 +235,11 @@
         </div>
         <div class="status-card"><span class="dot pulse"></span>Сезон 25 Активен<span class="badge-online">ONLINE</span></div>
       </div>
-
       <nav class="side-nav">
         <div class="nav-label">НАВИГАЦИЯ ПОРТАЛА</div>
-        <a class="nav-item active" href="#" data-go="home">
-          <svg class="ic" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Главная
-        </a>
+        <a class="nav-item active" href="#" data-go="home"><svg class="ic" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Главная</a>
         <div class="nav-group open" id="infoGroup">
-          <button class="nav-item" id="infoBtn">
-            <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>Информация
-            <svg class="chev ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
+          <button class="nav-item" id="infoBtn"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>Информация<svg class="chev ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
           <div class="subnav">
             <a class="sub-item" href="#" data-go="about">О проекте</a>
             <a class="sub-item" href="#" data-go="news">Новости</a>
@@ -265,27 +254,14 @@
             </div>
           </div>
         </div>
-        <a class="nav-item" href="#" data-go="features">
-          <svg class="ic" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Возможности<span class="pill">Новое</span>
-        </a>
-        <a class="nav-item" href="#" data-go="season">
-          <svg class="ic" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Текущий Сезон<span class="pill">S25</span>
-        </a>
-        <a class="nav-item" href="#" data-go="staff">
-          <svg class="ic" viewBox="0 0 24 24"><use href="#i-users"/></svg>Состав Команды
-        </a>
+        <a class="nav-item" href="#" data-go="features"><svg class="ic" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Возможности<span class="pill">Новое</span></a>
+        <a class="nav-item" href="#" data-go="season"><svg class="ic" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>Текущий Сезон<span class="pill">S25</span></a>
+        <a class="nav-item" href="#" data-go="staff"><svg class="ic" viewBox="0 0 24 24"><use href="#i-users"/></svg>Состав Команды</a>
         <div class="nav-label" style="margin-top:24px">ДОПОЛНИТЕЛЬНО</div>
-        <a class="nav-item" href="#" data-go="press">
-          <svg class="ic" viewBox="0 0 24 24"><use href="#i-news"/></svg>Пресса
-        </a>
-        <a class="nav-item" href="#" data-go="donate">
-          <svg class="ic" viewBox="0 0 24 24"><use href="#i-bag"/></svg>Донат магазин<span class="pill soon">Скоро</span>
-        </a>
-        <a class="nav-item" href="#" data-go="archives">
-          <svg class="ic" viewBox="0 0 24 24"><use href="#i-box"/></svg>Архивы<span class="pill soon">Скоро</span>
-        </a>
+        <a class="nav-item" href="#" data-go="press"><svg class="ic" viewBox="0 0 24 24"><use href="#i-news"/></svg>Пресса</a>
+        <a class="nav-item" href="#" data-go="donate"><svg class="ic" viewBox="0 0 24 24"><use href="#i-bag"/></svg>Донат магазин</a>
+        <a class="nav-item" href="#" data-go="archives"><svg class="ic" viewBox="0 0 24 24"><use href="#i-box"/></svg>Архивы<span class="pill soon">Скоро</span></a>
       </nav>
-
       <div class="side-bottom">
         <div class="theme-row"><span class="nav-label" style="margin:0">ЦВЕТОВАЯ ТЕМА</span><span class="theme-name" id="themeName">Green</span></div>
         <div class="themes">
@@ -302,7 +278,6 @@
       </div>
     </aside>
 
-    <!-- ===== MAIN ===== -->
     <main class="main">
       <!-- ГЛАВНАЯ -->
       <section class="page active" id="page-home">
@@ -354,26 +329,26 @@
         </article>
       </section>
 
-      <!-- ОБНОВЛЕНИЯ (с GitHub) -->
+      <!-- ОБНОВЛЕНИЯ -->
       <section class="page" id="page-updates">
-          <h1>Обновления <em>проекта</em></h1>
-          <p class="lead">История изменений и улучшений</p>
-          <div class="order-toggle" data-for="updates">
-            <button data-order="desc" class="active">↓ Новые сверху</button>
-            <button data-order="asc">↑ Старые сверху</button>
-          </div>
-          <div class="updates-stats" id="updatesStats"></div>
-          <div class="updates-list" id="updatesBody"><p class="loading">Загрузка истории обновлений...</p></div>
-        </section>
+        <h1>Обновления <em>проекта</em></h1>
+        <p class="lead">История изменений и улучшений</p>
+        <div class="order-toggle" data-for="updates">
+          <button data-order="asc" class="active">↑ Старые сверху</button>
+          <button data-order="desc">↓ Новые сверху</button>
+        </div>
+        <div class="updates-stats" id="updatesStats"></div>
+        <div class="updates-list" id="updatesBody"><p class="loading">Загрузка истории обновлений...</p></div>
+      </section>
 
-      <!-- ПРАВИЛА СЕРВЕРА (фрагмент) -->
+      <!-- ПРАВИЛА СЕРВЕРА -->
       <section class="page" id="page-rules-server">
         <h1>Правила <em>сервера</em></h1>
         <p class="lead">Для поддержания порядка и продуктивной игры</p>
         <div id="rulesServerBody"><p class="loading">Загрузка правил...</p></div>
       </section>
 
-      <!-- ПРАВИЛА БОТА (с GitHub) -->
+      <!-- ПРАВИЛА БОТА -->
       <section class="page" id="page-rules-bot">
         <h1>Правила <em>бота</em></h1>
         <p class="lead">Условия использования автоматизированных систем</p>
@@ -383,7 +358,7 @@
         </article>
       </section>
 
-      <!-- ПРИВАТНОСТЬ (с GitHub) -->
+      <!-- ПРИВАТНОСТЬ -->
       <section class="page" id="page-rules-privacy">
         <h1>Политика <em>конфиденциальности</em></h1>
         <p class="lead">Как мы обрабатываем и защищаем ваши данные</p>
@@ -407,7 +382,7 @@
         </div>
       </section>
 
-      <!-- СЕЗОН (данные из БД) -->
+      <!-- СЕЗОН -->
       <section class="page" id="page-season">
         <h1>Сезон <em>25</em></h1>
         <p class="lead">Юбилейный сезон — старт в эту пятницу!</p>
@@ -419,29 +394,53 @@
         <div id="seasonBody"><p class="loading">Загрузка данных сезона...</p></div>
       </section>
 
-      <!-- ПЕРСОНАЛ (фрагмент) -->
+      <!-- ПЕРСОНАЛ -->
       <section class="page" id="page-staff">
         <h1>Персонал <em>Global Lens</em></h1>
         <p class="lead">Люди, которые делают проект лучше каждый день</p>
         <div id="staffBody"><p class="loading">Загрузка персонала...</p></div>
       </section>
 
-      <!-- ЗАГЛУШКИ -->
-        <section class="page" id="page-press">
-         <h1>Пресса <em>сервера</em></h1>
-          <p class="lead">Краткая информация всех событий (РП и не-РП) за определённый период</p>
-          <div class="order-toggle" data-for="press">
-            <button data-order="desc" class="active">↓ Новые сверху</button>
-            <button data-order="asc">↑ Старые сверху</button>
-          </div>
-          <div class="updates-stats" id="pressStats"></div>
-          <div class="updates-list" id="pressBody"><p class="loading">Загрузка прессы...</p></div>
-        </section>
+      <!-- ПРЕССА -->
+      <section class="page" id="page-press">
+        <h1>Пресса <em>сервера</em></h1>
+        <p class="lead">Краткая информация всех событий (РП и не-РП) за определённый период</p>
+        <div class="order-toggle" data-for="press">
+          <button data-order="asc" class="active">↑ Старые сверху</button>
+          <button data-order="desc">↓ Новые сверху</button>
+        </div>
+        <div class="updates-stats" id="pressStats"></div>
+        <div class="updates-list" id="pressBody"><p class="loading">Загрузка прессы...</p></div>
+      </section>
+
+      <!-- ДОНАТ МАГАЗИН -->
       <section class="page" id="page-donate">
         <h1>Донат <em>магазин</em></h1>
         <p class="lead">Поддержи проект и получи эксклюзивные награды</p>
-        <div class="stub"><svg class="ic"><use href="#i-bag"/></svg><h3>Ведутся технические работы</h3><p>Раздел находится в разработке. Ожидайте скорого открытия.</p></div>
+        <article class="card wide" style="margin-top:0">
+          <h3><svg class="ic"><use href="#i-bag"/></svg>Цены</h3>
+          <div class="update-content">
+            <ul class="dc-list">
+              <li>Кастомная роль на 7/14/30 дней — <strong>100/200/350 кредитов</strong></li>
+              <li>Личный канал влог в категории «Сообщество» (на месяц) — <strong>300 кредитов</strong></li>
+              <li>Снятие мута (до 3ч) — <strong>75 кредитов</strong></li>
+            </ul>
+            <div class="small-text">Услуга не действует на правила про оскорбления, оффтоп, оскорбление родителей и другие правила с повышенным наказанием.</div>
+            <ul class="dc-list">
+              <li>Личная трибуна (на 12ч) — <strong>50 кредитов</strong></li>
+              <li>Предрег слабой страны — <strong>75 кредитов</strong></li>
+              <li>Предрег минорной страны — <strong>100 кредитов</strong></li>
+              <li>Предрег сильной страны — <strong>125 кредитов</strong></li>
+            </ul>
+            <div class="small-text">В этой категории находятся Пакистан, КНДР и Израиль.</div>
+            <ul class="dc-list">
+              <li>Предрег ядерной страны — <strong>200 кредитов</strong></li>
+            </ul>
+          </div>
+        </article>
       </section>
+
+      <!-- АРХИВЫ -->
       <section class="page" id="page-archives">
         <h1>Архивы <em>сезонов</em></h1>
         <p class="lead">История всех завершённых сезонов</p>
@@ -450,302 +449,318 @@
     </main>
   </div>
 
-<script>
-  const GH_URLS = {
-    updates: 'https://raw.githubusercontent.com/Burgero4ec/Burgero4ec.github.io/refs/heads/main/Archive_%F0%9F%93%94%E3%83%BB%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.html',
-    bot: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/TERMS_OF_SERVICE.md',
-    privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
-  };
+  <script>
+    const GH_URLS = {
+      updates: 'https://raw.githubusercontent.com/Burgero4ec/Burgero4ec.github.io/refs/heads/main/Archive_%F0%9F%93%94%E3%83%BB%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F.html',
+      bot: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/TERMS_OF_SERVICE.md',
+      privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
+    };
 
-  function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
-  function parseTs(s) {
-    const m = (s || '').match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
-    if (!m) return 0;
-    return new Date(+m[3], +m[2] - 1, +m[1], +m[4], +m[5]).getTime();
-  }
+    function parseTs(s) {
+      const m = (s || '').match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
+      if (!m) return 0;
+      return new Date(+m[3], +m[2] - 1, +m[1], +m[4], +m[5]).getTime();
+    }
 
-  /* Discord-разметка: ## заголовок, -# мелкий текст */
-  function applyDiscordMarkdown(html) {
-    return html.split('\n').map(line => {
-      const h2 = line.match(/^(\s*)##\s*(.+)$/);
-      if (h2) return h2[1] + '<span class="dc-h2">' + h2[2] + '</span>';
-      const sm = line.match(/^(\s*)-#\s*(.+)$/);
-      if (sm) return sm[1] + '<span class="small-text">' + sm[2] + '</span>';
-      return line;
-    }).join('\n');
-  }
+    /* ===== Discord inline-форматирование ===== */
+    function inline(s) {
+      s = String(s).replace(/<:[a-zA-Z0-9_]+:\d+>/g, '');
+      s = esc(s);
+      s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+      s = s.replace(/\|\|([\s\S]+?)\|\|/g, '<span class="spoiler">$1</span>');
+      s = s.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
+      s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      s = s.replace(/__([^_]+)__/g, '<u>$1</u>');
+      s = s.replace(/~~([^~]+)~~/g, '<s>$1</s>');
+      s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+      s = s.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+      return s;
+    }
 
-  /* ===== ОБНОВЛЕНИЯ / ПРЕССА: кеш, порядок, склейка ===== */
-  const cache = { updates: null, press: null };
-  const readOrder = { updates: 'asc', press: 'asc' };   /* asc = старые сверху (чтение сверху вниз) */
-  const MERGE_GAP_MS = 5 * 60 * 1000;                  /* склейка сообщений одного автора ≤ 5 мин */
-
-  function parseMessages(doc) {
-    return [...doc.querySelectorAll('.message')].map(m => {
-      const content = m.querySelector('.content');
-      if (!content) return null;
-      const ts = m.querySelector('.timestamp');
-      const author = m.querySelector('.author');
-      const reply = m.querySelector('.reply');
-      const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
-      return {
-        date: parseTs(rawTs),
-        dateStr: rawTs,
-        author: author ? author.textContent.trim() : 'Global Lens BOT',
-        content: content.innerHTML.trim(),
-        reply: reply ? reply.textContent.trim() : ''
-      };
-    }).filter(x => x && x.content);
-  }
-
-  function renderDiscordMessages(items, container, statsContainer, order) {
-    const sorted = items.slice().sort((a, b) => order === 'asc' ? a.date - b.date : b.date - a.date);
-    if (!sorted.length) { container.innerHTML = '<p class="loading">Пока нет сообщений.</p>'; return; }
-
-    const groups = [];
-    for (const item of sorted) {
-      const last = groups[groups.length - 1];
-      const sameAuthor = last && last.author === item.author;
-      const closeTime = sameAuthor && Math.abs(item.date - last.lastDateMs) <= MERGE_GAP_MS;
-      if (sameAuthor && closeTime) {
-        last.contents.push(item.content);
-        if (item.reply && !last.reply) last.reply = item.reply;
-        last.lastDate = item.dateStr;
-        last.lastDateMs = item.date;
-      } else {
-        groups.push({ author: item.author, contents: [item.content], reply: item.reply,
-          firstDate: item.dateStr, lastDate: item.dateStr, lastDateMs: item.date });
+    /* ===== Discord блочное форматирование ===== */
+    function renderMarkdown(raw) {
+      const src = String(raw)
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<span class=['"]?attachment-note['"]?>([\s\S]*?)<\/span>/gi, (m, c) => '\n-# 📎 ' + c.trim());
+      const lines = src.split('\n');
+      let html = '', inCode = false, codeBuf = [], listType = null;
+      const closeList = () => { if (listType) { html += '</' + listType + '>'; listType = null; } };
+      for (const line of lines) {
+        if (line.trim().startsWith('```')) {
+          if (!inCode) { closeList(); inCode = true; codeBuf = []; }
+          else { html += '<pre class="dc-code">' + esc(codeBuf.join('\n')) + '</pre>'; inCode = false; }
+          continue;
+        }
+        if (inCode) { codeBuf.push(line); continue; }
+        const t = line.trim();
+        if (!t) { closeList(); continue; }
+        if (/^─+$/.test(t)) { closeList(); html += '<div class="dc-divider"></div>'; continue; }
+        if (/^⠀+$/.test(t)) { closeList(); html += '<div class="dc-gap"></div>'; continue; }
+        if (t.startsWith('-# ')) { closeList(); html += '<div class="small-text">' + inline(t.slice(3)) + '</div>'; continue; }
+        if (t.startsWith('### ')) { closeList(); html += '<div class="dc-h3">' + inline(t.slice(4)) + '</div>'; continue; }
+        if (t.startsWith('## ')) { closeList(); html += '<div class="dc-h2">' + inline(t.slice(3)) + '</div>'; continue; }
+        if (t.startsWith('# ')) { closeList(); html += '<div class="dc-h1">' + inline(t.slice(2)) + '</div>'; continue; }
+        const ulm = t.match(/^[-*] (.+)/);
+        if (ulm) { if (listType !== 'ul') { closeList(); html += '<ul class="dc-list">'; listType = 'ul'; } html += '<li>' + inline(ulm[1]) + '</li>'; continue; }
+        const olm = t.match(/^\d+[.)] (.+)/);
+        if (olm) { if (listType !== 'ol') { closeList(); html += '<ol class="dc-list">'; listType = 'ol'; } html += '<li>' + inline(olm[1]) + '</li>'; continue; }
+        closeList();
+        html += '<p class="dc-p">' + inline(t) + '</p>';
       }
+      if (inCode) html += '<pre class="dc-code">' + esc(codeBuf.join('\n')) + '</pre>';
+      closeList();
+      return html;
     }
 
-    const authors = new Set(groups.map(g => g.author));
-    const oldest = sorted[0], newest = sorted[sorted.length - 1];
-    if (statsContainer) {
-      statsContainer.innerHTML =
-        '<div class="us-item"><b>' + items.length + '</b>сообщений</div>' +
-        '<div class="us-item"><b>' + groups.length + '</b>постов</div>' +
-        '<div class="us-item"><b>' + authors.size + '</b>авторов</div>' +
-        '<div class="us-item"><b>' + oldest.dateStr.split(' ')[0] + '</b>первое</div>' +
-        '<div class="us-item"><b>' + newest.dateStr.split(' ')[0] + '</b>последнее</div>';
+    /* ===== ОБНОВЛЕНИЯ / ПРЕССА ===== */
+    const cache = { updates: null, press: null };
+    const readOrder = { updates: 'asc', press: 'asc' };
+    const MERGE_GAP_MS = 5 * 60 * 1000;
+
+    function parseMessages(doc) {
+      return [...doc.querySelectorAll('.message')].map(m => {
+        const content = m.querySelector('.content');
+        if (!content) return null;
+        const ts = m.querySelector('.timestamp');
+        const author = m.querySelector('.author');
+        const reply = m.querySelector('.reply');
+        const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
+        return {
+          date: parseTs(rawTs),
+          dateStr: rawTs,
+          author: author ? author.textContent.trim() : 'Global Lens BOT',
+          content: content.innerHTML.trim(),
+          reply: reply ? reply.textContent.trim() : ''
+        };
+      }).filter(x => x && x.content);
     }
 
-    container.innerHTML = groups.map(g => {
-      const dateLine = g.firstDate === g.lastDate ? g.firstDate : g.firstDate + ' — ' + g.lastDate;
-      const contentsHtml = g.contents.map(c => applyDiscordMarkdown(c)).join('\n\n');
-      return '<article class="update-card">' +
-        '<div class="update-meta"><span class="update-author">' + esc(g.author) + '</span>' +
-        '<span class="update-date">' + esc(dateLine) + '</span></div>' +
-        (g.reply ? '<div class="update-content"><div class="reply">↪ ' + esc(g.reply) + '</div></div>' : '') +
-        '<div class="update-content">' + contentsHtml + '</div></article>';
-    }).join('');
-    container.querySelectorAll('a[href^="http"]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
-  }
+    function renderDiscordMessages(items, container, statsContainer, order) {
+      const sorted = items.slice().sort((a, b) => order === 'asc' ? a.date - b.date : b.date - a.date);
+      if (!sorted.length) { container.innerHTML = '<p class="loading">Пока нет сообщений.</p>'; return; }
+      const groups = [];
+      for (const item of sorted) {
+        const last = groups[groups.length - 1];
+        const sameAuthor = last && last.author === item.author;
+        const closeTime = sameAuthor && Math.abs(item.date - last.lastDateMs) <= MERGE_GAP_MS;
+        if (sameAuthor && closeTime) {
+          last.contents.push(item.content);
+          if (item.reply && !last.reply) last.reply = item.reply;
+          last.lastDate = item.dateStr;
+          last.lastDateMs = item.date;
+        } else {
+          groups.push({ author: item.author, contents: [item.content], reply: item.reply, firstDate: item.dateStr, lastDate: item.dateStr, lastDateMs: item.date });
+        }
+      }
+      const authors = new Set(groups.map(g => g.author));
+      const oldest = sorted[0], newest = sorted[sorted.length - 1];
+      if (statsContainer) {
+        statsContainer.innerHTML =
+          '<div class="us-item"><b>' + items.length + '</b>сообщений</div>' +
+          '<div class="us-item"><b>' + groups.length + '</b>постов</div>' +
+          '<div class="us-item"><b>' + authors.size + '</b>авторов</div>' +
+          '<div class="us-item"><b>' + oldest.dateStr.split(' ')[0] + '</b>первое</div>' +
+          '<div class="us-item"><b>' + newest.dateStr.split(' ')[0] + '</b>последнее</div>';
+      }
+      container.innerHTML = groups.map(g => {
+        const dateLine = g.firstDate === g.lastDate ? g.firstDate : g.firstDate + ' — ' + g.lastDate;
+        return '<article class="update-card">' +
+          '<div class="update-meta"><span class="update-author">' + esc(g.author) + '</span>' +
+          '<span class="update-date">' + esc(dateLine) + '</span></div>' +
+          (g.reply ? '<div class="update-content"><div class="small-text">↪ ' + esc(g.reply) + '</div></div>' : '') +
+          '<div class="update-content">' + g.contents.map(c => renderMarkdown(c)).join('') + '</div></article>';
+      }).join('');
+      container.querySelectorAll('.spoiler').forEach(sp => sp.addEventListener('click', () => sp.classList.toggle('revealed')));
+    }
 
-  function rerender(type) {
-    if (!cache[type]) return;
-    renderDiscordMessages(
-      cache[type],
-      document.getElementById(type === 'updates' ? 'updatesBody' : 'pressBody'),
-      document.getElementById(type === 'updates' ? 'updatesStats' : 'pressStats'),
-      readOrder[type]
-    );
-  }
+    function rerender(type) {
+      if (!cache[type]) return;
+      renderDiscordMessages(
+        cache[type],
+        document.getElementById(type === 'updates' ? 'updatesBody' : 'pressBody'),
+        document.getElementById(type === 'updates' ? 'updatesStats' : 'pressStats'),
+        readOrder[type]
+      );
+    }
 
-  async function loadUpdates() {
-    const el = document.getElementById('updatesBody');
-    try {
-      const r = await fetch(GH_URLS.updates);
-      if (!r.ok) throw 0;
-      cache.updates = parseMessages(new DOMParser().parseFromString(await r.text(), 'text/html'));
-      rerender('updates');
-    } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>'; }
-  }
+    async function loadUpdates() {
+      const el = document.getElementById('updatesBody');
+      try {
+        const r = await fetch(GH_URLS.updates);
+        if (!r.ok) throw 0;
+        cache.updates = parseMessages(new DOMParser().parseFromString(await r.text(), 'text/html'));
+        rerender('updates');
+      } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>'; }
+    }
 
-  async function loadPress() {
-    const el = document.getElementById('pressBody');
-    try {
-      const r = await fetch('press_content.html');
-      if (!r.ok) throw 0;
-      cache.press = parseMessages(new DOMParser().parseFromString(await r.text(), 'text/html'));
-      rerender('press');
-    } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить прессу. Файл press_content.html должен лежать рядом с index.html на хостинге.</p>'; }
-  }
+    async function loadPress() {
+      const el = document.getElementById('pressBody');
+      try {
+        const r = await fetch('press_content.html');
+        if (!r.ok) throw 0;
+        cache.press = parseMessages(new DOMParser().parseFromString(await r.text(), 'text/html'));
+        rerender('press');
+      } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить прессу. Файл press_content.html должен лежать рядом с index.html.</p>'; }
+    }
 
-  /* Переключатели порядка чтения */
-  document.querySelectorAll('.order-toggle').forEach(toggle => {
-    const type = toggle.dataset.for;
-    const btns = toggle.querySelectorAll('button');
-    const sync = () => btns.forEach(b => b.classList.toggle('active', b.dataset.order === readOrder[type]));
-    sync();
-    btns.forEach(btn => btn.addEventListener('click', () => {
-      readOrder[type] = btn.dataset.order;
+    document.querySelectorAll('.order-toggle').forEach(toggle => {
+      const type = toggle.dataset.for;
+      const btns = toggle.querySelectorAll('button');
+      const sync = () => btns.forEach(b => b.classList.toggle('active', b.dataset.order === readOrder[type]));
       sync();
-      rerender(type);
-    }));
-  });
+      btns.forEach(btn => btn.addEventListener('click', () => { readOrder[type] = btn.dataset.order; sync(); rerender(type); }));
+    });
 
-  /* ===== ПРАВИЛА БОТА / ПРИВАТНОСТЬ (markdown с GitHub) ===== */
-  function md(t) {
-    return t.split(/\r?\n/).map(line => {
-      const l = line.trim();
-      if (!l) return '';
-      if (l.startsWith('### ')) return '<h4>' + esc(l.slice(4)) + '</h4>';
-      if (l.startsWith('## ')) return '<h4>' + esc(l.slice(3)) + '</h4>';
-      if (l.startsWith('# ')) return '<h3>' + esc(l.slice(2)) + '</h3>';
-      if (/^[-*] /.test(l)) return '<p style="margin-left:16px">— ' + esc(l.slice(2)) + '</p>';
-      return '<p>' + esc(l) + '</p>';
-    }).join('');
-  }
-  async function loadRules(key, elId) {
-    const el = document.getElementById(elId);
-    try {
-      const r = await fetch(GH_URLS[key]);
-      if (!r.ok) throw 0;
-      el.innerHTML = md(await r.text());
-    } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить правила. Проверьте ссылки в GH_URLS.</p>'; }
-  }
-
-  /* ===== ЛОКАЛЬНЫЕ ФРАГМЕНТЫ ===== */
-  async function loadFragment(url, id) {
-    const el = document.getElementById(id);
-    try {
-      const r = await fetch(url);
-      if (!r.ok) throw 0;
-      el.innerHTML = await r.text();
-    } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить раздел. Файл ' + url + ' должен лежать рядом с index.html на хостинге.</p>'; }
-  }
-
-  loadRules('bot', 'rulesBotBody');
-  loadRules('privacy', 'rulesPrivacyBody');
-  loadFragment('rules_server_content.html', 'rulesServerBody');
-  loadFragment('staff_content.html', 'staffBody');
-
-  /* ===== СЧЁТЧИКИ ===== */
-  function countUp(el, target) {
-    const dur = 1400, t0 = performance.now();
-    (function tick(t) {
-      const p = Math.min((t - t0) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * e);
-      if (p < 1) requestAnimationFrame(tick);
-    })(t0);
-  }
-  function countUpAll(key, target) {
-    document.querySelectorAll('[data-stat="' + key + '"]').forEach(el => countUp(el, target));
-  }
-  function animateStats() {
-    document.querySelectorAll('#page-home .stat b[data-count]').forEach(el => countUp(el, +el.dataset.count));
-  }
-
-  /* ===== СЕЗОН ИЗ БД ===== */
-  async function loadSeason() {
-    const body = document.getElementById('seasonBody');
-    try {
-      const [cr, sr] = await Promise.all([fetch('countries2014.json'), fetch('seasoninfo.json')]);
-      if (!cr.ok || !sr.ok) throw 0;
-      const countries = await cr.json(), season = await sr.json();
-
-      const C = {};
-      for (const [k, v] of Object.entries(countries)) {
-        const name = k.trim();
-        C[name] = { name, flag: String(v.flag || '').trim(), continent: String(v.continent || '').trim() };
-      }
-
-      const taken = new Set(), states = [], orgs = [], autos = [];
-      for (const p of Object.values(season)) {
-        const type = String(p.type || '').trim();
-        const name = String(p.country || '').trim();
-        const host = String(p.host_country || '').trim();
-        if (type === 'country') { taken.add(name); states.push({ name, info: C[name] }); }
-        else if (type === 'organization') { orgs.push({ name }); }
-        else if (type === 'autonomy') { autos.push({ name, host }); }
-      }
-      const ru = (a, b) => a.name.localeCompare(b.name, 'ru');
-      states.sort(ru); orgs.sort(ru); autos.sort(ru);
-      const FREE = Object.values(C).filter(c => !taken.has(c.name));
-
-      countUpAll('countries', states.length);
-      countUpAll('orgs', orgs.length);
-      countUpAll('autos', autos.length);
-
-      const flagOf = n => (C[n] && C[n].flag) || '🏳️';
-      const cardState = s => '<div class="c-card"><span class="c-flag">' + (s.info ? s.info.flag : '🏳️') + '</span><div class="c-info"><div class="c-name">' + s.name + '</div><div class="c-sub">' + (s.info ? s.info.continent : '—') + '</div></div><span class="badge-taken">ЗАНЯТО</span></div>';
-      const cardOrg = o => '<div class="c-card"><span class="c-flag c-ic"><svg class="ic"><use href="#i-shield"/></svg></span><div class="c-info"><div class="c-name">' + o.name + '</div><div class="c-sub">Организация</div></div><span class="badge-taken">ЗАНЯТО</span></div>';
-      const cardAuto = a => '<div class="c-card"><span class="c-flag">' + flagOf(a.host) + '</span><div class="c-info"><div class="c-name">' + a.name + '</div><div class="c-sub">Автономия: ' + a.host + '</div></div><span class="badge-taken">ЗАНЯТО</span></div>';
-      const cardFree = c => '<div class="c-card"><span class="c-flag">' + c.flag + '</span><div class="c-info"><div class="c-name">' + c.name + '</div><div class="c-sub">' + c.continent + '</div></div><span class="badge-free">СВОБОДНО</span></div>';
-
-      function renderFree(q) {
-        q = (q || '').trim().toLowerCase();
-        const list = FREE.filter(c => c.name.toLowerCase().includes(q));
-        const by = {};
-        list.forEach(c => { (by[c.continent] = by[c.continent] || []).push(c); });
-        const order = ['Европа','Азия','Африка','Северная Америка','Южная Америка','Австралия и Океания'];
-        const conts = Object.keys(by).sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
-        document.getElementById('freeCount').textContent = list.length;
-        document.getElementById('freeGroups').innerHTML = conts.length
-          ? conts.map(cont => '<div class="m-sub">' + cont.toUpperCase() + ' (' + by[cont].length + ')</div><div class="grid-3" style="margin-bottom:26px">' + by[cont].sort(ru).map(cardFree).join('') + '</div>').join('')
-          : '<p class="loading">Ничего не найдено.</p>';
-      }
-
-      body.innerHTML =
-        '<div class="sec-title"><svg class="ic"><use href="#i-globe"/></svg>ГОСУДАРСТВА</div>' +
-        '<div class="grid-3">' + (states.map(cardState).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
-        '<div class="sec-title"><svg class="ic"><use href="#i-shield"/></svg>ОРГАНИЗАЦИИ</div>' +
-        '<div class="grid-3">' + (orgs.map(cardOrg).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
-        '<div class="sec-title"><svg class="ic"><use href="#i-map"/></svg>АВТОНОМИИ</div>' +
-        '<div class="grid-3">' + (autos.map(cardAuto).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
-        '<div class="sec-title"><svg class="ic"><use href="#i-compass"/></svg>СВОБОДНЫЕ СТРАНЫ — <span id="freeCount">' + FREE.length + '</span></div>' +
-        '<div class="search-wrap"><svg class="ic"><use href="#i-search"/></svg><input id="countrySearch" class="search-input" type="text" placeholder="Поиск страны..."></div>' +
-        '<div id="freeGroups"></div>';
-      renderFree('');
-      document.getElementById('countrySearch').addEventListener('input', e => renderFree(e.target.value));
-    } catch (e) {
-      body.innerHTML = '<p class="loading">Не удалось загрузить данные сезона. Файлы countries2014.json и seasoninfo.json должны лежать рядом с index.html.</p>';
+    /* ===== ПРАВИЛА БОТА / ПРИВАТНОСТЬ ===== */
+    function md(t) {
+      return t.split(/\r?\n/).map(line => {
+        const l = line.trim();
+        if (!l) return '';
+        if (l.startsWith('### ')) return '<h4>' + esc(l.slice(4)) + '</h4>';
+        if (l.startsWith('## ')) return '<h4>' + esc(l.slice(3)) + '</h4>';
+        if (l.startsWith('# ')) return '<h3>' + esc(l.slice(2)) + '</h3>';
+        if (/^[-*] /.test(l)) return '<p style="margin-left:16px">— ' + esc(l.slice(2)) + '</p>';
+        return '<p>' + esc(l) + '</p>';
+      }).join('');
     }
-  }
-  loadSeason();
-
-  /* ===== НАВИГАЦИЯ ===== */
-  const infoIds = ['about', 'news', 'updates'];
-  const ruleIds = ['rules-server', 'rules-bot', 'rules-privacy'];
-  function go(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === 'page-' + id));
-    document.querySelectorAll('.side-nav .active').forEach(x => x.classList.remove('active'));
-    if (infoIds.includes(id) || ruleIds.includes(id)) {
-      document.getElementById('infoBtn').classList.add('active');
-      document.getElementById('infoGroup').classList.add('open');
+    async function loadRules(key, elId) {
+      const el = document.getElementById(elId);
+      try {
+        const r = await fetch(GH_URLS[key]);
+        if (!r.ok) throw 0;
+        el.innerHTML = md(await r.text());
+      } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить правила. Проверьте ссылки в GH_URLS.</p>'; }
     }
-    if (ruleIds.includes(id)) document.getElementById('rulesGroup').classList.add('open');
-    const sel = document.querySelector('.side-nav [data-go="' + id + '"]');
-    if (sel) sel.classList.add('active');
-    if (id === 'home') animateStats();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  document.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
-  document.getElementById('infoBtn').addEventListener('click', () => document.getElementById('infoGroup').classList.toggle('open'));
-  document.getElementById('rulesBtn').addEventListener('click', () => document.getElementById('rulesGroup').classList.toggle('open'));
+    async function loadFragment(url, id) {
+      const el = document.getElementById(id);
+      try {
+        const r = await fetch(url);
+        if (!r.ok) throw 0;
+        el.innerHTML = await r.text();
+      } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить раздел. Файл ' + url + ' должен лежать рядом с index.html.</p>'; }
+    }
+    loadRules('bot', 'rulesBotBody');
+    loadRules('privacy', 'rulesPrivacyBody');
+    loadFragment('rules_server_content.html', 'rulesServerBody');
+    loadFragment('staff_content.html', 'staffBody');
 
-  /* ===== ТЕМЫ ===== */
-  const names = { green: 'Green', blue: 'Blue', orange: 'Orange' };
-  function applyTheme(theme, save = true) {
-    if (!names[theme]) theme = 'green';
-    document.documentElement.dataset.theme = theme;
-    document.querySelectorAll('.theme-btn').forEach(x => x.classList.toggle('active', x.dataset.themeSet === theme));
-    document.getElementById('themeName').textContent = names[theme];
-    if (save) try { localStorage.setItem('gl-theme', theme); } catch (e) {}
-  }
-  (function () {
-    let s = null;
-    try { s = localStorage.getItem('gl-theme'); } catch (e) {}
-    applyTheme(s || 'green', false);
-  })();
-  document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.themeSet, true)));
+    /* ===== СЧЁТЧИКИ ===== */
+    function countUp(el, target) {
+      const dur = 1400, t0 = performance.now();
+      (function tick(t) {
+        const p = Math.min((t - t0) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * e);
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    }
+    function countUpAll(key, target) { document.querySelectorAll('[data-stat="' + key + '"]').forEach(el => countUp(el, target)); }
+    function animateStats() { document.querySelectorAll('#page-home .stat b[data-count]').forEach(el => countUp(el, +el.dataset.count)); }
 
-  /* ===== ЗАПУСК ===== */
-  loadUpdates();
-  loadPress();
-  animateStats();
-</script>
+    /* ===== СЕЗОН ИЗ БД ===== */
+    async function loadSeason() {
+      const body = document.getElementById('seasonBody');
+      try {
+        const [cr, sr] = await Promise.all([fetch('countries2014.json'), fetch('seasoninfo.json')]);
+        if (!cr.ok || !sr.ok) throw 0;
+        const countries = await cr.json(), season = await sr.json();
+        const C = {};
+        for (const [k, v] of Object.entries(countries)) {
+          const name = k.trim();
+          C[name] = { name, flag: String(v.flag || '').trim(), continent: String(v.continent || '').trim() };
+        }
+        const taken = new Set(), states = [], orgs = [], autos = [];
+        for (const p of Object.values(season)) {
+          const type = String(p.type || '').trim();
+          const name = String(p.country || '').trim();
+          const host = String(p.host_country || '').trim();
+          if (type === 'country') { taken.add(name); states.push({ name, info: C[name] }); }
+          else if (type === 'organization') { orgs.push({ name }); }
+          else if (type === 'autonomy') { autos.push({ name, host }); }
+        }
+        const ru = (a, b) => a.name.localeCompare(b.name, 'ru');
+        states.sort(ru); orgs.sort(ru); autos.sort(ru);
+        const FREE = Object.values(C).filter(c => !taken.has(c.name));
+        countUpAll('countries', states.length);
+        countUpAll('orgs', orgs.length);
+        countUpAll('autos', autos.length);
+        const flagOf = n => (C[n] && C[n].flag) || '🏳️';
+        const cardState = s => '<div class="c-card"><span class="c-flag">' + (s.info ? s.info.flag : '🏳️') + '</span><div class="c-info"><div class="c-name">' + s.name + '</div><div class="c-sub">' + (s.info ? s.info.continent : '—') + '</div></div><span class="badge-taken">ЗАНЯТО</span></div>';
+        const cardOrg = o => '<div class="c-card"><span class="c-flag c-ic"><svg class="ic"><use href="#i-shield"/></svg></span><div class="c-info"><div class="c-name">' + o.name + '</div><div class="c-sub">Организация</div></div><span class="badge-taken">ЗАНЯТО</span></div>';
+        const cardAuto = a => '<div class="c-card"><span class="c-flag">' + flagOf(a.host) + '</span><div class="c-info"><div class="c-name">' + a.name + '</div><div class="c-sub">Автономия: ' + a.host + '</div></div><span class="badge-taken">ЗАНЯТО</span></div>';
+        const cardFree = c => '<div class="c-card"><span class="c-flag">' + c.flag + '</span><div class="c-info"><div class="c-name">' + c.name + '</div><div class="c-sub">' + c.continent + '</div></div><span class="badge-free">СВОБОДНО</span></div>';
+        function renderFree(q) {
+          q = (q || '').trim().toLowerCase();
+          const list = FREE.filter(c => c.name.toLowerCase().includes(q));
+          const by = {};
+          list.forEach(c => { (by[c.continent] = by[c.continent] || []).push(c); });
+          const order = ['Европа', 'Азия', 'Африка', 'Северная Америка', 'Южная Америка', 'Австралия и Океания'];
+          const conts = Object.keys(by).sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
+          document.getElementById('freeCount').textContent = list.length;
+          document.getElementById('freeGroups').innerHTML = conts.length
+            ? conts.map(cont => '<div class="m-sub">' + cont.toUpperCase() + ' (' + by[cont].length + ')</div><div class="grid-3" style="margin-bottom:26px">' + by[cont].sort(ru).map(cardFree).join('') + '</div>').join('')
+            : '<p class="loading">Ничего не найдено.</p>';
+        }
+        body.innerHTML =
+          '<div class="sec-title"><svg class="ic"><use href="#i-globe"/></svg>ГОСУДАРСТВА</div>' +
+          '<div class="grid-3">' + (states.map(cardState).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
+          '<div class="sec-title"><svg class="ic"><use href="#i-shield"/></svg>ОРГАНИЗАЦИИ</div>' +
+          '<div class="grid-3">' + (orgs.map(cardOrg).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
+          '<div class="sec-title"><svg class="ic"><use href="#i-map"/></svg>АВТОНОМИИ</div>' +
+          '<div class="grid-3">' + (autos.map(cardAuto).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
+          '<div class="sec-title"><svg class="ic"><use href="#i-compass"/></svg>СВОБОДНЫЕ СТРАНЫ — <span id="freeCount">' + FREE.length + '</span></div>' +
+          '<div class="search-wrap"><svg class="ic"><use href="#i-search"/></svg><input id="countrySearch" class="search-input" type="text" placeholder="Поиск страны..."></div>' +
+          '<div id="freeGroups"></div>';
+        renderFree('');
+        document.getElementById('countrySearch').addEventListener('input', e => renderFree(e.target.value));
+      } catch (e) {
+        body.innerHTML = '<p class="loading">Не удалось загрузить данные сезона. Файлы countries2014.json и seasoninfo.json должны лежать рядом с index.html.</p>';
+      }
+    }
+    loadSeason();
+
+    /* ===== НАВИГАЦИЯ ===== */
+    const infoIds = ['about', 'news', 'updates'];
+    const ruleIds = ['rules-server', 'rules-bot', 'rules-privacy'];
+    function go(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === 'page-' + id));
+      document.querySelectorAll('.side-nav .active').forEach(x => x.classList.remove('active'));
+      if (infoIds.includes(id) || ruleIds.includes(id)) {
+        document.getElementById('infoBtn').classList.add('active');
+        document.getElementById('infoGroup').classList.add('open');
+      }
+      if (ruleIds.includes(id)) document.getElementById('rulesGroup').classList.add('open');
+      const sel = document.querySelector('.side-nav [data-go="' + id + '"]');
+      if (sel) sel.classList.add('active');
+      if (id === 'home') animateStats();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
+    document.getElementById('infoBtn').addEventListener('click', () => document.getElementById('infoGroup').classList.toggle('open'));
+    document.getElementById('rulesBtn').addEventListener('click', () => document.getElementById('rulesGroup').classList.toggle('open'));
+
+    /* ===== ТЕМЫ ===== */
+    const names = { green: 'Green', blue: 'Blue', orange: 'Orange' };
+    function applyTheme(theme, save = true) {
+      if (!names[theme]) theme = 'green';
+      document.documentElement.dataset.theme = theme;
+      document.querySelectorAll('.theme-btn').forEach(x => x.classList.toggle('active', x.dataset.themeSet === theme));
+      document.getElementById('themeName').textContent = names[theme];
+      if (save) try { localStorage.setItem('gl-theme', theme); } catch (e) {}
+    }
+    (function () {
+      let s = null;
+      try { s = localStorage.getItem('gl-theme'); } catch (e) {}
+      applyTheme(s || 'green', false);
+    })();
+    document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.themeSet, true)));
+    animateStats();
+
+    /* ===== ЗАПУСК ===== */
+    loadUpdates();
+    loadPress();
+  </script>
 </body>
 </html>
