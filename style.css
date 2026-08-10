@@ -200,3 +200,21 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
   h1 { font-size: 30px; }
 }
 @media (max-width: 600px) { .grid-2, .grid-3, .stats, .stats.three, #page-features .grid-3 { grid-template-columns: 1fr; } }
+
+/* ===== ЛИЧНЫЙ КАБИНЕТ ===== */
+.profile-card { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.profile-head { display: flex; align-items: center; gap: 16px; flex: 1; min-width: 260px; }
+.profile-ava { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--acc-border); }
+.profile-name { font-family: Nunito; font-weight: 800; font-size: 20px; }
+.profile-sub { font-family: 'JetBrains Mono'; font-size: 11px; color: var(--dim); margin-top: 4px; }
+.login-card { text-align: center; padding: 50px 20px; }
+.login-card h3 { justify-content: center; }
+.kv { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--line2); font-size: 14px; }
+.kv:last-child { border-bottom: 0; }
+.kv span { color: var(--muted); }
+.kv b { color: var(--text); font-weight: 700; text-align: right; }
+.credit-item { background: #0c1116; border: 1px solid var(--line2); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; }
+.credit-item:last-child { margin-bottom: 0; }
+.credit-item b { color: var(--red); font-family: 'JetBrains Mono'; font-size: 12px; }
+.credit-item .row { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; color: var(--muted); margin-top: 6px; }
+.credit-item .row b { color: var(--text); }
