@@ -310,3 +310,173 @@ animateStats();
 /* ===== ЗАПУСК ЗАГРУЗОК ===== */
 loadUpdates();
 loadPress();
+
+/* ===== DISCORD OAuth2 (Implicit Flow, без бэкенда) ===== */
+const DISCORD_CLIENT_ID = '1406960264275824670'; // ваш client_id
+const DISCORD_REDIRECT = location.origin + location.pathname; // добавить в Redirects приложения!
+
+function discordLogin() {
+  const u = new URL('https://discord.com/oauth2/authorize');
+  u.searchParams.set('client_id', DISCORD_CLIENT_ID);
+  u.searchParams.set('response_type', 'token');
+  u.searchParams.set('redirect_uri', DISCORD_REDIRECT);
+  u.searchParams.set('scope', 'identify');
+  location.href = u.toString();
+}
+
+function discordLogout() {
+  localStorage.removeItem('gl-discord-token');
+  localStorage.removeItem('gl-discord-user');
+  window.glUser = null;
+  syncUserUI();
+  renderCabinet();
+}
+
+function discordAvatar(u, size) {
+  if (u.avatar) return 'https://cdn.discordapp.com/avatars/' + u.id + '/' + u.avatar + '.png?size=' + (size || 128);
+  const idx = Number(BigInt(u.id) >> 22n) % 6;
+  return 'https://cdn.discordapp.com/embed/avatars/' + idx + '.png';
+}
+
+/* убираем хвостовые пробелы из ключей и строк БД */
+function trimDeep(v) {
+  if (typeof v === 'string') return v.trim();
+  if (Array.isArray(v)) return v.map(trimDeep);
+  if (v && typeof v === 'object') { const o = {}; for (const [k, val] of Object.entries(v)) o[k.trim()] = trimDeep(val); return o; }
+  return v;
+}
+
+function fmtNum(n) {
+  if (n == null || isNaN(n)) return '—';
+  const abs = Math.abs(n);
+  if (abs >= 1e12) return (n / 1e12).toFixed(2).replace('.', ',') + ' трлн';
+  if (abs >= 1e9) return (n / 1e9).toFixed(2).replace('.', ',') + ' млрд';
+  if (abs >= 1e6) return (n / 1e6).toFixed(2).replace('.', ',') + ' млн';
+  return Math.round(n).toLocaleString('ru-RU');
+}
+
+function syncUserUI() {
+  const label = document.getElementById('cabinetLabel');
+  const note = document.getElementById('donateUserNote');
+  const name = window.glUser ? (window.glUser.global_name || window.glUser.username) : null;
+  if (label) label.textContent = name || 'Личный кабинет';
+  if (note) note.textContent = name
+    ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.'
+    : 'Войдите через Discord, чтобы покупки привязывались к аккаунту.';
+}
+
+async function handleDiscordCallback() {
+  if (location.hash.includes('access_token=')) {
+    const p = new URLSearchParams(location.hash.slice(1));
+    const token = p.get('access_token');
+    if (token) {
+      localStorage.setItem('gl-discord-token', token);
+      history.replaceState(null, '', location.pathname + location.search); // чистим URL
+    }
+  }
+  const token = localStorage.getItem('gl-discord-token');
+  if (token) {
+    try {
+      const r = await fetch('https://discord.com/api/users/@me', { headers: { Authorization: 'Bearer ' + token } });
+      if (!r.ok) throw 0;
+      window.glUser = await r.json();
+      localStorage.setItem('gl-discord-user', JSON.stringify(window.glUser));
+    } catch (e) {
+      localStorage.removeItem('gl-discord-token');
+      window.glUser = null;
+    }
+  } else {
+    try { window.glUser = JSON.parse(localStorage.getItem('gl-discord-user')); } catch (e) { window.glUser = null; }
+  }
+  syncUserUI();
+  if (document.getElementById('page-cabinet').classList.contains('active')) renderCabinet();
+}
+
+/* ===== ЛИЧНЫЙ КАБИНЕТ ===== */
+async function renderCabinet() {
+  const body = document.getElementById('cabinetBody');
+  if (!body) return;
+  if (!window.glUser) {
+    body.innerHTML =
+      '<div class="card wide login-card">' +
+      '<h3><svg class="ic"><use href="#i-user"/></svg>Вы не вошли</h3>' +
+      '<p>Кабинет показывает данные вашего игрового профиля: страну, ВВП, поддержку, кредиты и инвестиции.</p>' +
+      '<div class="cta-row"><button class="cta fill" onclick="discordLogin()">Войти через Discord</button></div></div>';
+    return;
+  }
+  const u = window.glUser;
+  let season = null, countries = null;
+  try {
+    const [sr, cr] = await Promise.all([fetch('seasoninfo.json'), fetch('countries2014.json')]);
+    if (sr.ok) season = trimDeep(await sr.json());
+    if (cr.ok) countries = trimDeep(await cr.json());
+  } catch (e) {}
+  const me = season ? season[u.id] : null;
+  const flagOf = n => (countries && countries[n]) ? countries[n].flag : '🏳️';
+
+  let html = '<div class="card wide profile-card"><div class="profile-head">' +
+    '<img class="profile-ava" src="' + discordAvatar(u) + '" alt="">' +
+    '<div><div class="profile-name">' + esc(u.global_name || u.username) + '</div>' +
+    '<div class="profile-sub">ID: ' + u.id + '</div></div>' +
+    '<button class="cta ghost" style="margin-left:auto" onclick="discordLogout()">Выйти</button>' +
+    '</div></div>';
+
+  if (!me) {
+    html += '<div class="card wide"><h3>Вы ещё не зарегистрированы в сезоне</h3>' +
+      '<p>Ваш Discord-аккаунт не найден в базе сезона. Выберите свободную страну и подайте заявку на сервере.</p>' +
+      '<div class="cta-row" style="justify-content:flex-start"><a class="cta ghost" href="#" data-go="season">Смотреть страны</a></div></div>';
+  } else {
+    const typeNames = { country: 'Государство', organization: 'Организация', autonomy: 'Автономия' };
+    html += '<div class="stats">' +
+      '<div class="stat"><b>' + fmtNum(me.gdp) + '</b><span>ВВП</span></div>' +
+      '<div class="stat"><b>' + fmtNum(me.balance) + '</b><span>Баланс</span></div>' +
+      '<div class="stat"><b>' + (me.support != null ? me.support.toFixed(1) + '%' : '—') + '</b><span>Поддержка</span></div>' +
+      '<div class="stat"><b>' + (me.corruption != null ? me.corruption.toFixed(1) + '%' : '—') + '</b><span>Коррупция</span></div></div>';
+
+    html += '<div class="grid-2"><div class="card"><h3>' + flagOf(me.country) + ' ' + esc(me.country) + '</h3>' +
+      '<div class="kv"><span>Тип</span><b>' + (typeNames[me.type] || me.type) + '</b></div>' +
+      (me.org_type ? '<div class="kv"><span>Форма</span><b>' + esc(me.org_type) + '</b></div>' : '') +
+      (me.host_country ? '<div class="kv"><span>Метрополия</span><b>' + flagOf(me.host_country) + ' ' + esc(me.host_country) + '</b></div>' : '') +
+      (me.ideology ? '<div class="kv"><span>Гос. строй</span><b>' + esc(me.ideology.state || '—') + '</b></div><div class="kv"><span>Экономика</span><b>' + esc(me.ideology.economy || '—') + '</b></div>' : '') +
+      (me.specialization ? '<div class="kv"><span>Специализация</span><b>' + esc(me.specialization) + '</b></div>' : '') +
+      (me.population ? '<div class="kv"><span>Население</span><b>' + fmtNum(me.population) + '</b></div>' : '') +
+      (me.shield ? '<div class="kv"><span>Щит до</span><b>' + new Date(me.shield).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) + '</b></div>' : '') +
+      '</div>';
+
+    const credits = me.credits ? Object.values(me.credits) : [];
+    html += '<div class="card"><h3>💳 Кредиты' + (credits.length ? ' (' + credits.length + ')' : '') + '</h3>';
+    html += credits.length
+      ? credits.map(c =>
+          '<div class="credit-item"><b>Кредит ' + esc(c.id) + '</b>' +
+          '<div class="row"><span>Взято</span><b>' + fmtNum(c.amount_taken) + '</b></div>' +
+          '<div class="row"><span>Остаток долга</span><b>' + fmtNum(c.debt_current) + '</b></div>' +
+          '<div class="row"><span>Платёж</span><b>' + fmtNum(c.hourly_payment) + '/ч · осталось ' + c.term_hours_left + ' ч</b></div>' +
+          (c.reason ? '<div class="row"><span>Причина</span><b>' + esc(c.reason) + '</b></div>' : '') +
+          '</div>').join('')
+      : '<p>Активных кредитов нет.</p>';
+    html += '</div></div>';
+
+    const inv = me.investments || [];
+    const totalInv = inv.reduce((s, i) => s + (i.amount || 0), 0);
+    html += '<div class="card wide"><h3>📈 Инвестиции в вас</h3>';
+    html += inv.length
+      ? '<p>Инвесторов: ' + inv.length + ' · общая сумма ' + fmtNum(totalInv) + '.</p>' +
+        inv.map(i =>
+          '<div class="credit-item"><b>' + flagOf(i.investor_country) + ' ' + esc(i.investor_country) + '</b>' +
+          '<div class="row"><span>Сумма</span><b>' + fmtNum(i.amount) + '</b></div>' +
+          '<div class="row"><span>Доля</span><b>' + (i.share_percent || 0).toFixed(2) + '%</b></div></div>').join('')
+      : '<p>Входящих инвестиций нет.</p>';
+    html += '</div>';
+  }
+
+  body.innerHTML = html;
+  body.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
+}
+
+/* открытие кабинета из навигации */
+document.addEventListener('click', e => {
+  if (e.target.closest('[data-go="cabinet"]')) renderCabinet();
+});
+
+/* старт: проверка токена из URL / localStorage */
+handleDiscordCallback();
