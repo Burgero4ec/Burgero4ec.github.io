@@ -202,15 +202,41 @@ function countUpAll(key, target) { document.querySelectorAll('[data-stat="' + ke
 function animateStats() { document.querySelectorAll('#page-home .stat b[data-count]').forEach(el => countUp(el, +el.dataset.count)); }
 
 /* ===== СЕЗОН ИЗ БД ===== */
+/* Чинит невалидный JSON: экранирует кавычки внутри ключей
+   (например: "🇨🇳 | "Куньмин " ": 11  →  валидный ключ) */
+function repairJson(text) {
+  return text.split('\n').map(line => {
+    const m = line.match(/^(\s*)"(.*)":(.*)$/);
+    if (!m) return line;
+    return m[1] + '"' + m[2].replace(/"/g, '\\"') + '":' + m[3];
+  }).join('\n');
+}
+
+async function fetchJson(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error('Файл ' + url + ' не найден (HTTP ' + r.status + '). Проверьте имя файла и регистр.');
+  const text = await r.text();
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    try {
+      return JSON.parse(repairJson(text)); // вторая попытка с ремонтом
+    } catch (e2) {
+      throw new Error('Ошибка разбора ' + url + ': ' + e2.message);
+    }
+  }
+}
+
 async function loadSeason() {
   const body = document.getElementById('seasonBody');
   try {
-    const [cr, sr] = await Promise.all([fetch('countries2014.json'), fetch('seasoninfo.json')]);
-    if (!cr.ok || !sr.ok) throw 0;
-    const countries = trimDeep(await cr.json()), season = trimDeep(await sr.json());
-    const C = countries;
+    const [countriesRaw, seasonRaw] = await Promise.all([
+      fetchJson('countries2014.json'),
+      fetchJson('seasoninfo.json')
+    ]);
+    const C = trimDeep(countriesRaw), S = trimDeep(seasonRaw);
     const taken = new Set(), states = [], orgs = [], autos = [];
-    for (const p of Object.values(season)) {
+    for (const p of Object.values(S)) {
       if (p.type === 'country') { taken.add(p.country); states.push({ name: p.country, info: C[p.country] }); }
       else if (p.type === 'organization') orgs.push({ name: p.country });
       else if (p.type === 'autonomy') autos.push({ name: p.country, host: p.host_country });
@@ -248,10 +274,12 @@ async function loadSeason() {
     renderFree('');
     document.getElementById('countrySearch').addEventListener('input', e => renderFree(e.target.value));
   } catch (e) {
-    body.innerHTML = '<p class="loading">Не удалось загрузить данные сезона. Файлы countries2014.json и seasoninfo.json должны лежать рядом с index.html.</p>';
+    console.error('[Global Lens]', e);
+    body.innerHTML = '<p class="loading">' + esc(e.message) + '</p>';
   }
 }
 loadSeason();
+
 
 /* ===== DISCORD OAuth2 + ЛИЧНЫЙ КАБИНЕТ ===== */
 function discordLogin() {
