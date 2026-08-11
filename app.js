@@ -4,9 +4,13 @@ const GH_URLS = {
   bot: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/TERMS_OF_SERVICE.md',
   privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
 };
-const DISCORD_CLIENT_ID = '1406960264275824670'; // ваш client_id (добавьте сайт в OAuth2 Redirects!)
-const DISCORD_REDIRECT = location.origin + location.pathname;
 
+/* Нормализуем redirect_uri: /index.html → /  (добавьте ЭТОТ адрес в Discord Developer Portal → OAuth2 → Redirects) */
+const DISCORD_CLIENT_ID = '1406960264275824670';
+const DISCORD_REDIRECT = location.origin + location.pathname.replace(/index\.html$/, '');
+console.info('[Global Lens] OAuth2 redirect_uri:', DISCORD_REDIRECT);
+
+/* ===== УТИЛИТЫ ===== */
 function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function parseTs(s) {
   const m = (s || '').match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
@@ -201,9 +205,7 @@ function countUp(el, target) {
 function countUpAll(key, target) { document.querySelectorAll('[data-stat="' + key + '"]').forEach(el => countUp(el, target)); }
 function animateStats() { document.querySelectorAll('#page-home .stat b[data-count]').forEach(el => countUp(el, +el.dataset.count)); }
 
-/* ===== СЕЗОН ИЗ БД ===== */
-/* Чинит невалидный JSON: экранирует кавычки внутри ключей
-   (например: "🇨🇳 | "Куньмин " ": 11  →  валидный ключ) */
+/* ===== СЕЗОН ИЗ БД (с ремонтом JSON) ===== */
 function repairJson(text) {
   return text.split('\n').map(line => {
     const m = line.match(/^(\s*)"(.*)":(.*)$/);
@@ -211,30 +213,23 @@ function repairJson(text) {
     return m[1] + '"' + m[2].replace(/"/g, '\\"') + '":' + m[3];
   }).join('\n');
 }
-
 async function fetchJson(url) {
   const r = await fetch(url);
-  if (!r.ok) throw new Error('Файл ' + url + ' не найден (HTTP ' + r.status + '). Проверьте имя файла и регистр.');
+  if (!r.ok) throw new Error('Файл ' + url + ' не найден (HTTP ' + r.status + ').');
   const text = await r.text();
-  try {
-    return JSON.parse(text);
-  } catch (e) {
-    try {
-      return JSON.parse(repairJson(text)); // вторая попытка с ремонтом
-    } catch (e2) {
-      throw new Error('Ошибка разбора ' + url + ': ' + e2.message);
-    }
+  try { return JSON.parse(text); }
+  catch (e) {
+    try { return JSON.parse(repairJson(text)); }
+    catch (e2) { throw new Error('Ошибка разбора ' + url + ': ' + e2.message); }
   }
 }
-
 async function loadSeason() {
   const body = document.getElementById('seasonBody');
   try {
-    const [countriesRaw, seasonRaw] = await Promise.all([
-      fetchJson('countries2014.json'),
-      fetchJson('seasoninfo.json')
-    ]);
+    const [countriesRaw, seasonRaw] = await Promise.all([fetchJson('countries2014.json'), fetchJson('seasoninfo.json')]);
     const C = trimDeep(countriesRaw), S = trimDeep(seasonRaw);
+    /* ИСПРАВЛЕНИЕ: проставляем name из ключа, иначе c.name === undefined */
+    for (const [k, v] of Object.entries(C)) if (v && typeof v === 'object') v.name = k;
     const taken = new Set(), states = [], orgs = [], autos = [];
     for (const p of Object.values(S)) {
       if (p.type === 'country') { taken.add(p.country); states.push({ name: p.country, info: C[p.country] }); }
@@ -254,7 +249,7 @@ async function loadSeason() {
     const cardFree = c => '<div class="c-card"><span class="c-flag">' + c.flag + '</span><div class="c-info"><div class="c-name">' + c.name + '</div><div class="c-sub">' + c.continent + '</div></div><span class="badge-free">СВОБОДНО</span></div>';
     function renderFree(q) {
       q = (q || '').trim().toLowerCase();
-      const list = FREE.filter(c => c.name.toLowerCase().includes(q));
+      const list = FREE.filter(c => c.name && c.name.toLowerCase().includes(q));
       const by = {};
       list.forEach(c => { (by[c.continent] = by[c.continent] || []).push(c); });
       const order = ['Европа', 'Азия', 'Африка', 'Северная Америка', 'Южная Америка', 'Австралия и Океания'];
@@ -279,7 +274,6 @@ async function loadSeason() {
   }
 }
 loadSeason();
-
 
 /* ===== DISCORD OAuth2 + ЛИЧНЫЙ КАБИНЕТ ===== */
 function discordLogin() {
@@ -339,9 +333,8 @@ async function renderCabinet() {
   const u = window.glUser;
   let season = null, countries = null;
   try {
-    const [sr, cr] = await Promise.all([fetch('seasoninfo.json'), fetch('countries2014.json')]);
-    if (sr.ok) season = trimDeep(await sr.json());
-    if (cr.ok) countries = trimDeep(await cr.json());
+    const [sr, cr] = await Promise.all([fetchJson('seasoninfo.json'), fetchJson('countries2014.json')]);
+    season = trimDeep(sr); countries = trimDeep(cr);
   } catch (e) {}
   const me = season ? season[u.id] : null;
   const flagOf = n => (countries && countries[n]) ? countries[n].flag : '🏳️';
