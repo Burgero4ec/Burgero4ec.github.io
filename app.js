@@ -128,6 +128,7 @@ function renderDiscordMessages(items, container, statsContainer, order) {
   container.querySelectorAll('.spoiler').forEach(sp => sp.addEventListener('click', () => sp.classList.toggle('revealed')));
 }
 function rerender(type) {
+  if (type === 'archives') { renderArchives(); return; }
   if (!cache[type]) return;
   renderDiscordMessages(cache[type],
     document.getElementById(type === 'updates' ? 'updatesBody' : 'pressBody'),
@@ -410,8 +411,120 @@ function applyTheme(theme, save = true) {
 (function () { let s = null; try { s = localStorage.getItem('gl-theme'); } catch (e) {} applyTheme(s || 'green', false); })();
 document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.themeSet, true)));
 
+/* ===== АРХИВЫ СЕЗОНОВ ===== */
+const ARCHIVE_SEASONS = [19]; // по мере архивации просто добавляйте номера: [20, 19, 18...]
+const ARCHIVE_KINDS = [
+  { id: 'countries', emoji: '📺', label: 'Новости стран и автономий' },
+  { id: 'orgs',      emoji: '👥', label: 'Новости организаций' },
+  { id: 'events',    emoji: '🗽', label: 'События' }
+];
+const archiveCache = {};                       // "сезон:тип" -> сообщения
+const archState = { season: 'all', kind: 'all', q: '' };
+readOrder.archives = 'desc';
+
+/* Имя файла по вашему паттерну: "Архив: 🗽・19-сезон" -> Archive_🗽・19-сезон.html
+   Если файлы лежат в папке или называются иначе — правьте только эту функцию. */
+function archiveUrl(season, kind) {
+  const emoji = { countries: '📺', orgs: '👥', events: '🗽' }[kind];
+  return 'Archive_' + encodeURIComponent(emoji + '・' + season + '-сезон') + '.html';
+}
+
+async function loadArchiveFile(season, kind) {
+  const key = season + ':' + kind;
+  if (archiveCache[key]) return archiveCache[key];
+  const r = await fetch(archiveUrl(season, kind));
+  if (!r.ok) throw new Error('Файл не найден: ' + archiveUrl(season, kind));
+  const doc = new DOMParser().parseFromString(await r.text(), 'text/html');
+  const msgs = [...doc.querySelectorAll('.message')].map(m => {
+    const content = m.querySelector('.content');
+    if (!content) return null;
+    const ts = m.querySelector('.timestamp'), author = m.querySelector('.author');
+    const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
+    return {
+      date: parseTs(rawTs),
+      dateStr: rawTs,
+      author: author ? author.textContent.trim() : '—',
+      content: content.innerHTML.trim(),
+      text: (content.textContent || '').trim(),
+      season: season,
+      kind: kind
+    };
+  }).filter(x => x && x.text); // пустые сообщения бота пропускаем
+  archiveCache[key] = msgs;
+  return msgs;
+}
+
+function renderArchFolders() {
+  const el = document.getElementById('archFolders');
+  if (!el) return;
+  el.innerHTML = ARCHIVE_SEASONS.slice().sort((a, b) => b - a).map(s =>
+    '<div class="folder"><h3>📁 Сезон ' + s + '</h3><div class="folder-files">' +
+    ARCHIVE_KINDS.map(k =>
+      '<button class="folder-file" data-season="' + s + '" data-kind="' + k.id + '">' + k.emoji + ' ' + k.label + '</button>'
+    ).join('') + '</div></div>').join('');
+  el.querySelectorAll('.folder-file').forEach(b => b.addEventListener('click', () => {
+    archState.season = b.dataset.season;
+    archState.kind = b.dataset.kind;
+    document.getElementById('archSeason').value = b.dataset.season;
+    document.getElementById('archKind').value = b.dataset.kind;
+    renderArchives();
+  }));
+}
+
+function initArchControls() {
+  const sel = document.getElementById('archSeason');
+  if (!sel) return;
+  sel.innerHTML = '<option value="all">Все сезоны</option>' +
+    ARCHIVE_SEASONS.slice().sort((a, b) => b - a).map(s => '<option value="' + s + '">Сезон ' + s + '</option>').join('');
+  sel.addEventListener('change', () => { archState.season = sel.value; renderArchives(); });
+  document.getElementById('archKind').addEventListener('change', e => { archState.kind = e.target.value; renderArchives(); });
+  document.getElementById('archSearch').addEventListener('input', e => { archState.q = e.target.value; renderArchives(); });
+}
+
+async function renderArchives() {
+  const body = document.getElementById('archBody');
+  const stats = document.getElementById('archStats');
+  if (!body) return;
+  const seasons = archState.season === 'all' ? ARCHIVE_SEASONS : [Number(archState.season)];
+  const kinds = archState.kind === 'all' ? ARCHIVE_KINDS.map(k => k.id) : [archState.kind];
+  body.innerHTML = '<p class="loading">Загрузка архивов...</p>';
+  try {
+    const lists = await Promise.all(seasons.flatMap(s => kinds.map(k => loadArchiveFile(s, k).catch(() => []))));
+    let msgs = lists.flat();
+    const q = archState.q.trim().toLowerCase();
+    if (q) msgs = msgs.filter(m =>
+      m.author.toLowerCase().includes(q) ||   // по нику
+      m.text.toLowerCase().includes(q) ||     // по содержанию
+      m.dateStr.includes(q) ||                // по дате (например "06.04.2026")
+      String(m.season).includes(q)            // по сезону
+    );
+    msgs.sort((a, b) => readOrder.archives === 'asc' ? a.date - b.date : b.date - a.date);
+    stats.innerHTML =
+      '<div class="us-item"><b>' + msgs.length + '</b>сообщений</div>' +
+      '<div class="us-item"><b>' + new Set(msgs.map(m => m.author)).size + '</b>авторов</div>' +
+      '<div class="us-item"><b>' + new Set(msgs.map(m => m.season)).size + '</b>сезонов</div>';
+    if (!msgs.length) { body.innerHTML = '<p class="loading">Ничего не найдено.</p>'; return; }
+    body.innerHTML = msgs.map(m => {
+      const k = ARCHIVE_KINDS.find(x => x.id === m.kind);
+      return '<article class="update-card">' +
+        '<div class="update-meta"><span class="update-author">' + esc(m.author) + '</span>' +
+        '<span class="update-date">' + esc(m.dateStr) + '</span>' +
+        '<span class="arch-badge">' + k.emoji + ' сезон ' + m.season + '</span></div>' +
+        '<div class="update-content">' + renderMarkdown(m.content) + '</div></article>';
+    }).join('');
+    body.querySelectorAll('.spoiler').forEach(sp => sp.addEventListener('click', () => sp.classList.toggle('revealed')));
+  } catch (e) {
+    console.error('[Global Lens]', e);
+    body.innerHTML = '<p class="loading">' + esc(e.message) + '</p>';
+  }
+}
+
+
 /* ===== ЗАПУСК ===== */
 handleDiscordCallback();
 loadUpdates();
 loadPress();
 animateStats();
+renderArchFolders();
+initArchControls();
+
