@@ -248,9 +248,25 @@
       </section>
 
       <section class="page" id="page-archives">
-        <h1>Архивы <em>сезонов</em></h1>
-        <p class="lead">История всех завершённых сезонов</p>
-        <div class="stub"><svg class="ic"><use href="#i-box"/></svg><h3>Ведутся технические работы</h3><p>Архивы ещё не готовы к показу. Ожидайте скорого открытия.</p></div>
+       <h1>Архивы <em>сезонов</em></h1>
+       <p class="lead">Новости стран, организаций и события прошлых сезонов</p>
+       <div class="arch-controls">
+        <input id="archSearch" class="arch-input" style="min-width:230px" placeholder="Поиск: ник, содержание, дата...">
+        <select id="archSeason" class="arch-select"></select>
+        <select id="archKind" class="arch-select">
+         <option value="all">Все файлы</option>
+         <option value="countries">📺 Новости стран</option>
+         <option value="orgs">👥 Новости организаций</option>
+         <option value="events">🗽 События</option>
+        </select>
+       <div class="order-toggle" data-for="archives" style="margin:0">
+        <button data-order="desc" class="active">↓ Новые сверху</button>
+        <button data-order="asc">↑ Старые сверху</button>
+       </div>
+      </div>
+      <div class="folder-grid" id="archFolders"></div>
+      <div class="updates-stats" id="archStats"></div>
+      <div class="updates-list" id="archBody"><p class="loading">Откройте папку сезона или задайте поиск.</p></div>
       </section>
     </main>
   </div>
