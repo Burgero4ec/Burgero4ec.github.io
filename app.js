@@ -412,7 +412,7 @@ function applyTheme(theme, save = true) {
 document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.themeSet, true)));
 
 /* ===== АРХИВЫ СЕЗОНОВ ===== */
-const ARCHIVE_SEASONS = [19]; // по мере архивации просто добавляйте номера: [20, 19, 18...]
+const ARCHIVE_SEASONS = [22, 21, 20, 19, 2, 1]; // по мере архивации просто добавляйте номера: [20, 19, 18...]
 const ARCHIVE_KINDS = [
   { id: 'countries', emoji: '📺', label: 'Новости стран и автономий' },
   { id: 'orgs',      emoji: '👥', label: 'Новости организаций' },
