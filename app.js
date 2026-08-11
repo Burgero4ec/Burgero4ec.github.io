@@ -12,7 +12,7 @@ console.info('[Global Lens] OAuth2 redirect_uri:', DISCORD_REDIRECT);
 
 /* Права на публикацию постов (Discord ID) */
 const POST_PERMISSIONS = {
-  press:   ['758998250610360341'],   /* yabl1ch — пресса */
+  press:   ['800254982641025056'],   /* yabl1ch — пресса */
   updates: ['484044030640914437']    /* aytaconan2_ — обновления */
 };
 /* Вебхуки каналов (оттуда посты попадут в каналы Discord) */
