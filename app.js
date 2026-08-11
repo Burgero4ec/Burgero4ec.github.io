@@ -6,7 +6,7 @@ const GH_URLS = {
 };
 
 /* Нормализуем redirect_uri: /index.html → /  (добавьте ЭТОТ адрес в Discord Developer Portal → OAuth2 → Redirects) */
-const DISCORD_CLIENT_ID = '1406960264275824670';
+const DISCORD_CLIENT_ID = '1125471835924992150';
 const DISCORD_REDIRECT = location.origin + location.pathname.replace(/index\.html$/, '');
 console.info('[Global Lens] OAuth2 redirect_uri:', DISCORD_REDIRECT);
 
