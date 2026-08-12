@@ -711,3 +711,33 @@ loadPlayers().then(() => { loadSeason(); decorateStaff(); });
 loadUpdates();
 loadPress();
 animateStats();
+
+
+/* ===== ПРОВЕРКА ВЕБХУКА АВАТАРКИ ===== */
+async function testPlayersWebhook() {
+  const status = document.getElementById('webhookTestStatus');
+  const set = t => { if (status) status.textContent = t; };
+  if (!PLAYERS_WEBHOOK) { set('⚠️ Вебхук не настроен: впишите URL в PLAYERS_WEBHOOK в app.js'); return; }
+  const u = window.glUser || { id: '000000000000000000', name: 'Тест сайта Global Lens', avatar: 'https://cdn.discordapp.com/embed/avatars/0.png' };
+  set('Отправка...');
+  try {
+    const r = await fetch(PLAYERS_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        content: 'PLAYER_SYNC::' + JSON.stringify({ id: u.id, name: u.name, avatar: u.avatar }),
+        embeds: [{
+          title: '🔧 Проверка вебхука аватарки',
+          description: '**Ник:** ' + (u.name || '—') + '\n**ID:** `' + u.id + '`\n' +
+            (window.glUser ? 'Реальный профиль вошедшего пользователя.' : 'Тест без входа (дефолтная аватарка).'),
+          color: 0x4ade80,
+          thumbnail: { url: u.avatar }
+        }]
+      })
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    set('✅ Готово! Сообщение ушло в канал — проверьте Discord.');
+  } catch (e) {
+    set('❌ Ошибка: ' + e.message);
+  }
+}
