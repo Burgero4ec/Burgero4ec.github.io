@@ -5,20 +5,26 @@ const GH_URLS = {
   privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
 };
 
-/* Вход через бота (пункт 3.2): бот шлёт одноразовую ссылку в ЛС */
-const AUTH_TOKENS_URL = 'auth_tokens.json';            /* публикует бот: { "sha256(token)": {id,name,avatar} } */
-const BOT_DM_URL = 'https://discord.com/users/1406960264275824670'; /* ЛС бота */
+/* Вход через бота: бот шлёт одноразовую ссылку ?token= в ЛС */
+const AUTH_TOKENS_URL = 'auth_tokens.json';                 /* публикует бот: { "sha256(token)": {id,name,avatar} } */
+const BOT_DM_URL = 'https://discord.com/users/1406960264275824670'; /* ЛС вашего бота */
+
+/* Общая БД игроков (публикует бот): id -> {name, nick, avatar} */
+const PLAYERS_URL = 'players.json';
+/* Вебхук приватного канала, куда сайт «сливает» аватар вошедшего (бот дописывает в players.json) */
+const PLAYERS_WEBHOOK = 'https://discord.com/api/webhooks/1536824065061429388/iKrIR6SiHUD0CiLc9q0feerGRcFb7kXkcHECABF9PnlJNIibA3-dU-0XDEpZOFP4BK0x';
 
 /* Права на публикацию постов (Discord ID) */
 const POST_PERMISSIONS = {
-  press:   ['800254982641025056'],
-  updates: ['484044030640914437']
+  press:   ['800254982641025056'],   /* yabl1ch — пресса */
+  updates: ['484044030640914437']    /* aytaconan2_ — обновления */
 };
 const WEBHOOKS = {
   press:   'https://discord.com/api/webhooks/1536823697111912488/druOS4Rkis2cAUAgGEC9zryRt79sDbYpo34N-Z21r6LExdhDyOcDynajAjiOpz1mMIEO',
   updates: 'https://discord.com/api/webhooks/1536824065061429388/iKrIR6SiHUD0CiLc9q0feerGRcFb7kXkcHECABF9PnlJNIibA3-dU-0XDEpZOFP4BK0x'
 };
 
+/* Известные игроки — для ников/аватарок, видимых всем. Дополняйте из консоли при входе. */
 const KNOWN_PLAYERS = {
   '484044030640914437': { name: 'aytaconan2_' },
   '830428424677490728': { name: 'ponzc' },
@@ -27,6 +33,7 @@ const KNOWN_PLAYERS = {
   '758998250610360341': { name: 'qbitf' },
   '1066701976949239905': { name: 'q.w.e.r.t.x' }
 };
+/* нормализованный ник → Discord ID (для аватарок стафа) */
 const STAFF_DISCORD = {
   'aytaconan2': '484044030640914437',
   'ponzc': '830428424677490728',
@@ -61,11 +68,20 @@ function readLS(key, def) { try { return JSON.parse(localStorage.getItem(key)) |
 function normName(s) { return String(s || '').toLowerCase().replace(/[\s_.\-]/g, ''); }
 function defaultAvatar(id) { try { return 'https://cdn.discordapp.com/embed/avatars/' + (Number(BigInt(id) >> 22n) % 6) + '.png'; } catch (e) { return 'https://cdn.discordapp.com/embed/avatars/0.png'; } }
 function userAvatar(u) { return (u && u.avatar) || defaultAvatar(u.id); }
+
+/* Общая БД игроков */
+let PLAYERS = null;
+async function loadPlayers() {
+  try {
+    const r = await fetch(PLAYERS_URL + '?t=' + Date.now());
+    PLAYERS = r.ok ? trimDeep(await r.json()) : {};
+  } catch (e) { PLAYERS = {}; }
+}
 function playerMeta(id) {
-  const extra = readLS('gl-players', {});
-  const base = KNOWN_PLAYERS[id] || extra[id] || null;
+  const local = readLS('gl-players', {});
+  const base = (PLAYERS && PLAYERS[id]) || local[id] || KNOWN_PLAYERS[id] || null;
   return {
-    name: base && base.name ? base.name : 'Игрок #' + String(id).slice(-4),
+    name: base ? (base.nick || base.name) : 'Игрок #' + String(id).slice(-4),
     avatar: (base && base.avatar) || defaultAvatar(id)
   };
 }
@@ -230,7 +246,7 @@ async function loadFragment(url, id) {
 }
 loadRules('bot', 'rulesBotBody');
 loadRules('privacy', 'rulesPrivacyBody');
-loadFragment('rules_server_content.html', 'rulesServerBody').then(decorateStaff);
+loadFragment('rules_server_content.html', 'rulesServerBody');
 loadFragment('staff_content.html', 'staffBody').then(decorateStaff);
 
 /* ===== СЧЁТЧИКИ ===== */
@@ -355,13 +371,28 @@ async function loadSeason() {
     body.innerHTML = '<p class="loading">' + esc(e.message) + '</p>';
   }
 }
-loadSeason();
 document.addEventListener('click', e => {
   const card = e.target.closest('.c-card.expandable');
   if (card) card.classList.toggle('open');
 });
 
 /* ===== ВХОД ЧЕРЕЗ БОТА (одноразовая ссылка ?token=) ===== */
+async function pushPlayerToDb() {
+  if (!window.glUser || !PLAYERS_WEBHOOK) return false;
+  try {
+    const r = await fetch(PLAYERS_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        content: 'PLAYER_SYNC::' + JSON.stringify({ id: window.glUser.id, name: window.glUser.name, avatar: userAvatar(window.glUser) })
+      })
+    });
+    return r.ok;
+  } catch (e) {
+    console.error('[Global Lens] player sync:', e);
+    return false;
+  }
+}
 async function handleLogin() {
   const params = new URLSearchParams(location.search);
   const token = params.get('token');
@@ -388,12 +419,15 @@ async function handleLogin() {
   if (!window.glUser) {
     try { window.glUser = JSON.parse(localStorage.getItem('gl-user')); } catch (e) { window.glUser = null; }
   }
+  /* сливаем аватар вошедшего в общую базу (один раз за профиль) */
+  if (window.glUser && localStorage.getItem('gl-synced-id') !== window.glUser.id) {
+    pushPlayerToDb().then(ok => { if (ok) localStorage.setItem('gl-synced-id', window.glUser.id); });
+  }
   syncUserUI();
   injectComposers();
   decorateStaff();
   if (document.getElementById('page-cabinet').classList.contains('active')) renderCabinet();
 }
-
 function discordLogout() {
   localStorage.removeItem('gl-user');
   window.glUser = null;
@@ -402,7 +436,6 @@ function discordLogout() {
   injectComposers();
   decorateStaff();
 }
-
 function syncUserUI() {
   const label = document.getElementById('cabinetLabel');
   const note = document.getElementById('donateUserNote');
@@ -410,7 +443,6 @@ function syncUserUI() {
   if (label) label.textContent = name || 'Личный кабинет';
   if (note) note.textContent = name ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.' : 'Войдите через бота, чтобы покупки привязывались к аккаунту.';
 }
-
 async function renderCabinet() {
   const body = document.getElementById('cabinetBody');
   if (!body) return;
@@ -524,12 +556,15 @@ function decorateStaff() {
   const extra = readLS('gl-players', {});
   const extraByNorm = {};
   for (const [id, v] of Object.entries(extra)) extraByNorm[normName(v.name)] = { id: id, avatar: v.avatar };
+  const playersByNorm = {};
+  if (PLAYERS) for (const [id, v] of Object.entries(PLAYERS)) playersByNorm[normName(v.nick || v.name || '')] = { id: id, avatar: v.avatar };
   body.querySelectorAll('.member').forEach(m => {
     const b = m.querySelector('b'); if (!b) return;
     const nn = normName(b.textContent);
     let id = STAFF_DISCORD[nn] || null;
     let av = id ? playerMeta(id).avatar : null;
-    if (!id && extraByNorm[nn]) { id = extraByNorm[nn].id; av = extraByNorm[nn].avatar; }
+    if (!av && playersByNorm[nn]) { id = playersByNorm[nn].id; av = playersByNorm[nn].avatar; }
+    if (!av && extraByNorm[nn]) { id = extraByNorm[nn].id; av = extraByNorm[nn].avatar; }
     const ava = m.querySelector('.m-ava');
     if (av && ava) ava.innerHTML = '<img src="' + av + '" alt="">';
     if (window.glUser && (id === window.glUser.id || nn === normName(window.glUser.name))) {
@@ -672,6 +707,7 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
 
 /* ===== ЗАПУСК ===== */
 handleLogin();
+loadPlayers().then(() => { loadSeason(); decorateStaff(); });
 loadUpdates();
 loadPress();
 animateStats();
