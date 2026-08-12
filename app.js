@@ -5,24 +5,20 @@ const GH_URLS = {
   privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
 };
 
-/* Discord OAuth2 */
-const DISCORD_CLIENT_ID = '1125471835924992150';
-const DISCORD_REDIRECT = location.origin + location.pathname.replace(/index\.html$/, '');
-console.info('[Global Lens] OAuth2 redirect_uri:', DISCORD_REDIRECT);
+/* Вход через бота (пункт 3.2): бот шлёт одноразовую ссылку в ЛС */
+const AUTH_TOKENS_URL = 'auth_tokens.json';            /* публикует бот: { "sha256(token)": {id,name,avatar} } */
+const BOT_DM_URL = 'https://discord.com/users/1406960264275824670'; /* ЛС бота */
 
 /* Права на публикацию постов (Discord ID) */
 const POST_PERMISSIONS = {
-  press:   ['800254982641025056'],   /* yabl1ch — пресса */
-  updates: ['484044030640914437']    /* aytaconan2_ — обновления */
+  press:   ['800254982641025056'],
+  updates: ['484044030640914437']
 };
-/* Вебхуки каналов (оттуда посты попадут в каналы Discord) */
 const WEBHOOKS = {
   press:   'https://discord.com/api/webhooks/1536823697111912488/druOS4Rkis2cAUAgGEC9zryRt79sDbYpo34N-Z21r6LExdhDyOcDynajAjiOpz1mMIEO',
   updates: 'https://discord.com/api/webhooks/1536824065061429388/iKrIR6SiHUD0CiLc9q0feerGRcFb7kXkcHECABF9PnlJNIibA3-dU-0XDEpZOFP4BK0x'
 };
 
-/* Известные игроки — для аватарок и ников, видимых всем.
-   При входе пользователя его пара печатается в консоль — можно копировать сюда. */
 const KNOWN_PLAYERS = {
   '484044030640914437': { name: 'aytaconan2_' },
   '830428424677490728': { name: 'ponzc' },
@@ -31,7 +27,6 @@ const KNOWN_PLAYERS = {
   '758998250610360341': { name: 'qbitf' },
   '1066701976949239905': { name: 'q.w.e.r.t.x' }
 };
-/* нормализованный ник → Discord ID (для персонала) */
 const STAFF_DISCORD = {
   'aytaconan2': '484044030640914437',
   'ponzc': '830428424677490728',
@@ -65,6 +60,7 @@ function fmtNum(n) {
 function readLS(key, def) { try { return JSON.parse(localStorage.getItem(key)) || def; } catch (e) { return def; } }
 function normName(s) { return String(s || '').toLowerCase().replace(/[\s_.\-]/g, ''); }
 function defaultAvatar(id) { try { return 'https://cdn.discordapp.com/embed/avatars/' + (Number(BigInt(id) >> 22n) % 6) + '.png'; } catch (e) { return 'https://cdn.discordapp.com/embed/avatars/0.png'; } }
+function userAvatar(u) { return (u && u.avatar) || defaultAvatar(u.id); }
 function playerMeta(id) {
   const extra = readLS('gl-players', {});
   const base = KNOWN_PLAYERS[id] || extra[id] || null;
@@ -249,7 +245,7 @@ function countUp(el, target) {
 function countUpAll(key, target) { document.querySelectorAll('[data-stat="' + key + '"]').forEach(el => countUp(el, target)); }
 function animateStats() { document.querySelectorAll('#page-home .stat b[data-count]').forEach(el => countUp(el, +el.dataset.count)); }
 
-/* ===== СЕЗОН ИЗ БД (с ремонтом JSON) ===== */
+/* ===== СЕЗОН ИЗ БД ===== */
 function repairJson(text) {
   return text.split('\n').map(line => {
     const m = line.match(/^(\s*)"(.*)":(.*)$/);
@@ -365,73 +361,63 @@ document.addEventListener('click', e => {
   if (card) card.classList.toggle('open');
 });
 
-/* ===== DISCORD OAuth2 + ЛИЧНЫЙ КАБИНЕТ ===== */
-function discordLogin() {
-  const u = new URL('https://discord.com/oauth2/authorize');
-  u.searchParams.set('client_id', DISCORD_CLIENT_ID);
-  u.searchParams.set('response_type', 'token');
-  u.searchParams.set('redirect_uri', DISCORD_REDIRECT);
-  u.searchParams.set('scope', 'identify');
-  location.href = u.toString();
-}
-function discordLogout() {
-  localStorage.removeItem('gl-discord-token');
-  localStorage.removeItem('gl-discord-user');
-  window.glUser = null;
-  syncUserUI();
-  renderCabinet();
-  injectComposers();
-  decorateStaff();
-}
-function discordAvatar(u, size) {
-  if (u.avatar) return 'https://cdn.discordapp.com/avatars/' + u.id + '/' + u.avatar + '.png?size=' + (size || 128);
-  return 'https://cdn.discordapp.com/embed/avatars/' + (Number(BigInt(u.id) >> 22n) % 6) + '.png';
-}
-function syncUserUI() {
-  const label = document.getElementById('cabinetLabel');
-  const note = document.getElementById('donateUserNote');
-  const name = window.glUser ? (window.glUser.global_name || window.glUser.username) : null;
-  if (label) label.textContent = name || 'Личный кабинет';
-  if (note) note.textContent = name ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.' : 'Войдите через Discord, чтобы покупки привязывались к аккаунту.';
-}
-async function handleDiscordCallback() {
-  if (location.hash.includes('access_token=')) {
-    const p = new URLSearchParams(location.hash.slice(1));
-    const token = p.get('access_token');
-    if (token) {
-      localStorage.setItem('gl-discord-token', token);
-      history.replaceState(null, '', location.pathname + location.search);
-    }
-  }
-  const token = localStorage.getItem('gl-discord-token');
+/* ===== ВХОД ЧЕРЕЗ БОТА (одноразовая ссылка ?token=) ===== */
+async function handleLogin() {
+  const params = new URLSearchParams(location.search);
+  const token = params.get('token');
   if (token) {
+    history.replaceState(null, '', location.pathname); /* убираем токен из URL */
     try {
-      const r = await fetch('https://discord.com/api/users/@me', { headers: { Authorization: 'Bearer ' + token } });
-      if (!r.ok) throw 0;
-      window.glUser = await r.json();
-      localStorage.setItem('gl-discord-user', JSON.stringify(window.glUser));
-    } catch (e) { localStorage.removeItem('gl-discord-token'); window.glUser = null; }
-  } else {
-    try { window.glUser = JSON.parse(localStorage.getItem('gl-discord-user')); } catch (e) { window.glUser = null; }
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+      const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+      const used = readLS('gl-used-tokens', []);
+      if (!used.includes(hash)) {
+        const r = await fetch(AUTH_TOKENS_URL + '?t=' + Date.now());
+        if (r.ok) {
+          const entry = (await r.json())[hash];
+          if (entry) {
+            window.glUser = { id: entry.id, name: entry.name, avatar: entry.avatar };
+            localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+            used.push(hash);
+            localStorage.setItem('gl-used-tokens', JSON.stringify(used)); /* токен одноразовый */
+          }
+        }
+      }
+    } catch (e) { console.error('[Global Lens] login:', e); }
   }
-  if (window.glUser) {
-    const extra = readLS('gl-players', {});
-    extra[window.glUser.id] = { name: window.glUser.global_name || window.glUser.username, avatar: discordAvatar(window.glUser) };
-    localStorage.setItem('gl-players', JSON.stringify(extra));
-    console.info('[Global Lens] Для KNOWN_PLAYERS:', window.glUser.id, JSON.stringify({ name: window.glUser.global_name || window.glUser.username, avatar: discordAvatar(window.glUser) }));
+  if (!window.glUser) {
+    try { window.glUser = JSON.parse(localStorage.getItem('gl-user')); } catch (e) { window.glUser = null; }
   }
   syncUserUI();
   injectComposers();
   decorateStaff();
   if (document.getElementById('page-cabinet').classList.contains('active')) renderCabinet();
 }
+
+function discordLogout() {
+  localStorage.removeItem('gl-user');
+  window.glUser = null;
+  syncUserUI();
+  renderCabinet();
+  injectComposers();
+  decorateStaff();
+}
+
+function syncUserUI() {
+  const label = document.getElementById('cabinetLabel');
+  const note = document.getElementById('donateUserNote');
+  const name = window.glUser ? window.glUser.name : null;
+  if (label) label.textContent = name || 'Личный кабинет';
+  if (note) note.textContent = name ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.' : 'Войдите через бота, чтобы покупки привязывались к аккаунту.';
+}
+
 async function renderCabinet() {
   const body = document.getElementById('cabinetBody');
   if (!body) return;
   if (!window.glUser) {
     body.innerHTML = '<div class="card wide login-card"><h3><svg class="ic"><use href="#i-user"/></svg>Вы не вошли</h3>' +
-      '<p>Кабинет показывает данные вашего игрового профиля: страну, ВВП, поддержку, кредиты и инвестиции.</p>' +
-      '<div class="cta-row"><button class="cta fill" onclick="discordLogin()">Войти через Discord</button></div></div>';
+      '<p>Чтобы войти, напишите боту в ЛС команду <b>/login</b> — он пришлёт одноразовую ссылку (действует 10 минут).</p>' +
+      '<div class="cta-row"><a class="cta fill" target="_blank" rel="noopener" href="' + BOT_DM_URL + '">Открыть ЛС бота</a></div></div>';
     return;
   }
   const u = window.glUser;
@@ -443,8 +429,8 @@ async function renderCabinet() {
   const me = season ? season[u.id] : null;
   const flagOf = n => (countries && countries[n]) ? countries[n].flag : '🏳️';
   let html = '<div class="card wide profile-card"><div class="profile-head">' +
-    '<img class="profile-ava" src="' + discordAvatar(u) + '" alt="">' +
-    '<div><div class="profile-name">' + esc(u.global_name || u.username) + '</div>' +
+    '<img class="profile-ava" src="' + userAvatar(u) + '" alt="">' +
+    '<div><div class="profile-name">' + esc(u.name) + '</div>' +
     '<div class="profile-sub">ID: ' + u.id + '</div></div>' +
     '<button class="cta ghost" style="margin-left:auto" onclick="discordLogout()">Выйти</button></div></div>';
   if (!me) {
@@ -498,7 +484,7 @@ async function renderCabinet() {
 }
 document.addEventListener('click', e => { if (e.target.closest('[data-go="cabinet"]')) renderCabinet(); });
 
-/* ===== ПОСТЫ В ПРЕССУ/ОБНОВЛЕНИЯ (через вебхуки Discord) ===== */
+/* ===== ПОСТЫ В ПРЕССУ/ОБНОВЛЕНИЯ ===== */
 function injectComposers() {
   ['press', 'updates'].forEach(type => {
     const host = document.getElementById(type === 'press' ? 'page-press' : 'page-updates');
@@ -522,7 +508,7 @@ function injectComposers() {
         const r = await fetch(WEBHOOKS[type], {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ content: text, username: window.glUser.global_name || window.glUser.username, avatar_url: discordAvatar(window.glUser) })
+          body: JSON.stringify({ content: text, username: window.glUser.name, avatar_url: userAvatar(window.glUser) })
         });
         if (!r.ok) throw 0;
         status.textContent = 'Отправлено в канал Discord!'; ta.value = '';
@@ -531,7 +517,7 @@ function injectComposers() {
   });
 }
 
-/* ===== АВATARКИ И «ЭТО ВЫ» В ПЕРСОНАЛЕ ===== */
+/* ===== АВАТАРКИ И «ЭТО ВЫ» В ПЕРСОНАЛЕ ===== */
 function decorateStaff() {
   const body = document.getElementById('staffBody');
   if (!body) return;
@@ -546,7 +532,7 @@ function decorateStaff() {
     if (!id && extraByNorm[nn]) { id = extraByNorm[nn].id; av = extraByNorm[nn].avatar; }
     const ava = m.querySelector('.m-ava');
     if (av && ava) ava.innerHTML = '<img src="' + av + '" alt="">';
-    if (window.glUser && (id === window.glUser.id || nn === normName(window.glUser.global_name || window.glUser.username))) {
+    if (window.glUser && (id === window.glUser.id || nn === normName(window.glUser.name))) {
       if (!m.querySelector('.you-badge')) {
         const badge = document.createElement('span');
         badge.className = 'you-badge';
@@ -558,7 +544,7 @@ function decorateStaff() {
 }
 
 /* ===== АРХИВЫ СЕЗОНОВ ===== */
-const ARCHIVE_SEASONS = [22, 21, 20, 19, 2, 1]; /* добавляйте номера по мере архивации */
+const ARCHIVE_SEASONS = [22, 21, 20, 19, 2, 1];
 const ARCHIVE_KINDS = [
   { id: 'countries', emoji: '📺', label: 'Новости стран и автономий' },
   { id: 'orgs',      emoji: '👥', label: 'Новости организаций' },
@@ -582,13 +568,7 @@ async function loadArchiveFile(season, kind) {
     if (!content) return null;
     const ts = m.querySelector('.timestamp'), author = m.querySelector('.author');
     const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
-    return {
-      date: parseTs(rawTs), dateStr: rawTs,
-      author: author ? author.textContent.trim() : '—',
-      content: content.innerHTML.trim(),
-      text: (content.textContent || '').trim(),
-      season: season, kind: kind
-    };
+    return { date: parseTs(rawTs), dateStr: rawTs, author: author ? author.textContent.trim() : '—', content: content.innerHTML.trim(), text: (content.textContent || '').trim(), season: season, kind: kind };
   }).filter(x => x && x.text);
   archiveCache[key] = msgs;
   return msgs;
@@ -691,7 +671,7 @@ function applyTheme(theme, save = true) {
 document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.themeSet, true)));
 
 /* ===== ЗАПУСК ===== */
-handleDiscordCallback();
+handleLogin();
 loadUpdates();
 loadPress();
 animateStats();
