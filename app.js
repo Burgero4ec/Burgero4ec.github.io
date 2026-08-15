@@ -4,27 +4,18 @@ const GH_URLS = {
   bot: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/TERMS_OF_SERVICE.md',
   privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
 };
-
-/* Вход через бота: бот шлёт одноразовую ссылку ?token= в ЛС */
-const AUTH_TOKENS_URL = 'auth_tokens.json';                 /* публикует бот: { "sha256(token)": {id,name,avatar} } */
-const BOT_DM_URL = 'https://discord.com/users/1406960264275824670'; /* ЛС вашего бота */
-
-/* Общая БД игроков (публикует бот): id -> {name, nick, avatar} */
-const PLAYERS_URL = 'players.json';
-/* Вебхук приватного канала, куда сайт «сливает» аватар вошедшего (бот дописывает в players.json) */
-const PLAYERS_WEBHOOK = 'https://discord.com/api/webhooks/1536824065061429388/iKrIR6SiHUD0CiLc9q0feerGRcFb7kXkcHECABF9PnlJNIibA3-dU-0XDEpZOFP4BK0x';
-
-/* Права на публикацию постов (Discord ID) */
-const POST_PERMISSIONS = {
-  press:   ['800254982641025056'],   /* yabl1ch — пресса */
-  updates: ['484044030640914437']    /* aytaconan2_ — обновления */
-};
+const MAP_INFO_URL = 'data/map_info.json';      /* игроки: country / autonomy / organization + last_update */
+const COUNTRIES_URL = 'countries2014.json';     /* справочник стран: флаги, континенты */
+const PLAYERS_URL = 'players.json';             /* id -> {name, nick, avatar} (публикует бот) */
+const AUTH_TOKENS_URL = 'data/auth_tokens.json';/* { "sha256(token)": {id,name,avatar} } */
+const BOT_DM_URL = 'https://discord.com/users/1406960264275824670';
+const API_BASE = ''; /* заполните, когда у бота появится HTTPS-API */
+const PLAYERS_WEBHOOK = ''; /* вебхук #avatar-intake (слив аватарок), если оставите */
+const POST_PERMISSIONS = { press: ['800254982641025056'], updates: ['484044030640914437'] };
 const WEBHOOKS = {
-  press:   'https://discord.com/api/webhooks/1536823697111912488/druOS4Rkis2cAUAgGEC9zryRt79sDbYpo34N-Z21r6LExdhDyOcDynajAjiOpz1mMIEO',
+  press: 'https://discord.com/api/webhooks/1536823697111912488/druOS4Rkis2cAUAgGEC9zryRt79sDbYpo34N-Z21r6LExdhDyOcDynajAjiOpz1mMIEO',
   updates: 'https://discord.com/api/webhooks/1536824065061429388/iKrIR6SiHUD0CiLc9q0feerGRcFb7kXkcHECABF9PnlJNIibA3-dU-0XDEpZOFP4BK0x'
 };
-
-/* Известные игроки — для ников/аватарок, видимых всем. Дополняйте из консоли при входе. */
 const KNOWN_PLAYERS = {
   '484044030640914437': { name: 'aytaconan2_' },
   '830428424677490728': { name: 'ponzc' },
@@ -33,7 +24,6 @@ const KNOWN_PLAYERS = {
   '758998250610360341': { name: 'qbitf' },
   '1066701976949239905': { name: 'q.w.e.r.t.x' }
 };
-/* нормализованный ник → Discord ID (для аватарок стафа) */
 const STAFF_DISCORD = {
   'aytaconan2': '484044030640914437',
   'ponzc': '830428424677490728',
@@ -49,6 +39,10 @@ function parseTs(s) {
   const m = (s || '').match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}):(\d{2})/);
   if (!m) return 0;
   return new Date(+m[3], +m[2] - 1, +m[1], +m[4], +m[5]).getTime();
+}
+function fmtDate(s) {
+  const d = new Date(s);
+  return isNaN(d) ? esc(String(s)) : d.toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' });
 }
 function trimDeep(v) {
   if (typeof v === 'string') return v.trim();
@@ -68,22 +62,31 @@ function readLS(key, def) { try { return JSON.parse(localStorage.getItem(key)) |
 function normName(s) { return String(s || '').toLowerCase().replace(/[\s_.\-]/g, ''); }
 function defaultAvatar(id) { try { return 'https://cdn.discordapp.com/embed/avatars/' + (Number(BigInt(id) >> 22n) % 6) + '.png'; } catch (e) { return 'https://cdn.discordapp.com/embed/avatars/0.png'; } }
 function userAvatar(u) { return (u && u.avatar) || defaultAvatar(u.id); }
-
-/* Общая БД игроков */
 let PLAYERS = null;
 async function loadPlayers() {
   try {
-    const r = await fetch(PLAYERS_URL + '?t=' + Date.now());
-    PLAYERS = r.ok ? trimDeep(await r.json()) : {};
-  } catch (e) { PLAYERS = {}; }
+    if (API_BASE) { PLAYERS = trimDeep(await apiGet('/api/players')); return; }
+    throw 0;
+  } catch (e) {
+    try {
+      const r = await fetch(PLAYERS_URL + '?t=' + Date.now());
+      PLAYERS = r.ok ? trimDeep(await r.json()) : {};
+    } catch (e2) { PLAYERS = {}; }
+  }
 }
-function playerMeta(id) {
+/* ник берём из players.json / KNOWN_PLAYERS / поля ника в map_info, иначе «Игрок #NNNN» */
+function playerMeta(id, fallback) {
   const local = readLS('gl-players', {});
   const base = (PLAYERS && PLAYERS[id]) || local[id] || KNOWN_PLAYERS[id] || null;
-  return {
-    name: base ? (base.nick || base.name) : 'Игрок #' + String(id).slice(-4),
-    avatar: (base && base.avatar) || defaultAvatar(id)
-  };
+  const name = (base && (base.nick || base.name)) || fallback || 'Игрок #' + String(id).slice(-4);
+  const avatar = (base && base.avatar) || defaultAvatar(id);
+  return { name, avatar };
+}
+async function apiGet(path) {
+  if (!API_BASE) throw new Error('no api');
+  const r = await fetch(API_BASE + path);
+  if (!r.ok) throw new Error('API HTTP ' + r.status);
+  return r.json();
 }
 
 /* ===== DISCORD-РАЗМЕТКА ===== */
@@ -138,7 +141,6 @@ function renderMarkdown(raw) {
 const cache = { updates: null, press: null };
 const readOrder = { updates: 'desc', press: 'desc', archives: 'desc' };
 const MERGE_GAP_MS = 5 * 60 * 1000;
-
 function parseMessages(doc) {
   return [...doc.querySelectorAll('.message')].map(m => {
     const content = m.querySelector('.content');
@@ -159,8 +161,7 @@ function renderDiscordMessages(items, container, statsContainer, order) {
     if (sameAuthor && closeTime) {
       last.contents.push(item.content);
       if (item.reply && !last.reply) last.reply = item.reply;
-      last.lastDate = item.dateStr;
-      last.lastDateMs = item.date;
+      last.lastDate = item.dateStr; last.lastDateMs = item.date;
     } else {
       groups.push({ author: item.author, contents: [item.content], reply: item.reply, firstDate: item.dateStr, lastDate: item.dateStr, lastDateMs: item.date });
     }
@@ -261,7 +262,7 @@ function countUp(el, target) {
 function countUpAll(key, target) { document.querySelectorAll('[data-stat="' + key + '"]').forEach(el => countUp(el, target)); }
 function animateStats() { document.querySelectorAll('#page-home .stat b[data-count]').forEach(el => countUp(el, +el.dataset.count)); }
 
-/* ===== СЕЗОН ИЗ БД ===== */
+/* ===== СЕЗОН ИЗ data/map_info.json ===== */
 function repairJson(text) {
   return text.split('\n').map(line => {
     const m = line.match(/^(\s*)"(.*)":(.*)$/);
@@ -281,6 +282,7 @@ async function fetchJson(url) {
 }
 const SPEC_NAMES = { industry: 'Промышленность', trade: 'Торговля', tech: 'Технологии', agriculture: 'Сельское хозяйство' };
 function kvRow(k, v) { return v ? '<div class="kv"><span>' + k + '</span><b>' + v + '</b></div>' : ''; }
+/* без инвентаря, реформ и инвестиций — по желанию */
 function renderDetails(o) {
   const d = o.data || {};
   let h = '<div class="d-grid">';
@@ -299,44 +301,45 @@ function renderDetails(o) {
     h += kvRow('Межправ.', esc(d.alliance_type.intergovernmental || '—'));
   }
   if (d.taxes) h += kvRow('Налоги', 'НДС ' + d.taxes.nds + '% · НДФЛ ' + d.taxes.ndfl + '%');
-  if (d.shield) h += kvRow('Щит до', new Date(d.shield).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' }));
+  if (d.shield) h += kvRow('Щит до', fmtDate(d.shield));
   h += '</div>';
   const credits = d.credits ? Object.values(d.credits) : [];
   if (credits.length) h += '<div class="d-block"><b>💳 Кредиты (' + credits.length + ')</b>' + credits.map(c =>
-    '<div class="credit-item"><b>' + esc(c.id || '') + '</b><div class="row"><span>Взято</span><b>' + fmtNum(c.amount_taken) + '</b></div><div class="row"><span>Остаток</span><b>' + fmtNum(c.debt_current) + '</b></div><div class="row"><span>Платёж</span><b>' + fmtNum(c.hourly_payment) + '/ч · ' + c.term_hours_left + ' ч</b></div></div>').join('') + '</div>';
-  const inv = d.investments || [];
-  if (inv.length) h += '<div class="d-block"><b>📈 Инвестиции (' + inv.length + ')</b>' + inv.map(i =>
-    '<div class="credit-item"><b>' + esc(i.investor_country) + '</b><div class="row"><span>Сумма</span><b>' + fmtNum(i.amount) + '</b></div><div class="row"><span>Доля</span><b>' + (i.share_percent || 0).toFixed(2) + '%</b></div></div>').join('') + '</div>';
-  const ref = d.reforms || [];
-  if (ref.length) h += '<div class="d-block"><b>🧾 Реформы</b>' + ref.map(r =>
-    '<div class="credit-item"><b>' + esc(r.sphere) + '</b><div class="row"><span>Сумма</span><b>' + fmtNum(r.amount) + '</b></div></div>').join('') + '</div>';
-  const invt = d.inventory ? Object.assign({}, d.inventory.active, d.inventory.non_active) : {};
-  const keys = Object.keys(invt);
-  if (keys.length) h += '<div class="d-block"><b>🎒 Инвентарь (' + keys.length + ' поз.)</b><div class="d-list">' + keys.map(k => '<span class="d-tag">' + esc(k.trim()) + ' ×' + invt[k] + '</span>').join('') + '</div></div>';
+    '<div class="credit-item"><b>Кредит ' + esc(c.id || '') + '</b>' +
+    '<div class="row"><span>Взято</span><b>' + fmtNum(c.amount_taken) + '</b></div>' +
+    '<div class="row"><span>Остаток</span><b>' + fmtNum(c.debt_current) + '</b></div>' +
+    '<div class="row"><span>Платёж</span><b>' + fmtNum(c.hourly_payment) + '/ч · ' + (c.term_hours_left != null ? c.term_hours_left + ' ч' : '—') + '</b></div></div>').join('') + '</div>';
   return h;
 }
 function seasonCard(o) {
-  const pm = o.playerId ? playerMeta(o.playerId) : null;
+  const pm = o.playerId ? playerMeta(o.playerId, o.pname) : null;
+  const shieldOn = o.data && o.data.shield && new Date(o.data.shield) > new Date();
   const right = pm
     ? '<span class="player-chip"><img src="' + pm.avatar + '" alt="">' + esc(pm.name) + '</span>'
     : '<span class="badge-free">СВОБОДНО</span>';
+  const takenBadge = pm ? '<span class="badge-taken">ЗАНЯТО</span>' : '';
+  const shieldBadge = (pm && shieldOn) ? '<span class="badge-shield">🛡 ЩИТ</span>' : '';
   return '<div class="c-card expandable" data-key="' + esc(o.key) + '">' + o.flagHtml +
     '<div class="c-info"><div class="c-name">' + esc(o.name) + '</div><div class="c-sub">' + esc(o.continent || '') + (o.typeLabel ? ' · ' + o.typeLabel : '') + '</div></div>' +
-    right + '<svg class="chev ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>' +
+    right + takenBadge + shieldBadge +
+    '<svg class="chev ic" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>' +
     '<div class="c-details">' + renderDetails(o) + '</div></div>';
 }
 async function loadSeason() {
   const body = document.getElementById('seasonBody');
   try {
-    const [countriesRaw, seasonRaw] = await Promise.all([fetchJson('countries2014.json'), fetchJson('seasoninfo.json')]);
-    const C = trimDeep(countriesRaw), S = trimDeep(seasonRaw);
+    const [mapRaw, countriesRaw] = await Promise.all([fetchJson(MAP_INFO_URL), fetchJson(COUNTRIES_URL)]);
+    const S = trimDeep(mapRaw), C = trimDeep(countriesRaw);
     for (const [k, v] of Object.entries(C)) if (v && typeof v === 'object') v.name = k;
+    const lastUpdate = S.last_update || null;
     const states = [], orgs = [], autos = [];
     for (const [id, p] of Object.entries(S)) {
+      if (!p || typeof p !== 'object' || !p.type) continue;
+      const pname = p.nick || p.player_name || p.username || p.name || null;
       const cc = C[p.country] || {};
-      if (p.type === 'country') states.push({ key: 'p' + id, name: p.country, flagHtml: '<span class="c-flag">' + (cc.flag || '🏳️') + '</span>', continent: p.continent || cc.continent, typeLabel: 'Государство', data: p, playerId: id });
-      else if (p.type === 'organization') orgs.push({ key: 'p' + id, name: p.country, flagHtml: '<span class="c-flag c-ic"><svg class="ic"><use href="#i-shield"/></svg></span>', continent: (C[p.host_country] || {}).continent || '', typeLabel: 'Организация' + (p.org_type ? ' · ' + p.org_type : ''), data: p, playerId: id });
-      else if (p.type === 'autonomy') autos.push({ key: 'p' + id, name: p.country, flagHtml: '<span class="c-flag">' + ((C[p.host_country] || {}).flag || '🏳️') + '</span>', continent: (C[p.host_country] || {}).continent || '', typeLabel: 'Автономия · ' + p.host_country, data: p, playerId: id });
+      if (p.type === 'country') states.push({ key: 'p' + id, name: p.country, flagHtml: '<span class="c-flag">' + (cc.flag || '🏳️') + '</span>', continent: p.continent || cc.continent, typeLabel: 'Государство', data: p, playerId: id, pname });
+      else if (p.type === 'organization') orgs.push({ key: 'p' + id, name: p.country, flagHtml: '<span class="c-flag c-ic"><svg class="ic"><use href="#i-shield"/></svg></span>', continent: (C[p.host_country] || {}).continent || '', typeLabel: 'Организация' + (p.org_type ? ' · ' + p.org_type : ''), data: p, playerId: id, pname });
+      else if (p.type === 'autonomy') autos.push({ key: 'p' + id, name: p.country, flagHtml: '<span class="c-flag">' + ((C[p.host_country] || {}).flag || '🏳️') + '</span>', continent: (C[p.host_country] || {}).continent || '', typeLabel: 'Автономия · ' + p.host_country, data: p, playerId: id, pname });
     }
     const ru = (a, b) => a.name.localeCompare(b.name, 'ru');
     states.sort(ru); orgs.sort(ru); autos.sort(ru);
@@ -358,6 +361,7 @@ async function loadSeason() {
         : '<p class="loading">Ничего не найдено.</p>';
     }
     body.innerHTML =
+      '<div class="season-note">⏱ Данные обновляются в лучшем случае раз в 3 часа.' + (lastUpdate ? ' Последнее обновление: <b>' + fmtDate(lastUpdate) + '</b>' : '') + '</div>' +
       '<div class="sec-title"><svg class="ic"><use href="#i-globe"/></svg>ГОСУДАРСТВА</div><div class="grid-3">' + (states.map(seasonCard).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
       '<div class="sec-title"><svg class="ic"><use href="#i-shield"/></svg>ОРГАНИЗАЦИИ</div><div class="grid-3">' + (orgs.map(seasonCard).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
       '<div class="sec-title"><svg class="ic"><use href="#i-map"/></svg>АВТОНОМИИ</div><div class="grid-3">' + (autos.map(seasonCard).join('') || '<p class="loading">Нет данных.</p>') + '</div>' +
@@ -376,50 +380,65 @@ document.addEventListener('click', e => {
   if (card) card.classList.toggle('open');
 });
 
-/* ===== ВХОД ЧЕРЕЗ БОТА (одноразовая ссылка ?token=) ===== */
+/* ===== ВХОД ЧЕРЕЗ БОТА ===== */
 async function pushPlayerToDb() {
   if (!window.glUser || !PLAYERS_WEBHOOK) return false;
   try {
     const r = await fetch(PLAYERS_WEBHOOK, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        content: 'PLAYER_SYNC::' + JSON.stringify({ id: window.glUser.id, name: window.glUser.name, avatar: userAvatar(window.glUser) })
-      })
+      body: JSON.stringify({ content: 'PLAYER_SYNC::' + JSON.stringify({ id: window.glUser.id, name: window.glUser.name, avatar: userAvatar(window.glUser) }) })
     });
     return r.ok;
-  } catch (e) {
-    console.error('[Global Lens] player sync:', e);
-    return false;
-  }
+  } catch (e) { console.error('[Global Lens] player sync:', e); return false; }
+}
+async function testPlayersWebhook() {
+  const status = document.getElementById('webhookTestStatus');
+  const set = t => { if (status) status.textContent = t; };
+  if (!PLAYERS_WEBHOOK) { set('⚠️ Вебхук не настроен: впишите URL в PLAYERS_WEBHOOK в app.js'); return; }
+  const u = window.glUser || { id: '000000000000000000', name: 'Тест сайта Global Lens', avatar: 'https://cdn.discordapp.com/embed/avatars/0.png' };
+  set('Отправка...');
+  try {
+    const r = await fetch(PLAYERS_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        content: 'PLAYER_SYNC::' + JSON.stringify({ id: u.id, name: u.name, avatar: u.avatar }),
+        embeds: [{ title: '🔧 Проверка вебхука аватарки', description: '**Ник:** ' + (u.name || '—') + '\n**ID:** `' + u.id + '`', color: 0x4ade80, thumbnail: { url: u.avatar } }]
+      })
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    set('✅ Готово! Сообщение ушло в канал — проверьте Discord.');
+  } catch (e) { set('❌ Ошибка: ' + e.message); }
 }
 async function handleLogin() {
   const params = new URLSearchParams(location.search);
   const token = params.get('token');
   if (token) {
-    history.replaceState(null, '', location.pathname); /* убираем токен из URL */
-    try {
-      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
-      const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-      const used = readLS('gl-used-tokens', []);
-      if (!used.includes(hash)) {
-        const r = await fetch(AUTH_TOKENS_URL + '?t=' + Date.now());
-        if (r.ok) {
-          const entry = (await r.json())[hash];
-          if (entry) {
-            window.glUser = { id: entry.id, name: entry.name, avatar: entry.avatar };
-            localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-            used.push(hash);
-            localStorage.setItem('gl-used-tokens', JSON.stringify(used)); /* токен одноразовый */
+    history.replaceState(null, '', location.pathname);
+    let user = null;
+    if (API_BASE) {
+      try { const d = await apiGet('/api/auth?token=' + encodeURIComponent(token)); if (d && d.status === 'ok') user = d.user; } catch (e) {}
+    }
+    if (!user) {
+      try {
+        const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+        const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        const used = readLS('gl-used-tokens', []);
+        if (!used.includes(hash)) {
+          const r = await fetch(AUTH_TOKENS_URL + '?t=' + Date.now());
+          if (r.ok) {
+            const entry = (await r.json())[hash];
+            if (entry) { user = entry; used.push(hash); localStorage.setItem('gl-used-tokens', JSON.stringify(used)); }
           }
         }
-      }
-    } catch (e) { console.error('[Global Lens] login:', e); }
+      } catch (e) { console.error('[Global Lens] login:', e); }
+    }
+    if (user) { window.glUser = user; localStorage.setItem('gl-user', JSON.stringify(user)); }
   }
   if (!window.glUser) {
     try { window.glUser = JSON.parse(localStorage.getItem('gl-user')); } catch (e) { window.glUser = null; }
   }
-  /* сливаем аватар вошедшего в общую базу (один раз за профиль) */
   if (window.glUser && localStorage.getItem('gl-synced-id') !== window.glUser.id) {
     pushPlayerToDb().then(ok => { if (ok) localStorage.setItem('gl-synced-id', window.glUser.id); });
   }
@@ -455,7 +474,7 @@ async function renderCabinet() {
   const u = window.glUser;
   let season = null, countries = null;
   try {
-    const [sr, cr] = await Promise.all([fetchJson('seasoninfo.json'), fetchJson('countries2014.json')]);
+    const [sr, cr] = await Promise.all([fetchJson(MAP_INFO_URL), fetchJson(COUNTRIES_URL)]);
     season = trimDeep(sr); countries = trimDeep(cr);
   } catch (e) {}
   const me = season ? season[u.id] : null;
@@ -486,30 +505,19 @@ async function renderCabinet() {
       (me.taxes ? '<div class="kv"><span>Налоги</span><b>НДС ' + me.taxes.nds + '% · НДФЛ ' + me.taxes.ndfl + '%</b></div>' : '') +
       (me.alliance_type && me.alliance_type.military ? '<div class="kv"><span>Военный блок</span><b>' + esc(me.alliance_type.military) + '</b></div>' : '') +
       (me.alliance_type && me.alliance_type.economic ? '<div class="kv"><span>Экон. блок</span><b>' + esc(me.alliance_type.economic) + '</b></div>' : '') +
-      (me.shield ? '<div class="kv"><span>Щит до</span><b>' + new Date(me.shield).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) + '</b></div>' : '') +
+      (me.shield ? '<div class="kv"><span>Щит до</span><b>' + fmtDate(me.shield) + '</b></div>' : '') +
       '</div>';
     const credits = me.credits ? Object.values(me.credits) : [];
     html += '<div class="card"><h3>💳 Кредиты' + (credits.length ? ' (' + credits.length + ')' : '') + '</h3>';
     html += credits.length
       ? credits.map(c =>
-          '<div class="credit-item"><b>Кредит ' + esc(c.id) + '</b>' +
+          '<div class="credit-item"><b>Кредит ' + esc(c.id || '') + '</b>' +
           '<div class="row"><span>Взято</span><b>' + fmtNum(c.amount_taken) + '</b></div>' +
           '<div class="row"><span>Остаток долга</span><b>' + fmtNum(c.debt_current) + '</b></div>' +
-          '<div class="row"><span>Платёж</span><b>' + fmtNum(c.hourly_payment) + '/ч · осталось ' + c.term_hours_left + ' ч</b></div>' +
+          '<div class="row"><span>Платёж</span><b>' + fmtNum(c.hourly_payment) + '/ч · осталось ' + (c.term_hours_left != null ? c.term_hours_left + ' ч' : '—') + '</b></div>' +
           (c.reason ? '<div class="row"><span>Причина</span><b>' + esc(c.reason) + '</b></div>' : '') + '</div>').join('')
       : '<p>Активных кредитов нет.</p>';
     html += '</div></div>';
-    const inv = me.investments || [];
-    const totalInv = inv.reduce((s, i) => s + (i.amount || 0), 0);
-    html += '<div class="card wide"><h3>📈 Инвестиции в вас</h3>';
-    html += inv.length
-      ? '<p>Инвесторов: ' + inv.length + ' · общая сумма ' + fmtNum(totalInv) + '.</p>' +
-        inv.map(i =>
-          '<div class="credit-item"><b>' + flagOf(i.investor_country) + ' ' + esc(i.investor_country) + '</b>' +
-          '<div class="row"><span>Сумма</span><b>' + fmtNum(i.amount) + '</b></div>' +
-          '<div class="row"><span>Доля</span><b>' + (i.share_percent || 0).toFixed(2) + '%</b></div></div>').join('')
-      : '<p>Входящих инвестиций нет.</p>';
-    html += '</div>';
   }
   body.innerHTML = html;
   body.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
@@ -578,19 +586,18 @@ function decorateStaff() {
   });
 }
 
-/* ===== АРХИВЫ СЕЗОНОВ ===== */
+/* ===== АРХИВЫ (папка «архивы/») ===== */
 const ARCHIVE_SEASONS = [22, 21, 20, 19, 2, 1];
 const ARCHIVE_KINDS = [
   { id: 'countries', emoji: '📺', label: 'Новости стран и автономий' },
-  { id: 'orgs',      emoji: '👥', label: 'Новости организаций' },
-  { id: 'events',    emoji: '🗽', label: 'События' }
+  { id: 'orgs', emoji: '👥', label: 'Новости организаций' },
+  { id: 'events', emoji: '🗽', label: 'События' }
 ];
 const archiveCache = {};
 const archState = { season: 'all', kind: 'all', q: '' };
-
 function archiveUrl(season, kind) {
   const emoji = { countries: '📺', orgs: '👥', events: '🗽' }[kind];
-  return 'Archive_' + encodeURIComponent(emoji + '・' + season + '-сезон') + '.html';
+  return 'архивы/Archive_' + encodeURIComponent(emoji + '・' + season + '-сезон') + '.html';
 }
 async function loadArchiveFile(season, kind) {
   const key = season + ':' + kind;
@@ -711,33 +718,3 @@ loadPlayers().then(() => { loadSeason(); decorateStaff(); });
 loadUpdates();
 loadPress();
 animateStats();
-
-
-/* ===== ПРОВЕРКА ВЕБХУКА АВАТАРКИ ===== */
-async function testPlayersWebhook() {
-  const status = document.getElementById('webhookTestStatus');
-  const set = t => { if (status) status.textContent = t; };
-  if (!PLAYERS_WEBHOOK) { set('⚠️ Вебхук не настроен: впишите URL в PLAYERS_WEBHOOK в app.js'); return; }
-  const u = window.glUser || { id: '000000000000000000', name: 'Тест сайта Global Lens', avatar: 'https://cdn.discordapp.com/embed/avatars/0.png' };
-  set('Отправка...');
-  try {
-    const r = await fetch(PLAYERS_WEBHOOK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        content: 'PLAYER_SYNC::' + JSON.stringify({ id: u.id, name: u.name, avatar: u.avatar }),
-        embeds: [{
-          title: '🔧 Проверка вебхука аватарки',
-          description: '**Ник:** ' + (u.name || '—') + '\n**ID:** `' + u.id + '`\n' +
-            (window.glUser ? 'Реальный профиль вошедшего пользователя.' : 'Тест без входа (дефолтная аватарка).'),
-          color: 0x4ade80,
-          thumbnail: { url: u.avatar }
-        }]
-      })
-    });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    set('✅ Готово! Сообщение ушло в канал — проверьте Discord.');
-  } catch (e) {
-    set('❌ Ошибка: ' + e.message);
-  }
-}
