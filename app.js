@@ -194,11 +194,11 @@ function rerender(type) {
 async function loadUpdates() {
   const el = document.getElementById('updatesBody');
   try {
-    const r = await fetch(GH_URLS.updates);
+    const r = await fetch('Archive_📔・обновления.html');
     if (!r.ok) throw 0;
     cache.updates = parseMessages(new DOMParser().parseFromString(await r.text(), 'text/html'));
     rerender('updates');
-  } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить обновления. Проверьте URL в GH_URLS.updates.</p>'; }
+  } catch (e) { el.innerHTML = '<p class="loading">Не удалось загрузить обновления.Файл Archive_📔・обновления.html должен лежать рядом с index.html.</p>'; }
 }
 async function loadPress() {
   const el = document.getElementById('pressBody');
