@@ -263,12 +263,32 @@ function countUpAll(key, target) { document.querySelectorAll('[data-stat="' + ke
 function animateStats() { document.querySelectorAll('#page-home .stat b[data-count]').forEach(el => countUp(el, +el.dataset.count)); }
 
 /* ===== СЕЗОН ИЗ data/map_info.json ===== */
+/* Умный ремонт JSON: экранирует неэкранированные кавычки ВНУТРИ строк.
+   Кавышка считается закрывающей, только если после неё идёт : , } ] или перевод строки. */
 function repairJson(text) {
-  return text.split('\n').map(line => {
-    const m = line.match(/^(\s*)"(.*)":(.*)$/);
-    if (!m) return line;
-    return m[1] + '"' + m[2].replace(/"/g, '\\"') + '":' + m[3];
-  }).join('\n');
+  let out = '', inStr = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (!inStr) {
+      out += ch;
+      if (ch === '"') inStr = true;
+      continue;
+    }
+    if (ch === '\\') { out += ch + (text[i + 1] || ''); i++; continue; }
+    if (ch === '"') {
+      let j = i + 1;
+      while (j < text.length && (text[j] === ' ' || text[j] === '\t')) j++;
+      const nx = text[j];
+      if (nx === ':' || nx === ',' || nx === '}' || nx === ']' || nx === '\n' || nx === '\r') {
+        out += ch; inStr = false;   /* настоящая закрывающая кавычка */
+      } else {
+        out += '\\"';               /* лишняя кавычка внутри строки — экранируем */
+      }
+      continue;
+    }
+    out += ch;
+  }
+  return out;
 }
 async function fetchJson(url) {
   const r = await fetch(url);
