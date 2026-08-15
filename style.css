@@ -26,8 +26,8 @@ body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, 
 [data-theme="green"] .logo-green { display: block; }
 [data-theme="blue"] .logo-blue { display: block; }
 [data-theme="orange"] .logo-orange { display: block; }
-.logo-green { transform: scale(1.6); }
-.logo-blue, .logo-orange { transform: scale(1.3); }
+.logo-green { transform: scale(1); }
+.logo-blue, .logo-orange { transform: scale(0.8); }
 .logo-title { font-family: 'JetBrains Mono'; font-weight: 700; letter-spacing: .14em; font-size: 15px; }
 .logo-title span { color: var(--acc); }
 .logo-sub { font-family: 'JetBrains Mono'; font-size: 9.5px; color: var(--dim); letter-spacing: .2em; display: flex; align-items: center; gap: 6px; margin-top: 5px; }
