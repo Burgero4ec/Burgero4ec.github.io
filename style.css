@@ -143,7 +143,7 @@ blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); pa
 .stub h3 { font-family: Nunito; font-size: 22px; margin-bottom: 12px; color: var(--text); font-weight: 800; }
 .stub p { color: var(--muted); font-size: 15px; }
 /* ===== СЕЗОН ===== */
-.season-note { text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; color: var(--dim); margin: -30px 0 30px; }
+.season-note { text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; color: var(--dim); margin: -18px 0 6px; }
 .season-note b { color: var(--muted); }
 .c-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; min-width: 0; }
 .c-card.expandable { cursor: pointer; flex-wrap: wrap; }
