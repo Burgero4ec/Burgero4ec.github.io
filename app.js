@@ -23,7 +23,7 @@ const KNOWN_PLAYERS = {
 const STAFF_DISCORD = {
   'aytaconan2': '484044030640914437',
   'ponzc': '830428424677490728',
-  '𝖕𝖔𝖓𝖟𝖈': '830428424677490728',
+  '𝖕𝖔𝖓𝖈': '830428424677490728',
   'yabl1ch': '800254982641025056',
   'ilovevodka': '848822433398259723',
   'qbitf': '758998250610360341',
@@ -245,7 +245,18 @@ async function loadFragment(url, id) {
 loadRules('bot', 'rulesBotBody');
 loadRules('privacy', 'rulesPrivacyBody');
 loadFragment('rules_server_content.html', 'rulesServerBody');
-loadFragment('staff_content.html', 'staffBody').then(decorateStaff);
+/* стафф + автоматический подсчёт персонала для главной */
+loadFragment('staff_content.html', 'staffBody').then(() => {
+  decorateStaff();
+  const body = document.getElementById('staffBody');
+  if (!body) return;
+  const names = new Set();
+  body.querySelectorAll('.member b').forEach(b => {
+    const n = normName(b.textContent);
+    if (n && n !== 'вакансия') names.add(n);
+  });
+  countUpAll('staff', names.size);
+});
 
 /* ===== СЧЁТЧИКИ ===== */
 function countUp(el, target) {
@@ -271,7 +282,9 @@ async function loadMapInfo() {
     countUpAll('countries', m.country);
     countUpAll('orgs', m.organization);
     countUpAll('autos', m.autonomy);
-    countUpAll('discord_members', m.players);
+    countUpAll('players', m.players);                                   /* зареганные в сезоне */
+    if (m.discord_members != null) countUpAll('discord_members', m.discord_members); /* весь сервер */
+    else document.querySelectorAll('[data-stat="discord_members"]').forEach(el => el.textContent = '—');
     const ws = document.getElementById('worldStats');
     if (ws) ws.innerHTML =
       '<div class="us-item"><b>' + fmtNum(m.total_gdp) + '</b>суммарный ВВП</div>' +
@@ -313,7 +326,7 @@ async function fetchSeasonData() {
 const SPEC_NAMES = { industry: 'Промышленность', trade: 'Торговля', tech: 'Технологии', agriculture: 'Сельское хозяйство' };
 function kvRow(k, v) { return v ? '<div class="kv"><span>' + k + '</span><b>' + v + '</b></div>' : ''; }
 
-/* Карточка игрока: только характеристики (без кредитов/инвестиций/реформ/инвентаря) */
+/* Карточка игрока: только характеристики */
 function renderDetails(o) {
   const d = o.data || {};
   let h = '<div class="d-grid">';
