@@ -272,14 +272,19 @@ loadFragment('staff_content.html', 'staffBody').then(() => {
   decorateStaff();
   const body = document.getElementById('staffBody');
   if (!body) return;
-  const names = new Set();
+  const ALIASES = { 'pponzc': 'ponzc', '𝖕𝖓𝖟𝖈': 'ponzc' }; /* один человек в разных написаниях */
+  const people = new Set();
+  let roles = 0;
   body.querySelectorAll('.member').forEach(m => {
-    const b = m.querySelector('b');          /* только первое <b> из карточки */
+    const b = m.querySelector('b');
     if (!b) return;
     const n = normName(b.textContent);
-    if (n && n !== 'вакансия') names.add(n); /* уникальные люди, без вакансий */
+    if (!n || n === 'вакансия') return;
+    people.add(ALIASES[n] || n);  /* люди: повторы схлопываются */
+    roles++;                       /* должности: каждая карточка = 1 */
   });
-  countUpAll('staff', names.size);
+  countUpAll('staff', people.size);      /* уникальные люди */
+  countUpAll('staff_roles', roles);      /* всего должностей (если выведешь счётчик) */
 });
 
 /* ===== СЧЁТЧИКИ ===== */
