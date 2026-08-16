@@ -8,9 +8,9 @@ const GH_URLS = {
 /* API бота-моста. Пока пусто — сайт работает на файлах (фолбэк). */
 const API_BASE = ''; // например: 'https://api.global-lens.example'
 
-const AUTH_TOKENS_URL = 'auth_tokens.json';   /* фолбэк-вход, пока нет API */
+const AUTH_TOKENS_URL = 'auth_tokens.json';
 const BOT_DM_URL = 'https://discord.com/users/1406960264275824670';
-const PLAYERS_URL = 'players.json';           /* фолбэк аватарок, пока нет API */
+const PLAYERS_URL = 'players.json';
 
 const KNOWN_PLAYERS = {
   '484044030640914437': { name: 'aytaconan2_' },
@@ -56,7 +56,6 @@ function normName(s) { return String(s || '').toLowerCase().replace(/[\s_.\-]/g,
 function defaultAvatar(id) { try { return 'https://cdn.discordapp.com/embed/avatars/' + (Number(BigInt(id) >> 22n) % 6) + '.png'; } catch (e) { return 'https://cdn.discordapp.com/embed/avatars/0.png'; } }
 function userAvatar(u) { return (u && u.avatar) || defaultAvatar(u.id); }
 
-/* Проверка безопасности URL: запрещаем javascript: и data: протоколы */
 function safeUrl(url) {
   const trimmed = String(url || '').trim().toLowerCase();
   if (trimmed.startsWith('javascript:') || trimmed.startsWith('data:')) return '#';
@@ -84,7 +83,6 @@ async function loadPlayers() {
   }
 }
 function playerMeta(id) {
-  // Проверка: id должен быть строкой из цифр
   if (typeof id !== 'string' || !/^\d+$/.test(id)) {
     return { name: 'Неизвестный', avatar: defaultAvatar('0') };
   }
@@ -107,7 +105,6 @@ function inline(s) {
   s = s.replace(/__([^_]+)__/g, '<u>$1</u>');
   s = s.replace(/~~([^~]+)~~/g, '<s>$1</s>');
   s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
-  // Безопасная обработка ссылок: проверяем протокол перед вставкой в href
   s = s.replace(/(https?:\/\/[^\s<]+)/g, (match, url) => {
     const safe = safeUrl(url);
     return '<a href="' + safe + '" target="_blank" rel="noopener">' + esc(url) + '</a>';
@@ -267,23 +264,20 @@ async function loadFragment(url, id) {
 loadRules('bot', 'rulesBotBody');
 loadRules('privacy', 'rulesPrivacyBody');
 loadFragment('rules_server_content.html', 'rulesServerBody');
-/* стафф + автоматический подсчёт персонала для главной */
+/* стафф + автоматический подсчёт уникального персонала для главной */
 loadFragment('staff_content.html', 'staffBody').then(() => {
   decorateStaff();
   const body = document.getElementById('staffBody');
   if (!body) return;
-  const ALIASES = { 'pponzc': 'ponzc', '𝖕𝖓𝖟𝖈': 'ponzc' }; /* один человек в разных написаниях */
+  const ALIASES = { 'pponzc': 'ponzc', '𝖕𝖓𝖟𝖈': 'ponzc' };
   const people = new Set();
-  let roles = 0;
   body.querySelectorAll('.member').forEach(m => {
     const b = m.querySelector('b');
     if (!b) return;
     const n = normName(b.textContent);
-    if (!n || n === 'вакансия') return;
-    people.add(ALIASES[n] || n);  /* люди: повторы схлопываются */
-    roles++;                       /* должности: каждая карточка = 1 */
+    if (n && n !== 'вакансия') people.add(ALIASES[n] || n);
   });
-  countUpAll('staff', people.size);      /* уникальные люди */
+  countUpAll('staff', people.size);
 });
 
 /* ===== СЧЁТЧИКИ ===== */
@@ -311,8 +305,8 @@ async function loadMapInfo() {
     countUpAll('countries', m.country);
     countUpAll('orgs', m.organization);
     countUpAll('autos', m.autonomy);
-    countUpAll('players', m.players);                                   /* зареганные в сезоне */
-    if (m.discord_members != null) countUpAll('discord_members', m.discord_members); /* весь сервер */
+    countUpAll('players', m.players);
+    if (m.discord_members != null) countUpAll('discord_members', m.discord_members);
     else document.querySelectorAll('[data-stat="discord_members"]').forEach(el => el.textContent = '—');
     const ws = document.getElementById('worldStats');
     if (ws) ws.innerHTML =
@@ -327,7 +321,7 @@ async function loadMapInfo() {
   }
 }
 
-/* ===== СЕЗОН: сначала бот, иначе файлы ===== */
+/* ===== СЕЗОН ===== */
 function repairJson(text) {
   return text.split('\n').map(line => {
     const m = line.match(/^(\s*)"(.*)":(.*)$/);
@@ -347,7 +341,7 @@ async function fetchJson(url) {
 }
 async function fetchSeasonData() {
   try {
-    return await Promise.all([apiGet('/api/season'), apiGet('/api/countries')]); /* [season, countries] */
+    return await Promise.all([apiGet('/api/season'), apiGet('/api/countries')]);
   } catch (e) {
     return await Promise.all([fetchJson('seasoninfo.json'), fetchJson('countries2014.json')]);
   }
@@ -355,7 +349,6 @@ async function fetchSeasonData() {
 const SPEC_NAMES = { industry: 'Промышленность', trade: 'Торговля', tech: 'Технологии', agriculture: 'Сельское хозяйство' };
 function kvRow(k, v) { return v ? '<div class="kv"><span>' + k + '</span><b>' + v + '</b></div>' : ''; }
 
-/* Карточка игрока: только характеристики */
 function renderDetails(o) {
   const d = o.data || {};
   let h = '<div class="d-grid">';
@@ -445,7 +438,7 @@ document.addEventListener('click', e => {
   if (card) card.classList.toggle('open');
 });
 
-/* ===== ВХОД: сначала бот, иначе файл-фолбэк ===== */
+/* ===== ВХОД ===== */
 async function handleLogin() {
   const params = new URLSearchParams(location.search);
   const token = params.get('token');
@@ -502,7 +495,6 @@ function syncUserUI() {
   if (note) note.textContent = name ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.' : 'Войдите через бота, чтобы покупки привязывались к аккаунту.';
 }
 
-/* Личный кабинет: полный профиль — со всеми кредитами и инвестициями */
 async function renderCabinet() {
   const body = document.getElementById('cabinetBody');
   if (!body) return;
@@ -576,7 +568,7 @@ async function renderCabinet() {
 }
 document.addEventListener('click', e => { if (e.target.closest('[data-go="cabinet"]')) renderCabinet(); });
 
-/* ===== КНОПКА ПРОВЕРКИ СВЯЗИ С БОТОМ ===== */
+/* ===== ПРОВЕРКА СВЯЗИ ===== */
 async function testPlayersWebhook() {
   const status = document.getElementById('webhookTestStatus');
   const set = t => { if (status) status.textContent = t; };
@@ -588,7 +580,7 @@ async function testPlayersWebhook() {
   } catch (e) { set('❌ API недоступно: ' + e.message); }
 }
 
-/* ===== АВАТАРКИ И «ЭТО ВЫ» В ПЕРСОНАЛЕ ===== */
+/* ===== АВАТАРКИ И «ЭТО ВЫ» ===== */
 function decorateStaff() {
   const body = document.getElementById('staffBody');
   if (!body) return;
@@ -617,7 +609,7 @@ function decorateStaff() {
   });
 }
 
-/* ===== АРХИВЫ СЕЗОНОВ ===== */
+/* ===== АРХИВЫ ===== */
 const ARCHIVE_SEASONS = [25, 24, 23, 22, 21, 20, 19, 2, 1];
 const ARCHIVE_KINDS = [
   { id: 'countries', emoji: '📺', label: 'Новости стран и автономий' },
@@ -752,6 +744,24 @@ function applyTheme(theme, save = true) {
   applyTheme(s || 'green', false);
 })();
 document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.themeSet, true)));
+
+/* ===== МОБИЛЬНОЕ DRAWER-МЕНЮ ===== */
+(function () {
+  const toggle = document.getElementById('menuToggle');
+  const overlay = document.getElementById('drawerOverlay');
+  const close = () => document.body.classList.remove('menu-open');
+  if (toggle) toggle.addEventListener('click', () => document.body.classList.toggle('menu-open'));
+  if (overlay) overlay.addEventListener('click', close);
+  document.addEventListener('click', e => {
+    if (e.target.closest('.nav-item, .sub-item')) close();
+  });
+  let sx = 0;
+  document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (dx < -60 && document.body.classList.contains('menu-open')) close();
+  });
+})();
 
 /* ===== ЗАПУСК ===== */
 handleLogin();
