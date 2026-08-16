@@ -284,7 +284,6 @@ loadFragment('staff_content.html', 'staffBody').then(() => {
     roles++;                       /* должности: каждая карточка = 1 */
   });
   countUpAll('staff', people.size);      /* уникальные люди */
-  countUpAll('staff_roles', roles);      /* всего должностей (если выведешь счётчик) */
 });
 
 /* ===== СЧЁТЧИКИ ===== */
