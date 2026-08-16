@@ -244,3 +244,11 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
   .grid-2, .grid-3, .stats, .stats.three, #page-features .grid-3 { grid-template-columns: 1fr; }
   .d-grid { grid-template-columns: 1fr; }
 }
+/* ===== РАЗДЕЛЁННАЯ СТАТИСТИКА ГЛАВНОЙ ===== */
+.stats-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; }
+.stats-col { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--acc2); border-radius: 12px; padding: 20px; }
+.stats-col-title { font-family: 'JetBrains Mono'; font-size: 11px; letter-spacing: .24em; color: var(--dim); margin-bottom: 14px; display: flex; gap: 8px; align-items: center; }
+.stats-col-title .ic { width: 14px; height: 14px; color: var(--acc); }
+.stats-col .stats { margin-top: 0; }
+.stats.two { grid-template-columns: 1fr 1fr; }
+@media (max-width: 960px) { .stats-split { grid-template-columns: 1fr; } }
