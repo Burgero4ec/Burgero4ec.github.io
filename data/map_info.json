@@ -1,9 +1,9 @@
 {
-  "players": 31,
-  "country": 29,
+  "players": 35,
+  "country": 32,
   "autonomy": 0,
-  "organization": 2,
-  "total_gdp": 60152128807265,
-  "total_population": 3090715238,
-  "last_update": "2026-08-16T17:10:41.457485+00:00"
+  "organization": 3,
+  "total_gdp": 63309235473012,
+  "total_population": 4476137826,
+  "last_update": "2026-08-16T19:37:22.433651+00:00"
 }
