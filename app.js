@@ -273,9 +273,11 @@ loadFragment('staff_content.html', 'staffBody').then(() => {
   const body = document.getElementById('staffBody');
   if (!body) return;
   const names = new Set();
-  body.querySelectorAll('.member b').forEach(b => {
+  body.querySelectorAll('.member').forEach(m => {
+    const b = m.querySelector('b');          /* только первое <b> из карточки */
+    if (!b) return;
     const n = normName(b.textContent);
-    if (n && n !== 'вакансия') names.add(n);
+    if (n && n !== 'вакансия') names.add(n); /* уникальные люди, без вакансий */
   });
   countUpAll('staff', names.size);
 });
