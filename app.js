@@ -5,15 +5,13 @@ const GH_URLS = {
   privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
 };
 
-/* API бота-моста. Пока пусто — сайт работает на файлах (фолбэк).
-   Когда кодер поднимет HTTPS-API — впиши адрес, и всё переключится само. */
+/* API бота-моста. Пока пусто — сайт работает на файлах (фолбэк). */
 const API_BASE = ''; // например: 'https://api.global-lens.example'
 
 const AUTH_TOKENS_URL = 'auth_tokens.json';   /* фолбэк-вход, пока нет API */
 const BOT_DM_URL = 'https://discord.com/users/1406960264275824670';
 const PLAYERS_URL = 'players.json';           /* фолбэк аватарок, пока нет API */
 
-/* Известные игроки — ники/аватарки, видимые всем. Дополняй из консоли при входе. */
 const KNOWN_PLAYERS = {
   '484044030640914437': { name: 'aytaconan2_' },
   '830428424677490728': { name: 'ponzc' },
@@ -22,7 +20,6 @@ const KNOWN_PLAYERS = {
   '758998250610360341': { name: 'qbitf' },
   '1066701976949239905': { name: 'q.w.e.r.t.x' }
 };
-/* нормализованный ник → Discord ID (аватарки стафа; фрактура для 𝕻𝖓𝖟𝖈 тоже) */
 const STAFF_DISCORD = {
   'aytaconan2': '484044030640914437',
   'ponzc': '830428424677490728',
@@ -67,7 +64,6 @@ async function apiGet(path) {
   return r.json();
 }
 
-/* Общая БД игроков: сначала бот, иначе файл */
 let PLAYERS = null;
 async function loadPlayers() {
   try {
@@ -266,6 +262,7 @@ function animateStats() { document.querySelectorAll('#page-home .stat b[data-cou
 /* ===== ЖИВЫЕ ДАННЫЕ ОТ БОТА (data/map_info.json) ===== */
 let MAP_INFO = null;
 async function loadMapInfo() {
+  const si = document.getElementById('seasonUpdateInfo');
   try {
     const r = await fetch('data/map_info.json?t=' + Date.now());
     if (!r.ok) throw 0;
@@ -274,13 +271,18 @@ async function loadMapInfo() {
     countUpAll('countries', m.country);
     countUpAll('orgs', m.organization);
     countUpAll('autos', m.autonomy);
-    countUpAll('players', m.players);
+    countUpAll('discord_members', m.players);
     const ws = document.getElementById('worldStats');
     if (ws) ws.innerHTML =
       '<div class="us-item"><b>' + fmtNum(m.total_gdp) + '</b>суммарный ВВП</div>' +
       '<div class="us-item"><b>' + fmtNum(m.total_population) + '</b>население</div>' +
       '<div class="us-item"><b>' + new Date(m.last_update).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + '</b>обновлено</div>';
-  } catch (e) { /* файла нет — останутся счётчики из seasoninfo */ }
+    if (si) si.innerHTML =
+      '<div class="us-item"><b>раз в 3 часа</b>обновление данных</div>' +
+      '<div class="us-item"><b>' + new Date(m.last_update).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + '</b>последнее обновление</div>';
+  } catch (e) {
+    if (si) si.innerHTML = '<div class="us-item"><b>раз в 3 часа</b>обновление данных</div>';
+  }
 }
 
 /* ===== СЕЗОН: сначала бот, иначе файлы ===== */
@@ -310,6 +312,8 @@ async function fetchSeasonData() {
 }
 const SPEC_NAMES = { industry: 'Промышленность', trade: 'Торговля', tech: 'Технологии', agriculture: 'Сельское хозяйство' };
 function kvRow(k, v) { return v ? '<div class="kv"><span>' + k + '</span><b>' + v + '</b></div>' : ''; }
+
+/* Карточка игрока: только характеристики (без кредитов/инвестиций/реформ/инвентаря) */
 function renderDetails(o) {
   const d = o.data || {};
   let h = '<div class="d-grid">';
@@ -330,18 +334,6 @@ function renderDetails(o) {
   if (d.taxes) h += kvRow('Налоги', 'НДС ' + d.taxes.nds + '% · НДФЛ ' + d.taxes.ndfl + '%');
   if (d.shield) h += kvRow('Щит до', new Date(d.shield).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' }));
   h += '</div>';
-  const credits = d.credits ? Object.values(d.credits) : [];
-  if (credits.length) h += '<div class="d-block"><b>💳 Кредиты (' + credits.length + ')</b>' + credits.map(c =>
-    '<div class="credit-item"><b>' + esc(c.id || '') + '</b><div class="row"><span>Взято</span><b>' + fmtNum(c.amount_taken) + '</b></div><div class="row"><span>Остаток</span><b>' + fmtNum(c.debt_current) + '</b></div><div class="row"><span>Платёж</span><b>' + fmtNum(c.hourly_payment) + '/ч · ' + c.term_hours_left + ' ч</b></div></div>').join('') + '</div>';
-  const inv = d.investments || [];
-  if (inv.length) h += '<div class="d-block"><b>📈 Инвестиции (' + inv.length + ')</b>' + inv.map(i =>
-    '<div class="credit-item"><b>' + esc(i.investor_country) + '</b><div class="row"><span>Сумма</span><b>' + fmtNum(i.amount) + '</b></div><div class="row"><span>Доля</span><b>' + (i.share_percent || 0).toFixed(2) + '%</b></div></div>').join('') + '</div>';
-  const ref = d.reforms || [];
-  if (ref.length) h += '<div class="d-block"><b>🧾 Реформы</b>' + ref.map(r =>
-    '<div class="credit-item"><b>' + esc(r.sphere) + '</b><div class="row"><span>Сумма</span><b>' + fmtNum(r.amount) + '</b></div></div>').join('') + '</div>';
-  const invt = d.inventory ? Object.assign({}, d.inventory.active, d.inventory.non_active) : {};
-  const keys = Object.keys(invt);
-  if (keys.length) h += '<div class="d-block"><b>🎒 Инвентарь (' + keys.length + ' поз.)</b><div class="d-list">' + keys.map(k => '<span class="d-tag">' + esc(k.trim()) + ' ×' + invt[k] + '</span>').join('') + '</div></div>';
   return h;
 }
 function seasonCard(o) {
@@ -462,6 +454,8 @@ function syncUserUI() {
   if (label) label.textContent = name || 'Личный кабинет';
   if (note) note.textContent = name ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.' : 'Войдите через бота, чтобы покупки привязывались к аккаунту.';
 }
+
+/* Личный кабинет: полный профиль — со всеми кредитами и инвестициями */
 async function renderCabinet() {
   const body = document.getElementById('cabinetBody');
   if (!body) return;
