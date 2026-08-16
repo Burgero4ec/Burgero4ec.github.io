@@ -17,6 +17,16 @@ body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, 
 .hero-badge, .pill, .rule, .member, .m-ava, .logo-badge, .cta, .update-meta, .update-content, .pun, .side-bottom,
 .side-top, .us-item, .stub, .themes, .c-card, .logo-title span { transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease; }
 .layout { display: flex; min-height: 100vh; }
+
+/* ===== MOBILE HEADER + DRAWER ===== */
+.mobile-header { display: none; }
+.drawer-overlay { display: none; }
+.menu-toggle { width: 40px; height: 40px; background: none; border: none; color: var(--text); cursor: pointer; padding: 6px; border-radius: 8px; }
+.menu-toggle:hover { background: var(--acc-soft); }
+.menu-toggle svg { width: 100%; height: 100%; }
+.mobile-title { flex: 1; text-align: center; }
+.mobile-title .logo-title { font-size: 14px; letter-spacing: .14em; }
+
 /* ===== SIDEBAR ===== */
 .sidebar { width: 290px; flex: 0 0 290px; background: var(--side); border-right: 1px solid var(--line); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; }
 .side-top { padding: 22px 20px; border-bottom: 1px solid var(--line); flex: 0 0 auto; }
@@ -74,6 +84,7 @@ body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, 
 .mail .ic { width: 12px; height: 12px; vertical-align: -2px; }
 .copy { margin-top: 6px; text-align: center; font-family: 'JetBrains Mono'; font-size: 10px; color: var(--dim); }
 .copy .ic { width: 11px; height: 11px; vertical-align: -2px; }
+
 /* ===== MAIN ===== */
 .main { flex: 1; padding: 48px 56px; max-width: 1400px; }
 .page { display: none; }
@@ -94,7 +105,7 @@ h1 em { color: var(--acc); font-style: normal; }
 .card p:last-child { margin-bottom: 0; }
 .hl { color: var(--acc); font-weight: 800; }
 blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); padding: 14px 18px; margin: 16px 0; font-style: italic; color: var(--text); border-radius: 0 8px 8px 0; }
-.hero { text-align: center; padding: 24px 0 8px; }
+.hero { text-align: center; padding: 24px 0 8px; margin-bottom: 24px; }
 .hero-badge { display: inline-flex; gap: 8px; align-items: center; margin-bottom: 20px; font-family: 'JetBrains Mono'; font-size: 11px; letter-spacing: .14em; color: var(--acc); border: 1px solid var(--acc-border); background: var(--acc-soft); padding: 7px 16px; border-radius: 999px; }
 .cta-row { display: flex; gap: 14px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
 .cta-row.left { justify-content: flex-start; }
@@ -103,9 +114,16 @@ blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); pa
 .cta.ghost { border: 1px solid var(--acc-border); color: var(--acc); }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
 .stats.three { grid-template-columns: repeat(3, 1fr); }
+.stats.two { grid-template-columns: 1fr 1fr; }
 .stat { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--acc2); border-radius: 12px; padding: 22px; text-align: center; }
 .stat b { display: block; font-family: 'JetBrains Mono'; font-size: 34px; color: var(--acc); font-weight: 700; }
 .stat span { font-family: Nunito; font-size: 12.5px; color: var(--muted); letter-spacing: .08em; font-weight: 600; }
+.stats-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; }
+.stats-col { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--acc2); border-radius: 12px; padding: 20px; }
+.stats-col-title { font-family: 'JetBrains Mono'; font-size: 11px; letter-spacing: .24em; color: var(--dim); margin-bottom: 14px; display: flex; gap: 8px; align-items: center; }
+.stats-col-title .ic { width: 14px; height: 14px; color: var(--acc); }
+.stats-col .stats { margin-top: 0; }
+
 /* ===== ПРАВИЛА ===== */
 .rule { padding: 18px 0; border-bottom: 1px dashed var(--line2); }
 .rule:first-of-type { padding-top: 4px; }
@@ -115,6 +133,7 @@ blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); pa
 .rule p { font-size: 14px !important; margin-bottom: 8px !important; }
 .rule ul { margin: 0 0 8px 18px; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .pun { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--red); background: rgba(248,113,113,.08); border: 1px solid rgba(248,113,113,.3); padding: 3px 9px; border-radius: 6px; }
+
 /* ===== ОБНОВЛЕНИЯ / ПРЕССА ===== */
 .updates-list { display: flex; flex-direction: column; gap: 20px; }
 .update-card { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--acc2); border-radius: 12px; padding: 22px 28px; }
@@ -150,6 +169,7 @@ blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); pa
 .stub .ic { width: 56px; height: 56px; stroke-width: 1.4; color: var(--acc); opacity: .85; margin-bottom: 18px; }
 .stub h3 { font-family: Nunito; font-size: 22px; margin-bottom: 12px; color: var(--text); font-weight: 800; }
 .stub p { color: var(--muted); font-size: 15px; }
+
 /* ===== СЕЗОН ===== */
 .season-note { text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; color: var(--dim); margin: -18px 0 6px; }
 .season-note b { color: var(--muted); }
@@ -173,6 +193,8 @@ blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); pa
 .d-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 18px; }
 .d-block { margin-top: 12px; }
 .d-block > b { display: block; font-family: Nunito; font-size: 13px; margin-bottom: 8px; color: var(--text); }
+.d-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.d-tag { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--muted); border: 1px solid var(--line2); border-radius: 6px; padding: 3px 7px; background: #0c1116; }
 .kv { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--line2); font-size: 13.5px; }
 .kv:last-child { border-bottom: 0; }
 .kv span { color: var(--muted); flex: none; }
@@ -191,6 +213,7 @@ blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); pa
 .sec-title { font-family: 'JetBrains Mono'; font-size: 11px; letter-spacing: .24em; color: var(--dim); margin: 36px 0 16px; display: flex; align-items: center; gap: 8px; }
 .sec-title .ic { width: 14px; height: 14px; color: var(--acc); }
 .sec-title:first-child { margin-top: 0; }
+
 /* ===== ПЕРСОНАЛ ===== */
 .member { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px dashed var(--line2); }
 .member:last-child { border-bottom: 0; }
@@ -214,6 +237,7 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
 .award.red b { color: var(--red); }
 .award span { color: var(--muted); }
 .award .lbl { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--dim); letter-spacing: .12em; display: block; margin-top: 6px; }
+
 /* ===== КАБИНЕТ / КОМПОЗЕР ===== */
 .profile-card { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .profile-head { display: flex; align-items: center; gap: 16px; flex: 1; min-width: 260px; }
@@ -227,6 +251,7 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
 .composer-input { width: 100%; min-height: 90px; background: #0c1116; border: 1px solid var(--line2); border-radius: 8px; color: var(--text); font-family: 'JetBrains Mono'; font-size: 12.5px; padding: 10px 12px; outline: none; resize: vertical; }
 .composer-input:focus { border-color: var(--acc-border); }
 .composer-status { font-family: 'JetBrains Mono'; font-size: 11px; color: var(--muted); margin-left: 10px; }
+
 /* ===== АРХИВЫ ===== */
 .arch-controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; margin-bottom: 26px; }
 .arch-select, .arch-input { background: var(--card); border: 1px solid var(--line2); color: var(--text); border-radius: 8px; padding: 9px 12px; font-family: Nunito; font-size: 13px; outline: none; flex: 1; min-width: 200px; }
@@ -238,6 +263,7 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
 .folder-file { display: flex; gap: 10px; align-items: center; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--line2); background: #0c1116; color: var(--muted); cursor: pointer; font-family: Nunito; font-weight: 600; font-size: 13px; transition: .15s; text-align: left; }
 .folder-file:hover { color: var(--text); border-color: var(--acc-border); background: var(--acc-soft); }
 .arch-badge { margin-left: auto; font-family: 'JetBrains Mono'; font-size: 9.5px; color: var(--acc); border: 1px solid var(--acc-border); background: var(--acc-soft); padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+
 /* ===== АДАПТИВ (Mobile Discord-like) ===== */
 @media (max-width: 1200px) {
   .main { padding: 36px 32px; max-width: 100%; }
@@ -245,17 +271,23 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
 }
 @media (max-width: 960px) {
   .layout { flex-direction: column; }
-  .sidebar { width: 100%; flex: none; height: auto; position: static; border-right: none; border-bottom: 1px solid var(--line); }
-  .side-top { padding: 16px 14px; }
-  .side-nav { max-height: 50vh; padding: 14px; }
-  .side-bottom { padding: 14px; }
+  .mobile-header { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--side); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 200; }
+  .sidebar {
+    position: fixed; top: 0; left: 0; height: 100vh; width: 85%; max-width: 320px; z-index: 300;
+    transform: translateX(-100%); transition: transform .3s cubic-bezier(.4,0,.2,1);
+    border-right: 1px solid var(--line); box-shadow: none;
+  }
+  body.menu-open .sidebar { transform: translateX(0); box-shadow: 0 0 40px rgba(0,0,0,.5); }
+  .drawer-overlay { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 250; opacity: 0; pointer-events: none; transition: opacity .3s; }
+  body.menu-open .drawer-overlay { opacity: 1; pointer-events: auto; }
   .main { padding: 24px 16px; }
   .grid-2, .stats, .stats.three, .stats.two { grid-template-columns: 1fr 1fr; }
   #page-features .grid-3 { grid-template-columns: 1fr 1fr; }
   h1 { font-size: 28px; }
   .lead { font-size: 15px; margin-bottom: 32px; }
   .card { padding: 20px; }
-  .stats-split { grid-template-columns: 1fr; }
+  .stats-split { grid-template-columns: 1fr; gap: 18px; }
+  .side-top .status-card { display: none; }
 }
 @media (max-width: 768px) {
   .logo-row { gap: 10px; }
@@ -283,36 +315,14 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
   .profile-ava { margin: 0 auto; }
 }
 @media (max-width: 480px) {
-  .sidebar { position: sticky; top: 0; z-index: 100; }
-  .side-nav { max-height: 45vh; }
-  .logo-row { flex-direction: column; text-align: center; gap: 8px; }
-  .logo-badge { margin: 0 auto; }
-  .logo-title { font-size: 12px; }
-  .logo-sub { justify-content: center; }
-  .status-card { justify-content: center; }
-  .badge-online { margin-left: 0; }
-  .nav-label { text-align: center; }
-  .nav-item { justify-content: center; }
-  .pill { margin-left: 6px; }
-  .chev { display: none; }
-  .themes { justify-content: center; }
-  .theme-btn { flex: 0 1 auto; min-width: 80px; }
-  .socials { flex-direction: column; }
-  .side-bottom { text-align: center; }
-  .mail, .copy { text-align: center; }
   .main { padding: 16px 12px; }
   h1 { font-size: 24px; }
   .lead { font-size: 14px; margin-bottom: 24px; }
   .card { padding: 16px; border-radius: 10px; }
-  .card.wide { margin-top: 18px; }
-  .card h3 { font-size: 16px; flex-direction: column; text-align: center; }
-  .card h3 .ic { margin: 0 auto 8px; }
-  blockquote { padding: 12px 14px; font-size: 14px; }
+  .card h3 { font-size: 16px; }
   .stat { padding: 18px; }
   .stat b { font-size: 28px; }
-  .stat span { font-size: 11.5px; }
   .update-card { padding: 18px 20px; }
-  .update-meta { gap: 10px; }
   .member { flex-direction: column; text-align: center; gap: 10px; }
   .m-ava { margin: 0 auto; }
   .you-badge { display: block; margin: 6px auto 0; }
@@ -322,19 +332,4 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
   .profile-head { gap: 12px; }
   .profile-ava { width: 56px; height: 56px; }
   .profile-name { font-size: 18px; }
-  .arch-controls { gap: 8px; }
-  .arch-select, .arch-input { padding: 8px 10px; font-size: 12px; }
-  .folder { padding: 14px; }
-  .folder-file { padding: 8px 10px; font-size: 12px; }
-  .order-toggle button { font-size: 11.5px; padding: 8px 10px; }
-  .cta { padding: 11px 20px; font-size: 11.5px; }
-  .hero-badge { font-size: 10px; padding: 6px 12px; }
 }
-
-/* ===== РАЗДЕЛЁННАЯ СТАТИСТИКА ГЛАВНОЙ ===== */
-.stats-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 44px; }
-.stats-col { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--acc2); border-radius: 12px; padding: 20px; }
-.stats-col-title { font-family: 'JetBrains Mono'; font-size: 11px; letter-spacing: .24em; color: var(--dim); margin-bottom: 14px; display: flex; gap: 8px; align-items: center; }
-.stats-col-title .ic { width: 14px; height: 14px; color: var(--acc); }
-.stats-col .stats { margin-top: 0; }
-.stats.two { grid-template-columns: 1fr 1fr; }
