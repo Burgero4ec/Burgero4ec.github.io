@@ -599,7 +599,7 @@ function decorateStaff() {
 }
 
 /* ===== АРХИВЫ СЕЗОНОВ ===== */
-const ARCHIVE_SEASONS = [22, 21, 20, 19, 2, 1];
+const ARCHIVE_SEASONS = [25, 24, 23, 22, 21, 20, 19, 2, 1];
 const ARCHIVE_KINDS = [
   { id: 'countries', emoji: '📺', label: 'Новости стран и автономий' },
   { id: 'orgs',      emoji: '👥', label: 'Новости организаций' },
