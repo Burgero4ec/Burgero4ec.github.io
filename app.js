@@ -12,10 +12,6 @@ const BOT_DM_URL = 'https://discord.com/users/1406960264275824670';
 const API_BASE = ''; /* заполните, когда у бота появится HTTPS-API */
 const PLAYERS_WEBHOOK = ''; /* вебхук #avatar-intake (слив аватарок), если оставите */
 const POST_PERMISSIONS = { press: ['800254982641025056'], updates: ['484044030640914437'] };
-const WEBHOOKS = {
-  press: 'https://discord.com/api/webhooks/1536823697111912488/druOS4Rkis2cAUAgGEC9zryRt79sDbYpo34N-Z21r6LExdhDyOcDynajAjiOpz1mMIEO',
-  updates: 'https://discord.com/api/webhooks/1536824065061429388/iKrIR6SiHUD0CiLc9q0feerGRcFb7kXkcHECABF9PnlJNIibA3-dU-0XDEpZOFP4BK0x'
-};
 const KNOWN_PLAYERS = {
   '484044030640914437': { name: 'aytaconan2_' },
   '830428424677490728': { name: 'ponzc' },
@@ -30,7 +26,8 @@ const STAFF_DISCORD = {
   'yabl1ch': '800254982641025056',
   'ilovevodka': '848822433398259723',
   'qbitf': '758998250610360341',
-  'qwertx': '1066701976949239905'
+  'qwertx': '1066701976949239905',
+  '𝖕𝖔𝖓𝖟𝖈': '830428424677490728'
 };
 
 /* ===== УТИЛИТЫ ===== */
