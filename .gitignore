@@ -1,0 +1,66 @@
+# Examples
+
+## Example 1:
+Input:
+### Added files:
+[src/main.py, README.md, config.json]
+
+### Deleted files:
+[old/unused.py]
+
+### Modified files:
+[utils.py]
+
+### current .gitignore Content
+(empty)
+
+Expected Output:
+(empty — output nothing)
+
+## Example 2:
+Input:
+### Added files:
+[__pycache__/main.cpython-310.pyc, dist/app.js, .env.local, .vscode/settings.json]
+
+### Deleted files:
+[]
+
+### Modified files:
+[]
+
+### current .gitignore Content
+*.log
+
+Expected Output:
+```
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+dist/
+build/
+
+# Dependencies
+.venv/
+venv/
+node_modules/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
+.idea/
+```
+
+# Your Input Analysis
+
+Since the only modified file is 'app.js' (a source file) and there are no build artifacts, dependencies, or temporary files in the changes, the optimized .gitignore should remain empty.
+
+(empty)

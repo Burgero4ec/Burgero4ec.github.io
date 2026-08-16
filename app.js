@@ -56,6 +56,14 @@ function normName(s) { return String(s || '').toLowerCase().replace(/[\s_.\-]/g,
 function defaultAvatar(id) { try { return 'https://cdn.discordapp.com/embed/avatars/' + (Number(BigInt(id) >> 22n) % 6) + '.png'; } catch (e) { return 'https://cdn.discordapp.com/embed/avatars/0.png'; } }
 function userAvatar(u) { return (u && u.avatar) || defaultAvatar(u.id); }
 
+/* Проверка безопасности URL: запрещаем javascript: и data: протоколы */
+function safeUrl(url) {
+  const trimmed = String(url || '').trim().toLowerCase();
+  if (trimmed.startsWith('javascript:') || trimmed.startsWith('data:')) return '#';
+  if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('/')) return url;
+  return '#';
+}
+
 /* ===== ЗАПРОСЫ К БОТУ (с фолбэком на файлы) ===== */
 async function apiGet(path) {
   if (!API_BASE) throw new Error('API отключён');
@@ -76,6 +84,10 @@ async function loadPlayers() {
   }
 }
 function playerMeta(id) {
+  // Проверка: id должен быть строкой из цифр
+  if (typeof id !== 'string' || !/^\d+$/.test(id)) {
+    return { name: 'Неизвестный', avatar: defaultAvatar('0') };
+  }
   const local = readLS('gl-players', {});
   const base = (PLAYERS && PLAYERS[id]) || local[id] || KNOWN_PLAYERS[id] || null;
   return {
@@ -95,7 +107,11 @@ function inline(s) {
   s = s.replace(/__([^_]+)__/g, '<u>$1</u>');
   s = s.replace(/~~([^~]+)~~/g, '<s>$1</s>');
   s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
-  s = s.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  // Безопасная обработка ссылок: проверяем протокол перед вставкой в href
+  s = s.replace(/(https?:\/\/[^\s<]+)/g, (match, url) => {
+    const safe = safeUrl(url);
+    return '<a href="' + safe + '" target="_blank" rel="noopener">' + esc(url) + '</a>';
+  });
   return s;
 }
 function renderMarkdown(raw) {
@@ -138,6 +154,7 @@ const readOrder = { updates: 'desc', press: 'desc', archives: 'desc' };
 const MERGE_GAP_MS = 5 * 60 * 1000;
 
 function parseMessages(doc) {
+  if (!doc || !doc.querySelectorAll) return [];
   return [...doc.querySelectorAll('.message')].map(m => {
     const content = m.querySelector('.content');
     if (!content) return null;
@@ -147,6 +164,7 @@ function parseMessages(doc) {
   }).filter(x => x && x.content);
 }
 function renderDiscordMessages(items, container, statsContainer, order) {
+  if (!container) return;
   const sorted = items.slice().sort((a, b) => order === 'asc' ? a.date - b.date : b.date - a.date);
   if (!sorted.length) { container.innerHTML = '<p class="loading">Пока нет сообщений.</p>'; return; }
   const groups = [];
@@ -190,6 +208,7 @@ function rerender(type) {
 }
 async function loadUpdates() {
   const el = document.getElementById('updatesBody');
+  if (!el) return;
   try {
     const r = await fetch(GH_URLS.updates);
     if (!r.ok) throw 0;
@@ -199,6 +218,7 @@ async function loadUpdates() {
 }
 async function loadPress() {
   const el = document.getElementById('pressBody');
+  if (!el) return;
   try {
     const r = await fetch('press_content.html');
     if (!r.ok) throw 0;
@@ -228,6 +248,7 @@ function md(t) {
 }
 async function loadRules(key, elId) {
   const el = document.getElementById(elId);
+  if (!el) return;
   try {
     const r = await fetch(GH_URLS[key]);
     if (!r.ok) throw 0;
@@ -236,6 +257,7 @@ async function loadRules(key, elId) {
 }
 async function loadFragment(url, id) {
   const el = document.getElementById(id);
+  if (!el) return;
   try {
     const r = await fetch(url);
     if (!r.ok) throw 0;
@@ -249,6 +271,7 @@ loadFragment('staff_content.html', 'staffBody').then(decorateStaff);
 
 /* ===== СЧЁТЧИКИ ===== */
 function countUp(el, target) {
+  if (!el) return;
   const dur = 1400, t0 = performance.now();
   (function tick(t) {
     const p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
@@ -348,6 +371,7 @@ function seasonCard(o) {
 }
 async function loadSeason() {
   const body = document.getElementById('seasonBody');
+  if (!body) return;
   try {
     const [seasonRaw, countriesRaw] = await fetchSeasonData();
     const C = trimDeep(countriesRaw), S = trimDeep(seasonRaw);
@@ -375,8 +399,10 @@ async function loadSeason() {
       list.forEach(c => { (by[c.continent] = by[c.continent] || []).push(c); });
       const order = ['Европа', 'Азия', 'Африка', 'Северная Америка', 'Южная Америка', 'Австралия и Океания'];
       const conts = Object.keys(by).sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
-      document.getElementById('freeCount').textContent = list.length;
-      document.getElementById('freeGroups').innerHTML = conts.length
+      const freeCountEl = document.getElementById('freeCount');
+      const freeGroupsEl = document.getElementById('freeGroups');
+      if (freeCountEl) freeCountEl.textContent = list.length;
+      if (freeGroupsEl) freeGroupsEl.innerHTML = conts.length
         ? conts.map(cont => '<div class="m-sub">' + cont.toUpperCase() + ' (' + by[cont].length + ')</div><div class="grid-3" style="margin-bottom:26px">' + by[cont].sort(ru).map(seasonCard).join('') + '</div>').join('')
         : '<p class="loading">Ничего не найдено.</p>';
     }
@@ -388,7 +414,8 @@ async function loadSeason() {
       '<div class="search-wrap"><svg class="ic"><use href="#i-search"/></svg><input id="countrySearch" class="search-input" type="text" placeholder="Поиск страны..."></div>' +
       '<div id="freeGroups"></div>';
     renderFree('');
-    document.getElementById('countrySearch').addEventListener('input', e => renderFree(e.target.value));
+    const searchEl = document.getElementById('countrySearch');
+    if (searchEl) searchEl.addEventListener('input', e => renderFree(e.target.value));
   } catch (e) {
     console.error('[Global Lens]', e);
     body.innerHTML = '<p class="loading">' + esc(e.message) + '</p>';
@@ -437,7 +464,8 @@ async function handleLogin() {
   }
   syncUserUI();
   decorateStaff();
-  if (document.getElementById('page-cabinet').classList.contains('active')) renderCabinet();
+  const cabinetPage = document.getElementById('page-cabinet');
+  if (cabinetPage && cabinetPage.classList.contains('active')) renderCabinet();
 }
 function discordLogout() {
   localStorage.removeItem('gl-user');
@@ -670,16 +698,24 @@ const ruleIds = ['rules-server', 'rules-bot', 'rules-privacy'];
 function go(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === 'page-' + id));
   document.querySelectorAll('.side-nav .active').forEach(x => x.classList.remove('active'));
-  if (infoIds.includes(id) || ruleIds.includes(id)) { document.getElementById('infoBtn').classList.add('active'); document.getElementById('infoGroup').classList.add('open'); }
-  if (ruleIds.includes(id)) document.getElementById('rulesGroup').classList.add('open');
+  const infoBtn = document.getElementById('infoBtn');
+  const infoGroup = document.getElementById('infoGroup');
+  const rulesGroup = document.getElementById('rulesGroup');
+  if (infoIds.includes(id) || ruleIds.includes(id)) {
+    if (infoBtn) infoBtn.classList.add('active');
+    if (infoGroup) infoGroup.classList.add('open');
+  }
+  if (ruleIds.includes(id) && rulesGroup) rulesGroup.classList.add('open');
   const sel = document.querySelector('.side-nav [data-go="' + id + '"]');
   if (sel) sel.classList.add('active');
   if (id === 'home') animateStats();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 document.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
-document.getElementById('infoBtn').addEventListener('click', () => document.getElementById('infoGroup').classList.toggle('open'));
-document.getElementById('rulesBtn').addEventListener('click', () => document.getElementById('rulesGroup').classList.toggle('open'));
+const infoBtn2 = document.getElementById('infoBtn');
+const rulesBtn = document.getElementById('rulesBtn');
+if (infoBtn2) infoBtn2.addEventListener('click', () => document.getElementById('infoGroup').classList.toggle('open'));
+if (rulesBtn) rulesBtn.addEventListener('click', () => document.getElementById('rulesGroup').classList.toggle('open'));
 
 /* ===== ТЕМЫ ===== */
 const names = { green: 'Green', blue: 'Blue', orange: 'Orange' };
@@ -687,7 +723,8 @@ function applyTheme(theme, save = true) {
   if (!names[theme]) theme = 'green';
   document.documentElement.dataset.theme = theme;
   document.querySelectorAll('.theme-btn').forEach(x => x.classList.toggle('active', x.dataset.themeSet === theme));
-  document.getElementById('themeName').textContent = names[theme];
+  const themeNameEl = document.getElementById('themeName');
+  if (themeNameEl) themeNameEl.textContent = names[theme];
   if (save) try { localStorage.setItem('gl-theme', theme); } catch (e) {}
 }
 (function () {
