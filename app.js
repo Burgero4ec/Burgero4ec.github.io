@@ -754,14 +754,11 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
   const close = () => document.body.classList.remove('menu-open');
   if (toggle) toggle.addEventListener('click', () => document.body.classList.toggle('menu-open'));
   if (overlay) overlay.addEventListener('click', close);
-  document.addEventListener('click', e => {
-    if (e.target.closest('.nav-item, .sub-item')) close();
-  });
+  document.addEventListener('click', e => { if (e.target.closest('.nav-item, .sub-item')) close(); });
   let sx = 0;
   document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
   document.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - sx;
-    if (dx < -60 && document.body.classList.contains('menu-open')) close();
+    if (e.changedTouches[0].clientX - sx < -60 && document.body.classList.contains('menu-open')) close();
   });
 })();
 
