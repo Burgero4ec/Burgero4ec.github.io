@@ -623,7 +623,7 @@ const archState = { season: 'all', kind: 'all', q: '' };
 
 function archiveUrl(season, kind) {
   const emoji = { countries: '📺', orgs: '👥', events: '🗽' }[kind];
-  return 'Archive_' + encodeURIComponent(emoji + '・' + season + '-сезон') + '.html';
+  return 'архивы/Archive_' + encodeURIComponent(emoji + '・' + season + '-сезон') + '.html';
 }
 async function loadArchiveFile(season, kind) {
   const key = season + ':' + kind;
