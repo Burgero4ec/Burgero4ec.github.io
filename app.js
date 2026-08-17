@@ -314,7 +314,7 @@ async function loadMapInfo() {
       '<div class="us-item"><b>' + fmtNum(m.total_population) + '</b>население</div>' +
       '<div class="us-item"><b>' + new Date(m.last_update).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + '</b>обновлено</div>';
     if (si) si.innerHTML =
-      '<div class="us-item"><b>раз в 3 часа</b>обновление данных</div>' +
+      '<div class="us-item"><b>Раз в 1 час</b>обновление данных</div>' +
       '<div class="us-item"><b>' + new Date(m.last_update).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + '</b>последнее обновление</div>';
   } catch (e) {
     if (si) si.innerHTML = '<div class="us-item"><b>раз в 3 часа</b>обновление данных</div>';
