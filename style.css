@@ -340,8 +340,8 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
   .you-badge { display: block; margin: 6px auto 0; }
   .c-card { flex-direction: column; text-align: center; }
   .player-chip, .badge-taken, .badge-free, .badge-shield { margin-left: 0; margin-top: 8px; max-width: 100%; justify-content: center; }
-  .composer { padding: 14px 16px; }
   .profile-head { gap: 12px; }
   .profile-ava { width: 56px; height: 56px; }
   .profile-name { font-size: 18px; }
 }
+
