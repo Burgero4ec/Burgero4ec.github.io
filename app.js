@@ -568,7 +568,7 @@ async function renderCabinet() {
   body.innerHTML = html;
   body.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
 }
-document.addEventListener('click', e => { if (e.target.closest('[data-go="cabinet"]')) renderCabinet(); });
+document.addEventListener('click', e => { if (e.target.closest('[data-go]')) close(); });
 
 /* ===== ПРОВЕРКА СВЯЗИ ===== */
 async function testPlayersWebhook() {
