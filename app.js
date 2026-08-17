@@ -492,7 +492,9 @@ function syncUserUI() {
   const note = document.getElementById('donateUserNote');
   const name = window.glUser ? window.glUser.name : null;
   if (label) label.textContent = name || 'Личный кабинет';
-  if (note) note.textContent = name ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.' : 'Войдите через бота, чтобы покупки привязывались к аккаунту.';
+  if (note) note.textContent = name
+    ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.'
+    : 'Войдите через бота, чтобы покупки привязывались к аккаунту.';
 }
 
 async function renderCabinet() {
