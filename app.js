@@ -476,8 +476,7 @@ async function handleLogin() {
   }
   syncUserUI();
   decorateStaff();
-  const cabinetPage = document.getElementById('page-cabinet');
-  if (cabinetPage && cabinetPage.classList.contains('active')) renderCabinet();
+  renderCabinet();
 }
 function discordLogout() {
   localStorage.removeItem('gl-user');
@@ -722,6 +721,7 @@ function go(id) {
   const sel = document.querySelector('.side-nav [data-go="' + id + '"]');
   if (sel) sel.classList.add('active');
   if (id === 'home') animateStats();
+  if (id === 'cabinet') renderCabinet();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 document.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
