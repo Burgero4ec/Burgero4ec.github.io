@@ -4,10 +4,7 @@ const GH_URLS = {
   bot: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/TERMS_OF_SERVICE.md',
   privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
 };
-
-/* API бота-моста. Пока пусто — сайт работает на файлах (фолбэк). */
-const API_BASE = ''; // например: 'https://api.global-lens.example'
-
+const API_BASE = '';
 const AUTH_TOKENS_URL = 'auth_tokens.json';
 const BOT_DM_URL = 'https://discord.com/users/1406960264275824670';
 const PLAYERS_URL = 'players.json';
@@ -23,7 +20,7 @@ const KNOWN_PLAYERS = {
 const STAFF_DISCORD = {
   'aytaconan2': '484044030640914437',
   'ponzc': '830428424677490728',
-  '𝖕𝖔𝖓𝖈': '830428424677490728',
+  '𝖕𝖔𝖓': '830428424677490728',
   'yabl1ch': '800254982641025056',
   'ilovevodka': '848822433398259723',
   'qbitf': '758998250610360341',
@@ -55,27 +52,24 @@ function readLS(key, def) { try { return JSON.parse(localStorage.getItem(key)) |
 function normName(s) { return String(s || '').toLowerCase().replace(/[\s_.\-]/g, ''); }
 function defaultAvatar(id) { try { return 'https://cdn.discordapp.com/embed/avatars/' + (Number(BigInt(id) >> 22n) % 6) + '.png'; } catch (e) { return 'https://cdn.discordapp.com/embed/avatars/0.png'; } }
 function userAvatar(u) { return (u && u.avatar) || defaultAvatar(u.id); }
-
 function safeUrl(url) {
-  const trimmed = String(url || '').trim().toLowerCase();
-  if (trimmed.startsWith('javascript:') || trimmed.startsWith('data:')) return '#';
-  if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('/')) return url;
+  const t = String(url || '').trim().toLowerCase();
+  if (t.startsWith('javascript:') || t.startsWith('data:')) return '#';
+  if (t.startsWith('http://') || t.startsWith('https://') || t.startsWith('/')) return url;
   return '#';
 }
 
-/* ===== ЗАПРОСЫ К БОТУ (с фолбэком на файлы) ===== */
+/* ===== API БОТА ===== */
 async function apiGet(path) {
   if (!API_BASE) throw new Error('API отключён');
   const r = await fetch(API_BASE + path);
   if (!r.ok) throw new Error('API HTTP ' + r.status);
   return r.json();
 }
-
 let PLAYERS = null;
 async function loadPlayers() {
-  try {
-    PLAYERS = trimDeep(await apiGet('/api/players'));
-  } catch (e) {
+  try { PLAYERS = trimDeep(await apiGet('/api/players')); }
+  catch (e) {
     try {
       const r = await fetch(PLAYERS_URL + '?t=' + Date.now());
       PLAYERS = r.ok ? trimDeep(await r.json()) : {};
@@ -83,15 +77,10 @@ async function loadPlayers() {
   }
 }
 function playerMeta(id) {
-  if (typeof id !== 'string' || !/^\d+$/.test(id)) {
-    return { name: 'Неизвестный', avatar: defaultAvatar('0') };
-  }
+  if (typeof id !== 'string' || !/^\d+$/.test(id)) return { name: 'Неизвестный', avatar: defaultAvatar('0') };
   const local = readLS('gl-players', {});
   const base = (PLAYERS && PLAYERS[id]) || local[id] || KNOWN_PLAYERS[id] || null;
-  return {
-    name: base ? (base.nick || base.name) : 'Игрок #' + String(id).slice(-4),
-    avatar: (base && base.avatar) || defaultAvatar(id)
-  };
+  return { name: base ? (base.nick || base.name) : 'Игрок #' + String(id).slice(-4), avatar: (base && base.avatar) || defaultAvatar(id) };
 }
 
 /* ===== DISCORD-РАЗМЕТКА ===== */
@@ -105,10 +94,7 @@ function inline(s) {
   s = s.replace(/__([^_]+)__/g, '<u>$1</u>');
   s = s.replace(/~~([^~]+)~~/g, '<s>$1</s>');
   s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
-  s = s.replace(/(https?:\/\/[^\s<]+)/g, (match, url) => {
-    const safe = safeUrl(url);
-    return '<a href="' + safe + '" target="_blank" rel="noopener">' + esc(url) + '</a>';
-  });
+  s = s.replace(/(https?:\/\/[^\s<]+)/g, (m, url) => '<a href="' + safeUrl(url) + '" target="_blank" rel="noopener">' + esc(url) + '</a>');
   return s;
 }
 function renderMarkdown(raw) {
@@ -149,7 +135,6 @@ function renderMarkdown(raw) {
 const cache = { updates: null, press: null };
 const readOrder = { updates: 'desc', press: 'desc', archives: 'desc' };
 const MERGE_GAP_MS = 5 * 60 * 1000;
-
 function parseMessages(doc) {
   if (!doc || !doc.querySelectorAll) return [];
   return [...doc.querySelectorAll('.message')].map(m => {
@@ -172,8 +157,7 @@ function renderDiscordMessages(items, container, statsContainer, order) {
     if (sameAuthor && closeTime) {
       last.contents.push(item.content);
       if (item.reply && !last.reply) last.reply = item.reply;
-      last.lastDate = item.dateStr;
-      last.lastDateMs = item.date;
+      last.lastDate = item.dateStr; last.lastDateMs = item.date;
     } else {
       groups.push({ author: item.author, contents: [item.content], reply: item.reply, firstDate: item.dateStr, lastDate: item.dateStr, lastDateMs: item.date });
     }
@@ -264,7 +248,6 @@ async function loadFragment(url, id) {
 loadRules('bot', 'rulesBotBody');
 loadRules('privacy', 'rulesPrivacyBody');
 loadFragment('rules_server_content.html', 'rulesServerBody');
-/* стафф + автоматический подсчёт уникального персонала для главной */
 loadFragment('staff_content.html', 'staffBody').then(() => {
   decorateStaff();
   const body = document.getElementById('staffBody');
@@ -293,7 +276,7 @@ function countUp(el, target) {
 function countUpAll(key, target) { document.querySelectorAll('[data-stat="' + key + '"]').forEach(el => countUp(el, target)); }
 function animateStats() { document.querySelectorAll('#page-home .stat b[data-count]').forEach(el => countUp(el, +el.dataset.count)); }
 
-/* ===== ЖИВЫЕ ДАННЫЕ ОТ БОТА (data/map_info.json) ===== */
+/* ===== ЖИВЫЕ ДАННЫЕ ===== */
 let MAP_INFO = null;
 async function loadMapInfo() {
   const si = document.getElementById('seasonUpdateInfo');
@@ -314,7 +297,7 @@ async function loadMapInfo() {
       '<div class="us-item"><b>' + fmtNum(m.total_population) + '</b>население</div>' +
       '<div class="us-item"><b>' + new Date(m.last_update).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + '</b>обновлено</div>';
     if (si) si.innerHTML =
-      '<div class="us-item"><b>Раз в 1 час</b>обновление данных</div>' +
+      '<div class="us-item"><b>раз в 3 часа</b>обновление данных</div>' +
       '<div class="us-item"><b>' + new Date(m.last_update).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + '</b>последнее обновление</div>';
   } catch (e) {
     if (si) si.innerHTML = '<div class="us-item"><b>раз в 3 часа</b>обновление данных</div>';
@@ -340,15 +323,11 @@ async function fetchJson(url) {
   }
 }
 async function fetchSeasonData() {
-  try {
-    return await Promise.all([apiGet('/api/season'), apiGet('/api/countries')]);
-  } catch (e) {
-    return await Promise.all([fetchJson('seasoninfo.json'), fetchJson('countries2014.json')]);
-  }
+  try { return await Promise.all([apiGet('/api/season'), apiGet('/api/countries')]); }
+  catch (e) { return await Promise.all([fetchJson('seasoninfo.json'), fetchJson('countries2014.json')]); }
 }
 const SPEC_NAMES = { industry: 'Промышленность', trade: 'Торговля', tech: 'Технологии', agriculture: 'Сельское хозяйство' };
 function kvRow(k, v) { return v ? '<div class="kv"><span>' + k + '</span><b>' + v + '</b></div>' : ''; }
-
 function renderDetails(o) {
   const d = o.data || {};
   let h = '<div class="d-grid">';
@@ -411,10 +390,9 @@ async function loadSeason() {
       list.forEach(c => { (by[c.continent] = by[c.continent] || []).push(c); });
       const order = ['Европа', 'Азия', 'Африка', 'Северная Америка', 'Южная Америка', 'Австралия и Океания'];
       const conts = Object.keys(by).sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
-      const freeCountEl = document.getElementById('freeCount');
-      const freeGroupsEl = document.getElementById('freeGroups');
-      if (freeCountEl) freeCountEl.textContent = list.length;
-      if (freeGroupsEl) freeGroupsEl.innerHTML = conts.length
+      const fc = document.getElementById('freeCount'), fg = document.getElementById('freeGroups');
+      if (fc) fc.textContent = list.length;
+      if (fg) fg.innerHTML = conts.length
         ? conts.map(cont => '<div class="m-sub">' + cont.toUpperCase() + ' (' + by[cont].length + ')</div><div class="grid-3" style="margin-bottom:26px">' + by[cont].sort(ru).map(seasonCard).join('') + '</div>').join('')
         : '<p class="loading">Ничего не найдено.</p>';
     }
@@ -426,8 +404,8 @@ async function loadSeason() {
       '<div class="search-wrap"><svg class="ic"><use href="#i-search"/></svg><input id="countrySearch" class="search-input" type="text" placeholder="Поиск страны..."></div>' +
       '<div id="freeGroups"></div>';
     renderFree('');
-    const searchEl = document.getElementById('countrySearch');
-    if (searchEl) searchEl.addEventListener('input', e => renderFree(e.target.value));
+    const se = document.getElementById('countrySearch');
+    if (se) se.addEventListener('input', e => renderFree(e.target.value));
   } catch (e) {
     console.error('[Global Lens]', e);
     body.innerHTML = '<p class="loading">' + esc(e.message) + '</p>';
@@ -491,11 +469,8 @@ function syncUserUI() {
   const note = document.getElementById('donateUserNote');
   const name = window.glUser ? window.glUser.name : null;
   if (label) label.textContent = name || 'Личный кабинет';
-  if (note) note.textContent = name
-    ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.'
-    : 'Войдите через бота, чтобы покупки привязывались к аккаунту.';
+  if (note) note.textContent = name ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.' : 'Войдите через бота, чтобы покупки привязывались к аккаунту.';
 }
-
 async function renderCabinet() {
   const body = document.getElementById('cabinetBody');
   if (!body) return;
@@ -567,7 +542,7 @@ async function renderCabinet() {
   body.innerHTML = html;
   body.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
 }
-document.addEventListener('click', e => { if (e.target.closest('[data-go]')) close(); });
+document.addEventListener('click', e => { if (e.target.closest('[data-go="cabinet"]')) renderCabinet(); });
 
 /* ===== ПРОВЕРКА СВЯЗИ ===== */
 async function testPlayersWebhook() {
@@ -610,7 +585,7 @@ function decorateStaff() {
   });
 }
 
-/* ===== АРХИВЫ ===== */
+/* ===== АРХИВЫ (папка «архивы/») ===== */
 const ARCHIVE_SEASONS = [25, 24, 23, 22, 21, 20, 19, 2, 1];
 const ARCHIVE_KINDS = [
   { id: 'countries', emoji: '📺', label: 'Новости стран и автономий' },
@@ -619,7 +594,6 @@ const ARCHIVE_KINDS = [
 ];
 const archiveCache = {};
 const archState = { season: 'all', kind: 'all', q: '' };
-
 function archiveUrl(season, kind) {
   const emoji = { countries: '📺', orgs: '👥', events: '🗽' }[kind];
   return 'архивы/Archive_' + encodeURIComponent(emoji + '・' + season + '-сезон') + '.html';
@@ -651,8 +625,9 @@ function renderArchFolders() {
   el.querySelectorAll('.folder-file').forEach(b => b.addEventListener('click', () => {
     archState.season = b.dataset.season;
     archState.kind = b.dataset.kind;
-    document.getElementById('archSeason').value = b.dataset.season;
-    document.getElementById('archKind').value = b.dataset.kind;
+    const ss = document.getElementById('archSeason'), kk = document.getElementById('archKind');
+    if (ss) ss.value = b.dataset.season;
+    if (kk) kk.value = b.dataset.kind;
     renderArchives();
   }));
 }
@@ -662,8 +637,10 @@ function initArchControls() {
   sel.innerHTML = '<option value="all">Все сезоны</option>' +
     ARCHIVE_SEASONS.slice().sort((a, b) => b - a).map(s => '<option value="' + s + '">Сезон ' + s + '</option>').join('');
   sel.addEventListener('change', () => { archState.season = sel.value; renderArchives(); });
-  document.getElementById('archKind').addEventListener('change', e => { archState.kind = e.target.value; renderArchives(); });
-  document.getElementById('archSearch').addEventListener('input', e => { archState.q = e.target.value; renderArchives(); });
+  const kk = document.getElementById('archKind');
+  if (kk) kk.addEventListener('change', e => { archState.kind = e.target.value; renderArchives(); });
+  const qq = document.getElementById('archSearch');
+  if (qq) qq.addEventListener('input', e => { archState.q = e.target.value; renderArchives(); });
 }
 async function renderArchives() {
   const body = document.getElementById('archBody');
@@ -704,11 +681,13 @@ async function renderArchives() {
 renderArchFolders();
 initArchControls();
 
-/* ===== НАВИГАЦИЯ ===== */
+/* ===== НАВИГАЦИЯ (с защитой от «пропадания» страниц) ===== */
 const infoIds = ['about', 'news', 'updates'];
 const ruleIds = ['rules-server', 'rules-bot', 'rules-privacy'];
 function go(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.id === 'page-' + id));
+  const target = document.getElementById('page-' + id);
+  if (!target) { console.error('[Global Lens] неизвестная страница:', id); return; } /* не прячем текущую, если цели нет */
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p === target));
   document.querySelectorAll('.side-nav .active').forEach(x => x.classList.remove('active'));
   const infoBtn = document.getElementById('infoBtn');
   const infoGroup = document.getElementById('infoGroup');
@@ -727,8 +706,8 @@ function go(id) {
 document.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); }));
 const infoBtn2 = document.getElementById('infoBtn');
 const rulesBtn = document.getElementById('rulesBtn');
-if (infoBtn2) infoBtn2.addEventListener('click', () => document.getElementById('infoGroup').classList.toggle('open'));
-if (rulesBtn) rulesBtn.addEventListener('click', () => document.getElementById('rulesGroup').classList.toggle('open'));
+if (infoBtn2) infoBtn2.addEventListener('click', () => { const g = document.getElementById('infoGroup'); if (g) g.classList.toggle('open'); });
+if (rulesBtn) rulesBtn.addEventListener('click', () => { const g = document.getElementById('rulesGroup'); if (g) g.classList.toggle('open'); });
 
 /* ===== ТЕМЫ ===== */
 const names = { green: 'Green', blue: 'Blue', orange: 'Orange' };
@@ -736,8 +715,8 @@ function applyTheme(theme, save = true) {
   if (!names[theme]) theme = 'green';
   document.documentElement.dataset.theme = theme;
   document.querySelectorAll('.theme-btn').forEach(x => x.classList.toggle('active', x.dataset.themeSet === theme));
-  const themeNameEl = document.getElementById('themeName');
-  if (themeNameEl) themeNameEl.textContent = names[theme];
+  const tn = document.getElementById('themeName');
+  if (tn) tn.textContent = names[theme];
   if (save) try { localStorage.setItem('gl-theme', theme); } catch (e) {}
 }
 (function () {
@@ -754,7 +733,7 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
   const close = () => document.body.classList.remove('menu-open');
   if (toggle) toggle.addEventListener('click', () => document.body.classList.toggle('menu-open'));
   if (overlay) overlay.addEventListener('click', close);
-  document.addEventListener('click', e => { if (e.target.closest('.nav-item, .sub-item')) close(); });
+  document.addEventListener('click', e => { if (e.target.closest('[data-go]')) close(); });
   let sx = 0;
   document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
   document.addEventListener('touchend', e => {
