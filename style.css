@@ -345,3 +345,19 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
   .profile-name { font-size: 18px; }
 }
 
+/* ===== FIX DRAWER: вставлено в конец файла, перекрывает старые адаптивные правила ===== */
+.mobile-header { display: none; }
+.menu-toggle { width: 40px; height: 40px; background: none; border: none; color: var(--text); cursor: pointer; padding: 6px; border-radius: 8px; }
+.menu-toggle:hover { background: var(--acc-soft); }
+.menu-toggle svg { width: 100%; height: 100%; }
+.mobile-title { flex: 1; text-align: center; }
+.mobile-title .logo-title { font-size: 14px; letter-spacing: .14em; }
+.drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 250; opacity: 0; pointer-events: none; transition: opacity .3s; }
+@media (max-width: 960px) {
+  .mobile-header { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--side); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 200; }
+  .sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 85%; max-width: 320px; z-index: 300; transform: translateX(-100%); transition: transform .3s cubic-bezier(.4,0,.2,1); border-right: 1px solid var(--line); border-bottom: none; }
+  body.menu-open .sidebar { transform: translateX(0); box-shadow: 0 0 40px rgba(0,0,0,.5); }
+  body.menu-open .drawer-overlay { opacity: 1; pointer-events: auto; }
+  .side-nav { max-height: none; }
+  .side-top .status-card { display: none; }
+}
