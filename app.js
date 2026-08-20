@@ -726,18 +726,24 @@ function applyTheme(theme, save = true) {
 })();
 document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => applyTheme(b.dataset.themeSet, true)));
 
-/* ===== МОБИЛЬНОЕ DRAWER-МЕНЮ ===== */
+/* ===== МОБИЛЬНОЕ DRAWER-МЕНЮ (без оверлея) ===== */
 (function () {
   const toggle = document.getElementById('menuToggle');
-  const overlay = document.getElementById('drawerOverlay');
   const close = () => document.body.classList.remove('menu-open');
   if (toggle) toggle.addEventListener('click', () => document.body.classList.toggle('menu-open'));
-  if (overlay) overlay.addEventListener('click', close);
+  /* тап мимо меню закрывает его */
+  document.addEventListener('click', e => {
+    if (!document.body.classList.contains('menu-open')) return;
+    if (e.target.closest('.sidebar') || e.target.closest('#menuToggle')) return;
+    close();
+  });
+  /* переход по пункту меню закрывает его */
   document.addEventListener('click', e => { if (e.target.closest('[data-go]')) close(); });
+  /* свайп влево закрывает */
   let sx = 0;
   document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; });
   document.addEventListener('touchend', e => {
-    if (e.changedTouches[0].clientX - sx < -60 && document.body.classList.contains('menu-open')) close();
+    if (e.changedTouches[0].clientX - sx < -60) close();
   });
 })();
 
