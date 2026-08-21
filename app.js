@@ -58,6 +58,12 @@ function safeUrl(url) {
   if (t.startsWith('http://') || t.startsWith('https://') || t.startsWith('/')) return url;
   return '#';
 }
+function renderError(msg, retryFnName) {
+  return '<div class="error-box">' +
+    '<p class="loading" style="margin-bottom: 12px;">' + esc(msg) + '</p>' +
+    '<button class="cta ghost" onclick="' + retryFnName + '()">🔄 Повторить попытку</button>' +
+  '</div>';
+}
 
 /* ===== API БОТА ===== */
 async function apiGet(path) {
