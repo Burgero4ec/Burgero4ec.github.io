@@ -755,98 +755,140 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
 
 /* ===== ДОНАТ: ФИЗИКА ТЕКСТА (Matter.js) ===== */
 (function initFallingText() {
-  const container = document.querySelector('.falling-text-container');
+  const container = document.getElementById('donateFalling');
   const textEl = document.getElementById('fallingText');
-  const canvas = document.getElementById('fallingCanvas');
-  if (!container || !textEl || !canvas || typeof Matter === 'undefined') return;
+  const resetBtn = document.getElementById('fallingReset');
+  if (!container || !textEl || typeof Matter === 'undefined') return;
 
-  const highlightWords = ['Поддержи', 'проект', 'эксклюзивные', 'награды'];
-  const text = 'Поддержи проект и получи эксклюзивные награды';
-  const words = text.split(' ');
+  const TEXT = 'Выбирай свою награду и улучшай игру';
+  const HIGHLIGHT = ['Выбирай', 'награду', 'улучшай', 'игру'];
+  const words = TEXT.split(' ');
 
-  /* Разбиваем текст на span-ы с подсветкой */
+  /* Собираем HTML со span-ами */
   textEl.innerHTML = words
-    .map(word => {
-      const isHighlighted = highlightWords.some(hw => word.toLowerCase().startsWith(hw.toLowerCase()));
-      return `<span class="word ${isHighlighted ? 'highlighted' : ''}">${word}</span>`;
+    .map(w => {
+      const hl = HIGHLIGHT.some(h => w.toLowerCase().startsWith(h.toLowerCase()));
+      return `<span class="word ${hl ? 'highlighted' : ''}">${w}</span>`;
     })
     .join(' ');
 
-  /* Ждём рендера слов */
-  setTimeout(() => {
+  let engine = null, runner = null, wordBodies = [], mouseConstraint = null;
+  let active = false;
+
+  /* Старт/рестарт физики */
+  function startPhysics() {
+    if (active) stopPhysics();
     const rect = container.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
+    const W = rect.width, H = rect.height;
+    if (W <= 0 || H <= 0) return;
 
-    /* Matter.js движок */
-    const engine = Matter.Engine.create();
-    engine.world.gravity.y = 0.8;
+    engine = Matter.Engine.create();
+    engine.world.gravity.y = 0.6;
 
-    /* Стены */
-    const wallOptions = { isStatic: true, render: { fillStyle: 'transparent' } };
-    const floor = Matter.Bodies.rectangle(width / 2, height + 25, width, 50, wallOptions);
-    const leftWall = Matter.Bodies.rectangle(-25, height / 2, 50, height, wallOptions);
-    const rightWall = Matter.Bodies.rectangle(width + 25, height / 2, 50, height, wallOptions);
-    const ceiling = Matter.Bodies.rectangle(width / 2, -25, width, 50, wallOptions);
+    const walls = { isStatic: true, render: { visible: false } };
+    Matter.World.add(engine.world, [
+      Matter.Bodies.rectangle(W / 2, H + 25, W, 50, walls),      /* пол */
+      Matter.Bodies.rectangle(-25, H / 2, 50, H, walls),         /* лево */
+      Matter.Bodies.rectangle(W + 25, H / 2, 50, H, walls),      /* право */
+      Matter.Bodies.rectangle(W / 2, -25, W, 50, walls)          /* потолок */
+    ]);
 
-    /* Физические тела для каждого слова */
-    const wordSpans = textEl.querySelectorAll('.word');
-    const wordBodies = [...wordSpans].map((span, i) => {
-      const spanRect = span.getBoundingClientRect();
-      
-      /* Начальная позиция: центр контейнера + небольшое смещение */
-      const startX = width / 2 + (i - words.length / 2) * 60;
-      const startY = height / 2;
+    const spans = textEl.querySelectorAll('.word');
+    wordBodies = [...spans].map((span, i) => {
+      const sr = span.getBoundingClientRect();
+      /* начальная позиция: равномерно раскладываем в центре */
+      const cols = Math.min(words.length, 4);
+      const col = i % cols, row = Math.floor(i / cols);
+      const cellW = W / cols, cellH = 40;
+      const startX = cellW * col + cellW / 2;
+      const startY = H / 2 - 20 + row * cellH;
 
-      const body = Matter.Bodies.rectangle(startX, startY, spanRect.width, spanRect.height, {
-        render: { fillStyle: 'transparent' },
-        restitution: 0.7,
-        frictionAir: 0.01,
+      const body = Matter.Bodies.rectangle(startX, startY, sr.width, sr.height, {
+        restitution: 0.55,
+        frictionAir: 0.02,
         friction: 0.3,
-        angle: (Math.random() - 0.5) * 0.5
+        angle: (Math.random() - 0.5) * 0.4
       });
-
       Matter.Body.setVelocity(body, {
-        x: (Math.random() - 0.5) * 6,
-        y: Math.random() * -3
+        x: (Math.random() - 0.5) * 5,
+        y: Math.random() * -4
       });
       Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.1);
 
+      span.style.position = 'absolute';
+      span.style.left = '0px';
+      span.style.top = '0px';
+      span.style.margin = '0';
+      span.style.pointerEvents = 'none';
+
+      Matter.World.add(engine.world, body);
       return { elem: span, body };
     });
 
-    /* Позиционируем span-ы абсолютно */
-    wordBodies.forEach(({ elem }) => {
-      elem.style.position = 'absolute';
-      elem.style.left = '0px';
-      elem.style.top = '0px';
-      elem.style.transform = 'translate(-50%, -50%)';
-      elem.style.pointerEvents = 'none';
-    });
-
-    /* Мышь для перетаскивания */
+    /* мышь */
     const mouse = Matter.Mouse.create(container);
-    const mouseConstraint = Matter.MouseConstraint.create(engine, {
+    mouseConstraint = Matter.MouseConstraint.create(engine, {
       mouse,
-      constraint: { stiffness: 0.9, render: { visible: false } }
+      constraint: { stiffness: 0.8, render: { visible: false } }
     });
+    Matter.World.add(engine.world, mouseConstraint);
 
-    Matter.World.add(engine.world, [
-      floor, leftWall, rightWall, ceiling,
-      mouseConstraint,
-      ...wordBodies.map(wb => wb.body)
-    ]);
+    runner = Matter.Runner.create();
+    Matter.Runner.run(runner, engine);
+    active = true;
 
-    /* Анимация */
-    function update() {
-      requestAnimationFrame(update);
+    (function loop() {
+      if (!active) return;
+      requestAnimationFrame(loop);
       wordBodies.forEach(({ elem, body }) => {
-        elem.style.transform = `translate(${body.position.x}px, ${body.position.y}px) translate(-50%, -50%) rotate(${body.angle}rad)`;
+        elem.style.transform =
+          `translate(${body.position.x}px, ${body.position.y}px) translate(-50%, -50%) rotate(${body.angle}rad)`;
       });
-      Matter.Engine.update(engine);
+    })();
+  }
+
+  function stopPhysics() {
+    active = false;
+    if (runner) Matter.Runner.stop(runner);
+    if (engine) {
+      Matter.World.clear(engine.world);
+      Matter.Engine.clear(engine);
     }
-    update();
-  }, 200);
+    /* возвращаем слова на места */
+    wordBodies.forEach(({ elem }) => {
+      elem.style.position = '';
+      elem.style.left = '';
+      elem.style.top = '';
+      elem.style.margin = '';
+      elem.style.transform = '';
+      elem.style.pointerEvents = '';
+    });
+    wordBodies = [];
+    runner = null;
+    engine = null;
+  }
+
+  /* запуск только когда страница доната активна */
+  function maybeStart() {
+    const page = document.getElementById('page-donate');
+    if (page && page.classList.contains('active')) {
+      setTimeout(startPhysics, 80);
+    }
+  }
+
+  /* рестарт по кнопке */
+  if (resetBtn) resetBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    startPhysics();
+  });
+
+  /* слушаем переходы между страницами */
+  document.addEventListener('click', e => {
+    if (e.target.closest('[data-go="donate"]')) setTimeout(maybeStart, 100);
+  });
+
+  /* первый запуск при загрузке, если донат уже активен */
+  maybeStart();
 })();
 
 /* ===== ЗАПУСК ===== */
