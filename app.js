@@ -877,10 +877,16 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
   }
 
   /* рестарт по кнопке */
-  if (resetBtn) resetBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    startPhysics();
-  });
+    if (resetBtn) {
+      /* не даём Matter.Mouse перехватить тап по кнопке */
+      ['pointerdown', 'touchstart', 'mousedown'].forEach(ev =>
+        resetBtn.addEventListener(ev, e => e.stopPropagation())
+      );
+      resetBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        startPhysics();
+      });
+    }
 
   /* слушаем переходы между страницами */
   document.addEventListener('click', e => {
