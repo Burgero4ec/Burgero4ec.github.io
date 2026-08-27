@@ -19,6 +19,7 @@
 </script>
 <link rel="stylesheet" href="style.css">  
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 </head>
 <body>
 
@@ -303,6 +304,15 @@
     <section class="page" id="page-donate">
       <h1>Донат <em>магазин</em></h1>
       <p class="lead">Поддержи проект и получи эксклюзивные награды</p>
+
+      <!-- Анимированный заголовок -->
+      <div class="falling-text-container">
+        <div class="falling-text-target" id="fallingText">
+          Поддержи проект и получи эксклюзивные награды
+        </div>
+        <canvas class="falling-canvas" id="fallingCanvas"></canvas>
+      </div>
+
       <article class="card wide" style="margin-top:0">
         <h3><svg class="ic"><use href="#i-bag"/></svg>Цены</h3>
         <div class="update-content">
