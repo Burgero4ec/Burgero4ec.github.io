@@ -761,10 +761,10 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
   if (!container || !textEl || !canvas || typeof Matter === 'undefined') return;
 
   const highlightWords = ['Поддержи', 'проект', 'эксклюзивные', 'награды'];
-  const text = textEl.textContent.trim();
+  const text = 'Поддержи проект и получи эксклюзивные награды';
   const words = text.split(' ');
 
-  /* Разбиваем текст на span-ы */
+  /* Разбиваем текст на span-ы с подсветкой */
   textEl.innerHTML = words
     .map(word => {
       const isHighlighted = highlightWords.some(hw => word.toLowerCase().startsWith(hw.toLowerCase()));
@@ -791,33 +791,37 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
 
     /* Физические тела для каждого слова */
     const wordSpans = textEl.querySelectorAll('.word');
-    const wordBodies = [...wordSpans].map(span => {
+    const wordBodies = [...wordSpans].map((span, i) => {
       const spanRect = span.getBoundingClientRect();
-      const x = spanRect.left - rect.left + spanRect.width / 2;
-      const y = spanRect.top - rect.top + spanRect.height / 2;
+      
+      /* Начальная позиция: центр контейнера + небольшое смещение */
+      const startX = width / 2 + (i - words.length / 2) * 60;
+      const startY = height / 2;
 
-      const body = Matter.Bodies.rectangle(x, y, spanRect.width, spanRect.height, {
+      const body = Matter.Bodies.rectangle(startX, startY, spanRect.width, spanRect.height, {
         render: { fillStyle: 'transparent' },
         restitution: 0.7,
         frictionAir: 0.01,
-        friction: 0.3
+        friction: 0.3,
+        angle: (Math.random() - 0.5) * 0.5
       });
 
       Matter.Body.setVelocity(body, {
-        x: (Math.random() - 0.5) * 4,
-        y: 0
+        x: (Math.random() - 0.5) * 6,
+        y: Math.random() * -3
       });
-      Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.08);
+      Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.1);
 
       return { elem: span, body };
     });
 
     /* Позиционируем span-ы абсолютно */
-    wordBodies.forEach(({ elem, body }) => {
+    wordBodies.forEach(({ elem }) => {
       elem.style.position = 'absolute';
-      elem.style.left = `${body.position.x}px`;
-      elem.style.top = `${body.position.y}px`;
+      elem.style.left = '0px';
+      elem.style.top = '0px';
       elem.style.transform = 'translate(-50%, -50%)';
+      elem.style.pointerEvents = 'none';
     });
 
     /* Мышь для перетаскивания */
@@ -837,14 +841,12 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
     function update() {
       requestAnimationFrame(update);
       wordBodies.forEach(({ elem, body }) => {
-        elem.style.left = `${body.position.x}px`;
-        elem.style.top = `${body.position.y}px`;
-        elem.style.transform = `translate(-50%, -50%) rotate(${body.angle}rad)`;
+        elem.style.transform = `translate(${body.position.x}px, ${body.position.y}px) translate(-50%, -50%) rotate(${body.angle}rad)`;
       });
       Matter.Engine.update(engine);
     }
     update();
-  }, 100);
+  }, 200);
 })();
 
 /* ===== ЗАПУСК ===== */
