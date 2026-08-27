@@ -753,6 +753,100 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
   });
 })();
 
+/* ===== ДОНАТ: ФИЗИКА ТЕКСТА (Matter.js) ===== */
+(function initFallingText() {
+  const container = document.querySelector('.falling-text-container');
+  const textEl = document.getElementById('fallingText');
+  const canvas = document.getElementById('fallingCanvas');
+  if (!container || !textEl || !canvas || typeof Matter === 'undefined') return;
+
+  const highlightWords = ['Поддержи', 'проект', 'эксклюзивные', 'награды'];
+  const text = textEl.textContent.trim();
+  const words = text.split(' ');
+
+  /* Разбиваем текст на span-ы */
+  textEl.innerHTML = words
+    .map(word => {
+      const isHighlighted = highlightWords.some(hw => word.toLowerCase().startsWith(hw.toLowerCase()));
+      return `<span class="word ${isHighlighted ? 'highlighted' : ''}">${word}</span>`;
+    })
+    .join(' ');
+
+  /* Ждём рендера слов */
+  setTimeout(() => {
+    const rect = container.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
+    /* Matter.js движок */
+    const engine = Matter.Engine.create();
+    engine.world.gravity.y = 0.8;
+
+    /* Стены */
+    const wallOptions = { isStatic: true, render: { fillStyle: 'transparent' } };
+    const floor = Matter.Bodies.rectangle(width / 2, height + 25, width, 50, wallOptions);
+    const leftWall = Matter.Bodies.rectangle(-25, height / 2, 50, height, wallOptions);
+    const rightWall = Matter.Bodies.rectangle(width + 25, height / 2, 50, height, wallOptions);
+    const ceiling = Matter.Bodies.rectangle(width / 2, -25, width, 50, wallOptions);
+
+    /* Физические тела для каждого слова */
+    const wordSpans = textEl.querySelectorAll('.word');
+    const wordBodies = [...wordSpans].map(span => {
+      const spanRect = span.getBoundingClientRect();
+      const x = spanRect.left - rect.left + spanRect.width / 2;
+      const y = spanRect.top - rect.top + spanRect.height / 2;
+
+      const body = Matter.Bodies.rectangle(x, y, spanRect.width, spanRect.height, {
+        render: { fillStyle: 'transparent' },
+        restitution: 0.7,
+        frictionAir: 0.01,
+        friction: 0.3
+      });
+
+      Matter.Body.setVelocity(body, {
+        x: (Math.random() - 0.5) * 4,
+        y: 0
+      });
+      Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.08);
+
+      return { elem: span, body };
+    });
+
+    /* Позиционируем span-ы абсолютно */
+    wordBodies.forEach(({ elem, body }) => {
+      elem.style.position = 'absolute';
+      elem.style.left = `${body.position.x}px`;
+      elem.style.top = `${body.position.y}px`;
+      elem.style.transform = 'translate(-50%, -50%)';
+    });
+
+    /* Мышь для перетаскивания */
+    const mouse = Matter.Mouse.create(container);
+    const mouseConstraint = Matter.MouseConstraint.create(engine, {
+      mouse,
+      constraint: { stiffness: 0.9, render: { visible: false } }
+    });
+
+    Matter.World.add(engine.world, [
+      floor, leftWall, rightWall, ceiling,
+      mouseConstraint,
+      ...wordBodies.map(wb => wb.body)
+    ]);
+
+    /* Анимация */
+    function update() {
+      requestAnimationFrame(update);
+      wordBodies.forEach(({ elem, body }) => {
+        elem.style.left = `${body.position.x}px`;
+        elem.style.top = `${body.position.y}px`;
+        elem.style.transform = `translate(-50%, -50%) rotate(${body.angle}rad)`;
+      });
+      Matter.Engine.update(engine);
+    }
+    update();
+  }, 100);
+})();
+
 /* ===== ЗАПУСК ===== */
 handleLogin();
 loadMapInfo();
