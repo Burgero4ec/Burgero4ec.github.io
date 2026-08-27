@@ -305,16 +305,17 @@
       <h1>Донат <em>магазин</em></h1>
       <p class="lead">Поддержи проект и получи эксклюзивные награды</p>
 
-      <!-- Анимированный заголовок -->
-      <div class="falling-text-container">
-        <div class="falling-text-target" id="fallingText">
-          Поддержи проект и получи эксклюзивные награды
-        </div>
-        <canvas class="falling-canvas" id="fallingCanvas"></canvas>
-      </div>
-
       <article class="card wide" style="margin-top:0">
         <h3><svg class="ic"><use href="#i-bag"/></svg>Цены</h3>
+
+        <!-- Анимированная шапка внутри карточки -->
+        <div class="falling-text-container" id="donateFalling">
+          <div class="falling-text-target" id="fallingText">
+            Выбирай свою награду и улучшай игру
+          </div>
+          <button class="falling-reset" id="fallingReset" title="Сбросить">↺</button>
+        </div>
+
         <div class="update-content">
           <ul class="dc-list">
             <li>Кастомная роль на 7/14/30 дней — <strong>100/200/350 кредитов</strong></li>
