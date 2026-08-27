@@ -9,7 +9,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+  }
+}
+</script>
+<link rel="stylesheet" href="style.css">  
 </head>
 <body>
 
@@ -139,12 +147,22 @@
     <section class="page" id="page-about">
       <h1>О <em>сервере</em></h1>
       <p class="lead">ВПИ-сообщество нового уровня</p>
-      <article class="card wide">
-        <h3><svg class="ic"><use href="#i-bulb"/></svg>Что такое Global Lens?</h3>
-        <p><span class="hl">Global Lens</span> — это русскоязычное ВПИ-сообщество, где каждый участник становится полноценным игроком на мировой арене. Здесь нет готовых ответов — есть реальные последствия ваших решений.</p>
-        <p>Геополитика, военное дело, экономика и скрытые механизмы мировой политики — всё это оживает в нашем проекте. Каждый ход меняет баланс сил, каждое решение влияет на судьбы виртуальных государств.</p>
-        <p>Надоели поверхностные выводы и навязанные интерпретации? Здесь вы не просто читаете новости — вы становитесь частью процесса.</p>
-      </article>
+
+      <div class="about-text">
+        <article class="card" style="margin-top:0">
+          <h3><svg class="ic"><use href="#i-bulb"/></svg>Что такое Global Lens?</h3>
+          <p><span class="hl">Global Lens</span> — это русскоязычное ВПИ-сообщество, где каждый участник становится полноценным игроком на мировой арене. Здесь нет готовых ответов — есть реальные последствия ваших решений.</p>
+          <p>Геополитика, военное дело, экономика и скрытые механизмы мировой политики — всё это оживает в нашем проекте. Каждый ход меняет баланс сил, каждое решение влияет на судьбы виртуальных государств.</p>
+          <p>Надоели поверхностные выводы и навязанные интерпретации? Здесь вы не просто читаете новости — вы становитесь частью процесса.</p>
+        </article>
+      </div>
+
+      <div class="about-split">
+        <div class="about-viewer">
+          <div id="modelViewer" class="viewer-canvas"></div>
+          <div class="viewer-hint">Потяни, чтобы покрутить · колесо — зум</div>
+        </div>
+      </div>
     </section>
 
     <!-- НОВОСТИ -->
