@@ -400,3 +400,51 @@ model-viewer {
   .about-split { grid-template-columns: 1fr; gap: 20px; }
   .about-viewer { position: static; }
 }
+
+/* ===== ДОНАТ: АНИМИРОВАННЫЙ ТЕКСТ ===== */
+.falling-text-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  margin: 24px 0 32px;
+  cursor: grab;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--acc2);
+  border-radius: 12px;
+}
+.falling-text-container:active { cursor: grabbing; }
+.falling-text-target {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: Nunito;
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--text);
+  line-height: 1.4;
+  z-index: 2;
+  pointer-events: none;
+}
+.falling-text-target .word {
+  display: inline-block;
+  margin: 0 4px;
+  transition: color 0.2s;
+}
+.falling-text-target .word.highlighted {
+  color: var(--acc);
+}
+.falling-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .falling-text-container { height: 140px; }
+  .falling-text-target { font-size: 20px; padding: 30px 15px; }
+}
