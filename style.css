@@ -402,6 +402,19 @@ model-viewer {
 }
 
 /* ===== ДОНАТ: ФИЗИКА ТЕКСТА ВНУТРИ КАРТОЧКИ ===== */
+.falling-hint {
+  position: absolute;
+  left: 0; right: 0; bottom: 6px;
+  text-align: center;
+  font-family: 'JetBrains Mono';
+  font-size: 9.5px;
+  letter-spacing: .14em;
+  color: var(--dim);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.falling-text-container.falling .falling-hint { opacity: 0; }
 .falling-text-container {
   position: relative;
   width: 100%;
