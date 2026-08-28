@@ -858,10 +858,9 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
     container.classList.remove('falling');
   }
 
-  if (canHover) {
-    /* десктоп: навёл — упало, увёл — вернулось */
+    if (canHover) {
+    /* десктоп: навёл — упало; вернёт только кнопка ↺ */
     container.addEventListener('mouseenter', startPhysics);
-    container.addEventListener('mouseleave', stopPhysics);
   } else {
     /* телефон: тап роняет слова, ↺ возвращает */
     const startOnTap = () => { if (!active) startPhysics(); };
