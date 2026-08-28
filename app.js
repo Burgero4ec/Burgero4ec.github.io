@@ -753,7 +753,7 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
   });
 })();
 
-/* ===== ДОНАТ: ФИЗИКА ТЕКСТА (Matter.js) ===== */
+/* ===== ДОНАТ: ФИЗИКА ТЕКСТА (Matter.js) — падает только при наводе ===== */
 (function initFallingText() {
   const container = document.getElementById('donateFalling');
   const textEl = document.getElementById('fallingText');
@@ -764,7 +764,6 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
   const HIGHLIGHT = ['Выбирай', 'награду', 'улучшай', 'игру'];
   const words = TEXT.split(' ');
 
-  /* Собираем HTML со span-ами */
   textEl.innerHTML = words
     .map(w => {
       const hl = HIGHLIGHT.some(h => w.toLowerCase().startsWith(h.toLowerCase()));
@@ -772,12 +771,20 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
     })
     .join(' ');
 
-  let engine = null, runner = null, wordBodies = [], mouseConstraint = null;
-  let active = false;
+  /* подсказка */
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  const hint = document.createElement('div');
+  hint.className = 'falling-hint';
+  hint.textContent = canHover ? 'наведи курсор — слова упадут' : 'тапни — слова упадут';
+  container.appendChild(hint);
 
-  /* Старт/рестарт физики */
+  let engine = null, runner = null, wordBodies = [], active = false;
+
+  /* мышь создаём ОДИН раз, чтобы не плодить слушатели при каждом наводе */
+  const mouse = Matter.Mouse.create(container);
+
   function startPhysics() {
-    if (active) stopPhysics();
+    if (active) return;
     const rect = container.getBoundingClientRect();
     const W = rect.width, H = rect.height;
     if (W <= 0 || H <= 0) return;
@@ -787,32 +794,25 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
 
     const walls = { isStatic: true, render: { visible: false } };
     Matter.World.add(engine.world, [
-      Matter.Bodies.rectangle(W / 2, H + 25, W, 50, walls),      /* пол */
-      Matter.Bodies.rectangle(-25, H / 2, 50, H, walls),         /* лево */
-      Matter.Bodies.rectangle(W + 25, H / 2, 50, H, walls),      /* право */
-      Matter.Bodies.rectangle(W / 2, -25, W, 50, walls)          /* потолок */
+      Matter.Bodies.rectangle(W / 2, H + 25, W, 50, walls),
+      Matter.Bodies.rectangle(-25, H / 2, 50, H, walls),
+      Matter.Bodies.rectangle(W + 25, H / 2, 50, H, walls),
+      Matter.Bodies.rectangle(W / 2, -25, W, 50, walls)
     ]);
 
     const spans = textEl.querySelectorAll('.word');
     wordBodies = [...spans].map((span, i) => {
       const sr = span.getBoundingClientRect();
-      /* начальная позиция: равномерно раскладываем в центре */
       const cols = Math.min(words.length, 4);
       const col = i % cols, row = Math.floor(i / cols);
-      const cellW = W / cols, cellH = 40;
-      const startX = cellW * col + cellW / 2;
-      const startY = H / 2 - 20 + row * cellH;
+      const startX = (W / cols) * col + (W / cols) / 2;
+      const startY = H / 2 - 20 + row * 40;
 
       const body = Matter.Bodies.rectangle(startX, startY, sr.width, sr.height, {
-        restitution: 0.55,
-        frictionAir: 0.02,
-        friction: 0.3,
+        restitution: 0.55, frictionAir: 0.02, friction: 0.3,
         angle: (Math.random() - 0.5) * 0.4
       });
-      Matter.Body.setVelocity(body, {
-        x: (Math.random() - 0.5) * 5,
-        y: Math.random() * -4
-      });
+      Matter.Body.setVelocity(body, { x: (Math.random() - 0.5) * 5, y: Math.random() * -4 });
       Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.1);
 
       span.style.position = 'absolute';
@@ -825,17 +825,15 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
       return { elem: span, body };
     });
 
-    /* мышь */
-    const mouse = Matter.Mouse.create(container);
-    mouseConstraint = Matter.MouseConstraint.create(engine, {
-      mouse,
-      constraint: { stiffness: 0.8, render: { visible: false } }
+    const mouseConstraint = Matter.MouseConstraint.create(engine, {
+      mouse, constraint: { stiffness: 0.8, render: { visible: false } }
     });
     Matter.World.add(engine.world, mouseConstraint);
 
     runner = Matter.Runner.create();
     Matter.Runner.run(runner, engine);
     active = true;
+    container.classList.add('falling');
 
     (function loop() {
       if (!active) return;
@@ -848,53 +846,35 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
   }
 
   function stopPhysics() {
+    if (!active) return;
     active = false;
     if (runner) Matter.Runner.stop(runner);
-    if (engine) {
-      Matter.World.clear(engine.world);
-      Matter.Engine.clear(engine);
-    }
-    /* возвращаем слова на места */
+    if (engine) { Matter.World.clear(engine.world); Matter.Engine.clear(engine); }
     wordBodies.forEach(({ elem }) => {
-      elem.style.position = '';
-      elem.style.left = '';
-      elem.style.top = '';
-      elem.style.margin = '';
-      elem.style.transform = '';
-      elem.style.pointerEvents = '';
+      elem.style.position = ''; elem.style.left = ''; elem.style.top = '';
+      elem.style.margin = ''; elem.style.transform = ''; elem.style.pointerEvents = '';
     });
-    wordBodies = [];
-    runner = null;
-    engine = null;
+    wordBodies = []; runner = null; engine = null;
+    container.classList.remove('falling');
   }
 
-  /* запуск только когда страница доната активна */
-  function maybeStart() {
-    const page = document.getElementById('page-donate');
-    if (page && page.classList.contains('active')) {
-      setTimeout(startPhysics, 80);
-    }
+  if (canHover) {
+    /* десктоп: навёл — упало, увёл — вернулось */
+    container.addEventListener('mouseenter', startPhysics);
+    container.addEventListener('mouseleave', stopPhysics);
+  } else {
+    /* телефон: тап роняет слова, ↺ возвращает */
+    const startOnTap = () => { if (!active) startPhysics(); };
+    container.addEventListener('click', startOnTap);
+    container.addEventListener('touchstart', startOnTap, { passive: true });
   }
 
-  /* рестарт по кнопке */
-    if (resetBtn) {
-      /* не даём Matter.Mouse перехватить тап по кнопке */
-      ['pointerdown', 'touchstart', 'mousedown'].forEach(ev =>
-        resetBtn.addEventListener(ev, e => e.stopPropagation())
-      );
-      resetBtn.addEventListener('click', e => {
-        e.stopPropagation();
-        startPhysics();
-      });
-    }
-
-  /* слушаем переходы между страницами */
-  document.addEventListener('click', e => {
-    if (e.target.closest('[data-go="donate"]')) setTimeout(maybeStart, 100);
-  });
-
-  /* первый запуск при загрузке, если донат уже активен */
-  maybeStart();
+  if (resetBtn) {
+    ['pointerdown', 'touchstart', 'mousedown'].forEach(ev =>
+      resetBtn.addEventListener(ev, e => e.stopPropagation())
+    );
+    resetBtn.addEventListener('click', e => { e.stopPropagation(); stopPhysics(); });
+  }
 })();
 
 /* ===== ЗАПУСК ===== */
