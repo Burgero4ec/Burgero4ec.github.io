@@ -53,8 +53,39 @@ body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, 
 .nav-item { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border-radius: 10px; color: var(--muted); text-decoration: none; font-family: Nunito; font-weight: 700; font-size: 14.5px; background: none; border: 1px solid transparent; cursor: pointer; margin-bottom: 4px; text-align: left; transition: .15s; }
 .nav-item:hover { color: var(--text); background: var(--acc-soft); }
 .nav-item.active { color: var(--acc); background: var(--acc-soft); border-color: var(--acc-border); }
-.nav-group .subnav { display: none; margin: 2px 0 10px 27px; padding-left: 14px; border-left: 1px solid var(--line2); }
-.nav-group.open > .subnav { display: block; }
+/* ===== АНИМАЦИЯ КНОПОК ИНФОРМАЦИЯ / ПРАВИЛА ===== */
+.nav-group .subnav {
+  display: block;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0 0 0 27px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line2);
+  transition: max-height .4s cubic-bezier(.4,0,.2,1), opacity .3s ease, margin .3s ease;
+}
+.nav-group.open > .subnav {
+  max-height: 340px;
+  opacity: 1;
+  margin: 2px 0 10px 27px;
+}
+/* пункты выезжают по очереди */
+.nav-group .subnav > .sub-item {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity .25s ease, transform .25s ease, color .15s, background .15s, border-color .15s;
+}
+.nav-group.open > .subnav > .sub-item { opacity: 1; transform: none; }
+.nav-group.open > .subnav > .sub-item:nth-child(1) { transition-delay: .05s; }
+.nav-group.open > .subnav > .sub-item:nth-child(2) { transition-delay: .11s; }
+.nav-group.open > .subnav > .sub-item:nth-child(3) { transition-delay: .17s; }
+.nav-group.open > .subnav > .sub-item:nth-child(4) { transition-delay: .23s; }
+/* иконка кнопки «оживает» при открытии */
+.nav-group .nav-item > .ic:not(.chev) { transition: transform .35s cubic-bezier(.34,1.56,.64,1), color .2s; }
+.nav-group.open > .nav-item > .ic:not(.chev) { transform: scale(1.18) rotate(-8deg); color: var(--acc); }
+/* кнопка пружинит при нажатии */
+.nav-item:active, .sub-item:active { transform: scale(.96); }
+.nav-group.open > .nav-item { box-shadow: 0 0 12px var(--acc-glow); }
 .sub-item { display: flex; gap: 10px; align-items: center; width: 100%; padding: 10px 12px; border-radius: 9px; color: var(--muted); font-family: Nunito; font-weight: 600; font-size: 13.5px; text-decoration: none; margin-bottom: 4px; border: 1px solid transparent; background: none; cursor: pointer; text-align: left; }
 .sub-item:hover { color: var(--text); }
 .sub-item.active { color: var(--text); background: var(--acc-soft); border-color: var(--acc-border); }
