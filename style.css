@@ -509,10 +509,9 @@ model-viewer {
 .lanyard-frame {
   display: block;
   width: 100%;
-  max-width: 560px;
-  height: 560px;
-  margin: -6px auto 26px;
+  height: 700px;
+  margin: 26px 0 10px;
   border: 0;
   background: transparent;
 }
-@media (max-width: 768px) { .lanyard-frame { height: 470px; } }
+@media (max-width: 768px) { .lanyard-frame { height: 520px; } }
