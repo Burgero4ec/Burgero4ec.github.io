@@ -876,6 +876,46 @@ document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('c
   }
 })();
 
+/* ===== ЛАНЬЯРД В НОВОСТЯХ ===== */
+(function initLanyard() {
+  const zone = document.getElementById('lanyardZone');
+  const card = document.getElementById('lanyardCard');
+  const strap = document.querySelector('.lanyard-strap');
+  if (!zone || !card) return;
+
+  let a = 0, va = 0;          /* качание rotateZ */
+  let tw = 0, vtw = 0;        /* кручение rotateY */
+  let flip = 0, flipT = 0;    /* переворот карточки */
+  let dragging = false, lx = 0, moved = 0;
+
+  zone.addEventListener('pointerdown', e => { dragging = true; lx = e.clientX; moved = 0; });
+  window.addEventListener('pointerup', () => { dragging = false; });
+  window.addEventListener('pointercancel', () => { dragging = false; });
+  zone.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    const dx = e.clientX - lx; lx = e.clientX; moved += Math.abs(dx);
+    va += dx * 0.0009;
+    vtw += dx * 0.004;
+  });
+  card.addEventListener('click', () => { if (moved < 6) flipT = flipT ? 0 : 180; });
+
+  const K = 30, D = 2.2, KT = 22, DT = 1.8;
+  let last = performance.now();
+  (function loop(t) {
+    requestAnimationFrame(loop);
+    const dt = Math.min((t - last) / 1000, 0.033);
+    last = t;
+    va += (-K * a - D * va) * dt; a += va * dt;
+    vtw += (-KT * tw - DT * vtw) * dt; tw += vtw * dt;
+    flip += (flipT - flip) * 0.12;
+    const idle = Math.sin(t / 1100) * 1.5 + Math.sin(t / 4700) * 1.2;
+    const deg = a * 57.29 + idle;
+    const degY = tw * 57.29 + flip;
+    card.style.transform = 'rotateZ(' + deg.toFixed(2) + 'deg) rotateY(' + degY.toFixed(2) + 'deg)';
+    if (strap) strap.style.transform = 'translateX(-50%) rotate(' + (deg * 0.35).toFixed(2) + 'deg)';
+  })(last);
+})();
+
 /* ===== ЗАПУСК ===== */
 handleLogin();
 loadMapInfo();
