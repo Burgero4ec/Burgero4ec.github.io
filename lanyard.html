@@ -192,7 +192,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, frontImage = null
       <mesh ref={band}>
         <meshLineGeometry />
         <meshLineMaterial color="white" depthTest={false} resolution={isMobile ? [1000, 2000] : [1000, 1000]}
-          useMap map={texture} repeat={[-9, 1]} lineWidth={lanyardWidth} />
+          useMap map={texture} repeat={[-7, 1]} lineWidth={lanyardWidth} />
       </mesh>
     </>
   );
