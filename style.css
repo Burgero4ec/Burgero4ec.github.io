@@ -486,3 +486,21 @@ model-viewer {
   .falling-text-target { font-size: 17px; padding: 14px; }
   .falling-text-target .word { padding: 3px 6px; }
 }
+
+/* ===== ЛАНЬЯРД В НОВОСТЯХ ===== */
+.lanyard-zone { position: relative; height: 430px; margin: -6px auto 26px; max-width: 460px; perspective: 1000px; cursor: grab; touch-action: pan-y; }
+.lanyard-zone:active { cursor: grabbing; }
+.lanyard-zone::before { content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 150px; height: 8px; background: var(--acc2); border-radius: 4px; box-shadow: 0 0 14px var(--acc-glow); }
+.lanyard-strap { position: absolute; top: 0; left: 50%; transform: translateX(-50%); transform-origin: 50% 0; width: 140px; height: 150px; }
+.lanyard-clip { position: absolute; top: 142px; left: 50%; transform: translateX(-50%); width: 16px; height: 24px; background: linear-gradient(180deg, #cfd8d3, #6b7a70); border-radius: 4px; z-index: 2; box-shadow: 0 2px 6px rgba(0,0,0,.5); }
+.lanyard-card { position: absolute; top: 160px; left: 50%; width: 190px; height: 255px; margin-left: -95px; transform-origin: 50% -10px; transform-style: preserve-3d; will-change: transform; }
+.lc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 14px; overflow: hidden; border: 1px solid var(--acc-border); background: var(--card); box-shadow: 0 14px 34px rgba(0,0,0,.55), 0 0 18px var(--acc-glow); display: flex; flex-direction: column; }
+.lc-front img { width: 100%; height: 100%; object-fit: cover; }
+.lc-back { transform: rotateY(180deg); }
+.lc-back img { flex: 1; min-height: 0; width: 100%; object-fit: cover; }
+.lc-name { font-family: 'JetBrains Mono'; font-size: 11px; letter-spacing: .22em; color: var(--acc); text-align: center; padding: 9px 6px; background: #0c1116; border-top: 1px solid var(--line2); }
+.lanyard-hint { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-family: 'JetBrains Mono'; font-size: 9.5px; letter-spacing: .14em; color: var(--dim); }
+@media (max-width: 768px) {
+  .lanyard-zone { height: 380px; }
+  .lanyard-card { width: 155px; height: 210px; margin-left: -77px; top: 152px; }
+}
