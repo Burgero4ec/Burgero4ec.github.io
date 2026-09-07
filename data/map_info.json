@@ -1,10 +1,10 @@
 {
   "discord_members": 635,
-  "players": 24,
+  "players": 25,
   "country": 21,
-  "autonomy": 1,
+  "autonomy": 2,
   "organization": 2,
-  "total_gdp": 44484469403967,
-  "total_population": 3904184797,
-  "last_update": "2026-09-07T18:11:09.414426+00:00"
+  "total_gdp": 44500229619535,
+  "total_population": 3907260950,
+  "last_update": "2026-09-07T19:11:09.414127+00:00"
 }
