@@ -389,7 +389,7 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
   .sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 85%; max-width: 320px; z-index: 300; transform: translateX(-100%); transition: transform .3s cubic-bezier(.4,0,.2,1); border-right: 1px solid var(--line); border-bottom: none; }
   body.menu-open .sidebar { transform: translateX(0); box-shadow: 0 0 40px rgba(0,0,0,.5); }
   body.menu-open .drawer-overlay { opacity: 1; pointer-events: auto; }
-  .side-nav { max-height: none; }
+  .side-nav { max-height: none; padding: 14px; }
   .side-top .status-card { display: none; }
 }
 
