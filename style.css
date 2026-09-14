@@ -319,25 +319,30 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
 }
 @media (max-width: 960px) {
   .layout { flex-direction: column; }
-  /* === ДОБАВИТЬ ЭТИ СТРОКИ === */
+  
+  /* Сайдбар становится обычным блоком сверху, не прилипает и не скрывается */
   .sidebar { 
     width: 100%; 
     flex: none; 
     height: auto !important; 
     max-height: none !important; 
-    position: static !important; 
+    position: static !important; /* Ключевое изменение: static вместо fixed */
+    transform: none !important;   /* Убираем сдвиг за экран */
     border-right: none; 
     border-bottom: 1px solid var(--line); 
   }
+  
+  /* Меню внутри сайдбара показываем полностью, без обрезки */
   .side-nav { 
     max-height: none !important; 
     overflow: visible; 
+    padding: 14px;
   }
-  .mobile-header { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--side); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 200; }
-  .sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 85%; max-width: 320px; z-index: 300; transform: translateX(-100%); transition: transform .3s cubic-bezier(.4,0,.2,1); border-right: 1px solid var(--line); box-shadow: none; }
-  body.menu-open .sidebar { transform: translateX(0); box-shadow: 0 0 40px rgba(0,0,0,.5); }
-  .drawer-overlay { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 250; opacity: 0; pointer-events: none; transition: opacity .3s; }
-  body.menu-open .drawer-overlay { opacity: 1; pointer-events: auto; }
+  
+  /* Скрываем мобильную шапку с гамбургером, так как она больше не нужна */
+  .mobile-header { display: none !important; }
+  .drawer-overlay { display: none !important; }
+  
   .main { padding: 24px 16px; }
   .grid-2, .stats, .stats.three, .stats.two { grid-template-columns: 1fr 1fr; }
   #page-features .grid-3 { grid-template-columns: 1fr 1fr; }
@@ -345,7 +350,7 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
   .lead { font-size: 15px; margin-bottom: 32px; }
   .card { padding: 20px; }
   .stats-split { grid-template-columns: 1fr; gap: 18px; }
-  .side-top .status-card { display: none; }
+  .side-top .status-card { display: none; } /* Скрываем статус "Онлайн" в шапке сайдбара на мобиле, если мешает */
 }
 @media (max-width: 768px) {
   .logo-row { gap: 10px; }
