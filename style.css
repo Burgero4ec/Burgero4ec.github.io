@@ -319,6 +319,20 @@ details.long-list .list-body { padding: 4px 14px 14px; display: flex; flex-direc
 }
 @media (max-width: 960px) {
   .layout { flex-direction: column; }
+  /* === ДОБАВИТЬ ЭТИ СТРОКИ === */
+  .sidebar { 
+    width: 100%; 
+    flex: none; 
+    height: auto !important; 
+    max-height: none !important; 
+    position: static !important; 
+    border-right: none; 
+    border-bottom: 1px solid var(--line); 
+  }
+  .side-nav { 
+    max-height: none !important; 
+    overflow: visible; 
+  }
   .mobile-header { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--side); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 200; }
   .sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 85%; max-width: 320px; z-index: 300; transform: translateX(-100%); transition: transform .3s cubic-bezier(.4,0,.2,1); border-right: 1px solid var(--line); box-shadow: none; }
   body.menu-open .sidebar { transform: translateX(0); box-shadow: 0 0 40px rgba(0,0,0,.5); }
