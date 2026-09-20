@@ -3,7 +3,7 @@
  */
 export class DiscordAuthManager {
   constructor(config = {}) {
-    this.clientId = config.clientId || '123456789012345678'; // ID приложения Discord
+    this.clientId = config.clientId || '1125471835924992150'; // ID приложения Discord
     this.redirectUri = config.redirectUri || window.location.origin + window.location.pathname;
     this.storageKey = 'gl_discord_session';
     this.currentUser = this.loadSession();
