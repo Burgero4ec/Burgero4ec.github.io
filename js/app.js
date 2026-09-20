@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // 2. Инициализация Discord OAuth2 авторизации
   const auth = new DiscordAuthManager({
-    clientId: '1347000000000000000', // Укажите Client ID вашего Discord приложения
+    clientId: '1125471835924992150', // Укажите Client ID вашего Discord приложения
     redirectUri: window.location.origin + window.location.pathname
   });
   await auth.handleCallback();
