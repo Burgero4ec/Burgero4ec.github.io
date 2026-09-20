@@ -42,6 +42,128 @@
 <link rel="stylesheet" href="style.css">  
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+<style>
+/* === Геополитическая схема государств на 3D Глобусе === */
+.state-schema-container {
+  position: relative;
+  border: 1px solid rgba(74, 222, 128, 0.25) !important;
+  box-shadow: 0 0 35px rgba(74, 222, 128, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, #0d1711 0%, #060a08 100%);
+}
+.schema-hud-top {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+.schema-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4ade80;
+  background: rgba(8, 12, 9, 0.85);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.04em;
+}
+.schema-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #94a3b8;
+  background: rgba(15, 23, 42, 0.7);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+.schema-legend-bar {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  pointer-events: none;
+}
+.legend-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+.l-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: rgba(8, 12, 9, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(6px);
+}
+.l-pill .dot { width: 6px; height: 6px; border-radius: 50%; }
+.l-pill.blue .dot { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
+.l-pill.red .dot { background: #f87171; box-shadow: 0 0 6px #f87171; }
+.l-pill.amber .dot { background: #fbbf24; box-shadow: 0 0 6px #fbbf24; }
+.l-pill.green .dot { background: #4ade80; box-shadow: 0 0 6px #4ade80; }
+
+/* 3D Hotspot pins on Globe */
+.hotspot {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+.hotspot-pulse {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80, 0 0 20px #4ade80;
+  animation: hotspot-radar 2s infinite ease-out;
+}
+@keyframes hotspot-radar {
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.hotspot-label {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(6, 10, 8, 0.9);
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  color: #4ade80;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 2px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+</style>
 </head>
 <body>
 
@@ -174,26 +296,57 @@
       <p class="lead">ВПИ-сообщество нового уровня</p>
 
       <div class="about-split">
-        <div class="about-viewer">
+        <div class="about-viewer state-schema-container">
+          <div class="schema-hud-top">
+            <span class="schema-badge"><svg class="ic"><use href="#i-globe"/></svg> ГЕОПОЛИТИЧЕСКАЯ СХЕМА ГОСУДАРСТВ</span>
+            <span class="schema-tag">СЕЗОН 26</span>
+          </div>
+
           <model-viewer
             id="heroModel"
             src="https://raw.githubusercontent.com/Kartikey1220/Solar_system/main/Earth.glb"
             alt="3D Глобус Земли Global Lens"
             camera-controls
             auto-rotate
-            auto-rotate-delay="0"
-            rotation-per-second="30deg"
-            shadow-intensity="1.5"
+            auto-rotate-delay="1000"
+            rotation-per-second="12deg"
+            shadow-intensity="1.2"
             environment-image="neutral"
-            exposure="1.2"
-            camera-orbit="45deg 65deg 0.7m"
-            min-camera-orbit="auto auto 0.1m"
-            max-camera-orbit="auto auto 1.5m"
-            field-of-view="30deg"
-            
+            exposure="1.1"
+            camera-orbit="0deg 75deg 2.4m"
+            min-camera-orbit="auto auto 1.6m"
+            max-camera-orbit="auto auto 4.5m"
+            field-of-view="32deg"
             style="width: 100%; height: 100%;"
-          ></model-viewer>
-          <div class="viewer-hint">Потяни, чтобы покрутить · колесо — зум</div>
+          >
+            <!-- Интерактивные геополитические точки блоков государств -->
+            <button class="hotspot" slot="hotspot-na" data-position="0.25 0.55 0.75" data-normal="0.25 0.55 0.75">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-label">Атлантический Пакт</span>
+            </button>
+            <button class="hotspot" slot="hotspot-ea" data-position="-0.6 0.35 0.7" data-normal="-0.6 0.35 0.7">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-label">Евразийский Союз</span>
+            </button>
+            <button class="hotspot" slot="hotspot-ap" data-position="-0.75 -0.2 0.65" data-normal="-0.75 -0.2 0.65">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-label">Тихоокеанский Блок</span>
+            </button>
+            <button class="hotspot" slot="hotspot-me" data-position="-0.15 0.3 0.95" data-normal="-0.15 0.3 0.95">
+              <span class="hotspot-pulse"></span>
+              <span class="hotspot-label">Ближневосточная Лига</span>
+            </button>
+          </model-viewer>
+
+          <div class="schema-legend-bar">
+            <div class="legend-pills">
+              <span class="l-pill blue"><span class="dot"></span> Пакт (Запад)</span>
+              <span class="l-pill red"><span class="dot"></span> Союз (Восток)</span>
+              <span class="l-pill amber"><span class="dot"></span> Тихоокеанский</span>
+              <span class="l-pill green"><span class="dot"></span> Нейтралитет</span>
+            </div>
+            <div class="viewer-hint">Вращайте глобус для обзора геополитических сфер · колесо — зум схемы</div>
+          </div>
         </div>
 
         <div class="about-text">
