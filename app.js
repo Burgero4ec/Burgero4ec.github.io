@@ -5,6 +5,7 @@ const GH_URLS = {
   privacy: 'https://raw.githubusercontent.com/AytacOnan2/ToS-and-Privacy-Policy-Global-Lens-Bot/main/PRIVACY_POLICY.md'
 };
 const API_BASE = '';
+const DISCORD_CLIENT_ID = '1125471835924992150';
 const AUTH_TOKENS_URL = 'auth_tokens.json';
 const BOT_DM_URL = 'https://discord.com/users/1406960264275824670';
 const PLAYERS_URL = 'players.json';
@@ -462,6 +463,32 @@ async function handleLogin() {
       }
     } catch (e) { console.error('[Global Lens] auth:', e); }
   }
+  // 1-Click Discord OAuth2 (ID: 1125471835924992150)
+  const hash = window.location.hash;
+  if (hash && hash.includes('access_token')) {
+    const params = new URLSearchParams(hash.replace(/^#/, ''));
+    const token = params.get('access_token');
+    if (token) {
+      try {
+        const dRes = await fetch('https://discord.com/api/users/@me', {
+          headers: { Authorization: 'Bearer ' + token }
+        });
+        if (dRes.ok) {
+          const du = await dRes.json();
+          window.glUser = {
+            id: du.id,
+            name: du.global_name || du.username,
+            avatar: du.avatar ? ('https://cdn.discordapp.com/avatars/' + du.id + '/' + du.avatar + '.png?size=128') : 'assets/logo-green.png'
+          };
+          localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+          history.replaceState(null, '', window.location.pathname);
+        }
+      } catch (err) {
+        console.error('[Global Lens] OAuth error:', err);
+      }
+    }
+  }
+
   if (!window.glUser) {
     try { window.glUser = JSON.parse(localStorage.getItem('gl-user')); } catch (e) { window.glUser = null; }
   }
@@ -488,9 +515,16 @@ async function renderCabinet() {
   const body = document.getElementById('cabinetBody');
   if (!body) return;
   if (!window.glUser) {
-    body.innerHTML = '<div class="card wide login-card"><h3><svg class="ic"><use href="#i-user"/></svg>Вы не вошли</h3>' +
-      '<p>Чтобы войти, напишите боту в ЛС команду <b>/login</b> — он пришлёт одноразовую ссылку (действует 10 минут).</p>' +
-      '<div class="cta-row"><a class="cta fill" target="_blank" rel="noopener" href="' + BOT_DM_URL + '">Открыть ЛС бота</a></div></div>';
+    const redirect = encodeURIComponent(window.location.origin + window.location.pathname);
+    const authUrl = 'https://discord.com/oauth2/authorize?client_id=' + DISCORD_CLIENT_ID + '&response_type=token&scope=identify&redirect_uri=' + redirect;
+    body.innerHTML = '<div class="card wide login-card">' +
+      '<h3><svg class="ic"><use href="#i-discord"/></svg>Вход в Личный кабинет</h3>' +
+      '<p>Вход осуществляется напрямую через официальное Discord-приложение Global Lens (Client ID: <code>' + DISCORD_CLIENT_ID + '</code>). Команда <b>/login</b> больше не нужна — войдите в 1 клик:</p>' +
+      '<div class="cta-row" style="margin-top:18px">' +
+      '<a class="cta fill" style="background:#5865F2;color:#ffffff;display:inline-flex;align-items:center;gap:10px;font-weight:700;padding:12px 24px;border-radius:10px;box-shadow:0 4px 14px rgba(88,101,242,0.3)" href="' + authUrl + '">' +
+      '<svg class="ic" style="width:22px;height:22px"><use href="#i-discord"/></svg> Войти через Discord' +
+      '</a>' +
+      '</div></div>';
     return;
   }
   const u = window.glUser;
