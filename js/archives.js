@@ -20,6 +20,64 @@ export const archState = {
   order: 'desc'
 };
 
+const ARCHIVE_PAGE_SIZE = 35;
+let currentArchiveMessages = [];
+let renderedArchiveCount = 0;
+let archiveScrollObserver = null;
+
+function renderMessageCard(m) {
+  const k = ARCHIVE_KINDS.find(x => x.id === m.kind) || { emoji: '📄' };
+  return `
+    <article class="update-card odyssey-item">
+      <div class="update-meta">
+        <span class="update-author">${esc(m.author)}</span>
+        <span class="update-date">${esc(m.dateStr)}</span>
+        <span class="arch-badge">${k.emoji} сезон ${m.season}</span>
+      </div>
+      <div class="update-content">${renderMarkdown(m.content)}</div>
+    </article>
+  `;
+}
+
+function appendNextArchiveChunk() {
+  const body = document.getElementById('archBody');
+  if (!body || !currentArchiveMessages.length) return;
+
+  const listContainer = document.getElementById('archMessagesList');
+  const sentinel = document.getElementById('archLoadMoreSentinel');
+  if (!listContainer) return;
+
+  const nextBatch = currentArchiveMessages.slice(renderedArchiveCount, renderedArchiveCount + ARCHIVE_PAGE_SIZE);
+  if (!nextBatch.length) {
+    if (sentinel) sentinel.remove();
+    return;
+  }
+
+  const temp = document.createElement('div');
+  temp.innerHTML = nextBatch.map(renderMessageCard).join('');
+
+  temp.querySelectorAll('.spoiler').forEach(sp => {
+    sp.addEventListener('click', () => sp.classList.toggle('revealed'));
+  });
+
+  const fragment = document.createDocumentFragment();
+  while (temp.firstChild) {
+    fragment.appendChild(temp.firstChild);
+  }
+  listContainer.appendChild(fragment);
+
+  renderedArchiveCount += nextBatch.length;
+  refreshOdysseyElements(listContainer);
+
+  const remaining = currentArchiveMessages.length - renderedArchiveCount;
+  if (remaining > 0 && sentinel) {
+    const btn = sentinel.querySelector('#archLoadMoreBtn');
+    if (btn) btn.textContent = `Загрузить ещё (${remaining} осталось)`;
+  } else if (sentinel) {
+    sentinel.remove();
+  }
+}
+
 function getArchiveUrl(season, kind) {
   const num = Number(season);
   if (num === 1 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-1-1') + '.html';
@@ -211,25 +269,38 @@ export async function renderArchives() {
       return;
     }
 
-    body.innerHTML = msgs.map(m => {
-      const k = ARCHIVE_KINDS.find(x => x.id === m.kind) || { emoji: '📄' };
-      return `
-        <article class="update-card">
-          <div class="update-meta">
-            <span class="update-author">${esc(m.author)}</span>
-            <span class="update-date">${esc(m.dateStr)}</span>
-            <span class="arch-badge">${k.emoji} сезон ${m.season}</span>
-          </div>
-          <div class="update-content">${renderMarkdown(m.content)}</div>
-        </article>
-      `;
-    }).join('');
+    currentArchiveMessages = msgs;
+    renderedArchiveCount = 0;
 
-    body.querySelectorAll('.spoiler').forEach(sp => {
-      sp.addEventListener('click', () => sp.classList.toggle('revealed'));
-    });
+    body.innerHTML = `
+      <div id="archMessagesList"></div>
+      ${msgs.length > ARCHIVE_PAGE_SIZE ? `
+        <div id="archLoadMoreSentinel" style="text-align:center;padding:24px 0 16px">
+          <button class="cta ghost" id="archLoadMoreBtn" style="min-width:240px">
+            Загрузить ещё (${msgs.length - ARCHIVE_PAGE_SIZE} осталось)
+          </button>
+        </div>
+      ` : ''}
+    `;
 
-    refreshOdysseyElements(body);
+    appendNextArchiveChunk();
+
+    const sentinel = document.getElementById('archLoadMoreSentinel');
+    if (sentinel) {
+      const btn = sentinel.querySelector('#archLoadMoreBtn');
+      if (btn) {
+        btn.addEventListener('click', () => appendNextArchiveChunk());
+      }
+      if ('IntersectionObserver' in window) {
+        if (archiveScrollObserver) archiveScrollObserver.disconnect();
+        archiveScrollObserver = new IntersectionObserver((entries) => {
+          if (entries[0] && entries[0].isIntersecting) {
+            appendNextArchiveChunk();
+          }
+        }, { root: null, rootMargin: '250px', threshold: 0.01 });
+        archiveScrollObserver.observe(sentinel);
+      }
+    }
   } catch (err) {
     console.error('[Global Lens] archives error:', err);
     body.innerHTML = `<p class="loading text-rose-400">Ошибка загрузки: ${esc(err.message)}</p>`;

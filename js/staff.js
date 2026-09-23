@@ -13,6 +13,13 @@ let staffDataStore = null;
 export async function loadStaffData() {
   if (staffDataStore) return staffDataStore;
   try {
+    const res = await fetch('data/staff_buttons_data.json');
+    if (res.ok) {
+      staffDataStore = await res.json();
+      return staffDataStore;
+    }
+  } catch (e) {}
+  try {
     const res = await fetch('data/staff.json');
     if (res.ok) {
       staffDataStore = await res.json();
@@ -64,8 +71,14 @@ export function decorateStaff() {
     }
 
     const ava = m.querySelector('.m-ava');
-    if (av && ava && !ava.querySelector('img')) {
-      ava.innerHTML = '<img src="' + av + '" alt="' + esc(rawName) + '">';
+    if (ava) {
+      const img = ava.querySelector('img');
+      if (av) {
+        if (img) img.src = av;
+        else ava.innerHTML = '<img src="' + av + '" alt="' + esc(rawName) + '" onerror="this.onerror=null;this.src=\'https://cdn.discordapp.com/embed/avatars/0.png\';">';
+      } else if (img && !img.getAttribute('onerror')) {
+        img.setAttribute('onerror', "this.onerror=null;this.src='https://cdn.discordapp.com/embed/avatars/0.png';");
+      }
     }
 
     // Плашка «это вы»

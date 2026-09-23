@@ -13,10 +13,20 @@ export function closeDrawer() {
 
 export function openDrawer() {
   document.body.classList.add('menu-open');
+  const sidebar = document.querySelector('.sidebar');
+  if (sidebar) {
+    sidebar.scrollTop = 0;
+  }
 }
 
 export function toggleDrawer() {
-  document.body.classList.toggle('menu-open');
+  const isOpen = document.body.classList.toggle('menu-open');
+  if (isOpen) {
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+      sidebar.scrollTop = 0;
+    }
+  }
 }
 
 export function go(id) {
@@ -53,6 +63,16 @@ export function go(id) {
   // Запуск сопутствующих анимаций
   if (id === 'home') {
     animateStats();
+  }
+
+  // Ленивый запуск рендера архивов при первом переходе
+  if (id === 'archives') {
+    import('./archives.js').then(m => {
+      const archBody = document.getElementById('archBody');
+      if (archBody && !archBody.querySelector('.update-card')) {
+        m.renderArchives();
+      }
+    });
   }
 
   // Запуск каскадной анимации появления элементов в стиле Odyssey
