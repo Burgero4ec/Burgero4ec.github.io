@@ -1,61 +1,35 @@
 /**
- * themes.js - Модуль управления цветовыми схемами (green, blue, orange)
+ * themes.js - Модуль управления цветовыми темами (green, blue, orange)
  */
-export const THEMES = {
-  GREEN: 'green',
-  BLUE: 'blue',
-  ORANGE: 'orange'
-};
 
-export class ThemeManager {
-  constructor(storageKey = 'gl-theme', defaultTheme = THEMES.GREEN) {
-    this.storageKey = storageKey;
-    this.defaultTheme = defaultTheme;
-    this.currentTheme = this.loadTheme();
-  }
+const THEME_NAMES = { green: 'Green', blue: 'Blue', orange: 'Orange' };
 
-  loadTheme() {
+export function applyTheme(theme, save = true) {
+  if (!THEME_NAMES[theme]) theme = 'green';
+  document.documentElement.dataset.theme = theme;
+
+  document.querySelectorAll('.theme-btn').forEach(x => {
+    x.classList.toggle('active', x.dataset.themeSet === theme);
+  });
+
+  const tn = document.getElementById('themeName');
+  if (tn) tn.textContent = THEME_NAMES[theme];
+
+  if (save) {
     try {
-      const saved = localStorage.getItem(this.storageKey);
-      if (saved && Object.values(THEMES).includes(saved)) {
-        return saved;
-      }
-    } catch (e) {
-      console.warn('Storage unavailable, fallback to default theme');
-    }
-    return this.defaultTheme;
-  }
-
-  applyTheme(themeName) {
-    if (!Object.values(THEMES).includes(themeName)) return;
-
-    this.currentTheme = themeName;
-    document.documentElement.setAttribute('data-theme', themeName);
-    
-    // Обновление иконок и логотипов под тему
-    this.updateThemeVisuals(themeName);
-
-    try {
-      localStorage.setItem(this.storageKey, themeName);
+      localStorage.setItem('gl-theme', theme);
     } catch (e) {}
-
-    window.dispatchEvent(new CustomEvent('gl-theme-changed', { detail: { theme: themeName } }));
   }
+}
 
-  updateThemeVisuals(theme) {
-    const logoImg = document.getElementById('navbarLogo');
-    if (logoImg) {
-      logoImg.src = `img/logo_${theme}.png`;
-    }
-  }
+export function initThemes() {
+  let saved = null;
+  try {
+    saved = localStorage.getItem('gl-theme');
+  } catch (e) {}
+  applyTheme(saved || 'green', false);
 
-  initButtons() {
-    document.querySelectorAll('[data-set-theme]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const theme = e.currentTarget.getAttribute('data-set-theme');
-        this.applyTheme(theme);
-      });
-    });
-    this.applyTheme(this.currentTheme);
-  }
+  document.querySelectorAll('[data-theme-set]').forEach(b => {
+    b.addEventListener('click', () => applyTheme(b.dataset.themeSet, true));
+  });
 }

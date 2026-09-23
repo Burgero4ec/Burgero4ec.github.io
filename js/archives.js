@@ -1,95 +1,242 @@
 /**
- * archives.js - Модульная загрузка архивов по сезонам (раздельные JSON вместо монолита на 187КБ)
+ * archives.js - Ленивая загрузка (lazy load) архивов по выбранным сезонам и категориям
  */
-import { SafeDiscordParser } from './parser.js';
+import { esc, parseTs } from './utils.js';
+import { renderMarkdown } from './parser.js';
+import { refreshOdysseyElements } from './animations.js';
 
-export class ArchiveManager {
-  constructor(containerId = 'archiveContent', parser = new SafeDiscordParser()) {
-    this.container = document.getElementById(containerId);
-    this.parser = parser;
-    this.cache = new Map();
-    this.currentSeason = 26;
+export const ARCHIVE_SEASONS = [22, 21, 20, 19, 2, 1];
+export const ARCHIVE_KINDS = [
+  { id: 'countries', emoji: '📺', label: 'Новости стран и автономий' },
+  { id: 'orgs',      emoji: '👥', label: 'Новости организаций' },
+  { id: 'events',    emoji: '🗽', label: 'События' }
+];
+
+const archiveCache = new Map();
+export const archState = {
+  season: '22', // По умолчанию открываем последний доступный сезон 22 вместо загрузки всех 27 файлов
+  kind: 'all',
+  q: '',
+  order: 'desc'
+};
+
+function getArchiveUrl(season, kind) {
+  const num = Number(season);
+  if (num === 1 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-1-1') + '.html';
+  if (num === 2 && kind === 'events') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-2-ивенты') + '.html';
+  if (num === 2 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-2-новости') + '.html';
+
+  const emojiMap = { countries: '📺', orgs: '👥', events: '🗽' };
+  const emoji = emojiMap[kind];
+  if (!emoji) return null;
+  return 'архивы/Archive_' + encodeURIComponent(emoji + '・' + num + '-сезон') + '.html';
+}
+
+export async function loadArchiveFile(season, kind) {
+  const key = `${season}:${kind}`;
+  if (archiveCache.has(key)) {
+    return archiveCache.get(key);
   }
 
-  async loadSeason(seasonNumber = 26) {
-    this.currentSeason = seasonNumber;
-    if (this.cache.has(seasonNumber)) {
-      this.renderSeason(this.cache.get(seasonNumber));
+  const url = getArchiveUrl(season, kind);
+  if (!url) return [];
+
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      archiveCache.set(key, []);
+      return [];
+    }
+
+    const text = await res.text();
+    const doc = new DOMParser().parseFromString(text, 'text/html');
+    const messages = [...doc.querySelectorAll('.message')].map(m => {
+      const content = m.querySelector('.content');
+      if (!content) return null;
+      const ts = m.querySelector('.timestamp');
+      const author = m.querySelector('.author');
+      const rawTs = ts ? ts.textContent.split('|')[0].trim() : '';
+      return {
+        date: parseTs(rawTs),
+        dateStr: rawTs,
+        author: author ? author.textContent.trim() : '—',
+        content: content.innerHTML.trim(),
+        text: (content.textContent || '').trim(),
+        season: Number(season),
+        kind: kind
+      };
+    }).filter(x => x && x.text);
+
+    archiveCache.set(key, messages);
+    return messages;
+  } catch (err) {
+    archiveCache.set(key, []);
+    return [];
+  }
+}
+
+export function renderArchFolders() {
+  const el = document.getElementById('archFolders');
+  if (!el) return;
+
+  el.innerHTML = ARCHIVE_SEASONS.map(s => `
+    <div class="folder ${String(archState.season) === String(s) ? 'active' : ''}">
+      <h3>📁 Сезон ${s}</h3>
+      <div class="folder-files">
+        ${ARCHIVE_KINDS.map(k => `
+          <button class="folder-file ${String(archState.season) === String(s) && (archState.kind === k.id || archState.kind === 'all') ? 'selected' : ''}" data-season="${s}" data-kind="${k.id}">
+            ${k.emoji} ${k.label}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  el.querySelectorAll('.folder-file').forEach(b => {
+    b.addEventListener('click', () => {
+      archState.season = b.dataset.season;
+      archState.kind = b.dataset.kind;
+      const ss = document.getElementById('archSeason');
+      const kk = document.getElementById('archKind');
+      if (ss) ss.value = b.dataset.season;
+      if (kk) kk.value = b.dataset.kind;
+      renderArchFolders();
+      renderArchives();
+    });
+  });
+}
+
+export function initArchControls() {
+  const sel = document.getElementById('archSeason');
+  if (sel) {
+    sel.innerHTML = `
+      <option value="22" selected>Сезон 22 (рекомендуется)</option>
+      <option value="21">Сезон 21</option>
+      <option value="20">Сезон 20</option>
+      <option value="19">Сезон 19</option>
+      <option value="2">Сезон 2</option>
+      <option value="1">Сезон 1</option>
+      <option value="all">Все сезоны (пакетная загрузка)</option>
+    `;
+
+    sel.addEventListener('change', () => {
+      archState.season = sel.value;
+      renderArchFolders();
+      renderArchives();
+    });
+  }
+
+  const kk = document.getElementById('archKind');
+  if (kk) {
+    kk.addEventListener('change', e => {
+      archState.kind = e.target.value;
+      renderArchFolders();
+      renderArchives();
+    });
+  }
+
+  const qq = document.getElementById('archSearch');
+  if (qq) {
+    let searchTimeout = null;
+    qq.addEventListener('input', e => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        archState.q = e.target.value;
+        renderArchives();
+      }, 200);
+    });
+  }
+
+  // Сортировка порядка
+  document.querySelectorAll('.order-toggle[data-for="archives"] button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      archState.order = btn.dataset.order;
+      document.querySelectorAll('.order-toggle[data-for="archives"] button').forEach(b => {
+        b.classList.toggle('active', b === btn);
+      });
+      renderArchives();
+    });
+  });
+}
+
+export async function renderArchives() {
+  const body = document.getElementById('archBody');
+  const stats = document.getElementById('archStats');
+  if (!body) return;
+
+  const seasons = archState.season === 'all'
+    ? ARCHIVE_SEASONS
+    : [Number(archState.season)];
+
+  const kinds = archState.kind === 'all'
+    ? ARCHIVE_KINDS.map(k => k.id)
+    : [archState.kind];
+
+  body.innerHTML = `
+    <div class="p-8 text-center text-zinc-400">
+      <div class="inline-block w-7 h-7 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin mb-3"></div>
+      <div class="text-xs font-mono">Загрузка архивов (сезон ${archState.season})...</div>
+    </div>
+  `;
+
+  try {
+    // Загружаем только выбранный сезон
+    const lists = await Promise.all(
+      seasons.flatMap(s => kinds.map(k => loadArchiveFile(s, k)))
+    );
+
+    let msgs = lists.flat();
+    const q = archState.q.trim().toLowerCase();
+    if (q) {
+      msgs = msgs.filter(m =>
+        m.author.toLowerCase().includes(q) ||
+        m.text.toLowerCase().includes(q) ||
+        m.dateStr.includes(q) ||
+        String(m.season).includes(q)
+      );
+    }
+
+    msgs.sort((a, b) => archState.order === 'asc' ? a.date - b.date : b.date - a.date);
+
+    if (stats) {
+      stats.innerHTML = `
+        <div class="us-item"><b>${msgs.length}</b>сообщений</div>
+        <div class="us-item"><b>${new Set(msgs.map(m => m.author)).size}</b>авторов</div>
+        <div class="us-item"><b>${new Set(msgs.map(m => m.season)).size}</b>сезонов</div>
+      `;
+    }
+
+    if (!msgs.length) {
+      body.innerHTML = '<p class="loading">Ничего не найдено в выбранном архиве.</p>';
       return;
     }
 
-    this.showLoader();
-    try {
-      // Загружаем компактный JSON конкретного сезона вместо единого файла на 187 КБ
-      const response = await fetch(`data/seasons/season-${seasonNumber}.json`);
-      if (!response.ok) throw new Error(`Сезон ${seasonNumber} не найден`);
-
-      const data = await response.json();
-      this.cache.set(seasonNumber, data);
-      this.renderSeason(data);
-    } catch (err) {
-      this.showError(`Не удалось загрузить данные сезона ${seasonNumber}: ${err.message}`);
-    }
-  }
-
-  renderSeason(seasonData) {
-    if (!this.container) return;
-
-    const html = `
-      <div class="season-header mb-6">
-        <h2 class="text-2xl font-bold text-white">${seasonData.title}</h2>
-        <div class="flex items-center gap-3 text-xs text-zinc-400 mt-2">
-          <span>Статус: <b class="${seasonData.status === 'active' ? 'text-emerald-400' : 'text-zinc-300'}">${seasonData.status.toUpperCase()}</b></span>
-          <span>•</span>
-          <span>Статей прессы: <b>${seasonData.totalArticles}</b></span>
-          <span>•</span>
-          <span>Фракций: <b>${seasonData.totalNations}</b></span>
-        </div>
-      </div>
-
-      <div class="factions-grid grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        ${seasonData.factions.map(f => `
-          <div class="faction-card p-4 rounded-xl border border-zinc-800 bg-zinc-900/60" style="border-left: 3px solid ${f.color}">
-            <div class="text-xs font-mono text-zinc-400">[${f.tag}]</div>
-            <div class="font-bold text-white text-sm mt-1">${f.name}</div>
-            <div class="text-xs text-zinc-400 mt-2">Индекс влияния: <span class="font-mono text-white">${f.powerIndex} / 100</span></div>
+    body.innerHTML = msgs.map(m => {
+      const k = ARCHIVE_KINDS.find(x => x.id === m.kind) || { emoji: '📄' };
+      return `
+        <article class="update-card">
+          <div class="update-meta">
+            <span class="update-author">${esc(m.author)}</span>
+            <span class="update-date">${esc(m.dateStr)}</span>
+            <span class="arch-badge">${k.emoji} сезон ${m.season}</span>
           </div>
-        `).join('')}
-      </div>
+          <div class="update-content">${renderMarkdown(m.content)}</div>
+        </article>
+      `;
+    }).join('');
 
-      <div class="events-list space-y-4">
-        <h3 class="text-lg font-bold text-white mb-3">Ключевая хроника событий</h3>
-        ${seasonData.keyEvents.map(ev => `
-          <div class="event-row p-4 rounded-xl bg-zinc-900/40 border border-zinc-800 flex flex-col md:flex-row md:items-center justify-between gap-3">
-            <div>
-              <div class="text-xs font-mono text-emerald-400 mb-1">${ev.date} · [${ev.category}]</div>
-              <div class="text-sm font-semibold text-white">${ev.title}</div>
-              <div class="text-xs text-zinc-300 mt-1">${this.parser.parse(ev.summary)}</div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
+    body.querySelectorAll('.spoiler').forEach(sp => {
+      sp.addEventListener('click', () => sp.classList.toggle('revealed'));
+    });
 
-    this.container.innerHTML = html;
+    refreshOdysseyElements(body);
+  } catch (err) {
+    console.error('[Global Lens] archives error:', err);
+    body.innerHTML = `<p class="loading text-rose-400">Ошибка загрузки: ${esc(err.message)}</p>`;
   }
+}
 
-  showLoader() {
-    if (!this.container) return;
-    this.container.innerHTML = `
-      <div class="p-12 text-center text-zinc-400">
-        <div class="inline-block w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin mb-3"></div>
-        <div class="text-xs font-mono">Загрузка архивов сезона ${this.currentSeason}...</div>
-      </div>
-    `;
-  }
-
-  showError(msg) {
-    if (!this.container) return;
-    this.container.innerHTML = `
-      <div class="p-6 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-mono">
-        ⚠️ ${msg}
-      </div>
-    `;
-  }
+export function initArchives() {
+  renderArchFolders();
+  initArchControls();
 }

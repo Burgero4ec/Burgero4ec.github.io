@@ -4,30 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Основные мета-теги -->
-<title>Global Lens | Официальный сайт</title>
-<meta name="description" content="Официальный сайт проекта Global Lens: правила сервера, статистика игроков, информация о сезонах и актуальный статус." />
+<title>Global Lens — мир без фильтров и клише | Официальный портал</title>
+<meta name="description" content="Официальный сайт проекта Global Lens: правила сервера, геополитика, военное дело, статистика игроков, информация о сезонах и актуальный статус.">
 
-  <!-- Зелёный цвет темы для эмбедов Discord/Telegram -->
-<meta name="theme-color" content="#4ade80" />
+<!-- Зелёный цвет темы для эмбедов Discord/Telegram -->
+<meta name="theme-color" content="#4ade80">
 
-  <!-- Open Graph (Discord, Telegram, VK и др.) -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://burgero4ec.github.io/" />
-<meta property="og:site_name" content="Global Lens" />
-<meta property="og:title" content="Global Lens | Игровой сервер" />
-<meta property="og:description" content="Правила сервера, статистика игроков, актуальный статус и информация о сезонах." />
-<meta property="og:image" content="https://burgero4ec.github.io/assets/logo-green.png" />
-<meta property="og:image:alt" content="Логотип Global Lens" />
+<!-- Open Graph (Discord, Telegram, VK и др.) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://burgero4ec.github.io/">
+<meta property="og:site_name" content="Global Lens">
+<meta property="og:title" content="Global Lens — мир без фильтров и клише">
+<meta property="og:description" content="Правила сервера, геополитика, статистика игроков, актуальный статус и информация о сезонах.">
+<meta property="og:image" content="https://burgero4ec.github.io/assets/logo-green.webp">
+<meta property="og:image:alt" content="Логотип Global Lens">
 
- <!-- Twitter / X Card -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Global Lens | Игровой сервер" />
-<meta name="twitter:description" content="Правила сервера, статистика игроков, актуальный статус и информация о сезонах." />
-<meta name="twitter:image" content="https://burgero4ec.github.io/assets/logo-green.png" /> 
-<title>Global Lens — мир без фильтров и клише</title>
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Global Lens — мир без фильтров и клише">
+<meta name="twitter:description" content="Правила сервера, геополитика, статистика игроков, актуальный статус и информация о сезонах.">
+<meta name="twitter:image" content="https://burgero4ec.github.io/assets/logo-green.webp">
+
 <link rel="icon" type="image/svg+xml" href="LXR.svg">
 <link rel="icon" type="image/png" href="planeta.png">
-<meta name="description" content="Русскоязычное ВПИ-сообщество для тех, кто смотрит глубже. Геополитика, военное дело, экономика и скрытые механизмы мировой политики.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -178,14 +177,17 @@
 
 <div class="layout">
 
+  <!-- Оверлей для закрытия мобильного меню -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="side-top">
       <div class="logo-row">
         <div class="logo-badge">
-          <img class="logo-green" src="assets/logo-green.png" alt="">
-          <img class="logo-blue" src="assets/logo-blue.png" alt="">
-          <img class="logo-orange" src="assets/logo-orange.png" alt="">
+          <img class="logo-green" src="assets/logo-green.webp" alt="Global Lens Green" width="48" height="48">
+          <img class="logo-blue" src="assets/logo-blue.webp" alt="Global Lens Blue" width="48" height="48">
+          <img class="logo-orange" src="assets/logo-orange.webp" alt="Global Lens Orange" width="48" height="48">
         </div>
         <div>
           <div class="logo-title">GLOBAL <span>LENS</span></div>
@@ -304,7 +306,9 @@
 
           <model-viewer
             id="heroModel"
-            src="https://raw.githubusercontent.com/Kartikey1220/Solar_system/main/Earth.glb"
+            src="assets/Earth.glb"
+            loading="lazy"
+            reveal="auto"
             alt="3D Глобус Земли Global Lens"
             camera-controls
             auto-rotate
@@ -337,6 +341,12 @@
               <span class="hotspot-label">Ближневосточная Лига</span>
             </button>
           </model-viewer>
+          <script>
+            if (window.location.protocol === 'file:') {
+              var hm = document.getElementById('heroModel');
+              if (hm) hm.setAttribute('src', 'https://raw.githubusercontent.com/Kartikey1220/Solar_system/main/Earth.glb');
+            }
+          </script>
 
           <div class="schema-legend-bar">
             <div class="legend-pills">
@@ -393,7 +403,48 @@
     <section class="page" id="page-rules-server">
       <h1>Правила <em>сервера</em></h1>
       <p class="lead">Для поддержания порядка и продуктивной игры</p>
-      <div id="rulesServerBody"><p class="loading">Загрузка правил...</p></div>
+      <div id="rulesServerBody">
+<article class="card wide" style="margin-top:0"><h3><svg class="ic"><use href="#i-scroll"/></svg>Правила сервера</h3>
+<p>Для поддержания порядка и обеспечения продуктивной игры, при использовании сервера "Global Lens", вы соглашаетесь с нижеизложенными правилами. Все правила применяются ко всем каналам на сервере, если не указано иное.</p>
+<div class="rule"><b>Правило <i>1.1</i> — Зона действия правил и личные границы</b><p>Правила проекта обязательны для соблюдения во всех публичных каналах. Личная переписка участников не модерируется, однако рассылка рекламы в ЛС или публикация чужих личных сообщений (включая скриншоты и видео) в открытом доступе строго наказывается.</p><span class="pun">Наказание: от мута до бана</span></div>
+<div class="rule"><b>Правило <i>1.2</i> — Учетные записи и ролевой процесс</b><p>На проекте разрешено использовать только один основной профиль, а дополнительный аккаунт допускается исключительно в осведомительных целях — например, если основной был временно ограничен самой платформой Discord, либо технические неполадки не позволяют зайти с главной учетной записи. При этом создание таких резервных профилей для обхода выданных локальных наказаний, создания беспорядка или получения выгоды в процессе ролевой игры приведет к блокировке всех ваших аккаунтов.</p><span class="pun">Наказание: бан всех учетных записей</span></div>
+<div class="rule"><b>Правило <i>1.3</i> — Субординация и служба поддержки</b><p>Любые пресекательные меры применяются на усмотрение персонала, а обоснованные решения высшего руководства не подлежат публичному оспариванию. Запрещено беспричинно упоминать высшую администрацию — со всеми вопросами, жалобами и апелляциями необходимо обращаться напрямую в службу поддержки.</p></div>
+</article>
+
+<article class="card wide"><h3><svg class="ic"><use href="#i-receipt"/></svg>Правила регистрации</h3>
+<div class="rule"><b>Правило <i>2.1</i> — Регистрация и управление страной</b><p>Подать заявку на создание страны могут только владельцы учетных записей, зарегистрированных не менее трех дней назад. Анкета должна строго соответствовать установленной форме подачи, в противном случае анкетолог вправе её отклонить. Важно учитывать, что при смене игровой страны весь прогресс, достигнутый за предыдущее государство, полностью и безвозвратно обнуляется.</p></div>
+<div class="rule"><b>Правило <i>2.2</i> — Техническая честность и использование бота</b><p>Любое намеренное использование уязвимостей, багов или ошибок серверного бота в личных целях или во вред проекту категорически запрещено. Подобные действия расцениваются как отказ от услуг бота и ведут к автоматическому снятию с регистрации (потере страны). В зависимости от тяжести нарушения, администрация может дополнительно применить длительный мут, запрет на повторную регистрацию или полную блокировку на сервере.</p><span class="pun">Наказание: снятие с регистрации, вплоть до бана</span></div>
+<div class="rule"><b>Правило <i>3.1</i> — Уважительное общение и запрет конфликтов</b><p>Запрещены любые оскорбления, угрозы, травля и дискриминация. Оскорбление или упоминание родственников в негативном ключе категорически запрещено даже в шуточной форме. Также запрещено подстрекать участников к конфликтам, разжигать ссоры или активно в них участвовать. Администрация оставляет за собой право наказать как исключительно инициатора, так и всех участников перепалки.</p><span class="pun">Наказание: от мута до 1 дня (за родственников — удвоение)</span></div>
+<div class="rule"><b>Правило <i>3.2</i> — Запрещенный контент и реальная политика</b><p>Запрещена публикация, обмен и оправдание нелегальных материалов, порнографии, шокирующего контента (NSFW), распространение тоталитарной символики, а также оправдание всех нарушений прав против общества. Проект находится вне реальной политики. Строго запрещена политическая агитация, пропаганда и обсуждение реальных вооруженных конфликтов (включая войну между Украиной и Россией). Защита или продвижение позиций любых сторон из реального мира не приветствуется и пресекается.</p><span class="pun">Наказание: мут от 3 часов до 1 дня</span></div>
+<div class="rule"><b>Правило <i>3.3</i> — Конфиденциальность</b><p>Категорически запрещено разглашать личную информацию других участников без их прямого согласия. Это касается реальных адресов, номеров телефонов, электронных почт, фотографий и любых других персональных данных.</p><span class="pun">Наказание: мут от 6 часов до 1 дня</span></div>
+<div class="rule"><b>Правило <i>3.4</i> — Чистота чата: спам и реклама</b><p>Запрещено засорять чаты повторяющимися сообщениями, бессмысленным текстом, чрезмерным использованием CAPS LOCK или огромным количеством эмодзи. Оффтоп в тематических каналах также наказуем. Любой пиар сторонних проектов, серверов или продуктов без предварительного одобрения высшей администрации сервера запрещен и может привести к вечной блокировке аккаунта.</p><span class="pun">Наказание: от мута до бана</span></div>
+</article>
+
+<article class="card wide"><h3><svg class="ic"><use href="#i-gamepad"/></svg>Правила игры</h3>
+<div class="rule"><b>Правило <i>4.1</i> — Общение и публикация новостей</b><ul>
+<li><b>Тематика чатов.</b> Строго соблюдайте назначение каналов. Использование скобок // не освобождает от ответственности за оффтоп.</li>
+<li><b>Формат новостей.</b> Все игровые сводки публикуются на грамотном русском языке (допускаются аутентичные заголовки, фразы в цитатах и очень минимальные ошибки). Новость должна полностью раскрывать суть события и включать комментарии участвующих лиц или гос. деятелей.</li>
+<li><b>Объем.</b> Минимальный размер новости — 30 слов, а для государств со статусом сверхдержавы — 50 слов. Неформатные новости подлежат откату.</li></ul></div>
+
+<div class="rule"><b>Правило <i>4.2</i> — Дипломатия, переговоры и транзакции</b><ul>
+<li><b>Прозрачность переговоров.</b> Любые переговоры (включая секретные) ведутся исключительно в соответствующих форумных каналах. Соглашения и новости, основанные на договоренностях из личных сообщений (ЛС) или голосовых чатов, считаются недействительными, не влияют на RP-процесс и подлежат откату.</li>
+<li><b>Передача ресурсов.</b> Любая передача финансов или военных сил требует полноценного RP-обоснования. Скрытые переводы без отыгровки ведут к изъятию средств без права возврата.</li>
+<li><b>Преемственность договоров.</b> При смене игрока на государстве, автономии или организации все ранее заключенные им пакты и договоры сохраняют свою силу. Новый правитель имеет полное право их денонсировать. Политологи при проверке соглашений обязаны сохранять абсолютный нейтралитет.</li></ul></div>
+
+<div class="rule"><b>Правило <i>4.3</i> — Игровые механики: щиты, ультиматумы и NPC</b><ul>
+<li><b>Защитный щит.</b> После регистрации новое государство, автономия или организация получает иммунитет на 3 суток (если администрацией не указано иное). В этот период запрещено объявлять войны, получать и отправлять санкции, а также выдвигать или получать ультиматумы.</li>
+<li><b>Ультиматумы.</b> Стандартный срок действия любого ультиматума автоматически фиксируется на реальных 24 часах.</li>
+<li><b>Роль политологов.</b> Политолог (даже если он сам является игроком) имеет право отыгрывать войны, дипломатию и отвечать на ультиматумы от лица государств, не занятых игроками (NPC).</li></ul></div>
+
+<div class="rule"><b>Правило <i>4.4</i> — Дополнительные игровые регламенты</b>
+<p>Помимо основного свода, на проекте действуют детализированные правила для конкретных RP-механик:</p>
+<ul><li><b>Правила войн:</b> регулируют порядок ведения боевых действий, включая обоснование для начала конфликта (казус белли), причины для отката, механику сражений, а также назначение и процедуру смены ведущего политолога.</li>
+<li><b>Правила соглашений:</b> устанавливают стандартизированную форму для заключения международных договоров и регламентируют обязательный состав участников сделки.</li>
+<li><b>Правила военной активности:</b> закрепляют строгие шаблоны оформления военных действий, существующие лимиты, а также штрафные санкции за несоблюдение установленных форматов подачи.</li></ul></div>
+
+<div class="rule"><b>Другое</b><p>Руководство и администрация может лишь частично гарантировать неприкосновенность личной жизни. Каждый участник в обсуждении своей личной жизни с другими участниками сам обязуется выстроить определённые рамки за которые не стоит переходить в диалоге. Если определённого выстроения рамок не произошло, то руководство и администрация в праве мутить исключительно по общесерверным правилам. Также, участник сам решает какую информацию про себя распространять. Если эта информация было использована другими сторонами против него же, то наказание на проекте совершается по соответственному правилу.</p></div>
+</article>
+</div>
     </section>
 
     <!-- ПРАВИЛА БОТА -->
@@ -447,7 +498,117 @@
     <section class="page" id="page-staff">
       <h1>Персонал <em>Global Lens</em></h1>
       <p class="lead">Люди, которые делают проект лучше каждый день</p>
-      <div id="staffBody"><p class="loading">Загрузка персонала...</p></div>
+      <div id="staffBody">
+<div class="sec-title"><svg class="ic"><use href="#i-crown"/></svg>ЛИДЕРСТВО / ОСНОВАТЕЛЬ</div>
+<article class="card" style="margin-top:0">
+<div class="member" data-discord-id="484044030640914437"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/484044030640914437/a85444c050d4e5b4c749d702ec5cbd69.png?size=1024" alt=""></span><div><b>AytacOnan2</b><span class="m-role">ОСНОВАТЕЛЬ</span><p>Владелец сервера. Создал бота, который делает всю тяжёлую работу. Просто хороший человек, без которого этого проекта не существовало бы.</p></div></div>
+</article>
+<div class="sec-title"><svg class="ic"><use href="#i-heart"/></svg>ПРИЗНАТЕЛЬНОСТЬ / ОТДЕЛЬНАЯ БЛАГОДАРНОСТЬ</div>
+<p class="lead" style="margin-top:0;margin-bottom:24px">Люди, внёсшие особый вклад в развитие проекта</p>
+<article class="card" style="margin-top:0">
+<div class="member" data-discord-id="758998250610360341"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=1024" alt=""></span><div><b>Китаёзик</b><span class="m-role">СОЗДАТЕЛЬ САЙТА</span><p>Создатель данного сайта. Сделал всё, что вы сейчас видите — от дизайна до реализации.</p></div></div>
+<div class="member"><span class="m-ava">R</span><div><b>Riy</b><span class="m-role">БЫВШИЙ СОВЛАДЕЛЕЦ</span><p>Бывший совладелец сервера Event Horizon. Придумывал прикольные идеи и помогал делать бота. Партнёрка... хыхххыыхы..ы.ы.ы.ыххы4.</p></div></div>
+<div class="member" data-discord-id="1066701976949239905"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1066701976949239905/d99b9aa9ae64e50db02a59e027222752.png?size=1024" alt=""></span><div><b>ℚ𝕎𝔼ℝ𝕋𝕏</b><span class="m-role">ЗАМЕСТИТЕЛЬ</span><p>Прошёл полную карьерную лестницу от простого игрока до заместителя. За время работы на шампур пытались насадить минимум 5 раз (включая AytacOnan2 и прочих неравнодушных), но он выжил. Легенда сервера. Обвиняется в:</p><div class="member-actions-row" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+  <button class="btn-achievements" onclick="openStaffModal('qwertx')">
+    <svg class="ic"><use href="#i-scale"/></svg> Список обвинений (200) <span class="badge-verdict">Суд его оправдал</span>
+  </button>
+</div></div></div>
+<div class="member yabl1ch-easter-egg" data-discord-id="800254982641025056"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/800254982641025056/f532bafe0f0287fc28281fe76a0325c0.png?size=1024" alt=""></span><div><b class="cs2-nick-trigger" onclick="window.open('cs2_web_yabl1ch (1).html', '_blank')" title="Секретная игра: CS2 от Yabl1ch">Yabl1ch</b><span class="m-role">КУРАТОР АНКЕТОЛОГОВ</span><p>Самый лучший куратор анкетологов, и ещё и самый лучший анкетолог, и по совместительству заслуженный человек в политологии.</p></div></div>
+<div class="member" data-discord-id="1135494383773433937"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1135494383773433937/e7c3107d92d3ae28e439406ba1e49357.png?size=1024" alt=""></span><div><b>LayBay</b><span class="m-role">СПЕЦИАЛИСТ ПО ТЕХНИКЕ</span><p>Реализовал процесс по созданию, оценке и принятию техники. Также является куратором картографии и куратором технологов.</p></div></div>
+<div class="member"><span class="m-ava">Ф</span><div><b>[ВНК] Феникс Единорогович</b><span class="m-role">БЫВШИЙ АДМИНИСТРАТОР</span><p>Единорожка. Да, просто единорожка. 🦄✨</p></div></div>
+</article>
+<div class="sec-title"><svg class="ic"><use href="#i-shield"/></svg>УПРАВЛЕНИЕ / АДМИНИСТРАЦИЯ</div>
+<article class="card" style="margin-top:0">
+<div class="member" data-discord-id="758998250610360341"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=1024" alt=""></span><div><b>Китаёзик</b><span class="m-role">ЗАМ. РУКОВОДСТВА</span><p>Создатель данного сайта и правая рука руководства. Держит в руках и код, и порядок.</p></div></div>
+<div class="member" data-discord-id="825769203347882042"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/825769203347882042/0e29d84c19de3e819e41e605d07743fa.png?size=1024" alt=""></span><div><b>Flowy 🌻</b><span class="m-role">АДМИНИСТРАТОР</span><p>Самый добрый и лучший человек в мире с большим сердцем. Всегда поможет, всегда поддержит.</p></div></div>
+<div class="member" data-discord-id="830428424677490728"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt=""></span><div><b>𝕻𝖔𝖓𝖟𝖈</b><span class="m-role">АДМИНИСТРАТОР / КАРТОГРАФИЯ</span><p>Смог восстановить и сделать стабильную работу картографии. Награды:</p><div class="member-actions-row" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+  <button class="btn-achievements" onclick="openStaffModal('ponzc')">
+    <svg class="ic"><use href="#i-award"/></svg> Показать список наград (200)
+  </button>
+</div></div></div>
+</article>
+<div class="sec-title"><svg class="ic"><use href="#i-compass"/></svg>НАПРАВЛЕНИЯ / КУРАТОРЫ</div>
+<article class="card" style="margin-top:0">
+<div class="member" data-discord-id="1135494383773433937"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1135494383773433937/e7c3107d92d3ae28e439406ba1e49357.png?size=1024" alt=""></span><div><b>LayBay</b><span class="m-role">КУРАТОР ТЕХНОЛОГОВ И КАРТОГРАФОВ</span><p>Следит за принятой техникой и картами: техника принимается по высшим критериям, границы рисуются идеально, оспорить невозможно.</p></div></div>
+<div class="member" data-discord-id="800254982641025056"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/800254982641025056/f532bafe0f0287fc28281fe76a0325c0.png?size=1024" alt=""></span><div><b>𝐘𝐚𝐛𝐥𝟏𝐜𝐡</b><span class="m-role">КУРАТОР АНКЕТОЛОГОВ</span><p>Самый лучший куратор анкетологов, и ещё и самый лучший политолог.</p></div></div>
+<div class="member" data-discord-id="928360132482572371"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/928360132482572371/75a6e47b610f5e5e0d0edf1e4d95e26b.png?size=1024" alt=""></span><div><b>! xil3dd</b><span class="m-role">КУРАТОР МОДЕРАТОРОВ</span><p>В прошлом устроил революцию против владельца... 10/10, рекомендую. Обвиняется в:</p><div class="member-actions-row" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+  <button class="btn-achievements" onclick="openStaffModal('xil3dd')">
+    <svg class="ic"><use href="#i-scale"/></svg> Показать список обвинений (200)
+  </button>
+</div></div></div>
+<div class="member" data-discord-id="1532495116747538538"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1532495116747538538/9a88072889aa0f9b0d5c0f24ebeb10eb.png?size=1024" alt=""></span><div><b>𝑴𝒂𝒓𝒔𝑬𝒊𝒌❦</b><span class="m-role">КУРАТОР</span><p>Многопрофильный специалист и опытный куратор, координирующий работу политологов, анкетологов и модерации.</p></div></div>
+</article>
+<div class="sec-title"><svg class="ic"><use href="#i-grid"/></svg>ЗАМЕСТИТЕЛИ / ЗАМЫ КУРАТОРОВ</div>
+<article class="card" style="margin-top:0">
+<div class="member" data-discord-id="1066701976949239905"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1066701976949239905/d99b9aa9ae64e50db02a59e027222752.png?size=1024" alt=""></span><div><b>ℚ𝕎𝔼ℝ𝕋𝕏</b><span class="m-role">ЗАМ. КУРАТОРА ПОЛИТОЛОГОВ</span><p>Непотопляемый ветеран политологии. Суд его оправдал, а нервы политологов закалил на века.</p><div class="member-actions-row" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+  <button class="btn-achievements" onclick="openStaffModal('qwertx')">
+    <svg class="ic"><use href="#i-scale"/></svg> Список обвинений (200) <span class="badge-verdict">Суд его оправдал</span>
+  </button>
+</div></div></div>
+<div class="member" data-discord-id="1027662788274966539"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1027662788274966539/4fc310925da5f4b5cb4f51ca978b8574.png?size=1024" alt=""></span><div><b>nefusad</b><span class="m-role">ЗАМ. КУРАТОРА</span><p>Отличный человек. Любит спорить. Ненавидит QWERTX.</p></div></div>
+<div class="member" data-discord-id="1137392083821416478"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1137392083821416478/5d933eae624dbc99de11e010174d3e93.png?size=1024" alt=""></span><div><b>Slonya</b><span class="m-role">ЗАМ. КУРАТОРА МОДЕРАТОРОВ И ТЕХНОЛОГОВ</span><p>Заместитель кураторов модерации и техники. Медленный, но неотвратимый — как и положено слоне.</p></div></div>
+</article>
+<div class="sec-title"><svg class="ic"><use href="#i-users"/></svg>СОТРУДНИКИ / ПРОСТОЙ ПЕРСОНАЛ</div>
+<p class="lead" style="margin-top:0;margin-bottom:24px">Люди, которые работают каждый день</p>
+<div class="grid-2">
+<article class="card" style="margin-top:0"><h3><svg class="ic"><use href="#i-landmark"/></svg>Политологи</h3>
+<div class="m-sub">ОТВЕЧАЮТ ЗА ПОЛИТИЧЕСКУЮ ДЕЯТЕЛЬНОСТЬ НА СЕРВЕРЕ</div>
+<div class="member" data-discord-id="1066701976949239905"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1066701976949239905/d99b9aa9ae64e50db02a59e027222752.png?size=1024" alt=""></span><div><b>ℚ𝕎𝔼ℝ𝕋𝕏</b><span class="m-role">ПОЛИТОЛОГ</span><p>Тот самый единственный человек, которого заставлял работать [ARIMA] Yagami. Ненавидит nefusad.</p></div></div>
+<div class="member" data-discord-id="1027662788274966539"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1027662788274966539/4fc310925da5f4b5cb4f51ca978b8574.png?size=1024" alt=""></span><div><b>nefusad</b><span class="m-role">ПОЛИТОЛОГ</span><p>Спорит профессионально, по любому вопросу и в любое время.</p></div></div>
+<div class="member" data-discord-id="928360132482572371"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/928360132482572371/75a6e47b610f5e5e0d0edf1e4d95e26b.png?size=1024" alt=""></span><div><b>! xil3dd</b><span class="m-role">ПОЛИТОЛОГ</span><p>Острый политический ум и тактическое видение любых конфликтных ситуаций.</p></div></div>
+<div class="member" data-discord-id="1532495116747538538"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1532495116747538538/9a88072889aa0f9b0d5c0f24ebeb10eb.png?size=1024" alt=""></span><div><b>𝑴𝒂𝒓𝒔𝑬𝒊𝒌❦</b><span class="m-role">ПОЛИТОЛОГ</span><p>Привносит стабильность и аналитическую взвешенность в геополитические споры.</p></div></div>
+<div class="member" data-discord-id="897130924951634021"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/897130924951634021/a_fd7f7cf7176eecbf23e76ab7da486a9b.gif?size=1024" alt=""></span><div><b>Ashkoo</b><span class="m-role">ПОЛИТОЛОГ</span><p>Видит интриги на три хода вперёд — даже там, где их ещё нет.</p></div></div>
+<div class="member" data-discord-id="1317409468685877339"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1317409468685877339/ff4e85aabf6d8bbb85b98ce80ceafbc6.png?size=1024" alt=""></span><div><b>Jevolxd</b><span class="m-role">ПОЛИТОЛОГ</span><p>Анализирует повестку и не боится острых дискуссий.</p></div></div>
+<div class="member" data-discord-id="1037076729195417620"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1037076729195417620/9566e99d4c9754f41fbea58a34b43876.png?size=1024" alt=""></span><div><b>provonsali🥭</b><span class="m-role">ПОЛИТОЛОГ</span><p>Свежий и пикантный взгляд на геополитическую обстановку сервера.</p></div></div>
+<div class="member" data-discord-id="743237681424629780"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/743237681424629780/37a72f17e8e3a1ddeeb73fb5a42275ae.png?size=1024" alt=""></span><div><b>Woiser🌔</b><span class="m-role">ПОЛИТОЛОГ</span><p>Взвешенный анализ международных отношений в любое время суток.</p></div></div>
+<div class="member" data-discord-id="1146096106216902676"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1146096106216902676/963e83416dfe414804784129202b22b7.png?size=1024" alt=""></span><div><b>.</b><span class="m-role">ПОЛИТОЛОГ</span><p>Дипломатический такт и глубокое понимание политических процессов.</p></div></div>
+</article>
+<article class="card" style="margin-top:0"><h3><svg class="ic"><use href="#i-map"/></svg>Картографы</h3>
+<div class="m-sub">СОЗДАЮТ И ПОДДЕРЖИВАЮТ КАРТЫ СЕРВЕРА</div>
+<div class="member" data-discord-id="830428424677490728"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt=""></span><div><b>𝕻𝖔𝖓𝖟𝖈</b><span class="m-role">КАРТОГРАФ</span><p>Восстановил и курирует стабильную работу картографии.</p></div></div>
+<div class="member" data-discord-id="1135494383773433937"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1135494383773433937/e7c3107d92d3ae28e439406ba1e49357.png?size=1024" alt=""></span><div><b>LayBay</b><span class="m-role">КАРТОГРАФ</span><p>Рисует границы так, что их потом не могут оспорить даже политологи.</p></div></div>
+</article>
+<article class="card" style="margin-top:0"><h3><svg class="ic"><use href="#i-clipboard"/></svg>Анкетологи</h3>
+<div class="m-sub">ПРОВЕРЯЮТ И ОДОБРЯЮТ АНКЕТЫ НОВЫХ УЧАСТНИКОВ</div>
+<div class="member" data-discord-id="800254982641025056"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/800254982641025056/f532bafe0f0287fc28281fe76a0325c0.png?size=1024" alt=""></span><div><b>𝐘𝐚𝐛𝐥𝟏𝐜𝐡</b><span class="m-role">АНКЕТОЛОГ</span><p>Самый лучший куратор анкетологов, и ещё и самый лучший анкетолог.</p></div></div>
+<div class="member" data-discord-id="1532495116747538538"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1532495116747538538/9a88072889aa0f9b0d5c0f24ebeb10eb.png?size=1024" alt=""></span><div><b>𝑴𝒂𝒓𝒔𝑬𝒊𝒌❦</b><span class="m-role">АНКЕТОЛОГ</span><p>Качественный отбор участников для поддержания высокого уровня РП.</p></div></div>
+<div class="member" data-discord-id="1060644884781994126"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1060644884781994126/f7d46af850285d12cd1d58f8e6884f19.png?size=1024" alt=""></span><div><b>𝐂𝐡𝐚𝐢𝐦𝟏𝐜𝐡</b><span class="m-role">АНКЕТОЛОГ</span><p>Новая кровь в анкетологии. Чай с чаем — его рабочий метод.</p></div></div>
+<div class="member" data-discord-id="955060237449166938"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/955060237449166938/308d410337eb452e9d9270c763904996.png?size=1024" alt=""></span><div><b>Kid</b><span class="m-role">АНКЕТОЛОГ</span><p>Находит ошибку в анкете быстрее, чем вы её успели отправить.</p></div></div>
+</article>
+<article class="card" style="margin-top:0"><h3><svg class="ic"><use href="#i-swords"/></svg>Модераторы</h3>
+<div class="m-sub">СЛЕДЯТ ЗА ПОРЯДКОМ НА СЕРВЕРЕ</div>
+<div class="member" data-discord-id="928360132482572371"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/928360132482572371/75a6e47b610f5e5e0d0edf1e4d95e26b.png?size=1024" alt=""></span><div><b>! xil3dd</b><span class="m-role">МОДЕРАТОР</span><p>Куратор направления, строго следит за атмосферой и регламентом.</p></div></div>
+<div class="member" data-discord-id="1532495116747538538"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1532495116747538538/9a88072889aa0f9b0d5c0f24ebeb10eb.png?size=1024" alt=""></span><div><b>𝑴𝒂𝒓𝒔𝑬𝒊𝒌❦</b><span class="m-role">МОДЕРАТОР</span><p>Справедливое и беспристрастное модерирование серверов и каналов.</p></div></div>
+<div class="member" data-discord-id="1137392083821416478"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1137392083821416478/5d933eae624dbc99de11e010174d3e93.png?size=1024" alt=""></span><div><b>Slonya</b><span class="m-role">МОДЕРАТОР</span><p>Обеспечивает неотвратимость правил для нарушителей спокойствия.</p></div></div>
+<div class="member" data-discord-id="897130924951634021"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/897130924951634021/a_fd7f7cf7176eecbf23e76ab7da486a9b.gif?size=1024" alt=""></span><div><b>Ashkoo</b><span class="m-role">МОДЕРАТОР</span><p>Следит за порядком. И за политологами — по совместительству.</p></div></div>
+<div class="member" data-discord-id="1540674885989441616"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1540674885989441616/428affd37a166cb13f7626771793934d.png?size=1024" alt=""></span><div><b>buba_monster 👹</b><span class="m-role">МОДЕРАТОР</span><p>Неусыпный страж порядка. Монструозная скорость реакции на любые нарушения.</p></div></div>
+</article>
+<article class="card" style="margin-top:0;grid-column:1/-1"><h3><svg class="ic"><use href="#i-wrench"/></svg>Технологи</h3>
+<div class="m-sub">ПРИНИМАЮТ ТЕХНИКУ НА СЕРВЕРЕ</div>
+<div class="member" data-discord-id="1135494383773433937"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1135494383773433937/e7c3107d92d3ae28e439406ba1e49357.png?size=1024" alt=""></span><div><b>LayBay</b><span class="m-role">ТЕХНОЛОГ</span><p>Принимает и оценивает технику по высшим стандартам баланса.</p></div></div>
+<div class="member" data-discord-id="1137392083821416478"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1137392083821416478/5d933eae624dbc99de11e010174d3e93.png?size=1024" alt=""></span><div><b>Slonya</b><span class="m-role">ТЕХНОЛОГ</span><p>Принимает технику медленно, но верно.</p></div></div>
+<div class="member" data-discord-id="1469060963360575548"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1469060963360575548/aa44389ecb679e41518d3339d6537020.png?size=1024" alt=""></span><div><b>Adolf_Gitlerenko</b><span class="m-role">ТЕХНОЛОГ</span><p>Был куратором модерации и благополучно просрал свой пост, наверное, потому что из-за него 3 человека покинуло сервер, а один перестал играть. Теперь принимает технику под новым ником.</p></div></div>
+<div class="member" data-discord-id="867726527688081408"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/867726527688081408/74240a783e12baff849144db375b9720.png?size=1024" alt=""></span><div><b>Егор Зимов</b><span class="m-role">ТЕХНОЛОГ</span><p>Морозит заявки недобросовестных игроков и принимает хорошие.</p></div></div>
+<div class="member" data-discord-id="1327423107648192526"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1327423107648192526/e733a84b84b923bd6f8abe74c084492f.png?size=1024" alt=""></span><div><b>dyrm9</b><span class="m-role">ТЕХНОЛОГ</span><p>Инженерный подход и строгий контроль технических параметров.</p></div></div>
+</article>
+<article class="card" style="margin-top:0"><h3><svg class="ic"><use href="#i-hammer"/></svg>Военные ведущие</h3>
+<div class="m-sub">ВЕДУТ ВОЙНЫ И ВОЕННЫЕ СВОДКИ</div>
+<div class="member" data-discord-id="1334532453238440000"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1334532453238440000/1819072df09617eaeeee629485aef10e.png?size=1024" alt=""></span><div><b>Vaelite</b><span class="m-role">ВОЕННЫЙ ВЕДУЩИЙ</span><p>Элитный ведущий для элитных войн.</p></div></div>
+<div class="member" data-discord-id="1027662788274966539"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1027662788274966539/4fc310925da5f4b5cb4f51ca978b8574.png?size=1024" alt=""></span><div><b>nefusad</b><span class="m-role">ВОЕННЫЙ ВЕДУЩИЙ</span><p>Спорит с обеими сторонами конфликта одновременно — для баланса.</p></div></div>
+</article>
+<article class="card" style="margin-top:0"><h3><svg class="ic"><use href="#i-megaphone"/></svg>Пиар-менеджеры</h3>
+<div class="m-sub">ПРОДВИГАЮТ ПРОЕКТ В НАРОДНЫЕ МАССЫ</div>
+<div class="member"><span class="m-ava">V</span><div><b>Verma</b><span class="m-role">ПИАР-МЕНЕДЖЕР</span><p>Продаёт сервер так, что очередь из желающих стоит даже в офлайне.</p></div></div>
+<div class="member" data-discord-id="830428424677490728"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt=""></span><div><b>𝕻𝖔𝖓𝖟𝖈</b><span class="m-role">ПИАР-МЕНЕДЖЕР</span><p>Держит весь пиар в одних руках — и ещё политологию в придачу.</p></div></div>
+</article>
+<article class="card" style="margin-top:0;grid-column:1/-1;border-top-color:#185ec9"><h3 style="color:#185ec9"><svg class="ic" style="color:#185ec9"><use href="#i-sparkles"/></svg>Воздухан и ветродуй</h3>
+<div class="m-sub" style="color:#185ec9">СЕКРЕТНОЕ ПОДРАЗДЕЛЕНИЕ АТМОСФЕРНОГО ФРОНТА</div>
+<div class="member text-blue-accent" data-discord-id="1327423107648192526"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/1327423107648192526/e733a84b84b923bd6f8abe74c084492f.png?size=1024" alt=""></span><div><b>dyrm9</b><span class="m-role">ВОЗДУХАН</span><p>Тот самый, для кого создавалась роль. Изначально просто «Воздухан» — единолично и бессменно. Дует с первого дня, и именно его дыхание считается штатным ветром проекта: от него колышется флаг сервера и сквозит в общем чате.</p></div></div>
+<div class="member"><span class="m-ava" style="color:#185ec9;border-color:#185ec9;background:rgba(24,94,201,.10)">V</span><div><b>Verma</b><span class="m-role" style="color:#185ec9">ВЕТРОДУЙ</span><p>Появился позже, когда к должности приписали «ветродуя». Быстро доказал, что дуть — это тоже искусство. Теперь работают в паре с Дурмом: один надувает, другой раздувает — атмосфера в проекте всегда свежая.</p></div></div>
+<div class="small-text" style="margin-top:10px">Историческая справка: роль создавалась для Дурма и сначала называлась просто «Воздухан». Затем добавился «ветродуй» — и в составе появился Верма.</div>
+</article>
+</div>
+</div>
     </section>
 
     <!-- КАБИНЕТ -->
@@ -544,6 +705,51 @@
   </main>
 </div>
 
+<!-- МОДАЛЬНОЕ ОКНО СТРАНЫ -->
+<div class="country-modal-overlay" id="countryModal" role="dialog" aria-modal="true" aria-labelledby="cmName">
+  <div class="country-modal-card">
+    <div class="cm-header">
+      <div class="cm-header-left">
+        <div class="cm-flag-large" id="cmFlag"></div>
+        <div class="cm-title-box">
+          <h2 id="cmName">Загрузка...</h2>
+          <div class="cm-sub" id="cmSub"></div>
+        </div>
+      </div>
+      <button class="cm-close" onclick="closeCountryModal()" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="cm-body">
+      <div class="cm-status-bar" id="cmStatus"></div>
+      <div class="cm-stats-row" id="cmStatsGrid"></div>
+      <div class="cm-details-box" id="cmDetailsList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО ПЕРСОНАЛА (ДОСТИЖЕНИЯ И ДЕЛА) -->
+<div class="staff-modal-overlay" id="staffModal" role="dialog" aria-modal="true" aria-labelledby="staffModalTitle">
+  <div class="staff-modal-card">
+    <div class="staff-modal-header">
+      <div class="cm-header-left">
+        <div class="cm-flag-large" id="staffModalAva" style="border-radius:50%"></div>
+        <div class="cm-title-box">
+          <h2 id="staffModalTitle">Участник</h2>
+          <div class="cm-sub" id="staffModalSub"></div>
+        </div>
+      </div>
+      <button class="cm-close" onclick="closeStaffModal()" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="staff-modal-body">
+      <div id="staffModalBadge" style="margin-bottom:12px"></div>
+      <div class="search-wrap" style="margin-bottom:14px">
+        <svg class="ic"><use href="#i-search"/></svg>
+        <input id="staffSearchInput" class="search-input" type="text" placeholder="Поиск по списку (например, медаль, орден, статья)...">
+      </div>
+      <div id="staffModalBody"></div>
+    </div>
+  </div>
+</div>
+
 <!-- SVG СПРАЙТ -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
   <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></symbol>
@@ -582,5 +788,187 @@
 </svg>
 
 <script src="app.js"></script>
+</body>
+</html>
+</div>
+    </section>
+
+    <!-- КАБИНЕТ -->
+    <section class="page" id="page-cabinet">
+      <h1>Личный <em>кабинет</em></h1>
+      <p class="lead" id="donateUserNote">Данные вашего игрового профиля: страна, экономика, кредиты и инвестиции</p>
+      <div id="cabinetBody"><p class="loading">Проверка входа...</p></div>
+      <div class="card wide" style="margin-top:18px">
+        <h3><svg class="ic"><use href="#i-wrench"/></svg>Проверка связи с ботом</h3>
+        <p>Пинг API бота — чтобы убедиться, что сервер отвечает.</p>
+        <div class="cta-row" style="justify-content:flex-start">
+          <button class="cta ghost" onclick="testPlayersWebhook()">🔧 Проверить связь</button>
+          <span class="composer-status" id="webhookTestStatus"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРЕССА -->
+    <section class="page" id="page-press">
+      <h1>Пресса <em>сервера</em></h1>
+      <p class="lead">Краткая информация всех событий (РП и не-РП) за определённый период</p>
+      <div class="order-toggle" data-for="press">
+        <button data-order="desc" class="active">↓ Новые сверху</button>
+        <button data-order="asc">↑ Старые сверху</button>
+      </div>
+      <div class="updates-stats" id="pressStats"></div>
+      <div class="updates-list" id="pressBody"><p class="loading">Загрузка прессы...</p></div>
+    </section>
+
+    <!-- ДОНАТ -->
+    <section class="page" id="page-donate">
+      <h1>Донат <em>магазин</em></h1>
+      <p class="lead">Поддержи проект и получи эксклюзивные награды</p>
+
+      <article class="card wide" style="margin-top:0">
+        <h3><svg class="ic"><use href="#i-bag"/></svg>Цены</h3>
+
+        <!-- Анимированная шапка внутри карточки -->
+            <div class="falling-wrap">
+              <div class="falling-text-container" id="donateFalling">
+                <div class="falling-text-target" id="fallingText">
+                  Выбирай свою награду и улучшай игру
+                </div>
+              </div>
+              <button class="falling-reset" id="fallingReset" title="Сбросить">↺</button>
+            </div>
+
+        <div class="update-content">
+          <ul class="dc-list">
+            <li>Кастомная роль на 7/14/30 дней — <strong>100/200/350 кредитов</strong></li>
+            <li>Личный канал влог в категории «Сообщество» (на месяц) — <strong>300 кредитов</strong></li>
+            <li>Снятие мута (до 3ч) — <strong>75 кредитов</strong></li>
+          </ul>
+          <div class="small-text">Услуга не действует на правила про оскорбления, оффтоп, оскорбление родителей и другие правила с повышенным наказанием.</div>
+          <ul class="dc-list">
+            <li>Личная трибуна (на 12ч) — <strong>50 кредитов</strong></li>
+            <li>Предрег слабой страны — <strong>75 кредитов</strong></li>
+            <li>Предрег минорной страны — <strong>100 кредитов</strong></li>
+            <li>Предрег сильной страны — <strong>125 кредитов</strong></li>
+          </ul>
+          <div class="small-text">В этой категории находятся Пакистан, КНДР и Израиль.</div>
+          <ul class="dc-list">
+            <li>Предрег ядерной страны — <strong>200 кредитов</strong></li>
+            <li>Анальная порка кверти — <strong>1 кредит</strong></li>
+          </ul>
+          <div class="small-text">Только по пятницам</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- АРХИВЫ -->
+    <section class="page" id="page-archives">
+      <h1>Архивы <em>сезонов</em></h1>
+      <p class="lead">Новости стран, организаций и события прошлых сезонов</p>
+      <div class="arch-controls">
+        <input id="archSearch" class="arch-input" style="min-width:230px" placeholder="Поиск: ник, содержание, дата...">
+        <select id="archSeason" class="arch-select"></select>
+        <select id="archKind" class="arch-select">
+          <option value="all">Все файлы</option>
+          <option value="countries">📺 Новости стран</option>
+          <option value="orgs">👥 Новости организаций</option>
+          <option value="events">🗽 События</option>
+        </select>
+        <div class="order-toggle" data-for="archives" style="margin:0">
+          <button data-order="desc" class="active">↓ Новые сверху</button>
+          <button data-order="asc">↑ Старые сверху</button>
+        </div>
+      </div>
+      <div class="folder-grid" id="archFolders"></div>
+      <div class="updates-stats" id="archStats"></div>
+      <div class="updates-list" id="archBody"><p class="loading">Откройте папку сезона или задайте поиск.</p></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО СТРАНЫ -->
+<div class="country-modal-overlay" id="countryModal" role="dialog" aria-modal="true" aria-labelledby="cmName">
+  <div class="country-modal-card">
+    <div class="cm-header">
+      <div class="cm-header-left">
+        <div class="cm-flag-large" id="cmFlag"></div>
+        <div class="cm-title-box">
+          <h2 id="cmName">Загрузка...</h2>
+          <div class="cm-sub" id="cmSub"></div>
+        </div>
+      </div>
+      <button class="cm-close" onclick="closeCountryModal()" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="cm-body">
+      <div class="cm-status-bar" id="cmStatus"></div>
+      <div class="cm-stats-row" id="cmStatsGrid"></div>
+      <div class="cm-details-box" id="cmDetailsList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО ПЕРСОНАЛА (ДОСТИЖЕНИЯ И ДЕЛА) -->
+<div class="staff-modal-overlay" id="staffModal" role="dialog" aria-modal="true" aria-labelledby="staffModalTitle">
+  <div class="staff-modal-card">
+    <div class="staff-modal-header">
+      <div class="cm-header-left">
+        <div class="cm-flag-large" id="staffModalAva" style="border-radius:50%"></div>
+        <div class="cm-title-box">
+          <h2 id="staffModalTitle">Участник</h2>
+          <div class="cm-sub" id="staffModalSub"></div>
+        </div>
+      </div>
+      <button class="cm-close" onclick="closeStaffModal()" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="staff-modal-body">
+      <div id="staffModalBadge" style="margin-bottom:12px"></div>
+      <div class="search-wrap" style="margin-bottom:14px">
+        <svg class="ic"><use href="#i-search"/></svg>
+        <input id="staffSearchInput" class="search-input" type="text" placeholder="Поиск по списку (например, медаль, орден, статья)...">
+      </div>
+      <div id="staffModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SVG СПРАЙТ -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M12 11v5"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.8.6 1 1.5 1 2.3h6c0-.8.2-1.7 1-2.3A7 7 0 0 0 12 2z"/></symbol>
+  <symbol id="i-news" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v6h6"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-scroll" viewBox="0 0 24 24"><path d="M8 3h11a2 2 0 0 1 2 2v14"/><path d="M4 8h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M12 2v4M9 12h.01M15 12h.01"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3 7 7 .5-5.5 4.5 2 7L12 17l-6.5 4 2-7L2 9.5 9 9z"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3z"/><path d="M9 3v15M15 6v15"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M3 20c0-3 3-6 6-6s6 3 6 6"/><circle cx="17" cy="9" r="3"/><path d="M21 20c0-2-2-4-4-4"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-9-9c-1.2-2.8.6-6 3.8-6 2 0 3.4 1.2 5.2 3.4C13.8 6.2 15.2 5 17.2 5c3.2 0 5 3.2 3.8 6-2 4.5-9 9-9 9z"/></symbol>
+  <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></symbol>
+  <symbol id="i-discord" viewBox="0 0 24 24"><path d="M20.3 4.3a18 18 0 0 0-4.4-1.3l-.2.4a16.4 16.4 0 0 0-7.5 0l-.2-.4A18 18 0 0 0 3.7 4.3C1.2 8 .5 11.7.8 15.3a18 18 0 0 0 5.5 2.8c.5-.6.9-1.3 1.2-2-.5-.2-.9-.4-1.3-.7l.3-.2a13 13 0 0 0 11 0l.3.2c-.4.3-.8.5-1.3.7.3.7.7 1.4 1.2 2a18 18 0 0 0 5.5-2.8c.4-4.2-.7-7.9-2.9-11zM8.5 13.3c-1 0-1.9-1-1.9-2.1 0-1.2.8-2.1 1.9-2.1 1 0 1.9 1 1.9 2.1 0 1.2-.9 2.1-1.9 2.1zm7 0c-1 0-1.9-1-1.9-2.1 0-1.2.8-2.1 1.9-2.1s1.9 1 1.9 2.1c0 1.2-.9 2.1-1.9 2.1z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-4 2-2 4 4-2z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M3 8l4 4 5-6 5 6 4-4v9H3z"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M8 21h8"/><path d="M4 7h16"/><path d="M6 7l-3 6a3 3 0 0 0 6 0z"/><path d="M18 7l-3 6a3 3 0 0 0 6 0z"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 8 5-3 5 3-2-8"/></symbol>
+  <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 18h14"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 3l9 6H3z"/></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></symbol>
+  <symbol id="i-swords" viewBox="0 0 24 24"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/><path d="M14.5 6.5L18 3h3v3l-3.5 3.5"/><path d="M5 14l4 4"/><path d="M7 17l-3 3"/><path d="M3 19l2 2"/></symbol>
+  <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15L22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3 11v2a2 2 0 0 0 2 2h2l4 4V5L7 9H5a2 2 0 0 0-2 2z"/><path d="M15 8a4 4 0 0 1 0 8"/><path d="M18 5a8 8 0 0 1 0 14"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/><path d="M19 14l.7 2.3L22 17l-2.3.7L19 20l-.7-2.3L16 17l2.3-.7z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+</svg>
+
+<script type="module" src="js/app.js"></script>
 </body>
 </html>
