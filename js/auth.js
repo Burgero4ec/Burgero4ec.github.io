@@ -8,25 +8,48 @@ import { decorateStaff } from './staff.js';
 import { go } from './navigation.js';
 
 let PLAYERS = null;
+export let PLAYERS_BY_ID = {};
 
 export async function loadPlayers() {
   try {
     if (API_BASE) {
       PLAYERS = trimDeep(await fetch(`${API_BASE}/api/players`).then(r => r.json()));
-      return;
     }
   } catch (e) {}
 
-  try {
-    const r = await fetch(PLAYERS_URL + '?t=' + Date.now());
-    PLAYERS = r.ok ? trimDeep(await r.json()) : {};
-  } catch (e2) {
-    PLAYERS = {};
+  if (!PLAYERS || !Object.keys(PLAYERS).length) {
+    try {
+      let r = await fetch('data/players.json?t=' + Date.now());
+      if (!r.ok) r = await fetch('players.json?t=' + Date.now());
+      if (r.ok) {
+        PLAYERS = trimDeep(await r.json());
+      }
+    } catch (e2) {}
+  }
+
+  PLAYERS_BY_ID = {};
+  if (PLAYERS) {
+    const list = [
+      ...(Array.isArray(PLAYERS) ? PLAYERS : []),
+      ...(PLAYERS.non_staff_players || []),
+      ...(PLAYERS.staff_players || []),
+      ...(PLAYERS.players || [])
+    ];
+    for (const p of list) {
+      if (p && p.id) {
+        PLAYERS_BY_ID[String(p.id)] = p;
+      }
+    }
   }
 }
 
 export function getPlayers() {
-  return PLAYERS;
+  return PLAYERS_BY_ID;
+}
+
+export function getPlayerById(id) {
+  if (!id) return null;
+  return PLAYERS_BY_ID[String(id)] || null;
 }
 
 export function playerMeta(id) {
@@ -34,10 +57,10 @@ export function playerMeta(id) {
     return { name: 'Неизвестный', avatar: defaultAvatar('0') };
   }
   const local = readLS('gl-players', {});
-  const base = (PLAYERS && PLAYERS[id]) || local[id] || KNOWN_PLAYERS[id] || null;
+  const base = PLAYERS_BY_ID[id] || (PLAYERS && PLAYERS[id]) || local[id] || KNOWN_PLAYERS[id] || null;
   return {
-    name: base ? (base.nick || base.name) : 'Игрок #' + String(id).slice(-4),
-    avatar: (base && base.avatar) || defaultAvatar(id)
+    name: base ? (base.nick || base.nickname || base.display_name || base.name || base.username) : 'Игрок #' + String(id).slice(-4),
+    avatar: (base && (base.avatar_url || base.avatar)) || defaultAvatar(id)
   };
 }
 
@@ -126,6 +149,7 @@ export async function handleLogin() {
     }
   }
 
+  await loadPlayers();
   syncUserUI();
   decorateStaff();
   renderCabinet();
@@ -162,6 +186,10 @@ export async function renderCabinet() {
   }
 
   const u = window.glUser;
+  if (!PLAYERS_BY_ID || !Object.keys(PLAYERS_BY_ID).length) {
+    await loadPlayers();
+  }
+
   let season = null, countries = null;
   try {
     const [s, c] = await fetchSeasonData();
@@ -169,8 +197,30 @@ export async function renderCabinet() {
     countries = trimDeep(c);
   } catch (e) {}
 
-  const me = season ? season[u.id] : null;
-  const flagOf = n => (countries && countries[n]) ? countries[n].flag : '🏳️';
+  const pLive = getPlayerById(u.id);
+  const me = (season && season[u.id]) || (pLive ? {
+    country: pLive.country || (pLive.countries && pLive.countries[0]) || 'Гондурас',
+    type: pLive.entity_type === 'Автономия' ? 'autonomy' : (pLive.entity_type === 'Организация' ? 'organization' : 'country'),
+    gdp: pLive.gdp || (countries && countries[pLive.country]?.gdp) || 20387000000,
+    population: pLive.population || (countries && countries[pLive.country]?.population) || 8575000,
+    balance: pLive.balance || 0,
+    support: pLive.support != null ? pLive.support : 95.0,
+    corruption: pLive.corruption != null ? pLive.corruption : 8.0,
+    categories: pLive.categories || [],
+    roles: pLive.roles || [],
+    is_staff: pLive.is_staff,
+    is_registered: pLive.is_registered,
+    raw: pLive
+  } : null);
+
+  const flagOf = n => {
+    if (countries && countries[n] && countries[n].flag) return countries[n].flag;
+    if (pLive) {
+      const match = (pLive.display_name || pLive.nickname || '').match(/[\uD83C][\uDDE6-\uDDFF]{2}/);
+      if (match) return match[0];
+    }
+    return '🏳️';
+  };
 
   let html = `
     <div class="card wide profile-card">
@@ -208,6 +258,9 @@ export async function renderCabinet() {
         <div class="card">
           <h3>${flagOf(me.country)} ${esc(me.country)}</h3>
           <div class="kv"><span>Тип</span><b>${typeNames[me.type] || me.type}</b></div>
+          <div class="kv"><span>Статус</span><b style="color:var(--green)">✓ Зарегистрирован в 28 сезоне</b></div>
+          ${pLive && pLive.categories && pLive.categories.length ? `<div class="kv"><span>Категории</span><b>${esc(pLive.categories.join(' · '))}</b></div>` : ''}
+          ${pLive && pLive.is_staff ? `<div class="kv"><span>Статус на сервере</span><b style="color:var(--yellow)">★ Персонал / Создатель сайта</b></div>` : ''}
           ${me.org_type ? `<div class="kv"><span>Форма</span><b>${esc(me.org_type)}</b></div>` : ''}
           ${me.host_country ? `<div class="kv"><span>Метрополия</span><b>${flagOf(me.host_country)} ${esc(me.host_country)}</b></div>` : ''}
           ${me.ideology ? `<div class="kv"><span>Гос. строй</span><b>${esc(me.ideology.state || '—')}</b></div><div class="kv"><span>Экономика</span><b>${esc(me.ideology.economy || '—')}</b></div>` : ''}
@@ -221,8 +274,12 @@ export async function renderCabinet() {
     const credits = me.credits ? Object.values(me.credits) : [];
     html += `
       <div class="card">
-        <h3>💳 Кредиты ${credits.length ? '(' + credits.length + ')' : ''}</h3>
-        ${credits.length ? credits.map(c => `
+        <h3>💳 Игровые лицензии и роли</h3>
+        ${pLive && pLive.roles && pLive.roles.length ? `
+          <div class="user-roles-list" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+            ${pLive.roles.map(r => `<span class="badge" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:4px 8px;border-radius:6px;font-size:12px">${esc(r.name)}</span>`).join('')}
+          </div>
+        ` : (credits.length ? credits.map(c => `
           <div class="credit-item">
             <b>Кредит #${esc(c.id)}</b>
             <div class="row"><span>Взято</span><b>${fmtNum(c.amount_taken)}</b></div>
@@ -230,7 +287,7 @@ export async function renderCabinet() {
             <div class="row"><span>Платёж</span><b>${fmtNum(c.hourly_payment)}/ч · ${c.term_hours_left} ч</b></div>
             ${c.reason ? `<div class="row"><span>Цель</span><b>${esc(c.reason)}</b></div>` : ''}
           </div>
-        `).join('') : '<p>Активных кредитов нет.</p>'}
+        `).join('') : '<p>Активных кредитов нет.</p>')}
       </div>
       </div>
     `;
