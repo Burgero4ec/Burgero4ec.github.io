@@ -209,6 +209,43 @@ export async function fetchSeasonData() {
       };
     }
 
+    // Интеграция актуальных регистраций игроков (Сезон 28) из data/players.json
+    try {
+      let r = await fetch('data/players.json?t=' + Date.now());
+      if (!r.ok) r = await fetch('players.json?t=' + Date.now());
+      if (r.ok) {
+        const pData = await r.json();
+        const pList = [
+          ...(Array.isArray(pData) ? pData : []),
+          ...(pData.all_players || []),
+          ...(pData.non_staff_players || []),
+          ...(pData.staff_players || []),
+          ...(pData.players || [])
+        ];
+        for (const p of pList) {
+          if (!p || !p.country || !p.is_registered) continue;
+          const id = String(p.id);
+          const cName = p.country;
+          const cc = countriesData[cName] || {};
+          seasonData[id] = {
+            ...(seasonData[id] || {}),
+            type: p.entity_type === 'Автономия' ? 'autonomy' : (p.entity_type === 'Организация' ? 'organization' : 'country'),
+            country: cName,
+            continent: cc.continent || 'Прочие',
+            gdp: p.gdp || seasonData[id]?.gdp || cc.gdp || 20387000000,
+            population: p.population || seasonData[id]?.population || cc.population || 8575000,
+            balance: p.balance != null ? p.balance : (seasonData[id]?.balance || 0),
+            support: p.support != null ? p.support : (seasonData[id]?.support ?? 95.0),
+            corruption: p.corruption != null ? p.corruption : (seasonData[id]?.corruption ?? 8.0),
+            playerId: id,
+            categories: p.categories || [],
+            roles: p.roles || [],
+            is_staff: p.is_staff
+          };
+        }
+      }
+    } catch (ePl) {}
+
     return [seasonData, countriesData];
   }
 }

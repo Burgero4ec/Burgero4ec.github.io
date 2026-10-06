@@ -57,9 +57,25 @@ export function playerMeta(id) {
     return { name: 'Неизвестный', avatar: defaultAvatar('0') };
   }
   const local = readLS('gl-players', {});
-  const base = PLAYERS_BY_ID[id] || (PLAYERS && PLAYERS[id]) || local[id] || KNOWN_PLAYERS[id] || null;
+  const base = PLAYERS_BY_ID[id] || (PLAYERS && PLAYERS[id]) || local[id] || null;
+  const known = KNOWN_PLAYERS[id];
+
+  let name = known ? known.name : null;
+  if (!name && base) {
+    const rawNick = (base.nick || base.nickname || base.display_name || '').trim();
+    const parts = rawNick.split('|').map(s => s.trim());
+    if (parts.length > 1 && (parts[1] === base.country || parts[0].length <= 8)) {
+      name = base.username || parts[1] || parts[0];
+    } else if (rawNick && rawNick !== base.country) {
+      name = rawNick;
+    } else {
+      name = base.username || base.name;
+    }
+  }
+  if (!name) name = 'Игрок #' + String(id).slice(-4);
+
   return {
-    name: base ? (base.nick || base.nickname || base.display_name || base.name || base.username) : 'Игрок #' + String(id).slice(-4),
+    name,
     avatar: (base && (base.avatar_url || base.avatar)) || defaultAvatar(id)
   };
 }
@@ -71,7 +87,7 @@ export function syncUserUI() {
   if (label) label.textContent = name || 'Личный кабинет';
   if (note) {
     note.textContent = name
-      ? 'Вы вошли как ' + name + ' — покупки будут привязаны к этому аккаунту.'
+      ? 'Вы вошли как ' + name + ' — синхронизировано с Discord сервером.'
       : 'Данные вашего игрового профиля: страна, экономика, кредиты и инвестиции';
   }
 }
@@ -125,9 +141,10 @@ export async function handleLogin() {
         });
         if (dRes.ok) {
           const du = await dRes.json();
+          const known = KNOWN_PLAYERS[du.id];
           window.glUser = {
             id: du.id,
-            name: du.global_name || du.username,
+            name: known ? known.name : (du.global_name || du.username),
             avatar: du.avatar
               ? 'https://cdn.discordapp.com/avatars/' + du.id + '/' + du.avatar + '.png?size=128'
               : 'assets/logo-green.webp'
@@ -149,11 +166,100 @@ export async function handleLogin() {
     }
   }
 
+  // По умолчанию сразу загружаем профиль создателя сайта (Китаёзик / Гондурас)
+  if (!window.glUser) {
+    window.glUser = {
+      id: '758998250610360341',
+      name: 'Китаёзик',
+      avatar: 'https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=128'
+    };
+    localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+  }
+
   await loadPlayers();
   syncUserUI();
   decorateStaff();
   renderCabinet();
 }
+
+export function selectCabinetUser(id) {
+  if (!id) return;
+  const pm = playerMeta(String(id));
+  const p = getPlayerById(id);
+  window.glUser = {
+    id: String(id),
+    name: pm.name || (p && (p.username || p.display_name)) || 'Игрок',
+    avatar: pm.avatar || (p && p.avatar_url) || defaultAvatar(String(id))
+  };
+  localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+  syncUserUI();
+  decorateStaff();
+  renderCabinet();
+}
+window.selectCabinetUser = selectCabinetUser;
+
+export function openPlayerPickerModal() {
+  let modal = document.getElementById('playerPickerModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'playerPickerModal';
+    modal.className = 'country-modal-overlay';
+    modal.innerHTML = `
+      <div class="country-modal-card" style="max-width:540px">
+        <div class="cm-header">
+          <div class="cm-header-left">
+            <h2 style="font-size:18px"><svg class="ic"><use href="#i-users"/></svg> Выбор досье игрока</h2>
+          </div>
+          <button class="cm-close" onclick="document.getElementById('playerPickerModal').classList.remove('active')">✕</button>
+        </div>
+        <div class="cm-body" style="padding:16px 20px">
+          <div class="search-wrap" style="margin-bottom:14px">
+            <svg class="ic"><use href="#i-search"/></svg>
+            <input id="pickerPlayerSearch" class="search-input" placeholder="Поиск по нику, стране или Discord ID...">
+          </div>
+          <div id="pickerPlayersList" style="max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const listEl = modal.querySelector('#pickerPlayersList');
+  const searchEl = modal.querySelector('#pickerPlayerSearch');
+  const players = Object.values(PLAYERS_BY_ID);
+
+  function renderList(query = '') {
+    const q = (query || '').toLowerCase().trim();
+    const filtered = players.filter(p => {
+      const pm = playerMeta(String(p.id));
+      const str = [p.id, p.username, p.country, p.nickname, pm.name].join(' ').toLowerCase();
+      return str.includes(q);
+    });
+
+    listEl.innerHTML = filtered.map(p => {
+      const pm = playerMeta(String(p.id));
+      const isCur = window.glUser && String(window.glUser.id) === String(p.id);
+      return `
+        <div class="l-pill" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid ${isCur ? 'var(--green)' : 'rgba(255,255,255,0.1)'}" onclick="window.selectCabinetUser('${p.id}');document.getElementById('playerPickerModal').classList.remove('active')">
+          <div style="display:flex;align-items:center;gap:10px">
+            <img src="${pm.avatar}" style="width:30px;height:30px;border-radius:50%" alt="">
+            <div>
+              <b style="font-size:13.5px;color:#fff">${esc(pm.name)}</b>
+              <div style="font-size:11px;color:var(--dim)">${esc(p.country || 'Участник')} · ID: ${p.id}</div>
+            </div>
+          </div>
+          <span class="badge" style="background:${isCur ? 'var(--green)' : 'rgba(74,222,128,0.12)'};color:${isCur ? '#000' : '#4ade80'}">${isCur ? 'Активен' : 'Открыть'}</span>
+        </div>
+      `;
+    }).join('') || '<p class="loading">Ничего не найдено</p>';
+  }
+
+  renderList();
+  searchEl.value = '';
+  searchEl.oninput = () => renderList(searchEl.value);
+  modal.classList.add('active');
+}
+window.openPlayerPickerModal = openPlayerPickerModal;
 
 export function discordLogout() {
   localStorage.removeItem('gl-user');
@@ -174,10 +280,16 @@ export async function renderCabinet() {
     body.innerHTML = `
       <div class="card wide login-card">
         <h3><svg class="ic"><use href="#i-discord"/></svg>Вход в Личный кабинет</h3>
-        <p>Вход осуществляется напрямую через официальное Discord-приложение Global Lens (Client ID: <code>${DISCORD_CLIENT_ID}</code>). Войдите в 1 клик для синхронизации вашего государства и статуса персонала:</p>
-        <div class="cta-row" style="margin-top:18px">
-          <a class="cta fill" style="background:#5865F2;color:#ffffff;display:inline-flex;align-items:center;gap:10px;font-weight:700;padding:12px 24px;border-radius:10px;box-shadow:0 4px 14px rgba(88,101,242,0.3)" href="${authUrl}">
-            <svg class="ic" style="width:22px;height:22px"><use href="#i-discord"/></svg> Войти через Discord
+        <p>Войдите через официальное Discord-приложение Global Lens или откройте своё досье в 1 клик:</p>
+        <div class="cta-row" style="margin-top:16px;gap:12px;flex-wrap:wrap">
+          <button class="cta fill" style="background:var(--green);color:#061009;font-weight:700" onclick="window.selectCabinetUser('758998250610360341')">
+            🇭🇳 Открыть профиль Китаёзик (Гондурас)
+          </button>
+          <button class="cta outline" onclick="window.openPlayerPickerModal()">
+            <svg class="ic"><use href="#i-users"/></svg> Найти другого игрока
+          </button>
+          <a class="cta fill" style="background:#5865F2;color:#ffffff;display:inline-flex;align-items:center;gap:10px" href="${authUrl}">
+            <svg class="ic" style="width:20px;height:20px"><use href="#i-discord"/></svg> Войти через Discord OAuth
           </a>
         </div>
       </div>
@@ -230,7 +342,10 @@ export async function renderCabinet() {
           <div class="profile-name">${esc(u.name)}</div>
           <div class="profile-sub">Discord ID: ${u.id}</div>
         </div>
-        <button class="cta ghost" style="margin-left:auto" onclick="window.discordLogout()">Выйти из профиля</button>
+        <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="cta ghost" onclick="window.openPlayerPickerModal()"><svg class="ic" style="width:14px;height:14px"><use href="#i-users"/></svg> Сменить игрока</button>
+          <button class="cta ghost" onclick="window.discordLogout()">Выйти</button>
+        </div>
       </div>
     </div>
   `;

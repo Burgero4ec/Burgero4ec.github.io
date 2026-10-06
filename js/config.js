@@ -15,12 +15,14 @@ export const BOT_DM_URL = 'https://discord.com/users/1406960264275824670';
 export const PLAYERS_URL = 'players.json';
 
 export const KNOWN_PLAYERS = {
-  '484044030640914437': { name: 'aytaconan2_' },
-  '830428424677490728': { name: 'ponzc' },
-  '800254982641025056': { name: 'yabl1ch' },
+  '484044030640914437': { name: 'AytacOnan2' },
+  '830428424677490728': { name: '𝕻𝖔𝖓𝖟𝖈' },
+  '800254982641025056': { name: 'Yabl1ch' },
   '848822433398259723': { name: '_ilovevodka' },
-  '758998250610360341': { name: 'qbitf' },
-  '1066701976949239905': { name: 'q.w.e.r.t.x' }
+  '758998250610360341': { name: 'Китаёзик' },
+  '1066701976949239905': { name: 'ℚ𝕎𝔼ℝ𝕋𝕏' },
+  '825769203347882042': { name: 'Flowy 🌻' },
+  '1135494383773433937': { name: 'LayBay' }
 };
 
 export const STAFF_DISCORD = {

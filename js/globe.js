@@ -7,6 +7,7 @@
 
 import { WORLD_GEO } from './world_geo.js';
 import { emojiToCountryCode } from './season.js';
+import { KNOWN_PLAYERS } from './config.js';
 
 // Глобальное состояние глобуса
 let globeInstance = null;
@@ -118,6 +119,7 @@ const FALLBACK_COORDINATES = {
   'лнр': [48.574, 39.3078],
   'абхазия': [43.0016, 41.0234],
   'южная осетия': [42.2286, 43.9706],
+  'гондурас': [14.7363, -86.4169],
   'косово': [42.6026, 20.903]
 };
 
@@ -534,10 +536,24 @@ function normalizeIncomingData(rawData) {
         p.categories.forEach(cat => ent.categories.add(cat));
       }
 
+      const known = KNOWN_PLAYERS[p.id];
+      let realName = known ? known.name : null;
+      if (!realName) {
+        const rawNick = (p.nickname || p.display_name || '').trim();
+        const parts = rawNick.split('|').map(s => s.trim());
+        if (parts.length > 1 && (parts[1] === p.country || parts[0].length <= 8)) {
+          realName = p.username || parts[1] || parts[0];
+        } else if (rawNick && rawNick !== p.country) {
+          realName = rawNick;
+        } else {
+          realName = p.username || 'Игрок';
+        }
+      }
+
       ent.playersList.push({
         id: p.id,
         username: p.username || 'Игрок',
-        displayName: p.nickname || p.display_name || p.username || 'Игрок',
+        displayName: realName,
         avatar: p.avatar_url,
         entityType: resolved.entityType,
         isLeader: resolved.isLeader
