@@ -12,6 +12,7 @@ import { handleLogin, discordLogout, renderCabinet, testPlayersWebhook, loadPlay
 import { loadUpdates, loadPress, loadRules, loadFragment, initOrderToggles } from './news_press.js';
 import { initArchives, renderArchives, loadArchiveFile } from './archives.js';
 import { initDonatePhysics, initLanyard } from './donate.js';
+import { initGlobeNavigation } from './globe.js';
 
 // Экспорт глобальных функций в window для обратной совместимости с HTML onclick
 window.go = go;
@@ -22,6 +23,7 @@ window.closeStaffModal = closeStaffModal;
 window.discordLogout = discordLogout;
 window.testPlayersWebhook = testPlayersWebhook;
 window.applyTheme = applyTheme;
+window.initGlobeNavigation = initGlobeNavigation;
 window.closeDrawer = closeDrawer;
 window.openDrawer = openDrawer;
 window.toggleDrawer = toggleDrawer;
@@ -54,6 +56,7 @@ async function initApp() {
 
   // 8. Живая статистика сервера и карты
   loadMapInfo();
+  initGlobeNavigation();
 
   // 9. Загрузка базы игроков, сезона и состава команды
   loadPlayers().then(() => {

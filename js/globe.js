@@ -1,0 +1,958 @@
+/**
+ * globe.js - Интерактивная 3D планета с векторными контурами стран мира,
+ * динамической подгрузкой активных государств из файла (players.json) и флагами-метками.
+ * 
+ * Разработано для Global Lens (Global VPI Portal).
+ */
+
+import { WORLD_GEO } from './world_geo.js';
+import { emojiToCountryCode } from './season.js';
+
+// Глобальное состояние глобуса
+let globeInstance = null;
+let currentSource = 'players.json'; // По умолчанию читаем players.json
+let activeCountriesMap = new Map(); // key: normalized name -> country record
+let allFeatures = [];
+let countriesDb = {}; // база данных из countries2014.json
+let lastDataFingerprint = '';
+let isAutoRotating = true;
+let isPollingActive = true;
+let pollTimer = null;
+let hoveredCountryName = null;
+
+// Фракционные цвета по умолчанию
+const FACTION_COLORS = {
+  'Атлантический Пакт': '#3b82f6',
+  'Евразийский Союз': '#ef4444',
+  'Тихоокеанский Блок': '#f59e0b',
+  'Ближневосточная Лига': '#a855f7',
+  'Нейтралитет': '#10b981',
+  'default': '#4ade80'
+};
+
+// Привязка стран к блокам для ВПИ (холодная война / современность)
+const COUNTRY_DEFAULT_FACTIONS = {
+  // Атлантический Пакт (Запад)
+  'сша': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+  'великобритания': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+  'франция': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+  'фрг': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+  'германия': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+  'нидерланды': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+  'норвегия': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+  'италия': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+  'испания': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+
+  // Евразийский Союз / Варшавский блок (Восток)
+  'ссср': { faction: 'Евразийский Союз', color: '#ef4444' },
+  'россия': { faction: 'Евразийский Союз', color: '#ef4444' },
+  'кнр': { faction: 'Евразийский Союз', color: '#ef4444' },
+  'китай': { faction: 'Евразийский Союз', color: '#ef4444' },
+  'гдр': { faction: 'Евразийский Союз', color: '#ef4444' },
+  'польша': { faction: 'Евразийский Союз', color: '#ef4444' },
+  'чехословакия': { faction: 'Евразийский Союз', color: '#ef4444' },
+  'румыния': { faction: 'Евразийский Союз', color: '#ef4444' },
+
+  // Ближневосточная Лига
+  'ирак': { faction: 'Ближневосточная Лига', color: '#a855f7' },
+  'египет': { faction: 'Ближневосточная Лига', color: '#a855f7' },
+  'турция': { faction: 'Ближневосточная Лига', color: '#a855f7' },
+  'афганистан': { faction: 'Ближневосточная Лига', color: '#a855f7' },
+
+  // Тихоокеанский Блок
+  'тайвань': { faction: 'Тихоокеанский Блок', color: '#f59e0b' },
+  'бутан': { faction: 'Тихоокеанский Блок', color: '#f59e0b' },
+  'япония': { faction: 'Тихоокеанский Блок', color: '#f59e0b' },
+  'индия': { faction: 'Тихоокеанский Блок', color: '#f59e0b' },
+  'австралия': { faction: 'Тихоокеанский Блок', color: '#f59e0b' },
+
+  // Нейтралы / Движение неприсоединения
+  'швейцария': { faction: 'Нейтралитет', color: '#10b981' },
+  'австрия': { faction: 'Нейтралитет', color: '#10b981' },
+  'швеция': { faction: 'Нейтралитет', color: '#10b981' },
+  'ирландия': { faction: 'Нейтралитет', color: '#10b981' },
+  'югославия': { faction: 'Нейтралитет', color: '#10b981' },
+  'бразилия': { faction: 'Нейтралитет', color: '#10b981' },
+  'юар': { faction: 'Нейтралитет', color: '#10b981' },
+  'ватикан': { faction: 'Нейтралитет', color: '#10b981' }
+};
+
+// Координаты микрогосударств и специальных объектов
+const FALLBACK_COORDINATES = {
+  'ватикан': [41.9029, 12.4534],
+  'тайвань': [23.6978, 120.9605],
+  'сингапур': [1.3521, 103.8198],
+  'монако': [43.7384, 7.4246],
+  'сан-марино': [43.9424, 12.4578],
+  'лихтенштейн': [47.166, 9.5554],
+  'мальта': [35.9375, 14.3754],
+  'кипр': [35.1264, 33.4299],
+  'северный кипр': [35.2, 33.5],
+  'люксембург': [49.8153, 6.1296],
+  'бахрейн': [26.0667, 50.5577],
+  'катар': [25.3548, 51.1839],
+  'кувейт': [29.3117, 47.4818],
+  'ливан': [33.8547, 35.8623],
+  'израиль': [31.0461, 34.8516],
+  'исландия': [64.9631, -19.0208],
+  'днр': [48.0159, 37.8029],
+  'лнр': [48.574, 39.3078],
+  'абхазия': [43.0016, 41.0234],
+  'южная осетия': [42.2286, 43.9706],
+  'косово': [42.6026, 20.903]
+};
+
+// Нормализация названий
+function normName(str) {
+  if (!str) return '';
+  return String(str)
+    .trim()
+    .toLowerCase()
+    .replace(/ё/g, 'е')
+    .replace(/[\s\-_]+/g, ' ');
+}
+
+// Алиасы для исторического и игрового маппинга
+const COUNTRY_ALIASES = {
+  'ссср': 'россия',
+  'советский союз': 'россия',
+  'ussr': 'россия',
+  'рф': 'россия',
+  'российская федерация': 'россия',
+  'russia': 'россия',
+
+  'кнр': 'кнр',
+  'китай': 'кнр',
+  'china': 'кнр',
+
+  'фрг': 'германия',
+  'гдр': 'германия',
+  'germany': 'германия',
+
+  'чехословакия': 'чехия',
+  'югославия': 'сербия',
+  'юар': 'юар',
+  'южно-африканская республика': 'юар',
+
+  'сша': 'сша',
+  'соединенные штаты': 'сша',
+  'usa': 'сша',
+
+  'великобритания': 'великобритания',
+  'англия': 'великобритания',
+  'uk': 'великобритания',
+
+  'бенилюкс': 'нидерланды',
+  'оаэ': 'объединенные арабские эмираты',
+  'франция': 'франция',
+  'тайвань': 'тайвань'
+};
+
+/**
+ * Проверка загрузки библиотеки Globe.gl
+ */
+async function ensureGlobeLibrary() {
+  if (typeof window.Globe === 'function') return;
+
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector('script[src*="globe.gl"]');
+    if (existing) {
+      existing.addEventListener('load', resolve);
+      existing.addEventListener('error', reject);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'js/libs/globe.gl.min.js';
+    script.onload = () => resolve();
+    script.onerror = (err) => {
+      console.warn('[Globe] Local globe.gl failed, trying CDN:', err);
+      const cdnScript = document.createElement('script');
+      cdnScript.src = 'https://unpkg.com/globe.gl@2.46.2/dist/globe.gl.min.js';
+      cdnScript.onload = () => resolve();
+      cdnScript.onerror = reject;
+      document.head.appendChild(cdnScript);
+    };
+    document.head.appendChild(script);
+  });
+}
+
+/**
+ * Загрузка базы стран countries2014.json
+ */
+async function loadCountriesDatabase() {
+  try {
+    const res = await fetch('countries2014.json');
+    if (res.ok) {
+      countriesDb = await res.json();
+    }
+  } catch (err) {
+    console.warn('[Globe] countries2014.json fetch fallback:', err);
+    countriesDb = {};
+  }
+}
+
+/**
+ * Поиск полигона страны в GeoJSON
+ */
+function findFeature(countryQuery) {
+  if (!countryQuery) return null;
+  const qNorm = normName(countryQuery);
+  const canonical = COUNTRY_ALIASES[qNorm] || qNorm;
+
+  // 1. Поиск по name_ru
+  let found = allFeatures.find(f => {
+    const rName = normName(f.properties?.name_ru);
+    return rName === canonical || rName === qNorm;
+  });
+  if (found) return found;
+
+  // 2. Поиск по iso2
+  const queryIso = countryQuery.length === 2 ? countryQuery.toUpperCase() : null;
+  if (queryIso) {
+    found = allFeatures.find(f => f.properties?.iso2?.toUpperCase() === queryIso);
+    if (found) return found;
+  }
+
+  // 3. Поиск по name_en / NAME / ADMIN
+  found = allFeatures.find(f => {
+    const enName = normName(f.properties?.name_en || f.properties?.NAME || f.properties?.ADMIN);
+    return enName === canonical || enName === qNorm;
+  });
+  if (found) return found;
+
+  // 4. Поиск по подстроке
+  found = allFeatures.find(f => {
+    const rName = normName(f.properties?.name_ru);
+    return rName && (rName.includes(canonical) || canonical.includes(rName));
+  });
+
+  return found || null;
+}
+
+/**
+ * Извлечение флага-эмодзи из display_name игрока в Discord (например: "🇮🇶 | Ирак" -> "🇮🇶")
+ */
+function extractFlagFromDisplay(displayName) {
+  if (!displayName || typeof displayName !== 'string') return null;
+  const parts = displayName.split('|');
+  if (parts.length > 1) {
+    const candidate = parts[0].trim();
+    // Игнорируем технические символы и иконки ЧВК
+    if (candidate && candidate !== '🏢' && candidate !== '•' && candidate.length <= 8) {
+      return candidate;
+    }
+  }
+  return null;
+}
+
+/**
+ * Парсер данных из файла players.json и других форматов
+ */
+function normalizeIncomingData(rawData) {
+  if (!rawData) return [];
+
+  // СПЕЦИАЛЬНЫЙ РЕЖИМ: players.json (экспорт игроков Global Lens Discord)
+  if (rawData.countries_count && typeof rawData.countries_count === 'object') {
+    const countriesMap = new Map();
+    const allPlayers = Array.isArray(rawData.all_players) ? rawData.all_players : [];
+
+    // Инициализируем список из countries_count
+    for (const [countryName, count] of Object.entries(rawData.countries_count)) {
+      countriesMap.set(countryName, {
+        name: countryName,
+        playerCount: count,
+        playersList: [],
+        extractedFlag: null,
+        entityTypes: new Set(),
+        categories: new Set()
+      });
+    }
+
+    // Обогащаем данными конкретных игроков
+    for (const p of allPlayers) {
+      const c = p.country;
+      if (!c) continue;
+
+      if (!countriesMap.has(c)) {
+        countriesMap.set(c, {
+          name: c,
+          playerCount: 1,
+          playersList: [],
+          extractedFlag: null,
+          entityTypes: new Set(),
+          categories: new Set()
+        });
+      }
+
+      const record = countriesMap.get(c);
+      const flag = extractFlagFromDisplay(p.display_name) || extractFlagFromDisplay(p.nickname);
+      if (flag && !record.extractedFlag) {
+        record.extractedFlag = flag;
+      }
+
+      record.playersList.push({
+        id: p.id,
+        username: p.username || 'Игрок',
+        displayName: p.display_name || p.nickname || p.username || 'Игрок',
+        avatar: p.avatar_url,
+        entityType: p.entity_type || 'Государство'
+      });
+
+      if (p.entity_type) record.entityTypes.add(p.entity_type);
+      if (Array.isArray(p.categories)) {
+        p.categories.forEach(cat => record.categories.add(cat));
+      }
+    }
+
+    // Преобразуем в единый список для глобуса
+    const resultList = [];
+    for (const [countryName, item] of countriesMap.entries()) {
+      const qNorm = normName(countryName);
+      const factionDef = COUNTRY_DEFAULT_FACTIONS[qNorm] || { faction: 'Независимое государство', color: '#4ade80' };
+
+      const playerNames = item.playersList.map(p => p.displayName || p.username);
+      const mainPlayer = playerNames.length ? playerNames[0] : null;
+
+      resultList.push({
+        name: countryName,
+        flag: item.extractedFlag,
+        faction: factionDef.faction,
+        faction_color: factionDef.color,
+        player: mainPlayer,
+        allPlayers: item.playersList,
+        playerCount: item.playerCount || item.playersList.length,
+        entityTypes: Array.from(item.entityTypes),
+        categories: Array.from(item.categories)
+      });
+    }
+
+    return resultList;
+  }
+
+  // СТАНДАРТНЫЙ РЕЖИМ: active_countries / countries / seasons / arrays
+  if (Array.isArray(rawData.active_countries)) return normalizeIncomingData(rawData.active_countries);
+  if (Array.isArray(rawData.countries)) return normalizeIncomingData(rawData.countries);
+
+  const list = [];
+  if (Array.isArray(rawData)) {
+    for (const item of rawData) {
+      if (typeof item === 'string') {
+        list.push({ name: item });
+      } else if (item && typeof item === 'object') {
+        list.push({
+          name: item.name || item.country || item.title || '',
+          flag: item.flag || null,
+          faction: item.faction || item.alliance || null,
+          faction_color: item.faction_color || item.color || null,
+          player: item.player || item.leader || item.owner || null,
+          role: item.role || item.status || null,
+          gdp: item.gdp || null,
+          population: item.population || null
+        });
+      }
+    }
+    return list;
+  }
+
+  for (const [key, val] of Object.entries(rawData)) {
+    if (!val || typeof val !== 'object') continue;
+    if (val.country && typeof val.country === 'string') {
+      list.push({
+        name: val.country,
+        flag: val.flag || null,
+        player: val.player || val.leader || key,
+        faction: val.faction || null,
+        faction_color: val.faction_color || null,
+        role: val.type || val.status || null,
+        gdp: val.gdp || null,
+        population: val.population || null
+      });
+    } else {
+      list.push({
+        name: key,
+        flag: val.flag || null,
+        faction: val.faction || val.alliance || null,
+        faction_color: val.faction_color || val.color || null,
+        player: val.player || val.leader || null,
+        role: val.role || val.status || null,
+        gdp: val.gdp || null,
+        population: val.population || null
+      });
+    }
+  }
+
+  return list;
+}
+
+/**
+ * Преобразование цвета HEX/RGB в RGBA с заданной прозрачностью
+ */
+function hexToRgba(hexOrColor, alpha = 0.2) {
+  if (!hexOrColor) return `rgba(74, 222, 128, ${alpha})`;
+  if (hexOrColor.startsWith('rgba')) return hexOrColor;
+  if (hexOrColor.startsWith('rgb')) {
+    return hexOrColor.replace('rgb', 'rgba').replace(')', `, ${alpha})`);
+  }
+  let c = hexOrColor.replace('#', '');
+  if (c.length === 3) c = c[0] + c[0] + c[1] + c[1] + c[2] + c[2];
+  const num = parseInt(c, 16);
+  if (isNaN(num)) return `rgba(74, 222, 128, ${alpha})`;
+  const r = (num >> 16) & 255;
+  const g = (num >> 8) & 255;
+  const b = num & 255;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+/**
+ * Форматирование чисел для карточки (ВВП, Население)
+ */
+function formatNum(num) {
+  if (num === null || num === undefined || isNaN(num)) return '—';
+  if (num >= 1e12) return (num / 1e12).toFixed(1) + ' трлн';
+  if (num >= 1e9) return (num / 1e9).toFixed(1) + ' млрд';
+  if (num >= 1e6) return (num / 1e6).toFixed(1) + ' млн';
+  return Number(num).toLocaleString('ru-RU');
+}
+
+/**
+ * Загрузка активных стран из файла
+ */
+export async function loadActiveCountries(sourcePath = currentSource, isSilent = false) {
+  currentSource = sourcePath;
+  const select = document.getElementById('globeSourceSelect');
+  if (select && select.value !== sourcePath && !sourcePath.startsWith('blob:')) {
+    select.value = sourcePath;
+  }
+
+  try {
+    const fetchUrl = sourcePath.startsWith('blob:') ? sourcePath : `${sourcePath}?_t=${Date.now()}`;
+    const res = await fetch(fetchUrl, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const rawData = await res.json();
+
+    const fingerprint = JSON.stringify(rawData);
+    if (fingerprint === lastDataFingerprint && isSilent) {
+      return; // Данные не изменились
+    }
+    lastDataFingerprint = fingerprint;
+
+    const normalizedList = normalizeIncomingData(rawData);
+    applyCountriesData(normalizedList);
+
+    // Уведомление на HUD
+    flashHudSyncIndicator();
+  } catch (err) {
+    if (!isSilent) {
+      console.warn(`[Globe] Ошибка загрузки файла ${sourcePath}:`, err);
+    }
+  }
+}
+
+/**
+ * Применение нормализованного списка стран к 3D-глобусу
+ */
+function applyCountriesData(countriesList) {
+  activeCountriesMap.clear();
+  const htmlMarkers = [];
+
+  for (const item of countriesList) {
+    if (!item.name) continue;
+    const feat = findFeature(item.name);
+    const dbItem = countriesDb[item.name] || (feat ? countriesDb[feat.properties?.name_ru] : null);
+
+    // Определяем флаг
+    let flag = item.flag;
+    if (!flag && feat?.properties?.flag) flag = feat.properties.flag;
+    if (!flag && dbItem?.flag) flag = dbItem.flag;
+    if (!flag) flag = '🏳️';
+
+    // Определяем цвет фракции
+    let factionColor = item.faction_color;
+    if (!factionColor && item.faction) {
+      factionColor = FACTION_COLORS[item.faction] || FACTION_COLORS['default'];
+    }
+    if (!factionColor) {
+      const qNorm = normName(item.name);
+      factionColor = COUNTRY_DEFAULT_FACTIONS[qNorm]?.color || '#4ade80';
+    }
+
+    // Координаты центроида
+    let coords = null;
+    const qNorm = normName(item.name);
+    if (FALLBACK_COORDINATES[qNorm]) {
+      coords = FALLBACK_COORDINATES[qNorm];
+    } else if (feat?.properties?.centroid) {
+      coords = feat.properties.centroid;
+    }
+
+    const countryRecord = {
+      name: item.name,
+      canonicalName: feat?.properties?.name_ru || item.name,
+      flag: flag,
+      faction: item.faction || COUNTRY_DEFAULT_FACTIONS[qNorm]?.faction || 'Независимое государство',
+      faction_color: factionColor,
+      player: item.player || null,
+      playerCount: item.playerCount || (item.player ? 1 : 0),
+      allPlayers: item.allPlayers || [],
+      entityTypes: item.entityTypes || [],
+      categories: item.categories || [],
+      role: item.role || (item.playerCount > 1 ? `${item.playerCount} игроков` : 'Активен'),
+      status: item.status || 'В игре',
+      gdp: item.gdp ?? dbItem?.gdp ?? null,
+      population: item.population ?? dbItem?.population ?? null,
+      lat: coords ? coords[0] : 0,
+      lng: coords ? coords[1] : 0,
+      hasGeometry: !!feat,
+      feature: feat
+    };
+
+    activeCountriesMap.set(normName(item.name), countryRecord);
+    if (feat?.properties?.name_ru) {
+      activeCountriesMap.set(normName(feat.properties.name_ru), countryRecord);
+    }
+
+    if (coords) {
+      htmlMarkers.push(countryRecord);
+    }
+  }
+
+  // Обновляем счетчик на HUD
+  const countEl = document.getElementById('globeCountryCount');
+  if (countEl) {
+    const totalCount = countriesList.length || activeCountriesMap.size;
+    countEl.textContent = `${totalCount} стран`;
+  }
+
+  // Обновляем слои на 3D-глобусе
+  if (globeInstance) {
+    // 1. Обновляем полигоны (контуры и высоты)
+    globeInstance.polygonsData([...allFeatures]);
+
+    // 2. Обновляем флаги-метки
+    globeInstance.htmlElementsData(htmlMarkers);
+  }
+}
+
+/**
+ * Создание HTML-элемента метки с флагом на 3D сфере
+ */
+function createFlagMarkerElement(country) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'globe-flag-pin';
+  wrapper.setAttribute('data-country', country.name);
+
+  const pBadge = country.playerCount > 1 ? `<span class="flag-count-pill">${country.playerCount}</span>` : '';
+
+  wrapper.innerHTML = `
+    <div class="flag-pin-badge" style="--faction-color: ${country.faction_color}; --faction-glow: ${hexToRgba(country.faction_color, 0.45)}">
+      <span class="flag-icon">${country.flag}</span>
+      <span class="flag-label">${country.name}</span>
+      ${pBadge}
+      <div class="flag-radar-dot"></div>
+    </div>
+  `;
+
+  wrapper.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    focusCountry(country);
+  });
+
+  return wrapper;
+}
+
+/**
+ * Плавный поворот камеры к выбранной стране и показ карточки
+ */
+export function focusCountry(country) {
+  if (!country || !globeInstance) return;
+
+  const lat = country.lat;
+  const lng = country.lng;
+
+  // Плавный перелет камеры
+  globeInstance.pointOfView({
+    lat: lat,
+    lng: lng,
+    altitude: 1.8
+  }, 1200);
+
+  // Отображение карточки страны
+  showCountryCard(country);
+}
+
+/**
+ * Отображение HUD-карточки выбранной страны
+ */
+function showCountryCard(country) {
+  const card = document.getElementById('globeCountryCard');
+  if (!card) return;
+
+  const flagEl = document.getElementById('cardFlag');
+  const nameEl = document.getElementById('cardName');
+  const factionEl = document.getElementById('cardFaction');
+  const playerEl = document.getElementById('cardPlayer');
+  const statusEl = document.getElementById('cardStatus');
+  const popEl = document.getElementById('cardPop');
+  const gdpEl = document.getElementById('cardGdp');
+  const dossierBtn = document.getElementById('cardDossierBtn');
+
+  if (flagEl) flagEl.textContent = country.flag || '🏳️';
+  if (nameEl) nameEl.textContent = country.name;
+  if (factionEl) {
+    factionEl.textContent = country.faction || 'Независимое государство';
+    factionEl.style.color = country.faction_color || '#4ade80';
+    factionEl.style.borderColor = country.faction_color || '#4ade80';
+  }
+
+  // Форматирование списка игроков
+  if (playerEl) {
+    if (country.allPlayers && country.allPlayers.length > 0) {
+      if (country.allPlayers.length === 1) {
+        playerEl.textContent = country.allPlayers[0].displayName || country.allPlayers[0].username;
+      } else {
+        playerEl.innerHTML = `<span title="${country.allPlayers.map(p => p.displayName).join(', ')}">${country.allPlayers[0].displayName} (+${country.allPlayers.length - 1})</span>`;
+      }
+    } else {
+      playerEl.textContent = country.player || '— (Свободно)';
+    }
+  }
+
+  if (statusEl) {
+    const types = country.entityTypes && country.entityTypes.length ? country.entityTypes.join(', ') : 'Государство';
+    statusEl.textContent = `${types} · ${country.playerCount || 1} игр.`;
+  }
+
+  if (popEl) popEl.textContent = country.population ? formatNum(country.population) : '—';
+  if (gdpEl) gdpEl.textContent = country.gdp ? ('$' + formatNum(country.gdp)) : '—';
+
+  card.style.setProperty('--faction-color', country.faction_color || '#4ade80');
+  card.style.display = 'block';
+
+  // Кнопка перехода к полному досье в сезоне
+  if (dossierBtn) {
+    dossierBtn.onclick = () => {
+      if (typeof window.openCountryModal === 'function') {
+        window.openCountryModal(country.name);
+      }
+    };
+  }
+}
+
+/**
+ * Закрытие HUD-карточки
+ */
+export function closeCountryCard() {
+  const card = document.getElementById('globeCountryCard');
+  if (card) card.style.display = 'none';
+}
+
+/**
+ * Вспышка индикатора синхронизации на HUD
+ */
+function flashHudSyncIndicator() {
+  const liveStatus = document.getElementById('globeLiveStatus');
+  if (liveStatus) {
+    liveStatus.classList.add('synced-flash');
+    setTimeout(() => liveStatus.classList.remove('synced-flash'), 1200);
+  }
+}
+
+/**
+ * Авто-опрос файла для динамического обновления при сохранении
+ */
+function startPolling() {
+  if (pollTimer) clearInterval(pollTimer);
+  pollTimer = setInterval(() => {
+    if (isPollingActive && currentSource && !currentSource.startsWith('blob:')) {
+      loadActiveCountries(currentSource, true);
+    }
+  }, 4000);
+}
+
+/**
+ * Главная инициализация интерактивного 3D глобуса
+ */
+export async function initGlobeNavigation() {
+  const container = document.getElementById('globeContainer');
+  if (!container) return;
+
+  // 1. Загрузка библиотеки globe.gl и базы данных
+  await ensureGlobeLibrary();
+  await loadCountriesDatabase();
+
+  allFeatures = WORLD_GEO?.features || [];
+
+  // Удаляем лоадер
+  const loader = document.getElementById('globeLoading');
+  if (loader) loader.style.display = 'none';
+
+  // Очищаем контейнер от предыдущих инстансов
+  container.innerHTML = '';
+
+  // 2. Инициализация Globe.gl
+  globeInstance = window.Globe()(container)
+    .backgroundColor('rgba(0,0,0,0)')
+    .showGlobe(true)
+    .globeImageUrl(null)
+    .bumpImageUrl(null)
+    .showGraticules(true) // Сетка меридианов и параллелей
+    .showAtmosphere(true)
+    .atmosphereColor('#4ade80') // Неоновое свечение атмосферы
+    .atmosphereAltitude(0.18)
+    
+    // --- ВЕКТОРНЫЕ КОНТУРЫ СТРАН ---
+    .polygonsData([...allFeatures])
+    .polygonGeoJsonGeometry(d => d.geometry)
+    .polygonCapColor(d => {
+      const qNorm = normName(d.properties?.name_ru);
+      const active = activeCountriesMap.get(qNorm);
+      if (active) {
+        return hexToRgba(active.faction_color, 0.16);
+      }
+      return 'rgba(0, 0, 0, 0)'; // Полностью прозрачное тело -> ТОЛЬКО контуры
+    })
+    .polygonSideColor(() => 'rgba(0, 0, 0, 0)')
+    .polygonStrokeColor(d => {
+      const qNorm = normName(d.properties?.name_ru);
+      const active = activeCountriesMap.get(qNorm);
+      if (hoveredCountryName && (hoveredCountryName === qNorm)) {
+        return '#ffffff';
+      }
+      if (active) {
+        return active.faction_color || '#4ade80';
+      }
+      return 'rgba(100, 140, 180, 0.28)'; // Тонкий ненавязчивый контур остальных стран
+    })
+    .polygonAltitude(d => {
+      const qNorm = normName(d.properties?.name_ru);
+      const active = activeCountriesMap.get(qNorm);
+      return active ? 0.012 : 0.003;
+    })
+    .polygonLabel(d => {
+      const qNorm = normName(d.properties?.name_ru);
+      const active = activeCountriesMap.get(qNorm);
+      const name = d.properties?.name_ru || d.properties?.NAME || 'Государство';
+      const flag = d.properties?.flag || '🏳️';
+
+      if (active) {
+        const pNames = active.allPlayers && active.allPlayers.length 
+          ? active.allPlayers.map(p => p.displayName || p.username).join(', ')
+          : (active.player || '—');
+
+        return `
+          <div class="globe-tooltip active">
+            <div class="globe-tooltip-header">
+              <span class="globe-tooltip-flag">${active.flag || flag}</span>
+              <span class="globe-tooltip-title">${active.name}</span>
+              <span class="globe-tooltip-status">В СЕТИ (${active.playerCount || 1})</span>
+            </div>
+            ${active.faction ? `<div class="globe-tooltip-row"><span class="k">Альянс:</span> <span class="v" style="color:${active.faction_color}">${active.faction}</span></div>` : ''}
+            <div class="globe-tooltip-row"><span class="k">Игрок:</span> <span class="v">${pNames}</span></div>
+            <div class="globe-tooltip-hint">Кликните для обзора и досье</div>
+          </div>
+        `;
+      }
+      return `
+        <div class="globe-tooltip">
+          <div class="globe-tooltip-header">
+            <span class="globe-tooltip-flag">${flag}</span>
+            <span class="globe-tooltip-title">${name}</span>
+          </div>
+          <div class="globe-tooltip-hint">Свободная территория</div>
+        </div>
+      `;
+    })
+    .onPolygonHover(hoverD => {
+      hoveredCountryName = hoverD ? normName(hoverD.properties?.name_ru) : null;
+      container.style.cursor = hoverD ? 'pointer' : 'grab';
+    })
+    .onPolygonClick(d => {
+      const qNorm = normName(d.properties?.name_ru);
+      const active = activeCountriesMap.get(qNorm);
+      if (active) {
+        focusCountry(active);
+      } else {
+        const centroid = d.properties?.centroid || [0, 0];
+        const neutralRecord = {
+          name: d.properties?.name_ru || d.properties?.NAME,
+          flag: d.properties?.flag || '🏳️',
+          faction: 'Свободная территория',
+          faction_color: '#94a3b8',
+          player: null,
+          role: 'Не занята',
+          lat: centroid[0],
+          lng: centroid[1]
+        };
+        focusCountry(neutralRecord);
+      }
+    })
+
+    // --- 3D МЕТКИ С ФЛАГАМИ ---
+    .htmlElementsData([])
+    .htmlLat(d => d.lat)
+    .htmlLng(d => d.lng)
+    .htmlAltitude(0.024)
+    .htmlElement(d => createFlagMarkerElement(d));
+
+  // Настройка авто-вращения камеры
+  const controls = globeInstance.controls();
+  if (controls) {
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.5;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.minDistance = 140;
+    controls.maxDistance = 420;
+
+    // Пауза вращения при взаимодействии мышью
+    let resumeRotateTimer = null;
+    controls.addEventListener('start', () => {
+      controls.autoRotate = false;
+      if (resumeRotateTimer) clearTimeout(resumeRotateTimer);
+    });
+    controls.addEventListener('end', () => {
+      if (!isAutoRotating) return;
+      if (resumeRotateTimer) clearTimeout(resumeRotateTimer);
+      resumeRotateTimer = setTimeout(() => {
+        if (isAutoRotating) controls.autoRotate = true;
+      }, 4000);
+    });
+  }
+
+  // Установка стартовой ориентации камеры (центр на Евразию)
+  globeInstance.pointOfView({ lat: 25, lng: 35, altitude: 2.3 }, 0);
+
+  // Адаптивный ресайз при изменении размера окна
+  const resizeObserver = new ResizeObserver(() => {
+    if (globeInstance && container.clientWidth) {
+      globeInstance.width(container.clientWidth);
+      globeInstance.height(container.clientHeight);
+    }
+  });
+  resizeObserver.observe(container);
+
+  // 3. Подключение контролов интерфейса
+  setupGlobeControls();
+
+  // 4. Первичная загрузка стран из файла (players.json)
+  await loadActiveCountries(currentSource);
+
+  // 5. Запуск фонового авто-опроса файла на изменения
+  startPolling();
+}
+
+/**
+ * Настройка кнопок, селектора и карточек
+ */
+function setupGlobeControls() {
+  // Селектор источника файла
+  const select = document.getElementById('globeSourceSelect');
+  const fileInput = document.getElementById('globeCustomFileInput');
+
+  if (select) {
+    select.addEventListener('change', (e) => {
+      const val = e.target.value;
+      if (val === 'custom') {
+        if (fileInput) fileInput.click();
+      } else {
+        loadActiveCountries(val);
+      }
+    });
+  }
+
+  // Загрузка кастомного JSON файла пользователя
+  if (fileInput) {
+    fileInput.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const json = JSON.parse(ev.target.result);
+          const normalized = normalizeIncomingData(json);
+          applyCountriesData(normalized);
+          flashHudSyncIndicator();
+          if (select) {
+            let opt = select.querySelector('option[value="custom-loaded"]');
+            if (!opt) {
+              opt = document.createElement('option');
+              opt.value = 'custom-loaded';
+              select.appendChild(opt);
+            }
+            opt.textContent = `📁 ${file.name} (Загружен)`;
+            select.value = 'custom-loaded';
+          }
+        } catch (err) {
+          alert('Ошибка чтения JSON файла: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  // Кнопка принудительного обновления
+  const refreshBtn = document.getElementById('globeRefreshBtn');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', () => {
+      refreshBtn.classList.add('spinning');
+      loadActiveCountries(currentSource).finally(() => {
+        setTimeout(() => refreshBtn.classList.remove('spinning'), 600);
+      });
+    });
+  }
+
+  // Закрытие карточки страны
+  const closeBtn = document.getElementById('closeCountryCardBtn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeCountryCard);
+  }
+
+  // Кнопка авто-вращения (⏸ / ▶)
+  const rotateBtn = document.getElementById('globeRotateToggle');
+  if (rotateBtn) {
+    rotateBtn.addEventListener('click', () => {
+      isAutoRotating = !isAutoRotating;
+      if (globeInstance) {
+        globeInstance.controls().autoRotate = isAutoRotating;
+      }
+      rotateBtn.textContent = isAutoRotating ? '⏸ Вращение' : '▶ Вращение';
+      rotateBtn.classList.toggle('active', isAutoRotating);
+    });
+  }
+
+  // Кнопка сброса камеры
+  const resetBtn = document.getElementById('globeResetCamera');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      if (globeInstance) {
+        globeInstance.pointOfView({ lat: 25, lng: 35, altitude: 2.3 }, 800);
+      }
+    });
+  }
+
+  // Клик по фракционным бейджам внизу схемы
+  document.querySelectorAll('.legend-pills button[data-faction]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const faction = btn.getAttribute('data-faction');
+      if (!faction) return;
+
+      // Ищем первую активную страну этой фракции
+      for (const country of activeCountriesMap.values()) {
+        if (country.faction === faction) {
+          focusCountry(country);
+          break;
+        }
+      }
+    });
+  });
+}
+
+// Экспорт для доступа из консоли и внешних модулей
+window.reloadGlobeCountries = () => loadActiveCountries(currentSource);
+window.setGlobeSource = (path) => loadActiveCountries(path);
+window.focusGlobeCountry = (name) => {
+  const c = activeCountriesMap.get(normName(name));
+  if (c) focusCountry(c);
+};

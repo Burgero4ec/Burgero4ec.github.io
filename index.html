@@ -39,10 +39,10 @@
 }
 </script>
 <link rel="stylesheet" href="style.css">  
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script src="js/libs/globe.gl.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 <style>
-/* === Геополитическая схема государств на 3D Глобусе === */
+/* === Геополитическая схема государств на 3D Глобусе (Векторные контуры) === */
 .state-schema-container {
   position: relative;
   border: 1px solid rgba(74, 222, 128, 0.25) !important;
@@ -50,25 +50,70 @@
   border-radius: 16px;
   overflow: hidden;
   background: radial-gradient(circle at 50% 50%, #0d1711 0%, #060a08 100%);
+  user-select: none;
 }
+.globe-viewport {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #09120e 0%, #050807 80%);
+  cursor: grab;
+}
+.globe-viewport:active {
+  cursor: grabbing;
+}
+.globe-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(6, 10, 8, 0.95);
+  color: #4ade80;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  z-index: 20;
+}
+.globe-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(74, 222, 128, 0.2);
+  border-top-color: #4ade80;
+  border-radius: 50%;
+  animation: globe-spin 0.8s linear infinite;
+}
+@keyframes globe-spin { to { transform: rotate(360deg); } }
+
 .schema-hud-top {
   position: absolute;
-  top: 14px;
-  left: 16px;
-  right: 16px;
+  top: 12px;
+  left: 14px;
+  right: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  z-index: 15;
   pointer-events: none;
+  gap: 10px;
+}
+.schema-hud-left, .schema-hud-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
 }
 .schema-badge {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   color: #4ade80;
-  background: rgba(8, 12, 9, 0.85);
-  border: 1px solid rgba(74, 222, 128, 0.3);
+  background: rgba(8, 14, 11, 0.88);
+  border: 1px solid rgba(74, 222, 128, 0.35);
   padding: 4px 10px;
   border-radius: 20px;
   backdrop-filter: blur(8px);
@@ -77,90 +122,386 @@
   gap: 6px;
   letter-spacing: 0.04em;
 }
-.schema-tag {
+.schema-live-pill {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   color: #94a3b8;
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(15, 23, 42, 0.8);
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: 12px;
   border: 1px solid rgba(148, 163, 184, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
+.dot-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px #4ade80;
+  animation: pulse-dot 1.5s infinite;
+}
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.globe-source-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(8, 14, 11, 0.88);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 8px;
+  padding: 2px 8px 2px 6px;
+  backdrop-filter: blur(8px);
+}
+.globe-source-select-wrap .ic.mini {
+  width: 13px;
+  height: 13px;
+  color: #4ade80;
+  margin-right: 5px;
+}
+.globe-source-select {
+  background: transparent;
+  border: none;
+  color: #f1f5f9;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  cursor: pointer;
+  outline: none;
+  padding: 2px 0;
+}
+.globe-source-select option {
+  background: #09120e;
+  color: #f1f5f9;
+}
+.globe-hud-btn {
+  background: rgba(8, 14, 11, 0.88);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s;
+  padding: 0;
+}
+.globe-hud-btn:hover {
+  background: rgba(74, 222, 128, 0.2);
+  border-color: #4ade80;
+}
+.globe-hud-btn.spinning svg {
+  animation: globe-spin 0.6s linear infinite;
+}
+
+/* 3D Метки стран с флагами на сфере */
+.globe-flag-pin {
+  position: relative;
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.globe-flag-pin:hover {
+  transform: translate(-50%, -115%) scale(1.15);
+  z-index: 50 !important;
+}
+.flag-pin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(6, 12, 9, 0.9);
+  border: 1px solid var(--faction-color, #4ade80);
+  box-shadow: 0 0 12px var(--faction-glow, rgba(74, 222, 128, 0.4)), 0 4px 12px rgba(0, 0, 0, 0.7);
+  padding: 2.5px 7px 2.5px 6px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  position: relative;
+}
+.flag-icon {
+  font-size: 13px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+.flag-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #f1f5f9;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.flag-count-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  background: var(--faction-color, #4ade80);
+  color: #060a08;
+  font-weight: 800;
+  padding: 0 4px;
+  border-radius: 8px;
+  line-height: 14px;
+  margin-left: 2px;
+}
+.flag-radar-dot {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--faction-color, #4ade80);
+  box-shadow: 0 0 6px var(--faction-color, #4ade80);
+}
+
+/* Всплывающие подсказки (Tooltips) */
+.globe-tooltip {
+  background: rgba(8, 14, 11, 0.94);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 8px;
+  padding: 8px 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  font-family: 'Nunito', sans-serif;
+  color: #e2e8f0;
+  pointer-events: none;
+  min-width: 140px;
+}
+.globe-tooltip.active {
+  border-color: rgba(74, 222, 128, 0.45);
+  box-shadow: 0 0 18px rgba(74, 222, 128, 0.15), 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+.globe-tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.globe-tooltip-flag {
+  font-size: 14px;
+}
+.globe-tooltip-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+.globe-tooltip-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.15);
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-left: auto;
+}
+.globe-tooltip-row {
+  font-size: 10px;
+  margin-top: 2px;
+  display: flex;
+  gap: 4px;
+}
+.globe-tooltip-row .k { color: #94a3b8; }
+.globe-tooltip-row .v { color: #f1f5f9; font-weight: 600; }
+.globe-tooltip-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  color: #64748b;
+  margin-top: 6px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-top: 4px;
+}
+
+/* Карточка выбранного государства (HUD Drawer) */
+.globe-country-card {
+  position: absolute;
+  bottom: 56px;
+  right: 14px;
+  width: 280px;
+  background: rgba(8, 14, 11, 0.94);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  border-top: 2px solid var(--faction-color, #4ade80);
+  border-radius: 12px;
+  padding: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 20px rgba(74, 222, 128, 0.1);
+  z-index: 30;
+  animation: cardIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.card-close-btn {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.card-close-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.country-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.country-card-flag {
+  font-size: 26px;
+  line-height: 1;
+}
+.country-card-title-group h4 {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #f8fafc;
+}
+.country-card-faction {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  margin-top: 2px;
+}
+.country-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+  background: rgba(15, 23, 42, 0.5);
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.card-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+.card-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  color: #64748b;
+  text-transform: uppercase;
+}
+.card-stat-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #e2e8f0;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.country-card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+.country-card-footer .btn {
+  font-size: 10.5px;
+  padding: 4px 10px;
+  width: 100%;
+}
+
+/* Нижняя панель легенды и контролов */
 .schema-legend-bar {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  z-index: 10;
+  z-index: 15;
   pointer-events: none;
 }
 .legend-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
   justify-content: center;
+  pointer-events: auto;
 }
 .l-pill {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
+  font-size: 9.5px;
   padding: 3px 8px;
   border-radius: 12px;
-  background: rgba(8, 12, 9, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(8, 14, 11, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #e2e8f0;
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.l-pill:hover {
+  border-color: rgba(74, 222, 128, 0.5);
+  background: rgba(74, 222, 128, 0.15);
+  transform: translateY(-1px);
 }
 .l-pill .dot { width: 6px; height: 6px; border-radius: 50%; }
 .l-pill.blue .dot { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
 .l-pill.red .dot { background: #f87171; box-shadow: 0 0 6px #f87171; }
 .l-pill.amber .dot { background: #fbbf24; box-shadow: 0 0 6px #fbbf24; }
+.l-pill.purple .dot { background: #c084fc; box-shadow: 0 0 6px #c084fc; }
 .l-pill.green .dot { background: #4ade80; box-shadow: 0 0 6px #4ade80; }
 
-/* 3D Hotspot pins on Globe */
-.hotspot {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  padding: 0;
+.viewer-bottom-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.hotspot-pulse {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 10px #4ade80, 0 0 20px #4ade80;
-  animation: hotspot-radar 2s infinite ease-out;
-}
-@keyframes hotspot-radar {
-  0% { transform: scale(0.9); opacity: 1; }
-  50% { transform: scale(1.6); opacity: 0.6; }
-  100% { transform: scale(2.2); opacity: 0; }
-}
-.hotspot-label {
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(6, 10, 8, 0.9);
-  border: 1px solid rgba(74, 222, 128, 0.4);
-  color: #4ade80;
+.globe-ctrl-btn {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  font-weight: 700;
-  white-space: nowrap;
-  padding: 2px 8px;
-  border-radius: 4px;
-  pointer-events: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  font-size: 9.5px;
+  color: #94a3b8;
+  background: rgba(8, 14, 11, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s;
+}
+.globe-ctrl-btn:hover {
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.4);
+}
+.globe-ctrl-btn.active {
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.5);
+  background: rgba(74, 222, 128, 0.12);
+}
+.viewer-hint-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .globe-source-select-wrap { display: none; }
+  .globe-country-card { width: calc(100% - 24px); right: 12px; bottom: 85px; }
+  .viewer-hint-text { display: none; }
 }
 </style>
 </head>
@@ -298,64 +639,89 @@
       <p class="lead">ВПИ-сообщество нового уровня</p>
 
       <div class="about-split">
-        <div class="about-viewer state-schema-container">
+        <div class="about-viewer state-schema-container" id="globeViewerWrapper">
+          <!-- Верхний HUD управления и источника -->
           <div class="schema-hud-top">
-            <span class="schema-badge"><svg class="ic"><use href="#i-globe"/></svg> ГЕОПОЛИТИЧЕСКАЯ СХЕМА ГОСУДАРСТВ</span>
-            <span class="schema-tag">СЕЗОН 26</span>
+            <div class="schema-hud-left">
+              <span class="schema-badge"><svg class="ic"><use href="#i-globe"/></svg> ГЕОПОЛИТИЧЕСКАЯ СХЕМА</span>
+              <span class="schema-live-pill" id="globeLiveStatus" title="Автоматическая синхронизация с файлом">
+                <span class="dot-pulse"></span>
+                <span id="globeCountryCount">0 стран</span>
+              </span>
+            </div>
+            <div class="schema-hud-right">
+              <div class="globe-source-select-wrap">
+                <svg class="ic mini"><use href="#i-scroll"/></svg>
+                <select id="globeSourceSelect" class="globe-source-select" title="Выберите файл со странами">
+                  <option value="players.json" selected>players.json (Активные игроки)</option>
+                  <option value="data/active_countries.json">data/active_countries.json</option>
+                  <option value="data/seasons/season-25.json">data/seasons/season-25.json</option>
+                  <option value="countries2014.json">countries2014.json (Все страны)</option>
+                  <option value="custom">📁 Выбрать файл...</option>
+                </select>
+              </div>
+              <input type="file" id="globeCustomFileInput" accept=".json" style="display:none">
+              <button id="globeRefreshBtn" class="globe-hud-btn" title="Принудительно перечитать файл">
+                <svg class="ic mini"><use href="#i-history"/></svg>
+              </button>
+            </div>
           </div>
 
-          <model-viewer
-            id="heroModel"
-            src="assets/Earth.glb"
-            loading="lazy"
-            reveal="auto"
-            alt="3D Глобус Земли Global Lens"
-            camera-controls
-            auto-rotate
-            auto-rotate-delay="1000"
-            rotation-per-second="12deg"
-            shadow-intensity="1.2"
-            environment-image="neutral"
-            exposure="1.1"
-            camera-orbit="0deg 75deg 2.4m"
-            min-camera-orbit="auto auto 1.6m"
-            max-camera-orbit="auto auto 4.5m"
-            field-of-view="32deg"
-            style="width: 100%; height: 100%;"
-          >
-            <!-- Интерактивные геополитические точки блоков государств -->
-            <button class="hotspot" slot="hotspot-na" data-position="0.25 0.55 0.75" data-normal="0.25 0.55 0.75">
-              <span class="hotspot-pulse"></span>
-              <span class="hotspot-label">Атлантический Пакт</span>
-            </button>
-            <button class="hotspot" slot="hotspot-ea" data-position="-0.6 0.35 0.7" data-normal="-0.6 0.35 0.7">
-              <span class="hotspot-pulse"></span>
-              <span class="hotspot-label">Евразийский Союз</span>
-            </button>
-            <button class="hotspot" slot="hotspot-ap" data-position="-0.75 -0.2 0.65" data-normal="-0.75 -0.2 0.65">
-              <span class="hotspot-pulse"></span>
-              <span class="hotspot-label">Тихоокеанский Блок</span>
-            </button>
-            <button class="hotspot" slot="hotspot-me" data-position="-0.15 0.3 0.95" data-normal="-0.15 0.3 0.95">
-              <span class="hotspot-pulse"></span>
-              <span class="hotspot-label">Ближневосточная Лига</span>
-            </button>
-          </model-viewer>
-          <script>
-            if (window.location.protocol === 'file:') {
-              var hm = document.getElementById('heroModel');
-              if (hm) hm.setAttribute('src', 'https://raw.githubusercontent.com/Kartikey1220/Solar_system/main/Earth.glb');
-            }
-          </script>
+          <!-- Контейнер для 3D WebGL планеты с контурами -->
+          <div id="globeContainer" class="globe-viewport">
+            <div id="globeLoading" class="globe-loader">
+              <div class="globe-spinner"></div>
+              <span>Инициализация 3D-контуров Земли...</span>
+            </div>
+          </div>
 
+          <!-- Карточка выбранной страны (HUD Drawer) -->
+          <div id="globeCountryCard" class="globe-country-card" style="display: none;">
+            <button class="card-close-btn" id="closeCountryCardBtn" title="Закрыть">✕</button>
+            <div class="country-card-header">
+              <span class="country-card-flag" id="cardFlag">🏳️</span>
+              <div class="country-card-title-group">
+                <h4 id="cardName">Государство</h4>
+                <span class="country-card-faction" id="cardFaction">Фракция</span>
+              </div>
+            </div>
+            <div class="country-card-grid">
+              <div class="card-stat-item">
+                <span class="card-stat-label">Игрок / Лидер</span>
+                <span class="card-stat-val" id="cardPlayer">—</span>
+              </div>
+              <div class="card-stat-item">
+                <span class="card-stat-label">Статус</span>
+                <span class="card-stat-val" id="cardStatus">—</span>
+              </div>
+              <div class="card-stat-item">
+                <span class="card-stat-label">Население</span>
+                <span class="card-stat-val" id="cardPop">—</span>
+              </div>
+              <div class="card-stat-item">
+                <span class="card-stat-label">ВВП</span>
+                <span class="card-stat-val" id="cardGdp">—</span>
+              </div>
+            </div>
+            <div class="country-card-footer">
+              <button class="btn btn-sm btn-ghost" id="cardDossierBtn">Открыть досье в сезоне</button>
+            </div>
+          </div>
+
+          <!-- Нижний HUD: Легенда и быстрые контролы -->
           <div class="schema-legend-bar">
             <div class="legend-pills">
-              <span class="l-pill blue"><span class="dot"></span> Пакт (Запад)</span>
-              <span class="l-pill red"><span class="dot"></span> Союз (Восток)</span>
-              <span class="l-pill amber"><span class="dot"></span> Тихоокеанский</span>
-              <span class="l-pill green"><span class="dot"></span> Нейтралитет</span>
+              <button class="l-pill blue" data-faction="Атлантический Пакт"><span class="dot"></span> Пакт (Запад)</button>
+              <button class="l-pill red" data-faction="Евразийский Союз"><span class="dot"></span> Союз (Восток)</button>
+              <button class="l-pill amber" data-faction="Тихоокеанский Блок"><span class="dot"></span> Тихоокеанский</button>
+              <button class="l-pill purple" data-faction="Ближневосточная Лига"><span class="dot"></span> Ближний Восток</button>
+              <button class="l-pill green" data-faction="Нейтралитет"><span class="dot"></span> Нейтралитет</button>
             </div>
-            <div class="viewer-hint">Вращайте глобус для обзора геополитических сфер · колесо — зум схемы</div>
+            <div class="viewer-bottom-controls">
+              <button class="globe-ctrl-btn active" id="globeRotateToggle" title="Включить / остановить авто-вращение">⏸ Вращение</button>
+              <button class="globe-ctrl-btn" id="globeResetCamera" title="Вернуть ракурс на центр">⟲ Сброс</button>
+              <span class="viewer-hint-text">Вращайте глобус · колесо — зум · клик по стране для досье</span>
+            </div>
           </div>
         </div>
 
