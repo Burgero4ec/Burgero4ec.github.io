@@ -204,11 +204,12 @@
   cursor: pointer;
   pointer-events: auto;
   user-select: none;
+  z-index: 10 !important;
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .globe-flag-pin:hover {
   transform: translate(-50%, -115%) scale(1.15);
-  z-index: 50 !important;
+  z-index: 25 !important;
 }
 .flag-pin-badge {
   display: inline-flex;
@@ -259,8 +260,14 @@
   box-shadow: 0 0 6px var(--faction-color, #4ade80);
 }
 
-/* Всплывающие подсказки (Tooltips) */
+/* Всплывающие подсказки (Tooltips) - поверх любых меток и слоев */
+.scene-tooltip {
+  z-index: 100000 !important;
+  pointer-events: none !important;
+}
 .globe-tooltip {
+  position: relative;
+  z-index: 100001 !important;
   background: rgba(8, 14, 11, 0.94);
   border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: 8px;
@@ -513,7 +520,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
   </button>
   <div class="mobile-title"><span class="logo-title">GLOBAL <span>LENS</span></span></div>
-  <div class="status-card" style="margin:0;padding:6px 10px;font-size:11px"><span class="dot pulse" style="width:6px;height:6px"></span>S26</div>
+  <div class="status-card" style="margin:0;padding:6px 10px;font-size:11px"><span class="dot pulse" style="width:6px;height:6px"></span>S28</div>
 </header>
 
 <div class="layout">
@@ -536,12 +543,18 @@
         </div>
       </div>
       <div class="status-card">
-        <span class="dot pulse"></span>Сезон 26 Активен<span class="badge-online">ONLINE</span>
+        <span class="dot pulse"></span>Сезон 28 Активен<span class="badge-online">ONLINE</span>
       </div>
     </div>
 
     <nav class="side-nav">
-      <div class="nav-label">НАВИГАЦИЯ ПОРТАЛА</div>
+      <div class="nav-category-header">
+        <svg class="nav-cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+        </svg>
+        <span>· НАВИГАЦИЯ ПОРТАЛА</span>
+      </div>
       <a class="nav-item active" href="#" data-go="home"><svg class="ic"><use href="#i-home"/></svg>Главная</a>
       <div class="nav-group open" id="infoGroup">
         <button class="nav-item" id="infoBtn"><svg class="ic"><use href="#i-info"/></svg>Информация<svg class="chev ic"><use href="#i-chevron"/></svg></button>
@@ -560,10 +573,18 @@
         </div>
       </div>
       <a class="nav-item" href="#" data-go="features"><svg class="ic"><use href="#i-star"/></svg>Возможности<span class="pill">Новое</span></a>
-      <a class="nav-item" href="#" data-go="season"><svg class="ic"><use href="#i-map"/></svg>Текущий Сезон<span class="pill">S26</span></a>
+      <a class="nav-item" href="#" data-go="season"><svg class="ic"><use href="#i-map"/></svg>Текущий Сезон<span class="pill">S28</span></a>
       <a class="nav-item" href="#" data-go="staff"><svg class="ic"><use href="#i-users"/></svg>Состав Команды</a>
 
-      <div class="nav-label nav-label-spacer">ДОПОЛНИТЕЛЬНО</div>
+      <div class="nav-category-header nav-category-spacer">
+        <svg class="nav-cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span>· ДОПОЛНИТЕЛЬНО</span>
+      </div>
       <a class="nav-item" href="#" data-go="cabinet"><svg class="ic"><use href="#i-user"/></svg><span id="cabinetLabel">Личный кабинет</span></a>
       <a class="nav-item" href="#" data-go="press"><svg class="ic"><use href="#i-news"/></svg>Пресса</a>
       <a class="nav-item" href="#" data-go="donate"><svg class="ic"><use href="#i-bag"/></svg>Донат магазин</a>
@@ -601,7 +622,7 @@
     <!-- ГЛАВНАЯ -->
     <section class="page active" id="page-home">
       <div class="hero">
-        <div class="hero-badge"><i class="dot pulse"></i>СЕЗОН 26 В САМОМ РАЗГАРЕ</div>
+        <div class="hero-badge"><i class="dot pulse"></i>СЕЗОН 28 В САМОМ РАЗГАРЕ</div>
         <h1>Мир без фильтров и клише</h1>
         <p class="lead">Русскоязычное ВПИ-сообщество для тех, кто смотрит глубже. Геополитика, военное дело, экономика и скрытые механизмы мировой политики. Здесь вы не просто читаете новости — вы становитесь частью процесса.</p>
         
@@ -617,11 +638,11 @@
           <div class="stats three">
             <div class="stat"><b data-stat="discord_members">0</b><span>Участников</span></div>
             <div class="stat"><b data-stat="staff">0</b><span>Персонал</span></div>
-            <div class="stat"><b data-count="26">0</b><span>Сезонов</span></div>
+            <div class="stat"><b data-count="28">0</b><span>Сезонов</span></div>
           </div>
         </div>
         <div class="stats-col">
-          <div class="stats-col-title"><svg class="ic"><use href="#i-map"/></svg>СЕЗОН 26 · ИГРОВАЯ</div>
+          <div class="stats-col-title"><svg class="ic"><use href="#i-map"/></svg>СЕЗОН 28 · ИГРОВАЯ</div>
           <div class="stats two">
             <div class="stat"><b data-stat="players">0</b><span>Зарегистрировано</span></div>
             <div class="stat"><b data-stat="countries">0</b><span>Государства</span></div>
@@ -741,12 +762,21 @@
       <h1>Новости <em>проекта</em></h1>
       <p class="lead">Актуальные события и анонсы</p>
       <article class="card wide">
-        <h3><svg class="ic"><use href="#i-star"/></svg>Старт 20-го сезона!</h3>
-        <p>В эту пятницу начался юбилейный 20-й сезон Global Lens. Предыдущий сезон был досрочно завершён, чтобы дать дорогу масштабному обновлению и новым механикам.</p>
-        <p>Новый сезон — это время переосмысления и фундаментальных перемен. Традиционные методы ведения политики уступают место новым реалиям, а прежние устои начинают рушиться. Политика малых стран способна изменить расклад сил целых регионов.</p>
-        <p>Каждое слово обретает вес, определяя уровень поддержки внутри страны. Отныне каждый правитель стоит перед выбором: утонет ли его страна в междоусобицах или же вознесется на мировой пьедестал.</p>
-        <blockquote>«Война, подпитываемая жгучим пламенем попранной веры, превращённой в ненависть, не знает иного конца, кроме истребления.»</blockquote>
-        <p>Полный список изменений читайте <a href="#" data-go="updates">на странице обновлений</a>.</p>
+        <div class="news-header-badge" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono';font-size:11px;color:var(--acc);background:var(--acc-soft);border:1px solid var(--acc-border);padding:3px 10px;border-radius:12px;margin-bottom:12px">
+          <span class="dot pulse" style="width:6px;height:6px"></span>ГЛОБАЛЬНЫЙ СТАРТ · СЕЗОН 28
+        </div>
+        <h3><svg class="ic"><use href="#i-star"/></svg>Старт 28-го сезона: Противостояние Блоков и Новая Геополитика!</h3>
+        <p>На сервере <b>Global Lens</b> официально запущен <b>28-й сезон</b>! Мировая сцена вступает в фазу обострённого геополитического соперничества: на карте разворачивается противостояние ведущих военно-политических альянсов — <b>Атлантического Пакта</b>, <b>Евразийского Союза</b>, <b>Тихоокеанского Блока</b> и <b>Ближневосточной Лиги</b>.</p>
+        <p>В этом сезоне произошла масштабная перезагрузка международных отношений и механик:</p>
+        <ul style="margin:8px 0 14px 20px;line-height:1.7;color:var(--muted)">
+          <li><b>Интерактивная 3D-геополитика:</b> запущен единый векторный глобус с динамической синхронизацией активных стран, союзных республик и доминионов прямо из Discord сервера.</li>
+          <li><b>Разделение Германии и исторических границ:</b> на карте разделены ГДР и ФРГ с собственными правительствами и блоковыми обязательствами.</li>
+          <li><b>Учёт метрополий и автономий:</b> детальная проработка союзных республик СССР (Украинская ССР, Казахская ССР, Литовская ССР), владений Великобритании (Южная Родезия, Англо-египетский Судан) и Франции (Алжир).</li>
+          <li><b>Обновлённая система лицензий:</b> дипломатические каналы, экономические блоки и влияние региональных игроков теперь напрямую формируют глобальный баланс сил.</li>
+        </ul>
+        <p>Каждое решение руководства государства, каждый договор или нота протеста несут реальные последствия. Присоединяйтесь к мировому процессу — займите своё место за столом переговоров или на передовой!</p>
+        <blockquote>«Мир определяется не теми, кто наблюдает за историей со стороны, а теми, кто принимает решения в самый критический момент.»</blockquote>
+        <p>Полный список игровых изменений читайте <a href="#" data-go="updates">на странице обновлений</a>, а распределение сил смотрите в <a href="#" data-go="season">разделе Текущего Сезона 28</a>.</p>
       </article>
       <iframe class="lanyard-frame" src="lanyard.html" title="Global Lens Lanyard" loading="lazy"></iframe>
     </section>
@@ -849,8 +879,8 @@
 
     <!-- СЕЗОН -->
     <section class="page" id="page-season">
-      <h1>Сезон <em>26</em></h1>
-      <p class="lead">Сезон 26 идёт — история пишется прямо сейчас!</p>
+      <h1>Сезон <em>28</em></h1>
+      <p class="lead">Сезон 28 идёт — история пишется прямо сейчас!</p>
       <div class="stats three">
         <div class="stat"><b data-stat="countries">0</b><span>Государства</span></div>
         <div class="stat"><b data-stat="orgs">0</b><span>Организации</span></div>
@@ -882,7 +912,7 @@
 <article class="card" style="margin-top:0">
 <div class="member" data-discord-id="758998250610360341"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=1024" alt=""></span><div><b>Китаёзик</b><span class="m-role">ЗАМ. РУКОВОДСТВА</span><p>Создатель данного сайта и правая рука руководства. Держит в руках и код, и порядок.</p></div></div>
 <div class="member" data-discord-id="825769203347882042"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/825769203347882042/0e29d84c19de3e819e41e605d07743fa.png?size=1024" alt=""></span><div><b>Flowy 🌻</b><span class="m-role">АДМИНИСТРАТОР</span><p>Самый добрый и лучший человек в мире с большим сердцем. Всегда поможет, всегда поддержит.</p></div></div>
-<div class="member" data-discord-id="830428424677490728"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt=""></span><div><b>𝕻𝖔𝖓𝖟𝖈</b><span class="m-role">АДМИНИСТРАТОР / КАРТОГРАФИЯ</span><p>Смог восстановить и сделать стабильную работу картографии. Награды:</p><div class="member-actions-row" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+<div class="member" data-discord-id="830428424677490728"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt=""></span><div><b>𝕻𝖔𝖓𝖟𝖈</b><span class="m-role">АДМИНИСТРАТОР / КАРТОГРАФИЯ</span><p>Смог восстановить и сделать стабильную работу картографии. Также является главным лудиком на Global Luds. Награды:...</p><div class="member-actions-row" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
   <button class="btn-achievements" onclick="openStaffModal('ponzc')">
     <svg class="ic"><use href="#i-award"/></svg> Показать список наград (200)
   </button>

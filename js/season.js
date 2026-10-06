@@ -150,13 +150,16 @@ export async function fetchSeasonData() {
     // Проверяем наличие файла сезона с данными стран
     let seasonData = {};
     try {
-      const s26 = await fetchJson('data/seasons/season-26.json');
-      // Если в season-26 есть страны, берем его
-      if (s26 && Object.values(s26).some(v => v && (v.country || v.type === 'country'))) {
-        seasonData = s26;
+      const s28 = await fetchJson('data/seasons/season-28.json');
+      if (s28 && Object.values(s28).some(v => v && (v.country || v.type === 'country'))) {
+        seasonData = s28;
       } else {
-        // Иначе подгружаем season-25 с полным перечнем стран
-        seasonData = await fetchJson('data/seasons/season-25.json');
+        const s26 = await fetchJson('data/seasons/season-26.json');
+        if (s26 && Object.values(s26).some(v => v && (v.country || v.type === 'country'))) {
+          seasonData = s26;
+        } else {
+          seasonData = await fetchJson('data/seasons/season-25.json');
+        }
       }
     } catch (e2) {
       try {

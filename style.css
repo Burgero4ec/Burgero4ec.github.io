@@ -48,8 +48,48 @@ body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, 
 .badge-online { margin-left: auto; font-family: 'JetBrains Mono'; font-size: 9.5px; color: var(--acc); background: var(--acc-soft); border: 1px solid var(--acc-border); padding: 3px 8px; border-radius: 6px; letter-spacing: .14em; }
 .side-nav { padding: 18px 14px; flex: 1 1 auto; overflow-y: auto; min-height: 0; }
 .side-nav::-webkit-scrollbar { width: 6px; }
-.side-nav::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 3px; }
+/* Категории навигации */
+.nav-category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--acc);
+  background: linear-gradient(90deg, var(--acc-soft) 0%, rgba(0, 0, 0, 0) 100%);
+  border-left: 2.5px solid var(--acc);
+  padding: 5px 10px 5px 8px;
+  border-radius: 0 6px 6px 0;
+  margin: 6px 4px 10px;
+  text-transform: uppercase;
+  user-select: none;
+}
+.nav-category-header .nav-cat-ic {
+  width: 13px;
+  height: 13px;
+  color: var(--acc);
+  flex-shrink: 0;
+}
+.nav-category-header span {
+  white-space: nowrap;
+}
+.nav-category-spacer {
+  margin-top: 22px;
+}
 .nav-label { font-family: 'JetBrains Mono'; font-size: 10px; letter-spacing: .24em; color: var(--dim); margin: 4px 8px 12px; }
+
+/* 3D Globe подсказки - гарантия отображения поверх меток */
+.scene-tooltip {
+  z-index: 100000 !important;
+  pointer-events: none !important;
+}
+.globe-tooltip {
+  position: relative;
+  z-index: 100001 !important;
+  pointer-events: none !important;
+}
 .nav-item { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border-radius: 10px; color: var(--muted); text-decoration: none; font-family: Nunito; font-weight: 700; font-size: 14.5px; background: none; border: 1px solid transparent; cursor: pointer; margin-bottom: 4px; text-align: left; transition: .15s; }
 .nav-item:hover { color: var(--text); background: var(--acc-soft); }
 .nav-item.active { color: var(--acc); background: var(--acc-soft); border-color: var(--acc-border); }
