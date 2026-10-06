@@ -1,7 +1,7 @@
 /**
  * season.js - Модуль сезона: карточки стран с FlagCDN, модальные окна и адаптация данных
  */
-import { esc, fmtNum, trimDeep } from './utils.js';
+import { esc, fmtNum, trimDeep, normName } from './utils.js';
 import { SPEC_NAMES, API_BASE } from './config.js';
 import { playerMeta } from './auth.js';
 import { countUpAll, getMapInfo } from './stats.js';
@@ -55,7 +55,11 @@ export function seasonCard(o) {
 }
 
 export function openCountryModal(key) {
-  const o = SEASON_DATA_STORE[key];
+  let o = SEASON_DATA_STORE[key];
+  if (!o && key) {
+    const q = normName(key);
+    o = Object.values(SEASON_DATA_STORE).find(x => x && (x.name === key || normName(x.name) === q));
+  }
   if (!o) return;
 
   const d = o.data || {};

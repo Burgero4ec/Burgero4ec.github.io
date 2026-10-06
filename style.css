@@ -80,15 +80,33 @@ body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, 
 }
 .nav-label { font-family: 'JetBrains Mono'; font-size: 10px; letter-spacing: .24em; color: var(--dim); margin: 4px 8px 12px; }
 
-/* 3D Globe подсказки - гарантия отображения поверх меток */
+/* 3D Globe подсказки - абсолютный приоритет над трехмерными метками и канвасом */
+.float-tooltip-kap,
 .scene-tooltip {
-  z-index: 100000 !important;
+  z-index: 999999 !important;
   pointer-events: none !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
 }
 .globe-tooltip {
   position: relative;
-  z-index: 100001 !important;
+  z-index: 1000000 !important;
   pointer-events: none !important;
+  background: rgba(6, 12, 9, 0.98) !important;
+  border: 1px solid rgba(148, 163, 184, 0.35) !important;
+  border-radius: 9px !important;
+  padding: 10px 14px !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+  color: #f1f5f9 !important;
+  min-width: 170px !important;
+  max-width: 290px !important;
+}
+.globe-tooltip.active {
+  border-color: rgba(74, 222, 128, 0.6) !important;
+  box-shadow: 0 0 24px rgba(74, 222, 128, 0.25), 0 16px 40px rgba(0, 0, 0, 0.95) !important;
 }
 .nav-item { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border-radius: 10px; color: var(--muted); text-decoration: none; font-family: Nunito; font-weight: 700; font-size: 14.5px; background: none; border: 1px solid transparent; cursor: pointer; margin-bottom: 4px; text-align: left; transition: .15s; }
 .nav-item:hover { color: var(--text); background: var(--acc-soft); }

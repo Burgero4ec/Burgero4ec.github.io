@@ -886,12 +886,23 @@ function showCountryCard(country) {
   }
 
   // Форматирование списка игроков
+  const cleanP = (p, cName, cIso) => {
+    if (!p) return '—';
+    const disp = (p.displayName || p.nickname || '').trim();
+    const user = (p.username || '').trim();
+    if (user && disp && (disp === cName || disp.endsWith(cName) || disp.includes('| ' + cName) || (cIso && disp.includes(cIso)))) {
+      return `@${user}`;
+    }
+    return disp || (user ? `@${user}` : '—');
+  };
+
   if (playerEl) {
     if (country.allPlayers && country.allPlayers.length > 0) {
-      if (country.allPlayers.length === 1) {
-        playerEl.textContent = country.allPlayers[0].displayName || country.allPlayers[0].username;
+      const pFormatted = country.allPlayers.map(p => cleanP(p, country.name, country.iso2));
+      if (pFormatted.length === 1) {
+        playerEl.textContent = pFormatted[0];
       } else {
-        playerEl.innerHTML = `<span title="${country.allPlayers.map(p => p.displayName).join(', ')}">${country.allPlayers[0].displayName} (+${country.allPlayers.length - 1})</span>`;
+        playerEl.innerHTML = `<span title="${pFormatted.join(', ')}">${pFormatted[0]} (+${pFormatted.length - 1})</span>`;
       }
     } else {
       playerEl.textContent = country.player || '— (Свободно)';
@@ -917,10 +928,23 @@ function showCountryCard(country) {
 
   // Кнопка перехода к полному досье в сезоне
   if (dossierBtn) {
-    dossierBtn.onclick = () => {
-      if (typeof window.openCountryModal === 'function') {
-        window.openCountryModal(country.name);
+    dossierBtn.onclick = async () => {
+      if (typeof window.go === 'function') {
+        window.go('season');
       }
+      if (typeof window.loadSeason === 'function') {
+        await window.loadSeason();
+      }
+      setTimeout(() => {
+        if (typeof window.openCountryModal === 'function') {
+          window.openCountryModal(country.name);
+        }
+        const searchInput = document.getElementById('countrySearch');
+        if (searchInput) {
+          searchInput.value = country.name;
+          searchInput.dispatchEvent(new Event('input'));
+        }
+      }, 120);
     };
   }
 }
@@ -1022,8 +1046,17 @@ export async function initGlobeNavigation() {
       const flag = d.properties?.flag || '🏳️';
 
       if (active) {
+        const cleanTooltipP = (p) => {
+          if (!p) return '—';
+          const disp = (p.displayName || p.nickname || '').trim();
+          const user = (p.username || '').trim();
+          if (user && disp && (disp === active.name || disp.endsWith(active.name) || disp.includes('| ' + active.name) || (active.iso2 && disp.includes(active.iso2)))) {
+            return `@${user}`;
+          }
+          return disp || (user ? `@${user}` : '—');
+        };
         const pNames = active.allPlayers && active.allPlayers.length 
-          ? active.allPlayers.map(p => p.displayName || p.username).join(', ')
+          ? active.allPlayers.map(cleanTooltipP).join(', ')
           : (active.player || '—');
 
         const sovBadge = active.isAutonomy && active.sovereign

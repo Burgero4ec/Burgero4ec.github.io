@@ -204,12 +204,12 @@
   cursor: pointer;
   pointer-events: auto;
   user-select: none;
-  z-index: 10 !important;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 5 !important;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
 }
 .globe-flag-pin:hover {
   transform: translate(-50%, -115%) scale(1.15);
-  z-index: 25 !important;
+  z-index: 12 !important;
 }
 .flag-pin-badge {
   display: inline-flex;
@@ -260,28 +260,34 @@
   box-shadow: 0 0 6px var(--faction-color, #4ade80);
 }
 
-/* Всплывающие подсказки (Tooltips) - поверх любых меток и слоев */
+/* Всплывающие подсказки (Tooltips) - абсолютный приоритет поверх меток и канваса */
+.float-tooltip-kap,
 .scene-tooltip {
-  z-index: 100000 !important;
+  z-index: 999999 !important;
   pointer-events: none !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
 }
 .globe-tooltip {
   position: relative;
-  z-index: 100001 !important;
-  background: rgba(8, 14, 11, 0.94);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  border-radius: 8px;
-  padding: 8px 12px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  z-index: 1000000 !important;
+  background: rgba(6, 12, 9, 0.98);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 9px;
+  padding: 10px 14px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.08);
   font-family: 'Nunito', sans-serif;
-  color: #e2e8f0;
+  color: #f1f5f9;
   pointer-events: none;
-  min-width: 140px;
+  min-width: 170px;
+  max-width: 290px;
 }
 .globe-tooltip.active {
-  border-color: rgba(74, 222, 128, 0.45);
-  box-shadow: 0 0 18px rgba(74, 222, 128, 0.15), 0 8px 24px rgba(0, 0, 0, 0.7);
+  border-color: rgba(74, 222, 128, 0.6);
+  box-shadow: 0 0 24px rgba(74, 222, 128, 0.25), 0 16px 40px rgba(0, 0, 0, 0.95);
 }
 .globe-tooltip-header {
   display: flex;
@@ -912,7 +918,7 @@
 <article class="card" style="margin-top:0">
 <div class="member" data-discord-id="758998250610360341"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=1024" alt=""></span><div><b>Китаёзик</b><span class="m-role">ЗАМ. РУКОВОДСТВА</span><p>Создатель данного сайта и правая рука руководства. Держит в руках и код, и порядок.</p></div></div>
 <div class="member" data-discord-id="825769203347882042"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/825769203347882042/0e29d84c19de3e819e41e605d07743fa.png?size=1024" alt=""></span><div><b>Flowy 🌻</b><span class="m-role">АДМИНИСТРАТОР</span><p>Самый добрый и лучший человек в мире с большим сердцем. Всегда поможет, всегда поддержит.</p></div></div>
-<div class="member" data-discord-id="830428424677490728"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt=""></span><div><b>𝕻𝖔𝖓𝖟𝖈</b><span class="m-role">АДМИНИСТРАТОР / КАРТОГРАФИЯ</span><p>Смог восстановить и сделать стабильную работу картографии. Также является главным лудиком на Global Luds. Награды:...</p><div class="member-actions-row" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+<div class="member" data-discord-id="830428424677490728"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt=""></span><div><b>𝕻𝖔𝖓𝖟𝖈</b><span class="m-role">АДМИНИСТРАТОР / КАРТОГРАФИЯ</span><p>Смог восстановить и сделать стабильную работу картографии. Также является главным лудиком на Global Luds.</p><div class="member-actions-row" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
   <button class="btn-achievements" onclick="openStaffModal('ponzc')">
     <svg class="ic"><use href="#i-award"/></svg> Показать список наград (200)
   </button>
