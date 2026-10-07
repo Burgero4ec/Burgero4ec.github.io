@@ -480,7 +480,6 @@ export async function renderCabinet() {
           <div class="profile-sub">Discord ID: ${u.id}</div>
         </div>
         <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap">
-          <button class="cta ghost" onclick="window.openPlayerPickerModal()"><svg class="ic" style="width:14px;height:14px"><use href="#i-users"/></svg> Сменить игрока</button>
           <button class="cta ghost" onclick="window.discordLogout()">Выйти</button>
         </div>
       </div>
