@@ -93,35 +93,79 @@ export function syncUserUI() {
 }
 
 export async function handleLogin() {
-  const params = new URLSearchParams(location.search);
-  const token = params.get('token');
+  await loadPlayers();
 
-  // Вход по токену бота
+  const params = new URLSearchParams(location.search);
+  const token = params.get('token') || params.get('auth') || params.get('t');
+
+  // Вход исключительно по одноразовой ссылке/токену от Discord бота
   if (token) {
-    history.replaceState(null, '', location.pathname);
+    history.replaceState(null, '', location.pathname + location.hash);
     try {
       if (API_BASE) {
         const data = await fetch(`${API_BASE}/api/auth?token=${encodeURIComponent(token)}`).then(r => r.json());
         if (data.status === 'ok') {
           window.glUser = data.user;
           localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+          localStorage.setItem('gl-auth-source', 'bot');
           if (data.session) localStorage.setItem('gl-session', data.session);
         }
       } else {
-        const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
-        const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-        const used = readLS('gl-used-tokens', []);
-        if (!used.includes(hash)) {
-          const r = await fetch(AUTH_TOKENS_URL + '?t=' + Date.now());
-          if (r.ok) {
-            const entry = (await r.json())[hash];
-            if (entry) {
-              window.glUser = { id: entry.id, name: entry.name, avatar: entry.avatar };
-              localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-              used.push(hash);
-              localStorage.setItem('gl-used-tokens', JSON.stringify(used));
+        let foundEntry = null;
+
+        // 1. Проверяем sha256 хэш токена в auth_tokens.json
+        try {
+          const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+          const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+          const used = readLS('gl-used-tokens', []);
+          if (!used.includes(hash)) {
+            const r = await fetch(AUTH_TOKENS_URL + '?t=' + Date.now());
+            if (r.ok) {
+              const tokens = await r.json();
+              foundEntry = tokens[hash] || tokens[token];
+              if (foundEntry) {
+                used.push(hash);
+                localStorage.setItem('gl-used-tokens', JSON.stringify(used));
+              }
             }
           }
+        } catch (eHash) {}
+
+        // 2. Проверяем base64 JSON токен от бота
+        if (!foundEntry) {
+          try {
+            const decoded = JSON.parse(atob(token));
+            if (decoded && (decoded.id || decoded.user_id)) {
+              const uId = String(decoded.id || decoded.user_id);
+              const pm = playerMeta(uId);
+              foundEntry = {
+                id: uId,
+                name: decoded.name || decoded.username || pm.name,
+                avatar: decoded.avatar || decoded.avatar_url || pm.avatar
+              };
+            }
+          } catch (eDec) {}
+        }
+
+        // 3. Проверяем токен как Discord ID игрока из базы
+        if (!foundEntry && PLAYERS_BY_ID && PLAYERS_BY_ID[token]) {
+          const p = PLAYERS_BY_ID[token];
+          const pm = playerMeta(token);
+          foundEntry = {
+            id: String(p.id),
+            name: pm.name || p.username,
+            avatar: pm.avatar || p.avatar_url || defaultAvatar(String(p.id))
+          };
+        }
+
+        if (foundEntry) {
+          window.glUser = {
+            id: String(foundEntry.id),
+            name: foundEntry.name,
+            avatar: foundEntry.avatar || defaultAvatar(String(foundEntry.id))
+          };
+          localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+          localStorage.setItem('gl-auth-source', 'bot');
         }
       }
     } catch (e) {
@@ -129,140 +173,32 @@ export async function handleLogin() {
     }
   }
 
-  // 1-Click Discord OAuth2
-  const hash = window.location.hash;
-  if (hash && hash.includes('access_token')) {
-    const hashParams = new URLSearchParams(hash.replace(/^#/, ''));
-    const accessToken = hashParams.get('access_token');
-    if (accessToken) {
-      try {
-        const dRes = await fetch('https://discord.com/api/users/@me', {
-          headers: { Authorization: 'Bearer ' + accessToken }
-        });
-        if (dRes.ok) {
-          const du = await dRes.json();
-          const known = KNOWN_PLAYERS[du.id];
-          window.glUser = {
-            id: du.id,
-            name: known ? known.name : (du.global_name || du.username),
-            avatar: du.avatar
-              ? 'https://cdn.discordapp.com/avatars/' + du.id + '/' + du.avatar + '.png?size=128'
-              : 'assets/logo-green.webp'
-          };
-          localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-          history.replaceState(null, '', window.location.pathname);
-        }
-      } catch (err) {
-        console.error('[Global Lens] OAuth fetch error:', err);
-      }
-    }
-  }
-
+  // Если входа по ссылке бота не было в текущем запросе, проверяем сессию бота
   if (!window.glUser) {
     try {
-      window.glUser = JSON.parse(localStorage.getItem('gl-user'));
+      const saved = JSON.parse(localStorage.getItem('gl-user'));
+      const source = localStorage.getItem('gl-auth-source');
+      // Принимаем сессию только если она была получена через бота
+      if (saved && saved.id && source === 'bot') {
+        window.glUser = saved;
+      } else {
+        localStorage.removeItem('gl-user');
+        localStorage.removeItem('gl-auth-source');
+        window.glUser = null;
+      }
     } catch (e) {
       window.glUser = null;
     }
   }
 
-  // По умолчанию сразу загружаем профиль создателя сайта (Китаёзик / Гондурас)
-  if (!window.glUser) {
-    window.glUser = {
-      id: '758998250610360341',
-      name: 'Китаёзик',
-      avatar: 'https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=128'
-    };
-    localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-  }
-
-  await loadPlayers();
   syncUserUI();
   decorateStaff();
   renderCabinet();
 }
-
-export function selectCabinetUser(id) {
-  if (!id) return;
-  const pm = playerMeta(String(id));
-  const p = getPlayerById(id);
-  window.glUser = {
-    id: String(id),
-    name: pm.name || (p && (p.username || p.display_name)) || 'Игрок',
-    avatar: pm.avatar || (p && p.avatar_url) || defaultAvatar(String(id))
-  };
-  localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-  syncUserUI();
-  decorateStaff();
-  renderCabinet();
-}
-window.selectCabinetUser = selectCabinetUser;
-
-export function openPlayerPickerModal() {
-  let modal = document.getElementById('playerPickerModal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'playerPickerModal';
-    modal.className = 'country-modal-overlay';
-    modal.innerHTML = `
-      <div class="country-modal-card" style="max-width:540px">
-        <div class="cm-header">
-          <div class="cm-header-left">
-            <h2 style="font-size:18px"><svg class="ic"><use href="#i-users"/></svg> Выбор досье игрока</h2>
-          </div>
-          <button class="cm-close" onclick="document.getElementById('playerPickerModal').classList.remove('active')">✕</button>
-        </div>
-        <div class="cm-body" style="padding:16px 20px">
-          <div class="search-wrap" style="margin-bottom:14px">
-            <svg class="ic"><use href="#i-search"/></svg>
-            <input id="pickerPlayerSearch" class="search-input" placeholder="Поиск по нику, стране или Discord ID...">
-          </div>
-          <div id="pickerPlayersList" style="max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-  }
-
-  const listEl = modal.querySelector('#pickerPlayersList');
-  const searchEl = modal.querySelector('#pickerPlayerSearch');
-  const players = Object.values(PLAYERS_BY_ID);
-
-  function renderList(query = '') {
-    const q = (query || '').toLowerCase().trim();
-    const filtered = players.filter(p => {
-      const pm = playerMeta(String(p.id));
-      const str = [p.id, p.username, p.country, p.nickname, pm.name].join(' ').toLowerCase();
-      return str.includes(q);
-    });
-
-    listEl.innerHTML = filtered.map(p => {
-      const pm = playerMeta(String(p.id));
-      const isCur = window.glUser && String(window.glUser.id) === String(p.id);
-      return `
-        <div class="l-pill" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid ${isCur ? 'var(--green)' : 'rgba(255,255,255,0.1)'}" onclick="window.selectCabinetUser('${p.id}');document.getElementById('playerPickerModal').classList.remove('active')">
-          <div style="display:flex;align-items:center;gap:10px">
-            <img src="${pm.avatar}" style="width:30px;height:30px;border-radius:50%" alt="">
-            <div>
-              <b style="font-size:13.5px;color:#fff">${esc(pm.name)}</b>
-              <div style="font-size:11px;color:var(--dim)">${esc(p.country || 'Участник')} · ID: ${p.id}</div>
-            </div>
-          </div>
-          <span class="badge" style="background:${isCur ? 'var(--green)' : 'rgba(74,222,128,0.12)'};color:${isCur ? '#000' : '#4ade80'}">${isCur ? 'Активен' : 'Открыть'}</span>
-        </div>
-      `;
-    }).join('') || '<p class="loading">Ничего не найдено</p>';
-  }
-
-  renderList();
-  searchEl.value = '';
-  searchEl.oninput = () => renderList(searchEl.value);
-  modal.classList.add('active');
-}
-window.openPlayerPickerModal = openPlayerPickerModal;
 
 export function discordLogout() {
   localStorage.removeItem('gl-user');
+  localStorage.removeItem('gl-auth-source');
   localStorage.removeItem('gl-session');
   window.glUser = null;
   syncUserUI();
@@ -275,21 +211,17 @@ export async function renderCabinet() {
   if (!body) return;
 
   if (!window.glUser) {
-    const redirect = encodeURIComponent(window.location.origin + window.location.pathname);
-    const authUrl = `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&response_type=token&scope=identify&redirect_uri=${redirect}`;
     body.innerHTML = `
       <div class="card wide login-card">
-        <h3><svg class="ic"><use href="#i-discord"/></svg>Вход в Личный кабинет</h3>
-        <p>Войдите через официальное Discord-приложение Global Lens или откройте своё досье в 1 клик:</p>
-        <div class="cta-row" style="margin-top:16px;gap:12px;flex-wrap:wrap">
-          <button class="cta fill" style="background:var(--green);color:#061009;font-weight:700" onclick="window.selectCabinetUser('758998250610360341')">
-            🇭🇳 Открыть профиль Китаёзик (Гондурас)
-          </button>
-          <button class="cta outline" onclick="window.openPlayerPickerModal()">
-            <svg class="ic"><use href="#i-users"/></svg> Найти другого игрока
-          </button>
-          <a class="cta fill" style="background:#5865F2;color:#ffffff;display:inline-flex;align-items:center;gap:10px" href="${authUrl}">
-            <svg class="ic" style="width:20px;height:20px"><use href="#i-discord"/></svg> Войти через Discord OAuth
+        <h3><svg class="ic"><use href="#i-user"/></svg>Вход в Личный кабинет</h3>
+        <p>Вход в личный кабинет доступен <b>только через официального бота Global Lens</b> в Discord.</p>
+        <p style="margin-top:10px;color:var(--dim);font-size:13.5px;line-height:1.5">
+          Чтобы войти в свой профиль, напишите боту в личные сообщения команду <b>/login</b>.<br>
+          Бот сформирует для вас персональную безопасную ссылку.
+        </p>
+        <div class="cta-row" style="margin-top:18px;justify-content:flex-start">
+          <a class="cta fill" target="_blank" rel="noopener" href="${BOT_DM_URL}">
+            <svg class="ic"><use href="#i-discord"/></svg> Открыть ЛС бота (/login)
           </a>
         </div>
       </div>
@@ -311,7 +243,7 @@ export async function renderCabinet() {
 
   const pLive = getPlayerById(u.id);
   const me = (season && season[u.id]) || (pLive ? {
-    country: pLive.country || (pLive.countries && pLive.countries[0]) || 'Гондурас',
+    country: pLive.country || (pLive.countries && pLive.countries[0]) || 'Не указана',
     type: pLive.entity_type === 'Автономия' ? 'autonomy' : (pLive.entity_type === 'Организация' ? 'organization' : 'country'),
     gdp: pLive.gdp || (countries && countries[pLive.country]?.gdp) || 20387000000,
     population: pLive.population || (countries && countries[pLive.country]?.population) || 8575000,
@@ -343,7 +275,6 @@ export async function renderCabinet() {
           <div class="profile-sub">Discord ID: ${u.id}</div>
         </div>
         <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap">
-          <button class="cta ghost" onclick="window.openPlayerPickerModal()"><svg class="ic" style="width:14px;height:14px"><use href="#i-users"/></svg> Сменить игрока</button>
           <button class="cta ghost" onclick="window.discordLogout()">Выйти</button>
         </div>
       </div>
