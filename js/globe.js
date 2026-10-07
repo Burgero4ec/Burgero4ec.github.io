@@ -152,6 +152,20 @@ const COUNTRY_ALIASES = {
   'усср': 'украина',
   'казахская сср': 'казахстан',
   'литовская сср': 'литва',
+  'белорусская сср': 'беларусь',
+  'бсср': 'беларусь',
+  'узбекская сср': 'узбекистан',
+  'туркменская сср': 'туркменистан',
+  'киргизская сср': 'кыргыстан',
+  'кыргызстан': 'кыргыстан',
+  'таджикская сср': 'таджикистан',
+  'азербайджанская сср': 'азербайджан',
+  'грузинская сср': 'грузия',
+  'армянская сср': 'армения',
+  'молдавская сср': 'молдова',
+  'латвийская сср': 'латвия',
+  'эстонская сср': 'эстония',
+  'рсфср': 'россия',
   'южная родезия': 'зимбабве',
   'родезия': 'зимбабве',
   'англо-египетский судан': 'судан',
@@ -175,6 +189,44 @@ const COUNTRY_ALIASES = {
   'франция': 'франция',
   'тайвань': 'тайвань'
 };
+
+// 15 союзных республик СССР для целостного исторического покрытия территории
+const SOVIET_UNION_REPUBLICS = [
+  { iso2: 'RU', nameRu: 'Россия', repName: 'РСФСР', target: 'Россия' },
+  { iso2: 'UA', nameRu: 'Украина', repName: 'Украинская ССР', target: 'Украина' },
+  { iso2: 'BY', nameRu: 'Беларусь', repName: 'Белорусская ССР', target: 'Беларусь' },
+  { iso2: 'KZ', nameRu: 'Казахстан', repName: 'Казахская ССР', target: 'Казахстан' },
+  { iso2: 'UZ', nameRu: 'Узбекистан', repName: 'Узбекская ССР', target: 'Узбекистан' },
+  { iso2: 'TM', nameRu: 'Туркменистан', repName: 'Туркменская ССР', target: 'Туркменистан' },
+  { iso2: 'KG', nameRu: 'Кыргызстан', repName: 'Киргизская ССР', target: 'Кыргызстан', altRu: 'Кыргыстан' },
+  { iso2: 'TJ', nameRu: 'Таджикистан', repName: 'Таджикская ССР', target: 'Таджикистан' },
+  { iso2: 'AZ', nameRu: 'Азербайджан', repName: 'Азербайджанская ССР', target: 'Азербайджан' },
+  { iso2: 'GE', nameRu: 'Грузия', repName: 'Грузинская ССР', target: 'Грузия' },
+  { iso2: 'AM', nameRu: 'Армения', repName: 'Армянская ССР', target: 'Армения' },
+  { iso2: 'MD', nameRu: 'Молдова', repName: 'Молдавская ССР', target: 'Молдова' },
+  { iso2: 'LT', nameRu: 'Литва', repName: 'Литовская ССР', target: 'Литва' },
+  { iso2: 'LV', nameRu: 'Латвия', repName: 'Латвийская ССР', target: 'Латвия' },
+  { iso2: 'EE', nameRu: 'Эстония', repName: 'Эстонская ССР', target: 'Эстония' }
+];
+
+/**
+ * Быстрый и надежный поиск активной страны/автономии/территории для полигона GeoJSON
+ */
+function getActiveCountryForFeature(feat) {
+  if (!feat || !feat.properties) return null;
+  const props = feat.properties;
+
+  const rName = normName(props.name_ru);
+  if (rName && activeCountriesMap.has(rName)) return activeCountriesMap.get(rName);
+
+  const iso = (props.iso2 || '').toLowerCase();
+  if (iso && activeCountriesMap.has(iso)) return activeCountriesMap.get(iso);
+
+  const enName = normName(props.name_en || props.NAME || props.ADMIN);
+  if (enName && activeCountriesMap.has(enName)) return activeCountriesMap.get(enName);
+
+  return null;
+}
 
 /**
  * Проверка загрузки библиотеки Globe.gl
@@ -807,9 +859,80 @@ function applyCountriesData(countriesList) {
     if (feat?.properties?.name_ru) {
       activeCountriesMap.set(normName(feat.properties.name_ru), countryRecord);
     }
+    if (feat?.properties?.iso2) {
+      activeCountriesMap.set(feat.properties.iso2.toLowerCase(), countryRecord);
+    }
 
-    if (coords) {
+    if (coords && !countryRecord.isUnionTerritory) {
       htmlMarkers.push(countryRecord);
+    }
+  }
+
+  // --- ЕДИНОЕ ПОКРЫТИЕ ТЕРРИТОРИИ СССР (15 СОЮЗНЫХ РЕСПУБЛИК) ---
+  // Если в игре присутствует СССР, вся историческая советская территория окрашивается
+  // в советский красный цвет (#ef4444, высота 0.012), а бейджи автономий отображаются строго над их регионами
+  const ussrRecord = activeCountriesMap.get('ссср');
+  if (ussrRecord) {
+    for (const rep of SOVIET_UNION_REPUBLICS) {
+      const repKey = normName(rep.repName);
+      const nameKey = normName(rep.nameRu);
+      const altKey = rep.altRu ? normName(rep.altRu) : null;
+      const isoKey = rep.iso2.toLowerCase();
+
+      // Проверяем, есть ли для этой республики отдельный зарегистрированный игрок-автономия
+      const existingAutonomy = (activeCountriesMap.has(repKey) && activeCountriesMap.get(repKey).isAutonomy)
+        || (activeCountriesMap.has(nameKey) && activeCountriesMap.get(nameKey).isAutonomy);
+
+      if (existingAutonomy) {
+        // Связываем автономию с СССР: советский красный цвет фракции
+        const autRecord = activeCountriesMap.get(repKey) || activeCountriesMap.get(nameKey);
+        if (autRecord) {
+          autRecord.faction = ussrRecord.faction || 'Евразийский Союз';
+          autRecord.faction_color = ussrRecord.faction_color || '#ef4444';
+          autRecord.sovereign = 'СССР';
+          activeCountriesMap.set(nameKey, autRecord);
+          activeCountriesMap.set(repKey, autRecord);
+          activeCountriesMap.set(isoKey, autRecord);
+          if (altKey) activeCountriesMap.set(altKey, autRecord);
+        }
+      } else if (rep.iso2 !== 'RU') {
+        // Прямая территория СССР (Беларусь, Узбекистан, Туркменистан, Кыргызстан, Таджикистан, Азербайджан, Грузия, Армения, Молдова, Латвия, Эстония)
+        // Получает красный цвет СССР без добавления лишнего маркера-бейджа на карту
+        const unionFeat = findFeature(rep.target || rep.nameRu) || findFeature(rep.iso2);
+        const centroid = unionFeat?.properties?.centroid || [0, 0];
+
+        const unionRecord = {
+          name: `СССР · ${rep.repName}`,
+          republicName: rep.repName,
+          geoTarget: rep.nameRu,
+          canonicalName: unionFeat?.properties?.name_ru || rep.nameRu,
+          flag: ussrRecord.flag || '⚒️🟥',
+          faction: ussrRecord.faction || 'Евразийский Союз',
+          faction_color: ussrRecord.faction_color || '#ef4444',
+          player: ussrRecord.player,
+          allPlayers: ussrRecord.allPlayers || [],
+          playerCount: ussrRecord.playerCount || 1,
+          entityTypes: ['Союзная республика'],
+          categories: ['Территория СССР'],
+          isAutonomy: false,
+          isUnionTerritory: true,
+          sovereign: 'СССР',
+          role: 'Союзная республика СССР',
+          status: 'Союзная республика СССР',
+          lat: centroid[0],
+          lng: centroid[1],
+          hasGeometry: !!unionFeat,
+          feature: unionFeat
+        };
+
+        activeCountriesMap.set(nameKey, unionRecord);
+        activeCountriesMap.set(repKey, unionRecord);
+        activeCountriesMap.set(isoKey, unionRecord);
+        if (altKey) activeCountriesMap.set(altKey, unionRecord);
+        if (unionFeat?.properties?.name_ru) {
+          activeCountriesMap.set(normName(unionFeat.properties.name_ru), unionRecord);
+        }
+      }
     }
   }
 
@@ -913,7 +1036,9 @@ function showCountryCard(country) {
   };
 
   if (playerEl) {
-    if (country.allPlayers && country.allPlayers.length > 0) {
+    if (country.isUnionTerritory) {
+      playerEl.textContent = country.player ? `@${country.player} (Лидер СССР)` : 'СССР';
+    } else if (country.allPlayers && country.allPlayers.length > 0) {
       const pFormatted = country.allPlayers.map(p => cleanP(p, country.name, country.iso2));
       if (pFormatted.length === 1) {
         playerEl.textContent = pFormatted[0];
@@ -926,7 +1051,9 @@ function showCountryCard(country) {
   }
 
   if (statusEl) {
-    if (country.isAutonomy && country.sovereign) {
+    if (country.isUnionTerritory) {
+      statusEl.textContent = `Союзная республика СССР`;
+    } else if (country.isAutonomy && country.sovereign) {
       statusEl.textContent = `Автономия (${country.sovereign})`;
     } else if (country.autonomies && country.autonomies.length) {
       statusEl.textContent = `Метрополия · +${country.autonomies.length} авт.`;
@@ -952,12 +1079,13 @@ function showCountryCard(country) {
         await window.loadSeason();
       }
       setTimeout(() => {
+        const targetSearch = (country.isUnionTerritory && country.sovereign) ? country.sovereign : country.name;
         if (typeof window.openCountryModal === 'function') {
-          window.openCountryModal(country.name);
+          window.openCountryModal(targetSearch);
         }
         const searchInput = document.getElementById('countrySearch');
         if (searchInput) {
-          searchInput.value = country.name;
+          searchInput.value = targetSearch;
           searchInput.dispatchEvent(new Event('input'));
         }
       }, 120);
@@ -1031,8 +1159,7 @@ export async function initGlobeNavigation() {
     .polygonsData([...allFeatures])
     .polygonGeoJsonGeometry(d => d.geometry)
     .polygonCapColor(d => {
-      const qNorm = normName(d.properties?.name_ru);
-      const active = activeCountriesMap.get(qNorm);
+      const active = getActiveCountryForFeature(d);
       if (active) {
         return hexToRgba(active.faction_color, 0.16);
       }
@@ -1041,7 +1168,7 @@ export async function initGlobeNavigation() {
     .polygonSideColor(() => 'rgba(0, 0, 0, 0)')
     .polygonStrokeColor(d => {
       const qNorm = normName(d.properties?.name_ru);
-      const active = activeCountriesMap.get(qNorm);
+      const active = getActiveCountryForFeature(d);
       if (hoveredCountryName && (hoveredCountryName === qNorm)) {
         return '#ffffff';
       }
@@ -1051,13 +1178,11 @@ export async function initGlobeNavigation() {
       return 'rgba(100, 140, 180, 0.28)'; // Тонкий ненавязчивый контур остальных стран
     })
     .polygonAltitude(d => {
-      const qNorm = normName(d.properties?.name_ru);
-      const active = activeCountriesMap.get(qNorm);
+      const active = getActiveCountryForFeature(d);
       return active ? 0.012 : 0.003;
     })
     .polygonLabel(d => {
-      const qNorm = normName(d.properties?.name_ru);
-      const active = activeCountriesMap.get(qNorm);
+      const active = getActiveCountryForFeature(d);
       const name = d.properties?.name_ru || d.properties?.NAME || 'Государство';
       const flag = d.properties?.flag || '🏳️';
 
@@ -1073,24 +1198,30 @@ export async function initGlobeNavigation() {
         };
         const pNames = active.allPlayers && active.allPlayers.length 
           ? active.allPlayers.map(cleanTooltipP).join(', ')
-          : (active.player || '—');
+          : (active.player ? `@${active.player}` : '—');
 
-        const sovBadge = active.isAutonomy && active.sovereign
-          ? `<div class="globe-tooltip-row"><span class="k">Статус:</span> <span class="v" style="color:#60a5fa">Автономия (${active.sovereign})</span></div>`
-          : (active.autonomies && active.autonomies.length
-            ? `<div class="globe-tooltip-row"><span class="k">Автономии:</span> <span class="v" style="color:#94a3b8">${active.autonomies.join(', ')}</span></div>`
-            : '');
+        let sovBadge = '';
+        if (active.isUnionTerritory) {
+          sovBadge = `<div class="globe-tooltip-row"><span class="k">Статус:</span> <span class="v" style="color:#f87171">Союзная республика СССР</span></div>`;
+        } else if (active.isAutonomy && active.sovereign) {
+          sovBadge = `<div class="globe-tooltip-row"><span class="k">Статус:</span> <span class="v" style="color:#60a5fa">Автономия (${active.sovereign})</span></div>`;
+        } else if (active.autonomies && active.autonomies.length) {
+          sovBadge = `<div class="globe-tooltip-row"><span class="k">Автономии:</span> <span class="v" style="color:#94a3b8">${active.autonomies.join(', ')}</span></div>`;
+        }
+
+        const roleLabel = active.isUnionTerritory ? 'Лидер СССР:' : (active.isAutonomy ? 'Игрок:' : 'Лидер:');
+        const statusBadge = active.isUnionTerritory ? 'СССР' : `В СЕТИ (${active.playerCount || 1})`;
 
         return `
           <div class="globe-tooltip active">
             <div class="globe-tooltip-header">
               <span class="globe-tooltip-flag">${active.flag || flag}</span>
               <span class="globe-tooltip-title">${active.name}</span>
-              <span class="globe-tooltip-status">В СЕТИ (${active.playerCount || 1})</span>
+              <span class="globe-tooltip-status">${statusBadge}</span>
             </div>
             ${active.faction ? `<div class="globe-tooltip-row"><span class="k">Альянс:</span> <span class="v" style="color:${active.faction_color}">${active.faction}</span></div>` : ''}
             ${sovBadge}
-            <div class="globe-tooltip-row"><span class="k">${active.isAutonomy ? 'Игрок:' : 'Лидер:'}</span> <span class="v">${pNames}</span></div>
+            <div class="globe-tooltip-row"><span class="k">${roleLabel}</span> <span class="v">${pNames}</span></div>
             <div class="globe-tooltip-hint">Кликните для обзора и досье</div>
           </div>
         `;
@@ -1110,8 +1241,7 @@ export async function initGlobeNavigation() {
       container.style.cursor = hoverD ? 'pointer' : 'grab';
     })
     .onPolygonClick(d => {
-      const qNorm = normName(d.properties?.name_ru);
-      const active = activeCountriesMap.get(qNorm);
+      const active = getActiveCountryForFeature(d);
       if (active) {
         focusCountry(active);
       } else {

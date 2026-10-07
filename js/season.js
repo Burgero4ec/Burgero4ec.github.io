@@ -225,13 +225,36 @@ export async function fetchSeasonData() {
         for (const p of pList) {
           if (!p || !p.country || !p.is_registered) continue;
           const id = String(p.id);
-          const cName = p.country;
-          const cc = countriesData[cName] || {};
+          let cName = p.country;
+          let hostCountry = null;
+          let flagEmoji = null;
+
+          if (p.entity_type === 'Автономия') {
+            hostCountry = p.country;
+            const nick = (p.nickname || p.display_name || '').trim();
+            if (nick.includes('Украинская ССР') || nick.includes('УССР')) { cName = 'Украинская ССР'; flagEmoji = '⚒️🟥'; }
+            else if (nick.includes('Казахская ССР')) { cName = 'Казахская ССР'; flagEmoji = '⚒️🟥'; }
+            else if (nick.includes('Литовская ССР')) { cName = 'Литовская ССР'; flagEmoji = '⚒️🟥'; }
+            else if (nick.includes('Родезия')) { cName = 'Южная Родезия'; flagEmoji = '🇿🇼'; }
+            else if (nick.includes('Судан') || nick.includes('Англо-египетский')) { cName = 'Англо-египетский Судан'; flagEmoji = '🇸🇩'; }
+            else if (nick.includes('Алжир')) { cName = 'Алжир'; flagEmoji = '🇩🇿'; }
+          }
+
+          if (!countriesData[cName]) {
+            countriesData[cName] = {
+              flag: flagEmoji || (hostCountry ? countriesData[hostCountry]?.flag : '🏳️') || '🏳️',
+              continent: (hostCountry ? countriesData[hostCountry]?.continent : 'Прочие') || 'Прочие',
+              name: cName
+            };
+          }
+
+          const cc = countriesData[cName] || (hostCountry ? countriesData[hostCountry] : {}) || {};
           seasonData[id] = {
             ...(seasonData[id] || {}),
             type: p.entity_type === 'Автономия' ? 'autonomy' : (p.entity_type === 'Организация' ? 'organization' : 'country'),
             country: cName,
-            continent: cc.continent || 'Прочие',
+            host_country: hostCountry,
+            continent: cc.continent || (hostCountry ? countriesData[hostCountry]?.continent : 'Прочие') || 'Прочие',
             gdp: p.gdp || seasonData[id]?.gdp || cc.gdp || 20387000000,
             population: p.population || seasonData[id]?.population || cc.population || 8575000,
             balance: p.balance != null ? p.balance : (seasonData[id]?.balance || 0),
@@ -290,11 +313,12 @@ export async function loadSeason() {
           playerId: id
         });
       } else if (p.type === 'autonomy') {
+        const autFlag = cc.flag || (C[p.host_country] || {}).flag || '🏳️';
         autos.push({
           key: 'p' + id,
           name: p.country,
-          flagHtml: renderFlag((C[p.host_country] || {}).flag, p.country),
-          continent: (C[p.host_country] || {}).continent || '',
+          flagHtml: renderFlag(autFlag, p.country),
+          continent: (C[p.host_country] || {}).continent || cc.continent || '',
           typeLabel: 'Автономия · ' + (p.host_country || ''),
           data: p,
           playerId: id
