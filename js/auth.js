@@ -379,7 +379,10 @@ export async function renderCabinet() {
       <div class="card wide login-card">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
           <h3><svg class="ic"><use href="#i-user"/></svg>Вход в Личный кабинет</h3>
-          <span class="badge" style="background:rgba(74,222,128,0.15);color:#4ade80;border:1px solid rgba(74,222,128,0.3)">Сезон 28</span>
+          <span class="pill" style="font-size:11px;padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;letter-spacing:0.08em;font-weight:700;border:1px solid rgba(74,222,128,0.35);background:rgba(74,222,128,0.08);color:#4ade80;box-shadow:0 0 12px rgba(74,222,128,0.12)">
+            <i class="dot pulse" style="width:6px;height:6px;background:#4ade80"></i>
+            Сезон 28
+          </span>
         </div>
         <p style="margin-top:10px;color:var(--dim);font-size:14px;line-height:1.5">
           Войдите через официальный Discord для автоматической привязки вашего государства, экономики, баланса и лицензий:
@@ -393,31 +396,13 @@ export async function renderCabinet() {
           </a>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:10px;margin-top:6px">
-            <a class="cta outline" style="justify-content:center;font-size:13px;padding:12px" target="_blank" rel="noopener" href="https://discord.gg/edPpSRmRNu">
+            <a class="cta outline" style="justify-content:center;font-size:13px;padding:12px;text-decoration:none" target="_blank" rel="noopener" href="https://discord.com/channels/1209153077651963924/1209160476764667905/1351208509458616362">
               📝 Подать заявку на регистрацию в сезоне
             </a>
-            <a class="cta ghost" style="justify-content:center;font-size:13px;padding:12px" target="_blank" rel="noopener" href="${BOT_DM_URL}">
-              🤖 Вход по ссылке бота (/login)
-            </a>
-          </div>
-        </div>
-
-        <!-- Быстрый доступ для просмотра профиля без OAuth -->
-        <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line)">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px">
-            <b style="font-size:13px;color:#fff">👤 Быстрый просмотр досье игрока:</b>
-            <span style="font-size:11.5px;color:var(--dim)">Открыть карточку в 1 клик</span>
-          </div>
-          <div class="cta-row" style="justify-content:flex-start;gap:8px;flex-wrap:wrap">
-            <button class="cta ghost" style="border-color:rgba(74,222,128,0.4);color:#4ade80" onclick="window.selectCabinetUser('830428424677490728')">
-              🇧🇷 𝕻𝖔𝖓𝖟𝖈 (Бразилия)
-            </button>
-            <button class="cta ghost" onclick="window.selectCabinetUser('758998250610360341')">
-              🇭🇳 Китаёзик (Гондурас)
-            </button>
-            <button class="cta outline" onclick="window.openPlayerPickerModal()">
-              <svg class="ic"><use href="#i-search"/></svg> Найти другого игрока из базы...
-            </button>
+            <span class="cta ghost" style="justify-content:center;font-size:13px;padding:12px;border-color:rgba(239,68,68,0.45);color:#f87171;background:rgba(239,68,68,0.08);cursor:not-allowed;user-select:none;display:inline-flex;align-items:center;gap:7px" title="Вход по ссылке бота в данный момент недоступен">
+              <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#ef4444;box-shadow:0 0 6px rgba(239,68,68,0.7)"></span>
+              🤖 Вход по ссылке бота (недоступен)
+            </span>
           </div>
         </div>
       </div>
@@ -508,7 +493,7 @@ export async function renderCabinet() {
         <h3><svg class="ic"><use href="#i-scroll"/></svg> Вы успешно вошли через Discord</h3>
         <p>Ваш Discord-аккаунт <b>${esc(u.name)}</b> авторизован, но страна или организация в 28 сезоне пока не привязана.</p>
         <div class="cta-row" style="margin-top:16px;justify-content:flex-start;gap:10px;flex-wrap:wrap">
-          <a class="cta fill" target="_blank" rel="noopener" href="https://discord.gg/edPpSRmRNu">
+          <a class="cta fill" target="_blank" rel="noopener" href="https://discord.com/channels/1209153077651963924/1209160476764667905/1351208509458616362">
             📝 Зарегистрироваться в сезоне (Discord)
           </a>
           <a class="cta ghost" href="#" data-go="season">Выбрать страну на карте</a>
