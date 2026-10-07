@@ -32,10 +32,18 @@ body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, 
 .side-top { padding: 22px 20px; border-bottom: 1px solid var(--line); flex: 0 0 auto; }
 .logo-row { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
 .logo-badge { width: 46px; height: 46px; flex: none; border-radius: 12px; overflow: hidden; border: 1px solid var(--acc-border); box-shadow: 0 0 18px var(--acc-glow); background: var(--side); }
+.logo-badge.mini { width: 32px; height: 32px; border-radius: 8px; box-shadow: 0 0 10px var(--acc-glow); }
 .logo-badge img { width: 100%; height: 100%; object-fit: cover; display: none; }
-[data-theme="green"] .logo-green { display: block; }
-[data-theme="blue"] .logo-blue { display: block; }
-[data-theme="orange"] .logo-orange { display: block; }
+.logo-badge .logo-green { display: block; }
+html[data-theme="green"] .logo-badge .logo-green { display: block; }
+html[data-theme="green"] .logo-badge .logo-blue,
+html[data-theme="green"] .logo-badge .logo-orange { display: none; }
+html[data-theme="blue"] .logo-badge .logo-blue { display: block; }
+html[data-theme="blue"] .logo-badge .logo-green,
+html[data-theme="blue"] .logo-badge .logo-orange { display: none; }
+html[data-theme="orange"] .logo-badge .logo-orange { display: block; }
+html[data-theme="orange"] .logo-badge .logo-green,
+html[data-theme="orange"] .logo-badge .logo-blue { display: none; }
 .logo-green { transform: scale(1); }
 .logo-blue, .logo-orange { transform: scale(0.8); }
 .logo-title { font-family: 'JetBrains Mono'; font-weight: 700; letter-spacing: .14em; font-size: 15px; }
@@ -487,21 +495,30 @@ body.menu-open .drawer-overlay {
   .profile-name { font-size: 18px; }
 }
 
-/* ===== FIX DRAWER: вставлено в конец файла, перекрывает старые адаптивные правила ===== */
-.mobile-header { display: none; }
-.menu-toggle { width: 40px; height: 40px; background: none; border: none; color: var(--text); cursor: pointer; padding: 6px; border-radius: 8px; }
-.menu-toggle:hover { background: var(--acc-soft); }
-.menu-toggle svg { width: 100%; height: 100%; }
-.mobile-title { flex: 1; text-align: center; }
-.mobile-title .logo-title { font-size: 14px; letter-spacing: .14em; }
-.drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 250; opacity: 0; pointer-events: none; transition: opacity .3s; }
+/* ===== МОБИЛЬНАЯ ШАПКА И ЗАКРЫТИЕ DRAWER ===== */
+.mobile-brand { display: flex; align-items: center; gap: 10px; }
+.drawer-close-btn {
+  display: none;
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+  color: var(--text);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.drawer-close-btn:hover {
+  background: var(--acc-soft);
+  color: var(--acc);
+}
 @media (max-width: 960px) {
-  .mobile-header { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--side); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 200; }
-  .sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 85%; max-width: 320px; z-index: 300; transform: translateX(-100%); transition: transform .3s cubic-bezier(.4,0,.2,1); border-right: 1px solid var(--line); border-bottom: none; }
-  body.menu-open .sidebar { transform: translateX(0); box-shadow: 0 0 40px rgba(0,0,0,.5); }
-  body.menu-open .drawer-overlay { opacity: 1; pointer-events: auto; }
-  .side-nav { max-height: none; padding: 14px; }
-  .side-top .status-card { display: none; }
+  .drawer-close-btn { display: inline-flex; }
+  .sidebar { z-index: 1000 !important; }
 }
 
 /* ===== О СЕРВЕРЕ: 3D + ТЕКСТ ===== */

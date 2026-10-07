@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="green">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -525,7 +525,14 @@
   <button class="menu-toggle" id="menuToggle" aria-label="Меню">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
   </button>
-  <div class="mobile-title"><span class="logo-title">GLOBAL <span>LENS</span></span></div>
+  <div class="mobile-brand">
+    <div class="logo-badge mini">
+      <img class="logo-green" src="assets/logo-green.webp" alt="Global Lens Green" width="32" height="32">
+      <img class="logo-blue" src="assets/logo-blue.webp" alt="Global Lens Blue" width="32" height="32">
+      <img class="logo-orange" src="assets/logo-orange.webp" alt="Global Lens Orange" width="32" height="32">
+    </div>
+    <div class="mobile-title"><span class="logo-title">GLOBAL <span>LENS</span></span></div>
+  </div>
   <div class="status-card" style="margin:0;padding:6px 10px;font-size:11px"><span class="dot pulse" style="width:6px;height:6px"></span>S28</div>
 </header>
 
@@ -547,6 +554,7 @@
           <div class="logo-title">GLOBAL <span>LENS</span></div>
           <div class="logo-sub"><span class="dot"></span>ВПИ МОДЕЛИРОВАНИЕ</div>
         </div>
+        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Закрыть меню">✕</button>
       </div>
       <div class="status-card">
         <span class="dot pulse"></span>Сезон 28 Активен<span class="badge-online">ONLINE</span>
@@ -634,6 +642,7 @@
         
         <div class="cta-row">
           <a class="cta fill" href="https://discord.gg/edPpSRmRNu" target="_blank" rel="noopener"><svg class="ic"><use href="#i-discord"/></svg>Присоединиться к Discord</a>
+          <a class="cta outline" href="#" data-go="cabinet"><svg class="ic"><use href="#i-scroll"/></svg>Регистрация в сезоне</a>
           <a class="cta ghost" href="#" data-go="about">Узнать больше</a>
         </div>
       </div>
@@ -1007,16 +1016,7 @@
     <!-- КАБИНЕТ -->
     <section class="page" id="page-cabinet">
       <h1>Личный <em>кабинет</em></h1>
-      <p class="lead" id="donateUserNote">Данные вашего игрового профиля: страна, экономика, кредиты и инвестиции</p>
-      <div id="cabinetBody"><p class="loading">Проверка входа...</p></div>
-      <div class="card wide" style="margin-top:18px">
-        <h3><svg class="ic"><use href="#i-wrench"/></svg>Проверка связи с ботом</h3>
-        <p>Пинг API бота — чтобы убедиться, что сервер отвечает.</p>
-        <div class="cta-row" style="justify-content:flex-start">
-          <button class="cta ghost" onclick="testPlayersWebhook()">🔧 Проверить связь</button>
-          <span class="composer-status" id="webhookTestStatus"></span>
-        </div>
-      </div>
+      <div id="cabinetBody"></div>
     </section>
 
     <!-- ПРЕССА -->

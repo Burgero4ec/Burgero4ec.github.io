@@ -8,7 +8,7 @@ import { initOdysseyAnimations, refreshOdysseyElements, triggerOdysseyPageReveal
 import { fluidCountUp, countUpAll, animateStats, loadMapInfo } from './stats.js';
 import { loadSeason, openCountryModal, closeCountryModal, emojiToCountryCode, renderFlag } from './season.js';
 import { loadStaffData, decorateStaff, openStaffModal, closeStaffModal } from './staff.js';
-import { handleLogin, discordLogout, renderCabinet, testPlayersWebhook, loadPlayers, getPlayers, playerMeta } from './auth.js';
+import { handleLogin, discordLogout, renderCabinet, testPlayersWebhook, loadPlayers, getPlayers, playerMeta, selectCabinetUser, openPlayerPickerModal } from './auth.js';
 import { loadUpdates, loadPress, loadRules, loadFragment, initOrderToggles } from './news_press.js';
 import { initArchives, renderArchives, loadArchiveFile } from './archives.js';
 import { initDonatePhysics, initLanyard } from './donate.js';
@@ -21,6 +21,9 @@ window.closeCountryModal = closeCountryModal;
 window.openStaffModal = openStaffModal;
 window.closeStaffModal = closeStaffModal;
 window.discordLogout = discordLogout;
+window.renderCabinet = renderCabinet;
+window.selectCabinetUser = selectCabinetUser;
+window.openPlayerPickerModal = openPlayerPickerModal;
 window.testPlayersWebhook = testPlayersWebhook;
 window.applyTheme = applyTheme;
 window.initGlobeNavigation = initGlobeNavigation;

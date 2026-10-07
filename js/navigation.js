@@ -53,6 +53,10 @@ export function go(id) {
   // Запуск сопутствующих анимаций
   if (id === 'home') {
     animateStats();
+  } else if (id === 'cabinet') {
+    if (typeof window.renderCabinet === 'function') {
+      window.renderCabinet();
+    }
   }
 
   // Запуск каскадной анимации появления элементов в стиле Odyssey
@@ -108,6 +112,14 @@ export function initNavigation() {
 
   if (overlay) {
     overlay.addEventListener('click', closeDrawer);
+  }
+
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', e => {
+      e.preventDefault();
+      closeDrawer();
+    });
   }
 
   // Тап вне сайдбара на мобильных
