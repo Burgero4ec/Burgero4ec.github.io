@@ -10,6 +10,39 @@ import { go } from './navigation.js';
 let PLAYERS = null;
 export let PLAYERS_BY_ID = {};
 
+export function getDiscordOAuthUrl() {
+  const origin = window.location.origin;
+  const path = window.location.pathname.replace(/\/index\.html$/, '');
+  const cleanUrl = (origin + path).replace(/\/?$/, '/');
+  const redirectUri = encodeURIComponent(cleanUrl);
+  return `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&response_type=token&scope=identify&redirect_uri=${redirectUri}`;
+}
+
+export function discordLogin() {
+  window.location.href = getDiscordOAuthUrl();
+}
+window.discordLogin = discordLogin;
+
+export function getStaffTitle(id) {
+  const sid = String(id);
+  if (sid === '830428424677490728') return '★ Администратор / Картография';
+  if (sid === '758998250610360341') return '★ Создатель сайта / Зам. Руководства';
+  if (sid === '484044030640914437') return '★ Основатель сервера';
+  if (sid === '800254982641025056') return '★ Куратор Анкетологов';
+  if (sid === '825769203347882042') return '★ Администратор';
+  if (sid === '1135494383773433937') return '★ Куратор Технологов и Картографов';
+  if (sid === '928360132482572371') return '★ Куратор Модераторов';
+  if (sid === '1066701976949239905') return '★ Зам. Куратора Политологов';
+  if (sid === '1027662788274966539') return '★ Зам. Куратора';
+  if (sid === '1137392083821416478') return '★ Зам. Куратора Модераторов и Технологов';
+
+  const p = getPlayerById(sid);
+  if (p && p.is_staff) {
+    return '★ Персонал сервера';
+  }
+  return null;
+}
+
 export async function loadPlayers() {
   try {
     if (API_BASE) {
@@ -43,7 +76,7 @@ export async function loadPlayers() {
     }
   }
 
-  // Гарантированные метаданные ключевых создателей
+  // Метаданные ключевых участников
   if (!PLAYERS_BY_ID['830428424677490728']) {
     PLAYERS_BY_ID['830428424677490728'] = {
       id: '830428424677490728',
@@ -122,92 +155,106 @@ export function syncUserUI() {
   if (label) label.textContent = name || 'Личный кабинет';
   if (note) {
     note.textContent = name
-      ? 'Вы вошли как ' + name + ' — синхронизировано с Discord сервером.'
+      ? 'Вы вошли как ' + name + ' — синхронизировано с Discord.'
       : 'Данные вашего игрового профиля: страна, экономика, кредиты и инвестиции';
   }
 }
 
 export async function handleLogin() {
-  const params = new URLSearchParams(location.search);
-  const token = params.get('token') || params.get('auth') || params.get('t');
-
-  // 1. Вход по одноразовой ссылке/токену от Discord бота
-  if (token) {
-    history.replaceState(null, '', location.pathname + location.hash);
-    try {
-      if (API_BASE) {
-        const data = await fetch(`${API_BASE}/api/auth?token=${encodeURIComponent(token)}`).then(r => r.json());
-        if (data.status === 'ok') {
-          window.glUser = data.user;
-          localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-          localStorage.setItem('gl-auth-source', 'bot');
-          if (data.session) localStorage.setItem('gl-session', data.session);
-        }
-      } else {
-        let foundEntry = null;
-
-        // Проверяем sha256 хэш токена в auth_tokens.json
-        if (window.crypto && crypto.subtle) {
-          try {
-            const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
-            const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-            const used = readLS('gl-used-tokens', []);
-            if (!used.includes(hash)) {
-              const r = await fetch(AUTH_TOKENS_URL + '?t=' + Date.now());
-              if (r.ok) {
-                const tokens = await r.json();
-                foundEntry = tokens[hash] || tokens[token];
-                if (foundEntry) {
-                  used.push(hash);
-                  localStorage.setItem('gl-used-tokens', JSON.stringify(used));
-                }
-              }
-            }
-          } catch (eHash) {}
-        }
-
-        // Проверяем base64 JSON токен от бота
-        if (!foundEntry) {
-          try {
-            const decoded = JSON.parse(atob(token));
-            if (decoded && (decoded.id || decoded.user_id)) {
-              const uId = String(decoded.id || decoded.user_id);
-              const pm = playerMeta(uId);
-              foundEntry = {
-                id: uId,
-                name: decoded.name || decoded.username || pm.name,
-                avatar: decoded.avatar || decoded.avatar_url || pm.avatar
-              };
-            }
-          } catch (eDec) {}
-        }
-
-        // Проверяем токен как Discord ID
-        if (!foundEntry && /^\d+$/.test(token)) {
-          const pm = playerMeta(token);
-          foundEntry = {
-            id: token,
-            name: pm.name || ('Игрок #' + token.slice(-4)),
-            avatar: pm.avatar || defaultAvatar(token)
-          };
-        }
-
-        if (foundEntry) {
-          window.glUser = {
-            id: String(foundEntry.id),
-            name: foundEntry.name,
-            avatar: foundEntry.avatar || defaultAvatar(String(foundEntry.id))
-          };
-          localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-          localStorage.setItem('gl-auth-source', 'bot');
-        }
-      }
-    } catch (e) {
-      console.error('[Global Lens] auth error:', e);
+  // 1. Проверяем OAuth access_token от Discord в hash URL (#access_token=...)
+  if (location.hash && location.hash.includes('access_token=')) {
+    const hashStr = location.hash.replace(/^#/, '');
+    const p = new URLSearchParams(hashStr);
+    const token = p.get('access_token');
+    if (token) {
+      try {
+        localStorage.setItem('gl-discord-token', token);
+        history.replaceState(null, '', location.pathname + '#cabinet');
+      } catch (e) {}
     }
   }
 
-  // 2. Если сессия уже сохранена в localStorage
+  // 2. Если есть токен авторизации Discord — запрашиваем профиль пользователя через Discord API
+  let dToken = null;
+  try {
+    dToken = localStorage.getItem('gl-discord-token');
+  } catch (e) {}
+
+  if (dToken) {
+    try {
+      const res = await fetch('https://discord.com/api/users/@me', {
+        headers: { Authorization: 'Bearer ' + dToken }
+      });
+      if (res.ok) {
+        const dUser = await res.json();
+        const avatarUrl = dUser.avatar
+          ? `https://cdn.discordapp.com/avatars/${dUser.id}/${dUser.avatar}.png?size=128`
+          : defaultAvatar(dUser.id);
+        window.glUser = {
+          id: String(dUser.id),
+          name: dUser.global_name || dUser.username,
+          avatar: avatarUrl
+        };
+        localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+        localStorage.setItem('gl-auth-source', 'discord-oauth');
+      } else {
+        localStorage.removeItem('gl-discord-token');
+        localStorage.removeItem('gl-user');
+        window.glUser = null;
+      }
+    } catch (e) {
+      console.warn('[Global Lens] Discord API fetch error:', e);
+    }
+  }
+
+  // 3. Проверяем токен от бота в URL query (?token=... или ?auth=...)
+  if (!window.glUser) {
+    const params = new URLSearchParams(location.search);
+    const botToken = params.get('token') || params.get('auth') || params.get('t');
+    if (botToken) {
+      history.replaceState(null, '', location.pathname + location.hash);
+      try {
+        // Base64 JSON токен
+        try {
+          const decoded = JSON.parse(atob(botToken));
+          if (decoded && (decoded.id || decoded.user_id)) {
+            const uId = String(decoded.id || decoded.user_id);
+            const pm = playerMeta(uId);
+            window.glUser = {
+              id: uId,
+              name: decoded.name || decoded.username || pm.name,
+              avatar: decoded.avatar || decoded.avatar_url || pm.avatar
+            };
+            localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+            localStorage.setItem('gl-auth-source', 'bot');
+          }
+        } catch (eDec) {
+          if (/^\d+$/.test(botToken)) {
+            const pm = playerMeta(botToken);
+            window.glUser = {
+              id: botToken,
+              name: pm.name || ('Игрок #' + botToken.slice(-4)),
+              avatar: pm.avatar || defaultAvatar(botToken)
+            };
+            localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+            localStorage.setItem('gl-auth-source', 'bot');
+          }
+        }
+      } catch (e) {}
+    }
+  }
+
+  // 4. Очищаем старые принудительные авто-логины (Китаёзик), чтобы не мешать настоящему входу
+  try {
+    const saved = JSON.parse(localStorage.getItem('gl-user'));
+    const source = localStorage.getItem('gl-auth-source');
+    if (saved && saved.id === '758998250610360341' && source !== 'discord-oauth' && source !== 'manual') {
+      localStorage.removeItem('gl-user');
+      localStorage.removeItem('gl-auth-source');
+    }
+  } catch (e) {}
+
+  // 5. Проверяем сохранённую сессию (если пользователь авторизовался)
   if (!window.glUser) {
     try {
       const saved = JSON.parse(localStorage.getItem('gl-user'));
@@ -217,23 +264,11 @@ export async function handleLogin() {
     } catch (e) {}
   }
 
-  // 3. По умолчанию сразу открываем профиль картографа 𝕻𝖔𝖓𝖟𝖈 (Бразилия)
-  if (!window.glUser) {
-    window.glUser = {
-      id: '830428424677490728',
-      name: '𝕻𝖔𝖓𝖟𝖈',
-      avatar: defaultAvatar('830428424677490728')
-    };
-    try {
-      localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-    } catch (e) {}
-  }
-
   syncUserUI();
   decorateStaff();
   renderCabinet();
 
-  // Фоновая загрузка базы игроков и обновление кабинета
+  // Фоновая загрузка базы игроков и сезона
   loadPlayers().then(() => {
     syncUserUI();
     decorateStaff();
@@ -252,6 +287,7 @@ export function selectCabinetUser(id) {
   };
   try {
     localStorage.setItem('gl-user', JSON.stringify(window.glUser));
+    localStorage.setItem('gl-auth-source', 'manual');
   } catch (e) {}
   syncUserUI();
   decorateStaff();
@@ -324,6 +360,7 @@ window.openPlayerPickerModal = openPlayerPickerModal;
 
 export function discordLogout() {
   localStorage.removeItem('gl-user');
+  localStorage.removeItem('gl-discord-token');
   localStorage.removeItem('gl-auth-source');
   localStorage.removeItem('gl-session');
   window.glUser = null;
@@ -337,60 +374,49 @@ export async function renderCabinet() {
   if (!body) return;
 
   if (!window.glUser) {
+    const authUrl = getDiscordOAuthUrl();
     body.innerHTML = `
       <div class="card wide login-card">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
-          <h3><svg class="ic"><use href="#i-user"/></svg>Регистрация и Вход в Личный кабинет</h3>
+          <h3><svg class="ic"><use href="#i-user"/></svg>Вход в Личный кабинет</h3>
           <span class="badge" style="background:rgba(74,222,128,0.15);color:#4ade80;border:1px solid rgba(74,222,128,0.3)">Сезон 28</span>
         </div>
-        <p style="margin-top:10px;color:var(--dim);font-size:13.5px;line-height:1.5">
-          Личный кабинет позволяет просматривать экономику вашего государства, уровень поддержки, лицензии и союзные связи.
+        <p style="margin-top:10px;color:var(--dim);font-size:14px;line-height:1.5">
+          Войдите через официальный Discord для автоматической привязки вашего государства, экономики, баланса и лицензий:
         </p>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:14px;margin-top:20px">
-          <div style="padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(74,222,128,0.25);display:flex;flex-direction:column;justify-content:space-between">
-            <div>
-              <div style="font-weight:700;font-size:14px;color:#4ade80;display:flex;align-items:center;gap:8px">
-                <svg class="ic" style="width:18px;height:18px"><use href="#i-scroll"/></svg> Новым игрокам: Регистрация
-              </div>
-              <p style="font-size:12px;color:var(--dim);margin:8px 0 14px">
-                Подайте анкету на свободное государство или автономию через официальный Discord-сервер проекта.
-              </p>
-            </div>
-            <a class="cta fill" style="width:100%;justify-content:center" target="_blank" rel="noopener" href="https://discord.gg/edPpSRmRNu">
-              📝 Зарегистрироваться в сезоне
-            </a>
-          </div>
+        <!-- Главная кнопка: Войти через Discord OAuth -->
+        <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+          <a class="cta fill" style="background:#5865F2;color:#ffffff;display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:15px;padding:15px 26px;border-radius:12px;font-weight:700;box-shadow:0 4px 20px rgba(88,101,242,0.35);text-decoration:none" href="${authUrl}">
+            <svg class="ic" style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M20.3 4.3a18 18 0 0 0-4.4-1.3l-.2.4a16.4 16.4 0 0 0-7.5 0l-.2-.4A18 18 0 0 0 3.7 4.3C1.2 8 .5 11.7.8 15.3a18 18 0 0 0 5.5 2.8c.5-.6.9-1.3 1.2-2-.5-.2-.9-.4-1.3-.7l.3-.2a13 13 0 0 0 11 0l.3.2c-.4.3-.8.5-1.3.7.3.7.7 1.4 1.2 2a18 18 0 0 0 5.5-2.8c.4-4.2-.7-7.9-2.9-11zM8.5 13.3c-1 0-1.9-1-1.9-2.1 0-1.2.8-2.1 1.9-2.1 1 0 1.9 1 1.9 2.1 0 1.2-.9 2.1-1.9 2.1zm7 0c-1 0-1.9-1-1.9-2.1 0-1.2.8-2.1 1.9-2.1s1.9 1 1.9 2.1c0 1.2-.9 2.1-1.9 2.1z"/></svg>
+            Войти через Discord
+          </a>
 
-          <div style="padding:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(88,101,242,0.3);display:flex;flex-direction:column;justify-content:space-between">
-            <div>
-              <div style="font-weight:700;font-size:14px;color:#818cf8;display:flex;align-items:center;gap:8px">
-                <svg class="ic" style="width:18px;height:18px"><use href="#i-discord"/></svg> Авторизация через бота
-              </div>
-              <p style="font-size:12px;color:var(--dim);margin:8px 0 14px">
-                Напишите боту команду <b>/login</b> в личные сообщения для входа по персональной ссылке.
-              </p>
-            </div>
-            <a class="cta fill" style="width:100%;justify-content:center;background:#5865F2;color:#ffffff" target="_blank" rel="noopener" href="${BOT_DM_URL}">
-              <svg class="ic"><use href="#i-discord"/></svg> Открыть ЛС бота (/login)
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:10px;margin-top:6px">
+            <a class="cta outline" style="justify-content:center;font-size:13px;padding:12px" target="_blank" rel="noopener" href="https://discord.gg/edPpSRmRNu">
+              📝 Подать заявку на регистрацию в сезоне
+            </a>
+            <a class="cta ghost" style="justify-content:center;font-size:13px;padding:12px" target="_blank" rel="noopener" href="${BOT_DM_URL}">
+              🤖 Вход по ссылке бота (/login)
             </a>
           </div>
         </div>
 
-        <div style="margin-top:22px;padding-top:16px;border-top:1px solid var(--line)">
+        <!-- Быстрый доступ для просмотра профиля без OAuth -->
+        <div style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line)">
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px">
-            <b style="font-size:13.5px;color:#fff">👤 Быстрый вход для зарегистрированных участников:</b>
-            <span style="font-size:11.5px;color:var(--dim)">Выберите профиль в 1 клик</span>
+            <b style="font-size:13px;color:#fff">👤 Быстрый просмотр досье игрока:</b>
+            <span style="font-size:11.5px;color:var(--dim)">Открыть карточку в 1 клик</span>
           </div>
           <div class="cta-row" style="justify-content:flex-start;gap:8px;flex-wrap:wrap">
             <button class="cta ghost" style="border-color:rgba(74,222,128,0.4);color:#4ade80" onclick="window.selectCabinetUser('830428424677490728')">
-              🇧🇷 Войти как 𝕻𝖔𝖓𝖟𝖈
+              🇧🇷 𝕻𝖔𝖓𝖟𝖈 (Бразилия)
             </button>
             <button class="cta ghost" onclick="window.selectCabinetUser('758998250610360341')">
-              🇭🇳 Китаёзик
+              🇭🇳 Китаёзик (Гондурас)
             </button>
             <button class="cta outline" onclick="window.openPlayerPickerModal()">
-              <svg class="ic"><use href="#i-search"/></svg> Найти свой профиль из базы...
+              <svg class="ic"><use href="#i-search"/></svg> Найти другого игрока из базы...
             </button>
           </div>
         </div>
@@ -409,13 +435,13 @@ export async function renderCabinet() {
 
   const pLive = getPlayerById(u.id);
   const me = (season && season[u.id]) || (pLive ? {
-    country: pLive.country || (pLive.countries && pLive.countries[0]) || (u.id === '830428424677490728' ? 'Бразилия' : 'Не указана'),
+    country: pLive.country || (pLive.countries && pLive.countries[0]) || (u.id === '830428424677490728' ? 'Бразилия' : (u.id === '758998250610360341' ? 'Гондурас' : 'Не указана')),
     type: pLive.entity_type === 'Автономия' ? 'autonomy' : (pLive.entity_type === 'Организация' ? 'organization' : 'country'),
-    gdp: pLive.gdp || (countries && countries[pLive.country]?.gdp) || (u.id === '830428424677490728' ? 14850616435226 : 20387000000),
-    population: pLive.population || (countries && countries[pLive.country]?.population) || (u.id === '830428424677490728' ? 234982475 : 8575000),
-    balance: pLive.balance || 0,
-    support: pLive.support != null ? pLive.support : (u.id === '830428424677490728' ? 96.5 : 95.0),
-    corruption: pLive.corruption != null ? pLive.corruption : (u.id === '830428424677490728' ? 6.0 : 8.0),
+    gdp: pLive.gdp || (countries && countries[pLive.country]?.gdp) || (u.id === '830428424677490728' ? 14850616435226 : (u.id === '758998250610360341' ? 28400000000 : 20387000000)),
+    population: pLive.population || (countries && countries[pLive.country]?.population) || (u.id === '830428424677490728' ? 234982475 : (u.id === '758998250610360341' ? 10432860 : 8575000)),
+    balance: pLive.balance != null ? pLive.balance : (u.id === '758998250610360341' ? 14500000 : 0),
+    support: pLive.support != null ? pLive.support : (u.id === '830428424677490728' ? 96.5 : (u.id === '758998250610360341' ? 94.0 : 95.0)),
+    corruption: pLive.corruption != null ? pLive.corruption : (u.id === '830428424677490728' ? 6.0 : (u.id === '758998250610360341' ? 8.5 : 8.0)),
     categories: pLive.categories || (u.id === '830428424677490728' ? ['Картограф', 'Персонал'] : []),
     roles: pLive.roles || [],
     is_staff: pLive.is_staff || u.id === '830428424677490728' || u.id === '758998250610360341',
@@ -433,7 +459,19 @@ export async function renderCabinet() {
     roles: [],
     is_staff: true,
     is_registered: true
-  } : null));
+  } : (u.id === '758998250610360341' ? {
+    country: 'Гондурас',
+    type: 'country',
+    gdp: 28400000000,
+    population: 10432860,
+    balance: 14500000,
+    support: 94.0,
+    corruption: 8.5,
+    categories: ['Создатель сайта', 'Персонал'],
+    roles: [],
+    is_staff: true,
+    is_registered: true
+  } : null)));
 
   const flagOf = n => {
     if (countries && countries[n] && countries[n].flag) return countries[n].flag;
@@ -445,6 +483,8 @@ export async function renderCabinet() {
     }
     return '🏳️';
   };
+
+  const staffTitle = getStaffTitle(u.id);
 
   let html = `
     <div class="card wide profile-card">
@@ -465,8 +505,8 @@ export async function renderCabinet() {
   if (!me) {
     html += `
       <div class="card wide">
-        <h3><svg class="ic"><use href="#i-scroll"/></svg> Вы ещё не зарегистрировали страну в 28 сезоне</h3>
-        <p>Ваш Discord-аккаунт пока не привязан к конкретному государству или организации в сезоне.</p>
+        <h3><svg class="ic"><use href="#i-scroll"/></svg> Вы успешно вошли через Discord</h3>
+        <p>Ваш Discord-аккаунт <b>${esc(u.name)}</b> авторизован, но страна или организация в 28 сезоне пока не привязана.</p>
         <div class="cta-row" style="margin-top:16px;justify-content:flex-start;gap:10px;flex-wrap:wrap">
           <a class="cta fill" target="_blank" rel="noopener" href="https://discord.gg/edPpSRmRNu">
             📝 Зарегистрироваться в сезоне (Discord)
@@ -489,8 +529,8 @@ export async function renderCabinet() {
           <h3>${flagOf(me.country)} ${esc(me.country)}</h3>
           <div class="kv"><span>Тип</span><b>${typeNames[me.type] || me.type}</b></div>
           <div class="kv"><span>Статус</span><b style="color:var(--green)">✓ Зарегистрирован в 28 сезоне</b></div>
+          ${staffTitle ? `<div class="kv"><span>Статус на сервере</span><b style="color:var(--yellow)">${esc(staffTitle)}</b></div>` : ''}
           ${(me.categories && me.categories.length) ? `<div class="kv"><span>Категории</span><b>${esc(me.categories.join(' · '))}</b></div>` : ''}
-          ${me.is_staff ? `<div class="kv"><span>Статус на сервере</span><b style="color:var(--yellow)">★ Персонал / Создатель картографии</b></div>` : ''}
           ${me.org_type ? `<div class="kv"><span>Форма</span><b>${esc(me.org_type)}</b></div>` : ''}
           ${me.host_country ? `<div class="kv"><span>Метрополия</span><b>${flagOf(me.host_country)} ${esc(me.host_country)}</b></div>` : ''}
           ${me.ideology ? `<div class="kv"><span>Гос. строй</span><b>${esc(me.ideology.state || '—')}</b></div><div class="kv"><span>Экономика</span><b>${esc(me.ideology.economy || '—')}</b></div>` : ''}
@@ -517,6 +557,27 @@ export async function renderCabinet() {
         </div>
       </div>
     `;
+
+    // Особый блок заслуг для картографа Ponzc
+    if (u.id === '830428424677490728') {
+      html += `
+        <div class="card wide" style="margin-top:16px;background:rgba(74,222,128,0.04);border:1px solid rgba(74,222,128,0.25)">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+            <div>
+              <div style="font-weight:700;font-size:14px;color:#4ade80">
+                🏆 Особые заслуги: Главный картограф Global Lens
+              </div>
+              <p style="font-size:12.5px;color:var(--dim);margin-top:4px">
+                Смог восстановить и сделать стабильную работу картографии. Также является главным лудиком на Global Luds.
+              </p>
+            </div>
+            <button class="cta outline" onclick="window.openStaffModal('ponzc')">
+              🏅 Награды и достижения (200)
+            </button>
+          </div>
+        </div>
+      `;
+    }
   }
 
   body.innerHTML = html;
@@ -549,4 +610,5 @@ window.renderCabinet = renderCabinet;
 window.selectCabinetUser = selectCabinetUser;
 window.openPlayerPickerModal = openPlayerPickerModal;
 window.discordLogout = discordLogout;
+window.discordLogin = discordLogin;
 window.testPlayersWebhook = testPlayersWebhook;

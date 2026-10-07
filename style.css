@@ -88,10 +88,29 @@ html[data-theme="orange"] .logo-badge .logo-blue { display: none; }
 }
 .nav-label { font-family: 'JetBrains Mono'; font-size: 10px; letter-spacing: .24em; color: var(--dim); margin: 4px 8px 12px; }
 
+/* 3D Метки стран с флагами на сфере */
+.globe-flag-pin {
+  position: relative;
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  z-index: 5 !important;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+}
+.globe-flag-pin:hover {
+  transform: translate(-50%, -115%) scale(1.15);
+  z-index: 10 !important;
+}
+#globeCanvas > div > div:not(.scene-tooltip) {
+  z-index: 10 !important;
+}
+
 /* 3D Globe подсказки - абсолютный приоритет над трехмерными метками и канвасом */
 .float-tooltip-kap,
-.scene-tooltip {
-  z-index: 999999 !important;
+.scene-tooltip,
+div.scene-tooltip {
+  z-index: 99999999 !important;
   pointer-events: none !important;
   background: transparent !important;
   border: none !important;
@@ -100,7 +119,7 @@ html[data-theme="orange"] .logo-badge .logo-blue { display: none; }
 }
 .globe-tooltip {
   position: relative;
-  z-index: 1000000 !important;
+  z-index: 100000000 !important;
   pointer-events: none !important;
   background: rgba(6, 12, 9, 0.98) !important;
   border: 1px solid rgba(148, 163, 184, 0.35) !important;

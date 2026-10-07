@@ -261,9 +261,13 @@
 }
 
 /* Всплывающие подсказки (Tooltips) - абсолютный приоритет поверх меток и канваса */
+#globeCanvas > div > div:not(.scene-tooltip) {
+  z-index: 10 !important;
+}
 .float-tooltip-kap,
-.scene-tooltip {
-  z-index: 999999 !important;
+.scene-tooltip,
+div.scene-tooltip {
+  z-index: 99999999 !important;
   pointer-events: none !important;
   background: transparent !important;
   border: none !important;
@@ -272,7 +276,7 @@
 }
 .globe-tooltip {
   position: relative;
-  z-index: 1000000 !important;
+  z-index: 100000000 !important;
   background: rgba(6, 12, 9, 0.98);
   border: 1px solid rgba(148, 163, 184, 0.35);
   border-radius: 9px;
