@@ -76,39 +76,6 @@ export async function loadPlayers() {
     }
   }
 
-  // Метаданные ключевых участников
-  if (!PLAYERS_BY_ID['830428424677490728']) {
-    PLAYERS_BY_ID['830428424677490728'] = {
-      id: '830428424677490728',
-      username: 'ponzc',
-      display_name: '𝕻𝖔𝖓𝖟𝖈',
-      country: 'Бразилия',
-      entity_type: 'Государство',
-      gdp: 14850616435226,
-      population: 234982475,
-      balance: 0,
-      support: 96.5,
-      corruption: 6.0,
-      is_staff: true,
-      is_registered: true
-    };
-  }
-  if (!PLAYERS_BY_ID['758998250610360341']) {
-    PLAYERS_BY_ID['758998250610360341'] = {
-      id: '758998250610360341',
-      username: 'qbitf',
-      display_name: 'Китаёзик',
-      country: 'Гондурас',
-      entity_type: 'Государство',
-      gdp: 28400000000,
-      population: 10432860,
-      balance: 14500000,
-      support: 94.0,
-      corruption: 8.5,
-      is_staff: true,
-      is_registered: true
-    };
-  }
 }
 
 export function getPlayers() {
@@ -117,7 +84,23 @@ export function getPlayers() {
 
 export function getPlayerById(id) {
   if (!id) return null;
-  return PLAYERS_BY_ID[String(id)] || null;
+  const sid = String(id).trim();
+  if (PLAYERS_BY_ID[sid]) return PLAYERS_BY_ID[sid];
+  if (PLAYERS) {
+    const list = [
+      ...(Array.isArray(PLAYERS) ? PLAYERS : []),
+      ...(PLAYERS.non_staff_players || []),
+      ...(PLAYERS.staff_players || []),
+      ...(PLAYERS.players || []),
+      ...(PLAYERS.all_players || [])
+    ];
+    const found = list.find(p => p && String(p.id || p.user_id || '').trim() === sid);
+    if (found) {
+      PLAYERS_BY_ID[sid] = found;
+      return found;
+    }
+  }
+  return null;
 }
 
 export function playerMeta(id) {
@@ -410,6 +393,13 @@ export async function renderCabinet() {
     return;
   }
 
+  // Загружаем данные игроков, если еще не загружены
+  if (!PLAYERS || !Object.keys(PLAYERS_BY_ID).length) {
+    try {
+      await loadPlayers();
+    } catch (eLoad) {}
+  }
+
   const u = window.glUser;
   let season = null, countries = null;
   try {
@@ -418,50 +408,47 @@ export async function renderCabinet() {
     countries = trimDeep(c);
   } catch (e) {}
 
-  const pLive = getPlayerById(u.id);
-  const me = (season && season[u.id]) || (pLive ? {
-    country: pLive.country || (pLive.countries && pLive.countries[0]) || (u.id === '830428424677490728' ? 'Бразилия' : (u.id === '758998250610360341' ? 'Гондурас' : 'Не указана')),
-    type: pLive.entity_type === 'Автономия' ? 'autonomy' : (pLive.entity_type === 'Организация' ? 'organization' : 'country'),
-    gdp: pLive.gdp || (countries && countries[pLive.country]?.gdp) || (u.id === '830428424677490728' ? 14850616435226 : (u.id === '758998250610360341' ? 28400000000 : 20387000000)),
-    population: pLive.population || (countries && countries[pLive.country]?.population) || (u.id === '830428424677490728' ? 234982475 : (u.id === '758998250610360341' ? 10432860 : 8575000)),
-    balance: pLive.balance != null ? pLive.balance : (u.id === '758998250610360341' ? 14500000 : 0),
-    support: pLive.support != null ? pLive.support : (u.id === '830428424677490728' ? 96.5 : (u.id === '758998250610360341' ? 94.0 : 95.0)),
-    corruption: pLive.corruption != null ? pLive.corruption : (u.id === '830428424677490728' ? 6.0 : (u.id === '758998250610360341' ? 8.5 : 8.0)),
-    categories: pLive.categories || (u.id === '830428424677490728' ? ['Картограф', 'Персонал'] : []),
-    roles: pLive.roles || [],
-    is_staff: pLive.is_staff || u.id === '830428424677490728' || u.id === '758998250610360341',
-    is_registered: true,
-    raw: pLive
-  } : (u.id === '830428424677490728' ? {
-    country: 'Бразилия',
-    type: 'country',
-    gdp: 14850616435226,
-    population: 234982475,
-    balance: 0,
-    support: 96.5,
-    corruption: 6.0,
-    categories: ['Картограф', 'Персонал'],
-    roles: [],
-    is_staff: true,
-    is_registered: true
-  } : (u.id === '758998250610360341' ? {
-    country: 'Гондурас',
-    type: 'country',
-    gdp: 28400000000,
-    population: 10432860,
-    balance: 14500000,
-    support: 94.0,
-    corruption: 8.5,
-    categories: ['Создатель сайта', 'Персонал'],
-    roles: [],
-    is_staff: true,
-    is_registered: true
-  } : null)));
+  const uid = String(u.id || '').trim();
+  const pLive = getPlayerById(uid);
+  const sEntry = (season && season[uid]) || null;
+
+  // Динамическая проверка по Discord ID: определяем страну строго по season или players.json
+  let countryName = null;
+  if (sEntry && sEntry.country && sEntry.country !== 'Не указана') {
+    countryName = sEntry.country;
+  } else if (pLive && pLive.is_registered !== false) {
+    if (pLive.country && pLive.country !== 'Не указана') {
+      countryName = pLive.country;
+    } else if (Array.isArray(pLive.countries) && pLive.countries.length > 0 && pLive.countries[0] !== 'Не указана') {
+      countryName = pLive.countries[0];
+    }
+  }
+
+  let me = null;
+  if (countryName) {
+    const cData = (countries && countries[countryName]) || {};
+    const eType = (sEntry && sEntry.type) || (pLive && pLive.entity_type === 'Автономия' ? 'autonomy' : (pLive && pLive.entity_type === 'Организация' ? 'organization' : 'country'));
+    me = {
+      country: countryName,
+      type: eType,
+      gdp: (sEntry && sEntry.gdp) || (pLive && pLive.gdp) || cData.gdp || 20387000000,
+      population: (sEntry && sEntry.population) || (pLive && pLive.population) || cData.population || 8575000,
+      balance: (sEntry && sEntry.balance != null) ? sEntry.balance : (pLive && pLive.balance != null ? pLive.balance : 0),
+      support: (sEntry && sEntry.support != null) ? sEntry.support : (pLive && pLive.support != null ? pLive.support : 95.0),
+      corruption: (sEntry && sEntry.corruption != null) ? sEntry.corruption : (pLive && pLive.corruption != null ? pLive.corruption : 8.0),
+      categories: (sEntry && sEntry.categories) || (pLive && pLive.categories) || [],
+      roles: (sEntry && sEntry.roles) || (pLive && pLive.roles) || [],
+      is_staff: Boolean((sEntry && sEntry.is_staff) || (pLive && pLive.is_staff) || getStaffTitle(uid)),
+      is_registered: true,
+      org_type: (sEntry && sEntry.org_type) || (pLive && pLive.org_type) || null,
+      host_country: (sEntry && sEntry.host_country) || (pLive && pLive.host_country) || null,
+      raw: pLive || sEntry
+    };
+  }
 
   const flagOf = n => {
+    if (!n) return '🏳️';
     if (countries && countries[n] && countries[n].flag) return countries[n].flag;
-    if (n === 'Бразилия') return '🇧🇷';
-    if (n === 'Гондурас') return '🇭🇳';
     if (pLive) {
       const match = (pLive.display_name || pLive.nickname || '').match(/[\uD83C][\uDDE6-\uDDFF]{2}/);
       if (match) return match[0];
@@ -469,7 +456,7 @@ export async function renderCabinet() {
     return '🏳️';
   };
 
-  const staffTitle = getStaffTitle(u.id);
+  const staffTitle = getStaffTitle(uid);
 
   let html = `
     <div class="card wide profile-card">
@@ -477,9 +464,17 @@ export async function renderCabinet() {
         <img class="profile-ava" src="${userAvatar(u)}" alt="${esc(u.name)}">
         <div>
           <div class="profile-name">${esc(u.name)}</div>
-          <div class="profile-sub">Discord ID: ${u.id}</div>
+          <div class="profile-sub">Discord ID: ${esc(u.id)}</div>
+          ${staffTitle ? `
+            <div style="margin-top:6px">
+              <span class="badge" style="background:rgba(234,179,8,0.15);border:1px solid rgba(234,179,8,0.4);color:#facc15;font-weight:600;padding:3px 10px;border-radius:6px;font-size:12px">
+                ${esc(staffTitle)}
+              </span>
+            </div>
+          ` : ''}
         </div>
         <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="cta ghost" onclick="window.openPlayerPickerModal()"><svg class="ic" style="width:14px;height:14px"><use href="#i-users"/></svg> Досье игроков</button>
           <button class="cta ghost" onclick="window.discordLogout()">Выйти</button>
         </div>
       </div>
@@ -488,14 +483,32 @@ export async function renderCabinet() {
 
   if (!me) {
     html += `
-      <div class="card wide">
-        <h3><svg class="ic"><use href="#i-scroll"/></svg> Вы успешно вошли через Discord</h3>
-        <p>Ваш Discord-аккаунт <b>${esc(u.name)}</b> авторизован, но страна или организация в 28 сезоне пока не привязана.</p>
+      <div class="card wide" style="margin-top:16px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+          <div style="width:40px;height:40px;border-radius:10px;background:rgba(74,222,128,0.1);display:flex;align-items:center;justify-content:center;color:#4ade80">
+            <svg class="ic" style="width:22px;height:22px"><use href="#i-shield"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0;font-size:17px">Синхронизация по Discord ID</h3>
+            <div style="font-size:12px;color:var(--dim)">Проверено по базе данных: ID ${esc(u.id)}</div>
+          </div>
+        </div>
+        <p style="color:var(--text);font-size:14px;line-height:1.6;margin:0 0 10px">
+          Вы успешно авторизованы как <b>${esc(u.name)}</b>. В текущем 28 сезоне за вашим Discord ID (${esc(u.id)}) активное государство или организация пока не закреплены.
+        </p>
+        <p style="color:var(--dim);font-size:13px;line-height:1.5;margin:0 0 16px">
+          При получении лицензии на сервере данные подтянутся автоматически по вашему Discord ID.
+        </p>
         <div class="cta-row" style="margin-top:16px;justify-content:flex-start;gap:10px;flex-wrap:wrap">
           <a class="cta fill" target="_blank" rel="noopener" href="https://discord.com/channels/1209153077651963924/1209160476764667905/1351208509458616362">
-            📝 Зарегистрироваться в сезоне (Discord)
+            📝 Подать анкету / Регистрация в Discord
           </a>
-          <a class="cta ghost" href="#" data-go="season">Выбрать страну на карте</a>
+          <a class="cta outline" href="#" data-go="season">
+            🗺️ Выбрать свободную страну на карте
+          </a>
+          <button class="cta ghost" onclick="window.openPlayerPickerModal()">
+            👥 Просмотр досье других участников
+          </button>
         </div>
       </div>
     `;
@@ -541,27 +554,27 @@ export async function renderCabinet() {
         </div>
       </div>
     `;
+  }
 
-    // Особый блок заслуг для картографа Ponzc
-    if (u.id === '830428424677490728') {
-      html += `
-        <div class="card wide" style="margin-top:16px;background:rgba(74,222,128,0.04);border:1px solid rgba(74,222,128,0.25)">
-          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-            <div>
-              <div style="font-weight:700;font-size:14px;color:#4ade80">
-                🏆 Особые заслуги: Главный картограф Global Lens
-              </div>
-              <p style="font-size:12.5px;color:var(--dim);margin-top:4px">
-                Смог восстановить и сделать стабильную работу картографии. Также является главным лудиком на Global Luds.
-              </p>
+  // Особый блок заслуг для картографа Ponzc
+  if (uid === '830428424677490728') {
+    html += `
+      <div class="card wide" style="margin-top:16px;background:rgba(74,222,128,0.04);border:1px solid rgba(74,222,128,0.25)">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+          <div>
+            <div style="font-weight:700;font-size:14px;color:#4ade80">
+              🏆 Особые заслуги: Главный картограф Global Lens
             </div>
-            <button class="cta outline" onclick="window.openStaffModal('ponzc')">
-              🏅 Награды и достижения (200)
-            </button>
+            <p style="font-size:12.5px;color:var(--dim);margin-top:4px">
+              Смог восстановить и сделать стабильную работу картографии. Также является главным лудиком на Global Luds.
+            </p>
           </div>
+          <button class="cta outline" onclick="window.openStaffModal('ponzc')">
+            🏅 Награды и достижения (200)
+          </button>
         </div>
-      `;
-    }
+      </div>
+    `;
   }
 
   body.innerHTML = html;
