@@ -1,15 +1,15 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-07T20:17:22.670277+00:00",
-  "total_active_players": 37,
-  "total_non_staff_players": 20,
+  "updated_at": "2026-10-08T05:16:35.394467+00:00",
+  "total_active_players": 36,
+  "total_non_staff_players": 19,
   "total_staff_who_play": 17,
   "stats": {
-    "registered": 37,
+    "registered": 36,
     "states": 28,
     "autonomies": 6,
-    "pmc": 3,
+    "pmc": 2,
     "un_members": 28,
     "alliance_members": 34
   },
@@ -1173,43 +1173,6 @@
         {
           "id": "1438562020516692009",
           "name": "•⠀⠀⠀⠀⠀Автономия⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        }
-      ]
-    },
-    {
-      "id": "1334149079940464723",
-      "username": "tomi_as51",
-      "display_name": "🏢 | GATE",
-      "nickname": "🏢 | GATE",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1334149079940464723/fb1a26e30928fc7bd3d583920c34053e.png?size=1024",
-      "is_staff": false,
-      "is_registered": true,
-      "entity_type": "ЧВК",
-      "countries": [],
-      "country": null,
-      "categories": [
-        "ЧВК"
-      ],
-      "roles": [
-        {
-          "id": "1246817935297613905",
-          "name": "• Зарегистрированный"
-        },
-        {
-          "id": "1359429686500921447",
-          "name": "Новости"
-        },
-        {
-          "id": "1359429648890728488",
-          "name": "Обновления"
-        },
-        {
-          "id": "1246817320219967611",
-          "name": "Международная"
-        },
-        {
-          "id": "1233388184407375912",
-          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     }
@@ -3586,43 +3549,6 @@
         {
           "id": "1246844097222807564",
           "name": "• Зам. куратор"
-        }
-      ]
-    },
-    {
-      "id": "1334149079940464723",
-      "username": "tomi_as51",
-      "display_name": "🏢 | GATE",
-      "nickname": "🏢 | GATE",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1334149079940464723/fb1a26e30928fc7bd3d583920c34053e.png?size=1024",
-      "is_staff": false,
-      "is_registered": true,
-      "entity_type": "ЧВК",
-      "countries": [],
-      "country": null,
-      "categories": [
-        "ЧВК"
-      ],
-      "roles": [
-        {
-          "id": "1246817935297613905",
-          "name": "• Зарегистрированный"
-        },
-        {
-          "id": "1359429686500921447",
-          "name": "Новости"
-        },
-        {
-          "id": "1359429648890728488",
-          "name": "Обновления"
-        },
-        {
-          "id": "1246817320219967611",
-          "name": "Международная"
-        },
-        {
-          "id": "1233388184407375912",
-          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     }
