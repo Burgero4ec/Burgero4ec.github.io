@@ -3,9 +3,16 @@
  */
 import { triggerOdysseyPageReveal } from './animations.js';
 import { animateStats } from './stats.js';
+import { resetDonatePhysics } from './donate.js';
 
 const INFO_PAGE_IDS = ['about', 'news', 'updates'];
 const RULE_PAGE_IDS = ['rules-server', 'rules-bot', 'rules-privacy'];
+const PAGE_ALIASES = {
+  boost: 'donate',
+  prices: 'donate',
+  shop: 'donate',
+  store: 'donate'
+};
 
 export function closeDrawer() {
   document.body.classList.remove('menu-open');
@@ -19,11 +26,18 @@ export function toggleDrawer() {
   document.body.classList.toggle('menu-open');
 }
 
-export function go(id) {
-  const target = document.getElementById('page-' + id);
+export function go(rawId) {
+  const id = (rawId || '').replace(/^#/, '').trim();
+  const resolvedId = PAGE_ALIASES[id] || id;
+  const target = document.getElementById('page-' + resolvedId);
   if (!target) {
-    console.error('[Global Lens] Неизвестная страница:', id);
+    console.error('[Global Lens] Неизвестная страница:', rawId);
     return;
+  }
+
+  // Если уходим с доната, мгновенно сбрасываем физику
+  if (resolvedId !== 'donate' && typeof resetDonatePhysics === 'function') {
+    resetDonatePhysics(true);
   }
 
   // Переключение активного класса у страниц
@@ -36,24 +50,24 @@ export function go(id) {
   const infoGroup = document.getElementById('infoGroup');
   const rulesGroup = document.getElementById('rulesGroup');
 
-  if (INFO_PAGE_IDS.includes(id) || RULE_PAGE_IDS.includes(id)) {
+  if (INFO_PAGE_IDS.includes(resolvedId) || RULE_PAGE_IDS.includes(resolvedId)) {
     if (infoBtn) infoBtn.classList.add('active');
     if (infoGroup) infoGroup.classList.add('open');
   }
-  if (RULE_PAGE_IDS.includes(id) && rulesGroup) {
+  if (RULE_PAGE_IDS.includes(resolvedId) && rulesGroup) {
     rulesGroup.classList.add('open');
   }
 
-  const sel = document.querySelector('.side-nav [data-go="' + id + '"]');
+  const sel = document.querySelector('.side-nav [data-go="' + resolvedId + '"]') || document.querySelector('.side-nav [data-go="' + id + '"]');
   if (sel) sel.classList.add('active');
 
   // Закрываем мобильное меню при переходе
   closeDrawer();
 
   // Запуск сопутствующих анимаций
-  if (id === 'home') {
+  if (resolvedId === 'home') {
     animateStats();
-  } else if (id === 'cabinet') {
+  } else if (resolvedId === 'cabinet') {
     if (typeof window.renderCabinet === 'function') {
       window.renderCabinet();
     }
@@ -141,9 +155,17 @@ export function initNavigation() {
     }
   }, { passive: true });
 
+  // Реакция на изменение хэша в браузере (кнопки назад/вперед и внешние ссылки)
+  window.addEventListener('hashchange', () => {
+    const rawHash = window.location.hash.replace('#', '').trim();
+    if (rawHash) {
+      go(rawHash);
+    }
+  });
+
   // Проверка стартового хэша в URL
   const hash = window.location.hash.replace('#', '').trim();
-  if (hash && document.getElementById('page-' + hash)) {
+  if (hash) {
     go(hash);
   }
 }

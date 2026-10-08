@@ -207,6 +207,8 @@ class DonateSparkFX {
   }
 }
 
+export let resetDonatePhysics = null;
+
 export function initDonatePhysics() {
   const container = document.getElementById('donateFalling');
   const textEl = document.getElementById('fallingText');
@@ -214,6 +216,10 @@ export function initDonatePhysics() {
   const soundBtn = document.getElementById('fallingSound');
   const fxCanvas = document.getElementById('fallingFxCanvas');
   if (!container || !textEl || typeof window.Matter === 'undefined') return;
+
+  // Защита от повторной инициализации
+  if (container.dataset.physicsInit === 'true') return;
+  container.dataset.physicsInit = 'true';
 
   const Matter = window.Matter;
   const sound = new DonateSoundFX();
@@ -248,11 +254,11 @@ export function initDonatePhysics() {
     }
   }
 
-  // Убеждаемся, что слова оформлены в span.word
   const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   let hint = container.querySelector('.falling-hint');
   let hintText = hint ? hint.querySelector('.hint-text') : null;
   let hintIcon = hint ? hint.querySelector('.hint-icon') : null;
+  let badgeText = container.querySelector('.falling-badge-text');
 
   function updateHint(type) {
     if (!hintText) return;
@@ -260,10 +266,10 @@ export function initDonatePhysics() {
       hintText.textContent = canHover ? 'наведи курсор — слова упадут' : 'тапни — слова упадут';
       if (hintIcon) hintIcon.textContent = canHover ? '⚡' : '📱';
     } else if (type === 'falling') {
-      hintText.textContent = canHover ? 'перетаскивай и бросай слова!' : 'перетаскивай и бросай слова!';
+      hintText.textContent = canHover ? 'перетаскивай и бросай слова • ↺ сброс (R)' : 'перетаскивай и бросай слова • ↺ сброс';
       if (hintIcon) hintIcon.textContent = '🎯';
     } else if (type === 'settled') {
-      hintText.textContent = canHover ? 'нажми ↺ (или R), чтобы вернуть' : 'нажми ↺, чтобы вернуть';
+      hintText.textContent = canHover ? 'нажми ↺ (или клавишу R), чтобы вернуть' : 'нажми ↺, чтобы вернуть';
       if (hintIcon) hintIcon.textContent = '↺';
     }
   }
@@ -288,22 +294,22 @@ export function initDonatePhysics() {
     sound.ensureContext();
 
     const rect = container.getBoundingClientRect();
-    const W = rect.width;
-    const H = rect.height;
-    if (W <= 20 || H <= 20) return;
+    const W = container.clientWidth || rect.width;
+    const H = container.clientHeight || rect.height;
+    if (W <= 40 || H <= 40) return;
 
     if (sparks) sparks.resize();
 
     engine = Matter.Engine.create({
-      gravity: { x: 0, y: 0.78 }
+      gravity: { x: 0, y: 0.82 }
     });
 
-    // 1. Создаем границы с запасом
-    const wallOpts = { isStatic: true, friction: 0.35, restitution: 0.5, render: { visible: false } };
-    const ground = Matter.Bodies.rectangle(W / 2, H + 25, W + 200, 50, wallOpts);
-    const leftWall = Matter.Bodies.rectangle(-25, H / 2, 50, H * 2, wallOpts);
-    const rightWall = Matter.Bodies.rectangle(W + 25, H / 2, 50, H * 2, wallOpts);
-    const ceiling = Matter.Bodies.rectangle(W / 2, -30, W + 200, 50, wallOpts);
+    // 1. Границы контейнера с запасом
+    const wallOpts = { isStatic: true, friction: 0.35, restitution: 0.52, render: { visible: false } };
+    const ground = Matter.Bodies.rectangle(W / 2, H + 25, W + 300, 50, wallOpts);
+    const leftWall = Matter.Bodies.rectangle(-25, H / 2, 50, H * 2 + 100, wallOpts);
+    const rightWall = Matter.Bodies.rectangle(W + 25, H / 2, 50, H * 2 + 100, wallOpts);
+    const ceiling = Matter.Bodies.rectangle(W / 2, -30, W + 300, 50, wallOpts);
 
     walls = [ground, leftWall, rightWall, ceiling];
     Matter.World.add(engine.world, walls);
@@ -316,28 +322,28 @@ export function initDonatePhysics() {
       const sr = span.getBoundingClientRect();
       const startX = Math.round(sr.left - rect.left + sr.width / 2);
       const startY = Math.round(sr.top - rect.top + sr.height / 2);
-      const w = Math.max(20, Math.round(sr.width));
-      const h = Math.max(16, Math.round(sr.height));
+      const w = Math.max(24, Math.round(sr.width));
+      const h = Math.max(18, Math.round(sr.height));
 
-      // Сохраняем исходные координаты для идеального магнитного возврата
+      // Сохраняем координаты для плавного возврата
       span.dataset.origX = startX;
       span.dataset.origY = startY;
 
       const body = Matter.Bodies.rectangle(startX, startY, w, h, {
-        restitution: 0.58,
+        restitution: 0.54,
         frictionAir: 0.016,
-        friction: 0.28,
+        friction: 0.30,
         density: 0.002,
-        chamfer: { radius: 8 },
+        chamfer: { radius: 10 },
         angle: (Math.random() - 0.5) * 0.06
       });
 
-      // Деликатный начальный импульс
+      // Начальный деликатный импульс
       Matter.Body.setVelocity(body, {
-        x: (Math.random() - 0.5) * 3.6,
+        x: (Math.random() - 0.5) * 3.4,
         y: -(Math.random() * 2.2 + 0.8)
       });
-      Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.08);
+      Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.07);
 
       // Мгновенная фиксация стилей без дергания
       span.style.position = 'absolute';
@@ -352,8 +358,9 @@ export function initDonatePhysics() {
       return { elem: span, body, w, h, origX: startX, origY: startY };
     });
 
-    // 3. Интерактивная мышь
+    // 3. Интерактивная мышь с защитой от искажений DPI
     const mouse = Matter.Mouse.create(container);
+    mouse.pixelRatio = 1;
     mouseConstraint = Matter.MouseConstraint.create(engine, {
       mouse,
       constraint: {
@@ -414,6 +421,7 @@ export function initDonatePhysics() {
     Matter.Runner.run(runner, engine);
     active = true;
     container.classList.add('active-physics');
+    if (badgeText) badgeText.textContent = 'Гравитация';
     updateHint('falling');
 
     // Цикл синхронизации DOM со свойствами физических тел Matter.js
@@ -462,7 +470,7 @@ export function initDonatePhysics() {
   container.addEventListener('pointermove', handlePointerMove, { passive: true });
 
   // Плавный магнитный сброс (возврат в начальное состояние)
-  function stopPhysics() {
+  function stopPhysics(immediate = false) {
     if (!active && !isResetting) return;
     if (isResetting) return;
     isResetting = true;
@@ -470,8 +478,10 @@ export function initDonatePhysics() {
     cooldownUntil = Date.now() + 450;
 
     if (resetBtn) resetBtn.classList.add('spinning');
-    sound.playReset();
-    triggerHaptic([12, 35, 15]);
+    if (!immediate) {
+      sound.playReset();
+      triggerHaptic([12, 35, 15]);
+    }
 
     if (runner) {
       Matter.Runner.stop(runner);
@@ -483,11 +493,15 @@ export function initDonatePhysics() {
       engine = null;
     }
 
-    // Анимируем возврат элементов на исходные позиции через CSS spring
-    wordBodies.forEach(({ elem, origX, origY }) => {
-      elem.classList.add('returning');
-      elem.style.transform = `translate(${origX}px, ${origY}px) translate(-50%, -50%) rotate(0deg)`;
-    });
+    const resetDuration = immediate ? 0 : 620;
+
+    if (!immediate) {
+      // Анимируем возврат элементов на исходные позиции через CSS spring
+      wordBodies.forEach(({ elem, origX, origY }) => {
+        elem.classList.add('returning');
+        elem.style.transform = `translate(${origX}px, ${origY}px) translate(-50%, -50%) rotate(0deg)`;
+      });
+    }
 
     setTimeout(() => {
       wordBodies.forEach(({ elem }) => {
@@ -508,19 +522,22 @@ export function initDonatePhysics() {
 
       container.classList.remove('active-physics', 'is-dragging');
       if (resetBtn) resetBtn.classList.remove('spinning');
+      if (badgeText) badgeText.textContent = 'Интерактив';
       updateHint('initial');
       isResetting = false;
-    }, 620);
+    }, resetDuration);
   }
 
-  // Запуск по наведению или тапу
-  if (canHover) {
-    container.addEventListener('mouseenter', startPhysics);
-  } else {
-    const startOnTap = () => { if (!active) startPhysics(); };
-    container.addEventListener('click', startOnTap);
-    container.addEventListener('touchstart', startOnTap, { passive: true });
-  }
+  resetDonatePhysics = (immediate = false) => stopPhysics(immediate);
+
+  // Запуск по наведению, входу указателя или тапу/клику
+  const triggerStart = () => {
+    if (!active && !isResetting) startPhysics();
+  };
+  container.addEventListener('mouseenter', triggerStart);
+  container.addEventListener('pointerenter', triggerStart);
+  container.addEventListener('click', triggerStart);
+  container.addEventListener('touchstart', triggerStart, { passive: true });
 
   // Обработка кнопки сброса
   if (resetBtn) {
@@ -529,16 +546,17 @@ export function initDonatePhysics() {
     );
     resetBtn.addEventListener('click', e => {
       e.stopPropagation();
-      stopPhysics();
+      stopPhysics(false);
     });
   }
 
   // Горячая клавиша R для сброса физики
   window.addEventListener('keydown', (e) => {
     if (e.key === 'r' || e.key === 'R' || e.code === 'KeyR') {
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
       const donatePage = document.getElementById('page-donate');
       if (donatePage && donatePage.classList.contains('active') && active) {
-        stopPhysics();
+        stopPhysics(false);
       }
     }
   });
@@ -548,9 +566,8 @@ export function initDonatePhysics() {
     const ro = new ResizeObserver(() => {
       if (sparks) sparks.resize();
       if (active && engine && walls.length === 4) {
-        const rect = container.getBoundingClientRect();
-        const W = rect.width;
-        const H = rect.height;
+        const W = container.clientWidth;
+        const H = container.clientHeight;
         Matter.Body.setPosition(walls[0], { x: W / 2, y: H + 25 });
         Matter.Body.setPosition(walls[1], { x: -25, y: H / 2 });
         Matter.Body.setPosition(walls[2], { x: W + 25, y: H / 2 });
