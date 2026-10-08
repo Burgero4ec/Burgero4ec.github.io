@@ -340,10 +340,12 @@ export function initDonatePhysics() {
     // Этап 1: Чтение геометрии ВСЕХ элементов без изменения DOM (исключает смещение flex-потока)
     const measurements = [...spans].map((span) => {
       const sr = span.getBoundingClientRect();
-      const startX = Math.round(sr.left - rect.left + sr.width / 2);
-      const startY = Math.round(sr.top - rect.top + sr.height / 2);
+      const relLeft = sr.left - rect.left;
+      const relTop = sr.top - rect.top;
       const w = Math.max(24, Math.round(sr.width));
       const h = Math.max(18, Math.round(sr.height));
+      const startX = +(relLeft + w / 2).toFixed(2);
+      const startY = +(relTop + h / 2).toFixed(2);
       return { span, startX, startY, w, h };
     });
 
@@ -536,7 +538,7 @@ export function initDonatePhysics() {
     }
     container.style.touchAction = '';
 
-    const resetDuration = immediate ? 0 : 620;
+    const resetDuration = immediate ? 0 : 540;
 
     if (!immediate) {
       // Анимируем возврат элементов на исходные позиции через CSS spring
@@ -547,7 +549,12 @@ export function initDonatePhysics() {
     }
 
     setTimeout(() => {
-      wordBodies.forEach(({ elem }) => {
+      const elemsToClean = wordBodies.map(item => item.elem);
+
+      // 1. Подавляем CSS-переходы через .no-transition на время снятия инлайн-стилей,
+      // чтобы браузер не анимировал удаление transform поверх восстановленного flex-потока
+      elemsToClean.forEach(elem => {
+        elem.classList.add('no-transition');
         elem.classList.remove('returning', 'is-dragged');
         elem.style.position = '';
         elem.style.left = '';
@@ -558,12 +565,24 @@ export function initDonatePhysics() {
         elem.style.transform = '';
       });
 
+      // 2. Принудительный синхронный reflow, пока действует класс no-transition
+      void textEl.offsetWidth;
+
+      // 3. Снимаем физические классы с контейнера
+      container.classList.remove('active-physics', 'is-dragging');
+
+      // 4. В следующем кадре снимаем класс no-transition для возврата стандартных hover-переходов
+      requestAnimationFrame(() => {
+        elemsToClean.forEach(elem => {
+          elem.classList.remove('no-transition');
+        });
+      });
+
       wordBodies = [];
       walls = [];
       mouseConstraint = null;
       if (sparks) sparks.clear();
 
-      container.classList.remove('active-physics', 'is-dragging');
       if (resetBtn) resetBtn.classList.remove('spinning');
       if (badgeText) badgeText.textContent = 'Интерактив';
       updateHint('initial');

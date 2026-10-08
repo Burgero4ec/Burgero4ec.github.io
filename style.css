@@ -885,8 +885,14 @@ model-viewer {
 
 /* Плавный магнитный возврат при сбросе */
 .falling-text-target .word.returning {
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease !important;
+  pointer-events: none;
+  transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.52s ease !important;
   z-index: 6;
+}
+
+/* Моментальный сброс стилей без анимации удаления transform */
+.falling-text-target .word.no-transition {
+  transition: none !important;
 }
 
 /* Подсказка снизу */
