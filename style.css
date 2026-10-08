@@ -582,30 +582,30 @@ model-viewer {
 /* ===== ДОНАТ: ПРЕМИУМ ИНТЕРАКТИВНАЯ ФИЗИКА (Matter.js) ===== */
 .falling-wrap {
   position: relative;
-  margin: 12px 0 28px;
+  margin: 14px 0 28px;
   user-select: none;
 }
 
 .falling-text-container {
   position: relative;
   width: 100%;
-  height: 185px;
+  height: 200px;
   overflow: hidden;
   border-radius: 14px;
   background:
     radial-gradient(ellipse 70% 60% at 50% 45%, var(--bg-glow-strong) 0%, transparent 72%),
     radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 22px 22px,
-    linear-gradient(180deg, rgba(16, 22, 30, 0.98) 0%, rgba(8, 12, 16, 0.99) 100%);
+    linear-gradient(180deg, rgba(16, 22, 28, 0.98) 0%, rgba(8, 12, 15, 0.99) 100%);
   border: 1px solid var(--acc-border);
-  border-top: 2px solid var(--acc2);
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(74, 222, 128, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-top: 2px solid var(--acc);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55), 0 0 24px var(--bg-glow), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: border-color .3s ease, box-shadow .3s ease;
   cursor: default;
 }
 
 .falling-text-container:hover {
   border-color: var(--acc);
-  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.6), 0 0 28px var(--acc-glow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.65), 0 0 32px var(--acc-glow), inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .falling-text-container.active-physics {
@@ -616,20 +616,33 @@ model-viewer {
   cursor: grabbing;
 }
 
-/* Декоративная рамка в стиле киберпанк / HUD */
+/* Декоративные киберпанк HUD уголки */
 .falling-text-container::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, 
-    rgba(8, 12, 16, 0.65) 0%, 
-    transparent 18%, 
-    transparent 82%, 
-    rgba(8, 12, 16, 0.65) 100%);
+  background: 
+    linear-gradient(to right, var(--acc) 10px, transparent 10px) 0 0,
+    linear-gradient(to bottom, var(--acc) 10px, transparent 10px) 0 0,
+    linear-gradient(to left, var(--acc) 10px, transparent 10px) 100% 0,
+    linear-gradient(to bottom, var(--acc) 10px, transparent 10px) 100% 0,
+    linear-gradient(to right, var(--acc) 10px, transparent 10px) 0 100%,
+    linear-gradient(to top, var(--acc) 10px, transparent 10px) 0 100%,
+    linear-gradient(to left, var(--acc) 10px, transparent 10px) 100% 100%,
+    linear-gradient(to top, var(--acc) 10px, transparent 10px) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  opacity: 0.35;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
+  transition: opacity .3s ease;
 }
 
+.falling-text-container:hover::before {
+  opacity: 0.85;
+}
+
+/* Внутренняя тактическая пунктирная HUD рамка */
 .falling-text-container::after {
   content: '';
   position: absolute;
@@ -645,17 +658,24 @@ model-viewer {
   border-color: var(--acc-border);
 }
 
-/* Верхняя панель (бейдж и контролы) */
+/* Верхняя панель (бейдж, хоткей и контролы) */
 .falling-top-bar {
   position: absolute;
-  top: 12px;
-  left: 16px;
-  right: 16px;
+  top: 14px;
+  left: 18px;
+  right: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
   pointer-events: none;
+}
+
+.falling-top-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
 }
 
 .falling-badge {
@@ -664,7 +684,7 @@ model-viewer {
   gap: 7px;
   padding: 4px 12px;
   border-radius: 20px;
-  background: rgba(14, 20, 28, 0.88);
+  background: rgba(14, 20, 26, 0.9);
   border: 1px solid var(--line2);
   color: var(--muted);
   font-family: 'JetBrains Mono', monospace;
@@ -703,6 +723,27 @@ model-viewer {
   50% { opacity: 1; transform: scale(1.2); }
 }
 
+.falling-shortcut-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--dim);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line2);
+  transition: all .2s ease;
+  cursor: default;
+}
+
+.falling-shortcut-tag:hover {
+  color: var(--acc);
+  border-color: var(--acc-border);
+}
+
 .falling-controls {
   display: flex;
   gap: 8px;
@@ -714,7 +755,7 @@ model-viewer {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(16, 22, 30, 0.88);
+  background: rgba(16, 22, 28, 0.88);
   border: 1px solid var(--line2);
   color: var(--muted);
   display: grid;
@@ -730,7 +771,7 @@ model-viewer {
 .falling-ctrl-btn:hover {
   color: var(--acc);
   border-color: var(--acc);
-  background: rgba(24, 34, 46, 0.95);
+  background: rgba(24, 34, 42, 0.95);
   transform: scale(1.1);
   box-shadow: 0 0 14px var(--acc-glow);
 }
@@ -739,12 +780,14 @@ model-viewer {
   transform: scale(0.92);
 }
 
-.falling-reset-btn svg {
-  transition: transform .55s cubic-bezier(.34, 1.56, .64, 1);
+/* Кнопка сброса: однонаправленная анимация вращения по часовой стрелке */
+.falling-reset-btn.spinning svg {
+  animation: fallingSpin .55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.falling-reset-btn.spinning svg {
-  transform: rotate(-360deg);
+@keyframes fallingSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Пульсация кнопки сброса при активной физике */
@@ -760,7 +803,7 @@ model-viewer {
   50% { box-shadow: 0 0 14px var(--acc-glow); }
 }
 
-/* Текстовая область */
+/* Текстовая область: строго центрированная сетка плашек */
 .falling-text-target {
   position: absolute;
   inset: 0;
@@ -769,8 +812,8 @@ model-viewer {
   align-items: center;
   justify-content: center;
   align-content: center;
-  padding: 42px 24px 38px;
-  gap: 8px 10px;
+  padding: 48px 24px 44px;
+  gap: 10px 12px;
   z-index: 4;
   pointer-events: none;
   box-sizing: border-box;
@@ -789,29 +832,30 @@ model-viewer {
   font-weight: 800;
   font-size: 21px;
   line-height: 1;
-  color: #f1f5f9;
-  background: linear-gradient(135deg, rgba(28, 36, 48, 0.92) 0%, rgba(18, 24, 32, 0.96) 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(26, 34, 44, 0.94) 0%, rgba(16, 20, 28, 0.97) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
   will-change: transform;
   user-select: none;
   touch-action: none;
   cursor: grab;
   pointer-events: auto;
-  transition: transform .2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .2s ease, border-color .2s ease;
+  transition: transform .2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .2s ease, border-color .2s ease, color .2s ease;
 }
 
 .falling-text-target .word:hover {
   transform: translateY(-2px) scale(1.04);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
 }
 
 /* Выделенные ключевые слова */
 .falling-text-target .word.highlighted {
   color: var(--acc);
-  background: linear-gradient(135deg, rgba(74, 222, 128, 0.20) 0%, rgba(34, 197, 94, 0.08) 100%);
+  background: linear-gradient(135deg, var(--acc-soft) 0%, rgba(10, 16, 12, 0.85) 100%);
   border-color: var(--acc);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 18px var(--acc-glow), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   text-shadow: 0 0 12px var(--acc-glow);
@@ -834,7 +878,7 @@ model-viewer {
 /* Когда слово перетаскивается */
 .falling-text-target .word.is-dragged {
   cursor: grabbing !important;
-  z-index: 12 !important;
+  z-index: 20 !important;
   transform: scale(1.1) !important;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 28px var(--acc) !important;
 }
@@ -849,15 +893,15 @@ model-viewer {
 .falling-hint {
   position: absolute;
   left: 50%;
-  bottom: 10px;
+  bottom: 11px;
   transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
   gap: 7px;
   padding: 4px 14px;
   border-radius: 20px;
-  background: rgba(10, 14, 20, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(10, 14, 18, 0.88);
+  border: 1px solid var(--line2);
   font-family: 'JetBrains Mono', monospace;
   font-size: 10.5px;
   letter-spacing: .12em;
@@ -879,8 +923,8 @@ model-viewer {
 .falling-text-container.active-physics .falling-hint {
   color: var(--muted);
   border-color: var(--acc-border);
-  background: rgba(10, 14, 20, 0.92);
-  box-shadow: 0 0 12px rgba(74, 222, 128, 0.15);
+  background: rgba(10, 14, 18, 0.94);
+  box-shadow: 0 0 14px var(--acc-soft);
 }
 
 /* Холст спецэффектов (искры при падении) */
@@ -895,11 +939,11 @@ model-viewer {
 
 @media (max-width: 768px) {
   .falling-text-container {
-    height: 165px;
+    height: 210px;
   }
   .falling-text-target {
-    padding: 38px 14px 34px;
-    gap: 6px 8px;
+    padding: 44px 16px 40px;
+    gap: 8px 10px;
   }
   .falling-text-target .word {
     font-size: 17px;
@@ -907,9 +951,9 @@ model-viewer {
     border-radius: 10px;
   }
   .falling-hint {
-    font-size: 9.5px;
-    bottom: 8px;
-    padding: 3px 10px;
+    font-size: 10px;
+    bottom: 9px;
+    padding: 3px 12px;
   }
   .falling-badge {
     font-size: 9.5px;
@@ -923,11 +967,11 @@ model-viewer {
 
 @media (max-width: 480px) {
   .falling-text-container {
-    height: 175px;
+    height: 230px;
   }
   .falling-text-target {
-    padding: 36px 10px 30px;
-    gap: 5px 6px;
+    padding: 42px 12px 38px;
+    gap: 6px 8px;
   }
   .falling-text-target .word {
     font-size: 14.5px;
@@ -936,7 +980,10 @@ model-viewer {
   }
   .falling-badge {
     font-size: 9px;
-    padding: 2px 8px;
+    padding: 2.5px 8px;
+  }
+  .falling-shortcut-tag {
+    display: none;
   }
   .falling-ctrl-btn {
     width: 30px;

@@ -197,8 +197,10 @@ class DonateSparkFX {
   clear() {
     this.particles = [];
     if (this.ctx && this.canvas) {
-      const rect = this.canvas.getBoundingClientRect();
-      this.ctx.clearRect(0, 0, rect.width, rect.height);
+      this.ctx.save();
+      this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.restore();
     }
     if (this.animId) {
       cancelAnimationFrame(this.animId);
@@ -236,6 +238,9 @@ export function initDonatePhysics() {
       }
     };
     updateSoundIcons(sound.enabled);
+    ['pointerdown', 'touchstart', 'mousedown'].forEach(ev =>
+      soundBtn.addEventListener(ev, e => e.stopPropagation())
+    );
     soundBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       const newState = sound.toggle();
@@ -283,6 +288,7 @@ export function initDonatePhysics() {
   let isResetting = false;
   let cooldownUntil = 0;
   let mouseConstraint = null;
+  let mouse = null;
 
   // Слежение за движением мыши для кинетического расталкивания
   let lastMouseX = 0, lastMouseY = 0, lastMouseT = 0;
@@ -301,15 +307,16 @@ export function initDonatePhysics() {
     if (sparks) sparks.resize();
 
     engine = Matter.Engine.create({
-      gravity: { x: 0, y: 0.82 }
+      gravity: { x: 0, y: 0.85 }
     });
 
-    // 1. Границы контейнера с запасом
+    // 1. Границы контейнера с запасом (пол приподнят на 34px, чтобы слова не закрывали плашку подсказки)
     const wallOpts = { isStatic: true, friction: 0.35, restitution: 0.52, render: { visible: false } };
-    const ground = Matter.Bodies.rectangle(W / 2, H + 25, W + 300, 50, wallOpts);
+    const floorY = H - 34;
+    const ground = Matter.Bodies.rectangle(W / 2, floorY + 25, W + 400, 50, wallOpts);
     const leftWall = Matter.Bodies.rectangle(-25, H / 2, 50, H * 2 + 100, wallOpts);
     const rightWall = Matter.Bodies.rectangle(W + 25, H / 2, 50, H * 2 + 100, wallOpts);
-    const ceiling = Matter.Bodies.rectangle(W / 2, -30, W + 300, 50, wallOpts);
+    const ceiling = Matter.Bodies.rectangle(W / 2, -30, W + 400, 50, wallOpts);
 
     walls = [ground, leftWall, rightWall, ceiling];
     Matter.World.add(engine.world, walls);
@@ -335,15 +342,15 @@ export function initDonatePhysics() {
         friction: 0.30,
         density: 0.002,
         chamfer: { radius: 10 },
-        angle: (Math.random() - 0.5) * 0.06
+        angle: (Math.random() - 0.5) * 0.05
       });
 
-      // Начальный деликатный импульс
+      // Начальный деликатный импульс (естественное падение вниз с легким разбросом)
       Matter.Body.setVelocity(body, {
-        x: (Math.random() - 0.5) * 3.4,
-        y: -(Math.random() * 2.2 + 0.8)
+        x: (Math.random() - 0.5) * 2.8,
+        y: Math.random() * 1.5 + 0.6
       });
-      Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.07);
+      Matter.Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.06);
 
       // Мгновенная фиксация стилей без дергания
       span.style.position = 'absolute';
@@ -359,7 +366,8 @@ export function initDonatePhysics() {
     });
 
     // 3. Интерактивная мышь с защитой от искажений DPI
-    const mouse = Matter.Mouse.create(container);
+    container.style.touchAction = 'none';
+    mouse = Matter.Mouse.create(container);
     mouse.pixelRatio = 1;
     mouseConstraint = Matter.MouseConstraint.create(engine, {
       mouse,
@@ -475,9 +483,13 @@ export function initDonatePhysics() {
     if (isResetting) return;
     isResetting = true;
     active = false;
-    cooldownUntil = Date.now() + 450;
+    cooldownUntil = Date.now() + 650;
 
-    if (resetBtn) resetBtn.classList.add('spinning');
+    if (resetBtn) {
+      resetBtn.classList.remove('spinning');
+      void resetBtn.offsetWidth;
+      resetBtn.classList.add('spinning');
+    }
     if (!immediate) {
       sound.playReset();
       triggerHaptic([12, 35, 15]);
@@ -492,6 +504,11 @@ export function initDonatePhysics() {
       Matter.Engine.clear(engine);
       engine = null;
     }
+    if (mouse && typeof Matter.Mouse.clearSourceEvents === 'function') {
+      Matter.Mouse.clearSourceEvents(mouse);
+      mouse = null;
+    }
+    container.style.touchAction = '';
 
     const resetDuration = immediate ? 0 : 620;
 
@@ -525,6 +542,7 @@ export function initDonatePhysics() {
       if (badgeText) badgeText.textContent = 'Интерактив';
       updateHint('initial');
       isResetting = false;
+      cooldownUntil = Date.now() + 200;
     }, resetDuration);
   }
 
@@ -568,7 +586,8 @@ export function initDonatePhysics() {
       if (active && engine && walls.length === 4) {
         const W = container.clientWidth;
         const H = container.clientHeight;
-        Matter.Body.setPosition(walls[0], { x: W / 2, y: H + 25 });
+        const floorY = H - 34;
+        Matter.Body.setPosition(walls[0], { x: W / 2, y: floorY + 25 });
         Matter.Body.setPosition(walls[1], { x: -25, y: H / 2 });
         Matter.Body.setPosition(walls[2], { x: W + 25, y: H / 2 });
         Matter.Body.setPosition(walls[3], { x: W / 2, y: -30 });

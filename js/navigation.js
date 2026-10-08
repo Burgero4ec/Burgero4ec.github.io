@@ -27,7 +27,7 @@ export function toggleDrawer() {
 }
 
 export function go(rawId) {
-  const id = (rawId || '').replace(/^#/, '').trim();
+  const id = (rawId || '').replace(/^[#/]+/, '').trim().toLowerCase();
   const resolvedId = PAGE_ALIASES[id] || id;
   const target = document.getElementById('page-' + resolvedId);
   if (!target) {
@@ -157,15 +157,18 @@ export function initNavigation() {
 
   // Реакция на изменение хэша в браузере (кнопки назад/вперед и внешние ссылки)
   window.addEventListener('hashchange', () => {
-    const rawHash = window.location.hash.replace('#', '').trim();
+    const rawHash = (window.location.hash || '').replace(/^[#/]+/, '').trim();
     if (rawHash) {
       go(rawHash);
     }
   });
 
-  // Проверка стартового хэша в URL
-  const hash = window.location.hash.replace('#', '').trim();
-  if (hash) {
-    go(hash);
+  // Проверка стартового маршрута (хэш, search query или pathname)
+  const urlParams = new URLSearchParams(window.location.search);
+  const queryRoute = urlParams.get('page') || urlParams.get('tab') || urlParams.get('p') || (window.location.search.replace(/^\?/, '').split('&')[0]);
+  const rawHash = (window.location.hash || '').replace(/^[#/]+/, '').trim();
+  const startRoute = rawHash || queryRoute;
+  if (startRoute) {
+    go(startRoute);
   }
 }
