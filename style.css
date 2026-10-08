@@ -843,6 +843,7 @@ model-viewer {
   touch-action: none;
   cursor: grab;
   pointer-events: auto;
+  transform-origin: center center;
   transition: transform .2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .2s ease, border-color .2s ease, color .2s ease;
 }
 
@@ -879,7 +880,6 @@ model-viewer {
 .falling-text-target .word.is-dragged {
   cursor: grabbing !important;
   z-index: 20 !important;
-  transform: scale(1.1) !important;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), 0 0 28px var(--acc) !important;
 }
 

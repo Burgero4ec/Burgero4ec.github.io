@@ -325,14 +325,31 @@ export function initDonatePhysics() {
     const spans = textEl.querySelectorAll('.word');
     if (!spans.length) return;
 
-    wordBodies = [...spans].map((span) => {
+    // Сначала гарантируем, что все элементы находятся в естественном flex-потоке
+    spans.forEach((span) => {
+      span.style.position = '';
+      span.style.left = '';
+      span.style.top = '';
+      span.style.width = '';
+      span.style.height = '';
+      span.style.margin = '';
+      span.style.transform = '';
+    });
+    void textEl.offsetWidth; // Принудительный reflow для точных замеров
+
+    // Этап 1: Чтение геометрии ВСЕХ элементов без изменения DOM (исключает смещение flex-потока)
+    const measurements = [...spans].map((span) => {
       const sr = span.getBoundingClientRect();
       const startX = Math.round(sr.left - rect.left + sr.width / 2);
       const startY = Math.round(sr.top - rect.top + sr.height / 2);
       const w = Math.max(24, Math.round(sr.width));
       const h = Math.max(18, Math.round(sr.height));
+      return { span, startX, startY, w, h };
+    });
 
-      // Сохраняем координаты для плавного возврата
+    // Этап 2: Создание физических тел и перевод в абсолютное позиционирование
+    wordBodies = measurements.map(({ span, startX, startY, w, h }) => {
+      // Сохраняем истинные исходные координаты для идеального возврата
       span.dataset.origX = startX;
       span.dataset.origY = startY;
 
@@ -372,7 +389,7 @@ export function initDonatePhysics() {
     mouseConstraint = Matter.MouseConstraint.create(engine, {
       mouse,
       constraint: {
-        stiffness: 0.88,
+        stiffness: 0.25,
         angularStiffness: 0.7,
         render: { visible: false }
       }
@@ -438,7 +455,9 @@ export function initDonatePhysics() {
       requestAnimationFrame(loop);
       for (let i = 0; i < wordBodies.length; i++) {
         const { elem, body } = wordBodies[i];
-        elem.style.transform = `translate(${body.position.x}px, ${body.position.y}px) translate(-50%, -50%) rotate(${body.angle}rad)`;
+        const isDragged = mouseConstraint?.body === body;
+        const scaleStr = isDragged ? ' scale(1.08)' : '';
+        elem.style.transform = `translate(${body.position.x}px, ${body.position.y}px) translate(-50%, -50%) rotate(${body.angle}rad)${scaleStr}`;
       }
     })();
   }
@@ -474,6 +493,13 @@ export function initDonatePhysics() {
       }
     }
   }
+
+  container.addEventListener('pointerenter', (e) => {
+    const rect = container.getBoundingClientRect();
+    lastMouseX = e.clientX - rect.left;
+    lastMouseY = e.clientY - rect.top;
+    lastMouseT = performance.now();
+  }, { passive: true });
 
   container.addEventListener('pointermove', handlePointerMove, { passive: true });
 
