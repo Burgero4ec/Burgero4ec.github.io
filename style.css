@@ -579,31 +579,160 @@ model-viewer {
   .about-viewer { position: static; }
 }
 
-/* ===== ДОНАТ: ФИЗИКА ТЕКСТА ВНУТРИ КАРТОЧКИ ===== */
-.falling-hint {
-  position: absolute;
-  left: 0; right: 0; bottom: 6px;
-  text-align: center;
-  font-family: 'JetBrains Mono';
-  font-size: 9.5px;
-  letter-spacing: .14em;
-  color: var(--dim);
-  z-index: 1;
-  pointer-events: none;
-  transition: opacity .3s;
+/* ===== ДОНАТ: ПРЕМИУМ ИНТЕРАКТИВНАЯ ФИЗИКА (Matter.js) ===== */
+.falling-wrap {
+  position: relative;
+  margin: 10px 0 24px;
+  user-select: none;
 }
-.falling-text-container.falling .falling-hint { opacity: 0; }
+
 .falling-text-container {
   position: relative;
   width: 100%;
-  height: 110px;
+  height: 160px;
   overflow: hidden;
-  cursor: grab;
-  background: linear-gradient(180deg, #0c1116 0%, var(--card) 100%);
-  border: 1px dashed var(--line2);
-  border-radius: 10px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(14, 18, 24, 0.95) 0%, rgba(8, 12, 16, 0.98) 100%);
+  border: 1px solid var(--acc-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: border-color .3s ease, box-shadow .3s ease;
+  cursor: default;
 }
-.falling-text-container:active { cursor: grabbing; }
+
+.falling-text-container:hover {
+  border-color: var(--acc);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.55), 0 0 20px var(--acc-glow), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.falling-text-container.active-physics {
+  cursor: grab;
+}
+
+.falling-text-container.active-physics.is-dragging {
+  cursor: grabbing;
+}
+
+/* Фоновая декоративная сетка */
+.falling-text-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 30%, var(--bg-glow-strong) 0%, transparent 65%),
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px;
+  background-position: center, 0 0;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Верхняя панель (бейдж и контролы) */
+.falling-top-bar {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.falling-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: rgba(16, 22, 28, 0.8);
+  border: 1px solid var(--line2);
+  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  pointer-events: auto;
+  transition: border-color .2s, color .2s;
+}
+
+.falling-badge:hover {
+  border-color: var(--acc-border);
+  color: var(--acc);
+}
+
+.falling-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--acc);
+  box-shadow: 0 0 8px var(--acc);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.falling-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.falling-ctrl-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(16, 22, 28, 0.85);
+  border: 1px solid var(--line2);
+  color: var(--muted);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all .2s cubic-bezier(.34, 1.56, .64, 1);
+  backdrop-filter: blur(6px);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+}
+
+.falling-ctrl-btn:hover {
+  color: var(--acc);
+  border-color: var(--acc);
+  background: rgba(24, 32, 40, 0.95);
+  transform: scale(1.08);
+  box-shadow: 0 0 12px var(--acc-glow);
+}
+
+.falling-ctrl-btn:active {
+  transform: scale(0.94);
+}
+
+.falling-reset-btn svg {
+  transition: transform .5s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.falling-reset-btn.spinning svg {
+  transform: rotate(-360deg);
+}
+
+/* Пульсация кнопки сброса при активной физике */
+.falling-text-container.active-physics .falling-reset-btn {
+  color: var(--acc);
+  border-color: var(--acc-border);
+  animation: pulse-reset 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-reset {
+  0%, 100% { box-shadow: 0 0 0 rgba(74, 222, 128, 0); }
+  50% { box-shadow: 0 0 10px var(--acc-glow); }
+}
+
+/* Текстовая область */
 .falling-text-target {
   position: absolute;
   inset: 0;
@@ -611,58 +740,156 @@ model-viewer {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  padding: 20px;
-  font-family: Nunito;
-  font-weight: 800;
-  font-size: 22px;
-  color: var(--text);
-  line-height: 1.3;
-  text-align: center;
-  z-index: 2;
+  padding: 24px 20px 32px;
+  z-index: 4;
   pointer-events: none;
 }
+
+/* Сами слова/плашки */
 .falling-text-target .word {
-  display: inline-block;
-  margin: 2px 4px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  background: var(--acc-soft);
-  border: 1px solid var(--acc-border);
-  transition: color 0.15s, background 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 6px;
+  padding: 7px 16px;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 1;
+  color: var(--text);
+  background: rgba(22, 28, 36, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  will-change: transform;
+  user-select: none;
+  touch-action: none;
+  cursor: grab;
+  pointer-events: auto;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
+
+.falling-text-target .word:hover {
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Выделенные ключевые слова */
 .falling-text-target .word.highlighted {
   color: var(--acc);
-  background: rgba(74,222,128,.18);
+  background: var(--acc-soft);
   border-color: var(--acc);
-  box-shadow: 0 0 10px var(--acc-glow);
+  box-shadow: 0 0 16px var(--acc-glow), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  text-shadow: 0 0 12px var(--acc-glow);
 }
-.falling-wrap { position: relative; margin: 6px 0 22px; }
-.falling-text-container { margin: 0; }
-.falling-reset {
+
+.falling-text-target .word.highlighted:hover {
+  border-color: var(--acc);
+  box-shadow: 0 0 24px var(--acc-glow), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Состояние при активной физике */
+.falling-text-container.active-physics .falling-text-target .word {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--card);
-  border: 1px solid var(--line2);
-  color: var(--muted);
-  font-size: 16px;
-  cursor: pointer;
-  z-index: 5;
-  display: grid;
-  place-items: center;
-  touch-action: manipulation;   /* тап срабатывает мгновенно, без задержек */
-  -webkit-tap-highlight-color: transparent;
-  transition: .2s;
+  margin: 0;
+  cursor: grab;
+  transition: none;
 }
-.falling-reset:hover, .falling-reset:active { color: var(--acc); border-color: var(--acc-border); }
+
+/* Когда слово перетаскивается */
+.falling-text-target .word.is-dragged {
+  cursor: grabbing !important;
+  z-index: 10 !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6), 0 0 25px var(--acc) !important;
+}
+
+/* Плавный магнитный возврат при сбросе */
+.falling-text-target .word.returning {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease !important;
+  z-index: 6;
+}
+
+/* Подсказка снизу */
+.falling-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 12px;
+  border-radius: 12px;
+  background: rgba(10, 14, 18, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--dim);
+  z-index: 5;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  transition: all .3s ease;
+  white-space: nowrap;
+}
+
+.falling-hint .hint-icon {
+  color: var(--acc);
+  font-size: 11px;
+}
+
+.falling-text-container.active-physics .falling-hint {
+  color: var(--muted);
+  border-color: var(--acc-border);
+  background: rgba(10, 14, 18, 0.9);
+}
+
+/* Холст спецэффектов (искры при падении) */
+.falling-fx-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
 
 @media (max-width: 768px) {
-  .falling-text-container { height: 90px; }
-  .falling-text-target { font-size: 17px; padding: 14px; }
-  .falling-text-target .word { padding: 3px 6px; }
+  .falling-text-container {
+    height: 135px;
+  }
+  .falling-text-target {
+    padding: 24px 10px 28px;
+  }
+  .falling-text-target .word {
+    font-size: 16px;
+    padding: 6px 12px;
+    margin: 3px 4px;
+    border-radius: 8px;
+  }
+  .falling-hint {
+    font-size: 9px;
+    bottom: 6px;
+    padding: 2px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .falling-text-container {
+    height: 145px;
+  }
+  .falling-text-target .word {
+    font-size: 14px;
+    padding: 5px 9px;
+    margin: 2px 3px;
+  }
+  .falling-badge {
+    font-size: 9px;
+    padding: 2px 7px;
+  }
 }
 
 /* ===== ЛАНЬЯРД В НОВОСТЯХ ===== */

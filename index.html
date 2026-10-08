@@ -1051,15 +1051,39 @@ div.scene-tooltip {
       <article class="card wide" style="margin-top:0">
         <h3><svg class="ic"><use href="#i-bag"/></svg>Цены</h3>
 
-        <!-- Анимированная шапка внутри карточки -->
-            <div class="falling-wrap">
-              <div class="falling-text-container" id="donateFalling">
-                <div class="falling-text-target" id="fallingText">
-                  Выбирай свою награду и улучшай игру
-                </div>
+        <!-- Интерактивная физика падающих слов Matter.js -->
+        <div class="falling-wrap">
+          <div class="falling-text-container" id="donateFalling" role="region" aria-label="Интерактивная физика слов">
+            <div class="falling-top-bar">
+              <span class="falling-badge">
+                <span class="falling-badge-dot"></span>
+                <span>Интерактив</span>
+              </span>
+              <div class="falling-controls">
+                <button class="falling-ctrl-btn falling-sound-btn" id="fallingSound" type="button" title="Включить/выключить звук" aria-label="Звук">
+                  <svg class="ic-sound-on" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+                  <svg class="ic-sound-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                </button>
+                <button class="falling-ctrl-btn falling-reset-btn" id="fallingReset" type="button" title="Вернуть на место (R)" aria-label="Сбросить">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+                </button>
               </div>
-              <button class="falling-reset" id="fallingReset" title="Сбросить">↺</button>
             </div>
+            <div class="falling-text-target" id="fallingText">
+              <span class="word highlighted">Выбирай</span>
+              <span class="word">свою</span>
+              <span class="word highlighted">награду</span>
+              <span class="word">и</span>
+              <span class="word highlighted">улучшай</span>
+              <span class="word highlighted">игру</span>
+            </div>
+            <div class="falling-hint">
+              <span class="hint-icon">⚡</span>
+              <span class="hint-text">наведи курсор — слова упадут</span>
+            </div>
+            <canvas class="falling-fx-canvas" id="fallingFxCanvas"></canvas>
+          </div>
+        </div>
 
         <div class="update-content">
           <ul class="dc-list">
