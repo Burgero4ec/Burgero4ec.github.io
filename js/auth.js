@@ -474,7 +474,6 @@ export async function renderCabinet() {
           ` : ''}
         </div>
         <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap">
-          <button class="cta ghost" onclick="window.openPlayerPickerModal()"><svg class="ic" style="width:14px;height:14px"><use href="#i-users"/></svg> Досье игроков</button>
           <button class="cta ghost" onclick="window.discordLogout()">Выйти</button>
         </div>
       </div>
@@ -506,9 +505,6 @@ export async function renderCabinet() {
           <a class="cta outline" href="#" data-go="season">
             🗺️ Выбрать свободную страну на карте
           </a>
-          <button class="cta ghost" onclick="window.openPlayerPickerModal()">
-            👥 Просмотр досье других участников
-          </button>
         </div>
       </div>
     `;
