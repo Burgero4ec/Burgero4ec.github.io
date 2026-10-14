@@ -1,20 +1,21 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-14T20:55:48.872151+00:00",
+  "updated_at": "2026-10-14T21:01:07.588066+00:00",
   "total_active_players": 39,
   "total_non_staff_players": 18,
   "total_staff_who_play": 21,
   "stats": {
     "registered": 39,
-    "states": 37,
+    "states": 36,
     "autonomies": 1,
-    "pmc": 1,
-    "un_members": 37,
-    "alliance_members": 38
+    "pmc": 2,
+    "un_members": 36,
+    "alliance_members": 37
   },
   "countries_count": {
     "Мавритания": 1,
+    "Executive Outcomes": 1,
     "Норвегия": 1,
     "Беларусь": 1,
     "Мексика": 1,
@@ -49,7 +50,7 @@
     "Италия": 1,
     "Греция": 1,
     "Бразилия": 1,
-    "Афганистан": 1,
+    "MPRI": 1,
     "ЮАР": 1,
     "Украина": 1
   },
@@ -68,8 +69,26 @@
       ],
       "country": "Норвегия",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 2013258528,
+      "gdp": 115000000000,
+      "gdp_ppp": 460000000000,
+      "population": 4200000,
+      "birth_rate": 14.0,
+      "support": 50.0,
+      "resource_index": 3.0,
+      "corruption": 10.0,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$57 500 000 000 / $57 500 000 000",
+      "investments": "$57 500 000 000 / $57 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -136,9 +155,27 @@
         "Мексика"
       ],
       "country": "Мексика",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 1976857293,
+      "profit": null,
+      "gdp": 305563750000,
+      "gdp_ppp": 977804000000,
+      "population": 82885992,
+      "birth_rate": 28.0,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 21.4,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$152 781 875 000 / $152 781 875 000",
+      "investments": "$152 781 875 000 / $152 781 875 000",
       "categories": [
         "Государство",
         "ООН",
@@ -193,9 +230,27 @@
         "СССР"
       ],
       "country": "СССР",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 36672956337,
+      "profit": 12097302413,
+      "gdp": 2227573000000,
+      "gdp_ppp": 4232388700000,
+      "population": 212261800,
+      "birth_rate": 16.8,
+      "support": 21.8,
+      "resource_index": 1.0,
+      "corruption": 19.7,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Парламентская монархия",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$1 113 786 500 000 / $1 113 786 500 000",
+      "investments": "$1 113 786 500 000 / $1 113 786 500 000",
       "categories": [
         "Государство",
         "ООН",
@@ -263,20 +318,27 @@
         "Румыния"
       ],
       "country": "Румыния",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "🇩🇪 | ГДР",
-        "games": 2,
-        "wins": 0,
-        "losses": 2,
-        "bet_total": 150,
-        "won_total": 0,
-        "net_profit": -150,
-        "max_win": 0,
-        "hook_target_spin": 9,
-        "slot_spins": 2
+      "balance": 4531099,
+      "profit": 9949082489,
+      "gdp": 87549325063,
+      "gdp_ppp": 350197300252,
+      "population": 23707529,
+      "birth_rate": 13.3,
+      "support": 55.4,
+      "resource_index": 5.0,
+      "corruption": 11.0,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Рыночная экономика"
       },
+      "taxes": {
+        "nds": 30,
+        "ndfl": 30
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$43 774 662 531 / $43 774 662 531",
+      "investments": "$43 774 662 531 / $43 774 662 531",
       "categories": [
         "Государство",
         "ООН",
@@ -347,9 +409,27 @@
         "Канада"
       ],
       "country": "Канада",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 1066772,
+      "profit": 5315519819,
+      "gdp": 711892659532,
+      "gdp_ppp": 1779731648830,
+      "population": 28208864,
+      "birth_rate": 15.0,
+      "support": 49.5,
+      "resource_index": 2.0,
+      "corruption": 14.6,
+      "level": "Сильная",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$355 946 329 766 / $355 946 329 766",
+      "investments": "$355 946 329 766 / $355 946 329 766",
       "categories": [
         "Государство",
         "ООН",
@@ -412,9 +492,24 @@
         "Гренландия"
       ],
       "country": "Гренландия",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 2695312500,
+      "profit": 101589983,
+      "gdp": 1347656250,
+      "gdp_ppp": 7412109375,
+      "population": 57813,
+      "birth_rate": 19.0,
+      "support": 50.0,
+      "resource_index": 3.0,
+      "corruption": 21.9,
+      "level": "Разрушенная",
+      "ideology": {},
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$673 828 125 / $673 828 125",
+      "investments": "$673 828 125 / $673 828 125",
       "categories": [
         "Автономия",
         "Альянс"
@@ -467,9 +562,27 @@
         "Литва"
       ],
       "country": "Литва",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 2923435581,
+      "profit": 289363389,
+      "gdp": 14542020284,
+      "gdp_ppp": 65439091278,
+      "population": 3767669,
+      "birth_rate": 15.0,
+      "support": 56.0,
+      "resource_index": 5.0,
+      "corruption": 5.6,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 25,
+        "ndfl": 25
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$7 271 010 142 / $7 271 010 142",
+      "investments": "$7 271 010 142 / $7 271 010 142",
       "categories": [
         "Государство",
         "ООН",
@@ -536,9 +649,27 @@
         "Колумбия"
       ],
       "country": "Колумбия",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 1413757707,
+      "profit": 1166078394,
+      "gdp": 56819136482,
+      "gdp_ppp": 227276545928,
+      "population": 34864121,
+      "birth_rate": 26.5,
+      "support": 50.1,
+      "resource_index": 4.0,
+      "corruption": 23.3,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 25,
+        "ndfl": 25
+      },
+      "specialization": "Торговая республика",
+      "reforms": "$6 114 477 732 / $28 409 568 241",
+      "investments": "$28 409 568 241 / $28 409 568 241",
       "categories": [
         "Государство",
         "ООН",
@@ -597,9 +728,27 @@
         "Аргентина"
       ],
       "country": "Аргентина",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 9613605367,
+      "profit": 7058048513,
+      "gdp": 200586112126,
+      "gdp_ppp": 641875558803,
+      "population": 33887804,
+      "birth_rate": 22.2,
+      "support": 68.5,
+      "resource_index": 3.0,
+      "corruption": 3.2,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Технологический лидер",
+      "reforms": "$100 293 056 063 / $100 293 056 063",
+      "investments": "$100 293 056 063 / $100 293 056 063",
       "categories": [
         "Государство",
         "ООН",
@@ -654,9 +803,27 @@
         "Япония"
       ],
       "country": "Япония",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 13681331,
+      "profit": 1486045573,
+      "gdp": 3150073745582,
+      "gdp_ppp": 5040117992931,
+      "population": 125411248,
+      "birth_rate": 10.0,
+      "support": 52.3,
+      "resource_index": 6.0,
+      "corruption": 28.4,
+      "level": "Великая держава",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$1 575 036 872 791 / $1 575 036 872 791",
+      "investments": "$1 575 036 872 791 / $1 575 036 872 791",
       "categories": [
         "Государство",
         "ООН",
@@ -716,8 +883,26 @@
       ],
       "country": "Югославия (СФРЮ)",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 3867151220,
+      "gdp": 119720065193,
+      "gdp_ppp": 478880260772,
+      "population": 23888222,
+      "birth_rate": 14.5,
+      "support": 59.5,
+      "resource_index": 4.0,
+      "corruption": 22.8,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 28,
+        "ndfl": 28
+      },
+      "specialization": "Торговая республика",
+      "reforms": "$59 860 032 596 / $59 860 032 596",
+      "investments": "$59 860 032 596 / $59 860 032 596",
       "categories": [
         "Государство",
         "ООН",
@@ -768,9 +953,27 @@
         "Иран"
       ],
       "country": "Иран",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 165702046859,
+      "profit": 2768690214,
+      "gdp": 180513037200,
+      "gdp_ppp": 722052148800,
+      "population": 57218364,
+      "birth_rate": 34.5,
+      "support": 55.8,
+      "resource_index": 3.0,
+      "corruption": 7.5,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 50,
+        "ndfl": 50
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$17 688 463 444 / $90 256 518 600",
+      "investments": "$90 256 518 600 / $90 256 518 600",
       "categories": [
         "Государство",
         "ООН",
@@ -834,8 +1037,26 @@
       ],
       "country": "Испания",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 25678893877,
+      "gdp": 1065400775137,
+      "gdp_ppp": 2024261472760,
+      "population": 39653850,
+      "birth_rate": 14.7,
+      "support": 84.6,
+      "resource_index": 4.0,
+      "corruption": 3.2,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 48,
+        "ndfl": 48
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$224 212 991 393 / $532 700 387 568",
+      "investments": "$532 700 387 568 / $532 700 387 568",
       "categories": [
         "Государство",
         "ООН",
@@ -890,9 +1111,27 @@
         "Турция"
       ],
       "country": "Турция",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 4455104886,
+      "profit": null,
+      "gdp": 213364990825,
+      "gdp_ppp": 682767970640,
+      "population": 56059087,
+      "birth_rate": 24.5,
+      "support": 50.3,
+      "resource_index": 4.0,
+      "corruption": 28.4,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$106 682 495 412 / $106 682 495 412",
+      "investments": "$106 682 495 412 / $106 682 495 412",
       "categories": [
         "Государство",
         "ООН",
@@ -956,8 +1195,26 @@
       ],
       "country": "Исландия",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 1429385799,
+      "gdp": 15496747795,
+      "gdp_ppp": 69735365077,
+      "population": 258211,
+      "birth_rate": 18.9,
+      "support": 56.3,
+      "resource_index": 5.0,
+      "corruption": 14.4,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Аграрная держава",
+      "reforms": "$113 999 682 / $7 748 373 897",
+      "investments": "$7 748 373 897 / $7 748 373 897",
       "categories": [
         "Государство",
         "ООН",
@@ -1025,8 +1282,26 @@
       ],
       "country": "Италия",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 1665116069,
+      "gdp": 1219617439562,
+      "gdp_ppp": 2317273135167,
+      "population": 57053469,
+      "birth_rate": 10.5,
+      "support": 40.8,
+      "resource_index": 5.0,
+      "corruption": 17.1,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$609 808 719 781 / $609 808 719 781",
+      "investments": "$609 808 719 781 / $609 808 719 781",
       "categories": [
         "Государство",
         "ООН",
@@ -1097,9 +1372,27 @@
         "Греция"
       ],
       "country": "Греция",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 7134534296,
+      "profit": 4244827961,
+      "gdp": 117051370361,
+      "gdp_ppp": 468205481444,
+      "population": 10179505,
+      "birth_rate": 10.5,
+      "support": 56.7,
+      "resource_index": 5.0,
+      "corruption": 2.7,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 24,
+        "ndfl": 20
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$28 525 685 180 / $58 525 685 180",
+      "investments": "$58 525 685 180 / $58 525 685 180",
       "categories": [
         "Государство",
         "ООН",
@@ -1158,9 +1451,27 @@
         "Бразилия"
       ],
       "country": "Бразилия",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 240561876,
+      "profit": 66783465681,
+      "gdp": 628289730221,
+      "gdp_ppp": 1570724325552,
+      "population": 155492726,
+      "birth_rate": 25.0,
+      "support": 56.0,
+      "resource_index": 2.0,
+      "corruption": 8.2,
+      "level": "Сильная",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 30,
+        "ndfl": 30
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$314 144 865 110 / $314 144 865 110",
+      "investments": "$314 144 865 110 / $314 144 865 110",
       "categories": [
         "Государство",
         "ООН",
@@ -1221,9 +1532,27 @@
         "Мавритания"
       ],
       "country": "Мавритания",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 2372634,
+      "profit": 437382938,
+      "gdp": 4414309615,
+      "gdp_ppp": 22071548075,
+      "population": 2125923,
+      "birth_rate": 42.5,
+      "support": 54.6,
+      "resource_index": 4.0,
+      "corruption": 13.0,
+      "level": "Кризисная",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 20
+      },
+      "specialization": "Аграрная держава",
+      "reforms": "$684 897 263 / $2 207 154 807",
+      "investments": "$2 207 154 807 / $2 207 154 807",
       "categories": [
         "Государство",
         "ООН",
@@ -1290,22 +1619,25 @@
       "is_staff": true,
       "is_registered": true,
       "entity_type": "ЧВК",
-      "countries": [],
-      "country": null,
+      "countries": [
+        "Executive Outcomes"
+      ],
+      "country": "Executive Outcomes",
       "balance": 108,
-      "credits": 108,
-      "casino_stats": {
-        "name": "Vaelite",
-        "games": 7,
-        "wins": 3,
-        "losses": 4,
-        "bet_total": 393,
-        "won_total": 310,
-        "net_profit": -83,
-        "max_win": 200,
-        "hook_target_spin": 10,
-        "slot_spins": 1
-      },
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
       "categories": [
         "ЧВК"
       ],
@@ -1350,8 +1682,26 @@
       ],
       "country": "Норвегия",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 2013258528,
+      "gdp": 115000000000,
+      "gdp_ppp": 460000000000,
+      "population": 4200000,
+      "birth_rate": 14.0,
+      "support": 50.0,
+      "resource_index": 3.0,
+      "corruption": 10.0,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$57 500 000 000 / $57 500 000 000",
+      "investments": "$57 500 000 000 / $57 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1419,20 +1769,26 @@
       ],
       "country": "Беларусь",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "Глав.лудик на диком Global Ludsе",
-        "games": 772,
-        "wins": 409,
-        "losses": 363,
-        "bet_total": 2235101394339530,
-        "won_total": 2120100877571017,
-        "net_profit": -115000516768513,
-        "max_win": 40000000000000,
-        "slot_spins": 79,
-        "hook_jackpot_claimed": false,
-        "hook_target_spin": 10
+      "profit": 33717261046,
+      "gdp": 291017950025,
+      "gdp_ppp": 931257440080,
+      "population": 10597105,
+      "birth_rate": 19.3,
+      "support": 100.0,
+      "resource_index": 4.0,
+      "corruption": 4.3,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
       },
+      "taxes": {
+        "nds": 30,
+        "ndfl": 30
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$6 501 094 565 / $145 508 975 012",
+      "investments": "$120 508 975 012 / $145 508 975 012",
       "categories": [
         "Государство",
         "ООН",
@@ -1442,7 +1798,7 @@
       "roles": [
         {
           "id": "1559259000149639250",
-          "name": "Лицензия Белорусская ССР"
+          "name": "Лицензия Беларусь"
         },
         {
           "id": "1359429737574830251",
@@ -1499,9 +1855,27 @@
         "Мексика"
       ],
       "country": "Мексика",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 1976857293,
+      "profit": null,
+      "gdp": 305563750000,
+      "gdp_ppp": 977804000000,
+      "population": 82885992,
+      "birth_rate": 28.0,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 21.4,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$152 781 875 000 / $152 781 875 000",
+      "investments": "$152 781 875 000 / $152 781 875 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1556,9 +1930,27 @@
         "СССР"
       ],
       "country": "СССР",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 36672956337,
+      "profit": 12097302413,
+      "gdp": 2227573000000,
+      "gdp_ppp": 4232388700000,
+      "population": 212261800,
+      "birth_rate": 16.8,
+      "support": 21.8,
+      "resource_index": 1.0,
+      "corruption": 19.7,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Парламентская монархия",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$1 113 786 500 000 / $1 113 786 500 000",
+      "investments": "$1 113 786 500 000 / $1 113 786 500 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1626,20 +2018,27 @@
         "Индия"
       ],
       "country": "Индия",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "BeeZymEaS",
-        "games": 71,
-        "wins": 38,
-        "losses": 33,
-        "bet_total": 276,
-        "won_total": 281,
-        "net_profit": 5,
-        "max_win": 10,
-        "hook_target_spin": 8,
-        "slot_spins": 1
+      "balance": 62293347069,
+      "profit": 2467691783,
+      "gdp": 394884238854,
+      "gdp_ppp": 1263629564332,
+      "population": 904735052,
+      "birth_rate": 31.5,
+      "support": 50.0,
+      "resource_index": 5.0,
+      "corruption": 19.6,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Плановая экономика"
       },
+      "taxes": {
+        "nds": 40,
+        "ndfl": 40
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$197 442 119 427 / $197 442 119 427",
+      "investments": "$197 442 119 427 / $197 442 119 427",
       "categories": [
         "Государство",
         "ООН",
@@ -1702,21 +2101,27 @@
         "Египет"
       ],
       "country": "Египет",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "QLQ",
-        "games": 39,
-        "wins": 13,
-        "losses": 26,
-        "bet_total": 2657,
-        "won_total": 2285,
-        "net_profit": -372,
-        "max_win": 1000,
-        "hook_target_spin": 5,
-        "slot_spins": 17,
-        "hook_jackpot_claimed": true
+      "balance": 567604358,
+      "profit": 22265877738,
+      "gdp": 110646411304,
+      "gdp_ppp": 442585645216,
+      "population": 59117998,
+      "birth_rate": 32.8,
+      "support": 88.7,
+      "resource_index": 5.0,
+      "corruption": 9.7,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
       },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$55 113 260 660 / $55 323 205 652",
+      "investments": "$55 323 205 652 / $55 323 205 652",
       "categories": [
         "Государство",
         "ООН",
@@ -1779,9 +2184,27 @@
         "Эстония"
       ],
       "country": "Эстония",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 9749398897,
+      "profit": 1365346414,
+      "gdp": 11524659686,
+      "gdp_ppp": 51860968587,
+      "population": 1530437,
+      "birth_rate": 14.0,
+      "support": 87.3,
+      "resource_index": 5.0,
+      "corruption": 12.5,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Парламентская монархия",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$1 329 768 425 / $5 762 329 843",
+      "investments": "$5 762 329 843 / $5 762 329 843",
       "categories": [
         "Государство",
         "ООН",
@@ -1860,20 +2283,27 @@
         "Румыния"
       ],
       "country": "Румыния",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "🇩🇪 | ГДР",
-        "games": 2,
-        "wins": 0,
-        "losses": 2,
-        "bet_total": 150,
-        "won_total": 0,
-        "net_profit": -150,
-        "max_win": 0,
-        "hook_target_spin": 9,
-        "slot_spins": 2
+      "balance": 4531099,
+      "profit": 9949082489,
+      "gdp": 87549325063,
+      "gdp_ppp": 350197300252,
+      "population": 23707529,
+      "birth_rate": 13.3,
+      "support": 55.4,
+      "resource_index": 5.0,
+      "corruption": 11.0,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Рыночная экономика"
       },
+      "taxes": {
+        "nds": 30,
+        "ndfl": 30
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$43 774 662 531 / $43 774 662 531",
+      "investments": "$43 774 662 531 / $43 774 662 531",
       "categories": [
         "Государство",
         "ООН",
@@ -1944,9 +2374,27 @@
         "Канада"
       ],
       "country": "Канада",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 1066772,
+      "profit": 5315519819,
+      "gdp": 711892659532,
+      "gdp_ppp": 1779731648830,
+      "population": 28208864,
+      "birth_rate": 15.0,
+      "support": 49.5,
+      "resource_index": 2.0,
+      "corruption": 14.6,
+      "level": "Сильная",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$355 946 329 766 / $355 946 329 766",
+      "investments": "$355 946 329 766 / $355 946 329 766",
       "categories": [
         "Государство",
         "ООН",
@@ -2009,21 +2457,27 @@
         "ФРГ"
       ],
       "country": "ФРГ",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "Joski Piskotrias",
-        "games": 63,
-        "wins": 35,
-        "losses": 28,
-        "bet_total": 953,
-        "won_total": 776,
-        "net_profit": -177,
-        "max_win": 80,
-        "hook_target_spin": 6,
-        "slot_spins": 16,
-        "hook_jackpot_claimed": true
+      "balance": 44433863101,
+      "profit": 56912642445,
+      "gdp": 2488970544122,
+      "gdp_ppp": 4729044033831,
+      "population": 80703344,
+      "birth_rate": 11.0,
+      "support": 88.4,
+      "resource_index": 4.0,
+      "corruption": 5.4,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
       },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$710 387 925 192 / $1 244 485 272 061",
+      "investments": "$1 244 485 272 061 / $1 244 485 272 061",
       "categories": [
         "Государство",
         "ООН",
@@ -2099,20 +2553,26 @@
       ],
       "country": "Нигерия",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "🇬🇧 | Англо-египетский Судан",
-        "games": 0,
-        "wins": 0,
-        "losses": 0,
-        "bet_total": 0,
-        "won_total": 0,
-        "net_profit": 0,
-        "max_win": 0,
-        "slot_spins": 0,
-        "hook_jackpot_claimed": false,
-        "hook_target_spin": 10
+      "profit": 28612221423,
+      "gdp": 165903800563,
+      "gdp_ppp": 663615202252,
+      "population": 102651898,
+      "birth_rate": 44.2,
+      "support": 67.5,
+      "resource_index": 4.0,
+      "corruption": 2.3,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Рыночная экономика"
       },
+      "taxes": {
+        "nds": 30,
+        "ndfl": 30
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$19 091 691 736 / $82 951 900 281",
+      "investments": "$43 943 756 881 / $82 951 900 281",
       "categories": [
         "Государство",
         "ООН",
@@ -2175,9 +2635,27 @@
         "Израиль"
       ],
       "country": "Израиль",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 236486702322,
+      "profit": 10425290116,
+      "gdp": 204072920264,
+      "gdp_ppp": 653033344844,
+      "population": 4719391,
+      "birth_rate": 24.9,
+      "support": 78.7,
+      "resource_index": 6.0,
+      "corruption": 4.9,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 38,
+        "ndfl": 38
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$1 660 432 323 / $102 036 460 132",
+      "investments": "$1 677 711 304 / $102 036 460 132",
       "categories": [
         "Государство",
         "ООН",
@@ -2248,9 +2726,27 @@
         "КНР"
       ],
       "country": "КНР",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 87640570182,
+      "profit": 24025360344,
+      "gdp": 896811146466,
+      "gdp_ppp": 2242027866165,
+      "population": 1190112023,
+      "birth_rate": 24.9,
+      "support": 100.0,
+      "resource_index": 3.0,
+      "corruption": 6.5,
+      "level": "Сильная",
+      "ideology": {
+        "state": "Однопартийная республика",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Технологический лидер",
+      "reforms": "$16 065 481 742 / $448 405 573 233",
+      "investments": "$448 405 573 233 / $448 405 573 233",
       "categories": [
         "Государство",
         "ООН",
@@ -2326,9 +2822,24 @@
         "Гренландия"
       ],
       "country": "Гренландия",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 2695312500,
+      "profit": 101589983,
+      "gdp": 1347656250,
+      "gdp_ppp": 7412109375,
+      "population": 57813,
+      "birth_rate": 19.0,
+      "support": 50.0,
+      "resource_index": 3.0,
+      "corruption": 21.9,
+      "level": "Разрушенная",
+      "ideology": {},
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$673 828 125 / $673 828 125",
+      "investments": "$673 828 125 / $673 828 125",
       "categories": [
         "Автономия",
         "Альянс"
@@ -2381,9 +2892,27 @@
         "Литва"
       ],
       "country": "Литва",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 2923435581,
+      "profit": 289363389,
+      "gdp": 14542020284,
+      "gdp_ppp": 65439091278,
+      "population": 3767669,
+      "birth_rate": 15.0,
+      "support": 56.0,
+      "resource_index": 5.0,
+      "corruption": 5.6,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 25,
+        "ndfl": 25
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$7 271 010 142 / $7 271 010 142",
+      "investments": "$7 271 010 142 / $7 271 010 142",
       "categories": [
         "Государство",
         "ООН",
@@ -2450,9 +2979,27 @@
         "Колумбия"
       ],
       "country": "Колумбия",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 1413757707,
+      "profit": 1166078394,
+      "gdp": 56819136482,
+      "gdp_ppp": 227276545928,
+      "population": 34864121,
+      "birth_rate": 26.5,
+      "support": 50.1,
+      "resource_index": 4.0,
+      "corruption": 23.3,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 25,
+        "ndfl": 25
+      },
+      "specialization": "Торговая республика",
+      "reforms": "$6 114 477 732 / $28 409 568 241",
+      "investments": "$28 409 568 241 / $28 409 568 241",
       "categories": [
         "Государство",
         "ООН",
@@ -2511,9 +3058,27 @@
         "Аргентина"
       ],
       "country": "Аргентина",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 9613605367,
+      "profit": 7058048513,
+      "gdp": 200586112126,
+      "gdp_ppp": 641875558803,
+      "population": 33887804,
+      "birth_rate": 22.2,
+      "support": 68.5,
+      "resource_index": 3.0,
+      "corruption": 3.2,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Технологический лидер",
+      "reforms": "$100 293 056 063 / $100 293 056 063",
+      "investments": "$100 293 056 063 / $100 293 056 063",
       "categories": [
         "Государство",
         "ООН",
@@ -2568,9 +3133,27 @@
         "Япония"
       ],
       "country": "Япония",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 13681331,
+      "profit": 1486045573,
+      "gdp": 3150073745582,
+      "gdp_ppp": 5040117992931,
+      "population": 125411248,
+      "birth_rate": 10.0,
+      "support": 52.3,
+      "resource_index": 6.0,
+      "corruption": 28.4,
+      "level": "Великая держава",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$1 575 036 872 791 / $1 575 036 872 791",
+      "investments": "$1 575 036 872 791 / $1 575 036 872 791",
       "categories": [
         "Государство",
         "ООН",
@@ -2629,18 +3212,27 @@
         "Польша"
       ],
       "country": "Польша",
-      "balance": 5,
-      "credits": 5,
-      "casino_stats": {
-        "name": "elwey4194",
-        "games": 8,
-        "wins": 2,
-        "losses": 6,
-        "bet_total": 104,
-        "won_total": 36,
-        "net_profit": -68,
-        "max_win": 20
+      "balance": 5549637,
+      "profit": 34720654123,
+      "gdp": 319572139096,
+      "gdp_ppp": 1022630845107,
+      "population": 39090652,
+      "birth_rate": 14.0,
+      "support": 88.0,
+      "resource_index": 4.0,
+      "corruption": 7.1,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
       },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$40 780 735 915 / $159 786 069 548",
+      "investments": "$64 136 475 944 / $159 786 069 548",
       "categories": [
         "Государство",
         "ООН",
@@ -2719,9 +3311,27 @@
         "Швеция"
       ],
       "country": "Швеция",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 156182834542,
+      "profit": 20002858275,
+      "gdp": 554989248485,
+      "gdp_ppp": 1387473121212,
+      "population": 8511666,
+      "birth_rate": 15.8,
+      "support": 72.9,
+      "resource_index": 4.0,
+      "corruption": 5.1,
+      "level": "Сильная",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 30,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$221 560 532 544 / $277 494 624 242",
+      "investments": "$277 494 624 242 / $277 494 624 242",
       "categories": [
         "Государство",
         "ООН",
@@ -2805,8 +3415,26 @@
       ],
       "country": "Югославия (СФРЮ)",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 3867151220,
+      "gdp": 119720065193,
+      "gdp_ppp": 478880260772,
+      "population": 23888222,
+      "birth_rate": 14.5,
+      "support": 59.5,
+      "resource_index": 4.0,
+      "corruption": 22.8,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 28,
+        "ndfl": 28
+      },
+      "specialization": "Торговая республика",
+      "reforms": "$59 860 032 596 / $59 860 032 596",
+      "investments": "$59 860 032 596 / $59 860 032 596",
       "categories": [
         "Государство",
         "ООН",
@@ -2857,9 +3485,27 @@
         "Иран"
       ],
       "country": "Иран",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 165702046859,
+      "profit": 2768690214,
+      "gdp": 180513037200,
+      "gdp_ppp": 722052148800,
+      "population": 57218364,
+      "birth_rate": 34.5,
+      "support": 55.8,
+      "resource_index": 3.0,
+      "corruption": 7.5,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 50,
+        "ndfl": 50
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$17 688 463 444 / $90 256 518 600",
+      "investments": "$90 256 518 600 / $90 256 518 600",
       "categories": [
         "Государство",
         "ООН",
@@ -2923,8 +3569,26 @@
       ],
       "country": "Великобритания",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 65853177677,
+      "gdp": 2015601918011,
+      "gdp_ppp": 3829643644220,
+      "population": 59046595,
+      "birth_rate": 16.5,
+      "support": 99.0,
+      "resource_index": 4.0,
+      "corruption": 4.3,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Парламентская монархия",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$840 356 313 125 / $1 007 800 959 005",
+      "investments": "$977 797 777 770 / $1 007 800 959 005",
       "categories": [
         "Государство",
         "ООН",
@@ -3030,8 +3694,26 @@
       ],
       "country": "Испания",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 25678893877,
+      "gdp": 1065400775137,
+      "gdp_ppp": 2024261472760,
+      "population": 39653850,
+      "birth_rate": 14.7,
+      "support": 84.6,
+      "resource_index": 4.0,
+      "corruption": 3.2,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 48,
+        "ndfl": 48
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$224 212 991 393 / $532 700 387 568",
+      "investments": "$532 700 387 568 / $532 700 387 568",
       "categories": [
         "Государство",
         "ООН",
@@ -3086,9 +3768,27 @@
         "Турция"
       ],
       "country": "Турция",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 4455104886,
+      "profit": null,
+      "gdp": 213364990825,
+      "gdp_ppp": 682767970640,
+      "population": 56059087,
+      "birth_rate": 24.5,
+      "support": 50.3,
+      "resource_index": 4.0,
+      "corruption": 28.4,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$106 682 495 412 / $106 682 495 412",
+      "investments": "$106 682 495 412 / $106 682 495 412",
       "categories": [
         "Государство",
         "ООН",
@@ -3151,18 +3851,27 @@
         "Дания"
       ],
       "country": "Дания",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "Belousov",
-        "games": 1,
-        "wins": 0,
-        "losses": 1,
-        "bet_total": 10,
-        "won_total": 0,
-        "net_profit": -10,
-        "max_win": 0
+      "balance": 350778239687,
+      "profit": 4611507730,
+      "gdp": 176779272906,
+      "gdp_ppp": 707117091624,
+      "population": 5210055,
+      "birth_rate": 12.5,
+      "support": 59.4,
+      "resource_index": 5.0,
+      "corruption": 25.1,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Парламентская монархия",
+        "economy": "Смешанная экономика"
       },
+      "taxes": {
+        "nds": 50,
+        "ndfl": 50
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$88 389 636 453 / $88 389 636 453",
+      "investments": "$88 389 636 453 / $88 389 636 453",
       "categories": [
         "Государство",
         "ООН",
@@ -3245,9 +3954,27 @@
         "Финляндия"
       ],
       "country": "Финляндия",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 30307204996,
+      "profit": 5436445806,
+      "gdp": 154914300000,
+      "gdp_ppp": 619657200000,
+      "population": 4813183,
+      "birth_rate": 13.0,
+      "support": 46.6,
+      "resource_index": 4.0,
+      "corruption": 2.4,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 25,
+        "ndfl": 25
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$57 437 150 000 / $77 457 150 000",
+      "investments": "$77 457 150 000 / $77 457 150 000",
       "categories": [
         "Государство",
         "ООН",
@@ -3318,21 +4045,27 @@
         "США"
       ],
       "country": "США",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "! x3led",
-        "games": 274,
-        "wins": 137,
-        "losses": 137,
-        "bet_total": 1627000037042801,
-        "won_total": 1506000025031798,
-        "net_profit": -121000012011003,
-        "max_win": 40000000000000,
-        "hook_target_spin": 4,
-        "slot_spins": 21,
-        "hook_jackpot_claimed": true
+      "balance": 5667341905,
+      "profit": 178644507095,
+      "gdp": 11880894802380,
+      "gdp_ppp": 14851118502975,
+      "population": 258071602,
+      "birth_rate": 20.7,
+      "support": 94.1,
+      "resource_index": 2.0,
+      "corruption": 2.7,
+      "level": "Сверхдержава",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
       },
+      "taxes": {
+        "nds": 40,
+        "ndfl": 40
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$3 940 447 401 190 / $5 940 447 401 190",
+      "investments": "$5 470 447 401 190 / $5 940 447 401 190",
       "categories": [
         "Государство",
         "ООН",
@@ -3438,8 +4171,26 @@
       ],
       "country": "Исландия",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 1429385799,
+      "gdp": 15496747795,
+      "gdp_ppp": 69735365077,
+      "population": 258211,
+      "birth_rate": 18.9,
+      "support": 56.3,
+      "resource_index": 5.0,
+      "corruption": 14.4,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Аграрная держава",
+      "reforms": "$113 999 682 / $7 748 373 897",
+      "investments": "$7 748 373 897 / $7 748 373 897",
       "categories": [
         "Государство",
         "ООН",
@@ -3506,9 +4257,27 @@
         "Нидерланды"
       ],
       "country": "Нидерланды",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 163477820,
+      "profit": null,
+      "gdp": 295000000000,
+      "gdp_ppp": 944000000000,
+      "population": 15023370,
+      "birth_rate": 13.2,
+      "support": 50.0,
+      "resource_index": 5.0,
+      "corruption": 17.5,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$147 500 000 000 / $147 500 000 000",
+      "investments": "$147 500 000 000 / $147 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -3591,9 +4360,27 @@
         "Франция"
       ],
       "country": "Франция",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 69091973096,
+      "profit": 25685980968,
+      "gdp": 1880042819596,
+      "gdp_ppp": 3572081357232,
+      "population": 58094796,
+      "birth_rate": 14.7,
+      "support": 58.8,
+      "resource_index": 4.0,
+      "corruption": 0.2,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 23,
+        "ndfl": 23
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$940 021 409 798 / $940 021 409 798",
+      "investments": "$234 147 155 296 / $940 021 409 798",
       "categories": [
         "Государство",
         "ООН",
@@ -3674,8 +4461,26 @@
       ],
       "country": "Италия",
       "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "profit": 1665116069,
+      "gdp": 1219617439562,
+      "gdp_ppp": 2317273135167,
+      "population": 57053469,
+      "birth_rate": 10.5,
+      "support": 40.8,
+      "resource_index": 5.0,
+      "corruption": 17.1,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$609 808 719 781 / $609 808 719 781",
+      "investments": "$609 808 719 781 / $609 808 719 781",
       "categories": [
         "Государство",
         "ООН",
@@ -3746,9 +4551,27 @@
         "Греция"
       ],
       "country": "Греция",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 7134534296,
+      "profit": 4244827961,
+      "gdp": 117051370361,
+      "gdp_ppp": 468205481444,
+      "population": 10179505,
+      "birth_rate": 10.5,
+      "support": 56.7,
+      "resource_index": 5.0,
+      "corruption": 2.7,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 24,
+        "ndfl": 20
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$28 525 685 180 / $58 525 685 180",
+      "investments": "$58 525 685 180 / $58 525 685 180",
       "categories": [
         "Государство",
         "ООН",
@@ -3807,9 +4630,27 @@
         "Бразилия"
       ],
       "country": "Бразилия",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "balance": 240561876,
+      "profit": 66783465681,
+      "gdp": 628289730221,
+      "gdp_ppp": 1570724325552,
+      "population": 155492726,
+      "birth_rate": 25.0,
+      "support": 56.0,
+      "resource_index": 2.0,
+      "corruption": 8.2,
+      "level": "Сильная",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 30,
+        "ndfl": 30
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$314 144 865 110 / $314 144 865 110",
+      "investments": "$314 144 865 110 / $314 144 865 110",
       "categories": [
         "Государство",
         "ООН",
@@ -3858,53 +4699,52 @@
     {
       "id": "1038163713397620758",
       "username": "svvayl",
-      "display_name": "🇦🇫 | Афганистан",
-      "nickname": "🇦🇫 | Афганистан",
+      "display_name": "🏢 | MPRI",
+      "nickname": "🏢 | MPRI",
       "avatar_url": "https://cdn.discordapp.com/avatars/1038163713397620758/69324350c91f14da51cb3ab40f2d670b.png?size=1024",
       "is_staff": true,
       "is_registered": true,
-      "entity_type": "Государство",
+      "entity_type": "ЧВК",
       "countries": [
-        "Афганистан"
+        "MPRI"
       ],
-      "country": "Афганистан",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": null,
+      "country": "MPRI",
+      "balance": 9087500000,
+      "profit": 348766239,
+      "gdp": 4543750000,
+      "gdp_ppp": 22718750000,
+      "population": 13005960,
+      "birth_rate": 51.0,
+      "support": 54.5,
+      "resource_index": 5.0,
+      "corruption": 19.1,
+      "level": "Кризисная",
+      "ideology": {
+        "state": "Абсолютная монархия",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 30,
+        "ndfl": 30
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$2 271 875 000 / $2 271 875 000",
+      "investments": "$2 271 875 000 / $2 271 875 000",
       "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН"
+        "ЧВК"
       ],
       "roles": [
-        {
-          "id": "1558764550738935922",
-          "name": "Лицензия Афганистан"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
         {
           "id": "1246817935297613905",
           "name": "• Зарегистрированный"
         },
         {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1233388420915658865",
+          "name": "Частная"
         },
         {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         },
         {
           "id": "1209154572417769543",
@@ -3929,21 +4769,27 @@
         "ЮАР"
       ],
       "country": "ЮАР",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "🇫🇷 | Франция",
-        "games": 16,
-        "wins": 5,
-        "losses": 11,
-        "bet_total": 1867,
-        "won_total": 1040,
-        "net_profit": -827,
-        "max_win": 600,
-        "slot_spins": 8,
-        "hook_jackpot_claimed": true,
-        "hook_target_spin": 5
+      "balance": 16251990,
+      "profit": 13006778484,
+      "gdp": 146321257768,
+      "gdp_ppp": 585285031072,
+      "population": 35422456,
+      "birth_rate": 29.5,
+      "support": 46.5,
+      "resource_index": 3.0,
+      "corruption": 14.0,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
       },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$73 160 628 884 / $73 160 628 884",
+      "investments": "$73 160 628 884 / $73 160 628 884",
       "categories": [
         "Государство",
         "ООН",
@@ -4027,18 +4873,27 @@
         "Украина"
       ],
       "country": "Украина",
-      "balance": 0,
-      "credits": 0,
-      "casino_stats": {
-        "name": "🇺🇸 | США",
-        "games": 4,
-        "wins": 1,
-        "losses": 3,
-        "bet_total": 70,
-        "won_total": 40,
-        "net_profit": -30,
-        "max_win": 40
+      "balance": 35301000009,
+      "profit": 27049539451,
+      "gdp": 865646257147,
+      "gdp_ppp": 2164115642867,
+      "population": 53160080,
+      "birth_rate": 15.1,
+      "support": 98.8,
+      "resource_index": 2.0,
+      "corruption": 7.4,
+      "level": "Сильная",
+      "ideology": {
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
       },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$363 330 767 415 / $432 823 128 573",
+      "investments": "$432 823 128 573 / $432 823 128 573",
       "categories": [
         "Государство",
         "ООН",
