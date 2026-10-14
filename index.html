@@ -199,29 +199,35 @@
 
 /* 3D Метки стран с флагами на сфере */
 .globe-flag-pin {
-  position: relative;
-  transform: translate(-50%, -100%);
-  cursor: pointer;
+  position: absolute;
   pointer-events: auto;
   user-select: none;
-  z-index: 5 !important;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+  cursor: pointer;
+  z-index: 5;
+  transition: opacity 0.25s ease;
 }
 .globe-flag-pin:hover {
-  transform: translate(-50%, -115%) scale(1.15);
-  z-index: 12 !important;
+  z-index: 30 !important;
 }
 .flag-pin-badge {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: rgba(6, 12, 9, 0.9);
+  background: rgba(6, 12, 9, 0.92);
   border: 1px solid var(--faction-color, #4ade80);
   box-shadow: 0 0 12px var(--faction-glow, rgba(74, 222, 128, 0.4)), 0 4px 12px rgba(0, 0, 0, 0.7);
   padding: 2.5px 7px 2.5px 6px;
   border-radius: 12px;
   backdrop-filter: blur(8px);
   position: relative;
+  transform: translate(-50%, -100%);
+  transform-origin: 50% 100%;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, opacity 0.25s ease, border-color 0.2s ease;
+  will-change: transform;
+}
+.globe-flag-pin:hover .flag-pin-badge {
+  transform: translate(-50%, -108%) scale(1.15);
+  box-shadow: 0 0 20px var(--faction-glow, rgba(74, 222, 128, 0.6)), 0 6px 16px rgba(0, 0, 0, 0.9);
 }
 .flag-icon {
   font-size: 13px;
@@ -547,17 +553,34 @@ div.scene-tooltip {
   box-shadow: 0 0 16px rgba(74, 222, 128, 0.6) !important;
 }
 
-.globe-flag-pin {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.globe-flag-pin.pin-dimmed {
-  opacity: 0.12 !important;
-  pointer-events: none !important;
-  transform: scale(0.85) !important;
+.globe-flag-pin.pin-highlighted {
+  z-index: 20 !important;
+  opacity: 1 !important;
 }
 .globe-flag-pin.pin-highlighted .flag-pin-badge {
-  box-shadow: 0 0 25px var(--faction-glow), 0 0 12px var(--faction-color) !important;
+  transform: translate(-50%, -105%) scale(1.14);
+  box-shadow: 0 0 25px var(--faction-glow), 0 0 12px var(--faction-color), 0 4px 14px rgba(0, 0, 0, 0.8) !important;
   border-width: 1.5px !important;
+}
+/* Другие страны при активном фильтре альянса остаются четко видимыми и кликабельными */
+.globe-flag-pin.pin-dimmed {
+  opacity: 0.72 !important;
+  pointer-events: auto !important;
+  z-index: 4 !important;
+}
+.globe-flag-pin.pin-dimmed:hover {
+  opacity: 1 !important;
+  z-index: 30 !important;
+}
+.globe-flag-pin.pin-dimmed .flag-pin-badge {
+  transform: translate(-50%, -100%) scale(0.92);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  opacity: 0.90;
+}
+.globe-flag-pin.pin-dimmed:hover .flag-pin-badge {
+  transform: translate(-50%, -108%) scale(1.15);
+  opacity: 1;
+  box-shadow: 0 0 20px var(--faction-glow, rgba(74, 222, 128, 0.6)), 0 6px 16px rgba(0, 0, 0, 0.9);
 }
 
 .l-pill .dot { width: 6px; height: 6px; border-radius: 50%; }

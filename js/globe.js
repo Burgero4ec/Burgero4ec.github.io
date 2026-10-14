@@ -1165,12 +1165,8 @@ function createFlagMarkerElement(country) {
   if (activeFactionFilter) {
     if (country.faction === activeFactionFilter) {
       wrapper.classList.add('pin-highlighted');
-      wrapper.style.transform = 'scale(1.15)';
     } else {
       wrapper.classList.add('pin-dimmed');
-      wrapper.style.opacity = '0.12';
-      wrapper.style.pointerEvents = 'none';
-      wrapper.style.transform = 'scale(0.85)';
     }
   }
 
@@ -1233,21 +1229,12 @@ function updateMarkerFilterStyles() {
     const cRecord = activeCountriesMap.get(normName(cName));
     if (!activeFactionFilter) {
       el.classList.remove('pin-dimmed', 'pin-highlighted');
-      el.style.opacity = '';
-      el.style.pointerEvents = '';
-      el.style.transform = '';
     } else if (cRecord && cRecord.faction === activeFactionFilter) {
       el.classList.remove('pin-dimmed');
       el.classList.add('pin-highlighted');
-      el.style.opacity = '1';
-      el.style.pointerEvents = 'auto';
-      el.style.transform = 'scale(1.15)';
     } else {
       el.classList.add('pin-dimmed');
       el.classList.remove('pin-highlighted');
-      el.style.opacity = '0.12';
-      el.style.pointerEvents = 'none';
-      el.style.transform = 'scale(0.85)';
     }
   });
 }
@@ -1436,19 +1423,23 @@ export async function initGlobeNavigation() {
       if (active) {
         if (activeFactionFilter) {
           if (active.faction === activeFactionFilter) {
-            return hexToRgba(active.faction_color, 0.45);
+            return hexToRgba(active.faction_color, 0.48);
           }
-          return 'rgba(15, 20, 30, 0.04)';
+          // По просьбе пользователя: другие страны остаются четко видимыми с узнаваемой заливкой
+          return hexToRgba(active.faction_color, 0.15);
         }
-        return hexToRgba(active.faction_color, 0.16);
+        return hexToRgba(active.faction_color, 0.18);
       }
       return 'rgba(0, 0, 0, 0)'; // Полностью прозрачное тело -> ТОЛЬКО контуры
     })
     .polygonSideColor(d => {
-      if (activeFactionFilter) {
-        const active = getActiveCountryForFeature(d);
-        if (active && active.faction === activeFactionFilter) {
-          return hexToRgba(active.faction_color, 0.35);
+      const active = getActiveCountryForFeature(d);
+      if (active) {
+        if (activeFactionFilter) {
+          if (active.faction === activeFactionFilter) {
+            return hexToRgba(active.faction_color, 0.38);
+          }
+          return hexToRgba(active.faction_color, 0.10);
         }
       }
       return 'rgba(0, 0, 0, 0)';
@@ -1464,19 +1455,20 @@ export async function initGlobeNavigation() {
           if (active.faction === activeFactionFilter) {
             return active.faction_color || '#10b981';
           }
-          return 'rgba(60, 65, 80, 0.12)';
+          // Четкие аккуратные контуры остальных стран
+          return hexToRgba(active.faction_color, 0.45);
         }
         return active.faction_color || '#10b981';
       }
-      return activeFactionFilter ? 'rgba(40, 45, 55, 0.08)' : 'rgba(100, 140, 180, 0.28)'; // Тонкий ненавязчивый контур остальных стран
+      return activeFactionFilter ? 'rgba(70, 95, 125, 0.22)' : 'rgba(100, 140, 180, 0.28)';
     })
     .polygonAltitude(d => {
       const active = getActiveCountryForFeature(d);
       if (active) {
         if (activeFactionFilter) {
-          return active.faction === activeFactionFilter ? 0.024 : 0.002;
+          return active.faction === activeFactionFilter ? 0.022 : 0.009;
         }
-        return 0.012;
+        return 0.010;
       }
       return 0.003;
     })
@@ -1563,7 +1555,8 @@ export async function initGlobeNavigation() {
     .htmlElementsData([])
     .htmlLat(d => d.lat)
     .htmlLng(d => d.lng)
-    .htmlAltitude(0.024)
+    .htmlAltitude(0.012)
+    .htmlTransitionDuration(0)
     .htmlElement(d => createFlagMarkerElement(d));
 
   // Настройка авто-вращения камеры
