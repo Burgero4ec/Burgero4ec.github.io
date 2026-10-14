@@ -4,7 +4,7 @@
   "status": "active",
   "startDate": "2026-10-01",
   "totalArticles": 48,
-  "totalNations": 36,
+  "totalNations": 38,
   "keyEvents": [
     {
       "id": "s28-ev-1",
@@ -29,10 +29,502 @@
     }
   ],
   "factions": [
-    { "tag": "PACT", "name": "Атлантический Пакт", "powerIndex": 94, "color": "#3b82f6" },
-    { "tag": "UNION", "name": "Евразийский Союз", "powerIndex": 96, "color": "#ef4444" },
-    { "tag": "PACIFIC", "name": "Тихоокеанский Блок", "powerIndex": 72, "color": "#f59e0b" },
-    { "tag": "MIDLEAGUE", "name": "Ближневосточная Лига", "powerIndex": 68, "color": "#a855f7" },
-    { "tag": "NEUTRAL", "name": "Нейтралитет", "powerIndex": 55, "color": "#10b981" }
-  ]
+    {
+      "tag": "PACT",
+      "name": "Атлантический Пакт",
+      "powerIndex": 94,
+      "color": "#3b82f6"
+    },
+    {
+      "tag": "UNION",
+      "name": "Евразийский Союз",
+      "powerIndex": 96,
+      "color": "#ef4444"
+    },
+    {
+      "tag": "PACIFIC",
+      "name": "Тихоокеанский Блок",
+      "powerIndex": 72,
+      "color": "#f59e0b"
+    },
+    {
+      "tag": "MIDLEAGUE",
+      "name": "Ближневосточная Лига",
+      "powerIndex": 68,
+      "color": "#a855f7"
+    },
+    {
+      "tag": "NEUTRAL",
+      "name": "Нейтралитет",
+      "powerIndex": 55,
+      "color": "#10b981"
+    }
+  ],
+  "updated_at": "2026-10-14T19:24:26.568889+00:00",
+  "totalActivePlayers": 39,
+  "entities": {
+    "1469060963360575548": {
+      "type": "country",
+      "country": "Мавритания",
+      "player": "ebate_matrasov",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "1559718136188768292": {
+      "type": "country",
+      "country": "Норвегия",
+      "player": "razi0497",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "830428424677490728": {
+      "type": "country",
+      "country": "Беларусь",
+      "player": "ponzc",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "Глав.лудик на диком Global Ludsе",
+        "games": 772,
+        "wins": 409,
+        "losses": 363,
+        "bet_total": 2235101394339530,
+        "won_total": 2120100877571017,
+        "net_profit": -115000516768513,
+        "max_win": 40000000000000,
+        "slot_spins": 79,
+        "hook_jackpot_claimed": false,
+        "hook_target_spin": 10
+      },
+      "is_staff": true
+    },
+    "967200323909349396": {
+      "type": "country",
+      "country": "Мексика",
+      "player": "hanslanda_0272",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "784140901600591963": {
+      "type": "country",
+      "country": "СССР",
+      "player": "50175079",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "675680786573426688": {
+      "type": "country",
+      "country": "Индия",
+      "player": "beezymeas",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "BeeZymEaS",
+        "games": 71,
+        "wins": 38,
+        "losses": 33,
+        "bet_total": 276,
+        "won_total": 281,
+        "net_profit": 5,
+        "max_win": 10,
+        "hook_target_spin": 8,
+        "slot_spins": 1
+      },
+      "is_staff": true
+    },
+    "1213051426876690443": {
+      "type": "country",
+      "country": "Египет",
+      "player": "izaziii228",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "QLQ",
+        "games": 39,
+        "wins": 13,
+        "losses": 26,
+        "bet_total": 2657,
+        "won_total": 2285,
+        "net_profit": -372,
+        "max_win": 1000,
+        "hook_target_spin": 5,
+        "slot_spins": 17,
+        "hook_jackpot_claimed": true
+      },
+      "is_staff": true
+    },
+    "955060237449166938": {
+      "type": "country",
+      "country": "Эстония",
+      "player": "zenithxclown",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "897130924951634021": {
+      "type": "country",
+      "country": "Румыния",
+      "player": "_ashkoo139",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "🇩🇪 | ГДР",
+        "games": 2,
+        "wins": 0,
+        "losses": 2,
+        "bet_total": 150,
+        "won_total": 0,
+        "net_profit": -150,
+        "max_win": 0,
+        "hook_target_spin": 9,
+        "slot_spins": 2
+      },
+      "is_staff": false
+    },
+    "1334149079940464723": {
+      "type": "country",
+      "country": "Канада",
+      "player": "tomi_as51",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1133677481694601216": {
+      "type": "country",
+      "country": "ФРГ",
+      "player": "joskipisk0trias",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "Joski Piskotrias",
+        "games": 63,
+        "wins": 35,
+        "losses": 28,
+        "bet_total": 953,
+        "won_total": 776,
+        "net_profit": -177,
+        "max_win": 80,
+        "hook_target_spin": 6,
+        "slot_spins": 16,
+        "hook_jackpot_claimed": true
+      },
+      "is_staff": true
+    },
+    "484044030640914437": {
+      "type": "country",
+      "country": "Нигерия",
+      "player": "aytaconan2_",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "🇬🇧 | Англо-египетский Судан",
+        "games": 0,
+        "wins": 0,
+        "losses": 0,
+        "bet_total": 0,
+        "won_total": 0,
+        "net_profit": 0,
+        "max_win": 0,
+        "slot_spins": 0,
+        "hook_jackpot_claimed": false,
+        "hook_target_spin": 10
+      },
+      "is_staff": true
+    },
+    "743237681424629780": {
+      "type": "country",
+      "country": "Израиль",
+      "player": "woiserr",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "1540674885989441616": {
+      "type": "country",
+      "country": "КНР",
+      "player": "buba_monster",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "1197560940661571597": {
+      "type": "autonomy",
+      "country": "Гренландия",
+      "player": "egorpro0753",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1464863257801134100": {
+      "type": "country",
+      "country": "Литва",
+      "player": "kozak07549",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1119919252485443686": {
+      "type": "country",
+      "country": "Колумбия",
+      "player": "perikkl",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "491444354892693515": {
+      "type": "country",
+      "country": "Аргентина",
+      "player": "oregauri",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1162390945292091442": {
+      "type": "country",
+      "country": "Япония",
+      "player": "saffyanov",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1119969034629304341": {
+      "type": "country",
+      "country": "Польша",
+      "player": "elwey4194",
+      "balance": 5,
+      "credits": 5,
+      "casino_stats": {
+        "name": "elwey4194",
+        "games": 8,
+        "wins": 2,
+        "losses": 6,
+        "bet_total": 104,
+        "won_total": 36,
+        "net_profit": -68,
+        "max_win": 20
+      },
+      "is_staff": true
+    },
+    "1037076729195417620": {
+      "type": "country",
+      "country": "Швеция",
+      "player": "provonsali",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "1325729399852634175": {
+      "type": "country",
+      "country": "Югославия (СФРЮ)",
+      "player": "prussvayette",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1472186998432464966": {
+      "type": "country",
+      "country": "Иран",
+      "player": "harvesm",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1532495116747538538": {
+      "type": "country",
+      "country": "Великобритания",
+      "player": "marsgooddayevery",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "925805041732976762": {
+      "type": "country",
+      "country": "Испания",
+      "player": "lev_tigranovich",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "696655586342862869": {
+      "type": "country",
+      "country": "Турция",
+      "player": "goga_wassons",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1078358740824232057": {
+      "type": "country",
+      "country": "Дания",
+      "player": "belousov01",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "Belousov",
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "bet_total": 10,
+        "won_total": 0,
+        "net_profit": -10,
+        "max_win": 0
+      },
+      "is_staff": true
+    },
+    "1327423107648192526": {
+      "type": "country",
+      "country": "Финляндия",
+      "player": "dyrm9",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "928360132482572371": {
+      "type": "country",
+      "country": "США",
+      "player": "x3led",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "! x3led",
+        "games": 274,
+        "wins": 137,
+        "losses": 137,
+        "bet_total": 1627000037042801,
+        "won_total": 1506000025031798,
+        "net_profit": -121000012011003,
+        "max_win": 40000000000000,
+        "hook_target_spin": 4,
+        "slot_spins": 21,
+        "hook_jackpot_claimed": true
+      },
+      "is_staff": true
+    },
+    "1127720130885992510": {
+      "type": "country",
+      "country": "Исландия",
+      "player": "i_have_no_brains",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1060644884781994126": {
+      "type": "country",
+      "country": "Нидерланды",
+      "player": "chaim1ch",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "1032339491987390534": {
+      "type": "country",
+      "country": "Франция",
+      "player": "desterreider",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "1482440823378280654": {
+      "type": "country",
+      "country": "Италия",
+      "player": "cortez0502",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1155232205765890190": {
+      "type": "country",
+      "country": "Греция",
+      "player": "alucar_doss",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1111768367670509603": {
+      "type": "country",
+      "country": "Бразилия",
+      "player": "lirozit",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": false
+    },
+    "1038163713397620758": {
+      "type": "country",
+      "country": "Афганистан",
+      "player": "svvayl",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": null,
+      "is_staff": true
+    },
+    "1137392083821416478": {
+      "type": "country",
+      "country": "ЮАР",
+      "player": "naebni_govna_olyx",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "🇫🇷 | Франция",
+        "games": 16,
+        "wins": 5,
+        "losses": 11,
+        "bet_total": 1867,
+        "won_total": 1040,
+        "net_profit": -827,
+        "max_win": 600,
+        "slot_spins": 8,
+        "hook_jackpot_claimed": true,
+        "hook_target_spin": 5
+      },
+      "is_staff": true
+    },
+    "758027179714936965": {
+      "type": "country",
+      "country": "Украина",
+      "player": "ohixxx",
+      "balance": 0,
+      "credits": 0,
+      "casino_stats": {
+        "name": "🇺🇸 | США",
+        "games": 4,
+        "wins": 1,
+        "losses": 3,
+        "bet_total": 70,
+        "won_total": 40,
+        "net_profit": -30,
+        "max_win": 40
+      },
+      "is_staff": true
+    }
+  }
 }
