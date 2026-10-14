@@ -205,7 +205,11 @@ export async function fetchSeasonData() {
         "Япония": { flag: "🇯🇵", continent: "Азия", gdp: 18000000000000, population: 125000000 },
         "Североатлантический Пакт": { flag: "🌐", continent: "Организации" },
         "Евразийский Экономический Союз": { flag: "🤝", continent: "Организации" },
-        "Гренландия": { flag: "🇬🇱", continent: "Северная Америка", gdp: 3000000000, population: 56000 }
+        "Гренландия": { flag: "🇬🇱", continent: "Северная Америка", gdp: 3000000000, population: 56000 },
+        "СССР": { flag: "⚒️🟥", continent: "Европа", gdp: 2650000000000, population: 293000000 },
+        "Дания": { flag: "🇩🇰", continent: "Европа", gdp: 348577000000, population: 5664000 },
+        "Беларусь": { flag: "🇧🇾", continent: "Европа", gdp: 78810000000, population: 9477000 },
+        "Украина": { flag: "🇺🇦", continent: "Европа", gdp: 131805000000, population: 45271000 }
       };
     }
 
@@ -215,13 +219,19 @@ export async function fetchSeasonData() {
       if (!r.ok) r = await fetch('players.json?t=' + Date.now());
       if (r.ok) {
         const pData = await r.json();
-        const pList = [
+        const pMap = new Map();
+        for (const p of [
           ...(Array.isArray(pData) ? pData : []),
           ...(pData.all_players || []),
           ...(pData.non_staff_players || []),
           ...(pData.staff_players || []),
           ...(pData.players || [])
-        ];
+        ]) {
+          if (p && p.id && !pMap.has(String(p.id))) {
+            pMap.set(String(p.id), p);
+          }
+        }
+        const pList = Array.from(pMap.values());
         for (const p of pList) {
           if (!p || !p.country || !p.is_registered) continue;
           const id = String(p.id);
@@ -229,15 +239,31 @@ export async function fetchSeasonData() {
           let hostCountry = null;
           let flagEmoji = null;
 
+          const nick = (p.nickname || p.display_name || '').trim();
           if (p.entity_type === 'Автономия') {
             hostCountry = p.country;
-            const nick = (p.nickname || p.display_name || '').trim();
-            if (nick.includes('Украинская ССР') || nick.includes('УССР')) { cName = 'Украинская ССР'; flagEmoji = '⚒️🟥'; }
-            else if (nick.includes('Казахская ССР')) { cName = 'Казахская ССР'; flagEmoji = '⚒️🟥'; }
-            else if (nick.includes('Литовская ССР')) { cName = 'Литовская ССР'; flagEmoji = '⚒️🟥'; }
-            else if (nick.includes('Родезия')) { cName = 'Южная Родезия'; flagEmoji = '🇿🇼'; }
-            else if (nick.includes('Судан') || nick.includes('Англо-египетский')) { cName = 'Англо-египетский Судан'; flagEmoji = '🇸🇩'; }
-            else if (nick.includes('Алжир')) { cName = 'Алжир'; flagEmoji = '🇩🇿'; }
+            if (nick.includes('Гренландия') || nick.includes('🇬🇱')) { cName = 'Гренландия'; flagEmoji = '🇬🇱'; hostCountry = 'Дания'; }
+            else if (nick.includes('Украинская ССР') || nick.includes('УССР')) { cName = 'Украинская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
+            else if (nick.includes('Казахская ССР')) { cName = 'Казахская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
+            else if (nick.includes('Литовская ССР')) { cName = 'Литовская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
+            else if (nick.includes('Родезия')) { cName = 'Южная Родезия'; flagEmoji = '🇿🇼'; hostCountry = 'Великобритания'; }
+            else if (nick.includes('Судан') || nick.includes('Англо-египетский')) { cName = 'Англо-египетский Судан'; flagEmoji = '🇸🇩'; hostCountry = 'Великобритания'; }
+            else if (nick.includes('Алжир')) { cName = 'Алжир'; flagEmoji = '🇩🇿'; hostCountry = 'Франция'; }
+          } else {
+            // Независимые государства (с учетом отделения от Союза и ников)
+            if (nick.includes('Беларусь') || nick.includes('🇧🇾')) { cName = 'Беларусь'; flagEmoji = '🇧🇾'; }
+            else if (nick.includes('Украина') || nick.includes('🇺🇦')) { cName = 'Украина'; flagEmoji = '🇺🇦'; }
+            else if (nick.includes('ССГ') || nick.includes('СССР') || nick.includes('☭')) { cName = 'СССР'; flagEmoji = '⚒️🟥'; }
+            else if (nick.includes('Дания') || nick.includes('🇩🇰')) { cName = 'Дания'; flagEmoji = '🇩🇰'; }
+            else if (nick.includes('Литва') || nick.includes('🇱🇹')) { cName = 'Литва'; flagEmoji = '🇱🇹'; }
+            else if (nick.includes('Эстония') || nick.includes('🇪🇪')) { cName = 'Эстония'; flagEmoji = '🇪🇪'; }
+            else if (nick.includes('Израиль') || nick.includes('🇮🇱')) { cName = 'Израиль'; flagEmoji = '🇮🇱'; }
+            else if (nick.includes('Швеция') || nick.includes('🇸🇪')) { cName = 'Швеция'; flagEmoji = '🇸🇪'; }
+            else if (nick.includes('Финляндия') || nick.includes('🇫🇮')) { cName = 'Финляндия'; flagEmoji = '🇫🇮'; }
+            else if (nick.includes('Египет') || nick.includes('🇪🇬')) { cName = 'Египет'; flagEmoji = '🇪🇬'; }
+            else if (nick.includes('ЮАР') || nick.includes('🇿🇦')) { cName = 'ЮАР'; flagEmoji = '🇿🇦'; }
+            else if (nick.includes('США') || nick.includes('🇺🇸')) { cName = 'США'; flagEmoji = '🇺🇸'; }
+            else if (nick.includes('Великобритания') || nick.includes('🇬🇧')) { cName = 'Великобритания'; flagEmoji = '🇬🇧'; }
           }
 
           if (!countriesData[cName]) {

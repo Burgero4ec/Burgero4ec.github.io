@@ -120,7 +120,11 @@ const FALLBACK_COORDINATES = {
   'абхазия': [43.0016, 41.0234],
   'южная осетия': [42.2286, 43.9706],
   'гондурас': [14.7363, -86.4169],
-  'косово': [42.6026, 20.903]
+  'косово': [42.6026, 20.903],
+  'гренландия': [74.1476, -41.0315],
+  'дания': [56.278, 9.6227],
+  'беларусь': [53.2974, 28.1961],
+  'украина': [48.6814, 30.3621]
 };
 
 // Нормализация названий
@@ -136,7 +140,9 @@ function normName(str) {
 // Алиасы для исторического и игрового маппинга
 const COUNTRY_ALIASES = {
   'ссср': 'россия',
+  'ссг': 'россия',
   'советский союз': 'россия',
+  'гренландия': 'гренландия',
   'ussr': 'россия',
   'рф': 'россия',
   'российская федерация': 'россия',
@@ -333,19 +339,115 @@ function resolvePlayerEntity(p) {
   const rawCountry = p.country || '';
   const entityType = p.entity_type || 'Государство';
 
-  // 1. Автономии СССР (Советские республики в игре)
-  if (nick.includes('Украинская ССР') || nick.includes('УССР')) {
+  // 1. Автономия Гренландия (Дания)
+  if (nick.includes('Гренландия') || nick.includes('🇬🇱')) {
+    const isAut = entityType === 'Автономия' || p.entity_type === 'Автономия';
     return {
-      entityKey: 'Украинская ССР',
-      geoTarget: 'Украина',
-      flag: '⚒️🟥',
-      isAutonomy: true,
-      sovereign: 'СССР',
-      faction: 'Евразийский Союз',
-      faction_color: '#ef4444',
-      entityType: 'Автономия'
+      entityKey: 'Гренландия',
+      geoTarget: 'Гренландия',
+      flag: '🇬🇱',
+      isAutonomy: isAut,
+      sovereign: isAut ? 'Дания' : null,
+      faction: 'Атлантический Пакт',
+      faction_color: '#3b82f6',
+      entityType: isAut ? 'Автономия' : 'Государство',
+      isLeader: !isAut
     };
   }
+
+  // 2. Дания
+  if (nick.includes('Дания') || nick.includes('🇩🇰')) {
+    return {
+      entityKey: 'Дания',
+      geoTarget: 'Дания',
+      flag: '🇩🇰',
+      isAutonomy: false,
+      sovereign: null,
+      faction: 'Атлантический Пакт',
+      faction_color: '#3b82f6',
+      entityType: 'Государство',
+      isLeader: true
+    };
+  }
+
+  // 3. СССР / ССГ
+  if (nick.includes('СССР') || nick.includes('ССГ') || nick.includes('☭')) {
+    return {
+      entityKey: 'СССР',
+      geoTarget: 'СССР',
+      flag: '⚒️🟥',
+      isAutonomy: false,
+      sovereign: null,
+      faction: 'Евразийский Союз',
+      faction_color: '#ef4444',
+      entityType: 'Государство',
+      isLeader: true
+    };
+  }
+
+  // 4. Украина (вышла из состава СССР / независимое государство или автономия)
+  if (nick.includes('Украина') || nick.includes('Украин') || nick.includes('🇺🇦')) {
+    const isAut = nick.includes('УССР') || nick.includes('Украинская ССР') || entityType === 'Автономия';
+    return {
+      entityKey: isAut ? 'Украинская ССР' : 'Украина',
+      geoTarget: 'Украина',
+      flag: isAut ? '⚒️🟥' : '🇺🇦',
+      isAutonomy: isAut,
+      sovereign: isAut ? 'СССР' : null,
+      faction: isAut ? 'Евразийский Союз' : 'Атлантический Пакт',
+      faction_color: isAut ? '#ef4444' : '#3b82f6',
+      entityType: isAut ? 'Автономия' : 'Государство',
+      isLeader: !isAut
+    };
+  }
+
+  // 5. Беларусь (вышла из состава СССР / независимое государство или автономия)
+  if (nick.includes('Беларусь') || nick.includes('Беларус') || nick.includes('🇧🇾')) {
+    const isAut = nick.includes('БССР') || nick.includes('Белорусская ССР') || entityType === 'Автономия';
+    return {
+      entityKey: isAut ? 'Белорусская ССР' : 'Беларусь',
+      geoTarget: 'Беларусь',
+      flag: isAut ? '⚒️🟥' : '🇧🇾',
+      isAutonomy: isAut,
+      sovereign: isAut ? 'СССР' : null,
+      faction: isAut ? 'Евразийский Союз' : 'Нейтралитет',
+      faction_color: isAut ? '#ef4444' : '#10b981',
+      entityType: isAut ? 'Автономия' : 'Государство',
+      isLeader: !isAut
+    };
+  }
+
+  // 6. Литва и Эстония
+  if (nick.includes('Литва') || nick.includes('🇱🇹')) {
+    const isAut = nick.includes('Литовская ССР') || entityType === 'Автономия';
+    return {
+      entityKey: isAut ? 'Литовская ССР' : 'Литва',
+      geoTarget: 'Литва',
+      flag: isAut ? '⚒️🟥' : '🇱🇹',
+      isAutonomy: isAut,
+      sovereign: isAut ? 'СССР' : null,
+      faction: isAut ? 'Евразийский Союз' : 'Атлантический Пакт',
+      faction_color: isAut ? '#ef4444' : '#3b82f6',
+      entityType: isAut ? 'Автономия' : 'Государство',
+      isLeader: !isAut
+    };
+  }
+  if (nick.includes('Эстония') || nick.includes('Эстонск') || nick.includes('🇪🇪')) {
+    const isAut = nick.includes('Эстонская ССР') || entityType === 'Автономия';
+    return {
+      entityKey: isAut ? 'Эстонская ССР' : 'Эстония',
+      geoTarget: 'Эстония',
+      flag: isAut ? '⚒️🟥' : '🇪🇪',
+      isAutonomy: isAut,
+      sovereign: isAut ? 'СССР' : null,
+      faction: isAut ? 'Евразийский Союз' : 'Атлантический Пакт',
+      faction_color: isAut ? '#ef4444' : '#3b82f6',
+      entityType: isAut ? 'Автономия' : 'Государство',
+      isLeader: !isAut
+    };
+  }
+
+  // 7. Прочие Советские республики (если зарегистрированы как автономии)
   if (nick.includes('Казахская ССР')) {
     return {
       entityKey: 'Казахская ССР',
@@ -358,20 +460,8 @@ function resolvePlayerEntity(p) {
       entityType: 'Автономия'
     };
   }
-  if (nick.includes('Литовская ССР')) {
-    return {
-      entityKey: 'Литовская ССР',
-      geoTarget: 'Литва',
-      flag: '⚒️🟥',
-      isAutonomy: true,
-      sovereign: 'СССР',
-      faction: 'Евразийский Союз',
-      faction_color: '#ef4444',
-      entityType: 'Автономия'
-    };
-  }
 
-  // 2. Автономии и владения Великобритании
+  // 8. Автономии и владения Великобритании
   if (nick.includes('Родезия')) {
     return {
       entityKey: 'Южная Родезия',
@@ -397,7 +487,7 @@ function resolvePlayerEntity(p) {
     };
   }
 
-  // 3. Автономии Франции
+  // 9. Автономии Франции
   if (nick.includes('Алжир')) {
     return {
       entityKey: 'Алжир',
@@ -411,7 +501,7 @@ function resolvePlayerEntity(p) {
     };
   }
 
-  // 4. ЧВК и международные организации
+  // 10. ЧВК и международные организации
   if (nick.includes('DynCorp') || (rawCountry === 'Франция' && entityType === 'ЧВК')) {
     return {
       entityKey: 'DynCorp',
@@ -419,6 +509,15 @@ function resolvePlayerEntity(p) {
       flag: '🏢',
       isPmc: true,
       sovereign: 'Франция',
+      entityType: 'ЧВК'
+    };
+  }
+  if (nick.includes('Executive Outcomes') || nick.includes('🏢')) {
+    return {
+      entityKey: 'Executive Outcomes',
+      geoTarget: null,
+      flag: '🏢',
+      isPmc: true,
       entityType: 'ЧВК'
     };
   }
@@ -432,7 +531,7 @@ function resolvePlayerEntity(p) {
     };
   }
 
-  // 5. КНР vs ГДР (belousov01 имеет ник 🇨🇳 | КНР)
+  // 11. КНР
   if (nick.includes('КНР') || nick.includes('Китай') || nick.includes('🇨🇳')) {
     return {
       entityKey: 'КНР',
@@ -446,7 +545,7 @@ function resolvePlayerEntity(p) {
     };
   }
 
-  // 6. Тайвань vs США (beezymeas имеет ник 🇹🇼 | Тайвань)
+  // 12. Тайвань
   if (nick.includes('Тайвань') || nick.includes('🇹🇼')) {
     return {
       entityKey: 'Тайвань',
@@ -460,7 +559,7 @@ function resolvePlayerEntity(p) {
     };
   }
 
-  // 7. Разделение Германии: ГДР vs ФРГ
+  // 13. Разделение Германии: ГДР vs ФРГ
   if (nick.includes('СРБП') || nick.includes('ГДР')) {
     return {
       entityKey: 'ГДР',
@@ -486,20 +585,8 @@ function resolvePlayerEntity(p) {
     };
   }
 
-  // 8. Главы государств (Метрополии)
-  if (nick.includes('СССР')) {
-    return {
-      entityKey: 'СССР',
-      geoTarget: 'СССР',
-      flag: '⚒️🟥',
-      isAutonomy: false,
-      faction: 'Евразийский Союз',
-      faction_color: '#ef4444',
-      entityType: 'Государство',
-      isLeader: true
-    };
-  }
-  if (nick.includes('Великобритания')) {
+  // 14. Главы государств и метрополии
+  if (nick.includes('Великобритания') || nick.includes('🇬🇧')) {
     return {
       entityKey: 'Великобритания',
       geoTarget: 'Великобритания',
@@ -511,7 +598,7 @@ function resolvePlayerEntity(p) {
       isLeader: true
     };
   }
-  if (nick.includes('Франция')) {
+  if (nick.includes('Франция') || nick.includes('🇫🇷')) {
     return {
       entityKey: 'Франция',
       geoTarget: 'Франция',
@@ -523,7 +610,7 @@ function resolvePlayerEntity(p) {
       isLeader: true
     };
   }
-  if (nick.includes('США')) {
+  if (nick.includes('США') || nick.includes('🇺🇸')) {
     return {
       entityKey: 'США',
       geoTarget: 'США',
@@ -535,8 +622,68 @@ function resolvePlayerEntity(p) {
       isLeader: true
     };
   }
+  if (nick.includes('Израиль') || nick.includes('🇮🇱')) {
+    return {
+      entityKey: 'Израиль',
+      geoTarget: 'Израиль',
+      flag: '🇮🇱',
+      isAutonomy: false,
+      faction: 'Атлантический Пакт',
+      faction_color: '#3b82f6',
+      entityType: 'Государство',
+      isLeader: true
+    };
+  }
+  if (nick.includes('Швеция') || nick.includes('🇸🇪')) {
+    return {
+      entityKey: 'Швеция',
+      geoTarget: 'Швеция',
+      flag: '🇸🇪',
+      isAutonomy: false,
+      faction: 'Нейтралитет',
+      faction_color: '#10b981',
+      entityType: 'Государство',
+      isLeader: true
+    };
+  }
+  if (nick.includes('Финляндия') || nick.includes('🇫🇮')) {
+    return {
+      entityKey: 'Финляндия',
+      geoTarget: 'Финляндия',
+      flag: '🇫🇮',
+      isAutonomy: false,
+      faction: 'Нейтралитет',
+      faction_color: '#10b981',
+      entityType: 'Государство',
+      isLeader: true
+    };
+  }
+  if (nick.includes('Египет') || nick.includes('🇪🇬')) {
+    return {
+      entityKey: 'Египет',
+      geoTarget: 'Египет',
+      flag: '🇪🇬',
+      isAutonomy: false,
+      faction: 'Ближневосточная Лига',
+      faction_color: '#a855f7',
+      entityType: 'Государство',
+      isLeader: true
+    };
+  }
+  if (nick.includes('ЮАР') || nick.includes('🇿🇦')) {
+    return {
+      entityKey: 'ЮАР',
+      geoTarget: 'ЮАР',
+      flag: '🇿🇦',
+      isAutonomy: false,
+      faction: 'Нейтралитет',
+      faction_color: '#10b981',
+      entityType: 'Государство',
+      isLeader: true
+    };
+  }
 
-  // 9. Обычные государства
+  // 15. Обычные государства
   return {
     entityKey: rawCountry || 'Неизвестно',
     geoTarget: rawCountry || null,
@@ -614,7 +761,7 @@ function normalizeIncomingData(rawData) {
 
     // Добавляем страны из countries_count, которых нет в all_players
     for (const [countryName, count] of Object.entries(rawData.countries_count)) {
-      if (!entitiesMap.has(countryName) && !['СССР', 'ГДР', 'ФРГ', 'Франция', 'Великобритания', 'США'].includes(countryName)) {
+      if (!entitiesMap.has(countryName) && !['СССР', 'ГДР', 'ФРГ', 'Франция', 'Великобритания', 'США', 'Дания'].includes(countryName)) {
         entitiesMap.set(countryName, {
           name: countryName,
           geoTarget: countryName,
@@ -627,8 +774,8 @@ function normalizeIncomingData(rawData) {
       }
     }
 
-    // Собираем зависимости автономий для метрополий (СССР, Великобритания, Франция)
-    const autonomiesBySovereign = { 'СССР': [], 'Великобритания': [], 'Франция': [] };
+    // Собираем зависимости автономий для метрополий (СССР, Великобритания, Франция, Дания)
+    const autonomiesBySovereign = { 'СССР': [], 'Великобритания': [], 'Франция': [], 'Дания': [] };
     for (const ent of entitiesMap.values()) {
       if (ent.isAutonomy && ent.sovereign && autonomiesBySovereign[ent.sovereign]) {
         autonomiesBySovereign[ent.sovereign].push(ent.name);
@@ -879,22 +1026,21 @@ function applyCountriesData(countriesList) {
       const altKey = rep.altRu ? normName(rep.altRu) : null;
       const isoKey = rep.iso2.toLowerCase();
 
-      // Проверяем, есть ли для этой республики отдельный зарегистрированный игрок-автономия
-      const existingAutonomy = (activeCountriesMap.has(repKey) && activeCountriesMap.get(repKey).isAutonomy)
-        || (activeCountriesMap.has(nameKey) && activeCountriesMap.get(nameKey).isAutonomy);
+      // Проверяем, есть ли для этой республики зарегистрированный игрок (автономия или вышедшее независимое государство)
+      const existingEntity = activeCountriesMap.get(nameKey) || activeCountriesMap.get(repKey) || activeCountriesMap.get(isoKey);
 
-      if (existingAutonomy) {
-        // Связываем автономию с СССР: советский красный цвет фракции
-        const autRecord = activeCountriesMap.get(repKey) || activeCountriesMap.get(nameKey);
-        if (autRecord) {
-          autRecord.faction = ussrRecord.faction || 'Евразийский Союз';
-          autRecord.faction_color = ussrRecord.faction_color || '#ef4444';
-          autRecord.sovereign = 'СССР';
-          activeCountriesMap.set(nameKey, autRecord);
-          activeCountriesMap.set(repKey, autRecord);
-          activeCountriesMap.set(isoKey, autRecord);
-          if (altKey) activeCountriesMap.set(altKey, autRecord);
+      if (existingEntity) {
+        if (existingEntity.isAutonomy) {
+          // Связываем автономию с СССР: советский красный цвет фракции
+          existingEntity.faction = ussrRecord.faction || 'Евразийский Союз';
+          existingEntity.faction_color = ussrRecord.faction_color || '#ef4444';
+          existingEntity.sovereign = 'СССР';
+          activeCountriesMap.set(nameKey, existingEntity);
+          activeCountriesMap.set(repKey, existingEntity);
+          activeCountriesMap.set(isoKey, existingEntity);
+          if (altKey) activeCountriesMap.set(altKey, existingEntity);
         }
+        // Если это уже независимое государство (вышло из состава СССР, например Украина или Беларусь) - оставляем его суверенным!
       } else if (rep.iso2 !== 'RU') {
         // Прямая территория СССР (Беларусь, Узбекистан, Туркменистан, Кыргызстан, Таджикистан, Азербайджан, Грузия, Армения, Молдова, Латвия, Эстония)
         // Получает красный цвет СССР без добавления лишнего маркера-бейджа на карту
