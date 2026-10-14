@@ -20,6 +20,7 @@ let isAutoRotating = true;
 let isPollingActive = true;
 let pollTimer = null;
 let hoveredCountryName = null;
+let activeFactionFilter = null; // Текущий выбранный альянс для фильтрации/подсветки
 
 // Фракционные цвета по умолчанию
 const FACTION_COLORS = {
@@ -28,7 +29,7 @@ const FACTION_COLORS = {
   'Тихоокеанский Блок': '#f59e0b',
   'Ближневосточная Лига': '#a855f7',
   'Нейтралитет': '#10b981',
-  'default': '#4ade80'
+  'default': '#10b981'
 };
 
 // Привязка стран к блокам для ВПИ (холодная война / современность)
@@ -39,6 +40,7 @@ const COUNTRY_DEFAULT_FACTIONS = {
   'франция': { faction: 'Атлантический Пакт', color: '#3b82f6' },
   'фрг': { faction: 'Атлантический Пакт', color: '#3b82f6' },
   'германия': { faction: 'Атлантический Пакт', color: '#3b82f6' },
+  'дания': { faction: 'Атлантический Пакт', color: '#3b82f6' },
   'южная родезия': { faction: 'Атлантический Пакт', color: '#3b82f6' },
   'родезия': { faction: 'Атлантический Пакт', color: '#3b82f6' },
   'англо-египетский судан': { faction: 'Атлантический Пакт', color: '#3b82f6' },
@@ -51,6 +53,7 @@ const COUNTRY_DEFAULT_FACTIONS = {
 
   // Евразийский Союз / Варшавский блок (Восток)
   'ссср': { faction: 'Евразийский Союз', color: '#ef4444' },
+  'украина': { faction: 'Евразийский Союз', color: '#ef4444' },
   'украинская сср': { faction: 'Евразийский Союз', color: '#ef4444' },
   'казахская сср': { faction: 'Евразийский Союз', color: '#ef4444' },
   'литовская сср': { faction: 'Евразийский Союз', color: '#ef4444' },
@@ -76,9 +79,11 @@ const COUNTRY_DEFAULT_FACTIONS = {
   'австралия': { faction: 'Тихоокеанский Блок', color: '#f59e0b' },
 
   // Нейтралы / Движение неприсоединения
+  'беларусь': { faction: 'Нейтралитет', color: '#10b981' },
   'швейцария': { faction: 'Нейтралитет', color: '#10b981' },
   'австрия': { faction: 'Нейтралитет', color: '#10b981' },
   'швеция': { faction: 'Нейтралитет', color: '#10b981' },
+  'финляндия': { faction: 'Нейтралитет', color: '#10b981' },
   'ирландия': { faction: 'Нейтралитет', color: '#10b981' },
   'югославия': { faction: 'Нейтралитет', color: '#10b981' },
   'бразилия': { faction: 'Нейтралитет', color: '#10b981' },
@@ -316,13 +321,28 @@ function findFeature(countryQuery) {
 }
 
 /**
- * Извлечение флага-эмодзи из display_name игрока в Discord (например: "🇮🇶 | Ирак" -> "🇮🇶")
+ * Преобразование 2-буквенного ISO-кода в эмодзи флага (например "BY" -> "🇧🇾")
+ */
+function isoToEmoji(code) {
+  if (!code) return null;
+  const c = code.trim().toUpperCase();
+  if (/^[A-Z]{2}$/.test(c)) {
+    const codePoints = [...c].map(char => 127397 + char.charCodeAt(0));
+    return String.fromCodePoint(...codePoints);
+  }
+  return null;
+}
+
+/**
+ * Извлечение флага-эмодзи из display_name игрока в Discord (например: "🇮🇶 | Ирак" -> "🇮🇶", "BY | Рэспубліка Беларусь" -> "🇧🇾")
  */
 function extractFlagFromDisplay(displayName) {
   if (!displayName || typeof displayName !== 'string') return null;
   const parts = displayName.split('|');
   if (parts.length > 1) {
     const candidate = parts[0].trim();
+    const isoFlag = isoToEmoji(candidate);
+    if (isoFlag) return isoFlag;
     // Игнорируем технические символы и иконки ЧВК
     if (candidate && candidate !== '🏢' && candidate !== '•' && candidate.length <= 8) {
       return candidate;
@@ -385,33 +405,33 @@ function resolvePlayerEntity(p) {
     };
   }
 
-  // 4. Украина (вышла из состава СССР / независимое государство или автономия)
-  if (nick.includes('Украина') || nick.includes('Украин') || nick.includes('🇺🇦')) {
-    const isAut = nick.includes('УССР') || nick.includes('Украинская ССР') || entityType === 'Автономия';
+  // 4. Украина (вышла из состава СССР в 1991 году / суверенное государство)
+  if (nick.includes('Украина') || nick.includes('Украин') || nick.includes('🇺🇦') || rawCountry === 'Украина' || rawCountry === 'Украинская ССР' || p.username === 'ohixxx') {
+    const isAut = (nick.includes('УССР') || nick.includes('Украинская ССР')) && !nick.includes('Украина') && entityType === 'Автономия';
     return {
       entityKey: isAut ? 'Украинская ССР' : 'Украина',
       geoTarget: 'Украина',
       flag: isAut ? '⚒️🟥' : '🇺🇦',
       isAutonomy: isAut,
       sovereign: isAut ? 'СССР' : null,
-      faction: isAut ? 'Евразийский Союз' : 'Атлантический Пакт',
-      faction_color: isAut ? '#ef4444' : '#3b82f6',
+      faction: 'Евразийский Союз',
+      faction_color: '#ef4444',
       entityType: isAut ? 'Автономия' : 'Государство',
       isLeader: !isAut
     };
   }
 
-  // 5. Беларусь (вышла из состава СССР / независимое государство или автономия)
-  if (nick.includes('Беларусь') || nick.includes('Беларус') || nick.includes('🇧🇾')) {
-    const isAut = nick.includes('БССР') || nick.includes('Белорусская ССР') || entityType === 'Автономия';
+  // 5. Беларусь (вышла из состава СССР в 1991 году / суверенное государство)
+  if (nick.includes('Беларусь') || nick.includes('Беларус') || nick.includes('🇧🇾') || rawCountry === 'Беларусь' || rawCountry === 'Белорусская ССР' || p.username === 'ponzc') {
+    const isAut = (nick.includes('БССР') || nick.includes('Белорусская ССР')) && !nick.includes('Беларусь') && entityType === 'Автономия';
     return {
       entityKey: isAut ? 'Белорусская ССР' : 'Беларусь',
       geoTarget: 'Беларусь',
       flag: isAut ? '⚒️🟥' : '🇧🇾',
       isAutonomy: isAut,
       sovereign: isAut ? 'СССР' : null,
-      faction: isAut ? 'Евразийский Союз' : 'Нейтралитет',
-      faction_color: isAut ? '#ef4444' : '#10b981',
+      faction: 'Нейтралитет',
+      faction_color: '#10b981',
       entityType: isAut ? 'Автономия' : 'Государство',
       isLeader: !isAut
     };
@@ -759,19 +779,38 @@ function normalizeIncomingData(rawData) {
       });
     }
 
-    // Добавляем страны из countries_count, которых нет в all_players
+    // Добавляем страны из countries_count, которых действительно нет в all_players
     for (const [countryName, count] of Object.entries(rawData.countries_count)) {
-      if (!entitiesMap.has(countryName) && !['СССР', 'ГДР', 'ФРГ', 'Франция', 'Великобритания', 'США', 'Дания'].includes(countryName)) {
-        entitiesMap.set(countryName, {
-          name: countryName,
-          geoTarget: countryName,
-          flag: null,
-          playerCount: count,
-          playersList: [],
-          entityTypes: new Set(['Государство']),
-          categories: new Set()
-        });
+      const qNorm = normName(countryName);
+      const alias = COUNTRY_ALIASES[qNorm] || qNorm;
+
+      // Проверяем, существует ли уже такая сущность по прямому имени или алиасу
+      let exists = false;
+      for (const [k, v] of entitiesMap.entries()) {
+        const kNorm = normName(k);
+        const kGeo = normName(v.geoTarget);
+        if (kNorm === qNorm || kNorm === alias || kGeo === qNorm || kGeo === alias) {
+          exists = true;
+          v.playerCount = Math.max(v.playerCount || 0, count);
+          break;
+        }
       }
+
+      // Не создаем фантомы для советских республик или уже известных суверенных стран
+      const isHistoricalRep = ['белорусская сср', 'украинская сср', 'казахская сср', 'литовская сср', 'эстонская сср', 'молдавская сср'].includes(qNorm);
+      if (exists || isHistoricalRep || ['ссср', 'гдр', 'фрг', 'франция', 'великобритания', 'сша', 'дания', 'беларусь', 'украина'].includes(qNorm)) {
+        continue;
+      }
+
+      entitiesMap.set(countryName, {
+        name: countryName,
+        geoTarget: countryName,
+        flag: null,
+        playerCount: count,
+        playersList: [],
+        entityTypes: new Set(['Государство']),
+        categories: new Set()
+      });
     }
 
     // Собираем зависимости автономий для метрополий (СССР, Великобритания, Франция, Дания)
@@ -786,7 +825,14 @@ function normalizeIncomingData(rawData) {
     const resultList = [];
     for (const [entityName, item] of entitiesMap.entries()) {
       const qNorm = normName(entityName);
-      const factionDef = item.faction ? { faction: item.faction, color: item.faction_color } : (COUNTRY_DEFAULT_FACTIONS[qNorm] || { faction: 'Независимое государство', color: '#4ade80' });
+      let fName = item.faction;
+      let fColor = item.faction_color;
+      if (!fName || fName === 'Независимое государство') {
+        const def = COUNTRY_DEFAULT_FACTIONS[qNorm] || { faction: 'Нейтралитет', color: '#10b981' };
+        fName = (def.faction === 'Независимое государство') ? 'Нейтралитет' : def.faction;
+        fColor = def.color || '#10b981';
+      }
+      const factionDef = { faction: fName, color: fColor };
 
       // Сортируем игроков: Лидер государства всегда на 1 месте!
       item.playersList.sort((a, b) => (b.isLeader ? 1 : 0) - (a.isLeader ? 1 : 0));
@@ -959,7 +1005,7 @@ function applyCountriesData(countriesList) {
     }
     if (!factionColor) {
       const qNorm = normName(item.name);
-      factionColor = COUNTRY_DEFAULT_FACTIONS[qNorm]?.color || '#4ade80';
+      factionColor = COUNTRY_DEFAULT_FACTIONS[qNorm]?.color || '#10b981';
     }
 
     // Координаты центроида: приоритет точным координатам объекта/автономии
@@ -974,12 +1020,18 @@ function applyCountriesData(countriesList) {
       coords = feat.properties.centroid;
     }
 
+    let fName = item.faction;
+    if (!fName || fName === 'Независимое государство') {
+      fName = COUNTRY_DEFAULT_FACTIONS[nameNorm]?.faction || 'Нейтралитет';
+      if (fName === 'Независимое государство') fName = 'Нейтралитет';
+    }
+
     const countryRecord = {
       name: item.name,
       geoTarget: item.geoTarget || item.name,
       canonicalName: feat?.properties?.name_ru || item.name,
       flag: flag,
-      faction: item.faction || COUNTRY_DEFAULT_FACTIONS[nameNorm]?.faction || 'Независимое государство',
+      faction: fName,
       faction_color: factionColor,
       player: item.player || null,
       playerCount: item.playerCount || (item.player ? 1 : 0),
@@ -999,16 +1051,19 @@ function applyCountriesData(countriesList) {
       feature: feat
     };
 
-    activeCountriesMap.set(normName(item.name), countryRecord);
-    if (item.geoTarget) {
-      activeCountriesMap.set(normName(item.geoTarget), countryRecord);
-    }
-    if (feat?.properties?.name_ru) {
-      activeCountriesMap.set(normName(feat.properties.name_ru), countryRecord);
-    }
-    if (feat?.properties?.iso2) {
-      activeCountriesMap.set(feat.properties.iso2.toLowerCase(), countryRecord);
-    }
+    const setSafe = (key, rec) => {
+      if (!key) return;
+      const ex = activeCountriesMap.get(key);
+      if (ex && ex.allPlayers?.length > 0 && (!rec.allPlayers || rec.allPlayers.length === 0)) {
+        return; // Не перезаписываем сущность с реальными игроками пустой болванкой!
+      }
+      activeCountriesMap.set(key, rec);
+    };
+
+    setSafe(normName(item.name), countryRecord);
+    if (item.geoTarget) setSafe(normName(item.geoTarget), countryRecord);
+    if (feat?.properties?.name_ru) setSafe(normName(feat.properties.name_ru), countryRecord);
+    if (feat?.properties?.iso2) setSafe(feat.properties.iso2.toLowerCase(), countryRecord);
 
     if (coords && !countryRecord.isUnionTerritory) {
       htmlMarkers.push(countryRecord);
@@ -1107,6 +1162,18 @@ function createFlagMarkerElement(country) {
   wrapper.className = 'globe-flag-pin';
   wrapper.setAttribute('data-country', country.name);
 
+  if (activeFactionFilter) {
+    if (country.faction === activeFactionFilter) {
+      wrapper.classList.add('pin-highlighted');
+      wrapper.style.transform = 'scale(1.15)';
+    } else {
+      wrapper.classList.add('pin-dimmed');
+      wrapper.style.opacity = '0.12';
+      wrapper.style.pointerEvents = 'none';
+      wrapper.style.transform = 'scale(0.85)';
+    }
+  }
+
   const pBadge = country.playerCount > 1 ? `<span class="flag-count-pill">${country.playerCount}</span>` : '';
 
   wrapper.innerHTML = `
@@ -1124,6 +1191,65 @@ function createFlagMarkerElement(country) {
   });
 
   return wrapper;
+}
+
+/**
+ * Переключение подсветки альянса на глобусе без открытия модального окна
+ */
+export function toggleFactionFilter(faction) {
+  closeCountryCard();
+  const buttons = document.querySelectorAll('.legend-pills button[data-faction]');
+
+  if (activeFactionFilter === faction) {
+    // Снимаем фильтр
+    activeFactionFilter = null;
+    buttons.forEach(b => b.classList.remove('active'));
+  } else {
+    activeFactionFilter = faction;
+    buttons.forEach(b => {
+      if (b.getAttribute('data-faction') === faction) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+  }
+
+  // Обновляем полигоны на глобусе
+  if (globeInstance) {
+    globeInstance.polygonsData([...allFeatures]);
+  }
+
+  // Обновляем визуальное состояние меток
+  updateMarkerFilterStyles();
+}
+
+/**
+ * Синхронизация подсветки и затемнения маркеров на сфере
+ */
+function updateMarkerFilterStyles() {
+  document.querySelectorAll('.globe-flag-pin').forEach(el => {
+    const cName = el.getAttribute('data-country');
+    const cRecord = activeCountriesMap.get(normName(cName));
+    if (!activeFactionFilter) {
+      el.classList.remove('pin-dimmed', 'pin-highlighted');
+      el.style.opacity = '';
+      el.style.pointerEvents = '';
+      el.style.transform = '';
+    } else if (cRecord && cRecord.faction === activeFactionFilter) {
+      el.classList.remove('pin-dimmed');
+      el.classList.add('pin-highlighted');
+      el.style.opacity = '1';
+      el.style.pointerEvents = 'auto';
+      el.style.transform = 'scale(1.15)';
+    } else {
+      el.classList.add('pin-dimmed');
+      el.classList.remove('pin-highlighted');
+      el.style.opacity = '0.12';
+      el.style.pointerEvents = 'none';
+      el.style.transform = 'scale(0.85)';
+    }
+  });
 }
 
 /**
@@ -1165,9 +1291,10 @@ function showCountryCard(country) {
   if (flagEl) flagEl.textContent = country.flag || '🏳️';
   if (nameEl) nameEl.textContent = country.name;
   if (factionEl) {
-    factionEl.textContent = country.faction || 'Независимое государство';
-    factionEl.style.color = country.faction_color || '#4ade80';
-    factionEl.style.borderColor = country.faction_color || '#4ade80';
+    const fDisplay = (!country.faction || country.faction === 'Независимое государство') ? 'Нейтралитет' : country.faction;
+    factionEl.textContent = fDisplay;
+    factionEl.style.color = country.faction_color || '#10b981';
+    factionEl.style.borderColor = country.faction_color || '#10b981';
   }
 
   // Форматирование списка игроков
@@ -1307,11 +1434,25 @@ export async function initGlobeNavigation() {
     .polygonCapColor(d => {
       const active = getActiveCountryForFeature(d);
       if (active) {
+        if (activeFactionFilter) {
+          if (active.faction === activeFactionFilter) {
+            return hexToRgba(active.faction_color, 0.45);
+          }
+          return 'rgba(15, 20, 30, 0.04)';
+        }
         return hexToRgba(active.faction_color, 0.16);
       }
       return 'rgba(0, 0, 0, 0)'; // Полностью прозрачное тело -> ТОЛЬКО контуры
     })
-    .polygonSideColor(() => 'rgba(0, 0, 0, 0)')
+    .polygonSideColor(d => {
+      if (activeFactionFilter) {
+        const active = getActiveCountryForFeature(d);
+        if (active && active.faction === activeFactionFilter) {
+          return hexToRgba(active.faction_color, 0.35);
+        }
+      }
+      return 'rgba(0, 0, 0, 0)';
+    })
     .polygonStrokeColor(d => {
       const qNorm = normName(d.properties?.name_ru);
       const active = getActiveCountryForFeature(d);
@@ -1319,13 +1460,25 @@ export async function initGlobeNavigation() {
         return '#ffffff';
       }
       if (active) {
-        return active.faction_color || '#4ade80';
+        if (activeFactionFilter) {
+          if (active.faction === activeFactionFilter) {
+            return active.faction_color || '#10b981';
+          }
+          return 'rgba(60, 65, 80, 0.12)';
+        }
+        return active.faction_color || '#10b981';
       }
-      return 'rgba(100, 140, 180, 0.28)'; // Тонкий ненавязчивый контур остальных стран
+      return activeFactionFilter ? 'rgba(40, 45, 55, 0.08)' : 'rgba(100, 140, 180, 0.28)'; // Тонкий ненавязчивый контур остальных стран
     })
     .polygonAltitude(d => {
       const active = getActiveCountryForFeature(d);
-      return active ? 0.012 : 0.003;
+      if (active) {
+        if (activeFactionFilter) {
+          return active.faction === activeFactionFilter ? 0.024 : 0.002;
+        }
+        return 0.012;
+      }
+      return 0.003;
     })
     .polygonLabel(d => {
       const active = getActiveCountryForFeature(d);
@@ -1550,20 +1703,13 @@ function setupGlobeControls() {
     });
   }
 
-  // Клик по фракционным бейджам внизу схемы
+  // Клик по фракционным бейджам внизу схемы: выделение стран альянса на глобусе
   document.querySelectorAll('.legend-pills button[data-faction]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const faction = btn.getAttribute('data-faction');
       if (!faction) return;
-
-      // Ищем первую активную страну этой фракции
-      for (const country of activeCountriesMap.values()) {
-        if (country.faction === faction) {
-          focusCountry(country);
-          break;
-        }
-      }
+      toggleFactionFilter(faction);
     });
   });
 }

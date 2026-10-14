@@ -101,6 +101,12 @@ export function openCountryModal(key) {
   };
 
   if (d.balance != null) addRow('Бюджет / Баланс', fmtNum(d.balance));
+  if (d.credits != null) addRow('Кредиты казино', fmtNum(d.credits) + ' 💎');
+  if (d.casino_stats) {
+    const cs = d.casino_stats;
+    addRow('Статистика казино', `${cs.games || 0} игр (Побед: ${cs.wins || 0}, Поражений: ${cs.losses || 0})`);
+    if (cs.max_win) addRow('Максимальный выигрыш', fmtNum(cs.max_win) + ' 💎');
+  }
   if (d.support != null) addRow('Поддержка населения', (typeof d.support === 'number' ? d.support.toFixed(1) + '%' : d.support));
   if (d.corruption != null) addRow('Уровень коррупции', (typeof d.corruption === 'number' ? d.corruption.toFixed(1) + '%' : d.corruption));
   if (d.ideology) {
@@ -251,8 +257,12 @@ export async function fetchSeasonData() {
             else if (nick.includes('Алжир')) { cName = 'Алжир'; flagEmoji = '🇩🇿'; hostCountry = 'Франция'; }
           } else {
             // Независимые государства (с учетом отделения от Союза и ников)
-            if (nick.includes('Беларусь') || nick.includes('🇧🇾')) { cName = 'Беларусь'; flagEmoji = '🇧🇾'; }
-            else if (nick.includes('Украина') || nick.includes('🇺🇦')) { cName = 'Украина'; flagEmoji = '🇺🇦'; }
+            if (nick.includes('Беларусь') || nick.includes('Беларус') || nick.includes('🇧🇾') || nick.startsWith('BY') || p.country === 'Белорусская ССР' || p.country === 'Беларусь' || p.username === 'ponzc') { 
+              cName = 'Беларусь'; flagEmoji = '🇧🇾'; 
+            }
+            else if (nick.includes('Украина') || nick.includes('Украин') || nick.includes('🇺🇦') || nick.startsWith('UA') || p.country === 'Украинская ССР' || p.country === 'Украина' || p.username === 'ohixxx') { 
+              cName = 'Украина'; flagEmoji = '🇺🇦'; 
+            }
             else if (nick.includes('ССГ') || nick.includes('СССР') || nick.includes('☭')) { cName = 'СССР'; flagEmoji = '⚒️🟥'; }
             else if (nick.includes('Дания') || nick.includes('🇩🇰')) { cName = 'Дания'; flagEmoji = '🇩🇰'; }
             else if (nick.includes('Литва') || nick.includes('🇱🇹')) { cName = 'Литва'; flagEmoji = '🇱🇹'; }
@@ -283,7 +293,9 @@ export async function fetchSeasonData() {
             continent: cc.continent || (hostCountry ? countriesData[hostCountry]?.continent : 'Прочие') || 'Прочие',
             gdp: p.gdp || seasonData[id]?.gdp || cc.gdp || 20387000000,
             population: p.population || seasonData[id]?.population || cc.population || 8575000,
-            balance: p.balance != null ? p.balance : (seasonData[id]?.balance || 0),
+            balance: p.balance != null ? p.balance : (p.credits != null ? p.credits : (seasonData[id]?.balance || 0)),
+            credits: p.credits != null ? p.credits : (seasonData[id]?.credits != null ? seasonData[id].credits : null),
+            casino_stats: p.casino_stats || seasonData[id]?.casino_stats || null,
             support: p.support != null ? p.support : (seasonData[id]?.support ?? 95.0),
             corruption: p.corruption != null ? p.corruption : (seasonData[id]?.corruption ?? 8.0),
             playerId: id,

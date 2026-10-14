@@ -425,11 +425,59 @@ div.scene-tooltip {
 .country-card-footer {
   display: flex;
   justify-content: flex-end;
+  margin-top: 6px;
 }
-.country-card-footer .btn {
-  font-size: 10.5px;
-  padding: 4px 10px;
+.country-dossier-btn {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  font-family: 'JetBrains Mono', 'Segoe UI', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.16) 0%, rgba(15, 23, 42, 0.82) 100%);
+  border: 1px solid var(--faction-color, rgba(74, 222, 128, 0.5));
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 14px rgba(74, 222, 128, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.country-dossier-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transition: left 0.5s ease;
+}
+.country-dossier-btn:hover {
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.32) 0%, rgba(30, 41, 59, 0.95) 100%);
+  border-color: var(--faction-color, #4ade80);
+  box-shadow: 0 0 20px var(--faction-color, rgba(74, 222, 128, 0.45)), 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1.5px);
+  color: #f8fafc;
+}
+.country-dossier-btn:hover::before {
+  left: 100%;
+}
+.country-dossier-btn:hover .dossier-arrow {
+  transform: translateX(3px);
+}
+.country-dossier-btn:active {
+  transform: translateY(0.5px) scale(0.98);
+  box-shadow: 0 0 10px var(--faction-color, rgba(74, 222, 128, 0.3));
+}
+.dossier-arrow {
+  transition: transform 0.2s ease;
+  stroke: var(--faction-color, #4ade80);
 }
 
 /* Нижняя панель легенды и контролов */
@@ -472,6 +520,46 @@ div.scene-tooltip {
   background: rgba(74, 222, 128, 0.15);
   transform: translateY(-1px);
 }
+.l-pill.active {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(-1.5px);
+}
+.l-pill.blue.active {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.6) !important;
+}
+.l-pill.red.active {
+  border-color: #f87171 !important;
+  box-shadow: 0 0 16px rgba(248, 113, 113, 0.6) !important;
+}
+.l-pill.amber.active {
+  border-color: #fbbf24 !important;
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.6) !important;
+}
+.l-pill.purple.active {
+  border-color: #c084fc !important;
+  box-shadow: 0 0 16px rgba(192, 132, 252, 0.6) !important;
+}
+.l-pill.green.active {
+  border-color: #4ade80 !important;
+  box-shadow: 0 0 16px rgba(74, 222, 128, 0.6) !important;
+}
+
+.globe-flag-pin {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.globe-flag-pin.pin-dimmed {
+  opacity: 0.12 !important;
+  pointer-events: none !important;
+  transform: scale(0.85) !important;
+}
+.globe-flag-pin.pin-highlighted .flag-pin-badge {
+  box-shadow: 0 0 25px var(--faction-glow), 0 0 12px var(--faction-color) !important;
+  border-width: 1.5px !important;
+}
+
 .l-pill .dot { width: 6px; height: 6px; border-radius: 50%; }
 .l-pill.blue .dot { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
 .l-pill.red .dot { background: #f87171; box-shadow: 0 0 6px #f87171; }
@@ -744,7 +832,13 @@ div.scene-tooltip {
               </div>
             </div>
             <div class="country-card-footer">
-              <button class="btn btn-sm btn-ghost" id="cardDossierBtn">Открыть досье в сезоне</button>
+              <button class="country-dossier-btn" id="cardDossierBtn">
+                <span>Открыть досье в сезоне</span>
+                <svg class="dossier-arrow" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
 
