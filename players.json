@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-14T21:25:48.895697+00:00",
+  "updated_at": "2026-10-14T21:25:53.585392+00:00",
   "total_active_players": 39,
   "total_non_staff_players": 18,
   "total_staff_who_play": 21,
@@ -3867,7 +3867,16 @@
       "country": null,
       "balance": 6234,
       "credits": 6234,
-      "casino_stats": null,
+      "casino_stats": {
+        "name": "🏢 | MPRI",
+        "games": 1,
+        "wins": 0,
+        "losses": 1,
+        "bet_total": 20,
+        "won_total": 0,
+        "net_profit": -20,
+        "max_win": 0
+      },
       "categories": [
         "ЧВК"
       ],
