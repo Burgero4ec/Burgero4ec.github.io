@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-14T19:34:37.426773+00:00",
+  "updated_at": "2026-10-14T19:55:48.932825+00:00",
   "total_active_players": 39,
   "total_non_staff_players": 18,
   "total_staff_who_play": 21,
@@ -15,7 +15,6 @@
   },
   "countries_count": {
     "Мавритания": 1,
-    "Executive Outcomes": 1,
     "Норвегия": 1,
     "Беларусь": 1,
     "Мексика": 1,
@@ -1291,10 +1290,8 @@
       "is_staff": true,
       "is_registered": true,
       "entity_type": "ЧВК",
-      "countries": [
-        "Executive Outcomes"
-      ],
-      "country": "Executive Outcomes",
+      "countries": [],
+      "country": null,
       "balance": 0,
       "credits": 0,
       "casino_stats": {
