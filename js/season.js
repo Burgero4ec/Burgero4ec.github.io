@@ -86,8 +86,9 @@ export function openCountryModal(key) {
   // Быстрые карточки показателей
   const statsBox = document.getElementById('cmStatsGrid');
   if (statsBox) {
+    const gdpVal = d.gdp != null ? ('$' + fmtNum(d.gdp)) : (d.base_gdp ? ('$' + fmtNum(d.base_gdp)) : '—');
     statsBox.innerHTML = `
-      <div class="cm-stat"><span>ВВП</span><b>${fmtNum(d.gdp != null ? d.gdp : d.base_gdp)}</b></div>
+      <div class="cm-stat"><span>ВВП (Номинал)</span><b>${gdpVal}</b></div>
       <div class="cm-stat"><span>Население</span><b>${fmtNum(d.population)}</b></div>
       <div class="cm-stat"><span>Рождаемость</span><b>${d.birth_rate != null ? d.birth_rate + '‰' : '—'}</b></div>
       <div class="cm-stat"><span>Ресурс. индекс</span><b>${d.resource_index != null ? d.resource_index : '—'}</b></div>
@@ -100,26 +101,29 @@ export function openCountryModal(key) {
     if (v) detailsHtml += `<div class="kv"><span>${k}</span><b>${v}</b></div>`;
   };
 
-  if (d.balance != null) addRow('Бюджет / Баланс', fmtNum(d.balance));
-  if (d.credits != null) addRow('Кредиты казино', fmtNum(d.credits) + ' 💎');
-  if (d.casino_stats) {
-    const cs = d.casino_stats;
-    addRow('Статистика казино', `${cs.games || 0} игр (Побед: ${cs.wins || 0}, Поражений: ${cs.losses || 0})`);
-    if (cs.max_win) addRow('Максимальный выигрыш', fmtNum(cs.max_win) + ' 💎');
-  }
+  if (d.balance != null) addRow('Бюджет / Баланс', '$' + fmtNum(d.balance));
+  if (d.profit != null) addRow('Прибыль', '$' + fmtNum(d.profit) + ' / час');
+  if (d.gdp_ppp != null) addRow('ВВП (ППС)', '$' + fmtNum(d.gdp_ppp));
+  if (d.level) addRow('Уровень развития', esc(d.level));
   if (d.support != null) addRow('Поддержка населения', (typeof d.support === 'number' ? d.support.toFixed(1) + '%' : d.support));
   if (d.corruption != null) addRow('Уровень коррупции', (typeof d.corruption === 'number' ? d.corruption.toFixed(1) + '%' : d.corruption));
   if (d.ideology) {
-    addRow('Гос. строй', esc(d.ideology.state || '—'));
-    addRow('Экономический строй', esc(d.ideology.economy || '—'));
+    if (d.ideology.state) addRow('Гос. аппарат', esc(d.ideology.state));
+    if (d.ideology.economy) addRow('Экономический строй', esc(d.ideology.economy));
   }
   if (d.specialization) addRow('Специализация', SPEC_NAMES[d.specialization] || esc(d.specialization));
+  if (d.taxes) {
+    if (d.taxes.nds != null && d.taxes.ndfl != null) {
+      addRow('Налогообложение', `НДС ${d.taxes.nds}% · НДФЛ ${d.taxes.ndfl}%`);
+    }
+  }
+  if (d.reforms) addRow('Реформы', esc(d.reforms));
+  if (d.investments) addRow('Инвестиции', esc(d.investments));
   if (d.alliance_type) {
     if (d.alliance_type.military) addRow('Военный блок', esc(d.alliance_type.military));
     if (d.alliance_type.economic) addRow('Экономический блок', esc(d.alliance_type.economic));
     if (d.alliance_type.intergovernmental) addRow('Межправительственный блок', esc(d.alliance_type.intergovernmental));
   }
-  if (d.taxes) addRow('Налогообложение', `НДС ${d.taxes.nds}% · НДФЛ ${d.taxes.ndfl}%`);
   if (d.shield) {
     addRow('Действие щита до', new Date(d.shield).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' }));
   }
@@ -306,12 +310,22 @@ export async function fetchSeasonData() {
             host_country: hostCountry,
             continent: isOrg ? 'Организации' : (cc.continent || (hostCountry ? countriesData[hostCountry]?.continent : 'Прочие') || 'Прочие'),
             gdp: p.gdp || seasonData[id]?.gdp || cc.gdp || (isOrg ? 0 : 20387000000),
+            gdp_ppp: p.gdp_ppp || seasonData[id]?.gdp_ppp || null,
             population: p.population || seasonData[id]?.population || cc.population || (isOrg ? 0 : 8575000),
-            balance: p.balance != null ? p.balance : (p.credits != null ? p.credits : (seasonData[id]?.balance || 0)),
-            credits: p.credits != null ? p.credits : (seasonData[id]?.credits != null ? seasonData[id].credits : null),
-            casino_stats: p.casino_stats || seasonData[id]?.casino_stats || null,
+            birth_rate: p.birth_rate != null ? p.birth_rate : (seasonData[id]?.birth_rate ?? null),
+            resource_index: p.resource_index != null ? p.resource_index : (seasonData[id]?.resource_index ?? null),
+            balance: p.balance != null ? p.balance : (seasonData[id]?.balance || 0),
+            profit: p.profit != null ? p.profit : (seasonData[id]?.profit ?? null),
+            level: p.level || seasonData[id]?.level || null,
             support: p.support != null ? p.support : (seasonData[id]?.support ?? 95.0),
             corruption: p.corruption != null ? p.corruption : (seasonData[id]?.corruption ?? 8.0),
+            ideology: p.ideology || seasonData[id]?.ideology || null,
+            taxes: p.taxes || seasonData[id]?.taxes || null,
+            specialization: p.specialization || seasonData[id]?.specialization || null,
+            reforms: p.reforms || seasonData[id]?.reforms || null,
+            investments: p.investments || seasonData[id]?.investments || null,
+            alliance_type: p.alliance_type || seasonData[id]?.alliance_type || null,
+            shield: p.shield || seasonData[id]?.shield || null,
             playerId: id,
             categories: p.categories || [],
             roles: p.roles || [],
