@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-15T17:35:15.754730+00:00",
+  "updated_at": "2026-10-15T18:00:05.089795+00:00",
   "totalActivePlayers": 39,
   "entities": {
     "1469060963360575548": {
@@ -793,15 +793,15 @@
       "country": "Аргентина",
       "player": "oregauri",
       "nickname": "🇦🇷 | Аргентина",
-      "balance": 156027450,
-      "profit": 7675430029,
-      "gdp": 222316883746,
-      "gdp_ppp": 711414027987,
-      "population": 34261371,
+      "balance": 18297936,
+      "profit": 7748699386,
+      "gdp": 223832623871,
+      "gdp_ppp": 716264396387,
+      "population": 34287211,
       "birth_rate": 22.2,
       "support": 68.5,
       "resource_index": 3.0,
-      "corruption": 8.7,
+      "corruption": 9.0,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Смешанная республика",
@@ -812,8 +812,8 @@
         "ndfl": 20
       },
       "specialization": "Технологический лидер",
-      "reforms": "$111 158 441 873 / $111 158 441 873",
-      "investments": "$111 158 441 873 / $111 158 441 873",
+      "reforms": "$111 916 311 935 / $111 916 311 935",
+      "investments": "$111 916 311 935 / $111 916 311 935",
       "is_staff": false,
       "roles": [
         "Лицензия Аргентина",
