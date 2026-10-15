@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-15T13:32:57.490899+00:00",
+  "updated_at": "2026-10-15T13:35:10.969603+00:00",
   "totalActivePlayers": 39,
   "entities": {
     "1469060963360575548": {
@@ -260,7 +260,7 @@
       "country": "СССР",
       "player": "50175079",
       "nickname": "🟦 | ССГ",
-      "balance": 0,
+      "balance": 10000000000,
       "profit": 27828418515,
       "gdp": 2327813785000,
       "gdp_ppp": 4422846191500,
@@ -342,7 +342,7 @@
       "player": "izaziii228",
       "nickname": "🇪🇬 | Египетская Империя",
       "balance": 0,
-      "profit": 18528515750,
+      "profit": 18482909447,
       "gdp": 161508809641,
       "gdp_ppp": 646035238564,
       "population": 60032435,
@@ -870,15 +870,15 @@
       "country": "Польша",
       "player": "elwey4194",
       "nickname": "🇵🇱 | Польша",
-      "balance": 39646009,
-      "profit": 44759954505,
-      "gdp": 484023513429,
-      "gdp_ppp": 1548875242972,
-      "population": 39333212,
+      "balance": 46060710815,
+      "profit": 44682433711,
+      "gdp": 484664288468,
+      "gdp_ppp": 1550925723097,
+      "population": 39346831,
       "birth_rate": 14.0,
       "support": 85.9,
       "resource_index": 4.0,
-      "corruption": 9.2,
+      "corruption": 9.3,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Смешанная республика",
@@ -889,8 +889,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$79 778 238 909 / $242 011 756 714",
-      "investments": "$35 011 756 714 / $242 011 756 714",
+      "reforms": "$80 098 626 429 / $242 332 144 234",
+      "investments": "$35 332 144 234 / $242 332 144 234",
       "is_staff": true,
       "roles": [
         "ЕЭС",
