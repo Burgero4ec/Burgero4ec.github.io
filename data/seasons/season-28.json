@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-15T13:35:10.969603+00:00",
+  "updated_at": "2026-10-15T13:56:47.943217+00:00",
   "totalActivePlayers": 39,
   "entities": {
     "1469060963360575548": {
@@ -553,15 +553,15 @@
       "country": "Нигерия",
       "player": "aytaconan2_",
       "nickname": "🇳🇬 | Нигерия",
-      "balance": 0,
-      "profit": 30218692509,
-      "gdp": 233438341150,
-      "gdp_ppp": 747002691680,
-      "population": 104221812,
+      "balance": 17566708336,
+      "profit": 37848888010,
+      "gdp": 251538780735,
+      "gdp_ppp": 804924098352,
+      "population": 104419826,
       "birth_rate": 44.2,
       "support": 73.2,
       "resource_index": 4.0,
-      "corruption": 1.8,
+      "corruption": 2.1,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская республика",
@@ -572,8 +572,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$39 311 843 274 / $116 719 170 575",
-      "investments": "$116 719 170 575 / $116 719 170 575",
+      "reforms": "$8 882 827 910 / $125 769 390 367",
+      "investments": "$125 769 390 367 / $125 769 390 367",
       "is_staff": true,
       "roles": [
         "Лицензия Нигерия",
@@ -870,7 +870,7 @@
       "country": "Польша",
       "player": "elwey4194",
       "nickname": "🇵🇱 | Польша",
-      "balance": 46060710815,
+      "balance": 60710815,
       "profit": 44682433711,
       "gdp": 484664288468,
       "gdp_ppp": 1550925723097,
@@ -1209,7 +1209,7 @@
       "country": "Финляндия",
       "player": "dyrm9",
       "nickname": "🇫🇮 | Финляндия",
-      "balance": 0,
+      "balance": 44718996838,
       "profit": null,
       "gdp": 154914300000,
       "gdp_ppp": 619657200000,
