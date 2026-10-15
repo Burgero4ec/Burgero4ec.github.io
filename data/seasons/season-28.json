@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-15T06:23:21.386871+00:00",
+  "updated_at": "2026-10-15T06:53:21.351801+00:00",
   "totalActivePlayers": 39,
   "entities": {
     "1469060963360575548": {
@@ -549,10 +549,10 @@
       "country": "Нигерия",
       "player": "aytaconan2_",
       "nickname": "🇳🇬 | Нигерия",
-      "balance": 2856577,
-      "profit": 28801393117,
-      "gdp": 185933153856,
-      "gdp_ppp": 743732615424,
+      "balance": 620025,
+      "profit": 28803370305,
+      "gdp": 186005153856,
+      "gdp_ppp": 744020615424,
       "population": 103595918,
       "birth_rate": 44.2,
       "support": 67.5,
@@ -568,8 +568,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$92 966 576 928 / $92 966 576 928",
-      "investments": "$92 966 576 928 / $92 966 576 928",
+      "reforms": "$93 002 576 928 / $93 002 576 928",
+      "investments": "$93 002 576 928 / $93 002 576 928",
       "is_staff": true,
       "roles": [
         "Лицензия Нигерия",
@@ -1033,12 +1033,12 @@
       "player": "marsgooddayevery",
       "nickname": "🇬🇧 | Великобритания",
       "balance": 0,
-      "profit": 76963314494,
+      "profit": 77118585111,
       "gdp": 2289437292670,
       "gdp_ppp": 4349930856073,
       "population": 59366090,
       "birth_rate": 16.5,
-      "support": 99.0,
+      "support": 100.0,
       "resource_index": 4.0,
       "corruption": 7.2,
       "level": "Передовая",
