@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-15T09:23:07.599612+00:00",
+  "updated_at": "2026-10-15T09:51:03.443052+00:00",
   "total_active_players": 39,
   "total_non_staff_players": 18,
   "total_staff_who_play": 21,
@@ -3337,15 +3337,15 @@
         "Швеция"
       ],
       "country": "Швеция",
-      "balance": 352347035003,
-      "profit": 20119147968,
-      "gdp": 570866597436,
-      "gdp_ppp": 1427166493590,
-      "population": 8541511,
+      "balance": 162385386419,
+      "profit": 9821615921,
+      "gdp": 572891578361,
+      "gdp_ppp": 1432228945902,
+      "population": 8557762,
       "birth_rate": 15.8,
-      "support": 73.4,
+      "support": 70.9,
       "resource_index": 4.0,
-      "corruption": 1.0,
+      "corruption": 1.6,
       "level": "Сильная",
       "ideology": {
         "state": "Смешанная республика",
@@ -3356,8 +3356,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$285 433 298 718 / $285 433 298 718",
-      "investments": "$285 433 298 718 / $285 433 298 718",
+      "reforms": "$286 445 789 180 / $286 445 789 180",
+      "investments": "$286 445 789 180 / $286 445 789 180",
       "categories": [
         "Государство",
         "ООН",
