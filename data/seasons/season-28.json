@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-15T15:35:14.170574+00:00",
+  "updated_at": "2026-10-15T16:00:05.066254+00:00",
   "totalActivePlayers": 39,
   "entities": {
     "1469060963360575548": {
@@ -1036,15 +1036,15 @@
       "country": "Великобритания",
       "player": "marsgooddayevery",
       "nickname": "🇬🇧 | Великобритания",
-      "balance": 0,
-      "profit": 83649177788,
-      "gdp": 2582063558306,
-      "gdp_ppp": 4905920760781,
-      "population": 59514568,
+      "balance": 224839602883,
+      "profit": 83418611635,
+      "gdp": 2598249841759,
+      "gdp_ppp": 4936674699342,
+      "population": 59609696,
       "birth_rate": 16.5,
       "support": 93.6,
       "resource_index": 4.0,
-      "corruption": 0.7,
+      "corruption": 1.1,
       "level": "Передовая",
       "ideology": {
         "state": "Парламентская монархия",
@@ -1055,8 +1055,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$180 191 273 714 / $1 291 031 779 153",
-      "investments": "$1 291 031 779 153 / $1 291 031 779 153",
+      "reforms": "$188 284 415 440 / $1 299 124 920 879",
+      "investments": "$1 299 124 920 879 / $1 299 124 920 879",
       "is_staff": true,
       "roles": [
         "Лидер: ЕЭС",
@@ -1387,10 +1387,10 @@
       "country": "Франция",
       "player": "desterreider",
       "nickname": "🇫🇷 | Франция",
-      "balance": 442711607472,
-      "profit": 24619984136,
-      "gdp": 1919589196931,
-      "gdp_ppp": 3647219474168,
+      "balance": 0,
+      "profit": 24749889575,
+      "gdp": 2042502679172,
+      "gdp_ppp": 3880755090426,
       "population": 58468733,
       "birth_rate": 14.7,
       "support": 59.0,
@@ -1406,8 +1406,8 @@
         "ndfl": 23
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$859 794 598 465 / $959 794 598 465",
-      "investments": "$959 794 598 465 / $959 794 598 465",
+      "reforms": "$511 539 732 114 / $1 021 251 339 586",
+      "investments": "$1 021 251 339 586 / $1 021 251 339 586",
       "is_staff": true,
       "roles": [
         "ЕЭС",
