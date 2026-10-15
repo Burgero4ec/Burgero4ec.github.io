@@ -5,7 +5,7 @@ import { esc, parseTs } from './utils.js';
 import { renderMarkdown } from './parser.js';
 import { refreshOdysseyElements } from './animations.js';
 
-export const ARCHIVE_SEASONS = [22, 21, 20, 19, 2, 1];
+export const ARCHIVE_SEASONS = [24, 23, 22, 21, 20, 19, 3, 2, 1];
 export const ARCHIVE_KINDS = [
   { id: 'countries', emoji: '📺', label: 'Новости стран и автономий' },
   { id: 'orgs',      emoji: '👥', label: 'Новости организаций' },
