@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-16T14:36:47.217648+00:00",
+  "updated_at": "2026-10-16T14:36:59.952628+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -515,16 +515,16 @@
       "country": "Нигерия",
       "player": "aytaconan2_",
       "nickname": "🇳🇬 | ФЗА",
-      "balance": 2451238,
-      "profit": 49244835969,
-      "gdp": 310542300159,
-      "gdp_ppp": 993735360508,
-      "population": 171950607,
+      "balance": 1696517,
+      "profit": 58211714046,
+      "gdp": 547607318263,
+      "gdp_ppp": 1369018295657,
+      "population": 175452029,
       "birth_rate": 44.2,
-      "support": 73.2,
+      "support": 77.5,
       "resource_index": 4.0,
-      "corruption": 2.5,
-      "level": "Развивающаяся",
+      "corruption": 5.6,
+      "level": "Сильная",
       "ideology": {
         "state": "Парламентская республика",
         "economy": "Рыночная экономика"
@@ -534,8 +534,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$13 150 170 004 / $155 271 150 079",
-      "investments": "$155 271 150 079 / $155 271 150 079",
+      "reforms": "$8 250 500 704 / $273 803 659 131",
+      "investments": "$61 803 659 131 / $273 803 659 131",
       "is_staff": true,
       "roles": [
         "Лицензия Нигерия",
@@ -556,9 +556,9 @@
       "player": "woiserr",
       "nickname": "🇮🇱 | Израиль",
       "balance": 417972140415,
-      "profit": 12374524955,
-      "gdp": 257250911336,
-      "gdp_ppp": 823202916275,
+      "profit": 12374648479,
+      "gdp": 257256624763,
+      "gdp_ppp": 823221199241,
       "population": 4792296,
       "birth_rate": 24.9,
       "support": 78.7,
@@ -574,8 +574,8 @@
         "ndfl": 38
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$29 522 102 640 / $128 625 455 668",
-      "investments": "$128 625 455 668 / $128 625 455 668",
+      "reforms": "$128 628 312 381 / $128 628 312 381",
+      "investments": "$128 592 603 462 / $128 628 312 381",
       "is_staff": true,
       "roles": [
         "Лицензия Израиль",
@@ -597,15 +597,15 @@
       "country": "КНР",
       "player": "buba_monster",
       "nickname": "🇨🇳 | КНР",
-      "balance": 9995800,
-      "profit": 21373670287,
-      "gdp": 1186882273008,
-      "gdp_ppp": 2255076318715,
-      "population": 1208336808,
+      "balance": 0,
+      "profit": 20029710571,
+      "gdp": 1348514974229,
+      "gdp_ppp": 2562178451035,
+      "population": 1222351823,
       "birth_rate": 24.9,
       "support": 100.0,
       "resource_index": 3.0,
-      "corruption": 12.8,
+      "corruption": 17.7,
       "level": "Передовая",
       "ideology": {
         "state": "Однопартийная республика",
@@ -616,8 +616,8 @@
         "ndfl": 35
       },
       "specialization": "Технологический лидер",
-      "reforms": "$119 878 289 325 / $593 441 136 504",
-      "investments": "$593 441 136 504 / $593 441 136 504",
+      "reforms": "$306 091 477 078 / $674 257 487 114",
+      "investments": "$674 257 487 114 / $674 257 487 114",
       "is_staff": true,
       "roles": [
         "Лицензия КНР",
