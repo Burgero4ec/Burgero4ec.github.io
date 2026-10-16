@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-15T20:32:58.808870+00:00",
+  "updated_at": "2026-10-16T14:32:39.820397+00:00",
   "totalActivePlayers": 40,
   "entities": {
     "1469060963360575548": {
@@ -110,7 +110,7 @@
       "country": "Executive Outcomes",
       "player": "vaelite.",
       "nickname": "🏢 | Executive Outcomes",
-      "balance": 108,
+      "balance": 0,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
@@ -1514,7 +1514,7 @@
       "country": "MPRI",
       "player": "svvayl",
       "nickname": "🏢 | MPRI",
-      "balance": 114,
+      "balance": 0,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
