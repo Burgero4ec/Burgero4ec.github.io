@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-16T14:39:55.682078+00:00",
+  "updated_at": "2026-10-16T14:40:00.847881+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -88,7 +88,7 @@
       },
       "specialization": "Аграрная держава",
       "reforms": "$2 449 941 836 / $2 449 941 836",
-      "investments": "$242 787 029 / $2 449 941 836",
+      "investments": "$2 449 941 836 / $2 449 941 836",
       "is_staff": true,
       "roles": [
         "Лицензия Мавритания",
@@ -140,15 +140,15 @@
       "country": "Норвегия",
       "player": "razi0497",
       "nickname": "🇳🇴 | Норвегия",
-      "balance": 30346192464,
-      "profit": 1833351788,
+      "balance": 55824899454,
+      "profit": 1520106360,
       "gdp": 115000000000,
       "gdp_ppp": 460000000000,
-      "population": 4219727,
+      "population": 4254281,
       "birth_rate": 14.0,
-      "support": 51.7,
+      "support": 54.1,
       "resource_index": 3.0,
-      "corruption": 14.0,
+      "corruption": 21.0,
       "level": "Устойчивая",
       "ideology": {
         "state": "Не выбрано",
