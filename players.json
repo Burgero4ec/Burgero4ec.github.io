@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-16T17:46:28.423345+00:00",
+  "updated_at": "2026-10-16T18:14:33.462470+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 16,
   "total_staff_who_play": 19,
@@ -14,7 +14,7 @@
     "alliance_members": 33
   },
   "countries_count": {
-    "Мавритания": 1,
+    "Куба": 1,
     "Executive Outcomes": 1,
     "Норвегия": 1,
     "Беларусь": 1,
@@ -326,13 +326,13 @@
         "Румыния"
       ],
       "country": "Румыния",
-      "balance": 17537729180,
-      "profit": 17900005790,
+      "balance": 14037729180,
+      "profit": 18267679614,
       "gdp": 217027466060,
       "gdp_ppp": 694487891392,
       "population": 24040824,
       "birth_rate": 14.5,
-      "support": 67.1,
+      "support": 74.4,
       "resource_index": 5.0,
       "corruption": 10.4,
       "level": "Развивающаяся",
@@ -1394,37 +1394,37 @@
     {
       "id": "1469060963360575548",
       "username": "ebate_matrasov",
-      "display_name": "🇲🇷 | Мавритания",
-      "nickname": "🇲🇷 | Мавритания",
+      "display_name": "🇨🇺 | Куба",
+      "nickname": "🇨🇺 | Куба",
       "avatar_url": "https://cdn.discordapp.com/avatars/1469060963360575548/3743974d73e8bac8624551276f7b7733.png?size=1024",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Мавритания"
+        "Куба"
       ],
-      "country": "Мавритания",
-      "balance": 2372634,
-      "profit": 453786442,
-      "gdp": 4899883672,
-      "gdp_ppp": 24499418360,
-      "population": 2125923,
-      "birth_rate": 42.5,
-      "support": 54.6,
-      "resource_index": 4.0,
-      "corruption": 13.0,
-      "level": "Кризисная",
+      "country": "Куба",
+      "balance": 0,
+      "profit": 459307351,
+      "gdp": 20000000000,
+      "gdp_ppp": 90000000000,
+      "population": 10500000,
+      "birth_rate": 15.0,
+      "support": 50.0,
+      "resource_index": 5.0,
+      "corruption": 10.0,
+      "level": "Слабая",
       "ideology": {
-        "state": "Смешанная республика",
-        "economy": "Рыночная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 35,
+        "nds": 20,
         "ndfl": 20
       },
-      "specialization": "Аграрная держава",
-      "reforms": "$2 449 941 836 / $2 449 941 836",
-      "investments": "$2 449 941 836 / $2 449 941 836",
+      "specialization": "Не выбрано",
+      "reforms": "$10 000 000 000 / $10 000 000 000",
+      "investments": "$10 000 000 000 / $10 000 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1433,8 +1433,8 @@
       ],
       "roles": [
         {
-          "id": "1559222936055980073",
-          "name": "Лицензия Мавритания"
+          "id": "1560715459026751588",
+          "name": "Лицензия Куба"
         },
         {
           "id": "1359429737574830251",
@@ -2080,13 +2080,13 @@
         "Румыния"
       ],
       "country": "Румыния",
-      "balance": 17537729180,
-      "profit": 17900005790,
+      "balance": 14037729180,
+      "profit": 18267679614,
       "gdp": 217027466060,
       "gdp_ppp": 694487891392,
       "population": 24040824,
       "birth_rate": 14.5,
-      "support": 67.1,
+      "support": 74.4,
       "resource_index": 5.0,
       "corruption": 10.4,
       "level": "Развивающаяся",
