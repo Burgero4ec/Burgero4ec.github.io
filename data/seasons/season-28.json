@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-16T14:52:48.922183+00:00",
+  "updated_at": "2026-10-16T14:54:50.728639+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -758,15 +758,15 @@
       "country": "Польша",
       "player": "elwey4194",
       "nickname": "🇵🇱 | Польша",
-      "balance": 14857873,
-      "profit": 48481526492,
-      "gdp": 750270587638,
-      "gdp_ppp": 1875676469095,
-      "population": 39674967,
+      "balance": 79602592510,
+      "profit": 48359653919,
+      "gdp": 752122024374,
+      "gdp_ppp": 1880305060935,
+      "population": 39696103,
       "birth_rate": 14.0,
       "support": 93.7,
       "resource_index": 4.0,
-      "corruption": 10.4,
+      "corruption": 10.6,
       "level": "Сильная",
       "ideology": {
         "state": "Смешанная республика",
@@ -777,8 +777,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$19 923 225 742 / $375 135 293 819",
-      "investments": "$375 135 293 819 / $375 135 293 819",
+      "reforms": "$20 848 944 110 / $376 061 012 187",
+      "investments": "$376 061 012 187 / $376 061 012 187",
       "is_staff": true,
       "roles": [
         "ЕЭС",
@@ -1230,15 +1230,15 @@
       "country": "Франция",
       "player": "desterreider",
       "nickname": "🇫🇷 | Франция",
-      "balance": 539224860254,
-      "profit": 31356959313,
-      "gdp": 2111419604629,
-      "gdp_ppp": 4011697248795,
-      "population": 58839622,
+      "balance": 658287575628,
+      "profit": 31145547193,
+      "gdp": 2115349001473,
+      "gdp_ppp": 4019163102798,
+      "population": 58912436,
       "birth_rate": 14.7,
       "support": 66.7,
       "resource_index": 4.0,
-      "corruption": 2.4,
+      "corruption": 2.9,
       "level": "Передовая",
       "ideology": {
         "state": "Президентская республика",
@@ -1249,8 +1249,8 @@
         "ndfl": 23
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 055 709 802 314 / $1 055 709 802 314",
-      "investments": "$1 055 709 802 314 / $1 055 709 802 314",
+      "reforms": "$1 057 674 500 736 / $1 057 674 500 736",
+      "investments": "$1 057 674 500 736 / $1 057 674 500 736",
       "is_staff": true,
       "roles": [
         "ЕЭС",
