@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-16T14:39:32.790308+00:00",
+  "updated_at": "2026-10-16T14:39:37.942043+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -847,15 +847,15 @@
       "country": "Югославия (СФРЮ)",
       "player": "prussvayette",
       "nickname": "🟦⬜🟥 | Югославия (СФРЮ)",
-      "balance": 170001942177,
-      "profit": 7134917378,
+      "balance": 255766935000,
+      "profit": 6706995448,
       "gdp": 136969894938,
       "gdp_ppp": 547879579752,
-      "population": 24251335,
+      "population": 24344749,
       "birth_rate": 14.5,
       "support": 50.0,
       "resource_index": 4.0,
-      "corruption": 10.0,
+      "corruption": 13.2,
       "level": "Устойчивая",
       "ideology": {
         "state": "Не выбрано",
