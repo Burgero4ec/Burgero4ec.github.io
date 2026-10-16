@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-16T14:39:01.993261+00:00",
+  "updated_at": "2026-10-16T14:39:08.572883+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -1355,16 +1355,16 @@
       "country": "Бразилия",
       "player": "lirozit",
       "nickname": "🇧🇷 | Бразилия",
-      "balance": 0,
-      "profit": 91327936307,
-      "gdp": 849669356286,
-      "gdp_ppp": 2124173390715,
-      "population": 157494540,
+      "balance": 85020472927,
+      "profit": 89123959389,
+      "gdp": 1128996604343,
+      "gdp_ppp": 2145093548251,
+      "population": 159088239,
       "birth_rate": 25.0,
-      "support": 57.5,
+      "support": 59.0,
       "resource_index": 2.0,
-      "corruption": 6.0,
-      "level": "Сильная",
+      "corruption": 8.3,
+      "level": "Передовая",
       "ideology": {
         "state": "Парламентская республика",
         "economy": "Смешанная экономика"
@@ -1374,8 +1374,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$289 060 737 881 / $424 834 678 143",
-      "investments": "$424 834 678 143 / $424 834 678 143",
+      "reforms": "$104 652 957 537 / $564 498 302 171",
+      "investments": "$564 498 302 171 / $564 498 302 171",
       "is_staff": false,
       "roles": [
         "Лицензия Бразилия",
