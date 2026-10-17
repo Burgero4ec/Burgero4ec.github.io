@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T17:41:40.129584+00:00",
+  "updated_at": "2026-10-17T18:04:01.849766+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -265,12 +265,12 @@
       "player": "izaziii228",
       "nickname": "🇪🇬 | Египетская Империя",
       "balance": 58470141295,
-      "profit": 4138367922,
+      "profit": 4319067942,
       "gdp": 369714199935,
       "gdp_ppp": 1183085439792,
       "population": 61357541,
       "birth_rate": 32.8,
-      "support": 96.5,
+      "support": 99.5,
       "resource_index": 5.0,
       "corruption": 9.4,
       "level": "Развивающаяся",
