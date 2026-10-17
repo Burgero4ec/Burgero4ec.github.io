@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-16T20:14:32.683065+00:00",
+  "updated_at": "2026-10-17T10:54:06.105978+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -110,7 +110,7 @@
       "country": "Executive Outcomes",
       "player": "vaelite.",
       "nickname": "🏢 | Executive Outcomes",
-      "balance": 108,
+      "balance": 0,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
@@ -387,15 +387,15 @@
       "country": "Румыния",
       "player": "_ashkoo139",
       "nickname": "🇷🇴 | Румыния",
-      "balance": 157729180,
-      "profit": 17059468619,
-      "gdp": 217027466060,
-      "gdp_ppp": 694487891392,
-      "population": 24040824,
+      "balance": 1455035173,
+      "profit": 13709842906,
+      "gdp": 217445175924,
+      "gdp_ppp": 695824562956,
+      "population": 24060251,
       "birth_rate": 14.5,
-      "support": 73.9,
+      "support": 75.7,
       "resource_index": 5.0,
-      "corruption": 10.4,
+      "corruption": 10.7,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Смешанная республика",
@@ -406,8 +406,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$8 998 456 518 / $108 513 733 030",
-      "investments": "$108 513 733 030 / $108 513 733 030",
+      "reforms": "$9 207 311 450 / $108 722 587 962",
+      "investments": "$108 722 587 962 / $108 722 587 962",
       "is_staff": false,
       "roles": [
         "Лидер: Бухарестский Пакт Содружества (БПС)",
@@ -746,6 +746,7 @@
       "investments": "$123 193 847 649 / $123 193 847 649",
       "is_staff": false,
       "roles": [
+        "МЕРКОСУР",
         "Лицензия Аргентина",
         "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
         "• Зарегистрированный",
