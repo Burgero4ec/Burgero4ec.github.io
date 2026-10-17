@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-17T10:54:06.105978+00:00",
+  "updated_at": "2026-10-17T10:57:48.414067+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 16,
   "total_staff_who_play": 19,
@@ -243,15 +243,15 @@
         "Саудовская Аравия"
       ],
       "country": "Саудовская Аравия",
-      "balance": 3866773210,
-      "profit": 5372806876,
-      "gdp": 130718657865,
-      "gdp_ppp": 522874631460,
-      "population": 16507370,
+      "balance": 10158675690,
+      "profit": 5727375351,
+      "gdp": 141406157865,
+      "gdp_ppp": 565624631460,
+      "population": 16709064,
       "birth_rate": 36.5,
       "support": 53.0,
       "resource_index": 4.0,
-      "corruption": 10.4,
+      "corruption": 12.6,
       "level": "Устойчивая",
       "ideology": {
         "state": "Абсолютная монархия",
@@ -262,8 +262,8 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$54 877 446 132 / $65 359 328 932",
-      "investments": "$65 359 328 932 / $65 359 328 932",
+      "reforms": "$63 703 078 932 / $70 703 078 932",
+      "investments": "$70 703 078 932 / $70 703 078 932",
       "categories": [
         "Государство",
         "ООН",
@@ -1512,7 +1512,7 @@
         "Executive Outcomes"
       ],
       "country": "Executive Outcomes",
-      "balance": 0,
+      "balance": 108,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
@@ -1915,15 +1915,15 @@
         "Саудовская Аравия"
       ],
       "country": "Саудовская Аравия",
-      "balance": 3866773210,
-      "profit": 5372806876,
-      "gdp": 130718657865,
-      "gdp_ppp": 522874631460,
-      "population": 16507370,
+      "balance": 10158675690,
+      "profit": 5727375351,
+      "gdp": 141406157865,
+      "gdp_ppp": 565624631460,
+      "population": 16709064,
       "birth_rate": 36.5,
       "support": 53.0,
       "resource_index": 4.0,
-      "corruption": 10.4,
+      "corruption": 12.6,
       "level": "Устойчивая",
       "ideology": {
         "state": "Абсолютная монархия",
@@ -1934,8 +1934,8 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$54 877 446 132 / $65 359 328 932",
-      "investments": "$65 359 328 932 / $65 359 328 932",
+      "reforms": "$63 703 078 932 / $70 703 078 932",
+      "investments": "$70 703 078 932 / $70 703 078 932",
       "categories": [
         "Государство",
         "ООН",
