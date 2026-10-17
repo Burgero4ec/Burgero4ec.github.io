@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T11:10:41.343529+00:00",
+  "updated_at": "2026-10-17T11:12:35.196111+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -1316,15 +1316,15 @@
       "country": "Греция",
       "player": "alucar_doss",
       "nickname": "🇬🇷 | Греция",
-      "balance": 24043841938,
-      "profit": 13695076608,
-      "gdp": 217449935955,
-      "gdp_ppp": 695839795056,
-      "population": 10320069,
+      "balance": 58134742320,
+      "profit": 13568222496,
+      "gdp": 217651854868,
+      "gdp_ppp": 696485935577,
+      "population": 10325973,
       "birth_rate": 10.5,
       "support": 63.9,
       "resource_index": 5.0,
-      "corruption": 2.8,
+      "corruption": 3.4,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская республика",
@@ -1335,8 +1335,8 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$108 724 967 977 / $108 724 967 977",
-      "investments": "$15 333 985 742 / $108 724 967 977",
+      "reforms": "$108 825 927 434 / $108 825 927 434",
+      "investments": "$15 434 945 199 / $108 825 927 434",
       "is_staff": false,
       "roles": [
         "Лицензия Греция",
