@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T17:34:01.346888+00:00",
+  "updated_at": "2026-10-17T17:41:40.129584+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -516,14 +516,14 @@
       "player": "aytaconan2_",
       "nickname": "🇳🇬 | ФЗА",
       "balance": 0,
-      "profit": 90809275979,
-      "gdp": 1000482814633,
-      "gdp_ppp": 1900917347802,
-      "population": 200495391,
+      "profit": 91759523227,
+      "gdp": 1001960308487,
+      "gdp_ppp": 1903724586125,
+      "population": 200772248,
       "birth_rate": 45.5,
       "support": 82.7,
       "resource_index": 4.0,
-      "corruption": 2.6,
+      "corruption": 2.8,
       "level": "Передовая",
       "ideology": {
         "state": "Парламентская республика",
@@ -534,8 +534,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$15 066 588 043 / $500 241 407 316",
-      "investments": "$500 241 407 316 / $500 241 407 316",
+      "reforms": "$15 805 334 970 / $500 980 154 243",
+      "investments": "$500 980 154 243 / $500 980 154 243",
       "is_staff": true,
       "roles": [
         "Лицензия Нигерия",
