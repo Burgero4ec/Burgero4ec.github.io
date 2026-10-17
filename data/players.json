@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-17T19:04:01.839667+00:00",
+  "updated_at": "2026-10-17T19:11:42.438781+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 17,
   "total_staff_who_play": 18,
@@ -2540,9 +2540,9 @@
       ],
       "country": "Израиль",
       "balance": 145141339729,
-      "profit": 7118025695,
-      "gdp": 427006025593,
-      "gdp_ppp": 1366419281897,
+      "profit": 7474310970,
+      "gdp": 441315183285,
+      "gdp_ppp": 1412208586512,
       "population": 4916736,
       "birth_rate": 24.9,
       "support": 84.2,
@@ -2558,8 +2558,8 @@
         "ndfl": 38
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$7 947 106 589 / $213 503 012 796",
-      "investments": "$213 503 012 796 / $213 503 012 796",
+      "reforms": "$15 101 685 435 / $220 657 591 642",
+      "investments": "$131 225 356 063 / $220 657 591 642",
       "categories": [
         "Государство",
         "ООН",
