@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T11:04:24.073226+00:00",
+  "updated_at": "2026-10-17T11:04:28.032329+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -1012,15 +1012,15 @@
       "country": "Турция",
       "player": "goga_wassons",
       "nickname": "🇹🇷 | Турция",
-      "balance": 1477986440,
-      "profit": 1171848689,
-      "gdp": 287017090298,
-      "gdp_ppp": 918454688953,
-      "population": 57624191,
+      "balance": 12404153,
+      "profit": 1243102894,
+      "gdp": 289472110591,
+      "gdp_ppp": 926310753891,
+      "population": 58015271,
       "birth_rate": 24.5,
       "support": 60.4,
       "resource_index": 4.0,
-      "corruption": 13.2,
+      "corruption": 14.8,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Смешанная республика",
@@ -1031,8 +1031,8 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$43 470 988 312 / $143 508 545 149",
-      "investments": "$143 508 545 149 / $143 508 545 149",
+      "reforms": "$144 736 055 295 / $144 736 055 295",
+      "investments": "$144 736 055 295 / $144 736 055 295",
       "is_staff": false,
       "roles": [
         "Лицензия Турция",
