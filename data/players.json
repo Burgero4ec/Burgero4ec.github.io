@@ -1,17 +1,17 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-17T21:11:40.181694+00:00",
+  "updated_at": "2026-10-17T21:34:01.454161+00:00",
   "total_active_players": 37,
   "total_non_staff_players": 19,
   "total_staff_who_play": 18,
   "stats": {
     "registered": 37,
-    "states": 34,
+    "states": 33,
     "autonomies": 0,
-    "pmc": 3,
-    "un_members": 35,
-    "alliance_members": 34
+    "pmc": 4,
+    "un_members": 34,
+    "alliance_members": 33
   },
   "countries_count": {
     "Куба": 1,
@@ -22,7 +22,7 @@
     "СССР": 1,
     "Египет": 1,
     "Саудовская Аравия": 1,
-    "Сомали": 1,
+    "DynCorp": 1,
     "Эстония": 1,
     "Румыния": 1,
     "Канада": 1,
@@ -58,7 +58,7 @@
       "username": "tisravv",
       "display_name": "🇩🇰 | Дания",
       "nickname": "🇩🇰 | Дания",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1327410286596067348/903d69ae4f937be8be98bd989baf7869.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1327410286596067348/f8e5cbc8f80912d75aedf90a75b8ae52.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -66,10 +66,10 @@
         "Дания"
       ],
       "country": "Дания",
-      "balance": 185514211895,
-      "profit": 6256734643,
-      "gdp": 272198291752,
-      "gdp_ppp": 871034533606,
+      "balance": 174239211895,
+      "profit": 7320951043,
+      "gdp": 272325791752,
+      "gdp_ppp": 871442533606,
       "population": 5249653,
       "birth_rate": 12.5,
       "support": 50.0,
@@ -84,9 +84,9 @@
         "nds": 25,
         "ndfl": 25
       },
-      "specialization": "Не выбрано",
-      "reforms": "$136 099 145 876 / $136 099 145 876",
-      "investments": "$136 099 145 876 / $136 099 145 876",
+      "specialization": "Промышленный хаб",
+      "reforms": "$136 162 895 876 / $136 162 895 876",
+      "investments": "$136 162 895 876 / $136 162 895 876",
       "categories": [
         "Государство",
         "ООН",
@@ -371,16 +371,16 @@
     {
       "id": "1175702522837614626",
       "username": "hs_negr",
-      "display_name": "🇸🇴 | Сомали",
-      "nickname": "🇸🇴 | Сомали",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1175702522837614626/3c8daee25f078476f850b4f337d03e5f.png?size=1024",
+      "display_name": "🏢 | DynCorp",
+      "nickname": "🏢 | DynCorp",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1175702522837614626/0b0eab061322610da6a4e9057d76c440.png?size=1024",
       "is_staff": false,
       "is_registered": true,
-      "entity_type": "Государство",
+      "entity_type": "ЧВК",
       "countries": [
-        "Сомали"
+        "DynCorp"
       ],
-      "country": "Сомали",
+      "country": "DynCorp",
       "balance": 0,
       "profit": 108223308,
       "gdp": 2400000000,
@@ -403,20 +403,9 @@
       "reforms": "$1 200 000 000 / $1 200 000 000",
       "investments": "$1 200 000 000 / $1 200 000 000",
       "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН"
+        "ЧВК"
       ],
       "roles": [
-        {
-          "id": "1561123705310945441",
-          "name": "Лицензия Сомали"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
         {
           "id": "1246817935297613905",
           "name": "• Зарегистрированный"
@@ -430,20 +419,12 @@
           "name": "Обновления"
         },
         {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1233388420915658865",
+          "name": "Частная"
         },
         {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -1678,7 +1659,7 @@
       "username": "tisravv",
       "display_name": "🇩🇰 | Дания",
       "nickname": "🇩🇰 | Дания",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1327410286596067348/903d69ae4f937be8be98bd989baf7869.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1327410286596067348/f8e5cbc8f80912d75aedf90a75b8ae52.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -1686,10 +1667,10 @@
         "Дания"
       ],
       "country": "Дания",
-      "balance": 185514211895,
-      "profit": 6256734643,
-      "gdp": 272198291752,
-      "gdp_ppp": 871034533606,
+      "balance": 174239211895,
+      "profit": 7320951043,
+      "gdp": 272325791752,
+      "gdp_ppp": 871442533606,
       "population": 5249653,
       "birth_rate": 12.5,
       "support": 50.0,
@@ -1704,9 +1685,9 @@
         "nds": 25,
         "ndfl": 25
       },
-      "specialization": "Не выбрано",
-      "reforms": "$136 099 145 876 / $136 099 145 876",
-      "investments": "$136 099 145 876 / $136 099 145 876",
+      "specialization": "Промышленный хаб",
+      "reforms": "$136 162 895 876 / $136 162 895 876",
+      "investments": "$136 162 895 876 / $136 162 895 876",
       "categories": [
         "Государство",
         "ООН",
@@ -2151,16 +2132,16 @@
     {
       "id": "1175702522837614626",
       "username": "hs_negr",
-      "display_name": "🇸🇴 | Сомали",
-      "nickname": "🇸🇴 | Сомали",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1175702522837614626/3c8daee25f078476f850b4f337d03e5f.png?size=1024",
+      "display_name": "🏢 | DynCorp",
+      "nickname": "🏢 | DynCorp",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1175702522837614626/0b0eab061322610da6a4e9057d76c440.png?size=1024",
       "is_staff": false,
       "is_registered": true,
-      "entity_type": "Государство",
+      "entity_type": "ЧВК",
       "countries": [
-        "Сомали"
+        "DynCorp"
       ],
-      "country": "Сомали",
+      "country": "DynCorp",
       "balance": 0,
       "profit": 108223308,
       "gdp": 2400000000,
@@ -2183,20 +2164,9 @@
       "reforms": "$1 200 000 000 / $1 200 000 000",
       "investments": "$1 200 000 000 / $1 200 000 000",
       "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН"
+        "ЧВК"
       ],
       "roles": [
-        {
-          "id": "1561123705310945441",
-          "name": "Лицензия Сомали"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
         {
           "id": "1246817935297613905",
           "name": "• Зарегистрированный"
@@ -2210,20 +2180,12 @@
           "name": "Обновления"
         },
         {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1233388420915658865",
+          "name": "Частная"
         },
         {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -2662,9 +2624,9 @@
       ],
       "country": "Израиль",
       "balance": 145141339729,
-      "profit": 7474310970,
-      "gdp": 441315183285,
-      "gdp_ppp": 1412208586512,
+      "profit": 7722071797,
+      "gdp": 451443792128,
+      "gdp_ppp": 1444620134809,
       "population": 4916736,
       "birth_rate": 24.9,
       "support": 84.2,
@@ -2680,8 +2642,8 @@
         "ndfl": 38
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$15 101 685 435 / $220 657 591 642",
-      "investments": "$131 225 356 063 / $220 657 591 642",
+      "reforms": "$20 165 989 857 / $225 721 896 064",
+      "investments": "$72 985 855 214 / $225 721 896 064",
       "categories": [
         "Государство",
         "ООН",
