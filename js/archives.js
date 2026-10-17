@@ -14,7 +14,7 @@ export const ARCHIVE_KINDS = [
 
 const archiveCache = new Map();
 export const archState = {
-  season: '22', // По умолчанию открываем последний доступный сезон 22 вместо загрузки всех 27 файлов
+  season: '24', // По умолчанию открываем самый свежий доступный сезон (24)
   kind: 'all',
   q: '',
   order: 'desc'
@@ -22,7 +22,7 @@ export const archState = {
 
 function getArchiveUrl(season, kind) {
   const num = Number(season);
-  if (num === 1 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-1-1') + '.html';
+  if (num === 1 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-1') + '.html';
   if (num === 2 && kind === 'events') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-2-ивенты') + '.html';
   if (num === 2 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-2-новости') + '.html';
   if (num === 3 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-3-страны') + '.html';
