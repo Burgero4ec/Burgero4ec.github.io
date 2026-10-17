@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T11:04:03.498193+00:00",
+  "updated_at": "2026-10-17T11:04:07.461396+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -720,15 +720,15 @@
       "country": "Аргентина",
       "player": "oregauri",
       "nickname": "🇦🇷 | Аргентина",
-      "balance": 18742300,
-      "profit": 7758678038,
-      "gdp": 246387695298,
-      "gdp_ppp": 788440624953,
-      "population": 34678310,
+      "balance": 26144593870,
+      "profit": 7619412878,
+      "gdp": 247211243337,
+      "gdp_ppp": 791075978678,
+      "population": 34736755,
       "birth_rate": 22.2,
       "support": 68.5,
       "resource_index": 3.0,
-      "corruption": 14.6,
+      "corruption": 15.5,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Смешанная республика",
@@ -739,8 +739,8 @@
         "ndfl": 20
       },
       "specialization": "Технологический лидер",
-      "reforms": "$123 193 847 649 / $123 193 847 649",
-      "investments": "$123 193 847 649 / $123 193 847 649",
+      "reforms": "$123 605 621 668 / $123 605 621 668",
+      "investments": "$123 605 621 668 / $123 605 621 668",
       "is_staff": false,
       "roles": [
         "МЕРКОСУР",
@@ -759,16 +759,16 @@
       "country": "Польша",
       "player": "elwey4194",
       "nickname": "🇵🇱 | Польша",
-      "balance": 58646857,
-      "profit": 48982886077,
-      "gdp": 784463946976,
-      "gdp_ppp": 1961159867440,
-      "population": 39752240,
+      "balance": 84525895279,
+      "profit": 56371584082,
+      "gdp": 1194704269253,
+      "gdp_ppp": 2269938111580,
+      "population": 43967466,
       "birth_rate": 14.0,
       "support": 89.2,
       "resource_index": 4.0,
-      "corruption": 11.1,
-      "level": "Сильная",
+      "corruption": 12.9,
+      "level": "Передовая",
       "ideology": {
         "state": "Смешанная республика",
         "economy": "Смешанная экономика"
@@ -778,8 +778,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$37 019 905 411 / $392 231 973 488",
-      "investments": "$392 231 973 488 / $392 231 973 488",
+      "reforms": "$195 254 902 785 / $597 352 134 626",
+      "investments": "$67 987 625 588 / $597 352 134 626",
       "is_staff": true,
       "roles": [
         "ЕЭС",
