@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T11:04:40.526882+00:00",
+  "updated_at": "2026-10-17T11:04:44.911343+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -1230,15 +1230,15 @@
       "country": "Франция",
       "player": "desterreider",
       "nickname": "🇫🇷 | Франция",
-      "balance": 95926405857,
-      "profit": 35252107216,
-      "gdp": 2189746311398,
-      "gdp_ppp": 4160517991656,
-      "population": 58990284,
+      "balance": 559552700581,
+      "profit": 37319171592,
+      "gdp": 2245803333846,
+      "gdp_ppp": 4267026334307,
+      "population": 59280030,
       "birth_rate": 14.7,
-      "support": 66.7,
+      "support": 69.7,
       "resource_index": 4.0,
-      "corruption": 3.9,
+      "corruption": 4.0,
       "level": "Передовая",
       "ideology": {
         "state": "Президентская республика",
@@ -1249,8 +1249,8 @@
         "ndfl": 23
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 094 873 155 699 / $1 094 873 155 699",
-      "investments": "$1 094 873 155 699 / $1 094 873 155 699",
+      "reforms": "$1 122 901 666 923 / $1 122 901 666 923",
+      "investments": "$1 122 901 666 923 / $1 122 901 666 923",
       "is_staff": true,
       "roles": [
         "ЕЭС",
