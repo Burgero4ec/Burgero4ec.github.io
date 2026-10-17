@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-17T11:05:18.577544+00:00",
+  "updated_at": "2026-10-17T11:05:22.709948+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 17,
   "total_staff_who_play": 18,
@@ -1923,15 +1923,15 @@
         "Египет"
       ],
       "country": "Египет",
-      "balance": 5435765,
-      "profit": 27606231969,
-      "gdp": 250479368190,
-      "gdp_ppp": 801533978208,
-      "population": 61278153,
+      "balance": 21731150873,
+      "profit": 36541959471,
+      "gdp": 356645000499,
+      "gdp_ppp": 1141264001596,
+      "population": 62404759,
       "birth_rate": 32.8,
-      "support": 93.4,
+      "support": 100.0,
       "resource_index": 5.0,
-      "corruption": 17.8,
+      "corruption": 8.8,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Смешанная республика",
@@ -1942,8 +1942,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$42 743 760 412 / $125 239 684 095",
-      "investments": "$125 239 684 095 / $125 239 684 095",
+      "reforms": "$48 776 609 181 / $178 322 500 249",
+      "investments": "$178 322 500 249 / $178 322 500 249",
       "categories": [
         "Государство",
         "ООН",
