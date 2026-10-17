@@ -25,6 +25,7 @@ function getArchiveUrl(season, kind) {
   if (num === 1 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-1-1') + '.html';
   if (num === 2 && kind === 'events') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-2-ивенты') + '.html';
   if (num === 2 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-2-новости') + '.html';
+  if (num === 3 && kind === 'countries') return 'архивы/Archive_' + encodeURIComponent('📺・сезон-3-страны') + '.html';
 
   const emojiMap = { countries: '📺', orgs: '👥', events: '🗽' };
   const emoji = emojiMap[kind];
