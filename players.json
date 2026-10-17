@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-17T16:41:39.791821+00:00",
+  "updated_at": "2026-10-17T17:04:01.392528+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 17,
   "total_staff_who_play": 18,
@@ -3984,15 +3984,15 @@
         "Франция"
       ],
       "country": "Франция",
-      "balance": 731486982371,
-      "profit": 37262541159,
-      "gdp": 2273862602013,
-      "gdp_ppp": 4320338943824,
-      "population": 59952166,
+      "balance": 0,
+      "profit": 39555978904,
+      "gdp": 2468185478335,
+      "gdp_ppp": 4689552408836,
+      "population": 60006060,
       "birth_rate": 14.7,
       "support": 69.7,
       "resource_index": 4.0,
-      "corruption": 4.5,
+      "corruption": 4.9,
       "level": "Передовая",
       "ideology": {
         "state": "Президентская республика",
@@ -4003,8 +4003,8 @@
         "ndfl": 23
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 136 931 301 006 / $1 136 931 301 006",
-      "investments": "$1 136 931 301 006 / $1 136 931 301 006",
+      "reforms": "$690 543 977 596 / $1 234 092 739 167",
+      "investments": "$1 234 092 739 167 / $1 234 092 739 167",
       "categories": [
         "Государство",
         "ООН",
