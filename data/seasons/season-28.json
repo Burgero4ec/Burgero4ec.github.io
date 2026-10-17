@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T12:11:39.668308+00:00",
+  "updated_at": "2026-10-17T12:13:31.149251+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -222,8 +222,8 @@
       "country": "СССР",
       "player": "50175079",
       "nickname": "🟦 | ССГ",
-      "balance": 1584724706714,
-      "profit": 103693330075,
+      "balance": 584124706714,
+      "profit": 80603625775,
       "gdp": 2986449614952,
       "gdp_ppp": 5674254268408,
       "population": 243834011,
@@ -1425,15 +1425,15 @@
       "country": "ЮАР",
       "player": "naebni_govna_olyx",
       "nickname": "🇿🇦 | ЮАР",
-      "balance": 14913206,
-      "profit": 34455988879,
-      "gdp": 639685221051,
-      "gdp_ppp": 1599213052627,
-      "population": 43330827,
+      "balance": 973490,
+      "profit": 34263495704,
+      "gdp": 646951982430,
+      "gdp_ppp": 1617379956075,
+      "population": 43384980,
       "birth_rate": 29.5,
       "support": 71.0,
       "resource_index": 3.0,
-      "corruption": 12.1,
+      "corruption": 12.6,
       "level": "Сильная",
       "ideology": {
         "state": "Смешанная республика",
@@ -1444,8 +1444,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$57 323 321 803 / $319 842 610 525",
-      "investments": "$28 816 461 199 / $319 842 610 525",
+      "reforms": "$60 956 702 493 / $323 475 991 215",
+      "investments": "$32 449 841 889 / $323 475 991 215",
       "is_staff": true,
       "roles": [
         "Лицензия ЮАР",
