@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-17T11:04:53.329022+00:00",
+  "updated_at": "2026-10-17T11:04:57.242403+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 17,
   "total_staff_who_play": 18,
@@ -4433,16 +4433,16 @@
         "ЮАР"
       ],
       "country": "ЮАР",
-      "balance": 9641835051,
-      "profit": null,
-      "gdp": 376266650702,
-      "gdp_ppp": 1204053282246,
-      "population": 36480802,
+      "balance": 14913206,
+      "profit": 34455988879,
+      "gdp": 639685221051,
+      "gdp_ppp": 1599213052627,
+      "population": 43330827,
       "birth_rate": 29.5,
       "support": 71.0,
       "resource_index": 3.0,
-      "corruption": 8.3,
-      "level": "Развивающаяся",
+      "corruption": 12.1,
+      "level": "Сильная",
       "ideology": {
         "state": "Смешанная республика",
         "economy": "Смешанная экономика"
@@ -4452,8 +4452,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$23 862 873 177 / $188 133 325 351",
-      "investments": "$577 556 068 / $188 133 325 351",
+      "reforms": "$57 323 321 803 / $319 842 610 525",
+      "investments": "$28 816 461 199 / $319 842 610 525",
       "categories": [
         "Государство",
         "ООН",
