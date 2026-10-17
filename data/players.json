@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-17T11:04:49.231127+00:00",
+  "updated_at": "2026-10-17T11:04:53.329022+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 17,
   "total_staff_who_play": 18,
@@ -1423,27 +1423,27 @@
         "Бразилия"
       ],
       "country": "Бразилия",
-      "balance": 360158539531,
-      "profit": 100095002607,
-      "gdp": 1129551040176,
-      "gdp_ppp": 2146146976334,
-      "population": 159337266,
+      "balance": 1318584353411,
+      "profit": 94730551969,
+      "gdp": 1390614797870,
+      "gdp_ppp": 2642168115953,
+      "population": 160796280,
       "birth_rate": 25.0,
-      "support": 59.0,
+      "support": 60.8,
       "resource_index": 2.0,
-      "corruption": 0.6,
+      "corruption": 2.6,
       "level": "Передовая",
       "ideology": {
         "state": "Парламентская республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 30,
-        "ndfl": 30
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$104 930 175 454 / $564 775 520 088",
-      "investments": "$564 775 520 088 / $564 775 520 088",
+      "reforms": "$20 437 319 245 / $695 307 398 935",
+      "investments": "$695 307 398 935 / $695 307 398 935",
       "categories": [
         "Государство",
         "ООН",
@@ -4292,27 +4292,27 @@
         "Бразилия"
       ],
       "country": "Бразилия",
-      "balance": 360158539531,
-      "profit": 100095002607,
-      "gdp": 1129551040176,
-      "gdp_ppp": 2146146976334,
-      "population": 159337266,
+      "balance": 1318584353411,
+      "profit": 94730551969,
+      "gdp": 1390614797870,
+      "gdp_ppp": 2642168115953,
+      "population": 160796280,
       "birth_rate": 25.0,
-      "support": 59.0,
+      "support": 60.8,
       "resource_index": 2.0,
-      "corruption": 0.6,
+      "corruption": 2.6,
       "level": "Передовая",
       "ideology": {
         "state": "Парламентская республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 30,
-        "ndfl": 30
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$104 930 175 454 / $564 775 520 088",
-      "investments": "$564 775 520 088 / $564 775 520 088",
+      "reforms": "$20 437 319 245 / $695 307 398 935",
+      "investments": "$695 307 398 935 / $695 307 398 935",
       "categories": [
         "Государство",
         "ООН",
