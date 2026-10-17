@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T19:11:42.438781+00:00",
+  "updated_at": "2026-10-17T19:34:02.361501+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -635,15 +635,15 @@
       "country": "Литва",
       "player": "kozak07549",
       "nickname": "🇱🇹 | Литва",
-      "balance": 31006710853,
-      "profit": 1724131119,
-      "gdp": 32223902029,
-      "gdp_ppp": 145007559130,
-      "population": 3855521,
+      "balance": 22217832665,
+      "profit": 1444168839,
+      "gdp": 35612943541,
+      "gdp_ppp": 160258245934,
+      "population": 3857283,
       "birth_rate": 15.0,
       "support": 65.7,
       "resource_index": 5.0,
-      "corruption": 18.0,
+      "corruption": 18.2,
       "level": "Слабая",
       "ideology": {
         "state": "Парламентская республика",
@@ -654,8 +654,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$3 485 526 499 / $16 111 951 014",
-      "investments": "$16 111 951 014 / $16 111 951 014",
+      "reforms": "$760 735 / $17 806 471 770",
+      "investments": "$17 806 471 770 / $17 806 471 770",
       "is_staff": false,
       "roles": [
         "Лицензия Литва",
