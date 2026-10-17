@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T12:34:01.394923+00:00",
+  "updated_at": "2026-10-17T12:41:39.887760+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -388,7 +388,7 @@
       "player": "_ashkoo139",
       "nickname": "🇷🇴 | Румыния",
       "balance": 4633176674,
-      "profit": 1828334957,
+      "profit": null,
       "gdp": 220065925966,
       "gdp_ppp": 704210963091,
       "population": 23971396,
