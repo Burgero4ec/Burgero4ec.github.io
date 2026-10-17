@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T11:03:43.594617+00:00",
+  "updated_at": "2026-10-17T11:03:51.647789+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -515,15 +515,15 @@
       "country": "Нигерия",
       "player": "aytaconan2_",
       "nickname": "🇳🇬 | ФЗА",
-      "balance": 0,
-      "profit": 86858772920,
-      "gdp": 894654353624,
-      "gdp_ppp": 2236635884060,
-      "population": 196784785,
+      "balance": 101938934,
+      "profit": 94145395244,
+      "gdp": 925108032184,
+      "gdp_ppp": 2312770080460,
+      "population": 197452020,
       "birth_rate": 45.5,
       "support": 80.5,
       "resource_index": 4.0,
-      "corruption": 1.6,
+      "corruption": 2.0,
       "level": "Сильная",
       "ideology": {
         "state": "Парламентская республика",
@@ -534,8 +534,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$38 492 140 073 / $447 327 176 812",
-      "investments": "$447 327 176 812 / $447 327 176 812",
+      "reforms": "$53 718 979 353 / $462 554 016 092",
+      "investments": "$462 554 016 092 / $462 554 016 092",
       "is_staff": true,
       "roles": [
         "Лицензия Нигерия",
@@ -555,15 +555,15 @@
       "country": "Израиль",
       "player": "woiserr",
       "nickname": "🇮🇱 | Израиль",
-      "balance": 239343828034,
-      "profit": 15172514691,
-      "gdp": 315139365334,
-      "gdp_ppp": 1008445969068,
-      "population": 4792296,
+      "balance": 140907864466,
+      "profit": 17484474130,
+      "gdp": 419836331193,
+      "gdp_ppp": 1343476259817,
+      "population": 4901275,
       "birth_rate": 24.9,
-      "support": 78.7,
+      "support": 84.2,
       "resource_index": 6.0,
-      "corruption": 3.0,
+      "corruption": 0.8,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская республика",
@@ -574,8 +574,8 @@
         "ndfl": 38
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$28 941 370 286 / $157 569 682 667",
-      "investments": "$157 533 973 748 / $157 569 682 667",
+      "reforms": "$4 362 259 389 / $209 918 165 596",
+      "investments": "$209 918 165 596 / $209 918 165 596",
       "is_staff": true,
       "roles": [
         "Лицензия Израиль",
