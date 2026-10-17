@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-17T11:03:19.248315+00:00",
+  "updated_at": "2026-10-17T11:03:43.594617+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -110,7 +110,7 @@
       "country": "Executive Outcomes",
       "player": "vaelite.",
       "nickname": "🏢 | Executive Outcomes",
-      "balance": 0,
+      "balance": 108,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
