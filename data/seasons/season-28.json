@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-18T17:11:42.781271+00:00",
+  "updated_at": "2026-10-18T17:13:55.728157+00:00",
   "totalActivePlayers": 38,
   "entities": {
     "1469060963360575548": {
@@ -671,7 +671,7 @@
       "gdp_ppp": 67500000000,
       "population": 25020961,
       "birth_rate": 40.0,
-      "support": 50.0,
+      "support": 50.5,
       "resource_index": 5.0,
       "corruption": 10.3,
       "level": "Слабая",
@@ -1494,8 +1494,8 @@
       "country": "MPRI",
       "player": "svvayl",
       "nickname": "🏢 | MPRI",
-      "balance": 419316598028,
-      "profit": 2061100000,
+      "balance": 311916598028,
+      "profit": 111100000,
       "gdp": null,
       "gdp_ppp": null,
       "population": null,
