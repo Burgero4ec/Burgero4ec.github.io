@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-17T21:41:40.156513+00:00",
+  "updated_at": "2026-10-18T08:35:27.002128+00:00",
   "total_active_players": 37,
   "total_non_staff_players": 19,
   "total_staff_who_play": 18,
@@ -66,10 +66,10 @@
         "Дания"
       ],
       "country": "Дания",
-      "balance": 174239211895,
-      "profit": 7320951043,
-      "gdp": 272325791752,
-      "gdp_ppp": 871442533606,
+      "balance": 211895,
+      "profit": 12937115620,
+      "gdp": 289749691752,
+      "gdp_ppp": 927199013606,
       "population": 5249653,
       "birth_rate": 12.5,
       "support": 50.0,
@@ -85,8 +85,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$136 162 895 876 / $136 162 895 876",
-      "investments": "$136 162 895 876 / $136 162 895 876",
+      "reforms": "$144 874 845 876 / $144 874 845 876",
+      "investments": "$144 874 845 876 / $144 874 845 876",
       "categories": [
         "Государство",
         "ООН",
@@ -1609,7 +1609,7 @@
         "Executive Outcomes"
       ],
       "country": "Executive Outcomes",
-      "balance": 108,
+      "balance": 0,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
@@ -1667,10 +1667,10 @@
         "Дания"
       ],
       "country": "Дания",
-      "balance": 174239211895,
-      "profit": 7320951043,
-      "gdp": 272325791752,
-      "gdp_ppp": 871442533606,
+      "balance": 211895,
+      "profit": 12937115620,
+      "gdp": 289749691752,
+      "gdp_ppp": 927199013606,
       "population": 5249653,
       "birth_rate": 12.5,
       "support": 50.0,
@@ -1686,8 +1686,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$136 162 895 876 / $136 162 895 876",
-      "investments": "$136 162 895 876 / $136 162 895 876",
+      "reforms": "$144 874 845 876 / $144 874 845 876",
+      "investments": "$144 874 845 876 / $144 874 845 876",
       "categories": [
         "Государство",
         "ООН",
@@ -2017,6 +2017,10 @@
         {
           "id": "1558803818349731921",
           "name": "Лицензия Египет"
+        },
+        {
+          "id": "1558764484112293898",
+          "name": "Лицензия СССР"
         },
         {
           "id": "1359429737574830251",
@@ -4351,7 +4355,7 @@
         "MPRI"
       ],
       "country": "MPRI",
-      "balance": 114,
+      "balance": 0,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
