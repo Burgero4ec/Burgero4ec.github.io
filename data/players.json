@@ -1,15 +1,15 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-18T08:42:23.472145+00:00",
-  "total_active_players": 37,
-  "total_non_staff_players": 19,
+  "updated_at": "2026-10-18T08:42:24.113490+00:00",
+  "total_active_players": 38,
+  "total_non_staff_players": 20,
   "total_staff_who_play": 18,
   "stats": {
-    "registered": 37,
+    "registered": 38,
     "states": 33,
     "autonomies": 0,
-    "pmc": 4,
+    "pmc": 5,
     "un_members": 34,
     "alliance_members": 33
   },
@@ -35,6 +35,7 @@
     "Аргентина": 1,
     "Польша": 1,
     "Швеция": 1,
+    "Academi": 1,
     "Югославия (СФРЮ)": 1,
     "Иран": 1,
     "Великобритания": 1,
@@ -66,15 +67,15 @@
         "Дания"
       ],
       "country": "Дания",
-      "balance": 211895,
-      "profit": 12937115620,
-      "gdp": 289749691752,
-      "gdp_ppp": 927199013606,
-      "population": 5249653,
+      "balance": 7129451084,
+      "profit": 16637437260,
+      "gdp": 310530691751,
+      "gdp_ppp": 993698213603,
+      "population": 5263665,
       "birth_rate": 12.5,
       "support": 50.0,
       "resource_index": 5.0,
-      "corruption": 10.3,
+      "corruption": 2.8,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская монархия",
@@ -85,8 +86,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$144 874 845 876 / $144 874 845 876",
-      "investments": "$144 874 845 876 / $144 874 845 876",
+      "reforms": "$140 265 345 875 / $155 265 345 875",
+      "investments": "$155 265 345 875 / $155 265 345 875",
       "categories": [
         "Государство",
         "ООН",
@@ -224,27 +225,21 @@
         "СССР"
       ],
       "country": "СССР",
-      "balance": 859057928801,
-      "profit": 85210362691,
-      "gdp": 3086237579405,
-      "gdp_ppp": 4937980127048,
-      "population": 245675851,
-      "birth_rate": 19.4,
-      "support": 54.7,
-      "resource_index": 1.0,
-      "corruption": 4.2,
-      "level": "Великая держава",
-      "ideology": {
-        "state": "Парламентская монархия",
-        "economy": "Смешанная экономика"
-      },
-      "taxes": {
-        "nds": 35,
-        "ndfl": 35
-      },
-      "specialization": "Промышленный хаб",
-      "reforms": "$1 543 118 789 702 / $1 543 118 789 702",
-      "investments": "$1 543 118 789 702 / $1 543 118 789 702",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
       "categories": [
         "Государство",
         "ООН",
@@ -316,21 +311,27 @@
         "Саудовская Аравия"
       ],
       "country": "Саудовская Аравия",
-      "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "balance": 12280870994,
+      "profit": 7496238368,
+      "gdp": 160577273692,
+      "gdp_ppp": 642309094768,
+      "population": 17147436,
+      "birth_rate": 36.5,
+      "support": 56.3,
+      "resource_index": 4.0,
+      "corruption": 7.7,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Абсолютная монархия",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$80 288 636 846 / $80 288 636 846",
+      "investments": "$80 288 636 846 / $80 288 636 846",
       "categories": [
         "Государство",
         "ООН",
@@ -385,7 +386,7 @@
       "username": "hs_negr",
       "display_name": "🏢 | DynCorp",
       "nickname": "🏢 | DynCorp",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1175702522837614626/0b0eab061322610da6a4e9057d76c440.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1175702522837614626/4f63463bbe74f7a51d9068aa7f30e808.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "ЧВК",
@@ -907,6 +908,52 @@
         {
           "id": "1209166398748631050",
           "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "808666368257818624",
+      "username": "btippo",
+      "display_name": "🏢 | Academi",
+      "nickname": "🏢 | Academi",
+      "avatar_url": "https://cdn.discordapp.com/avatars/808666368257818624/7b81cc6944bd44a194559ee3a2a63c72.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "ЧВК",
+      "countries": [
+        "Academi"
+      ],
+      "country": "Academi",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "ЧВК"
+      ],
+      "roles": [
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1233388420915658865",
+          "name": "Частная"
+        },
+        {
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -1543,26 +1590,20 @@
       ],
       "country": "Куба",
       "balance": 0,
-      "profit": 459307351,
-      "gdp": 20000000000,
-      "gdp_ppp": 90000000000,
-      "population": 10500000,
-      "birth_rate": 15.0,
-      "support": 50.0,
-      "resource_index": 5.0,
-      "corruption": 10.0,
-      "level": "Слабая",
-      "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
-      },
-      "taxes": {
-        "nds": 20,
-        "ndfl": 20
-      },
-      "specialization": "Не выбрано",
-      "reforms": "$10 000 000 000 / $10 000 000 000",
-      "investments": "$10 000 000 000 / $10 000 000 000",
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
       "categories": [
         "Государство",
         "ООН",
@@ -1691,15 +1732,15 @@
         "Дания"
       ],
       "country": "Дания",
-      "balance": 211895,
-      "profit": 12937115620,
-      "gdp": 289749691752,
-      "gdp_ppp": 927199013606,
-      "population": 5249653,
+      "balance": 7129451084,
+      "profit": 16637437260,
+      "gdp": 310530691751,
+      "gdp_ppp": 993698213603,
+      "population": 5263665,
       "birth_rate": 12.5,
       "support": 50.0,
       "resource_index": 5.0,
-      "corruption": 10.3,
+      "corruption": 2.8,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская монархия",
@@ -1710,8 +1751,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$144 874 845 876 / $144 874 845 876",
-      "investments": "$144 874 845 876 / $144 874 845 876",
+      "reforms": "$140 265 345 875 / $155 265 345 875",
+      "investments": "$155 265 345 875 / $155 265 345 875",
       "categories": [
         "Государство",
         "ООН",
@@ -1850,11 +1891,11 @@
       ],
       "country": "Беларусь",
       "balance": 55649247648,
-      "profit": 81024459382,
-      "gdp": 987667917916,
-      "gdp_ppp": 2469169794790,
-      "population": 12000073,
-      "birth_rate": 22.7,
+      "profit": 71534033551,
+      "gdp": 917738868509,
+      "gdp_ppp": 2294347171272,
+      "population": 12100073,
+      "birth_rate": 21.3,
       "support": 100.0,
       "resource_index": 4.0,
       "corruption": 0.9,
@@ -1868,8 +1909,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$493 833 958 958 / $493 833 958 958",
-      "investments": "$34 453 532 020 / $493 833 958 958",
+      "reforms": "$33 211 169 917 / $458 869 434 254",
+      "investments": "$6 813 235 785 / $458 869 434 254",
       "categories": [
         "Государство",
         "ООН",
@@ -1936,27 +1977,21 @@
         "СССР"
       ],
       "country": "СССР",
-      "balance": 859057928801,
-      "profit": 85210362691,
-      "gdp": 3086237579405,
-      "gdp_ppp": 4937980127048,
-      "population": 245675851,
-      "birth_rate": 19.4,
-      "support": 54.7,
-      "resource_index": 1.0,
-      "corruption": 4.2,
-      "level": "Великая держава",
-      "ideology": {
-        "state": "Парламентская монархия",
-        "economy": "Смешанная экономика"
-      },
-      "taxes": {
-        "nds": 35,
-        "ndfl": 35
-      },
-      "specialization": "Промышленный хаб",
-      "reforms": "$1 543 118 789 702 / $1 543 118 789 702",
-      "investments": "$1 543 118 789 702 / $1 543 118 789 702",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
       "categories": [
         "Государство",
         "ООН",
@@ -2028,27 +2063,21 @@
         "Египет"
       ],
       "country": "Египет",
-      "balance": 3009020951,
+      "balance": 0,
       "profit": null,
-      "gdp": 381267593281,
-      "gdp_ppp": 1220056298499,
-      "population": 62215618,
-      "birth_rate": 32.8,
-      "support": 100.0,
-      "resource_index": 5.0,
-      "corruption": 11.3,
-      "level": "Развивающаяся",
-      "ideology": {
-        "state": "Смешанная республика",
-        "economy": "Смешанная экономика"
-      },
-      "taxes": {
-        "nds": 35,
-        "ndfl": 35
-      },
-      "specialization": "Промышленный хаб",
-      "reforms": "$190 633 796 640 / $190 633 796 640",
-      "investments": "$190 633 796 640 / $190 633 796 640",
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
       "categories": [
         "Государство",
         "ООН",
@@ -2057,12 +2086,12 @@
       ],
       "roles": [
         {
-          "id": "1558803818349731921",
-          "name": "Лицензия Египет"
+          "id": "1558805783154528306",
+          "name": "Лицензия Швеция"
         },
         {
-          "id": "1558764484112293898",
-          "name": "Лицензия СССР"
+          "id": "1558803818349731921",
+          "name": "Лицензия Египет"
         },
         {
           "id": "1359429737574830251",
@@ -2111,21 +2140,27 @@
         "Саудовская Аравия"
       ],
       "country": "Саудовская Аравия",
-      "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "balance": 12280870994,
+      "profit": 7496238368,
+      "gdp": 160577273692,
+      "gdp_ppp": 642309094768,
+      "population": 17147436,
+      "birth_rate": 36.5,
+      "support": 56.3,
+      "resource_index": 4.0,
+      "corruption": 7.7,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Абсолютная монархия",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$80 288 636 846 / $80 288 636 846",
+      "investments": "$80 288 636 846 / $80 288 636 846",
       "categories": [
         "Государство",
         "ООН",
@@ -2180,7 +2215,7 @@
       "username": "hs_negr",
       "display_name": "🏢 | DynCorp",
       "nickname": "🏢 | DynCorp",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1175702522837614626/0b0eab061322610da6a4e9057d76c440.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1175702522837614626/4f63463bbe74f7a51d9068aa7f30e808.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "ЧВК",
@@ -2248,21 +2283,27 @@
         "Эстония"
       ],
       "country": "Эстония",
-      "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "balance": 48989503228,
+      "profit": 2378709037,
+      "gdp": 30878402164,
+      "gdp_ppp": 138952809738,
+      "population": 1575346,
+      "birth_rate": 14.0,
+      "support": 88.1,
+      "resource_index": 5.0,
+      "corruption": 16.8,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Парламентская монархия",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$15 439 201 082 / $15 439 201 082",
+      "investments": "$15 439 201 082 / $15 439 201 082",
       "categories": [
         "Государство",
         "ООН",
@@ -3244,6 +3285,52 @@
         {
           "id": "1209196451339698206",
           "name": "• Политолог"
+        }
+      ]
+    },
+    {
+      "id": "808666368257818624",
+      "username": "btippo",
+      "display_name": "🏢 | Academi",
+      "nickname": "🏢 | Academi",
+      "avatar_url": "https://cdn.discordapp.com/avatars/808666368257818624/7b81cc6944bd44a194559ee3a2a63c72.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "ЧВК",
+      "countries": [
+        "Academi"
+      ],
+      "country": "Academi",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "ЧВК"
+      ],
+      "roles": [
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1233388420915658865",
+          "name": "Частная"
+        },
+        {
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -4423,6 +4510,10 @@
       ],
       "roles": [
         {
+          "id": "1559775432738340914",
+          "name": "Лицензия ЮАР"
+        },
+        {
           "id": "1558764484112293898",
           "name": "Лицензия СССР"
         },
@@ -4451,8 +4542,8 @@
     {
       "id": "1137392083821416478",
       "username": "naebni_govna_olyx",
-      "display_name": "🇿🇦 | ЮАР",
-      "nickname": "🇿🇦 | ЮАР",
+      "display_name": "🇿🇦 | СЮДА",
+      "nickname": "🇿🇦 | СЮДА",
       "avatar_url": "https://cdn.discordapp.com/avatars/1137392083821416478/8a86abdfbc4baf0257a5fd388672eac3.png?size=1024",
       "is_staff": true,
       "is_registered": true,
