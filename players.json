@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-18T11:11:50.400557+00:00",
+  "updated_at": "2026-10-18T11:34:01.545986+00:00",
   "total_active_players": 38,
   "total_non_staff_players": 20,
   "total_staff_who_play": 18,
@@ -4412,7 +4412,7 @@
         "MPRI"
       ],
       "country": "MPRI",
-      "balance": 0,
+      "balance": 114,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
