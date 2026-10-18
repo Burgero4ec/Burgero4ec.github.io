@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-18T08:35:27.002128+00:00",
+  "updated_at": "2026-10-18T08:36:02.243787+00:00",
   "totalActivePlayers": 37,
   "entities": {
     "1469060963360575548": {
@@ -104,7 +104,7 @@
       "country": "Executive Outcomes",
       "player": "vaelite.",
       "nickname": "🏢 | Executive Outcomes",
-      "balance": 0,
+      "balance": 108,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
@@ -134,15 +134,15 @@
       "country": "Дания",
       "player": "tisravv",
       "nickname": "🇩🇰 | Дания",
-      "balance": 211895,
-      "profit": 12937115620,
-      "gdp": 289749691752,
-      "gdp_ppp": 927199013606,
-      "population": 5249653,
+      "balance": 7129451084,
+      "profit": 16637437260,
+      "gdp": 310530691751,
+      "gdp_ppp": 993698213603,
+      "population": 5263665,
       "birth_rate": 12.5,
       "support": 50.0,
       "resource_index": 5.0,
-      "corruption": 10.3,
+      "corruption": 2.8,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская монархия",
@@ -153,8 +153,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$144 874 845 876 / $144 874 845 876",
-      "investments": "$144 874 845 876 / $144 874 845 876",
+      "reforms": "$140 265 345 875 / $155 265 345 875",
+      "investments": "$155 265 345 875 / $155 265 345 875",
       "is_staff": false,
       "roles": [
         "Лицензия Дания",
@@ -1309,7 +1309,7 @@
       "country": "MPRI",
       "player": "svvayl",
       "nickname": "🏢 | MPRI",
-      "balance": 0,
+      "balance": 114,
       "profit": null,
       "gdp": null,
       "gdp_ppp": null,
