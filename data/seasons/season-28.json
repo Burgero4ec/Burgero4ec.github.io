@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-18T15:58:43.113520+00:00",
+  "updated_at": "2026-10-18T16:00:59.288618+00:00",
   "totalActivePlayers": 38,
   "entities": {
     "1469060963360575548": {
@@ -829,15 +829,15 @@
       "country": "Польша",
       "player": "elwey4194",
       "nickname": "🇵🇱 | Польша",
-      "balance": 113396305640,
-      "profit": 82042760558,
-      "gdp": 1831806668230,
-      "gdp_ppp": 3480432669637,
-      "population": 44843291,
+      "balance": 0,
+      "profit": 81883594809,
+      "gdp": 1835824868198,
+      "gdp_ppp": 3488067249576,
+      "population": 44863642,
       "birth_rate": 15.2,
       "support": 100.0,
       "resource_index": 4.0,
-      "corruption": 0.0,
+      "corruption": 0.1,
       "level": "Передовая",
       "ideology": {
         "state": "Смешанная республика",
@@ -848,8 +848,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$77 613 132 281 / $915 903 334 115",
-      "investments": "$353 508 424 574 / $915 903 334 115",
+      "reforms": "$79 622 232 265 / $917 912 434 099",
+      "investments": "$355 517 524 558 / $917 912 434 099",
       "is_staff": true,
       "roles": [
         "ЕЭС",
@@ -1495,8 +1495,8 @@
       "country": "MPRI",
       "player": "svvayl",
       "nickname": "🏢 | MPRI",
-      "balance": 114,
-      "profit": null,
+      "balance": 516816598028,
+      "profit": 4498600000,
       "gdp": null,
       "gdp_ppp": null,
       "population": null,
@@ -1505,8 +1505,8 @@
       "resource_index": null,
       "corruption": null,
       "level": null,
-      "ideology": null,
-      "taxes": null,
+      "ideology": {},
+      "taxes": {},
       "specialization": null,
       "reforms": null,
       "investments": null,
