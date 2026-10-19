@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-19T17:01:35.274380+00:00",
+  "updated_at": "2026-10-19T17:03:43.505437+00:00",
   "totalActivePlayers": 37,
   "entities": {
     "1469060963360575548": {
@@ -304,26 +304,26 @@
       "player": "izaziii228",
       "nickname": "🇪🇬 | Египетская Империя",
       "balance": 0,
-      "profit": 1425524844,
-      "gdp": 15496747795,
-      "gdp_ppp": 69735365077,
-      "population": 258211,
-      "birth_rate": 18.9,
-      "support": 56.3,
+      "profit": 143614703,
+      "gdp": 395739696212,
+      "gdp_ppp": 1266367027878,
+      "population": 63763291,
+      "birth_rate": 32.8,
+      "support": 65.6,
       "resource_index": 5.0,
-      "corruption": 14.4,
-      "level": "Слабая",
+      "corruption": 6.6,
+      "level": "Развивающаяся",
       "ideology": {
-        "state": "Парламентская республика",
-        "economy": "Рыночная экономика"
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
         "nds": 35,
         "ndfl": 35
       },
-      "specialization": "Аграрная держава",
-      "reforms": "$7 748 373 897 / $7 748 373 897",
-      "investments": "$7 748 373 897 / $7 748 373 897",
+      "specialization": "Промышленный хаб",
+      "reforms": "$197 869 848 106 / $197 869 848 106",
+      "investments": "$197 869 848 106 / $197 869 848 106",
       "is_staff": true,
       "roles": [
         "Лицензия Египет",
@@ -705,27 +705,27 @@
       "country": "Колумбия",
       "player": "perikkl",
       "nickname": "🇨🇴 | Колумбия",
-      "balance": 205033240552,
-      "profit": 6512971028,
-      "gdp": 146688259499,
-      "gdp_ppp": 586753037996,
-      "population": 37221013,
-      "birth_rate": 26.5,
-      "support": 65.8,
-      "resource_index": 4.0,
-      "corruption": 26.3,
-      "level": "Устойчивая",
+      "balance": 0,
+      "profit": 143614703,
+      "gdp": 395739696212,
+      "gdp_ppp": 1266367027878,
+      "population": 63763291,
+      "birth_rate": 32.8,
+      "support": 65.6,
+      "resource_index": 5.0,
+      "corruption": 6.6,
+      "level": "Развивающаяся",
       "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 30,
-        "ndfl": 30
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$73 344 129 749 / $73 344 129 749",
-      "investments": "$73 344 129 749 / $73 344 129 749",
+      "reforms": "$197 869 848 106 / $197 869 848 106",
+      "investments": "$197 869 848 106 / $197 869 848 106",
       "is_staff": false,
       "roles": [
         "МЕРКОСУР",
