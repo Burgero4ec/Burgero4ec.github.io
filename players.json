@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-19T11:21:55.035906+00:00",
+  "updated_at": "2026-10-19T11:22:03.400832+00:00",
   "total_active_players": 38,
   "total_non_staff_players": 20,
   "total_staff_who_play": 18,
@@ -24,7 +24,7 @@
     "Саудовская Аравия": 1,
     "DynCorp": 1,
     "Эстония": 1,
-    "Япония": 1,
+    "КНР": 1,
     "Канада": 1,
     "ФРГ": 1,
     "Нигерия": 1,
@@ -452,16 +452,16 @@
     {
       "id": "897130924951634021",
       "username": "_ashkoo139",
-      "display_name": "🇯🇵 | Япония",
-      "nickname": "🇯🇵 | Япония",
+      "display_name": "🇨🇳 | КНР",
+      "nickname": "🇨🇳 | КНР",
       "avatar_url": "https://cdn.discordapp.com/avatars/897130924951634021/a_fd7f7cf7176eecbf23e76ab7da486a9b.gif?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Япония"
+        "КНР"
       ],
-      "country": "Япония",
+      "country": "КНР",
       "balance": 9665401245,
       "profit": 23915292010,
       "gdp": 3324467518089,
@@ -491,8 +491,8 @@
       ],
       "roles": [
         {
-          "id": "1561444397910851728",
-          "name": "Лицензия Япония"
+          "id": "1561485238025191424",
+          "name": "Лицензия КНР"
         },
         {
           "id": "1359429737574830251",
@@ -2494,16 +2494,16 @@
     {
       "id": "897130924951634021",
       "username": "_ashkoo139",
-      "display_name": "🇯🇵 | Япония",
-      "nickname": "🇯🇵 | Япония",
+      "display_name": "🇨🇳 | КНР",
+      "nickname": "🇨🇳 | КНР",
       "avatar_url": "https://cdn.discordapp.com/avatars/897130924951634021/a_fd7f7cf7176eecbf23e76ab7da486a9b.gif?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Япония"
+        "КНР"
       ],
-      "country": "Япония",
+      "country": "КНР",
       "balance": 9665401245,
       "profit": 23915292010,
       "gdp": 3324467518089,
@@ -2533,8 +2533,8 @@
       ],
       "roles": [
         {
-          "id": "1561444397910851728",
-          "name": "Лицензия Япония"
+          "id": "1561485238025191424",
+          "name": "Лицензия КНР"
         },
         {
           "id": "1359429737574830251",
@@ -3322,6 +3322,10 @@
           "name": "Лицензия Польша"
         },
         {
+          "id": "1558764511014420513",
+          "name": "Лицензия Великобритания"
+        },
+        {
           "id": "1359429737574830251",
           "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
         },
@@ -3675,7 +3679,7 @@
       "username": "marsgooddayevery",
       "display_name": "🇬🇧 | Великобритания",
       "nickname": "🇬🇧 | Великобритания",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1532495116747538538/f08f0e278bc20290487e58841cca4077.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1532495116747538538/2787115aeee06830afc9b55a00dffc40.png?size=1024",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
@@ -4835,6 +4839,10 @@
         {
           "id": "1559775432738340914",
           "name": "Лицензия ЮАР"
+        },
+        {
+          "id": "1558764484112293898",
+          "name": "Лицензия СССР"
         },
         {
           "id": "1359429737574830251",
