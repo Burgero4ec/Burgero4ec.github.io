@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-19T19:18:54.002409+00:00",
+  "updated_at": "2026-10-19T19:20:24.189116+00:00",
   "totalActivePlayers": 36,
   "entities": {
     "1469060963360575548": {
@@ -68,27 +68,27 @@
       "country": "Куба",
       "player": "ebate_matrasov",
       "nickname": "🇨🇺 | Куба",
-      "balance": 380574719404,
-      "profit": 22646339647,
-      "gdp": 1189295998141,
-      "gdp_ppp": 2259662396467,
-      "population": 54971103,
-      "birth_rate": 16.4,
-      "support": 100.0,
-      "resource_index": 2.0,
-      "corruption": 17.4,
-      "level": "Передовая",
+      "balance": 0,
+      "profit": 322089547,
+      "gdp": 20000000000,
+      "gdp_ppp": 90000000000,
+      "population": 10500000,
+      "birth_rate": 15.0,
+      "support": 50.0,
+      "resource_index": 5.0,
+      "corruption": 10.0,
+      "level": "Слабая",
       "ideology": {
-        "state": "Смешанная республика",
-        "economy": "Смешанная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 20,
+        "ndfl": 20
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$594 647 999 070 / $594 647 999 070",
-      "investments": "$594 647 999 070 / $594 647 999 070",
+      "specialization": "Не выбрано",
+      "reforms": "$10 000 000 000 / $10 000 000 000",
+      "investments": "$10 000 000 000 / $10 000 000 000",
       "is_staff": true,
       "roles": [
         "Лицензия Куба",
@@ -220,9 +220,9 @@
       "player": "ponzc",
       "nickname": "🇧🇾 | Рэспубліка Беларусь",
       "balance": 0,
-      "profit": 83614794053,
-      "gdp": 1785257210747,
-      "gdp_ppp": 3391988700419,
+      "profit": 83519829289,
+      "gdp": 1807879670923,
+      "gdp_ppp": 3434971374753,
       "population": 12324639,
       "birth_rate": 22.7,
       "support": 100.0,
@@ -238,8 +238,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$38 636 566 948 / $892 628 605 373",
-      "investments": "$161 589 001 259 / $892 628 605 373",
+      "reforms": "$49 947 797 036 / $903 939 835 461",
+      "investments": "$11 311 230 088 / $903 939 835 461",
       "is_staff": true,
       "roles": [
         "Лицензия Беларусь",
@@ -459,7 +459,7 @@
       "player": "_ashkoo139",
       "nickname": "🇺🇸 | США",
       "balance": 0,
-      "profit": 175383625443,
+      "profit": 183933039513,
       "gdp": 16907136394160,
       "gdp_ppp": 21133920492700,
       "population": 267220961,
@@ -980,7 +980,7 @@
       "player": "marsgooddayevery",
       "nickname": "🇬🇧 | Великобритания",
       "balance": 1710129200924,
-      "profit": 68334869584,
+      "profit": 68154582340,
       "gdp": 4880575647802,
       "gdp_ppp": 7808921036483,
       "population": 61706713,
