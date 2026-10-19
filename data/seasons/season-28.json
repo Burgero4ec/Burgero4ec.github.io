@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-19T13:35:31.779576+00:00",
+  "updated_at": "2026-10-19T14:03:32.411518+00:00",
   "totalActivePlayers": 38,
   "entities": {
     "1469060963360575548": {
@@ -140,15 +140,15 @@
       "country": "Дания",
       "player": "tisravv",
       "nickname": "🇩🇰 | Дания",
-      "balance": 69786795370,
-      "profit": 12788631308,
-      "gdp": 359988660419,
-      "gdp_ppp": 1151963713340,
-      "population": 5099043,
+      "balance": 52536552013,
+      "profit": 12270466958,
+      "gdp": 365452485410,
+      "gdp_ppp": 1169447953312,
+      "population": 5100520,
       "birth_rate": 12.5,
       "support": 58.9,
       "resource_index": 5.0,
-      "corruption": 0.8,
+      "corruption": 0.9,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская монархия",
@@ -159,8 +159,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$149 994 330 209 / $179 994 330 209",
-      "investments": "$179 994 330 209 / $179 994 330 209",
+      "reforms": "$140 726 242 705 / $182 726 242 705",
+      "investments": "$182 726 242 705 / $182 726 242 705",
       "is_staff": false,
       "roles": [
         "Лицензия Дания",
