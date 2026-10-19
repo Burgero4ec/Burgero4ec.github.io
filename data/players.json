@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-19T17:23:03.243227+00:00",
+  "updated_at": "2026-10-19T17:24:59.349930+00:00",
   "total_active_players": 37,
   "total_non_staff_players": 19,
   "total_staff_who_play": 18,
@@ -1912,8 +1912,8 @@
         "Беларусь"
       ],
       "country": "Беларусь",
-      "balance": 154555028578,
-      "profit": 89516783583,
+      "balance": 0,
+      "profit": 91056474532,
       "gdp": 1785257210747,
       "gdp_ppp": 3391988700419,
       "population": 12324639,
