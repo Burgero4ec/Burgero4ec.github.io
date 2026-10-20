@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-20T11:05:04.787843+00:00",
+  "updated_at": "2026-10-20T11:05:09.426003+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 18,
   "total_staff_who_play": 17,
@@ -337,7 +337,7 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$56 186 640 400 / $109 777 648 126",
+      "reforms": "$109 777 648 126 / $109 777 648 126",
       "investments": "$109 777 648 126 / $109 777 648 126",
       "categories": [
         "Государство",
@@ -2116,7 +2116,7 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$56 186 640 400 / $109 777 648 126",
+      "reforms": "$109 777 648 126 / $109 777 648 126",
       "investments": "$109 777 648 126 / $109 777 648 126",
       "categories": [
         "Государство",
