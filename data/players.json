@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-20T11:03:42.151276+00:00",
+  "updated_at": "2026-10-20T11:03:46.097918+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 18,
   "total_staff_who_play": 17,
@@ -459,27 +459,27 @@
         "США"
       ],
       "country": "США",
-      "balance": 144407563300,
-      "profit": 234968840721,
-      "gdp": 17498886167955,
-      "gdp_ppp": 21873607709943,
-      "population": 267220961,
+      "balance": 48965757756,
+      "profit": 355702421756,
+      "gdp": 17939994480088,
+      "gdp_ppp": 22424993100110,
+      "population": 269435992,
       "birth_rate": 23.3,
-      "support": 50.0,
+      "support": 48.6,
       "resource_index": 2.0,
-      "corruption": 0.0,
+      "corruption": 2.2,
       "level": "Сверхдержава",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 30,
+        "ndfl": 30
       },
-      "specialization": "Не выбрано",
-      "reforms": "$3 749 443 083 977 / $8 749 443 083 977",
-      "investments": "$8 749 443 083 977 / $8 749 443 083 977",
+      "specialization": "Промышленный хаб",
+      "reforms": "$6 869 481 467 980 / $8 969 997 240 044",
+      "investments": "$8 969 997 240 044 / $8 969 997 240 044",
       "categories": [
         "Государство",
         "ООН",
@@ -2341,27 +2341,27 @@
         "США"
       ],
       "country": "США",
-      "balance": 144407563300,
-      "profit": 234968840721,
-      "gdp": 17498886167955,
-      "gdp_ppp": 21873607709943,
-      "population": 267220961,
+      "balance": 48965757756,
+      "profit": 355702421756,
+      "gdp": 17939994480088,
+      "gdp_ppp": 22424993100110,
+      "population": 269435992,
       "birth_rate": 23.3,
-      "support": 50.0,
+      "support": 48.6,
       "resource_index": 2.0,
-      "corruption": 0.0,
+      "corruption": 2.2,
       "level": "Сверхдержава",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 30,
+        "ndfl": 30
       },
-      "specialization": "Не выбрано",
-      "reforms": "$3 749 443 083 977 / $8 749 443 083 977",
-      "investments": "$8 749 443 083 977 / $8 749 443 083 977",
+      "specialization": "Промышленный хаб",
+      "reforms": "$6 869 481 467 980 / $8 969 997 240 044",
+      "investments": "$8 969 997 240 044 / $8 969 997 240 044",
       "categories": [
         "Государство",
         "ООН",
