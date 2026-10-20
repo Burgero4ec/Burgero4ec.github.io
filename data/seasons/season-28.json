@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-20T11:03:53.995523+00:00",
+  "updated_at": "2026-10-20T11:03:58.028392+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -664,15 +664,15 @@
       "country": "Колумбия",
       "player": "perikkl",
       "nickname": "🇨🇴 | Колумбия",
-      "balance": 230188789951,
-      "profit": 6214085280,
-      "gdp": 146950058901,
-      "gdp_ppp": 587800235604,
-      "population": 37306921,
+      "balance": 293900117802,
+      "profit": 4750669323,
+      "gdp": 147606578380,
+      "gdp_ppp": 590426313520,
+      "population": 37472158,
       "birth_rate": 26.5,
       "support": 65.8,
       "resource_index": 4.0,
-      "corruption": 27.4,
+      "corruption": 30.2,
       "level": "Устойчивая",
       "ideology": {
         "state": "Президентская республика",
@@ -683,8 +683,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$73 475 029 450 / $73 475 029 450",
-      "investments": "$73 475 029 450 / $73 475 029 450",
+      "reforms": "$73 803 289 190 / $73 803 289 190",
+      "investments": "$73 803 289 190 / $73 803 289 190",
       "is_staff": false,
       "roles": [
         "МЕРКОСУР",
