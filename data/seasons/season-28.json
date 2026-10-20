@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-20T15:26:26.037651+00:00",
+  "updated_at": "2026-10-20T15:27:53.760115+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -303,18 +303,18 @@
       "country": "Египет",
       "player": "izaziii228",
       "nickname": "🇪🇬 | Египетская Империя",
-      "balance": 0,
-      "profit": 16996751639,
-      "gdp": 400544549039,
-      "gdp_ppp": 1281742556924,
-      "population": 65075478,
-      "birth_rate": 32.8,
-      "support": 62.4,
-      "resource_index": 5.0,
-      "corruption": 13.4,
-      "level": "Развивающаяся",
+      "balance": 513874224598,
+      "profit": 101158624711,
+      "gdp": 3497717044941,
+      "gdp_ppp": 5596347271905,
+      "population": 248530087,
+      "birth_rate": 20.1,
+      "support": 66.3,
+      "resource_index": 1.0,
+      "corruption": 2.2,
+      "level": "Великая держава",
       "ideology": {
-        "state": "Смешанная республика",
+        "state": "Парламентская монархия",
         "economy": "Смешанная экономика"
       },
       "taxes": {
@@ -322,8 +322,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$200 272 274 519 / $200 272 274 519",
-      "investments": "$200 272 274 519 / $200 272 274 519",
+      "reforms": "$1 748 858 522 470 / $1 748 858 522 470",
+      "investments": "$429 055 615 647 / $1 748 858 522 470",
       "is_staff": true,
       "roles": [
         "Лицензия Египет",
