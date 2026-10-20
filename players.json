@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-20T17:31:04.978986+00:00",
+  "updated_at": "2026-10-20T17:32:41.093990+00:00",
   "total_active_players": 36,
   "total_non_staff_players": 19,
   "total_staff_who_play": 17,
@@ -546,27 +546,27 @@
         "Канада"
       ],
       "country": "Канада",
-      "balance": 1066772,
-      "profit": 5297030375,
-      "gdp": 711892659532,
-      "gdp_ppp": 1779731648830,
-      "population": 28208864,
-      "birth_rate": 15.0,
-      "support": 49.5,
+      "balance": 48965757756,
+      "profit": 355702421756,
+      "gdp": 17939994480088,
+      "gdp_ppp": 22424993100110,
+      "population": 269435992,
+      "birth_rate": 23.3,
+      "support": 48.6,
       "resource_index": 2.0,
-      "corruption": 14.6,
-      "level": "Сильная",
+      "corruption": 2.2,
+      "level": "Сверхдержава",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 30,
+        "ndfl": 30
       },
-      "specialization": "Не выбрано",
-      "reforms": "$355 946 329 766 / $355 946 329 766",
-      "investments": "$355 946 329 766 / $355 946 329 766",
+      "specialization": "Промышленный хаб",
+      "reforms": "$6 869 481 467 980 / $8 969 997 240 044",
+      "investments": "$8 969 997 240 044 / $8 969 997 240 044",
       "categories": [
         "Государство",
         "ООН",
@@ -2511,27 +2511,27 @@
         "Канада"
       ],
       "country": "Канада",
-      "balance": 1066772,
-      "profit": 5297030375,
-      "gdp": 711892659532,
-      "gdp_ppp": 1779731648830,
-      "population": 28208864,
-      "birth_rate": 15.0,
-      "support": 49.5,
+      "balance": 48965757756,
+      "profit": 355702421756,
+      "gdp": 17939994480088,
+      "gdp_ppp": 22424993100110,
+      "population": 269435992,
+      "birth_rate": 23.3,
+      "support": 48.6,
       "resource_index": 2.0,
-      "corruption": 14.6,
-      "level": "Сильная",
+      "corruption": 2.2,
+      "level": "Сверхдержава",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 30,
+        "ndfl": 30
       },
-      "specialization": "Не выбрано",
-      "reforms": "$355 946 329 766 / $355 946 329 766",
-      "investments": "$355 946 329 766 / $355 946 329 766",
+      "specialization": "Промышленный хаб",
+      "reforms": "$6 869 481 467 980 / $8 969 997 240 044",
+      "investments": "$8 969 997 240 044 / $8 969 997 240 044",
       "categories": [
         "Государство",
         "ООН",
@@ -2777,26 +2777,23 @@
       ],
       "country": "СССР",
       "balance": 0,
-      "profit": 114868029739,
-      "gdp": 2411819964966,
-      "gdp_ppp": 4582457933435,
-      "population": 215546321,
-      "birth_rate": 45.9,
-      "support": 88.0,
-      "resource_index": 4.0,
-      "corruption": 9.3,
-      "level": "Передовая",
-      "ideology": {
-        "state": "Парламентская республика",
-        "economy": "Рыночная экономика"
-      },
+      "profit": 1057480075,
+      "gdp": 38000000000,
+      "gdp_ppp": 171000000000,
+      "population": 7150000,
+      "birth_rate": 25.4,
+      "support": 50.0,
+      "resource_index": 3.0,
+      "corruption": 10.0,
+      "level": "Слабая",
+      "ideology": {},
       "taxes": {
-        "nds": 30,
-        "ndfl": 30
+        "nds": 20,
+        "ndfl": 20
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$204 030 464 658 / $1 205 909 982 483",
-      "investments": "$78 891 307 265 / $1 205 909 982 483",
+      "specialization": "Не выбрано",
+      "reforms": "$19 000 000 000 / $19 000 000 000",
+      "investments": "$19 000 000 000 / $19 000 000 000",
       "categories": [
         "Автономия",
         "Альянс"
