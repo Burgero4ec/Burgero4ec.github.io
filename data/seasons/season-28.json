@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-20T13:40:18.389553+00:00",
+  "updated_at": "2026-10-20T13:41:40.757130+00:00",
   "totalActivePlayers": 35,
   "entities": {
     "1469060963360575548": {
@@ -262,12 +262,12 @@
       "player": "50175079",
       "nickname": "🟦 | ССГ",
       "balance": 513874224598,
-      "profit": 102372908713,
-      "gdp": 3473418677534,
-      "gdp_ppp": 5557469884054,
+      "profit": 100802346374,
+      "gdp": 3463663841948,
+      "gdp_ppp": 5541862147116,
       "population": 248530087,
       "birth_rate": 20.1,
-      "support": 70.8,
+      "support": 66.3,
       "resource_index": 1.0,
       "corruption": 2.2,
       "level": "Великая держава",
@@ -280,8 +280,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 736 709 338 767 / $1 736 709 338 767",
-      "investments": "$1 399 222 552 986 / $1 736 709 338 767",
+      "reforms": "$1 731 831 920 974 / $1 731 831 920 974",
+      "investments": "$1 475 635 431 759 / $1 731 831 920 974",
       "is_staff": false,
       "roles": [
         "Лицензия ЮАР",
@@ -1397,15 +1397,15 @@
       "country": "ЮАР",
       "player": "naebni_govna_olyx",
       "nickname": "🇿🇦 | СЮДА",
-      "balance": 0,
-      "profit": 75933301309,
-      "gdp": 2275026134212,
-      "gdp_ppp": 4322549655002,
-      "population": 45696770,
+      "balance": 21004000000,
+      "profit": 75612664700,
+      "gdp": 2328872175169,
+      "gdp_ppp": 4424857132821,
+      "population": 45764607,
       "birth_rate": 29.5,
       "support": 100.0,
       "resource_index": 3.0,
-      "corruption": 1.9,
+      "corruption": 2.1,
       "level": "Передовая",
       "ideology": {
         "state": "Смешанная республика",
@@ -1416,8 +1416,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$75 806 830 025 / $1 137 513 067 106",
-      "investments": "$1 137 513 067 106 / $1 137 513 067 106",
+      "reforms": "$4 902 225 295 / $1 164 436 087 584",
+      "investments": "$1 164 436 087 584 / $1 164 436 087 584",
       "is_staff": true,
       "roles": [
         "Лицензия ЮАР",
