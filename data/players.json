@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-20T11:12:54.825146+00:00",
+  "updated_at": "2026-10-20T11:14:19.299392+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 18,
   "total_staff_who_play": 17,
@@ -1244,27 +1244,27 @@
         "Италия"
       ],
       "country": "Италия",
-      "balance": 0,
-      "profit": 1665116069,
-      "gdp": 1219617439562,
-      "gdp_ppp": 2317273135167,
-      "population": 57053469,
-      "birth_rate": 10.5,
-      "support": 40.8,
-      "resource_index": 5.0,
-      "corruption": 17.1,
-      "level": "Передовая",
+      "balance": 2462432298137,
+      "profit": 54673427916,
+      "gdp": 3511135250043,
+      "gdp_ppp": 5617816400068,
+      "population": 61322230,
+      "birth_rate": 14.7,
+      "support": 69.7,
+      "resource_index": 4.0,
+      "corruption": 4.7,
+      "level": "Великая держава",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 23,
+        "ndfl": 23
       },
-      "specialization": "Не выбрано",
-      "reforms": "$609 808 719 781 / $609 808 719 781",
-      "investments": "$609 808 719 781 / $609 808 719 781",
+      "specialization": "Промышленный хаб",
+      "reforms": "$1 755 567 625 021 / $1 755 567 625 021",
+      "investments": "$1 755 567 625 021 / $1 755 567 625 021",
       "categories": [
         "Государство",
         "ООН",
@@ -2610,7 +2610,7 @@
         "Нигерия"
       ],
       "country": "Нигерия",
-      "balance": 0,
+      "balance": 990000000000,
       "profit": 106094417244,
       "gdp": 2254037350436,
       "gdp_ppp": 4282670965828,
@@ -4024,27 +4024,27 @@
         "Италия"
       ],
       "country": "Италия",
-      "balance": 0,
-      "profit": 1665116069,
-      "gdp": 1219617439562,
-      "gdp_ppp": 2317273135167,
-      "population": 57053469,
-      "birth_rate": 10.5,
-      "support": 40.8,
-      "resource_index": 5.0,
-      "corruption": 17.1,
-      "level": "Передовая",
+      "balance": 2462432298137,
+      "profit": 54673427916,
+      "gdp": 3511135250043,
+      "gdp_ppp": 5617816400068,
+      "population": 61322230,
+      "birth_rate": 14.7,
+      "support": 69.7,
+      "resource_index": 4.0,
+      "corruption": 4.7,
+      "level": "Великая держава",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 23,
+        "ndfl": 23
       },
-      "specialization": "Не выбрано",
-      "reforms": "$609 808 719 781 / $609 808 719 781",
-      "investments": "$609 808 719 781 / $609 808 719 781",
+      "specialization": "Промышленный хаб",
+      "reforms": "$1 755 567 625 021 / $1 755 567 625 021",
+      "investments": "$1 755 567 625 021 / $1 755 567 625 021",
       "categories": [
         "Государство",
         "ООН",
