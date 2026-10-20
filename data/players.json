@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-20T11:07:40.121696+00:00",
+  "updated_at": "2026-10-20T11:09:02.366700+00:00",
   "total_active_players": 35,
   "total_non_staff_players": 18,
   "total_staff_who_play": 17,
@@ -1418,27 +1418,27 @@
         "Бразилия"
       ],
       "country": "Бразилия",
-      "balance": 213886034868,
-      "profit": 15476100768,
-      "gdp": 323094341060,
-      "gdp_ppp": 1033901891392,
-      "population": 10495907,
-      "birth_rate": 10.5,
-      "support": 73.5,
-      "resource_index": 5.0,
-      "corruption": 2.7,
-      "level": "Развивающаяся",
+      "balance": 2656466820200,
+      "profit": 86885534732,
+      "gdp": 2137362532433,
+      "gdp_ppp": 4060988811622,
+      "population": 165599508,
+      "birth_rate": 25.0,
+      "support": 61.0,
+      "resource_index": 2.0,
+      "corruption": 14.7,
+      "level": "Передовая",
       "ideology": {
         "state": "Парламентская республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 24,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$161 547 170 530 / $161 547 170 530",
-      "investments": "$161 547 170 530 / $161 547 170 530",
+      "reforms": "$1 068 681 266 216 / $1 068 681 266 216",
+      "investments": "$1 068 681 266 216 / $1 068 681 266 216",
       "categories": [
         "Государство",
         "ООН",
@@ -3821,27 +3821,27 @@
         "Нидерланды"
       ],
       "country": "Нидерланды",
-      "balance": 0,
-      "profit": 1425524844,
-      "gdp": 15496747795,
-      "gdp_ppp": 69735365077,
-      "population": 258211,
-      "birth_rate": 18.9,
-      "support": 56.3,
+      "balance": 410869226918,
+      "profit": 9391463615,
+      "gdp": 375048518556,
+      "gdp_ppp": 1200155259379,
+      "population": 15677023,
+      "birth_rate": 13.2,
+      "support": 56.4,
       "resource_index": 5.0,
-      "corruption": 14.4,
-      "level": "Слабая",
+      "corruption": 27.2,
+      "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская республика",
-        "economy": "Рыночная экономика"
+        "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 25,
+        "ndfl": 25
       },
-      "specialization": "Аграрная держава",
-      "reforms": "$7 748 373 897 / $7 748 373 897",
-      "investments": "$7 748 373 897 / $7 748 373 897",
+      "specialization": "Промышленный хаб",
+      "reforms": "$187 524 259 278 / $187 524 259 278",
+      "investments": "$187 524 259 278 / $187 524 259 278",
       "categories": [
         "Государство",
         "ООН",
@@ -4198,27 +4198,27 @@
         "Бразилия"
       ],
       "country": "Бразилия",
-      "balance": 213886034868,
-      "profit": 15476100768,
-      "gdp": 323094341060,
-      "gdp_ppp": 1033901891392,
-      "population": 10495907,
-      "birth_rate": 10.5,
-      "support": 73.5,
-      "resource_index": 5.0,
-      "corruption": 2.7,
-      "level": "Развивающаяся",
+      "balance": 2656466820200,
+      "profit": 86885534732,
+      "gdp": 2137362532433,
+      "gdp_ppp": 4060988811622,
+      "population": 165599508,
+      "birth_rate": 25.0,
+      "support": 61.0,
+      "resource_index": 2.0,
+      "corruption": 14.7,
+      "level": "Передовая",
       "ideology": {
         "state": "Парламентская республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 24,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$161 547 170 530 / $161 547 170 530",
-      "investments": "$161 547 170 530 / $161 547 170 530",
+      "reforms": "$1 068 681 266 216 / $1 068 681 266 216",
+      "investments": "$1 068 681 266 216 / $1 068 681 266 216",
       "categories": [
         "Государство",
         "ООН",
