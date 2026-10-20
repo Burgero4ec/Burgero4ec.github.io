@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-20T19:54:10.178596+00:00",
+  "updated_at": "2026-10-20T19:55:47.670507+00:00",
   "totalActivePlayers": 36,
   "entities": {
     "1469060963360575548": {
@@ -829,27 +829,27 @@
       "country": "Швеция",
       "player": "provonsali",
       "nickname": "🇸🇪 | Швеция",
-      "balance": 1150864971112,
-      "profit": 149969024421,
-      "gdp": 3469014335372,
-      "gdp_ppp": 5550422936595,
-      "population": 45759500,
-      "birth_rate": 15.2,
-      "support": 100.0,
+      "balance": 304692809373,
+      "profit": null,
+      "gdp": 639749304033,
+      "gdp_ppp": 1599373260082,
+      "population": 9299572,
+      "birth_rate": 15.8,
+      "support": 42.1,
       "resource_index": 4.0,
-      "corruption": 5.1,
-      "level": "Великая держава",
+      "corruption": 2.5,
+      "level": "Сильная",
       "ideology": {
         "state": "Смешанная республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 35,
+        "nds": 30,
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$102 233 574 383 / $1 734 507 167 686",
-      "investments": "$1 734 507 167 686 / $1 734 507 167 686",
+      "reforms": "$319 874 652 016 / $319 874 652 016",
+      "investments": "$319 874 652 016 / $319 874 652 016",
       "is_staff": true,
       "roles": [
         "Лицензия Швеция",
