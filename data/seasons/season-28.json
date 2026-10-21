@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-21T14:52:43.575631+00:00",
+  "updated_at": "2026-10-21T14:54:08.937548+00:00",
   "totalActivePlayers": 34,
   "entities": {
     "1469060963360575548": {
@@ -739,7 +739,7 @@
       "player": "elwey4194",
       "nickname": "🇵🇱 | Польша",
       "balance": 498518548893,
-      "profit": 201567187220,
+      "profit": 196472507540,
       "gdp": 4196293091989,
       "gdp_ppp": 6714068947182,
       "population": 46103450,
@@ -1232,27 +1232,27 @@
       "country": "Италия",
       "player": "cortez0502",
       "nickname": "🇮🇹 | Италия",
-      "balance": 1660223669401,
-      "profit": 57894437916,
-      "gdp": 4426009676215,
-      "gdp_ppp": 7081615481944,
-      "population": 61817657,
-      "birth_rate": 14.7,
-      "support": 69.7,
-      "resource_index": 4.0,
-      "corruption": 11.5,
-      "level": "Великая держава",
+      "balance": 0,
+      "profit": 1665116069,
+      "gdp": 1219617439562,
+      "gdp_ppp": 2317273135167,
+      "population": 57053469,
+      "birth_rate": 10.5,
+      "support": 40.8,
+      "resource_index": 5.0,
+      "corruption": 17.1,
+      "level": "Передовая",
       "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 24,
-        "ndfl": 24
+        "nds": 20,
+        "ndfl": 20
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$4 541 861 220 / $2 213 004 838 107",
-      "investments": "$2 213 004 838 107 / $2 213 004 838 107",
+      "specialization": "Не выбрано",
+      "reforms": "$609 808 719 781 / $609 808 719 781",
+      "investments": "$609 808 719 781 / $609 808 719 781",
       "is_staff": false,
       "roles": [
         "ЕЭС",
