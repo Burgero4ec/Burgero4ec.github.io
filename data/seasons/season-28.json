@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-21T12:40:30.589353+00:00",
+  "updated_at": "2026-10-21T13:10:30.600309+00:00",
   "totalActivePlayers": 34,
   "entities": {
     "1469060963360575548": {
@@ -301,27 +301,27 @@
       "country": "Таиланд",
       "player": "jakiro5.5",
       "nickname": "🇹🇭 | Таиланд",
-      "balance": 20489604,
-      "profit": 11655066638,
-      "gdp": 405839887494,
-      "gdp_ppp": 1298687639980,
-      "population": 65887433,
-      "birth_rate": 32.8,
-      "support": 64.1,
+      "balance": 448353886,
+      "profit": 1363934309,
+      "gdp": 85100000000,
+      "gdp_ppp": 340400000000,
+      "population": 54023287,
+      "birth_rate": 20.5,
+      "support": 50.0,
       "resource_index": 5.0,
-      "corruption": 8.7,
-      "level": "Развивающаяся",
+      "corruption": 10.3,
+      "level": "Устойчивая",
       "ideology": {
-        "state": "Смешанная республика",
-        "economy": "Смешанная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 20,
+        "ndfl": 20
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$202 919 943 747 / $202 919 943 747",
-      "investments": "$202 919 943 747 / $202 919 943 747",
+      "specialization": "Не выбрано",
+      "reforms": "$42 550 000 000 / $42 550 000 000",
+      "investments": "$42 550 000 000 / $42 550 000 000",
       "is_staff": false,
       "roles": [
         "Лицензия Таиланд",
