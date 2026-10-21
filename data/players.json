@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-21T17:10:22.529863+00:00",
+  "updated_at": "2026-10-21T17:40:21.527089+00:00",
   "total_active_players": 34,
   "total_non_staff_players": 18,
   "total_staff_who_play": 16,
@@ -27,7 +27,7 @@
     "Канада": 1,
     "Швейцария": 1,
     "Нигерия": 1,
-    "Ватикан": 1,
+    "Финляндия": 1,
     "Колумбия": 1,
     "Аргентина": 1,
     "Польша": 1,
@@ -617,16 +617,16 @@
     {
       "id": "1540674885989441616",
       "username": "buba_monster",
-      "display_name": "🇻🇦 | Ватикан",
-      "nickname": "🇻🇦 | Ватикан",
+      "display_name": "🇫🇮 | Финляндия",
+      "nickname": "🇫🇮 | Финляндия",
       "avatar_url": "https://cdn.discordapp.com/avatars/1540674885989441616/831ade464446b3eae61d01d3a36df994.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Ватикан"
+        "Финляндия"
       ],
-      "country": "Ватикан",
+      "country": "Финляндия",
       "balance": 0,
       "profit": 50414956,
       "gdp": 15000000,
@@ -656,8 +656,8 @@
       ],
       "roles": [
         {
-          "id": "1562142889566408926",
-          "name": "Лицензия Ватикан"
+          "id": "1562519902827446377",
+          "name": "Лицензия Финляндия"
         },
         {
           "id": "1359429737574830251",
@@ -2656,16 +2656,16 @@
     {
       "id": "1540674885989441616",
       "username": "buba_monster",
-      "display_name": "🇻🇦 | Ватикан",
-      "nickname": "🇻🇦 | Ватикан",
+      "display_name": "🇫🇮 | Финляндия",
+      "nickname": "🇫🇮 | Финляндия",
       "avatar_url": "https://cdn.discordapp.com/avatars/1540674885989441616/831ade464446b3eae61d01d3a36df994.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Ватикан"
+        "Финляндия"
       ],
-      "country": "Ватикан",
+      "country": "Финляндия",
       "balance": 0,
       "profit": 50414956,
       "gdp": 15000000,
@@ -2695,8 +2695,8 @@
       ],
       "roles": [
         {
-          "id": "1562142889566408926",
-          "name": "Лицензия Ватикан"
+          "id": "1562519902827446377",
+          "name": "Лицензия Финляндия"
         },
         {
           "id": "1359429737574830251",
