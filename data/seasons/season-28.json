@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-21T14:25:35.043300+00:00",
+  "updated_at": "2026-10-21T14:51:43.712574+00:00",
   "totalActivePlayers": 34,
   "entities": {
     "1469060963360575548": {
@@ -140,16 +140,16 @@
       "country": "Дания",
       "player": "tisravv",
       "nickname": "🇩🇰 | Дания",
-      "balance": 137198446859,
-      "profit": 16272754233,
-      "gdp": 467345947551,
-      "gdp_ppp": 1495507032163,
-      "population": 5135063,
+      "balance": 404114240178,
+      "profit": 13971773445,
+      "gdp": 574419031948,
+      "gdp_ppp": 1436047579870,
+      "population": 5166893,
       "birth_rate": 12.5,
       "support": 58.9,
       "resource_index": 5.0,
-      "corruption": 4.7,
-      "level": "Развивающаяся",
+      "corruption": 10.4,
+      "level": "Сильная",
       "ideology": {
         "state": "Парламентская монархия",
         "economy": "Не выбрано"
@@ -159,8 +159,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$233 672 973 775 / $233 672 973 775",
-      "investments": "$233 672 973 775 / $233 672 973 775",
+      "reforms": "$53 209 515 974 / $287 209 515 974",
+      "investments": "$287 209 515 974 / $287 209 515 974",
       "is_staff": false,
       "roles": [
         "Лицензия Дания",
@@ -761,6 +761,7 @@
       "investments": "$2 098 146 545 994 / $2 098 146 545 994",
       "is_staff": true,
       "roles": [
+        "Славянский Союз",
         "ЕЭС",
         "НАТО",
         "Лицензия Польша",
@@ -983,15 +984,15 @@
       "country": "Испания",
       "player": "lev_tigranovich",
       "nickname": "🇪🇸 | Испания",
-      "balance": 1106330465,
-      "profit": 58446250417,
-      "gdp": 3309607583604,
-      "gdp_ppp": 5295372133766,
-      "population": 42568111,
+      "balance": 0,
+      "profit": 75341043262,
+      "gdp": 3770897495904,
+      "gdp_ppp": 6033435993446,
+      "population": 42906701,
       "birth_rate": 17.2,
       "support": 99.3,
       "resource_index": 4.0,
-      "corruption": 6.7,
+      "corruption": 8.6,
       "level": "Великая держава",
       "ideology": {
         "state": "Парламентская республика",
@@ -1002,8 +1003,8 @@
         "ndfl": 48
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 654 803 791 802 / $1 654 803 791 802",
-      "investments": "$1 654 803 791 802 / $1 654 803 791 802",
+      "reforms": "$847 594 451 396 / $1 885 448 747 952",
+      "investments": "$1 885 448 747 952 / $1 885 448 747 952",
       "is_staff": false,
       "roles": [
         "ЕЭС",
