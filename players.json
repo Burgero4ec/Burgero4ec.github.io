@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-21T11:45:25.041497+00:00",
+  "updated_at": "2026-10-21T11:45:29.094802+00:00",
   "total_active_players": 34,
   "total_non_staff_players": 17,
   "total_staff_who_play": 17,
@@ -3732,27 +3732,27 @@
         "Нидерланды"
       ],
       "country": "Нидерланды",
-      "balance": 410869226918,
-      "profit": 9391463615,
-      "gdp": 375048518556,
-      "gdp_ppp": 1200155259379,
-      "population": 15677023,
+      "balance": 37037112,
+      "profit": 7128613234,
+      "gdp": 451246214153,
+      "gdp_ppp": 1443987885289,
+      "population": 15913499,
       "birth_rate": 13.2,
       "support": 56.4,
       "resource_index": 5.0,
-      "corruption": 27.2,
+      "corruption": 40.1,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 25,
-        "ndfl": 25
+        "nds": 30,
+        "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$187 524 259 278 / $187 524 259 278",
-      "investments": "$187 524 259 278 / $187 524 259 278",
+      "reforms": "$225 623 107 076 / $225 623 107 076",
+      "investments": "$225 623 107 076 / $225 623 107 076",
       "categories": [
         "Государство",
         "ООН",
