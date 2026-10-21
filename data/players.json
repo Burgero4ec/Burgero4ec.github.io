@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-21T11:46:01.464995+00:00",
+  "updated_at": "2026-10-21T11:46:05.898555+00:00",
   "total_active_players": 34,
   "total_non_staff_players": 17,
   "total_staff_who_play": 17,
@@ -1747,9 +1747,9 @@
       ],
       "country": "Беларусь",
       "balance": 5519077976194,
-      "profit": 44674383649,
-      "gdp": 2213714824319,
-      "gdp_ppp": 4206058166206,
+      "profit": 44511956384,
+      "gdp": 2057490663573,
+      "gdp_ppp": 3909232260788,
       "population": 12623704,
       "birth_rate": 22.7,
       "support": 100.0,
@@ -1765,8 +1765,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 106 857 412 159 / $1 106 857 412 159",
-      "investments": "$1 106 857 412 159 / $1 106 857 412 159",
+      "reforms": "$1 028 745 331 786 / $1 028 745 331 786",
+      "investments": "$1 028 745 331 786 / $1 028 745 331 786",
       "categories": [
         "Государство",
         "ООН",
