@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-22T18:19:31.261017+00:00",
+  "updated_at": "2026-10-22T18:20:48.021050+00:00",
   "total_active_players": 30,
   "total_non_staff_players": 15,
   "total_staff_who_play": 15,
@@ -537,27 +537,27 @@
         "Колумбия"
       ],
       "country": "Колумбия",
-      "balance": 502844096,
-      "profit": 1719170836,
-      "gdp": 247733584934,
-      "gdp_ppp": 792747471788,
-      "population": 38131586,
-      "birth_rate": 26.5,
-      "support": 72.7,
-      "resource_index": 4.0,
-      "corruption": 32.3,
-      "level": "Развивающаяся",
+      "balance": 0,
+      "profit": 167963649,
+      "gdp": 5000000000,
+      "gdp_ppp": 25000000000,
+      "population": 7500000,
+      "birth_rate": 42.5,
+      "support": 50.0,
+      "resource_index": 6.0,
+      "corruption": 10.0,
+      "level": "Кризисная",
       "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 30,
-        "ndfl": 30
+        "nds": 20,
+        "ndfl": 20
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$123 866 792 467 / $123 866 792 467",
-      "investments": "$123 866 792 467 / $123 866 792 467",
+      "specialization": "Не выбрано",
+      "reforms": "$2 500 000 000 / $2 500 000 000",
+      "investments": "$2 500 000 000 / $2 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1615,18 +1615,18 @@
         "Египет"
       ],
       "country": "Египет",
-      "balance": 3768848212037,
-      "profit": 106473498108,
-      "gdp": 3790228043375,
-      "gdp_ppp": 6064364869400,
-      "population": 255350243,
-      "birth_rate": 20.1,
-      "support": 66.3,
-      "resource_index": 1.0,
-      "corruption": 17.1,
-      "level": "Великая держава",
+      "balance": 7956276923,
+      "profit": null,
+      "gdp": 410406567036,
+      "gdp_ppp": 1313301014515,
+      "population": 67256668,
+      "birth_rate": 32.8,
+      "support": 64.1,
+      "resource_index": 5.0,
+      "corruption": 15.1,
+      "level": "Развивающаяся",
       "ideology": {
-        "state": "Парламентская монархия",
+        "state": "Смешанная республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
@@ -1634,8 +1634,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 895 114 021 687 / $1 895 114 021 687",
-      "investments": "$880 875 374 098 / $1 895 114 021 687",
+      "reforms": "$205 203 283 518 / $205 203 283 518",
+      "investments": "$205 203 283 518 / $205 203 283 518",
       "categories": [
         "Государство",
         "ООН",
@@ -2203,27 +2203,27 @@
         "Нигерия"
       ],
       "country": "Нигерия",
-      "balance": 0,
-      "profit": 138200578281,
-      "gdp": 3542844383838,
-      "gdp_ppp": 5668551014140,
-      "population": 227525392,
-      "birth_rate": 45.9,
-      "support": 93.7,
-      "resource_index": 4.0,
-      "corruption": 14.3,
-      "level": "Великая держава",
+      "balance": 35881671188,
+      "profit": 10185708774,
+      "gdp": 293487337499,
+      "gdp_ppp": 939159479996,
+      "population": 6742840,
+      "birth_rate": 12.5,
+      "support": 50.0,
+      "resource_index": 6.0,
+      "corruption": 15.8,
+      "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская республика",
-        "economy": "Рыночная экономика"
+        "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 30,
-        "ndfl": 30
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$477 411 600 108 / $1 771 422 191 919",
-      "investments": "$1 771 422 191 919 / $1 771 422 191 919",
+      "reforms": "$26 952 918 749 / $146 743 668 749",
+      "investments": "$146 743 668 749 / $146 743 668 749",
       "categories": [
         "Государство",
         "ООН",
@@ -2378,27 +2378,27 @@
         "Колумбия"
       ],
       "country": "Колумбия",
-      "balance": 502844096,
-      "profit": 1719170836,
-      "gdp": 247733584934,
-      "gdp_ppp": 792747471788,
-      "population": 38131586,
-      "birth_rate": 26.5,
-      "support": 72.7,
-      "resource_index": 4.0,
-      "corruption": 32.3,
-      "level": "Развивающаяся",
+      "balance": 0,
+      "profit": 167963649,
+      "gdp": 5000000000,
+      "gdp_ppp": 25000000000,
+      "population": 7500000,
+      "birth_rate": 42.5,
+      "support": 50.0,
+      "resource_index": 6.0,
+      "corruption": 10.0,
+      "level": "Кризисная",
       "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 30,
-        "ndfl": 30
+        "nds": 20,
+        "ndfl": 20
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$123 866 792 467 / $123 866 792 467",
-      "investments": "$123 866 792 467 / $123 866 792 467",
+      "specialization": "Не выбрано",
+      "reforms": "$2 500 000 000 / $2 500 000 000",
+      "investments": "$2 500 000 000 / $2 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -3109,15 +3109,15 @@
         "Япония"
       ],
       "country": "Япония",
-      "balance": 7357470,
-      "profit": 29537896347,
-      "gdp": 3358360018089,
-      "gdp_ppp": 5373376028942,
-      "population": 126896583,
+      "balance": 1485556,
+      "profit": 31982841111,
+      "gdp": 3367192368089,
+      "gdp_ppp": 5387507788942,
+      "population": 126985487,
       "birth_rate": 11.2,
       "support": 50.0,
       "resource_index": 6.0,
-      "corruption": 3.4,
+      "corruption": 3.8,
       "level": "Великая держава",
       "ideology": {
         "state": "Парламентская республика",
@@ -3128,8 +3128,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 679 180 009 044 / $1 679 180 009 044",
-      "investments": "$1 679 180 009 044 / $1 679 180 009 044",
+      "reforms": "$1 683 596 184 044 / $1 683 596 184 044",
+      "investments": "$1 683 596 184 044 / $1 683 596 184 044",
       "categories": [
         "Государство",
         "ООН",
