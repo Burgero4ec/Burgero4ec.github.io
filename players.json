@@ -1,10 +1,10 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-23T10:40:43.844018+00:00",
+  "updated_at": "2026-10-23T10:40:57.786379+00:00",
   "total_active_players": 28,
-  "total_non_staff_players": 15,
-  "total_staff_who_play": 13,
+  "total_non_staff_players": 14,
+  "total_staff_who_play": 14,
   "stats": {
     "registered": 28,
     "states": 25,
@@ -49,7 +49,7 @@
       "username": "tisravv",
       "display_name": "🇩🇰 | Дания",
       "nickname": "🇩🇰 | Дания",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1327410286596067348/f8e5cbc8f80912d75aedf90a75b8ae52.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1327410286596067348/5bbf420c103abad0424016849cdb3a16.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -856,81 +856,6 @@
       ]
     },
     {
-      "id": "925805041732976762",
-      "username": "lev_tigranovich",
-      "display_name": "🇪🇸 | Испания",
-      "nickname": "🇪🇸 | Испания",
-      "avatar_url": "https://cdn.discordapp.com/avatars/925805041732976762/2959507b6e1d46e05f9641d906bfc077.png?size=1024",
-      "is_staff": false,
-      "is_registered": true,
-      "entity_type": "Государство",
-      "countries": [
-        "Испания"
-      ],
-      "country": "Испания",
-      "balance": 13153802,
-      "profit": 81158191698,
-      "gdp": 4279916303073,
-      "gdp_ppp": 6847866084916,
-      "population": 43298366,
-      "birth_rate": 17.5,
-      "support": 100.0,
-      "resource_index": 4.0,
-      "corruption": 6.8,
-      "level": "Великая держава",
-      "ideology": {
-        "state": "Парламентская республика",
-        "economy": "Смешанная экономика"
-      },
-      "taxes": {
-        "nds": 48,
-        "ndfl": 48
-      },
-      "specialization": "Промышленный хаб",
-      "reforms": "$1 525 704 648 737 / $2 139 958 151 536",
-      "investments": "$2 139 958 151 536 / $2 139 958 151 536",
-      "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН"
-      ],
-      "roles": [
-        {
-          "id": "1558804790174285886",
-          "name": "ЕЭС"
-        },
-        {
-          "id": "1558766198114750604",
-          "name": "Лицензия Испания"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1246817935297613905",
-          "name": "• Зарегистрированный"
-        },
-        {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        }
-      ]
-    },
-    {
       "id": "696655586342862869",
       "username": "goga_wassons",
       "display_name": "🇹🇷 | Турция",
@@ -1438,7 +1363,7 @@
       "username": "tisravv",
       "display_name": "🇩🇰 | Дания",
       "nickname": "🇩🇰 | Дания",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1327410286596067348/f8e5cbc8f80912d75aedf90a75b8ae52.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1327410286596067348/5bbf420c103abad0424016849cdb3a16.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -2768,7 +2693,7 @@
       "display_name": "🇪🇸 | Испания",
       "nickname": "🇪🇸 | Испания",
       "avatar_url": "https://cdn.discordapp.com/avatars/925805041732976762/2959507b6e1d46e05f9641d906bfc077.png?size=1024",
-      "is_staff": false,
+      "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
@@ -2834,6 +2759,14 @@
         {
           "id": "1209166398748631050",
           "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209154572417769543",
+          "name": "Персонал"
+        },
+        {
+          "id": "1209196499611951104",
+          "name": "• Модератор"
         }
       ]
     },
@@ -3532,8 +3465,8 @@
           "name": "Персонал"
         },
         {
-          "id": "1209196451339698206",
-          "name": "• Политолог"
+          "id": "1441914402491203616",
+          "name": "• Военный ведущий"
         }
       ]
     },
