@@ -1,17 +1,17 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-23T14:20:14.850710+00:00",
-  "total_active_players": 28,
-  "total_non_staff_players": 14,
+  "updated_at": "2026-10-23T14:49:31.343186+00:00",
+  "total_active_players": 29,
+  "total_non_staff_players": 15,
   "total_staff_who_play": 14,
   "stats": {
-    "registered": 28,
-    "states": 25,
+    "registered": 29,
+    "states": 26,
     "autonomies": 0,
     "pmc": 3,
-    "un_members": 25,
-    "alliance_members": 25
+    "un_members": 26,
+    "alliance_members": 26
   },
   "countries_count": {
     "Куба": 1,
@@ -41,7 +41,8 @@
     "Бразилия": 1,
     "MPRI": 1,
     "ЮАР": 1,
-    "Украина": 1
+    "Украина": 1,
+    "Андорра": 1
   },
   "non_staff_players": [
     {
@@ -216,7 +217,7 @@
       "username": "jakiro5.5",
       "display_name": "🇹🇭 | Таиланд",
       "nickname": "🇹🇭 | Таиланд",
-      "avatar_url": "https://cdn.discordapp.com/avatars/916907042545999883/0433470f8c8dfa1e6d0b4a3685c72c6f.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/916907042545999883/d61c411703fb3111508adafd7067d522.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -1206,6 +1207,89 @@
           "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
+    },
+    {
+      "id": "1540674885989441616",
+      "username": "buba_monster",
+      "display_name": "🇦🇩 | Андорра",
+      "nickname": "🇦🇩 | Андорра",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1540674885989441616/6290486903e17f970aee2d25a6b70630.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Андорра"
+      ],
+      "country": "Андорра",
+      "balance": 19030885960,
+      "profit": 967492320,
+      "gdp": 48000000000,
+      "gdp_ppp": 216000000000,
+      "population": 19721669,
+      "birth_rate": 28.2,
+      "support": 50.7,
+      "resource_index": 3.0,
+      "corruption": 14.8,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$24 000 000 000 / $24 000 000 000",
+      "investments": "$24 000 000 000 / $24 000 000 000",
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1563198858085802044",
+          "name": "Лицензия Андорра"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
     }
   ],
   "all_players": [
@@ -1613,7 +1697,7 @@
       "username": "jakiro5.5",
       "display_name": "🇹🇭 | Таиланд",
       "nickname": "🇹🇭 | Таиланд",
-      "avatar_url": "https://cdn.discordapp.com/avatars/916907042545999883/0433470f8c8dfa1e6d0b4a3685c72c6f.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/916907042545999883/d61c411703fb3111508adafd7067d522.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -3691,6 +3775,89 @@
         {
           "id": "1209196499611951104",
           "name": "• Модератор"
+        }
+      ]
+    },
+    {
+      "id": "1540674885989441616",
+      "username": "buba_monster",
+      "display_name": "🇦🇩 | Андорра",
+      "nickname": "🇦🇩 | Андорра",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1540674885989441616/6290486903e17f970aee2d25a6b70630.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Андорра"
+      ],
+      "country": "Андорра",
+      "balance": 19030885960,
+      "profit": 967492320,
+      "gdp": 48000000000,
+      "gdp_ppp": 216000000000,
+      "population": 19721669,
+      "birth_rate": 28.2,
+      "support": 50.7,
+      "resource_index": 3.0,
+      "corruption": 14.8,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$24 000 000 000 / $24 000 000 000",
+      "investments": "$24 000 000 000 / $24 000 000 000",
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1563198858085802044",
+          "name": "Лицензия Андорра"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     }
