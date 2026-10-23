@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-23T10:41:24.447732+00:00",
+  "updated_at": "2026-10-23T10:42:00.998773+00:00",
   "total_active_players": 28,
   "total_non_staff_players": 14,
   "total_staff_who_play": 14,
@@ -224,15 +224,15 @@
         "Таиланд"
       ],
       "country": "Таиланд",
-      "balance": 402460101,
-      "profit": 2431974007,
+      "balance": 42263275382,
+      "profit": 2180639870,
       "gdp": 90657500000,
       "gdp_ppp": 362630000000,
-      "population": 54646886,
+      "population": 55092091,
       "birth_rate": 20.5,
       "support": 50.0,
       "resource_index": 5.0,
-      "corruption": 17.0,
+      "corruption": 21.7,
       "level": "Устойчивая",
       "ideology": {
         "state": "Парламентская монархия",
@@ -243,7 +243,7 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$40 328 750 000 / $45 328 750 000",
+      "reforms": "$45 328 750 000 / $45 328 750 000",
       "investments": "$45 328 750 000 / $45 328 750 000",
       "categories": [
         "Государство",
@@ -1621,15 +1621,15 @@
         "Таиланд"
       ],
       "country": "Таиланд",
-      "balance": 402460101,
-      "profit": 2431974007,
+      "balance": 42263275382,
+      "profit": 2180639870,
       "gdp": 90657500000,
       "gdp_ppp": 362630000000,
-      "population": 54646886,
+      "population": 55092091,
       "birth_rate": 20.5,
       "support": 50.0,
       "resource_index": 5.0,
-      "corruption": 17.0,
+      "corruption": 21.7,
       "level": "Устойчивая",
       "ideology": {
         "state": "Парламентская монархия",
@@ -1640,7 +1640,7 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$40 328 750 000 / $45 328 750 000",
+      "reforms": "$45 328 750 000 / $45 328 750 000",
       "investments": "$45 328 750 000 / $45 328 750 000",
       "categories": [
         "Государство",
