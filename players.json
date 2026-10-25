@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-25T13:42:23.240957+00:00",
+  "updated_at": "2026-10-25T13:49:12.679282+00:00",
   "total_active_players": 23,
   "total_non_staff_players": 7,
   "total_staff_who_play": 16,
@@ -501,27 +501,27 @@
         "Индия"
       ],
       "country": "Индия",
-      "balance": 3770400762436,
-      "profit": 89684866700,
-      "gdp": 3103210088717,
-      "gdp_ppp": 4965136141947,
-      "population": 171911500,
-      "birth_rate": 25.0,
-      "support": 65.2,
-      "resource_index": 2.0,
-      "corruption": 13.7,
-      "level": "Великая держава",
+      "balance": 5821483665,
+      "profit": 5750312986,
+      "gdp": 1675615000000,
+      "gdp_ppp": 3183668500000,
+      "population": 1234852489,
+      "birth_rate": 22.1,
+      "support": 50.0,
+      "resource_index": 5.0,
+      "corruption": 10.3,
+      "level": "Передовая",
       "ideology": {
-        "state": "Парламентская республика",
-        "economy": "Смешанная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 20,
+        "ndfl": 20
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$244 990 270 161 / $1 551 605 044 358",
-      "investments": "$1 551 605 044 358 / $1 551 605 044 358",
+      "specialization": "Не выбрано",
+      "reforms": "$837 807 500 000 / $837 807 500 000",
+      "investments": "$837 807 500 000 / $837 807 500 000",
       "categories": [
         "Государство",
         "ООН",
@@ -2275,27 +2275,27 @@
         "Индия"
       ],
       "country": "Индия",
-      "balance": 3770400762436,
-      "profit": 89684866700,
-      "gdp": 3103210088717,
-      "gdp_ppp": 4965136141947,
-      "population": 171911500,
-      "birth_rate": 25.0,
-      "support": 65.2,
-      "resource_index": 2.0,
-      "corruption": 13.7,
-      "level": "Великая держава",
+      "balance": 5821483665,
+      "profit": 5750312986,
+      "gdp": 1675615000000,
+      "gdp_ppp": 3183668500000,
+      "population": 1234852489,
+      "birth_rate": 22.1,
+      "support": 50.0,
+      "resource_index": 5.0,
+      "corruption": 10.3,
+      "level": "Передовая",
       "ideology": {
-        "state": "Парламентская республика",
-        "economy": "Смешанная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 20,
+        "ndfl": 20
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$244 990 270 161 / $1 551 605 044 358",
-      "investments": "$1 551 605 044 358 / $1 551 605 044 358",
+      "specialization": "Не выбрано",
+      "reforms": "$837 807 500 000 / $837 807 500 000",
+      "investments": "$837 807 500 000 / $837 807 500 000",
       "categories": [
         "Государство",
         "ООН",
@@ -2421,9 +2421,9 @@
       ],
       "country": "США",
       "balance": 0,
-      "profit": 285422001221,
-      "gdp": 15413492685394,
-      "gdp_ppp": 19266865856742,
+      "profit": 285544574366,
+      "gdp": 15433292685394,
+      "gdp_ppp": 19291615856742,
       "population": 309520298,
       "birth_rate": 13.0,
       "support": 50.0,
@@ -2439,8 +2439,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$7 645 936 948 825 / $7 706 746 342 697",
-      "investments": "$7 201 134 848 909 / $7 706 746 342 697",
+      "reforms": "$7 655 836 948 825 / $7 716 646 342 697",
+      "investments": "$6 963 534 848 909 / $7 716 646 342 697",
       "categories": [
         "Государство",
         "ООН",
