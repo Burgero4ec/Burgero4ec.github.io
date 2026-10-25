@@ -1,19 +1,20 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-25T13:12:22.692327+00:00",
-  "total_active_players": 20,
+  "updated_at": "2026-10-25T13:12:55.436767+00:00",
+  "total_active_players": 21,
   "total_non_staff_players": 6,
-  "total_staff_who_play": 14,
+  "total_staff_who_play": 15,
   "stats": {
-    "registered": 20,
-    "states": 16,
+    "registered": 21,
+    "states": 17,
     "autonomies": 0,
     "pmc": 4,
-    "un_members": 16,
-    "alliance_members": 16
+    "un_members": 17,
+    "alliance_members": 17
   },
   "countries_count": {
+    "Япония": 1,
     "Турция": 1,
     "MPRI": 1,
     "Польша": 1,
@@ -487,6 +488,83 @@
     }
   ],
   "all_players": [
+    {
+      "id": "1334532453238440000",
+      "username": "vaelite.",
+      "display_name": "🇯🇵 | Япония",
+      "nickname": "🇯🇵 | Япония",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1334532453238440000/1819072df09617eaeeee629485aef10e.png?size=1024",
+      "is_staff": true,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Япония"
+      ],
+      "country": "Япония",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1563903055861121155",
+          "name": "Лицензия Япония"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209154572417769543",
+          "name": "Персонал"
+        },
+        {
+          "id": "1209554261453570068",
+          "name": "• Картограф"
+        },
+        {
+          "id": "1441914402491203616",
+          "name": "• Военный ведущий"
+        }
+      ]
+    },
     {
       "id": "830428424677490728",
       "username": "ponzc",

@@ -4,7 +4,7 @@
   "status": "active",
   "startDate": "2026-10-01",
   "totalArticles": 48,
-  "totalNations": 18,
+  "totalNations": 19,
   "keyEvents": [
     {
       "id": "s28-ev-1",
@@ -60,9 +60,43 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-25T13:12:22.692327+00:00",
-  "totalActivePlayers": 20,
+  "updated_at": "2026-10-25T13:12:55.436767+00:00",
+  "totalActivePlayers": 21,
   "entities": {
+    "1334532453238440000": {
+      "type": "country",
+      "country": "Япония",
+      "player": "vaelite.",
+      "nickname": "🇯🇵 | Япония",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "is_staff": true,
+      "roles": [
+        "Лицензия Япония",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Персонал",
+        "• Картограф",
+        "• Военный ведущий"
+      ]
+    },
     "830428424677490728": {
       "type": "country",
       "country": "Турция",
