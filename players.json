@@ -1,17 +1,17 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-25T15:49:46.324496+00:00",
-  "total_active_players": 23,
-  "total_non_staff_players": 6,
+  "updated_at": "2026-10-25T16:19:12.612102+00:00",
+  "total_active_players": 24,
+  "total_non_staff_players": 7,
   "total_staff_who_play": 17,
   "stats": {
-    "registered": 23,
-    "states": 18,
+    "registered": 24,
+    "states": 19,
     "autonomies": 0,
     "pmc": 5,
-    "un_members": 18,
-    "alliance_members": 18
+    "un_members": 19,
+    "alliance_members": 19
   },
   "countries_count": {
     "Япония": 1,
@@ -34,7 +34,8 @@
     "Германия": 1,
     "ООН": 1,
     "Индия": 1,
-    "США": 2
+    "США": 2,
+    "Саудовская Аравия": 1
   },
   "non_staff_players": [
     {
@@ -476,6 +477,71 @@
           "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
+    },
+    {
+      "id": "694159294786043954",
+      "username": "drugannn",
+      "display_name": "🇸🇦 | Саудовская Аравия",
+      "nickname": "🇸🇦 | Саудовская Аравия",
+      "avatar_url": "https://cdn.discordapp.com/avatars/694159294786043954/4ee148e8df9ce305cf15d3cf4bec3ff4.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Саудовская Аравия"
+      ],
+      "country": "Саудовская Аравия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1563948188426178743",
+          "name": "Лицензия Саудовская Аравия"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
     }
   ],
   "all_players": [
@@ -492,13 +558,13 @@
         "Япония"
       ],
       "country": "Япония",
-      "balance": 6899457,
-      "profit": 20958509941,
-      "gdp": 5775283200000,
-      "gdp_ppp": 8085396479999,
-      "population": 128143831,
+      "balance": 16859457,
+      "profit": 43431836008,
+      "gdp": 5968640700000,
+      "gdp_ppp": 8356096979999,
+      "population": 166586980,
       "birth_rate": 8.5,
-      "support": 52.8,
+      "support": 53.0,
       "resource_index": 6.0,
       "corruption": 0.4,
       "level": "Высокоразвитая",
@@ -511,8 +577,8 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$2 887 641 600 000 / $2 887 641 600 000",
-      "investments": "$2 887 641 600 000 / $2 887 641 600 000",
+      "reforms": "$2 984 320 350 000 / $2 984 320 350 000",
+      "investments": "$2 984 320 350 000 / $2 984 320 350 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1816,10 +1882,10 @@
         "Южная Корея"
       ],
       "country": "Южная Корея",
-      "balance": 51011783697,
-      "profit": 54764536034,
-      "gdp": 1619112519500,
-      "gdp_ppp": 3076313787050,
+      "balance": 0,
+      "profit": 54560063712,
+      "gdp": 1638241938386,
+      "gdp_ppp": 3112659682933,
       "population": 64420200,
       "birth_rate": 9.4,
       "support": 50.0,
@@ -1835,8 +1901,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$809 556 259 750 / $809 556 259 750",
-      "investments": "$809 556 259 750 / $809 556 259 750",
+      "reforms": "$768 109 185 496 / $819 120 969 193",
+      "investments": "$819 120 969 193 / $819 120 969 193",
       "categories": [
         "Государство",
         "ООН",
@@ -2324,15 +2390,15 @@
         "США"
       ],
       "country": "США",
-      "balance": 0,
-      "profit": 574211239945,
+      "balance": 666926629882,
+      "profit": 573374983201,
       "gdp": 22272563562953,
       "gdp_ppp": 27840704453691,
-      "population": 402549525,
+      "population": 402676182,
       "birth_rate": 13.0,
       "support": 50.0,
       "resource_index": 2.0,
-      "corruption": 0.4,
+      "corruption": 0.5,
       "level": "Сверхдержава",
       "ideology": {
         "state": "Смешанная республика",
@@ -2407,6 +2473,71 @@
         {
           "id": "1246844097222807564",
           "name": "• Зам. куратор"
+        }
+      ]
+    },
+    {
+      "id": "694159294786043954",
+      "username": "drugannn",
+      "display_name": "🇸🇦 | Саудовская Аравия",
+      "nickname": "🇸🇦 | Саудовская Аравия",
+      "avatar_url": "https://cdn.discordapp.com/avatars/694159294786043954/4ee148e8df9ce305cf15d3cf4bec3ff4.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Саудовская Аравия"
+      ],
+      "country": "Саудовская Аравия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1563948188426178743",
+          "name": "Лицензия Саудовская Аравия"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     }
