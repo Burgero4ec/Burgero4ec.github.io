@@ -4,7 +4,7 @@
   "status": "active",
   "startDate": "2026-10-01",
   "totalArticles": 48,
-  "totalNations": 23,
+  "totalNations": 25,
   "keyEvents": [
     {
       "id": "s28-ev-1",
@@ -60,8 +60,8 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-26T05:53:27.493601+00:00",
-  "totalActivePlayers": 25,
+  "updated_at": "2026-10-26T05:54:47.445803+00:00",
+  "totalActivePlayers": 27,
   "entities": {
     "1334532453238440000": {
       "type": "country",
@@ -101,6 +101,40 @@
         "Персонал",
         "• Картограф",
         "• Военный ведущий"
+      ]
+    },
+    "1540242688752881674": {
+      "type": "country",
+      "country": "Грузия",
+      "player": "1pharaon",
+      "nickname": "🇬🇪 | Грузия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "is_staff": false,
+      "roles": [
+        "Лицензия Грузия",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "Ивенты",
+        "Новости",
+        "Обновления",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     },
     "830428424677490728": {
@@ -331,6 +365,37 @@
         "• Анкетолог"
       ]
     },
+    "694159294786043954": {
+      "type": "country",
+      "country": "Саудовская Аравия",
+      "player": "drugannn",
+      "nickname": "🇸🇦 | Саудовская Аравия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "is_staff": false,
+      "roles": [
+        "Лицензия Саудовская Аравия",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+      ]
+    },
     "897130924951634021": {
       "type": "country",
       "country": "Великобритания",
@@ -371,6 +436,7 @@
         "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         "Персонал",
+        "• Пиар-Менеджер",
         "• Модератор"
       ]
     },
@@ -904,6 +970,47 @@
         "• Модератор"
       ]
     },
+    "1032339491987390534": {
+      "type": "country",
+      "country": "КНДР",
+      "player": "desterreider",
+      "nickname": "🇰🇵 | КНДР",
+      "balance": 0,
+      "profit": 62460500232,
+      "gdp": 6192972025228,
+      "gdp_ppp": 8670160835319,
+      "population": 62802285,
+      "birth_rate": 14.7,
+      "support": 69.7,
+      "resource_index": 4.0,
+      "corruption": 25.0,
+      "level": "Высокоразвитая",
+      "ideology": {
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 24,
+        "ndfl": 24
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$1 337 796 996 219 / $3 096 486 012 614",
+      "investments": "$3 096 486 012 614 / $3 096 486 012 614",
+      "is_staff": true,
+      "roles": [
+        "Лицензия КНДР",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "Новости",
+        "Обновления",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Персонал",
+        "• Политолог"
+      ]
+    },
     "1111768367670509603": {
       "type": "country",
       "country": "Индия",
@@ -1017,37 +1124,6 @@
         "• Технолог",
         "• Модератор",
         "• Зам. куратор"
-      ]
-    },
-    "694159294786043954": {
-      "type": "country",
-      "country": "Саудовская Аравия",
-      "player": "drugannn",
-      "nickname": "🇸🇦 | Саудовская Аравия",
-      "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
-      "is_staff": false,
-      "roles": [
-        "Лицензия Саудовская Аравия",
-        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
-        "• Зарегистрированный",
-        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "Участник ООН",
-        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     }
   },
