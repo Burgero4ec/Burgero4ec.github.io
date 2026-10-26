@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-26T08:09:21.381145+00:00",
+  "updated_at": "2026-10-26T08:38:43.644622+00:00",
   "totalActivePlayers": 27,
   "entities": {
     "1334532453238440000": {
@@ -1092,14 +1092,14 @@
       "player": "naebni_govna_olyx",
       "nickname": "🇺🇸 | США",
       "balance": 0,
-      "profit": 578912596992,
-      "gdp": 22319155962953,
-      "gdp_ppp": 27898944953691,
-      "population": 402787267,
-      "birth_rate": 13.0,
-      "support": 50.0,
+      "profit": 665891557490,
+      "gdp": 23138794962953,
+      "gdp_ppp": 28923493703691,
+      "population": 405125106,
+      "birth_rate": 43.0,
+      "support": 52.7,
       "resource_index": 2.0,
-      "corruption": 0.6,
+      "corruption": 2.4,
       "level": "Сверхдержава",
       "ideology": {
         "state": "Смешанная республика",
@@ -1110,8 +1110,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$10 899 245 953 531 / $11 159 577 981 476",
-      "investments": "$10 659 577 981 476 / $11 159 577 981 476",
+      "reforms": "$11 569 397 481 476 / $11 569 397 481 476",
+      "investments": "$11 269 397 481 476 / $11 569 397 481 476",
       "is_staff": true,
       "roles": [
         "Лидер: НАТО",
