@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-26T05:57:02.539381+00:00",
+  "updated_at": "2026-10-26T05:57:39.701169+00:00",
   "totalActivePlayers": 27,
   "entities": {
     "1334532453238440000": {
@@ -260,15 +260,15 @@
       "country": "Польша",
       "player": "jakiro5.5",
       "nickname": "🇵🇱 | Польша",
-      "balance": 2109655345,
-      "profit": 20125480578,
-      "gdp": 671250207679,
-      "gdp_ppp": 1678125519197,
-      "population": 49425822,
-      "birth_rate": 13.5,
-      "support": 53.3,
+      "balance": 5401229132,
+      "profit": 21455002012,
+      "gdp": 711199691486,
+      "gdp_ppp": 1777999228715,
+      "population": 49605453,
+      "birth_rate": 16.0,
+      "support": 55.1,
       "resource_index": 4.0,
-      "corruption": 3.0,
+      "corruption": 4.3,
       "level": "Сильная",
       "ideology": {
         "state": "Парламентская республика",
@@ -279,8 +279,8 @@
         "ndfl": 20
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$303 363 672 328 / $335 625 103 839",
-      "investments": "$335 625 103 839 / $335 625 103 839",
+      "reforms": "$336 817 215 002 / $355 599 845 743",
+      "investments": "$355 599 845 743 / $355 599 845 743",
       "is_staff": false,
       "roles": [
         "ЕС",
