@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-26T05:54:55.791959+00:00",
+  "updated_at": "2026-10-26T05:55:00.825426+00:00",
   "total_active_players": 27,
   "total_non_staff_players": 8,
   "total_staff_who_play": 19,
@@ -1322,15 +1322,15 @@
         "Великобритания"
       ],
       "country": "Великобритания",
-      "balance": 68885899231,
-      "profit": 48669933724,
-      "gdp": 3457988597046,
-      "gdp_ppp": 5532781755273,
-      "population": 62939645,
-      "birth_rate": 24.1,
-      "support": 56.5,
+      "balance": 204815174498,
+      "profit": 63946798433,
+      "gdp": 3628364975394,
+      "gdp_ppp": 5805383960630,
+      "population": 82370319,
+      "birth_rate": 28.3,
+      "support": 59.8,
       "resource_index": 4.0,
-      "corruption": 1.0,
+      "corruption": 2.5,
       "level": "Великая держава",
       "ideology": {
         "state": "Парламентская монархия",
@@ -1341,8 +1341,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 728 994 298 523 / $1 728 994 298 523",
-      "investments": "$1 728 994 298 523 / $1 728 994 298 523",
+      "reforms": "$1 814 182 487 697 / $1 814 182 487 697",
+      "investments": "$1 814 182 487 697 / $1 814 182 487 697",
       "categories": [
         "Государство",
         "ООН",
