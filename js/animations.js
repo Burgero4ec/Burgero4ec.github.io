@@ -66,20 +66,24 @@ export function refreshOdysseyElements(root = document) {
 export function triggerOdysseyPageReveal(pageEl) {
   if (!pageEl) return;
 
+  // Если страница уже открывалась ранее, не сбрасываем видимость повторно:
+  // мгновенное переключение страниц без лагов, скачков и мерцания!
+  if (pageEl.dataset.odysseyRevealed === 'true') {
+    return;
+  }
+  pageEl.dataset.odysseyRevealed = 'true';
+
   const items = pageEl.querySelectorAll('.card, .c-card, .stat, .stats-col, .sec-title, .folder, .member, .update-card, .hero');
   items.forEach((el, i) => {
-    el.classList.remove('odyssey-visible');
     el.classList.add('odyssey-item');
-    const delay = Math.min(i * 0.045, 0.4);
+    const delay = Math.min(i * 0.035, 0.3);
     el.style.setProperty('--odyssey-stagger', `${delay}s`);
   });
 
-  // Запуск с микрозадержкой для срабатывания transition
+  // Запуск появления
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      items.forEach(el => {
-        el.classList.add('odyssey-visible');
-      });
+    items.forEach(el => {
+      el.classList.add('odyssey-visible');
     });
   });
 }

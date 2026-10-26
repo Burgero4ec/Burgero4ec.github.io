@@ -4,7 +4,7 @@
 [data-theme="blue"]   { --bg:#060a12; --side:#070d18; --acc:#60a5fa; --acc2:#3b82f6; --acc-soft:rgba(96,165,250,.10); --acc-border:rgba(96,165,250,.35); --acc-glow:rgba(96,165,250,.35); --bg-glow:rgba(96,165,250,.08); --bg-glow-strong:rgba(96,165,250,.18); }
 [data-theme="orange"] { --bg:#110a06; --side:#150c07; --acc:#fb923c; --acc2:#f97316; --acc-soft:rgba(251,146,60,.10); --acc-border:rgba(251,146,60,.35); --acc-glow:rgba(251,146,60,.35); --bg-glow:rgba(251,146,60,.08); --bg-glow-strong:rgba(251,146,60,.18); }
 body { background-color: var(--bg); color: var(--text); font-family: 'Nunito', 'Segoe UI', sans-serif; position: relative; min-height: 100vh; overflow-x: hidden; }
-body::before, body::after { content: ''; position: fixed; pointer-events: none; z-index: 0; transition: background .6s ease, opacity .6s ease; }
+body::before, body::after { content: ''; position: fixed; pointer-events: none; z-index: 0; }
 body::before { top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 85% 110%, var(--bg-glow-strong) 0%, var(--bg-glow) 25%, transparent 55%); }
 body::after { top: -20%; left: 50%; transform: translateX(-50%); width: 140%; height: 60%; background: radial-gradient(ellipse at center top, var(--bg-glow) 0%, transparent 70%); opacity: .6; }
 .layout, .sidebar, .main { position: relative; z-index: 1; }
@@ -13,9 +13,7 @@ body::after { top: -20%; left: 50%; transform: translateX(-50%); width: 140%; he
 ::-webkit-scrollbar-thumb { background: var(--acc2); border-radius: 5px; }
 a { color: var(--acc); }
 .ic { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
-body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, .status-card, .update-card, .stat,
-.hero-badge, .pill, .rule, .member, .m-ava, .logo-badge, .cta, .update-meta, .update-content, .pun, .side-bottom,
-.side-top, .us-item, .stub, .themes, .c-card, .logo-title span { transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease; }
+body, .sidebar, .card, .nav-item, .sub-item, .theme-btn, .btn-discord, .btn-tg, .status-card, .side-bottom, .side-top, .c-card { transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease; }
 .layout { display: flex; min-height: 100vh; }
 
 /* ===== MOBILE HEADER + DRAWER ===== */
@@ -293,10 +291,10 @@ div.scene-tooltip {
 .copy .ic { width: 11px; height: 11px; vertical-align: -2px; }
 
 /* ===== MAIN ===== */
-.main { flex: 1; padding: 48px 56px; max-width: 1400px; }
+.main { flex: 1; padding: 48px 56px; max-width: 1400px; min-width: 0; }
 .page { display: none; }
-.page.active { display: block; animation: f .35s ease; }
-@keyframes f { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.page.active { display: block; animation: pageFade .2s ease; }
+@keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
 h1 { font-family: Nunito; font-weight: 800; font-size: 40px; text-align: center; letter-spacing: .01em; }
 h1 em { color: var(--acc); font-style: normal; }
 .lead { color: var(--muted); text-align: center; max-width: 680px; margin: 16px auto 44px; font-size: 16.5px; line-height: 1.7; }
@@ -1589,10 +1587,9 @@ model-viewer {
 /* ===== АНИМАЦИИ В СТИЛЕ ODYSSEY ===== */
 .odyssey-item {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: var(--odyssey-stagger, calc(var(--odyssey-delay, 0) * 0.045s));
-  will-change: opacity, transform;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition-delay: var(--odyssey-stagger, calc(var(--odyssey-delay, 0) * 0.035s));
 }
 
 .odyssey-item.odyssey-visible {
@@ -1645,19 +1642,21 @@ model-viewer {
 /* 3D Векторная планета */
 .globe-viewport {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 560px;
+  max-height: 75vh;
+  min-height: 380px;
   display: block;
 }
 @media (max-width: 900px) {
   .globe-viewport {
     min-height: 380px;
-    height: 390px;
+    height: 440px;
   }
 }
 @media (max-width: 640px) {
   .globe-viewport {
     min-height: 340px;
-    height: 350px;
+    height: 360px;
   }
 }
 

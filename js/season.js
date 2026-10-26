@@ -461,7 +461,14 @@ export async function loadSeason() {
 
     renderFree('');
     const se = document.getElementById('countrySearch');
-    if (se) se.addEventListener('input', e => renderFree(e.target.value));
+    if (se) {
+      let searchTimer = null;
+      se.addEventListener('input', e => {
+        clearTimeout(searchTimer);
+        const val = e.target.value;
+        searchTimer = setTimeout(() => renderFree(val), 120);
+      });
+    }
 
     refreshOdysseyElements(body);
   } catch (e) {

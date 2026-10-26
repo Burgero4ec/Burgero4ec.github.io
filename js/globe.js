@@ -1466,11 +1466,11 @@ export async function initGlobeNavigation() {
       const active = getActiveCountryForFeature(d);
       if (active) {
         if (activeFactionFilter) {
-          return active.faction === activeFactionFilter ? 0.022 : 0.009;
+          return active.faction === activeFactionFilter ? 0.008 : 0.003;
         }
-        return 0.010;
+        return 0.004;
       }
-      return 0.003;
+      return 0.001;
     })
     .polygonLabel(d => {
       const active = getActiveCountryForFeature(d);
@@ -1555,7 +1555,7 @@ export async function initGlobeNavigation() {
     .htmlElementsData([])
     .htmlLat(d => d.lat)
     .htmlLng(d => d.lng)
-    .htmlAltitude(0.012)
+    .htmlAltitude(0.002)
     .htmlTransitionDuration(0)
     .htmlElement(d => createFlagMarkerElement(d));
 
@@ -1604,6 +1604,12 @@ export async function initGlobeNavigation() {
 
   // 5. Запуск фонового авто-опроса файла на изменения
   startPolling();
+
+  // Если при старте страница 'about' не активна, сразу ставим рендер на паузу (0% GPU/CPU оверхеда)
+  const aboutPage = document.getElementById('page-about');
+  if (!aboutPage || !aboutPage.classList.contains('active')) {
+    pauseGlobe();
+  }
 }
 
 /**
@@ -1714,3 +1720,28 @@ window.focusGlobeCountry = (name) => {
   const c = activeCountriesMap.get(normName(name));
   if (c) focusCountry(c);
 };
+window.pauseGlobe = pauseGlobe;
+window.resumeGlobe = resumeGlobe;
+
+/**
+ * Приостановка 3D-анимации глобуса (экономия 100% GPU/CPU ресурсов при переходе на другие страницы)
+ */
+export function pauseGlobe() {
+  if (globeInstance && typeof globeInstance.pauseAnimation === 'function') {
+    globeInstance.pauseAnimation();
+  }
+}
+
+/**
+ * Возобновление 3D-анимации глобуса при возврате на страницу 'about'
+ */
+export function resumeGlobe() {
+  if (globeInstance && typeof globeInstance.resumeAnimation === 'function') {
+    globeInstance.resumeAnimation();
+    const container = document.getElementById('globeContainer');
+    if (container && container.clientWidth) {
+      globeInstance.width(container.clientWidth);
+      globeInstance.height(container.clientHeight);
+    }
+  }
+}

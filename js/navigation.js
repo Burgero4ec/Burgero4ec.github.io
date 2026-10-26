@@ -4,6 +4,7 @@
 import { triggerOdysseyPageReveal } from './animations.js';
 import { animateStats } from './stats.js';
 import { resetDonatePhysics } from './donate.js';
+import { pauseGlobe, resumeGlobe } from './globe.js';
 
 const INFO_PAGE_IDS = ['about', 'news', 'updates'];
 const RULE_PAGE_IDS = ['rules-server', 'rules-bot', 'rules-privacy'];
@@ -38,6 +39,13 @@ export function go(rawId) {
   // Если уходим с доната, мгновенно сбрасываем физику
   if (resolvedId !== 'donate' && typeof resetDonatePhysics === 'function') {
     resetDonatePhysics(true);
+  }
+
+  // Управление жизненным циклом 3D-глобуса: работает ТОЛЬКО на странице 'about'
+  if (resolvedId === 'about') {
+    if (typeof resumeGlobe === 'function') resumeGlobe();
+  } else {
+    if (typeof pauseGlobe === 'function') pauseGlobe();
   }
 
   // Переключение активного класса у страниц
@@ -76,8 +84,8 @@ export function go(rawId) {
   // Запуск каскадной анимации появления элементов в стиле Odyssey
   triggerOdysseyPageReveal(target);
 
-  // Плавный скролл наверх
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Мгновенный скролл наверх (без лагов перерисовки)
+  window.scrollTo(0, 0);
 
   // Обновляем хэш без перезагрузки
   try {
