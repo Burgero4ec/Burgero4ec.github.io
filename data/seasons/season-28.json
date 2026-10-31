@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-31T12:43:05.844114+00:00",
+  "updated_at": "2026-10-31T13:13:05.550434+00:00",
   "totalActivePlayers": 37,
   "entities": {
     "1334532453238440000": {
@@ -536,15 +536,15 @@
       "country": "Нигерия",
       "player": "aytaconan2_",
       "nickname": "🇳🇬 | Нигерия",
-      "balance": 135673729444,
-      "profit": 76977845813,
-      "gdp": 1507926470235,
-      "gdp_ppp": 2865060293446,
-      "population": 250063473,
+      "balance": 1087766,
+      "profit": 86275210432,
+      "gdp": 1548791772036,
+      "gdp_ppp": 2942704366868,
+      "population": 250802738,
       "birth_rate": 67.4,
-      "support": 83.3,
+      "support": 85.1,
       "resource_index": 4.0,
-      "corruption": 11.8,
+      "corruption": 6.3,
       "level": "Передовая",
       "ideology": {
         "state": "Парламентская республика",
@@ -555,8 +555,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$753 963 235 117 / $753 963 235 117",
-      "investments": "$60 734 350 695 / $753 963 235 117",
+      "reforms": "$774 395 886 018 / $774 395 886 018",
+      "investments": "$13 649 050 901 / $774 395 886 018",
       "is_staff": true,
       "roles": [
         "Лидер: ЭКОВАС",
