@@ -1,19 +1,20 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-31T14:13:05.569575+00:00",
-  "total_active_players": 37,
-  "total_non_staff_players": 17,
+  "updated_at": "2026-10-31T14:43:05.977645+00:00",
+  "total_active_players": 38,
+  "total_non_staff_players": 18,
   "total_staff_who_play": 20,
   "stats": {
-    "registered": 37,
-    "states": 27,
+    "registered": 38,
+    "states": 28,
     "autonomies": 1,
     "pmc": 9,
-    "un_members": 27,
-    "alliance_members": 28
+    "un_members": 28,
+    "alliance_members": 29
   },
   "countries_count": {
+    "Гана": 1,
     "Япония": 1,
     "Турция": 1,
     "Грузия": 1,
@@ -47,6 +48,75 @@
     "Бразилия": 1
   },
   "non_staff_players": [
+    {
+      "id": "1224403171661709342",
+      "username": "dyadba",
+      "display_name": "🇬🇭 | Гана",
+      "nickname": "🇬🇭 | Гана",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1224403171661709342/befc19870a48c6cb4af9b0be4505118b.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Гана"
+      ],
+      "country": "Гана",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1566094951811518529",
+          "name": "Лицензия Гана"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
     {
       "id": "1517894363483738212",
       "username": "lenyabrezhnev",
@@ -1282,6 +1352,75 @@
     }
   ],
   "all_players": [
+    {
+      "id": "1224403171661709342",
+      "username": "dyadba",
+      "display_name": "🇬🇭 | Гана",
+      "nickname": "🇬🇭 | Гана",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1224403171661709342/befc19870a48c6cb4af9b0be4505118b.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Гана"
+      ],
+      "country": "Гана",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1566094951811518529",
+          "name": "Лицензия Гана"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
     {
       "id": "1334532453238440000",
       "username": "vaelite.",
@@ -2746,12 +2885,12 @@
       ],
       "country": "Австралия",
       "balance": 68871158,
-      "profit": 27687720189,
+      "profit": 27851291363,
       "gdp": 1203731017397,
       "gdp_ppp": 2287088933054,
       "population": 22344002,
       "birth_rate": 13.6,
-      "support": 56.1,
+      "support": 57.3,
       "resource_index": 2.0,
       "corruption": 9.5,
       "level": "Передовая",
