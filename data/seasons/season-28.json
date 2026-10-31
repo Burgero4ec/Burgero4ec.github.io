@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-31T12:13:09.224941+00:00",
+  "updated_at": "2026-10-31T12:43:05.844114+00:00",
   "totalActivePlayers": 37,
   "entities": {
     "1334532453238440000": {
@@ -176,10 +176,10 @@
       "country": "Россия",
       "player": "ponzc",
       "nickname": "🇷🇺 | Чечня",
-      "balance": 0,
-      "profit": 173437717,
-      "gdp": 2553000000,
-      "gdp_ppp": 12765000000,
+      "balance": 410000,
+      "profit": 576043853,
+      "gdp": 3311200000,
+      "gdp_ppp": 16556000000,
       "population": 1269840,
       "birth_rate": 28.8,
       "support": 50.0,
@@ -192,8 +192,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 276 500 000 / $1 276 500 000",
-      "investments": "$126 500 000 / $1 276 500 000",
+      "reforms": "$1 655 600 000 / $1 655 600 000",
+      "investments": "$505 600 000 / $1 655 600 000",
       "is_staff": true,
       "roles": [
         "Лицензия Россия",
@@ -735,27 +735,27 @@
       "country": "Австралия",
       "player": "perikkl",
       "nickname": "🇦🇺 | Австралия",
-      "balance": 0,
-      "profit": 167963649,
-      "gdp": 5000000000,
-      "gdp_ppp": 25000000000,
-      "population": 7500000,
-      "birth_rate": 42.5,
-      "support": 50.0,
-      "resource_index": 6.0,
-      "corruption": 10.0,
-      "level": "Кризисная",
+      "balance": 68871158,
+      "profit": 27687720189,
+      "gdp": 1203731017397,
+      "gdp_ppp": 2287088933054,
+      "population": 22344002,
+      "birth_rate": 13.6,
+      "support": 56.1,
+      "resource_index": 2.0,
+      "corruption": 9.5,
+      "level": "Передовая",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Парламентская монархия",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 25,
+        "ndfl": 25
       },
-      "specialization": "Не выбрано",
-      "reforms": "$2 500 000 000 / $2 500 000 000",
-      "investments": "$2 500 000 000 / $2 500 000 000",
+      "specialization": "Промышленный хаб",
+      "reforms": "$601 865 508 698 / $601 865 508 698",
+      "investments": "$601 865 508 698 / $601 865 508 698",
       "is_staff": true,
       "roles": [
         "Лицензия Австралия",
