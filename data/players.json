@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-31T20:13:05.805703+00:00",
+  "updated_at": "2026-10-31T20:43:06.288554+00:00",
   "total_active_players": 38,
   "total_non_staff_players": 18,
   "total_staff_who_play": 20,
@@ -2452,9 +2452,9 @@
       ],
       "country": "Нигерия",
       "balance": 0,
-      "profit": 85076162778,
-      "gdp": 1563973579322,
-      "gdp_ppp": 2971549800711,
+      "profit": 89194323426,
+      "gdp": 1613011438798,
+      "gdp_ppp": 3064721733716,
       "population": 253969480,
       "birth_rate": 67.4,
       "support": 85.1,
@@ -2470,8 +2470,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$781 986 789 661 / $781 986 789 661",
-      "investments": "$21 239 954 544 / $781 986 789 661",
+      "reforms": "$675 738 094 129 / $806 505 719 399",
+      "investments": "$45 758 884 282 / $806 505 719 399",
       "categories": [
         "Государство",
         "ООН",
