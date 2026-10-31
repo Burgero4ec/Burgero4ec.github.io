@@ -4,7 +4,7 @@
   "status": "active",
   "startDate": "2026-10-01",
   "totalArticles": 48,
-  "totalNations": 30,
+  "totalNations": 31,
   "keyEvents": [
     {
       "id": "s28-ev-1",
@@ -60,8 +60,8 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-31T10:13:06.208127+00:00",
-  "totalActivePlayers": 35,
+  "updated_at": "2026-10-31T10:43:06.051513+00:00",
+  "totalActivePlayers": 36,
   "entities": {
     "1334532453238440000": {
       "type": "country",
@@ -494,15 +494,15 @@
       "country": "Нигерия",
       "player": "aytaconan2_",
       "nickname": "🇳🇬 | Нигерия",
-      "balance": 0,
-      "profit": 72124366838,
-      "gdp": 1386457768845,
-      "gdp_ppp": 2634269760805,
-      "population": 244358496,
+      "balance": 135673729444,
+      "profit": 76977845813,
+      "gdp": 1507926470235,
+      "gdp_ppp": 2865060293446,
+      "population": 250063473,
       "birth_rate": 67.4,
-      "support": 81.8,
+      "support": 83.3,
       "resource_index": 4.0,
-      "corruption": 9.8,
+      "corruption": 11.8,
       "level": "Передовая",
       "ideology": {
         "state": "Парламентская республика",
@@ -513,8 +513,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$693 228 884 422 / $693 228 884 422",
-      "investments": "$693 228 884 422 / $693 228 884 422",
+      "reforms": "$753 963 235 117 / $753 963 235 117",
+      "investments": "$60 734 350 695 / $753 963 235 117",
       "is_staff": true,
       "roles": [
         "Лидер: ЭКОВАС",
@@ -878,7 +878,7 @@
       "player": "marsgooddayevery",
       "nickname": "🇨🇳 | НСРК",
       "balance": 16851421977,
-      "profit": 614773555329,
+      "profit": 592398070829,
       "gdp": 15247547304532,
       "gdp_ppp": 19059434130665,
       "population": 1904036443,
@@ -1382,6 +1382,46 @@
         "Выговор: 1/3",
         "• Картограф",
         "• Политолог"
+      ]
+    },
+    "1563483582494802052": {
+      "type": "country",
+      "country": "Бразилия",
+      "player": "shockingkirilloriginal",
+      "nickname": "🇧🇷 | Бразилия",
+      "balance": 74677074081,
+      "profit": 10844762780,
+      "gdp": 2211492000000,
+      "gdp_ppp": 4201834800000,
+      "population": 196150811,
+      "birth_rate": 15.3,
+      "support": 50.0,
+      "resource_index": 2.0,
+      "corruption": 10.3,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$1 105 746 000 000 / $1 105 746 000 000",
+      "investments": "$1 105 746 000 000 / $1 105 746 000 000",
+      "is_staff": false,
+      "roles": [
+        "Лицензия Бразилия",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "Ивенты",
+        "Новости",
+        "Обновления",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     }
   },
