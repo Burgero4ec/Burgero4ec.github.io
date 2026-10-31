@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-31T23:14:00.085620+00:00",
+  "updated_at": "2026-10-31T23:43:05.644397+00:00",
   "total_active_players": 38,
   "total_non_staff_players": 18,
   "total_staff_who_play": 20,
@@ -2366,27 +2366,27 @@
         "Украина"
       ],
       "country": "Украина",
-      "balance": 556652840506,
-      "profit": 25631300388,
-      "gdp": 816016611387,
-      "gdp_ppp": 2040041528467,
+      "balance": 508669118607,
+      "profit": 41647247814,
+      "gdp": 816020668211,
+      "gdp_ppp": 2040051670527,
       "population": 49577060,
-      "birth_rate": 33.9,
+      "birth_rate": 57.0,
       "support": 50.0,
       "resource_index": 4.0,
       "corruption": 10.0,
       "level": "Сильная",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
-      "specialization": "Не выбрано",
-      "reforms": "$408 008 305 693 / $408 008 305 693",
-      "investments": "$28 465 695 746 / $408 008 305 693",
+      "specialization": "Промышленный хаб",
+      "reforms": "$408 010 334 105 / $408 010 334 105",
+      "investments": "$28 467 724 158 / $408 010 334 105",
       "categories": [
         "Государство",
         "ООН",
