@@ -4,7 +4,7 @@
   "status": "active",
   "startDate": "2026-10-01",
   "totalArticles": 48,
-  "totalNations": 32,
+  "totalNations": 31,
   "keyEvents": [
     {
       "id": "s28-ev-1",
@@ -60,8 +60,8 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-31T16:13:05.779165+00:00",
-  "totalActivePlayers": 38,
+  "updated_at": "2026-10-31T16:43:05.581187+00:00",
+  "totalActivePlayers": 37,
   "entities": {
     "1224403171661709342": {
       "type": "country",
@@ -844,15 +844,15 @@
       "country": "Россия",
       "player": "elwey4194",
       "nickname": "🇷🇺 | Россия",
-      "balance": 0,
-      "profit": 226152879479,
-      "gdp": 7774242061298,
-      "gdp_ppp": 10883938885817,
-      "population": 211509493,
+      "balance": 251342891625,
+      "profit": 232798274232,
+      "gdp": 7789985235890,
+      "gdp_ppp": 10905979330246,
+      "population": 211856952,
       "birth_rate": 59.6,
       "support": 100.0,
       "resource_index": 1.0,
-      "corruption": 0.5,
+      "corruption": 0.6,
       "level": "Высокоразвитая",
       "ideology": {
         "state": "Смешанная республика",
@@ -863,8 +863,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$2 133 617 108 914 / $3 887 121 030 649",
-      "investments": "$218 653 675 523 / $3 887 121 030 649",
+      "reforms": "$2 141 488 696 210 / $3 894 992 617 945",
+      "investments": "$226 525 262 819 / $3 894 992 617 945",
       "is_staff": true,
       "roles": [
         "Лицензия Россия",
@@ -912,50 +912,15 @@
         "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     },
-    "1325729399852634175": {
-      "type": "organization",
-      "country": "ООН",
-      "player": "akadil_fox.",
-      "nickname": "🇺🇳 | ООН",
-      "balance": 21678893,
-      "profit": 3631528848,
-      "gdp": 85532000000,
-      "gdp_ppp": 342128000000,
-      "population": 8088464,
-      "birth_rate": 23.5,
-      "support": 52.4,
-      "resource_index": 4.0,
-      "corruption": 11.9,
-      "level": "Устойчивая",
-      "ideology": {
-        "state": "Парламентская монархия",
-        "economy": "Смешанная экономика"
-      },
-      "taxes": {
-        "nds": 29,
-        "ndfl": 29
-      },
-      "specialization": "Промышленный хаб",
-      "reforms": "$42 766 000 000 / $42 766 000 000",
-      "investments": "$42 766 000 000 / $42 766 000 000",
-      "is_staff": true,
-      "roles": [
-        "• Зарегистрированный",
-        "Международная",
-        "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "Персонал",
-        "• Политолог"
-      ]
-    },
     "1532495116747538538": {
       "type": "country",
       "country": "КНР",
       "player": "marsgooddayevery",
       "nickname": "🇨🇳 | НСРК",
       "balance": 2648194742770,
-      "profit": 676232430604,
-      "gdp": 15602538255830,
-      "gdp_ppp": 19503172819787,
+      "profit": 676625002391,
+      "gdp": 15655576639905,
+      "gdp_ppp": 19569470799881,
       "population": 1931899109,
       "birth_rate": 49.4,
       "support": 95.3,
@@ -971,8 +936,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$7 801 269 127 915 / $7 801 269 127 915",
-      "investments": "$7 154 887 680 017 / $7 801 269 127 915",
+      "reforms": "$7 827 788 319 952 / $7 827 788 319 952",
+      "investments": "$6 518 427 071 114 / $7 827 788 319 952",
       "is_staff": true,
       "roles": [
         "Лицензия КНР",
