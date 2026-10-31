@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-10-31T15:13:57.758102+00:00",
+  "updated_at": "2026-10-31T15:43:06.064789+00:00",
   "totalActivePlayers": 38,
   "entities": {
     "1224403171661709342": {
@@ -503,6 +503,7 @@
       "investments": "$509 160 199 524 / $3 909 160 199 524",
       "is_staff": true,
       "roles": [
+        "Лицензия США",
         "НАТО",
         "ЕС",
         "Лицензия Великобритания",
@@ -843,15 +844,15 @@
       "country": "Россия",
       "player": "elwey4194",
       "nickname": "🇷🇺 | Россия",
-      "balance": 4783302614,
-      "profit": 225925781552,
-      "gdp": 7731902631160,
-      "gdp_ppp": 10824663683624,
-      "population": 210574080,
+      "balance": 0,
+      "profit": 226152879479,
+      "gdp": 7774242061298,
+      "gdp_ppp": 10883938885817,
+      "population": 211509493,
       "birth_rate": 59.6,
       "support": 100.0,
       "resource_index": 1.0,
-      "corruption": 0.1,
+      "corruption": 0.5,
       "level": "Высокоразвитая",
       "ideology": {
         "state": "Смешанная республика",
@@ -862,8 +863,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$2 112 447 393 845 / $3 865 951 315 580",
-      "investments": "$197 483 960 454 / $3 865 951 315 580",
+      "reforms": "$2 133 617 108 914 / $3 887 121 030 649",
+      "investments": "$218 653 675 523 / $3 887 121 030 649",
       "is_staff": true,
       "roles": [
         "Лицензия Россия",
@@ -1378,27 +1379,27 @@
       "country": "Гамбия",
       "player": "naebni_govna_olyx",
       "nickname": "🇬🇲 | Гамбия",
-      "balance": 1189594847328,
-      "profit": 665427573585,
-      "gdp": 23170794962953,
-      "gdp_ppp": 28963493703691,
-      "population": 405562390,
-      "birth_rate": 43.0,
-      "support": 52.7,
-      "resource_index": 2.0,
-      "corruption": 2.6,
-      "level": "Сверхдержава",
+      "balance": 3607193663314,
+      "profit": 1512340852,
+      "gdp": 7992342538,
+      "gdp_ppp": 39961712690,
+      "population": 1823507,
+      "birth_rate": 39.5,
+      "support": 50.5,
+      "resource_index": 6.0,
+      "corruption": 15.7,
+      "level": "Кризисная",
       "ideology": {
         "state": "Смешанная республика",
-        "economy": "Смешанная экономика"
+        "economy": "Рыночная экономика"
       },
       "taxes": {
         "nds": 35,
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$11 585 397 481 476 / $11 585 397 481 476",
-      "investments": "$10 885 397 481 476 / $11 585 397 481 476",
+      "reforms": "$922 193 370 / $3 996 171 269",
+      "investments": "$3 996 171 269 / $3 996 171 269",
       "is_staff": true,
       "roles": [
         "Лицензия Гамбия",
