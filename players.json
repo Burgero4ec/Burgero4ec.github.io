@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-10-31T19:14:48.025843+00:00",
+  "updated_at": "2026-10-31T19:43:16.065065+00:00",
   "total_active_players": 38,
   "total_non_staff_players": 18,
   "total_staff_who_play": 20,
@@ -16,7 +16,7 @@
   "countries_count": {
     "Гана": 1,
     "Япония": 1,
-    "Турция": 1,
+    "Франция": 1,
     "Грузия": 1,
     "Россия": 2,
     "Пакистан": 1,
@@ -30,7 +30,7 @@
     "Нигерия": 1,
     "КНР": 3,
     "Израиль": 1,
-    "Саудовская Аравия": 1,
+    "Финляндия": 1,
     "Сербия": 1,
     "Австралия": 1,
     "Азербайджан": 1,
@@ -119,31 +119,37 @@
     {
       "id": "1517894363483738212",
       "username": "lenyabrezhnev",
-      "display_name": "🇹🇷 | Турция",
-      "nickname": "🇹🇷 | Турция",
+      "display_name": "🇫🇷 | Франция",
+      "nickname": "🇫🇷 | Франция",
       "avatar_url": "https://cdn.discordapp.com/guilds/1209153077651963924/users/1517894363483738212/avatars/0f66b08e9eef836e095efbb68d58165a.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Турция"
+        "Франция"
       ],
-      "country": "Турция",
+      "country": "Франция",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 17861536308,
+      "gdp": 4732824112750,
+      "gdp_ppp": 7572518580400,
+      "population": 66021759,
+      "birth_rate": 18.3,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.3,
+      "level": "Великая держава",
+      "ideology": {
+        "state": "Дуалистическая монархия",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Технологический лидер",
+      "reforms": "$2 224 876 526 437 / $2 366 412 056 375",
+      "investments": "$2 366 412 056 375 / $2 366 412 056 375",
       "categories": [
         "Государство",
         "ООН",
@@ -153,12 +159,8 @@
       ],
       "roles": [
         {
-          "id": "1564970574160072808",
-          "name": "Лицензия Турция"
-        },
-        {
-          "id": "1564178645457838080",
-          "name": "НАТО"
+          "id": "1566174214233522216",
+          "name": "Лицензия Франция"
         },
         {
           "id": "1359429737574830251",
@@ -1516,31 +1518,37 @@
     {
       "id": "1517894363483738212",
       "username": "lenyabrezhnev",
-      "display_name": "🇹🇷 | Турция",
-      "nickname": "🇹🇷 | Турция",
+      "display_name": "🇫🇷 | Франция",
+      "nickname": "🇫🇷 | Франция",
       "avatar_url": "https://cdn.discordapp.com/guilds/1209153077651963924/users/1517894363483738212/avatars/0f66b08e9eef836e095efbb68d58165a.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Турция"
+        "Франция"
       ],
-      "country": "Турция",
+      "country": "Франция",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 17861536308,
+      "gdp": 4732824112750,
+      "gdp_ppp": 7572518580400,
+      "population": 66021759,
+      "birth_rate": 18.3,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.3,
+      "level": "Великая держава",
+      "ideology": {
+        "state": "Дуалистическая монархия",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Технологический лидер",
+      "reforms": "$2 224 876 526 437 / $2 366 412 056 375",
+      "investments": "$2 366 412 056 375 / $2 366 412 056 375",
       "categories": [
         "Государство",
         "ООН",
@@ -1550,12 +1558,8 @@
       ],
       "roles": [
         {
-          "id": "1564970574160072808",
-          "name": "Лицензия Турция"
-        },
-        {
-          "id": "1564178645457838080",
-          "name": "НАТО"
+          "id": "1566174214233522216",
+          "name": "Лицензия Франция"
         },
         {
           "id": "1359429737574830251",
@@ -2246,15 +2250,15 @@
         "Великобритания"
       ],
       "country": "Великобритания",
-      "balance": 52714514837,
-      "profit": 259732598167,
-      "gdp": 7818320399048,
-      "gdp_ppp": 10945648558667,
-      "population": 89901164,
+      "balance": 2757742428196,
+      "profit": 264741517312,
+      "gdp": 8752678109566,
+      "gdp_ppp": 12253749353392,
+      "population": 90330314,
       "birth_rate": 36.1,
       "support": 81.8,
       "resource_index": 4.0,
-      "corruption": 0.0,
+      "corruption": 0.7,
       "level": "Высокоразвитая",
       "ideology": {
         "state": "Парламентская монархия",
@@ -2265,8 +2269,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$2 738 129 394 759 / $3 909 160 199 524",
-      "investments": "$509 160 199 524 / $3 909 160 199 524",
+      "reforms": "$441 720 845 283 / $4 376 339 054 783",
+      "investments": "$467 178 855 259 / $4 376 339 054 783",
       "categories": [
         "Государство",
         "ООН",
@@ -2703,16 +2707,16 @@
     {
       "id": "1540674885989441616",
       "username": "buba_monster",
-      "display_name": "🇸🇦 | Саудовская Аравия",
-      "nickname": "🇸🇦 | Саудовская Аравия",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1540674885989441616/fddbc48d5e3b91813c89fb2a11248598.png?size=1024",
+      "display_name": "🇫🇮 | Финляндия",
+      "nickname": "🇫🇮 | Финляндия",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1540674885989441616/e7ce70e72a32e6fb1f626c1840e8cd73.png?size=1024",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Саудовская Аравия"
+        "Финляндия"
       ],
-      "country": "Саудовская Аравия",
+      "country": "Финляндия",
       "balance": 19030885960,
       "profit": 967492320,
       "gdp": 48000000000,
@@ -2742,8 +2746,8 @@
       ],
       "roles": [
         {
-          "id": "1566141328130048230",
-          "name": "Лицензия Саудовская Аравия"
+          "id": "1566172811859468450",
+          "name": "Лицензия Финляндия"
         },
         {
           "id": "1359429737574830251",
@@ -3053,15 +3057,15 @@
         "Россия"
       ],
       "country": "Россия",
-      "balance": 251342891625,
-      "profit": 232798274232,
-      "gdp": 7789985235890,
-      "gdp_ppp": 10905979330246,
-      "population": 211856952,
+      "balance": 2616679404,
+      "profit": 255648209528,
+      "gdp": 8508461221861,
+      "gdp_ppp": 11911845710605,
+      "population": 212335657,
       "birth_rate": 59.6,
       "support": 100.0,
       "resource_index": 1.0,
-      "corruption": 0.6,
+      "corruption": 0.8,
       "level": "Высокоразвитая",
       "ideology": {
         "state": "Смешанная республика",
@@ -3072,8 +3076,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$2 141 488 696 210 / $3 894 992 617 945",
-      "investments": "$226 525 262 819 / $3 894 992 617 945",
+      "reforms": "$359 237 992 985 / $4 254 230 610 930",
+      "investments": "$585 763 255 804 / $4 254 230 610 930",
       "categories": [
         "Государство",
         "ООН",
