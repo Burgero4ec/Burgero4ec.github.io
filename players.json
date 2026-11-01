@@ -1,17 +1,17 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-01T12:43:06.083891+00:00",
-  "total_active_players": 37,
+  "updated_at": "2026-11-01T13:13:13.691642+00:00",
+  "total_active_players": 38,
   "total_non_staff_players": 18,
-  "total_staff_who_play": 19,
+  "total_staff_who_play": 20,
   "stats": {
-    "registered": 37,
-    "states": 28,
+    "registered": 38,
+    "states": 29,
     "autonomies": 2,
     "pmc": 7,
-    "un_members": 28,
-    "alliance_members": 30
+    "un_members": 29,
+    "alliance_members": 31
   },
   "countries_count": {
     "Гана": 1,
@@ -35,6 +35,7 @@
     "Азербайджан": 1,
     "Индонезия": 1,
     "Сирия": 1,
+    "Дания": 1,
     "Германия": 1,
     "Аргентина": 1,
     "Казахстан": 1,
@@ -2363,12 +2364,12 @@
       ],
       "country": "Украина",
       "balance": 951727704545,
-      "profit": 40003185934,
+      "profit": 40909497993,
       "gdp": 816020668211,
       "gdp_ppp": 2040051670527,
       "population": 50199132,
       "birth_rate": 57.0,
-      "support": 49.0,
+      "support": 62.2,
       "resource_index": 4.0,
       "corruption": 12.5,
       "level": "Сильная",
@@ -2454,7 +2455,7 @@
       ],
       "country": "Нигерия",
       "balance": 0,
-      "profit": 86986199984,
+      "profit": 86840984885,
       "gdp": 1903709962876,
       "gdp_ppp": 3617048929464,
       "population": 260216342,
@@ -3422,6 +3423,91 @@
         {
           "id": "1459155798415376384",
           "name": "• Технолог"
+        }
+      ]
+    },
+    {
+      "id": "1397977783698853888",
+      "username": "ebanat_onzeir_86579",
+      "display_name": "🇯🇴 | Иордания",
+      "nickname": "🇯🇴 | Иордания",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1397977783698853888/5f75e3edc74bdc6244872395e03fd00c.png?size=1024",
+      "is_staff": true,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Дания"
+      ],
+      "country": "Дания",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1566439154844307516",
+          "name": "Лицензия Иордания"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209154572417769543",
+          "name": "Персонал"
+        },
+        {
+          "id": "1209196451339698206",
+          "name": "• Политолог"
         }
       ]
     },
