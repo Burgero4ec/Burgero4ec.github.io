@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-01T10:43:05.650560+00:00",
+  "updated_at": "2026-11-01T11:13:05.679559+00:00",
   "totalActivePlayers": 38,
   "entities": {
     "1224403171661709342": {
@@ -573,15 +573,15 @@
       "country": "Нигерия",
       "player": "aytaconan2_",
       "nickname": "🇳🇬 | Нигерия",
-      "balance": 359638,
-      "profit": 88310634914,
-      "gdp": 1790029191253,
-      "gdp_ppp": 3401055463380,
-      "population": 258867076,
+      "balance": 0,
+      "profit": 86986199984,
+      "gdp": 1903709962876,
+      "gdp_ppp": 3617048929464,
+      "population": 260216342,
       "birth_rate": 67.4,
       "support": 85.1,
       "resource_index": 4.0,
-      "corruption": 8.7,
+      "corruption": 9.1,
       "level": "Передовая",
       "ideology": {
         "state": "Парламентская республика",
@@ -592,8 +592,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$895 014 595 626 / $895 014 595 626",
-      "investments": "$597 696 567 429 / $895 014 595 626",
+      "reforms": "$668 021 471 484 / $951 854 981 438",
+      "investments": "$654 536 953 241 / $951 854 981 438",
       "is_staff": true,
       "roles": [
         "Лидер: ЭКОВАС",
@@ -768,15 +768,15 @@
       "country": "Австралия",
       "player": "perikkl",
       "nickname": "🇦🇺 | Австралия",
-      "balance": 68871158,
-      "profit": 27851291363,
-      "gdp": 1203731017397,
-      "gdp_ppp": 2287088933054,
-      "population": 22344002,
+      "balance": 90977715955,
+      "profit": 27645739761,
+      "gdp": 1204109569491,
+      "gdp_ppp": 2287808182032,
+      "population": 22365016,
       "birth_rate": 13.6,
       "support": 57.3,
       "resource_index": 2.0,
-      "corruption": 9.5,
+      "corruption": 9.9,
       "level": "Передовая",
       "ideology": {
         "state": "Парламентская монархия",
@@ -787,8 +787,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$601 865 508 698 / $601 865 508 698",
-      "investments": "$601 865 508 698 / $601 865 508 698",
+      "reforms": "$602 054 784 745 / $602 054 784 745",
+      "investments": "$602 054 784 745 / $602 054 784 745",
       "is_staff": true,
       "roles": [
         "Лицензия Австралия",
