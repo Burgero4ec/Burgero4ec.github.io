@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-01T08:43:06.872163+00:00",
+  "updated_at": "2026-11-01T09:13:05.907412+00:00",
   "total_active_players": 38,
   "total_non_staff_players": 18,
   "total_staff_who_play": 20,
@@ -3620,8 +3620,8 @@
     {
       "id": "1060644884781994126",
       "username": "chaim1ch",
-      "display_name": "🇦🇷 | Аргентина",
-      "nickname": "🇦🇷 | Аргентина",
+      "display_name": "🇦🇷 | Аргентинская Республика",
+      "nickname": "🇦🇷 | Аргентинская Республика",
       "avatar_url": "https://cdn.discordapp.com/avatars/1060644884781994126/f7d46af850285d12cd1d58f8e6884f19.png?size=1024",
       "is_staff": true,
       "is_registered": true,
@@ -3630,13 +3630,13 @@
         "Аргентина"
       ],
       "country": "Аргентина",
-      "balance": 78301723399,
-      "profit": 4841427247,
-      "gdp": 423627000000,
-      "gdp_ppp": 1355606400000,
+      "balance": 1723399,
+      "profit": 9091919206,
+      "gdp": 429957000000,
+      "gdp_ppp": 1375862400000,
       "population": 41040604,
       "birth_rate": 18.5,
-      "support": 50.0,
+      "support": 47.5,
       "resource_index": 3.0,
       "corruption": 14.0,
       "level": "Развивающаяся",
@@ -3645,12 +3645,12 @@
         "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 30,
+        "ndfl": 30
       },
       "specialization": "Не выбрано",
-      "reforms": "$211 813 500 000 / $211 813 500 000",
-      "investments": "$211 813 500 000 / $211 813 500 000",
+      "reforms": "$214 978 500 000 / $214 978 500 000",
+      "investments": "$214 978 500 000 / $214 978 500 000",
       "categories": [
         "Государство",
         "ООН",
