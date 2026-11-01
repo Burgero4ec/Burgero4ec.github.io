@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-01T10:13:06.425635+00:00",
+  "updated_at": "2026-11-01T10:43:05.650560+00:00",
   "totalActivePlayers": 38,
   "entities": {
     "1224403171661709342": {
@@ -370,15 +370,15 @@
       "country": "Кот-д’Ивуар",
       "player": "jakiro5.5",
       "nickname": "🇨🇮 | Кот-д’Ивуар",
-      "balance": 0,
-      "profit": 2543763502,
+      "balance": 46166104884,
+      "profit": 2214221668,
       "gdp": 51901154591,
       "gdp_ppp": 207604618364,
-      "population": 22190808,
+      "population": 22704262,
       "birth_rate": 40.0,
       "support": 53.3,
       "resource_index": 5.0,
-      "corruption": 19.4,
+      "corruption": 24.9,
       "level": "Устойчивая",
       "ideology": {
         "state": "Президентская республика",
@@ -389,7 +389,7 @@
         "ndfl": 20
       },
       "specialization": "Аграрная держава",
-      "reforms": "$22 119 998 472 / $25 950 577 295",
+      "reforms": "$25 950 577 295 / $25 950 577 295",
       "investments": "$25 950 577 295 / $25 950 577 295",
       "is_staff": false,
       "roles": [
@@ -531,15 +531,15 @@
       "country": "Украина",
       "player": "joskipisk0trias",
       "nickname": "🇺🇦 | Украина",
-      "balance": 508669118607,
-      "profit": 41647247814,
+      "balance": 951727704545,
+      "profit": 40003185934,
       "gdp": 816020668211,
       "gdp_ppp": 2040051670527,
-      "population": 49577060,
+      "population": 50199132,
       "birth_rate": 57.0,
       "support": 49.0,
       "resource_index": 4.0,
-      "corruption": 10.0,
+      "corruption": 12.5,
       "level": "Сильная",
       "ideology": {
         "state": "Парламентская республика",
@@ -920,9 +920,9 @@
     },
     "1325729399852634175": {
       "type": "country",
-      "country": "Швеция",
+      "country": "Сирия",
       "player": "prussvayette",
-      "nickname": "🇸🇪 | Швеция",
+      "nickname": "🇸🇾 | Сирия",
       "balance": 21678893,
       "profit": 3631528848,
       "gdp": 85532000000,
@@ -946,7 +946,7 @@
       "investments": "$42 766 000 000 / $42 766 000 000",
       "is_staff": true,
       "roles": [
-        "Лицензия Швеция",
+        "Лицензия Сирия",
         "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
         "• Зарегистрированный",
         "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
