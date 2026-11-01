@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-01T09:14:10.690932+00:00",
+  "updated_at": "2026-11-01T09:43:05.854133+00:00",
   "totalActivePlayers": 38,
   "entities": {
     "1224403171661709342": {
@@ -441,15 +441,15 @@
       "country": "США",
       "player": "zenithxclown",
       "nickname": "🇺🇸 | США",
-      "balance": 32188307197327,
-      "profit": 975926569014,
-      "gdp": 37457376108049,
-      "gdp_ppp": 41203113718853,
-      "population": 456704874,
+      "balance": 46604177618979,
+      "profit": 935422798102,
+      "gdp": 37787235421286,
+      "gdp_ppp": 41565958963414,
+      "population": 472110118,
       "birth_rate": 74.2,
-      "support": 62.6,
+      "support": 63.8,
       "resource_index": 2.0,
-      "corruption": 3.4,
+      "corruption": 8.6,
       "level": "Глобальный Гегемон",
       "ideology": {
         "state": "Смешанная республика",
@@ -460,8 +460,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$18 728 688 054 024 / $18 728 688 054 024",
-      "investments": "$17 805 908 078 647 / $18 728 688 054 024",
+      "reforms": "$18 893 617 710 643 / $18 893 617 710 643",
+      "investments": "$18 893 617 710 643 / $18 893 617 710 643",
       "is_staff": true,
       "roles": [
         "Лицензия США",
@@ -962,13 +962,13 @@
       "country": "КНР",
       "player": "marsgooddayevery",
       "nickname": "🇨🇳 | НСРК",
-      "balance": 2648194742770,
-      "profit": 676625002391,
-      "gdp": 15655576639905,
-      "gdp_ppp": 19569470799881,
+      "balance": 105883036438,
+      "profit": 677585266637,
+      "gdp": 16350727759882,
+      "gdp_ppp": 20438409699852,
       "population": 1931899109,
       "birth_rate": 49.4,
-      "support": 95.3,
+      "support": 90.8,
       "resource_index": 3.0,
       "corruption": 0.0,
       "level": "Сверхдержава",
@@ -981,8 +981,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$7 827 788 319 952 / $7 827 788 319 952",
-      "investments": "$6 518 427 071 114 / $7 827 788 319 952",
+      "reforms": "$8 175 363 879 941 / $8 175 363 879 941",
+      "investments": "$8 175 363 879 941 / $8 175 363 879 941",
       "is_staff": true,
       "roles": [
         "Лицензия КНР",
