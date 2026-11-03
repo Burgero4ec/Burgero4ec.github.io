@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-03T16:21:20.119651+00:00",
+  "updated_at": "2026-11-03T16:21:58.928857+00:00",
   "totalActivePlayers": 28,
   "entities": {
     "1224403171661709342": {
@@ -68,27 +68,27 @@
       "country": "Гана",
       "player": "dyadba",
       "nickname": "🇬🇭 | Гана",
-      "balance": 0,
-      "profit": 484631670,
-      "gdp": 32174000000,
-      "gdp_ppp": 144783000000,
-      "population": 25575000,
-      "birth_rate": 32.5,
-      "support": 50.0,
+      "balance": 41577126580,
+      "profit": 8366313741,
+      "gdp": 288429617150,
+      "gdp_ppp": 922974774880,
+      "population": 85909470,
+      "birth_rate": 28.5,
+      "support": 62.9,
       "resource_index": 5.0,
-      "corruption": 10.0,
-      "level": "Слабая",
+      "corruption": 2.7,
+      "level": "Развивающаяся",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Президентская республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
-      "specialization": "Не выбрано",
-      "reforms": "$16 087 000 000 / $16 087 000 000",
-      "investments": "$16 087 000 000 / $16 087 000 000",
+      "specialization": "Аграрная держава",
+      "reforms": "$87 782 025 294 / $144 214 808 575",
+      "investments": "$30 367 154 191 / $144 214 808 575",
       "is_staff": false,
       "roles": [
         "Лицензия Гана",
