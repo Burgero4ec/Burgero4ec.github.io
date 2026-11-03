@@ -4,7 +4,7 @@
   "status": "active",
   "startDate": "2026-10-01",
   "totalArticles": 48,
-  "totalNations": 23,
+  "totalNations": 24,
   "keyEvents": [
     {
       "id": "s28-ev-1",
@@ -60,8 +60,8 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-03T16:56:52.029577+00:00",
-  "totalActivePlayers": 28,
+  "updated_at": "2026-11-03T17:07:51.416004+00:00",
+  "totalActivePlayers": 29,
   "entities": {
     "1224403171661709342": {
       "type": "country",
@@ -999,6 +999,38 @@
         "• Зарегистрированный",
         "Ивенты",
         "Новости",
+        "Обновления",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+      ]
+    },
+    "1263434700979179633": {
+      "type": "country",
+      "country": "Германия",
+      "player": "w1ssuv",
+      "nickname": "🇩🇪 | Германия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "is_staff": false,
+      "roles": [
+        "Лицензия Германия",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
         "Обновления",
         "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         "Участник ООН",
