@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-03T16:19:58.965798+00:00",
+  "updated_at": "2026-11-03T16:21:20.119651+00:00",
   "totalActivePlayers": 28,
   "entities": {
     "1224403171661709342": {
@@ -68,27 +68,27 @@
       "country": "Гана",
       "player": "dyadba",
       "nickname": "🇬🇭 | Гана",
-      "balance": 929230820,
-      "profit": 59920385661,
-      "gdp": 2000687983411,
-      "gdp_ppp": 3801307168480,
-      "population": 260749910,
-      "birth_rate": 94.3,
+      "balance": 0,
+      "profit": 484631670,
+      "gdp": 32174000000,
+      "gdp_ppp": 144783000000,
+      "population": 25575000,
+      "birth_rate": 32.5,
       "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 10.3,
-      "level": "Передовая",
+      "resource_index": 5.0,
+      "corruption": 10.0,
+      "level": "Слабая",
       "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 20,
+        "ndfl": 20
       },
       "specialization": "Не выбрано",
-      "reforms": "$1 000 343 991 705 / $1 000 343 991 705",
-      "investments": "$1 000 343 991 705 / $1 000 343 991 705",
+      "reforms": "$16 087 000 000 / $16 087 000 000",
+      "investments": "$16 087 000 000 / $16 087 000 000",
       "is_staff": false,
       "roles": [
         "Лицензия Гана",
@@ -549,15 +549,15 @@
       "country": "Египет",
       "player": "buba_monster",
       "nickname": "🇪🇬 | Египет",
-      "balance": 26420643004,
-      "profit": 8392744591,
-      "gdp": 288257987168,
-      "gdp_ppp": 922425558937,
-      "population": 85756287,
+      "balance": 41577126580,
+      "profit": 8366313741,
+      "gdp": 288429617150,
+      "gdp_ppp": 922974774880,
+      "population": 85909470,
       "birth_rate": 28.5,
       "support": 62.9,
       "resource_index": 5.0,
-      "corruption": 2.5,
+      "corruption": 2.7,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Президентская республика",
@@ -568,8 +568,8 @@
         "ndfl": 35
       },
       "specialization": "Аграрная держава",
-      "reforms": "$87 696 210 303 / $144 128 993 584",
-      "investments": "$30 281 339 200 / $144 128 993 584",
+      "reforms": "$87 782 025 294 / $144 214 808 575",
+      "investments": "$30 367 154 191 / $144 214 808 575",
       "is_staff": true,
       "roles": [
         "Лидер: Лига арабских государств",
