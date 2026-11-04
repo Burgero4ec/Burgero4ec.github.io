@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-04T06:46:28.158616+00:00",
+  "updated_at": "2026-11-04T06:47:42.944702+00:00",
   "totalActivePlayers": 29,
   "entities": {
     "1224403171661709342": {
@@ -589,27 +589,27 @@
       "country": "Египет",
       "player": "buba_monster",
       "nickname": "🇪🇬 | Египет",
-      "balance": 2387194041235,
-      "profit": 56704834973,
-      "gdp": 2286707447491,
-      "gdp_ppp": 4344744150232,
-      "population": 13360514,
-      "birth_rate": 52.6,
-      "support": 82.2,
-      "resource_index": 6.0,
-      "corruption": 6.1,
-      "level": "Передовая",
+      "balance": 0,
+      "profit": 8662651876,
+      "gdp": 304172763424,
+      "gdp_ppp": 973352842956,
+      "population": 86295312,
+      "birth_rate": 28.5,
+      "support": 64.4,
+      "resource_index": 5.0,
+      "corruption": 3.8,
+      "level": "Развивающаяся",
       "ideology": {
-        "state": "Парламентская республика",
-        "economy": "Плановая экономика"
+        "state": "Президентская республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 40,
-        "ndfl": 40
+        "nds": 35,
+        "ndfl": 35
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$1 143 353 723 745 / $1 143 353 723 745",
-      "investments": "$1 143 353 723 745 / $1 143 353 723 745",
+      "specialization": "Аграрная держава",
+      "reforms": "$152 086 381 712 / $152 086 381 712",
+      "investments": "$152 086 381 712 / $152 086 381 712",
       "is_staff": true,
       "roles": [
         "Лидер: Лига арабских государств",
