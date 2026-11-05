@@ -1,17 +1,17 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-05T12:18:58.282334+00:00",
-  "total_active_players": 27,
+  "updated_at": "2026-11-05T12:20:07.364584+00:00",
+  "total_active_players": 26,
   "total_non_staff_players": 12,
-  "total_staff_who_play": 15,
+  "total_staff_who_play": 14,
   "stats": {
-    "registered": 27,
-    "states": 23,
+    "registered": 26,
+    "states": 22,
     "autonomies": 1,
     "pmc": 3,
-    "un_members": 23,
-    "alliance_members": 24
+    "un_members": 22,
+    "alliance_members": 23
   },
   "countries_count": {
     "США": 2,
@@ -22,7 +22,6 @@
     "Коста-Рика": 1,
     "Франция": 1,
     "Великобритания": 1,
-    "Украина": 1,
     "Литва": 1,
     "Израиль": 1,
     "Египет": 1,
@@ -281,20 +280,26 @@
       ],
       "country": "Франция",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 13881488539,
+      "gdp": 4339999711392,
+      "gdp_ppp": 6943999538227,
+      "population": 66021759,
+      "birth_rate": 18.3,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.0,
+      "level": "Великая держава",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$2 169 999 855 696 / $2 169 999 855 696",
+      "investments": "$2 169 999 855 696 / $2 169 999 855 696",
       "categories": [
         "Государство",
         "ООН",
@@ -346,27 +351,24 @@
         "Россия"
       ],
       "country": "Литва",
-      "balance": 1699432038525,
-      "profit": 55256117409,
-      "gdp": 1298276579876,
-      "gdp_ppp": 2466725501764,
-      "population": 55153965,
-      "birth_rate": 57.0,
-      "support": 64.0,
-      "resource_index": 4.0,
-      "corruption": 6.5,
-      "level": "Передовая",
-      "ideology": {
-        "state": "Парламентская республика",
-        "economy": "Смешанная экономика"
-      },
+      "balance": 786009,
+      "profit": 2170771253,
+      "gdp": 27104963697,
+      "gdp_ppp": 121972336636,
+      "population": 967497,
+      "birth_rate": 21.4,
+      "support": 51.2,
+      "resource_index": 1.0,
+      "corruption": 5.2,
+      "level": "Слабая",
+      "ideology": {},
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 25,
+        "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$649 138 289 938 / $649 138 289 938",
-      "investments": "$649 138 289 938 / $649 138 289 938",
+      "reforms": "$13 552 481 848 / $13 552 481 848",
+      "investments": "$13 552 481 848 / $13 552 481 848",
       "categories": [
         "Государство",
         "Автономия",
@@ -435,9 +437,9 @@
       ],
       "country": "Азербайджан",
       "balance": 23644368819,
-      "profit": 22439961834,
-      "gdp": 855353704953,
-      "gdp_ppp": 2138384262382,
+      "profit": 22517216816,
+      "gdp": 919505232824,
+      "gdp_ppp": 2298763082060,
       "population": 9962156,
       "birth_rate": 28.6,
       "support": 78.7,
@@ -453,8 +455,8 @@
         "ndfl": 50
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$14 568 491 111 / $427 676 852 476",
-      "investments": "$427 676 852 476 / $427 676 852 476",
+      "reforms": "$46 644 255 047 / $459 752 616 412",
+      "investments": "$32 075 763 936 / $459 752 616 412",
       "categories": [
         "Государство",
         "ООН",
@@ -650,9 +652,9 @@
       ],
       "country": "Индия",
       "balance": 2607940369971,
-      "profit": 200836765276,
-      "gdp": 7945868266896,
-      "gdp_ppp": 11124215573654,
+      "profit": 199868402922,
+      "gdp": 7618717565471,
+      "gdp_ppp": 10666204591659,
       "population": 1413720842,
       "birth_rate": 29.6,
       "support": 62.7,
@@ -668,8 +670,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$518 208 800 015 / $3 972 934 133 448",
-      "investments": "$3 972 934 133 448 / $3 972 934 133 448",
+      "reforms": "$354 633 449 302 / $3 809 358 782 735",
+      "investments": "$3 809 358 782 735 / $3 809 358 782 735",
       "categories": [
         "Государство",
         "ООН",
@@ -976,8 +978,8 @@
         "США"
       ],
       "country": "США",
-      "balance": 415679324120,
-      "profit": 882500000,
+      "balance": 0,
+      "profit": 3382500000,
       "gdp": null,
       "gdp_ppp": null,
       "population": null,
@@ -1426,27 +1428,27 @@
         "США"
       ],
       "country": "США",
-      "balance": 2415815849,
-      "profit": 1874593192,
-      "gdp": 52960179098,
-      "gdp_ppp": 211840716392,
-      "population": 4650100,
-      "birth_rate": 15.5,
-      "support": 51.8,
-      "resource_index": 5.0,
-      "corruption": 21.6,
-      "level": "Устойчивая",
+      "balance": 61722955084734,
+      "profit": 1633628060842,
+      "gdp": 47658755969426,
+      "gdp_ppp": 52424631566368,
+      "population": 553807041,
+      "birth_rate": 74.2,
+      "support": 93.0,
+      "resource_index": 2.0,
+      "corruption": 2.2,
+      "level": "Глобальный Гегемон",
       "ideology": {
-        "state": "Президентская республика",
+        "state": "Смешанная республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
-      "specialization": "Технологический лидер",
-      "reforms": "$21 944 028 997 / $26 480 089 549",
-      "investments": "$26 480 089 549 / $26 480 089 549",
+      "specialization": "Промышленный хаб",
+      "reforms": "$23 829 377 984 713 / $23 829 377 984 713",
+      "investments": "$23 829 377 984 713 / $23 829 377 984 713",
       "categories": [
         "Государство",
         "ООН",
@@ -1544,20 +1546,26 @@
       ],
       "country": "Франция",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 13881488539,
+      "gdp": 4339999711392,
+      "gdp_ppp": 6943999538227,
+      "population": 66021759,
+      "birth_rate": 18.3,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.0,
+      "level": "Великая держава",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$2 169 999 855 696 / $2 169 999 855 696",
+      "investments": "$2 169 999 855 696 / $2 169 999 855 696",
       "categories": [
         "Государство",
         "ООН",
@@ -1725,102 +1733,6 @@
       ]
     },
     {
-      "id": "1133677481694601216",
-      "username": "joskipisk0trias",
-      "display_name": "🇺🇦 | Украина",
-      "nickname": "🇺🇦 | Украина",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1133677481694601216/74fedf53078f1953e8bd5aab907c37f3.png?size=1024",
-      "is_staff": true,
-      "is_registered": true,
-      "entity_type": "Государство",
-      "countries": [
-        "Украина"
-      ],
-      "country": "Украина",
-      "balance": 1699432038525,
-      "profit": 55256117409,
-      "gdp": 1298276579876,
-      "gdp_ppp": 2466725501764,
-      "population": 55153965,
-      "birth_rate": 57.0,
-      "support": 64.0,
-      "resource_index": 4.0,
-      "corruption": 6.5,
-      "level": "Передовая",
-      "ideology": {
-        "state": "Парламентская республика",
-        "economy": "Смешанная экономика"
-      },
-      "taxes": {
-        "nds": 35,
-        "ndfl": 35
-      },
-      "specialization": "Промышленный хаб",
-      "reforms": "$649 138 289 938 / $649 138 289 938",
-      "investments": "$649 138 289 938 / $649 138 289 938",
-      "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН",
-        "Server Booster"
-      ],
-      "roles": [
-        {
-          "id": "1566210569034535044",
-          "name": "Лицензия Украина"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1246817935297613905",
-          "name": "• Зарегистрированный"
-        },
-        {
-          "id": "1359429686500921447",
-          "name": "Новости"
-        },
-        {
-          "id": "1359429648890728488",
-          "name": "Обновления"
-        },
-        {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1282721540554887179",
-          "name": "Server Booster"
-        },
-        {
-          "id": "1209154572417769543",
-          "name": "Персонал"
-        },
-        {
-          "id": "1209196451339698206",
-          "name": "• Политолог"
-        },
-        {
-          "id": "1209196499611951104",
-          "name": "• Модератор"
-        }
-      ]
-    },
-    {
       "id": "484044030640914437",
       "username": "aytaconan2_",
       "display_name": "🇷🇺 | Якутия",
@@ -1834,27 +1746,24 @@
         "Россия"
       ],
       "country": "Литва",
-      "balance": 1699432038525,
-      "profit": 55256117409,
-      "gdp": 1298276579876,
-      "gdp_ppp": 2466725501764,
-      "population": 55153965,
-      "birth_rate": 57.0,
-      "support": 64.0,
-      "resource_index": 4.0,
-      "corruption": 6.5,
-      "level": "Передовая",
-      "ideology": {
-        "state": "Парламентская республика",
-        "economy": "Смешанная экономика"
-      },
+      "balance": 786009,
+      "profit": 2170771253,
+      "gdp": 27104963697,
+      "gdp_ppp": 121972336636,
+      "population": 967497,
+      "birth_rate": 21.4,
+      "support": 51.2,
+      "resource_index": 1.0,
+      "corruption": 5.2,
+      "level": "Слабая",
+      "ideology": {},
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 25,
+        "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$649 138 289 938 / $649 138 289 938",
-      "investments": "$649 138 289 938 / $649 138 289 938",
+      "reforms": "$13 552 481 848 / $13 552 481 848",
+      "investments": "$13 552 481 848 / $13 552 481 848",
       "categories": [
         "Государство",
         "Автономия",
@@ -2021,16 +1930,16 @@
         "Египет"
       ],
       "country": "Египет",
-      "balance": 17551062296,
-      "profit": 9113570271,
-      "gdp": 470321939078,
-      "gdp_ppp": 1505030205049,
-      "population": 88961870,
+      "balance": 0,
+      "profit": 8322440795,
+      "gdp": 527739851601,
+      "gdp_ppp": 1319349629002,
+      "population": 89219653,
       "birth_rate": 28.5,
       "support": 66.3,
       "resource_index": 5.0,
-      "corruption": 12.9,
-      "level": "Развивающаяся",
+      "corruption": 13.8,
+      "level": "Сильная",
       "ideology": {
         "state": "Президентская республика",
         "economy": "Смешанная экономика"
@@ -2040,8 +1949,8 @@
         "ndfl": 35
       },
       "specialization": "Аграрная держава",
-      "reforms": "$144 450 714 637 / $235 160 969 539",
-      "investments": "$235 160 969 539 / $235 160 969 539",
+      "reforms": "$127 187 320 068 / $263 869 925 800",
+      "investments": "$28 708 956 261 / $263 869 925 800",
       "categories": [
         "Государство",
         "ООН",
@@ -2229,9 +2138,9 @@
       ],
       "country": "Азербайджан",
       "balance": 23644368819,
-      "profit": 22439961834,
-      "gdp": 855353704953,
-      "gdp_ppp": 2138384262382,
+      "profit": 22517216816,
+      "gdp": 919505232824,
+      "gdp_ppp": 2298763082060,
       "population": 9962156,
       "birth_rate": 28.6,
       "support": 78.7,
@@ -2247,8 +2156,8 @@
         "ndfl": 50
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$14 568 491 111 / $427 676 852 476",
-      "investments": "$427 676 852 476 / $427 676 852 476",
+      "reforms": "$46 644 255 047 / $459 752 616 412",
+      "investments": "$32 075 763 936 / $459 752 616 412",
       "categories": [
         "Государство",
         "ООН",
@@ -2484,7 +2393,7 @@
       ],
       "country": "КНР",
       "balance": 17562556982416,
-      "profit": 1203960461505,
+      "profit": 1199258912004,
       "gdp": 24942074943239,
       "gdp_ppp": 31177593679048,
       "population": 2231443398,
@@ -2847,9 +2756,9 @@
       ],
       "country": "Индия",
       "balance": 2607940369971,
-      "profit": 200836765276,
-      "gdp": 7945868266896,
-      "gdp_ppp": 11124215573654,
+      "profit": 199868402922,
+      "gdp": 7618717565471,
+      "gdp_ppp": 10666204591659,
       "population": 1413720842,
       "birth_rate": 29.6,
       "support": 62.7,
@@ -2865,8 +2774,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$518 208 800 015 / $3 972 934 133 448",
-      "investments": "$3 972 934 133 448 / $3 972 934 133 448",
+      "reforms": "$354 633 449 302 / $3 809 358 782 735",
+      "investments": "$3 809 358 782 735 / $3 809 358 782 735",
       "categories": [
         "Государство",
         "ООН",
@@ -3180,9 +3089,9 @@
       ],
       "country": "Япония",
       "balance": 1780714800109,
-      "profit": 376634281909,
-      "gdp": 14178481300790,
-      "gdp_ppp": 17723101625987,
+      "profit": 378711972148,
+      "gdp": 14712366206892,
+      "gdp_ppp": 18390457758615,
       "population": 208061168,
       "birth_rate": 63.1,
       "support": 96.6,
@@ -3198,8 +3107,8 @@
         "ndfl": 35
       },
       "specialization": "Торговая республика",
-      "reforms": "$3 089 240 650 395 / $7 089 240 650 395",
-      "investments": "$6 673 561 326 275 / $7 089 240 650 395",
+      "reforms": "$3 356 183 103 446 / $7 356 183 103 446",
+      "investments": "$266 942 453 051 / $7 356 183 103 446",
       "categories": [
         "Государство",
         "ООН",
