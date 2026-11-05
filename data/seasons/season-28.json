@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-05T13:04:29.426535+00:00",
+  "updated_at": "2026-11-05T13:34:29.631498+00:00",
   "totalActivePlayers": 27,
   "entities": {
     "1334532453238440000": {
@@ -470,7 +470,7 @@
       "player": "aytaconan2_",
       "nickname": "🇷🇺 | Якутия",
       "balance": 786009,
-      "profit": 2170771253,
+      "profit": 2167719248,
       "gdp": 27104963697,
       "gdp_ppp": 121972336636,
       "population": 967497,
@@ -762,8 +762,8 @@
       "country": "КНР",
       "player": "marsgooddayevery",
       "nickname": "🇨🇳 | НСРК",
-      "balance": 17502556982416,
-      "profit": 1279302726407,
+      "balance": 10502556982416,
+      "profit": 1314262905157,
       "gdp": 24942074943239,
       "gdp_ppp": 31177593679048,
       "population": 2231443398,
