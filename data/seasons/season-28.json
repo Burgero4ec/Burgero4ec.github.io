@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-05T11:59:57.577920+00:00",
+  "updated_at": "2026-11-05T12:01:10.774714+00:00",
   "totalActivePlayers": 29,
   "entities": {
     "1224403171661709342": {
@@ -416,8 +416,8 @@
       "country": "Великобритания",
       "player": "_ashkoo139",
       "nickname": "🇬🇧 | Великобритания",
-      "balance": 0,
-      "profit": 519544513406,
+      "balance": 2334773428676,
+      "profit": 496703468015,
       "gdp": 20467104872365,
       "gdp_ppp": 25583881090456,
       "population": 99572476,
@@ -1126,27 +1126,27 @@
       "country": "Япония",
       "player": "naebni_govna_olyx",
       "nickname": "🇯🇵 | Япония",
-      "balance": 1780714800109,
-      "profit": 377232633538,
-      "gdp": 14332008829154,
-      "gdp_ppp": 17915011036442,
-      "population": 208061168,
-      "birth_rate": 63.1,
-      "support": 96.6,
-      "resource_index": 6.0,
+      "balance": 167518008643,
+      "profit": 13935884959,
+      "gdp": 241305409186,
+      "gdp_ppp": 772177309395,
+      "population": 4584862,
+      "birth_rate": 16.5,
+      "support": 53.8,
+      "resource_index": 5.0,
       "corruption": 1.9,
-      "level": "Сверхдержава",
+      "level": "Развивающаяся",
       "ideology": {
-        "state": "Парламентская монархия",
-        "economy": "Смешанная экономика"
+        "state": "Парламентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
         "nds": 35,
         "ndfl": 35
       },
-      "specialization": "Торговая республика",
-      "reforms": "$3 166 004 414 577 / $7 166 004 414 577",
-      "investments": "$7 166 004 414 577 / $7 166 004 414 577",
+      "specialization": "Промышленный хаб",
+      "reforms": "$120 652 704 593 / $120 652 704 593",
+      "investments": "$120 652 704 593 / $120 652 704 593",
       "is_staff": true,
       "roles": [
         "Лицензия Япония",
