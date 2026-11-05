@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-05T10:48:27.950021+00:00",
+  "updated_at": "2026-11-05T10:49:40.790544+00:00",
   "totalActivePlayers": 29,
   "entities": {
     "1224403171661709342": {
@@ -803,18 +803,18 @@
       "country": "КНР",
       "player": "marsgooddayevery",
       "nickname": "🇨🇳 | НСРК",
-      "balance": 7408108009,
-      "profit": 8969933705,
-      "gdp": 290580000000,
-      "gdp_ppp": 929856000000,
-      "population": 8557334,
-      "birth_rate": 11.5,
-      "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 10.4,
-      "level": "Развивающаяся",
+      "balance": 17562556982416,
+      "profit": 1203687922947,
+      "gdp": 24942074943239,
+      "gdp_ppp": 31177593679048,
+      "population": 2231443398,
+      "birth_rate": 49.4,
+      "support": 99.7,
+      "resource_index": 3.0,
+      "corruption": 5.7,
+      "level": "Сверхдержава",
       "ideology": {
-        "state": "Парламентская монархия",
+        "state": "Смешанная республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
@@ -822,8 +822,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$145 290 000 000 / $145 290 000 000",
-      "investments": "$145 290 000 000 / $145 290 000 000",
+      "reforms": "$12 471 037 471 619 / $12 471 037 471 619",
+      "investments": "$3 213 216 287 294 / $12 471 037 471 619",
       "is_staff": true,
       "roles": [
         "Лидер: ШОС",
