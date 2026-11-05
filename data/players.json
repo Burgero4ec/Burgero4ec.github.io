@@ -1,17 +1,17 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-05T20:09:10.302321+00:00",
-  "total_active_players": 26,
+  "updated_at": "2026-11-05T20:45:38.824965+00:00",
+  "total_active_players": 25,
   "total_non_staff_players": 12,
-  "total_staff_who_play": 14,
+  "total_staff_who_play": 13,
   "stats": {
-    "registered": 26,
-    "states": 22,
+    "registered": 25,
+    "states": 21,
     "autonomies": 1,
     "pmc": 3,
-    "un_members": 22,
-    "alliance_members": 23
+    "un_members": 21,
+    "alliance_members": 22
   },
   "countries_count": {
     "США": 2,
@@ -29,7 +29,6 @@
     "Азербайджан": 1,
     "ОАЭ": 1,
     "КНР": 1,
-    "Боливия": 1,
     "DynCorp": 1,
     "Италия": 1,
     "Новая Зеландия": 1,
@@ -659,15 +658,15 @@
         "Новая Зеландия"
       ],
       "country": "Новая Зеландия",
-      "balance": 2521405986,
-      "profit": 2419802109,
+      "balance": 14893002066,
+      "profit": 2352681254,
       "gdp": 146684000000,
       "gdp_ppp": 586736000000,
-      "population": 4351362,
+      "population": 4358237,
       "birth_rate": 14.5,
       "support": 50.7,
       "resource_index": 4.0,
-      "corruption": 10.3,
+      "corruption": 11.6,
       "level": "Устойчивая",
       "ideology": {
         "state": "Не выбрано",
@@ -2491,101 +2490,6 @@
       ]
     },
     {
-      "id": "1397977783698853888",
-      "username": "ebanat_onzeir_86579",
-      "display_name": "🇧🇴 | Боливия",
-      "nickname": "🇧🇴 | Боливия",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1397977783698853888/5f75e3edc74bdc6244872395e03fd00c.png?size=1024",
-      "is_staff": true,
-      "is_registered": true,
-      "entity_type": "Государство",
-      "countries": [
-        "Боливия"
-      ],
-      "country": "Боливия",
-      "balance": 129892693302,
-      "profit": 5882026530,
-      "gdp": 1955003444045,
-      "gdp_ppp": 3714506543685,
-      "population": 101431814,
-      "birth_rate": 47.9,
-      "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 10.3,
-      "level": "Передовая",
-      "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
-      },
-      "taxes": {
-        "nds": 20,
-        "ndfl": 20
-      },
-      "specialization": "Не выбрано",
-      "reforms": "$977 501 722 022 / $977 501 722 022",
-      "investments": "$977 501 722 022 / $977 501 722 022",
-      "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН"
-      ],
-      "roles": [
-        {
-          "id": "1567972603379982336",
-          "name": "Лицензия Боливия"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1246817935297613905",
-          "name": "• Зарегистрированный"
-        },
-        {
-          "id": "1465442608707932180",
-          "name": "Ивенты"
-        },
-        {
-          "id": "1359429686500921447",
-          "name": "Новости"
-        },
-        {
-          "id": "1359429648890728488",
-          "name": "Обновления"
-        },
-        {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209154572417769543",
-          "name": "Персонал"
-        },
-        {
-          "id": "1310657579948576898",
-          "name": "• Пиар-Менеджер"
-        },
-        {
-          "id": "1209196270472663042",
-          "name": "• Анкетолог"
-        }
-      ]
-    },
-    {
       "id": "1227256760914415657",
       "username": "bludebaff",
       "display_name": "👤 | DynCorp",
@@ -2753,15 +2657,15 @@
         "Новая Зеландия"
       ],
       "country": "Новая Зеландия",
-      "balance": 2521405986,
-      "profit": 2419802109,
+      "balance": 14893002066,
+      "profit": 2352681254,
       "gdp": 146684000000,
       "gdp_ppp": 586736000000,
-      "population": 4351362,
+      "population": 4358237,
       "birth_rate": 14.5,
       "support": 50.7,
       "resource_index": 4.0,
-      "corruption": 10.3,
+      "corruption": 11.6,
       "level": "Устойчивая",
       "ideology": {
         "state": "Не выбрано",
