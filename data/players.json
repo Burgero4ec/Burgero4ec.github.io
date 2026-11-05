@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-05T11:43:25.908248+00:00",
+  "updated_at": "2026-11-05T11:44:40.636063+00:00",
   "total_active_players": 29,
   "total_non_staff_players": 13,
   "total_staff_who_play": 16,
@@ -55,27 +55,27 @@
         "Гана"
       ],
       "country": "Гана",
-      "balance": 862207804939,
-      "profit": 47184633471,
-      "gdp": 2345806660548,
-      "gdp_ppp": 4457032655041,
-      "population": 280969091,
-      "birth_rate": 94.3,
+      "balance": 0,
+      "profit": 484631670,
+      "gdp": 32174000000,
+      "gdp_ppp": 144783000000,
+      "population": 25575000,
+      "birth_rate": 32.5,
       "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 21.6,
-      "level": "Передовая",
+      "resource_index": 5.0,
+      "corruption": 10.0,
+      "level": "Слабая",
       "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 20,
+        "ndfl": 20
       },
       "specialization": "Не выбрано",
-      "reforms": "$1 172 903 330 274 / $1 172 903 330 274",
-      "investments": "$1 172 903 330 274 / $1 172 903 330 274",
+      "reforms": "$16 087 000 000 / $16 087 000 000",
+      "investments": "$16 087 000 000 / $16 087 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1065,27 +1065,27 @@
         "Гана"
       ],
       "country": "Гана",
-      "balance": 862207804939,
-      "profit": 47184633471,
-      "gdp": 2345806660548,
-      "gdp_ppp": 4457032655041,
-      "population": 280969091,
-      "birth_rate": 94.3,
+      "balance": 0,
+      "profit": 484631670,
+      "gdp": 32174000000,
+      "gdp_ppp": 144783000000,
+      "population": 25575000,
+      "birth_rate": 32.5,
       "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 21.6,
-      "level": "Передовая",
+      "resource_index": 5.0,
+      "corruption": 10.0,
+      "level": "Слабая",
       "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 20,
+        "ndfl": 20
       },
       "specialization": "Не выбрано",
-      "reforms": "$1 172 903 330 274 / $1 172 903 330 274",
-      "investments": "$1 172 903 330 274 / $1 172 903 330 274",
+      "reforms": "$16 087 000 000 / $16 087 000 000",
+      "investments": "$16 087 000 000 / $16 087 000 000",
       "categories": [
         "Государство",
         "ООН",
