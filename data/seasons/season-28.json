@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-05T11:39:12.603320+00:00",
+  "updated_at": "2026-11-05T11:40:07.014264+00:00",
   "totalActivePlayers": 29,
   "entities": {
     "1224403171661709342": {
@@ -467,27 +467,27 @@
       "country": "Украина",
       "player": "joskipisk0trias",
       "nickname": "🇺🇦 | Украина",
-      "balance": 0,
-      "profit": 519544513406,
-      "gdp": 20467104872365,
-      "gdp_ppp": 25583881090456,
-      "population": 99572476,
-      "birth_rate": 39.7,
-      "support": 94.5,
+      "balance": 1699432038525,
+      "profit": 54527855443,
+      "gdp": 1364164606659,
+      "gdp_ppp": 2591912752652,
+      "population": 55153965,
+      "birth_rate": 57.0,
+      "support": 64.0,
       "resource_index": 4.0,
-      "corruption": 2.0,
-      "level": "Сверхдержава",
+      "corruption": 6.5,
+      "level": "Передовая",
       "ideology": {
-        "state": "Парламентская монархия",
-        "economy": "Рыночная экономика"
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
         "nds": 35,
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$4 617 300 631 497 / $10 233 552 436 182",
-      "investments": "$696 516 436 832 / $10 233 552 436 182",
+      "reforms": "$682 082 303 329 / $682 082 303 329",
+      "investments": "$682 082 303 329 / $682 082 303 329",
       "is_staff": true,
       "roles": [
         "Лицензия Украина",
