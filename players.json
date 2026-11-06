@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-06T04:28:31.753003+00:00",
+  "updated_at": "2026-11-06T04:29:37.484051+00:00",
   "total_active_players": 26,
   "total_non_staff_players": 13,
   "total_staff_who_play": 13,
@@ -738,27 +738,27 @@
         "Перу"
       ],
       "country": "Перу",
-      "balance": 0,
-      "profit": 1587626726,
-      "gdp": 147528000000,
-      "gdp_ppp": 590112000000,
-      "population": 29028000,
-      "birth_rate": 20.5,
-      "support": 50.0,
+      "balance": 230502066,
+      "profit": 6312802598,
+      "gdp": 148150250000,
+      "gdp_ppp": 592601000000,
+      "population": 4358237,
+      "birth_rate": 14.5,
+      "support": 50.7,
       "resource_index": 4.0,
-      "corruption": 10.0,
+      "corruption": 11.6,
       "level": "Устойчивая",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Парламентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
-      "specialization": "Не выбрано",
-      "reforms": "$73 764 000 000 / $73 764 000 000",
-      "investments": "$73 764 000 000 / $73 764 000 000",
+      "specialization": "Промышленный хаб",
+      "reforms": "$74 075 125 000 / $74 075 125 000",
+      "investments": "$74 075 125 000 / $74 075 125 000",
       "categories": [
         "Государство",
         "ООН",
@@ -2818,27 +2818,27 @@
         "Перу"
       ],
       "country": "Перу",
-      "balance": 0,
-      "profit": 1587626726,
-      "gdp": 147528000000,
-      "gdp_ppp": 590112000000,
-      "population": 29028000,
-      "birth_rate": 20.5,
-      "support": 50.0,
+      "balance": 230502066,
+      "profit": 6312802598,
+      "gdp": 148150250000,
+      "gdp_ppp": 592601000000,
+      "population": 4358237,
+      "birth_rate": 14.5,
+      "support": 50.7,
       "resource_index": 4.0,
-      "corruption": 10.0,
+      "corruption": 11.6,
       "level": "Устойчивая",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Парламентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
-      "specialization": "Не выбрано",
-      "reforms": "$73 764 000 000 / $73 764 000 000",
-      "investments": "$73 764 000 000 / $73 764 000 000",
+      "specialization": "Промышленный хаб",
+      "reforms": "$74 075 125 000 / $74 075 125 000",
+      "investments": "$74 075 125 000 / $74 075 125 000",
       "categories": [
         "Государство",
         "ООН",
