@@ -1,10 +1,10 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-06T16:36:05.631541+00:00",
+  "updated_at": "2026-11-06T17:06:06.042690+00:00",
   "total_active_players": 26,
-  "total_non_staff_players": 13,
-  "total_staff_who_play": 13,
+  "total_non_staff_players": 14,
+  "total_staff_who_play": 12,
   "stats": {
     "registered": 26,
     "states": 21,
@@ -15,7 +15,8 @@
   },
   "countries_count": {
     "Австралия": 1,
-    "США": 3,
+    "США": 2,
+    "Triple Canopy": 1,
     "Россия": 3,
     "Пакистан": 1,
     "MPRI": 1,
@@ -179,6 +180,82 @@
         {
           "id": "1233388184407375912",
           "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "1213051426876690443",
+      "username": "izaziii228",
+      "display_name": "🇦🇫 | Афганистан",
+      "nickname": "🇦🇫 | Афганистан",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1213051426876690443/3b83cfd77ffa69227a277ba27ab9ec80.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Афганистан"
+      ],
+      "country": "Афганистан",
+      "balance": 0,
+      "profit": 6763530815,
+      "gdp": 53242947694,
+      "gdp_ppp": 212971790776,
+      "population": 30355168,
+      "birth_rate": 42.8,
+      "support": 61.0,
+      "resource_index": 5.0,
+      "corruption": 12.0,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Плановая экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Аграрная держава",
+      "reforms": "$10 605 200 506 / $26 621 473 847",
+      "investments": "$26 621 473 847 / $26 621 473 847",
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Лидер альянса",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1567193250597445673",
+          "name": "Лицензия Афганистан"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1259799685871177739",
+          "name": "Лидер альянса"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -1264,16 +1341,16 @@
     {
       "id": "1334532453238440000",
       "username": "vaelite.",
-      "display_name": "🇺🇸 | Academi",
-      "nickname": "🇺🇸 | Academi",
+      "display_name": "👤 | Triple Canopy",
+      "nickname": "👤 | Triple Canopy",
       "avatar_url": "https://cdn.discordapp.com/avatars/1334532453238440000/1819072df09617eaeeee629485aef10e.png?size=1024",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "ЧВК",
       "countries": [
-        "США"
+        "Triple Canopy"
       ],
-      "country": "США",
+      "country": "Triple Canopy",
       "balance": 0,
       "profit": 3382500000,
       "gdp": null,
@@ -1294,20 +1371,12 @@
       ],
       "roles": [
         {
-          "id": "1565644132175843350",
-          "name": "Лицензия США"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
-        {
           "id": "1246817935297613905",
           "name": "• Зарегистрированный"
         },
         {
-          "id": "1233388519171428385",
-          "name": "Государственная"
+          "id": "1233388420915658865",
+          "name": "Частная"
         },
         {
           "id": "1233388184407375912",
@@ -1550,7 +1619,7 @@
       "display_name": "🇦🇫 | Афганистан",
       "nickname": "🇦🇫 | Афганистан",
       "avatar_url": "https://cdn.discordapp.com/avatars/1213051426876690443/3b83cfd77ffa69227a277ba27ab9ec80.png?size=1024",
-      "is_staff": true,
+      "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
@@ -1617,14 +1686,6 @@
         {
           "id": "1209166398748631050",
           "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209154572417769543",
-          "name": "Персонал"
-        },
-        {
-          "id": "1459155798415376384",
-          "name": "• Технолог"
         }
       ]
     },
