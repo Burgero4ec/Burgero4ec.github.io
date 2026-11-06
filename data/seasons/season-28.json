@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-06T12:30:11.650089+00:00",
+  "updated_at": "2026-11-06T13:00:12.401097+00:00",
   "totalActivePlayers": 26,
   "entities": {
     "1334532453238440000": {
@@ -101,14 +101,14 @@
       "player": "ponzc",
       "nickname": "🟩 [🇷🇺] | Чеченская Республика",
       "balance": 142250868874,
-      "profit": 2958527214,
+      "profit": 2955970886,
       "gdp": 59288632321,
       "gdp_ppp": 237154529284,
       "population": 1384399,
       "birth_rate": 29.0,
       "support": 63.7,
       "resource_index": 4.0,
-      "corruption": 21.8,
+      "corruption": 21.9,
       "level": "Устойчивая",
       "ideology": {},
       "taxes": {
