@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-06T14:20:51.845757+00:00",
+  "updated_at": "2026-11-06T14:22:02.183436+00:00",
   "totalActivePlayers": 27,
   "entities": {
     "1334532453238440000": {
@@ -428,12 +428,12 @@
       "country": "Индия",
       "player": ".academ1c_1",
       "nickname": "🇮🇳 | Индия",
-      "balance": 171063614216,
-      "profit": 125995460614,
-      "gdp": 7750375736559,
-      "gdp_ppp": 10850526031182,
+      "balance": 0,
+      "profit": 156923328628,
+      "gdp": 7791431003970,
+      "gdp_ppp": 10908003405558,
       "population": 1422816175,
-      "birth_rate": 29.6,
+      "birth_rate": 37.1,
       "support": 50.0,
       "resource_index": 5.0,
       "corruption": 10.3,
@@ -443,12 +443,12 @@
         "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 24,
+        "ndfl": 24
       },
       "specialization": "Не выбрано",
-      "reforms": "$3 875 187 868 279 / $3 875 187 868 279",
-      "investments": "$3 875 187 868 279 / $3 875 187 868 279",
+      "reforms": "$3 724 651 887 769 / $3 895 715 501 985",
+      "investments": "$3 895 715 501 985 / $3 895 715 501 985",
       "is_staff": false,
       "roles": [
         "Лицензия Индия",
@@ -636,12 +636,12 @@
       "player": "vostochniy_tiran_79165",
       "nickname": "🇦🇿 | Азербайджан",
       "balance": 0,
-      "profit": 21643421202,
+      "profit": 22285755113,
       "gdp": 1131082878584,
       "gdp_ppp": 2149057469309,
       "population": 10095126,
       "birth_rate": 28.6,
-      "support": 83.1,
+      "support": 88.4,
       "resource_index": 4.0,
       "corruption": 10.2,
       "level": "Передовая",
