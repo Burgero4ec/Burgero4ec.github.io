@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-06T04:27:17.011426+00:00",
+  "updated_at": "2026-11-06T04:27:22.632403+00:00",
   "totalActivePlayers": 26,
   "entities": {
     "1334532453238440000": {
@@ -1002,21 +1002,27 @@
       "country": "Иран",
       "player": "niks_aul",
       "nickname": "🇮🇷 | Иран",
-      "balance": 0,
+      "balance": 24020047149,
       "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "gdp": 156834873067,
+      "gdp_ppp": 627339492268,
+      "population": 101443833,
+      "birth_rate": 32.3,
+      "support": 50.0,
+      "resource_index": 3.0,
+      "corruption": 10.3,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$78 417 436 533 / $78 417 436 533",
+      "investments": "$78 417 436 533 / $78 417 436 533",
       "is_staff": false,
       "roles": [
         "Лицензия Иран",
@@ -1053,8 +1059,8 @@
         "ndfl": 35
       },
       "specialization": "Торговая республика",
-      "reforms": "$504 141 825 896 / $7 942 193 270 916",
-      "investments": "$852 952 620 521 / $7 942 193 270 916",
+      "reforms": "$7 942 193 270 916 / $7 942 193 270 916",
+      "investments": "$7 942 193 270 916 / $7 942 193 270 916",
       "is_staff": true,
       "roles": [
         "Лицензия Япония",
