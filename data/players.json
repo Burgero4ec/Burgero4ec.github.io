@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-06T15:06:05.549409+00:00",
+  "updated_at": "2026-11-06T15:07:15.963451+00:00",
   "total_active_players": 27,
   "total_non_staff_players": 14,
   "total_staff_who_play": 13,
@@ -431,24 +431,27 @@
         "Россия"
       ],
       "country": "Литва",
-      "balance": 66663618859,
-      "profit": 3794684042,
-      "gdp": 78219045347,
-      "gdp_ppp": 312876181388,
-      "population": 977483,
-      "birth_rate": 21.4,
-      "support": 51.2,
-      "resource_index": 1.0,
-      "corruption": 8.6,
-      "level": "Устойчивая",
-      "ideology": {},
+      "balance": 101412836176,
+      "profit": 7595309776,
+      "gdp": 249361900000,
+      "gdp_ppp": 797958080000,
+      "population": 5382813,
+      "birth_rate": 11.4,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 13.5,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
       "taxes": {
-        "nds": 25,
-        "ndfl": 25
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$18 253 343 026 / $39 109 522 673",
-      "investments": "$39 109 522 673 / $39 109 522 673",
+      "reforms": "$124 680 950 000 / $124 680 950 000",
+      "investments": "$124 680 950 000 / $124 680 950 000",
       "categories": [
         "Государство",
         "Автономия",
@@ -1133,7 +1136,7 @@
         "Австралия"
       ],
       "country": "Австралия",
-      "balance": 384871504504,
+      "balance": 484871504504,
       "profit": 10150507878,
       "gdp": 1550897239355,
       "gdp_ppp": 2946704754774,
@@ -1236,7 +1239,7 @@
         "США"
       ],
       "country": "США",
-      "balance": 86120608221648,
+      "balance": 86020608221648,
       "profit": 1580724514009,
       "gdp": 57134764362340,
       "gdp_ppp": 62848240798574,
@@ -2179,24 +2182,27 @@
         "Россия"
       ],
       "country": "Литва",
-      "balance": 66663618859,
-      "profit": 3794684042,
-      "gdp": 78219045347,
-      "gdp_ppp": 312876181388,
-      "population": 977483,
-      "birth_rate": 21.4,
-      "support": 51.2,
-      "resource_index": 1.0,
-      "corruption": 8.6,
-      "level": "Устойчивая",
-      "ideology": {},
+      "balance": 101412836176,
+      "profit": 7595309776,
+      "gdp": 249361900000,
+      "gdp_ppp": 797958080000,
+      "population": 5382813,
+      "birth_rate": 11.4,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 13.5,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
+      },
       "taxes": {
-        "nds": 25,
-        "ndfl": 25
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$18 253 343 026 / $39 109 522 673",
-      "investments": "$39 109 522 673 / $39 109 522 673",
+      "reforms": "$124 680 950 000 / $124 680 950 000",
+      "investments": "$124 680 950 000 / $124 680 950 000",
       "categories": [
         "Государство",
         "Автономия",
