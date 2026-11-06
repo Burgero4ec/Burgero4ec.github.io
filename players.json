@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-06T18:38:13.337594+00:00",
+  "updated_at": "2026-11-06T18:53:20.887410+00:00",
   "total_active_players": 27,
   "total_non_staff_players": 15,
   "total_staff_who_play": 12,
@@ -38,7 +38,7 @@
     "Германия": 1,
     "Иран": 1,
     "Япония": 1,
-    "Украина": 1
+    "Приднестровье": 1
   },
   "non_staff_players": [
     {
@@ -1116,16 +1116,16 @@
     {
       "id": "1383969207196192851",
       "username": "fridrikh0335",
-      "display_name": "🇺🇦 | Украина",
-      "nickname": "🇺🇦 | Украина",
+      "display_name": "🟥🟩🟥 | Приднестровье",
+      "nickname": "🟥🟩🟥 | Приднестровье",
       "avatar_url": "https://cdn.discordapp.com/avatars/1383969207196192851/a688ed494047fd12de177afd7190a704.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Украина"
+        "Приднестровье"
       ],
-      "country": "Украина",
+      "country": "Приднестровье",
       "balance": 1050293748587,
       "profit": 48202251117,
       "gdp": 1541703438602,
@@ -1155,8 +1155,8 @@
       ],
       "roles": [
         {
-          "id": "1568315238112301187",
-          "name": "Лицензия Украина"
+          "id": "1568334728778486004",
+          "name": "Лицензия Приднестровье"
         },
         {
           "id": "1359429737574830251",
@@ -3451,16 +3451,16 @@
     {
       "id": "1383969207196192851",
       "username": "fridrikh0335",
-      "display_name": "🇺🇦 | Украина",
-      "nickname": "🇺🇦 | Украина",
+      "display_name": "🟥🟩🟥 | Приднестровье",
+      "nickname": "🟥🟩🟥 | Приднестровье",
       "avatar_url": "https://cdn.discordapp.com/avatars/1383969207196192851/a688ed494047fd12de177afd7190a704.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Украина"
+        "Приднестровье"
       ],
-      "country": "Украина",
+      "country": "Приднестровье",
       "balance": 1050293748587,
       "profit": 48202251117,
       "gdp": 1541703438602,
@@ -3490,8 +3490,8 @@
       ],
       "roles": [
         {
-          "id": "1568315238112301187",
-          "name": "Лицензия Украина"
+          "id": "1568334728778486004",
+          "name": "Лицензия Приднестровье"
         },
         {
           "id": "1359429737574830251",
