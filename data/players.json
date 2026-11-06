@@ -1,17 +1,17 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-06T20:36:10.569992+00:00",
-  "total_active_players": 27,
-  "total_non_staff_players": 15,
+  "updated_at": "2026-11-06T21:05:05.786436+00:00",
+  "total_active_players": 26,
+  "total_non_staff_players": 14,
   "total_staff_who_play": 12,
   "stats": {
-    "registered": 27,
-    "states": 22,
+    "registered": 26,
+    "states": 21,
     "autonomies": 1,
     "pmc": 4,
-    "un_members": 22,
-    "alliance_members": 23
+    "un_members": 21,
+    "alliance_members": 22
   },
   "countries_count": {
     "Triple Canopy": 1,
@@ -21,7 +21,6 @@
     "Афганистан": 1,
     "Коста-Рика": 1,
     "США": 2,
-    "Франция": 1,
     "Великобритания": 1,
     "Индия": 1,
     "Финляндия": 1,
@@ -319,81 +318,6 @@
         {
           "id": "1359429648890728488",
           "name": "Обновления"
-        },
-        {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        }
-      ]
-    },
-    {
-      "id": "694159294786043954",
-      "username": "drugannn",
-      "display_name": "🇫🇷 | Франция",
-      "nickname": "🇫🇷 | Франция",
-      "avatar_url": "https://cdn.discordapp.com/avatars/694159294786043954/4ee148e8df9ce305cf15d3cf4bec3ff4.png?size=1024",
-      "is_staff": false,
-      "is_registered": true,
-      "entity_type": "Государство",
-      "countries": [
-        "Франция"
-      ],
-      "country": "Франция",
-      "balance": 2216141692963,
-      "profit": 57161744682,
-      "gdp": 4659854163349,
-      "gdp_ppp": 7455766661358,
-      "population": 66851662,
-      "birth_rate": 18.3,
-      "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 19.5,
-      "level": "Великая держава",
-      "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
-      },
-      "taxes": {
-        "nds": 35,
-        "ndfl": 35
-      },
-      "specialization": "Промышленный хаб",
-      "reforms": "$2 329 927 081 674 / $2 329 927 081 674",
-      "investments": "$2 329 927 081 674 / $2 329 927 081 674",
-      "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН"
-      ],
-      "roles": [
-        {
-          "id": "1567875156540653609",
-          "name": "Лицензия Франция"
-        },
-        {
-          "id": "1564208402215735317",
-          "name": "ОЭСР"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1246817935297613905",
-          "name": "• Зарегистрированный"
         },
         {
           "id": "1209166926408843304",
@@ -1043,7 +967,7 @@
       "username": "niks_aul",
       "display_name": "🇮🇷 | Иран",
       "nickname": "🇮🇷 | Иран",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1043432937082859610/c0562ed77daafd7dcec89175f4972f99.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1043432937082859610/b7fb4fe39fcaf7fdc3f2a066e69960e2.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -1632,7 +1556,7 @@
       "username": "zenithxclown",
       "display_name": "🇺🇸 | США",
       "nickname": "🇺🇸 | США",
-      "avatar_url": "https://cdn.discordapp.com/avatars/955060237449166938/5d1e5052920d0501695bfa426a720bd6.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/embed/avatars/1.png",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
@@ -1741,81 +1665,6 @@
         {
           "id": "1209196270472663042",
           "name": "• Анкетолог"
-        }
-      ]
-    },
-    {
-      "id": "694159294786043954",
-      "username": "drugannn",
-      "display_name": "🇫🇷 | Франция",
-      "nickname": "🇫🇷 | Франция",
-      "avatar_url": "https://cdn.discordapp.com/avatars/694159294786043954/4ee148e8df9ce305cf15d3cf4bec3ff4.png?size=1024",
-      "is_staff": false,
-      "is_registered": true,
-      "entity_type": "Государство",
-      "countries": [
-        "Франция"
-      ],
-      "country": "Франция",
-      "balance": 2216141692963,
-      "profit": 57161744682,
-      "gdp": 4659854163349,
-      "gdp_ppp": 7455766661358,
-      "population": 66851662,
-      "birth_rate": 18.3,
-      "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 19.5,
-      "level": "Великая держава",
-      "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
-      },
-      "taxes": {
-        "nds": 35,
-        "ndfl": 35
-      },
-      "specialization": "Промышленный хаб",
-      "reforms": "$2 329 927 081 674 / $2 329 927 081 674",
-      "investments": "$2 329 927 081 674 / $2 329 927 081 674",
-      "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН"
-      ],
-      "roles": [
-        {
-          "id": "1567875156540653609",
-          "name": "Лицензия Франция"
-        },
-        {
-          "id": "1564208402215735317",
-          "name": "ОЭСР"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1246817935297613905",
-          "name": "• Зарегистрированный"
-        },
-        {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -2507,15 +2356,15 @@
         "Россия"
       ],
       "country": "Россия",
-      "balance": 1488899320574,
-      "profit": 1055962908290,
+      "balance": 1489616964895,
+      "profit": 1054123967781,
       "gdp": 24189864377882,
       "gdp_ppp": 30237330472352,
       "population": 276400573,
       "birth_rate": 59.6,
       "support": 100.0,
       "resource_index": 1.0,
-      "corruption": 0.0,
+      "corruption": 0.2,
       "level": "Сверхдержава",
       "ideology": {
         "state": "Смешанная республика",
@@ -3262,7 +3111,7 @@
       "username": "niks_aul",
       "display_name": "🇮🇷 | Иран",
       "nickname": "🇮🇷 | Иран",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1043432937082859610/c0562ed77daafd7dcec89175f4972f99.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1043432937082859610/b7fb4fe39fcaf7fdc3f2a066e69960e2.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
