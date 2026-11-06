@@ -1,17 +1,17 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-06T17:10:36.765713+00:00",
-  "total_active_players": 26,
-  "total_non_staff_players": 14,
+  "updated_at": "2026-11-06T17:39:27.158890+00:00",
+  "total_active_players": 27,
+  "total_non_staff_players": 15,
   "total_staff_who_play": 12,
   "stats": {
-    "registered": 26,
-    "states": 21,
+    "registered": 27,
+    "states": 22,
     "autonomies": 1,
     "pmc": 4,
-    "un_members": 21,
-    "alliance_members": 22
+    "un_members": 22,
+    "alliance_members": 23
   },
   "countries_count": {
     "Triple Canopy": 1,
@@ -29,6 +29,7 @@
     "Израиль": 1,
     "Австралия": 1,
     "Азербайджан": 1,
+    "Сент-Китс и Невис": 1,
     "КНР": 1,
     "DynCorp": 1,
     "Италия": 1,
@@ -37,7 +38,7 @@
     "Германия": 1,
     "Иран": 1,
     "Япония": 1,
-    "Нигерия": 1
+    "Украина": 1
   },
   "non_staff_players": [
     {
@@ -620,6 +621,10 @@
       ],
       "roles": [
         {
+          "id": "1566747579994083389",
+          "name": "Лицензия Япония"
+        },
+        {
           "id": "1565035345052176412",
           "name": "Лицензия Азербайджан"
         },
@@ -642,6 +647,79 @@
         {
           "id": "1359429686500921447",
           "name": "Новости"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "1301926132274303052",
+      "username": "felixsaturn",
+      "display_name": "🇰🇳 | Сент-Китс и Невис",
+      "nickname": "🇰🇳 | Сент-Китс и Невис",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1301926132274303052/b174fdc2ca6bbcc42fe34c2b6af9792c.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Сент-Китс и Невис"
+      ],
+      "country": "Сент-Китс и Невис",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1568318170098565143",
+          "name": "Лицензия Сент-Китс и Невис"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
         },
         {
           "id": "1209166926408843304",
@@ -734,15 +812,15 @@
         "Новая Зеландия"
       ],
       "country": "Новая Зеландия",
-      "balance": 392847653,
-      "profit": 11570447677,
-      "gdp": 161051500000,
-      "gdp_ppp": 644206000000,
-      "population": 4381032,
-      "birth_rate": 14.5,
+      "balance": 8307907371,
+      "profit": 12198336061,
+      "gdp": 164771500000,
+      "gdp_ppp": 659086000000,
+      "population": 4386273,
+      "birth_rate": 14.7,
       "support": 50.7,
       "resource_index": 4.0,
-      "corruption": 16.1,
+      "corruption": 17.1,
       "level": "Устойчивая",
       "ideology": {
         "state": "Парламентская республика",
@@ -753,8 +831,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$80 525 750 000 / $80 525 750 000",
-      "investments": "$80 525 750 000 / $80 525 750 000",
+      "reforms": "$82 385 750 000 / $82 385 750 000",
+      "investments": "$82 385 750 000 / $82 385 750 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1037,37 +1115,37 @@
     {
       "id": "1383969207196192851",
       "username": "fridrikh0335",
-      "display_name": "🇳🇬 | Нигерия",
-      "nickname": "🇳🇬 | Нигерия",
+      "display_name": "🇺🇦 | Украина",
+      "nickname": "🇺🇦 | Украина",
       "avatar_url": "https://cdn.discordapp.com/avatars/1383969207196192851/a688ed494047fd12de177afd7190a704.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Нигерия"
+        "Украина"
       ],
-      "country": "Нигерия",
-      "balance": 862207804939,
-      "profit": 47184633471,
-      "gdp": 2345806660548,
-      "gdp_ppp": 4457032655041,
-      "population": 280969091,
-      "birth_rate": 94.3,
+      "country": "Украина",
+      "balance": 1699432038525,
+      "profit": 50582134454,
+      "gdp": 1298276579876,
+      "gdp_ppp": 2466725501764,
+      "population": 55153965,
+      "birth_rate": 57.0,
       "support": 50.0,
       "resource_index": 4.0,
-      "corruption": 21.6,
+      "corruption": 10.0,
       "level": "Передовая",
       "ideology": {
-        "state": "Президентская республика",
+        "state": "Смешанная республика",
         "economy": "Рыночная экономика"
       },
       "taxes": {
         "nds": 35,
         "ndfl": 35
       },
-      "specialization": "Не выбрано",
-      "reforms": "$1 172 903 330 274 / $1 172 903 330 274",
-      "investments": "$1 172 903 330 274 / $1 172 903 330 274",
+      "specialization": "Промышленный хаб",
+      "reforms": "$649 138 289 938 / $649 138 289 938",
+      "investments": "$649 138 289 938 / $649 138 289 938",
       "categories": [
         "Государство",
         "ООН",
@@ -1076,8 +1154,8 @@
       ],
       "roles": [
         {
-          "id": "1566695043073441845",
-          "name": "Лицензия Нигерия"
+          "id": "1568315238112301187",
+          "name": "Лицензия Украина"
         },
         {
           "id": "1359429737574830251",
@@ -2375,6 +2453,10 @@
       ],
       "roles": [
         {
+          "id": "1566747579994083389",
+          "name": "Лицензия Япония"
+        },
+        {
           "id": "1565035345052176412",
           "name": "Лицензия Азербайджан"
         },
@@ -2517,6 +2599,79 @@
       ]
     },
     {
+      "id": "1301926132274303052",
+      "username": "felixsaturn",
+      "display_name": "🇰🇳 | Сент-Китс и Невис",
+      "nickname": "🇰🇳 | Сент-Китс и Невис",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1301926132274303052/b174fdc2ca6bbcc42fe34c2b6af9792c.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Сент-Китс и Невис"
+      ],
+      "country": "Сент-Китс и Невис",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1568318170098565143",
+          "name": "Лицензия Сент-Китс и Невис"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
       "id": "1532495116747538538",
       "username": "marsgooddayevery",
       "display_name": "🇨🇳 | НСРК",
@@ -2529,15 +2684,15 @@
         "КНР"
       ],
       "country": "КНР",
-      "balance": 0,
-      "profit": 1323457355099,
-      "gdp": 25204574943238,
-      "gdp_ppp": 27725032437561,
-      "population": 2231443398,
+      "balance": 26786111774060,
+      "profit": 1284726965989,
+      "gdp": 27150795820521,
+      "gdp_ppp": 29865875402573,
+      "population": 2320511610,
       "birth_rate": 49.4,
       "support": 100.0,
       "resource_index": 3.0,
-      "corruption": 0.0,
+      "corruption": 7.2,
       "level": "Глобальный Гегемон",
       "ideology": {
         "state": "Смешанная республика",
@@ -2548,8 +2703,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$12 602 287 471 619 / $12 602 287 471 619",
-      "investments": "$12 602 287 471 619 / $12 602 287 471 619",
+      "reforms": "$11 575 397 910 260 / $13 575 397 910 260",
+      "investments": "$13 575 397 910 260 / $13 575 397 910 260",
       "categories": [
         "Государство",
         "ООН",
@@ -2801,15 +2956,15 @@
         "Новая Зеландия"
       ],
       "country": "Новая Зеландия",
-      "balance": 392847653,
-      "profit": 11570447677,
-      "gdp": 161051500000,
-      "gdp_ppp": 644206000000,
-      "population": 4381032,
-      "birth_rate": 14.5,
+      "balance": 8307907371,
+      "profit": 12198336061,
+      "gdp": 164771500000,
+      "gdp_ppp": 659086000000,
+      "population": 4386273,
+      "birth_rate": 14.7,
       "support": 50.7,
       "resource_index": 4.0,
-      "corruption": 16.1,
+      "corruption": 17.1,
       "level": "Устойчивая",
       "ideology": {
         "state": "Парламентская республика",
@@ -2820,8 +2975,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$80 525 750 000 / $80 525 750 000",
-      "investments": "$80 525 750 000 / $80 525 750 000",
+      "reforms": "$82 385 750 000 / $82 385 750 000",
+      "investments": "$82 385 750 000 / $82 385 750 000",
       "categories": [
         "Государство",
         "ООН",
@@ -3294,37 +3449,37 @@
     {
       "id": "1383969207196192851",
       "username": "fridrikh0335",
-      "display_name": "🇳🇬 | Нигерия",
-      "nickname": "🇳🇬 | Нигерия",
+      "display_name": "🇺🇦 | Украина",
+      "nickname": "🇺🇦 | Украина",
       "avatar_url": "https://cdn.discordapp.com/avatars/1383969207196192851/a688ed494047fd12de177afd7190a704.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Нигерия"
+        "Украина"
       ],
-      "country": "Нигерия",
-      "balance": 862207804939,
-      "profit": 47184633471,
-      "gdp": 2345806660548,
-      "gdp_ppp": 4457032655041,
-      "population": 280969091,
-      "birth_rate": 94.3,
+      "country": "Украина",
+      "balance": 1699432038525,
+      "profit": 50582134454,
+      "gdp": 1298276579876,
+      "gdp_ppp": 2466725501764,
+      "population": 55153965,
+      "birth_rate": 57.0,
       "support": 50.0,
       "resource_index": 4.0,
-      "corruption": 21.6,
+      "corruption": 10.0,
       "level": "Передовая",
       "ideology": {
-        "state": "Президентская республика",
+        "state": "Смешанная республика",
         "economy": "Рыночная экономика"
       },
       "taxes": {
         "nds": 35,
         "ndfl": 35
       },
-      "specialization": "Не выбрано",
-      "reforms": "$1 172 903 330 274 / $1 172 903 330 274",
-      "investments": "$1 172 903 330 274 / $1 172 903 330 274",
+      "specialization": "Промышленный хаб",
+      "reforms": "$649 138 289 938 / $649 138 289 938",
+      "investments": "$649 138 289 938 / $649 138 289 938",
       "categories": [
         "Государство",
         "ООН",
@@ -3333,8 +3488,8 @@
       ],
       "roles": [
         {
-          "id": "1566695043073441845",
-          "name": "Лицензия Нигерия"
+          "id": "1568315238112301187",
+          "name": "Лицензия Украина"
         },
         {
           "id": "1359429737574830251",
