@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-07T11:01:48.128489+00:00",
+  "updated_at": "2026-11-07T11:01:52.305446+00:00",
   "total_active_players": 26,
   "total_non_staff_players": 14,
   "total_staff_who_play": 12,
@@ -1194,14 +1194,14 @@
       ],
       "country": "Россия",
       "balance": 142250868874,
-      "profit": 3187306613,
-      "gdp": 67668361076,
-      "gdp_ppp": 270673444304,
+      "profit": 4596534061,
+      "gdp": 103912760110,
+      "gdp_ppp": 415651040440,
       "population": 1384399,
       "birth_rate": 29.0,
       "support": 63.7,
       "resource_index": 4.0,
-      "corruption": 21.9,
+      "corruption": 22.1,
       "level": "Устойчивая",
       "ideology": {},
       "taxes": {
@@ -1209,8 +1209,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$33 834 180 538 / $33 834 180 538",
-      "investments": "$33 834 180 538 / $33 834 180 538",
+      "reforms": "$51 956 380 055 / $51 956 380 055",
+      "investments": "$51 956 380 055 / $51 956 380 055",
       "categories": [
         "Автономия",
         "Альянс"
