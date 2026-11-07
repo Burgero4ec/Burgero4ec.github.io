@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-07T11:02:56.933230+00:00",
+  "updated_at": "2026-11-07T11:04:15.895647+00:00",
   "totalActivePlayers": 26,
   "entities": {
     "1334532453238440000": {
@@ -634,27 +634,27 @@
       "country": "Россия",
       "player": "elwey4194",
       "nickname": "🇷🇺 | Россия",
-      "balance": 1195284094,
-      "profit": 1111020514893,
-      "gdp": 28855209985380,
-      "gdp_ppp": 31740730983918,
-      "population": 284519762,
-      "birth_rate": 59.6,
-      "support": 100.0,
-      "resource_index": 1.0,
-      "corruption": 2.5,
-      "level": "Глобальный Гегемон",
+      "balance": 18231594244,
+      "profit": 10251124837,
+      "gdp": 1543830223907,
+      "gdp_ppp": 2933277425423,
+      "population": 10120544,
+      "birth_rate": 29.0,
+      "support": 99.7,
+      "resource_index": 4.0,
+      "corruption": 9.9,
+      "level": "Передовая",
       "ideology": {
         "state": "Смешанная республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 50,
+        "ndfl": 50
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 767 016 123 827 / $14 427 604 992 690",
-      "investments": "$10 152 722 582 / $14 427 604 992 690",
+      "reforms": "$52 090 951 079 / $771 915 111 953",
+      "investments": "$132 828 119 626 / $771 915 111 953",
       "is_staff": true,
       "roles": [
         "ШОС",
