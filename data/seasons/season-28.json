@@ -60,7 +60,7 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-07T17:31:00.980772+00:00",
+  "updated_at": "2026-11-07T17:32:43.308094+00:00",
   "totalActivePlayers": 28,
   "entities": {
     "1334532453238440000": {
@@ -908,27 +908,27 @@
       "country": "Новая Зеландия",
       "player": "lirozit",
       "nickname": "🇳🇿 | Новая Зеландия",
-      "balance": 1114620922019,
-      "profit": 17127342090,
-      "gdp": 2298392530342,
-      "gdp_ppp": 4366945807649,
-      "population": 64133003,
-      "birth_rate": 39.3,
-      "support": 50.0,
-      "resource_index": 5.0,
-      "corruption": 37.9,
-      "level": "Передовая",
+      "balance": 67332695667,
+      "profit": 11623720381,
+      "gdp": 213971240077,
+      "gdp_ppp": 684707968246,
+      "population": 4404449,
+      "birth_rate": 14.7,
+      "support": 50.7,
+      "resource_index": 4.0,
+      "corruption": 20.7,
+      "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская республика",
-        "economy": "Смешанная экономика"
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 30,
-        "ndfl": 30
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 149 196 265 171 / $1 149 196 265 171",
-      "investments": "$1 149 196 265 171 / $1 149 196 265 171",
+      "reforms": "$4 518 343 476 / $106 985 620 038",
+      "investments": "$106 985 620 038 / $106 985 620 038",
       "is_staff": false,
       "roles": [
         "Лицензия Новая Зеландия",
