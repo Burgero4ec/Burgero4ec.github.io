@@ -4,7 +4,7 @@
   "status": "active",
   "startDate": "2026-10-01",
   "totalArticles": 48,
-  "totalNations": 24,
+  "totalNations": 25,
   "keyEvents": [
     {
       "id": "s28-ev-1",
@@ -60,8 +60,8 @@
       "color": "#10b981"
     }
   ],
-  "updated_at": "2026-11-07T11:05:23.258974+00:00",
-  "totalActivePlayers": 26,
+  "updated_at": "2026-11-07T11:06:33.445124+00:00",
+  "totalActivePlayers": 27,
   "entities": {
     "1334532453238440000": {
       "type": "organization",
@@ -204,43 +204,6 @@
         "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     },
-    "1213051426876690443": {
-      "type": "country",
-      "country": "Афганистан",
-      "player": "izaziii228",
-      "nickname": "🇦🇫 | Афганистан",
-      "balance": 35477098201,
-      "profit": 34368097640,
-      "gdp": 695138180049,
-      "gdp_ppp": 1737845450122,
-      "population": 204821770,
-      "birth_rate": 32.4,
-      "support": 60.4,
-      "resource_index": 5.0,
-      "corruption": 12.6,
-      "level": "Сильная",
-      "ideology": {
-        "state": "Президентская республика",
-        "economy": "Рыночная экономика"
-      },
-      "taxes": {
-        "nds": 20,
-        "ndfl": 20
-      },
-      "specialization": "Промышленный хаб",
-      "reforms": "$347 569 090 024 / $347 569 090 024",
-      "investments": "$347 569 090 024 / $347 569 090 024",
-      "is_staff": false,
-      "roles": [
-        "Лицензия Афганистан",
-        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
-        "• Зарегистрированный",
-        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "Участник ООН",
-        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-      ]
-    },
     "916907042545999883": {
       "type": "country",
       "country": "Коста-Рика",
@@ -286,15 +249,15 @@
       "country": "США",
       "player": "zenithxclown",
       "nickname": "🇺🇸 | США",
-      "balance": 63345834700041,
-      "profit": 1835032090101,
-      "gdp": 57879897830981,
-      "gdp_ppp": 63667887614079,
-      "population": 588189546,
+      "balance": 87729712748693,
+      "profit": 1800854589543,
+      "gdp": 59907279692700,
+      "gdp_ppp": 65898007661970,
+      "population": 610563828,
       "birth_rate": 74.2,
       "support": 96.2,
       "resource_index": 2.0,
-      "corruption": 7.8,
+      "corruption": 10.1,
       "level": "Глобальный Гегемон",
       "ideology": {
         "state": "Смешанная республика",
@@ -305,8 +268,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$28 939 948 915 490 / $28 939 948 915 490",
-      "investments": "$20 173 374 477 458 / $28 939 948 915 490",
+      "reforms": "$29 953 639 846 350 / $29 953 639 846 350",
+      "investments": "$21 187 065 408 318 / $29 953 639 846 350",
       "is_staff": true,
       "roles": [
         "Лидер: ОГБ",
@@ -758,6 +721,73 @@
         "• Политолог",
         "• Модератор",
         "• Куратор"
+      ]
+    },
+    "1116353789155344384": {
+      "type": "country",
+      "country": "Польша",
+      "player": "stathem_brouki",
+      "nickname": "🇵🇱 | Польша",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "is_staff": false,
+      "roles": [
+        "Лицензия Польша",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+      ]
+    },
+    "1127720130885992510": {
+      "type": "autonomy",
+      "country": "Гренландия",
+      "player": "i_have_no_brains",
+      "nickname": "🇬🇱 | Гренландия",
+      "balance": 0,
+      "profit": 1425524844,
+      "gdp": 15496747795,
+      "gdp_ppp": 69735365077,
+      "population": 258211,
+      "birth_rate": 18.9,
+      "support": 56.3,
+      "resource_index": 5.0,
+      "corruption": 14.4,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Парламентская республика",
+        "economy": "Рыночная экономика"
+      },
+      "taxes": {
+        "nds": 35,
+        "ndfl": 35
+      },
+      "specialization": "Аграрная держава",
+      "reforms": "$7 748 373 897 / $7 748 373 897",
+      "investments": "$7 748 373 897 / $7 748 373 897",
+      "is_staff": false,
+      "roles": [
+        "• Зарегистрированный",
+        "Ивенты",
+        "Новости",
+        "Обновления",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Автономия⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     },
     "1227256760914415657": {
