@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-07T18:16:16.935172+00:00",
+  "updated_at": "2026-11-08T15:04:15.421673+00:00",
   "total_active_players": 27,
   "total_non_staff_players": 15,
   "total_staff_who_play": 12,
@@ -15,7 +15,7 @@
   },
   "countries_count": {
     "Triple Canopy": 1,
-    "Россия": 3,
+    "Россия": 2,
     "Пакистан": 1,
     "MPRI": 1,
     "Румыния": 1,
@@ -23,7 +23,7 @@
     "США": 2,
     "Великобритания": 1,
     "Финляндия": 1,
-    "Литва": 1,
+    "Нигерия": 1,
     "Израиль": 1,
     "Австралия": 1,
     "Азербайджан": 1,
@@ -35,7 +35,7 @@
     "Италия": 1,
     "Новая Зеландия": 1,
     "Перу": 1,
-    "Германия": 1,
+    "Франция": 1,
     "Иран": 1,
     "Япония": 1,
     "Приднестровье": 1
@@ -341,17 +341,16 @@
     {
       "id": "484044030640914437",
       "username": "aytaconan2_",
-      "display_name": "🇷🇺 | Якутия",
-      "nickname": "🇷🇺 | Якутия",
+      "display_name": "🇳🇬 | Нигерия",
+      "nickname": "🇳🇬 | Нигерия",
       "avatar_url": "https://cdn.discordapp.com/avatars/484044030640914437/492785e7674353a297aa8fba3c2041bb.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Литва",
-        "Россия"
+        "Нигерия"
       ],
-      "country": "Литва",
+      "country": "Нигерия",
       "balance": 24085227013,
       "profit": 7234694713,
       "gdp": 190331572902,
@@ -372,19 +371,18 @@
       "investments": "$95 165 786 451 / $95 165 786 451",
       "categories": [
         "Государство",
-        "Автономия",
         "ООН",
         "Альянс",
         "Участник ООН"
       ],
       "roles": [
         {
-          "id": "1567293752253485136",
-          "name": "Лицензия Литва"
+          "id": "1568976930533933066",
+          "name": "Лицензия Нигерия"
         },
         {
-          "id": "1565081214803644578",
-          "name": "Лицензия Россия"
+          "id": "1567293752253485136",
+          "name": "Лицензия Литва"
         },
         {
           "id": "1359429737574830251",
@@ -409,10 +407,6 @@
         {
           "id": "1209166875632599081",
           "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1438562020516692009",
-          "name": "•⠀⠀⠀⠀⠀Автономия⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         },
         {
           "id": "1209166398748631050",
@@ -946,50 +940,43 @@
       ]
     },
     {
-      "id": "1540035500922904627",
-      "username": "oldwellington",
-      "display_name": "🇩🇪 | Германия",
-      "nickname": "🇩🇪 | Германия",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1540035500922904627/d93b6801e0652d502feaf519d7b18e15.png?size=1024",
+      "id": "1503453768509821071",
+      "username": "sparkling_seahorse_33427",
+      "display_name": "🇫🇷 | Франция",
+      "nickname": "🇫🇷 | Франция",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1503453768509821071/13faf25f2f1093321a8e962ffd901028.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Германия"
+        "Франция"
       ],
-      "country": "Германия",
+      "country": "Франция",
       "balance": 0,
-      "profit": 41680345465,
-      "gdp": 17359214036344,
-      "gdp_ppp": 21699017545430,
-      "population": 106069182,
-      "birth_rate": 42.9,
-      "support": 56.9,
-      "resource_index": 4.0,
-      "corruption": 21.1,
-      "level": "Сверхдержава",
-      "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
-      },
-      "taxes": {
-        "nds": 20,
-        "ndfl": 20
-      },
-      "specialization": "Не выбрано",
-      "reforms": "$8 679 607 018 172 / $8 679 607 018 172",
-      "investments": "$8 679 607 018 172 / $8 679 607 018 172",
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
       "categories": [
         "Государство",
         "ООН",
         "Альянс",
-        "Участник ООН",
-        "Server Booster"
+        "Участник ООН"
       ],
       "roles": [
         {
-          "id": "1567263532129722608",
-          "name": "Лицензия Германия"
+          "id": "1568983221209931839",
+          "name": "Лицензия Франция"
         },
         {
           "id": "1359429737574830251",
@@ -1014,10 +1001,6 @@
         {
           "id": "1209166398748631050",
           "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1282721540554887179",
-          "name": "Server Booster"
         }
       ]
     },
@@ -1242,8 +1225,8 @@
     {
       "id": "830428424677490728",
       "username": "ponzc",
-      "display_name": "🟩 [🇷🇺] | Чеченская Республика",
-      "nickname": "🟩 [🇷🇺] | Чеченская Республика",
+      "display_name": "🇷🇺 | Чечня",
+      "nickname": "🇷🇺 | Чечня",
       "avatar_url": "https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024",
       "is_staff": true,
       "is_registered": true,
@@ -1615,7 +1598,7 @@
       "username": "zenithxclown",
       "display_name": "🇺🇸 | США",
       "nickname": "🇺🇸 | США",
-      "avatar_url": "https://cdn.discordapp.com/embed/avatars/1.png",
+      "avatar_url": "https://cdn.discordapp.com/avatars/955060237449166938/cd5a0ee0e54dd8a6718715e1c37272a0.png?size=1024",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
@@ -1660,6 +1643,10 @@
         {
           "id": "1567565336910503966",
           "name": "ОГБ"
+        },
+        {
+          "id": "1566747579994083389",
+          "name": "Лицензия Япония"
         },
         {
           "id": "1565644132175843350",
@@ -1716,10 +1703,6 @@
         {
           "id": "1209154572417769543",
           "name": "Персонал"
-        },
-        {
-          "id": "1209196451339698206",
-          "name": "• Политолог"
         },
         {
           "id": "1209196270472663042",
@@ -1943,6 +1926,10 @@
           "name": "Персонал"
         },
         {
+          "id": "1276659769847054397",
+          "name": "Выговор: 2/3"
+        },
+        {
           "id": "1209196451339698206",
           "name": "• Политолог"
         },
@@ -1955,17 +1942,16 @@
     {
       "id": "484044030640914437",
       "username": "aytaconan2_",
-      "display_name": "🇷🇺 | Якутия",
-      "nickname": "🇷🇺 | Якутия",
+      "display_name": "🇳🇬 | Нигерия",
+      "nickname": "🇳🇬 | Нигерия",
       "avatar_url": "https://cdn.discordapp.com/avatars/484044030640914437/492785e7674353a297aa8fba3c2041bb.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Литва",
-        "Россия"
+        "Нигерия"
       ],
-      "country": "Литва",
+      "country": "Нигерия",
       "balance": 24085227013,
       "profit": 7234694713,
       "gdp": 190331572902,
@@ -1986,19 +1972,18 @@
       "investments": "$95 165 786 451 / $95 165 786 451",
       "categories": [
         "Государство",
-        "Автономия",
         "ООН",
         "Альянс",
         "Участник ООН"
       ],
       "roles": [
         {
-          "id": "1567293752253485136",
-          "name": "Лицензия Литва"
+          "id": "1568976930533933066",
+          "name": "Лицензия Нигерия"
         },
         {
-          "id": "1565081214803644578",
-          "name": "Лицензия Россия"
+          "id": "1567293752253485136",
+          "name": "Лицензия Литва"
         },
         {
           "id": "1359429737574830251",
@@ -2023,10 +2008,6 @@
         {
           "id": "1209166875632599081",
           "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1438562020516692009",
-          "name": "•⠀⠀⠀⠀⠀Автономия⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         },
         {
           "id": "1209166398748631050",
@@ -3074,50 +3055,43 @@
       ]
     },
     {
-      "id": "1540035500922904627",
-      "username": "oldwellington",
-      "display_name": "🇩🇪 | Германия",
-      "nickname": "🇩🇪 | Германия",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1540035500922904627/d93b6801e0652d502feaf519d7b18e15.png?size=1024",
+      "id": "1503453768509821071",
+      "username": "sparkling_seahorse_33427",
+      "display_name": "🇫🇷 | Франция",
+      "nickname": "🇫🇷 | Франция",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1503453768509821071/13faf25f2f1093321a8e962ffd901028.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Германия"
+        "Франция"
       ],
-      "country": "Германия",
+      "country": "Франция",
       "balance": 0,
-      "profit": 41680345465,
-      "gdp": 17359214036344,
-      "gdp_ppp": 21699017545430,
-      "population": 106069182,
-      "birth_rate": 42.9,
-      "support": 56.9,
-      "resource_index": 4.0,
-      "corruption": 21.1,
-      "level": "Сверхдержава",
-      "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
-      },
-      "taxes": {
-        "nds": 20,
-        "ndfl": 20
-      },
-      "specialization": "Не выбрано",
-      "reforms": "$8 679 607 018 172 / $8 679 607 018 172",
-      "investments": "$8 679 607 018 172 / $8 679 607 018 172",
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
       "categories": [
         "Государство",
         "ООН",
         "Альянс",
-        "Участник ООН",
-        "Server Booster"
+        "Участник ООН"
       ],
       "roles": [
         {
-          "id": "1567263532129722608",
-          "name": "Лицензия Германия"
+          "id": "1568983221209931839",
+          "name": "Лицензия Франция"
         },
         {
           "id": "1359429737574830251",
@@ -3142,10 +3116,6 @@
         {
           "id": "1209166398748631050",
           "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1282721540554887179",
-          "name": "Server Booster"
         }
       ]
     },
