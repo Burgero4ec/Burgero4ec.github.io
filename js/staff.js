@@ -22,6 +22,32 @@ export async function loadStaffData() {
   return null;
 }
 
+// Глобальный отказоустойчивый обработчик ошибок аватаров стаффа
+export function handleStaffAvaError(img) {
+  if (!img) return;
+  img.onerror = null;
+  const member = img.closest('.member');
+  const id = member ? (member.dataset.discordId || '') : '';
+  const nameEl = member ? member.querySelector('b') : null;
+  const name = nameEl ? nameEl.textContent.trim() : '★';
+  const cleanChar = name ? (name.replace(/^[^\p{L}\p{N}]+/u, '')[0] || name[0] || '★') : '★';
+
+  if (id && !img.dataset.triedEmbed) {
+    img.dataset.triedEmbed = 'true';
+    try {
+      const embedIdx = Number((BigInt(id) >> 22n) % 6n);
+      img.src = `https://cdn.discordapp.com/embed/avatars/${embedIdx}.png`;
+      return;
+    } catch (e) {}
+  }
+
+  const ava = img.closest('.m-ava');
+  if (ava) {
+    ava.innerHTML = `<span class="m-ava-letter">${esc(cleanChar)}</span>`;
+  }
+}
+window.handleStaffAvaError = handleStaffAvaError;
+
 export function decorateStaff() {
   const body = document.getElementById('staffBody');
   if (!body) return;
@@ -36,7 +62,8 @@ export function decorateStaff() {
   const playersByNorm = {};
   if (players) {
     for (const [id, v] of Object.entries(players)) {
-      playersByNorm[normName(v.nick || v.name || '')] = { id, avatar: v.avatar };
+      const avaUrl = v.avatar_url || v.avatar || null;
+      playersByNorm[normName(v.nick || v.name || v.username || '')] = { id, avatar: avaUrl };
     }
   }
 
@@ -54,18 +81,27 @@ export function decorateStaff() {
 
     let id = m.dataset.discordId || STAFF_DISCORD[nn] || null;
     let av = id ? playerMeta(id).avatar : null;
-    if (!av && playersByNorm[nn]) {
+    if ((!av || av.includes('/embed/avatars/')) && playersByNorm[nn]) {
       id = id || playersByNorm[nn].id;
-      av = playersByNorm[nn].avatar;
+      av = playersByNorm[nn].avatar || av;
     }
-    if (!av && extraByNorm[nn]) {
+    if ((!av || av.includes('/embed/avatars/')) && extraByNorm[nn]) {
       id = id || extraByNorm[nn].id;
-      av = extraByNorm[nn].avatar;
+      av = extraByNorm[nn].avatar || av;
     }
 
     const ava = m.querySelector('.m-ava');
-    if (av && ava && !ava.querySelector('img')) {
-      ava.innerHTML = '<img src="' + av + '" alt="' + esc(rawName) + '">';
+    if (ava) {
+      const existingImg = ava.querySelector('img');
+      if (existingImg) {
+        existingImg.onerror = () => handleStaffAvaError(existingImg);
+        // Если из players.json есть свежий актуальный avatar_url, обновляем src
+        if (av && !av.includes('/embed/avatars/') && existingImg.src !== av) {
+          existingImg.src = av;
+        }
+      } else if (av) {
+        ava.innerHTML = `<img src="${av}" alt="${esc(rawName)}" onerror="window.handleStaffAvaError(this)">`;
+      }
     }
 
     // Плашка «это вы»

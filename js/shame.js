@@ -389,10 +389,14 @@ export function updateShameGlider(personaKey = activePersona, animate = true) {
     glider.style.transition = '';
   }
 
-  const left = targetTab.offsetLeft;
-  const top = targetTab.offsetTop;
-  const width = targetTab.offsetWidth;
-  const height = targetTab.offsetHeight;
+  const navRect = nav.getBoundingClientRect();
+  const tabRect = targetTab.getBoundingClientRect();
+
+  // Субпиксельно точные координаты с учетом границы контейнера nav
+  const left = tabRect.left - navRect.left - (nav.clientLeft || 0);
+  const top = tabRect.top - navRect.top - (nav.clientTop || 0);
+  const width = tabRect.width;
+  const height = tabRect.height;
 
   glider.style.transform = `translate3d(${left}px, ${top}px, 0)`;
   glider.style.width = `${width}px`;

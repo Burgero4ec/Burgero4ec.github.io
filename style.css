@@ -423,7 +423,8 @@ blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); pa
 .member { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px dashed var(--line2); }
 .member:last-child { border-bottom: 0; }
 .m-ava { width: 44px; height: 44px; flex: none; border-radius: 10px; background: var(--acc-soft); border: 1px solid var(--acc-border); color: var(--acc); display: grid; place-items: center; font-family: 'JetBrains Mono'; font-weight: 700; font-size: 14px; overflow: hidden; }
-.m-ava img { width: 100%; height: 100%; border-radius: 10px; object-fit: cover; }
+.m-ava img { width: 100%; height: 100%; border-radius: 10px; object-fit: cover; display: block; }
+.m-ava-letter { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 16px; color: var(--acc); text-transform: uppercase; background: var(--acc-soft); user-select: none; }
 .member b { font-family: Nunito; font-size: 15px; font-weight: 800; }
 .m-role { display: block; font-family: 'JetBrains Mono'; font-size: 9.5px; color: var(--acc); letter-spacing: .12em; margin: 3px 0 6px; }
 .member p { font-size: 13.5px; color: var(--muted); line-height: 1.6; margin: 0; }
@@ -1785,32 +1786,26 @@ model-viewer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 4px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 14px;
-  padding: 5px;
-  max-width: 480px;
-  width: fit-content;
+  padding: 4px;
+  max-width: 460px;
+  width: 100%;
   margin: 0 auto 28px;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-}
-@media (max-width: 480px) {
-  .shame-persona-nav {
-    max-width: 100%;
-    width: 100%;
-    gap: 4px;
-    padding: 4px;
-  }
+  box-sizing: border-box;
 }
 
 /* Скользящий плавающий индикатор переключения (Glider) */
 .shame-persona-glider {
   position: absolute;
-  top: 5px;
+  top: 0;
   left: 0;
-  height: calc(100% - 10px);
+  margin: 0;
+  box-sizing: border-box;
   border-radius: 10px;
   pointer-events: none;
   z-index: 1;
@@ -1818,9 +1813,10 @@ model-viewer {
   background: rgba(239, 68, 68, 0.16);
   border: 1px solid rgba(239, 68, 68, 0.45);
   box-shadow: 0 4px 18px rgba(239, 68, 68, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  transition: transform 0.34s cubic-bezier(0.2, 0.85, 0.25, 1.15),
-              width 0.34s cubic-bezier(0.2, 0.85, 0.25, 1.15),
-              opacity 0.22s ease,
+  transition: transform 0.32s cubic-bezier(0.2, 0.85, 0.25, 1.15),
+              width 0.32s cubic-bezier(0.2, 0.85, 0.25, 1.15),
+              height 0.2s ease,
+              opacity 0.2s ease,
               background 0.3s ease,
               border-color 0.3s ease,
               box-shadow 0.3s ease;
@@ -1850,33 +1846,28 @@ model-viewer {
 }
 
 .shame-persona-tab {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0; /* Разрешаем flex-элементам пропорционально ужиматься */
   position: relative;
   z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: 7px;
+  padding: 8px 12px;
   border-radius: 10px;
   border: 1px solid transparent;
   background: transparent;
   color: #94a3b8;
   font-family: 'Nunito', sans-serif;
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 800;
   cursor: pointer;
   transition: color 0.22s ease, transform 0.14s ease;
   user-select: none;
   white-space: nowrap;
-}
-
-@media (max-width: 480px) {
-  .shame-persona-tab {
-    padding: 8px 10px;
-    font-size: 12.5px;
-    gap: 6px;
-  }
+  box-sizing: border-box;
+  line-height: 1;
 }
 
 .shame-persona-tab:hover {
@@ -1909,9 +1900,12 @@ model-viewer {
 }
 
 .persona-tab-emoji {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   transition: transform 0.25s ease;
 }
 
@@ -1929,17 +1923,23 @@ model-viewer {
 .persona-tab-name {
   font-weight: 800;
   letter-spacing: -0.01em;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .persona-tab-badge {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 800;
-  padding: 2px 7px;
+  padding: 2px 6px;
   border-radius: 999px;
   background: rgba(239, 68, 68, 0.2);
   color: #fca5a5;
   border: 1px solid rgba(239, 68, 68, 0.3);
+  line-height: 1.1;
+  flex-shrink: 0;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1957,6 +1957,53 @@ model-viewer {
   background: rgba(245, 158, 11, 0.2);
   color: #fcd34d;
   border-color: rgba(245, 158, 11, 0.35);
+}
+
+/* Мобильная адаптация для смартфонов (до 480px) */
+@media (max-width: 480px) {
+  .shame-persona-nav {
+    max-width: 100%;
+    width: 100%;
+    gap: 3px;
+    padding: 3px;
+    border-radius: 12px;
+  }
+  .shame-persona-glider {
+    border-radius: 9px;
+  }
+  .shame-persona-tab {
+    padding: 7px 6px;
+    font-size: 11.5px;
+    gap: 4px;
+    border-radius: 9px;
+  }
+  .persona-tab-emoji {
+    font-size: 13.5px;
+  }
+  .persona-tab-badge {
+    font-size: 9.5px;
+    padding: 1px 4.5px;
+  }
+}
+
+/* Сверхкомпактные экраны (iPhone SE, 320px - 360px) */
+@media (max-width: 360px) {
+  .shame-persona-nav {
+    gap: 2px;
+    padding: 2px;
+  }
+  .shame-persona-tab {
+    padding: 6px 3px;
+    font-size: 10.5px;
+    gap: 2.5px;
+  }
+  .persona-tab-emoji {
+    font-size: 12px;
+  }
+  .persona-tab-badge {
+    font-size: 8.5px;
+    padding: 1px 3px;
+  }
 }
 
 .dot-pulse-cyan {
