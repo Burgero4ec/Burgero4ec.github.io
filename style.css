@@ -1525,6 +1525,12 @@ model-viewer {
   color: #f43f5e;
 }
 
+.staff-modal-badge.shame-badge {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #ef4444;
+}
+
 .verdict-banner-modal {
   display: flex;
   align-items: flex-start;
@@ -1538,6 +1544,33 @@ model-viewer {
   margin-bottom: 16px;
   font-size: 13.5px;
   line-height: 1.5;
+}
+
+.shame-banner-modal {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.shame-banner-modal .ic {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #ef4444;
+  margin-top: 1px;
+}
+
+.shame-banner-modal b {
+  color: #f87171;
 }
 
 .btn-achievements {
@@ -1560,6 +1593,20 @@ model-viewer {
   background: var(--acc-soft);
   border-color: var(--acc-border);
   color: var(--acc);
+  transform: translateY(-1px);
+}
+
+.btn-achievements.btn-shame {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.28);
+  color: #fca5a5;
+}
+
+.btn-achievements.btn-shame:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.6);
+  color: #ef4444;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
   transform: translateY(-1px);
 }
 

@@ -987,7 +987,7 @@
     },
     "1038163713397620758": {
       "type": "organization",
-      "country": "США",
+      "country": "Draken International",
       "player": "svvayl",
       "nickname": "🇺🇸 | Draken International",
       "balance": 520566173480,
@@ -1017,7 +1017,9 @@
         "• Технолог",
         "• Военный ведущий",
         "• Политолог"
-      ]
+      ],
+      "host_country": "США",
+      "org_type": "ЧВК"
     },
     "1043432937082859610": {
       "type": "country",

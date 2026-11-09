@@ -104,11 +104,11 @@ let STAFF_MODAL_DATA = {
   },
   ponzc: {
     title: '𝕻𝖔𝖓𝖟𝖈',
-    role: 'АДМИНИСТРАТОР / КАРТОГРАФИЯ',
-    badge: '🏅 200 НАГРАД (КАВКАЗ + РУСИЧ)',
-    badgeClass: 'awards-badge',
+    role: 'АДМИНИСТРАТОР / ГЛАВНЫЙ ЛУДИК',
+    badge: '💀 ДОСКА ПОЗОРА (200 ПУНКТОВ)',
+    badgeClass: 'shame-badge',
     avatar: 'https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024',
-    subtitle: 'Наградной лист и боевые заслуги',
+    subtitle: 'Официальная позорная доска и боевые курьёзы (200 пунктов)',
     selector: '[data-discord-id="830428424677490728"] .award'
   },
   xil3dd: {
@@ -162,6 +162,12 @@ export function openStaffModal(key) {
         <div class="verdict-banner-modal">
           <svg class="ic"><use href="#i-scale"/></svg>
           <div><b>ОКОНЧАТЕЛЬНЫЙ ВЕРДИКТ:</b> Суд признал обвинения несостоятельными и полностью оправдал QWERTX по всем 200 пунктам.</div>
+        </div>
+      ` : ''}
+      ${key === 'ponzc' ? `
+        <div class="shame-banner-modal">
+          <svg class="ic"><use href="#i-alert-circle"/></svg>
+          <div><b>ОФИЦИАЛЬНАЯ ДОСКА ПОЗОРА:</b> Полный реестр курьёзов, сомнительных медалей и лудоманских выходок администратора. Главный лудик проекта под пристальным надзором!</div>
         </div>
       ` : ''}
       <div class="staff-items-container" id="staffItemsList">

@@ -3151,9 +3151,9 @@
       "is_registered": true,
       "entity_type": "ЧВК",
       "countries": [
-        "США"
+        "Draken International"
       ],
-      "country": "США",
+      "country": "Draken International",
       "balance": 520566173480,
       "profit": null,
       "gdp": null,
@@ -3213,7 +3213,9 @@
           "id": "1209196451339698206",
           "name": "• Политолог"
         }
-      ]
+      ],
+      "host_country": "США",
+      "org_type": "ЧВК"
     },
     {
       "id": "1043432937082859610",

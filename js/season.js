@@ -171,6 +171,16 @@ export async function fetchSeasonData() {
         } else if (Object.values(s28).some(v => v && (v.country || v.type === 'country'))) {
           seasonData = s28;
         }
+        for (const ent of Object.values(seasonData)) {
+          if (!ent || typeof ent !== 'object') continue;
+          if (ent.type === 'organization' && ent.nickname && ent.nickname.includes('|') && (ent.country === 'США' || ent.country === 'Россия' || !ent.country)) {
+            const parts = ent.nickname.split('|').map(s => s.trim()).filter(Boolean);
+            if (parts.length > 1) {
+              ent.host_country = ent.host_country || ent.country || 'США';
+              ent.country = parts[parts.length - 1];
+            }
+          }
+        }
       }
       if (!Object.keys(seasonData).length) {
         const s26 = await fetchJson('data/seasons/season-26.json');
@@ -260,7 +270,15 @@ export async function fetchSeasonData() {
           const isAuto = p.entity_type === 'Автономия' || (p.categories && p.categories.includes('Автономия'));
 
           if (isOrg) {
-            cName = p.country || (nick.includes('|') ? nick.split('|').pop().trim() : (nick || 'Организация'));
+            let orgName = p.country;
+            if (nick.includes('|')) {
+              const parts = nick.split('|').map(s => s.trim()).filter(Boolean);
+              if (parts.length > 1 && (p.country === 'США' || p.country === 'Россия' || !p.country)) {
+                orgName = parts[parts.length - 1];
+                hostCountry = p.country || 'США';
+              }
+            }
+            cName = orgName || (nick.includes('|') ? nick.split('|').pop().trim() : (p.country || nick || 'Организация'));
             flagEmoji = '🛡️';
           } else if (isAuto) {
             hostCountry = p.country;
@@ -369,9 +387,14 @@ export async function loadSeason() {
           playerId: id
         });
       } else if (p.type === 'organization') {
+        let orgName = p.country;
+        if (p.nickname && p.nickname.includes('|') && (orgName === 'США' || orgName === 'Россия' || !orgName)) {
+          const parts = p.nickname.split('|').map(s => s.trim()).filter(Boolean);
+          if (parts.length > 1) orgName = parts[parts.length - 1];
+        }
         orgs.push({
           key: 'p' + id,
-          name: p.country,
+          name: orgName,
           flagHtml: '<span class="c-flag c-ic"><svg class="ic"><use href="#i-shield"/></svg></span>',
           continent: (C[p.host_country] || {}).continent || '',
           typeLabel: 'Организация' + (p.org_type ? ' · ' + p.org_type : ''),
