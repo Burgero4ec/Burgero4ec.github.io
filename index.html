@@ -551,6 +551,10 @@ div.scene-tooltip {
   border-color: #fbbf24 !important;
   box-shadow: 0 0 16px rgba(251, 191, 36, 0.6) !important;
 }
+.l-pill.orange.active {
+  border-color: #fb923c !important;
+  box-shadow: 0 0 16px rgba(251, 146, 60, 0.6) !important;
+}
 .l-pill.purple.active {
   border-color: #c084fc !important;
   box-shadow: 0 0 16px rgba(192, 132, 252, 0.6) !important;
@@ -597,6 +601,7 @@ div.scene-tooltip {
 .l-pill.blue .dot { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
 .l-pill.red .dot { background: #f87171; box-shadow: 0 0 6px #f87171; }
 .l-pill.amber .dot { background: #fbbf24; box-shadow: 0 0 6px #fbbf24; }
+.l-pill.orange .dot { background: #fb923c; box-shadow: 0 0 6px #fb923c; }
 .l-pill.purple .dot { background: #c084fc; box-shadow: 0 0 6px #c084fc; }
 .l-pill.green .dot { background: #4ade80; box-shadow: 0 0 6px #4ade80; }
 
@@ -879,11 +884,13 @@ div.scene-tooltip {
           <!-- Нижний HUD: Легенда и быстрые контролы -->
           <div class="schema-legend-bar">
             <div class="legend-pills">
-              <button class="l-pill blue" data-faction="Атлантический Пакт"><span class="dot"></span> Пакт (Запад)</button>
-              <button class="l-pill red" data-faction="Евразийский Союз"><span class="dot"></span> Союз (Восток)</button>
-              <button class="l-pill amber" data-faction="Тихоокеанский Блок"><span class="dot"></span> Тихоокеанский</button>
-              <button class="l-pill purple" data-faction="Ближневосточная Лига"><span class="dot"></span> Ближний Восток</button>
-              <button class="l-pill green" data-faction="Нейтралитет"><span class="dot"></span> Нейтралитет</button>
+              <button class="l-pill active" data-faction="all">Все</button>
+              <button class="l-pill blue" data-faction="ОГБ"><span class="dot"></span> ОГБ</button>
+              <button class="l-pill amber" data-faction="ОЭСР"><span class="dot"></span> ОЭСР</button>
+              <button class="l-pill purple" data-faction="ЛЭП"><span class="dot"></span> ЛЭП</button>
+              <button class="l-pill red" data-faction="ШОС"><span class="dot"></span> ШОС</button>
+              <button class="l-pill orange" data-faction="Ось сопротивления"><span class="dot"></span> Ось сопротивления</button>
+              <button class="l-pill green" data-faction="Нейтралитет"><span class="dot"></span> Нейтралы</button>
             </div>
             <div class="viewer-bottom-controls">
               <button class="globe-ctrl-btn active" id="globeRotateToggle" title="Включить / остановить авто-вращение">⏸ Вращение</button>
@@ -913,7 +920,7 @@ div.scene-tooltip {
           <span class="dot pulse" style="width:6px;height:6px"></span>ГЛОБАЛЬНЫЙ СТАРТ · СЕЗОН 28
         </div>
         <h3><svg class="ic"><use href="#i-star"/></svg>Старт 28-го сезона: Противостояние Блоков и Новая Геополитика!</h3>
-        <p>На сервере <b>Global Lens</b> официально запущен <b>28-й сезон</b>! Мировая сцена вступает в фазу обострённого геополитического соперничества: на карте разворачивается противостояние ведущих военно-политических альянсов — <b>Атлантического Пакта</b>, <b>Евразийского Союза</b>, <b>Тихоокеанского Блока</b> и <b>Ближневосточной Лиги</b>.</p>
+        <p>На сервере <b>Global Lens</b> официально запущен <b>28-й сезон</b>! Мировая сцена вступает в фазу обострённого геополитического соперничества: на карте разворачивается противостояние ведущих военно-политических и экономических союзов — <b>ОГБ</b>, <b>ОЭСР</b>, <b>ЛЭП</b>, <b>ШОС</b> и <b>Оси сопротивления</b>.</p>
         <p>В этом сезоне произошла масштабная перезагрузка международных отношений и механик:</p>
         <ul style="margin:8px 0 14px 20px;line-height:1.7;color:var(--muted)">
           <li><b>Интерактивная 3D-геополитика:</b> запущен единый векторный глобус с динамической синхронизацией активных стран, союзных республик и доминионов прямо из Discord сервера.</li>

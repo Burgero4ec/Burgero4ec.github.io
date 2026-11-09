@@ -119,7 +119,25 @@ export function openCountryModal(key) {
   }
   if (d.reforms) addRow('Реформы', esc(d.reforms));
   if (d.investments) addRow('Инвестиции', esc(d.investments));
-  if (d.alliance_type) {
+  const roles = (d.roles || []).map(r => (typeof r === 'string' ? r : (r && r.name) || '')).filter(Boolean);
+  const countryAlliances = [];
+  for (const r of roles) {
+    if (r.startsWith('Лидер: ')) {
+      const aName = r.replace('Лидер: ', '').trim();
+      const canon = (aName === 'Ось сопротивление' ? 'Ось сопротивления' : aName);
+      if (!countryAlliances.some(a => a.startsWith(canon))) {
+        countryAlliances.unshift(canon + ' (Лидер альянса)');
+      }
+    } else if (['ОГБ', 'ОЭСР', 'ЛЭП', 'ШОС'].includes(r)) {
+      if (!countryAlliances.some(a => a.startsWith(r))) countryAlliances.push(r);
+    } else if (r === 'Ось сопротивление' || r === 'Ось сопротивления') {
+      const canon = 'Ось сопротивления';
+      if (!countryAlliances.some(a => a.startsWith(canon))) countryAlliances.push(canon);
+    }
+  }
+  if (countryAlliances.length > 0) {
+    addRow('Военно-политический альянс', esc(countryAlliances.join(', ')));
+  } else if (d.alliance_type) {
     if (d.alliance_type.military) addRow('Военный блок', esc(d.alliance_type.military));
     if (d.alliance_type.economic) addRow('Экономический блок', esc(d.alliance_type.economic));
     if (d.alliance_type.intergovernmental) addRow('Межправительственный блок', esc(d.alliance_type.intergovernmental));

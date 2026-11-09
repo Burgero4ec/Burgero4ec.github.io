@@ -1,150 +1,186 @@
 {
   "title": "Геополитическая схема государств Global Lens",
   "season": "Сезон 28",
-  "last_updated": "2026-10-06T18:00:00Z",
+  "last_updated": "2026-11-09T19:00:00Z",
   "active_countries": [
-    {
-      "name": "Россия",
-      "flag": "🇷🇺",
-      "faction": "Евразийский Союз",
-      "faction_color": "#ef4444",
-      "player": "Yabl1ch",
-      "role": "Лидер блока",
-      "status": "Активен"
-    },
-    {
-      "name": "Германия",
-      "flag": "🇩🇪",
-      "faction": "Атлантический Пакт",
-      "faction_color": "#3b82f6",
-      "player": "Kaiser",
-      "role": "Главнокомандующий",
-      "status": "Активен"
-    },
     {
       "name": "США",
       "flag": "🇺🇸",
-      "faction": "Атлантический Пакт",
-      "faction_color": "#3b82f6",
-      "player": "EagleOne",
-      "role": "Лидер альянса",
-      "status": "Активен"
-    },
-    {
-      "name": "Китай",
-      "flag": "🇨🇳",
-      "faction": "Евразийский Союз",
-      "faction_color": "#ef4444",
-      "player": "DragonLord",
-      "role": "Экономический центр",
-      "status": "Активен"
-    },
-    {
-      "name": "Великобритания",
-      "flag": "🇬🇧",
-      "faction": "Атлантический Пакт",
-      "faction_color": "#3b82f6",
-      "player": "Wellington",
-      "role": "Флот и разведка",
-      "status": "Активен"
-    },
-    {
-      "name": "Франция",
-      "flag": "🇫🇷",
-      "faction": "Атлантический Пакт",
-      "faction_color": "#3b82f6",
-      "player": "Napoleon_X",
-      "role": "Ядерный щит",
+      "faction": "ОГБ",
+      "faction_color": "#38bdf8",
+      "player": "zenithxclown",
+      "role": "Лидер ОГБ / Участник ОЭСР",
       "status": "Активен"
     },
     {
       "name": "Япония",
       "flag": "🇯🇵",
-      "faction": "Тихоокеанский Блок",
-      "faction_color": "#f59e0b",
-      "player": "Shinobi",
-      "role": "Технологический форпост",
+      "faction": "ОЭСР",
+      "faction_color": "#fbbf24",
+      "player": "naebni_govna_olyx",
+      "role": "Лидер ОЭСР",
       "status": "Активен"
     },
     {
-      "name": "Индия",
-      "flag": "🇮🇳",
-      "faction": "Тихоокеанский Блок",
-      "faction_color": "#f59e0b",
-      "player": "Rajesh_Pro",
-      "role": "Региональный гегемон",
+      "name": "Великобритания",
+      "flag": "🇬🇧",
+      "faction": "ЛЭП",
+      "faction_color": "#c084fc",
+      "player": "_ashkoo139",
+      "role": "Лидер ЛЭП / Участник ОГБ",
+      "status": "Активен"
+    },
+    {
+      "name": "Россия",
+      "flag": "🇷🇺",
+      "faction": "ШОС",
+      "faction_color": "#f87171",
+      "player": "elwey4194",
+      "role": "Участник ШОС",
+      "status": "Активен"
+    },
+    {
+      "name": "Пакистан",
+      "flag": "🇵🇰",
+      "faction": "Ось сопротивления",
+      "faction_color": "#fb923c",
+      "player": "hanslanda_0272",
+      "role": "Участник Оси сопротивления",
+      "status": "Активен"
+    },
+    {
+      "name": "Израиль",
+      "flag": "🇮🇱",
+      "faction": "ОЭСР",
+      "faction_color": "#fbbf24",
+      "player": "woiserr",
+      "role": "Участник ОЭСР",
+      "status": "Активен"
+    },
+    {
+      "name": "Австралия",
+      "flag": "🇦🇺",
+      "faction": "ОГБ",
+      "faction_color": "#38bdf8",
+      "player": "perikkl",
+      "role": "Участник ОГБ",
+      "status": "Активен"
+    },
+    {
+      "name": "Азербайджан",
+      "flag": "🇦🇿",
+      "faction": "ОЭСР",
+      "faction_color": "#fbbf24",
+      "player": "vostochniy_tiran_79165",
+      "role": "Участник ОЭСР",
+      "status": "Активен"
+    },
+    {
+      "name": "Франция",
+      "flag": "🇫🇷",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "sparkling_seahorse_33427",
+      "role": "Вне блоков",
       "status": "Активен"
     },
     {
       "name": "Бразилия",
       "flag": "🇧🇷",
       "faction": "Нейтралитет",
-      "faction_color": "#10b981",
-      "player": "Silva_BR",
-      "role": "Нейтральный арбитр",
+      "faction_color": "#4ade80",
+      "player": "chaim1ch",
+      "role": "Вне блоков",
       "status": "Активен"
     },
     {
-      "name": "Казахстан",
-      "flag": "🇰🇿",
-      "faction": "Евразийский Союз",
-      "faction_color": "#ef4444",
-      "player": "Nomad",
-      "role": "Логистический узел",
-      "status": "Активен"
-    },
-    {
-      "name": "Турция",
-      "flag": "🇹🇷",
-      "faction": "Ближневосточная Лига",
-      "faction_color": "#a855f7",
-      "player": "Osmanli",
-      "role": "Страж проливов",
-      "status": "Активен"
-    },
-    {
-      "name": "Саудовская Аравия",
-      "flag": "🇸🇦",
-      "faction": "Ближневосточная Лига",
-      "faction_color": "#a855f7",
-      "player": "Sheikh_Oil",
-      "role": "Энергетический баланс",
-      "status": "Активен"
-    },
-    {
-      "name": "Австралия",
-      "flag": "🇦🇺",
-      "faction": "Тихоокеанский Блок",
-      "faction_color": "#f59e0b",
-      "player": "Boomerang",
-      "role": "Океанический рубеж",
-      "status": "Активен"
-    },
-    {
-      "name": "Египет",
-      "flag": "🇪🇬",
-      "faction": "Ближневосточная Лига",
-      "faction_color": "#a855f7",
-      "player": "Anubis",
-      "role": "Контроль Суэца",
-      "status": "Активен"
-    },
-    {
-      "name": "Канада",
-      "flag": "🇨🇦",
-      "faction": "Атлантический Пакт",
-      "faction_color": "#3b82f6",
-      "player": "MapleLeaf",
-      "role": "Арктический дозор",
-      "status": "Активен"
-    },
-    {
-      "name": "ЮАР",
-      "flag": "🇿🇦",
+      "name": "Норвегия",
+      "flag": "🇳🇴",
       "faction": "Нейтралитет",
-      "faction_color": "#10b981",
-      "player": "Mandela_R",
-      "role": "Африканский союз",
+      "faction_color": "#4ade80",
+      "player": "joskipisk0trias",
+      "role": "Вне блоков",
+      "status": "Активен"
+    },
+    {
+      "name": "Польша",
+      "flag": "🇵🇱",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "stathem_brouki",
+      "role": "Вне блоков",
+      "status": "Активен"
+    },
+    {
+      "name": "Румыния",
+      "flag": "🇷🇴",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "izaziii228",
+      "role": "Вне блоков",
+      "status": "Активен"
+    },
+    {
+      "name": "Коста-Рика",
+      "flag": "🇨🇷",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "jakiro5.5",
+      "role": "Вне блоков",
+      "status": "Активен"
+    },
+    {
+      "name": "Перу",
+      "flag": "🇵🇪",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "idxhw87e",
+      "role": "Вне блоков",
+      "status": "Активен"
+    },
+    {
+      "name": "Новая Зеландия",
+      "flag": "🇳🇿",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "lirozit",
+      "role": "Вне блоков",
+      "status": "Активен"
+    },
+    {
+      "name": "Нигерия",
+      "flag": "🇳🇬",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "aytaconan2_",
+      "role": "Вне блоков",
+      "status": "Активен"
+    },
+    {
+      "name": "Сент-Китс и Невис",
+      "flag": "🇰🇳",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "felixsaturn",
+      "role": "Вне блоков",
+      "status": "Активен"
+    },
+    {
+      "name": "Иран",
+      "flag": "🇮🇷",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "niks_aul",
+      "role": "Вне блоков",
+      "status": "Активен"
+    },
+    {
+      "name": "Приднестровье",
+      "flag": "🟥🟩🟥",
+      "faction": "Нейтралитет",
+      "faction_color": "#4ade80",
+      "player": "fridrikh0335",
+      "role": "Вне блоков",
       "status": "Активен"
     }
   ]
