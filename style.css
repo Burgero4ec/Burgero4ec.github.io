@@ -1740,6 +1740,15 @@ model-viewer {
 .shame-header-banner {
   margin-bottom: 24px;
 }
+.shame-header-banner h1 {
+  color: #ffffff !important;
+}
+.shame-header-banner h1 em {
+  color: #ef4444 !important;
+}
+.shame-header-banner .lead {
+  color: #cbd5e1 !important;
+}
 .shame-tag {
   display: inline-flex;
   align-items: center;
@@ -1907,6 +1916,7 @@ model-viewer {
   font-weight: 900;
   letter-spacing: -0.02em;
   margin: 0;
+  color: #ffffff;
   background: linear-gradient(135deg, #ffffff 30%, #fca5a5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1967,7 +1977,7 @@ model-viewer {
 .shame-bio {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-dim, #cbd5e1);
+  color: #cbd5e1 !important;
   margin: 12px 0 16px;
 }
 
@@ -1990,6 +2000,9 @@ model-viewer {
   color: #ef4444;
   flex-shrink: 0;
   margin-top: 1px;
+}
+.shame-quote-box span {
+  color: #f1f5f9 !important;
 }
 .shame-quote-box b {
   color: #ef4444;
@@ -2028,7 +2041,7 @@ model-viewer {
   display: block;
   font-size: 26px;
   font-weight: 900;
-  color: var(--text, #fff);
+  color: #ffffff !important;
   font-family: 'JetBrains Mono', monospace;
   line-height: 1.1;
   margin-bottom: 4px;
@@ -2077,6 +2090,9 @@ model-viewer {
   outline: none;
   transition: all 0.2s ease;
 }
+.shame-search-wrap input::placeholder {
+  color: #94a3b8;
+}
 .shame-search-wrap input:focus {
   border-color: #ef4444;
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
@@ -2107,7 +2123,7 @@ model-viewer {
 .shame-tab-btn {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-dim, #cbd5e1);
+  color: #cbd5e1 !important;
   padding: 8px 14px;
   border-radius: 8px;
   font-size: 12px;
@@ -2202,13 +2218,13 @@ model-viewer {
 .shame-card-title {
   font-size: 14px;
   font-weight: 700;
-  color: #ffffff;
+  color: #ffffff !important;
   line-height: 1.4;
   margin-bottom: 4px;
 }
 .shame-card-desc {
   font-size: 12.5px;
-  color: var(--text-dim, #cbd5e1);
+  color: #cbd5e1 !important;
   line-height: 1.5;
 }
 

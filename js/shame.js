@@ -2,21 +2,61 @@
  * shame.js - Доска позора Понза (200 курьёзов, наград и провалов)
  */
 import { esc } from './utils.js';
+import { STAFF_MODAL_ITEMS } from './staff_data.js';
 
 let shameItems = null;
 
 export async function loadShameData() {
-  if (shameItems) return shameItems;
+  if (shameItems && shameItems.length) return shameItems;
   try {
     const res = await fetch('data/awards_ponzc.json');
     if (res.ok) {
       const data = await res.json();
-      shameItems = data.items || [];
-      return shameItems;
+      if (data && data.items && data.items.length) {
+        shameItems = data.items;
+        return shameItems;
+      }
     }
   } catch (e) {
-    console.error('[Shame] Ошибка загрузки awards_ponzc.json:', e);
+    console.warn('[Shame] Fetch failed, using bundled fallback:', e);
   }
+
+  // Резервный парсинг из встроенных данных STAFF_MODAL_ITEMS.ponzc
+  if (STAFF_MODAL_ITEMS && STAFF_MODAL_ITEMS.ponzc) {
+    try {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = STAFF_MODAL_ITEMS.ponzc;
+      const parsed = [];
+      let currentCat = 'ОСОБЫЕ ЗАСЛУГИ';
+      let idCounter = 0;
+      tempDiv.querySelectorAll('.award').forEach(el => {
+        const lbl = el.querySelector('.lbl');
+        if (lbl) {
+          currentCat = lbl.textContent.trim();
+          return;
+        }
+        const b = el.querySelector('b');
+        const span = el.querySelector('span:not(.lbl)');
+        if (b) {
+          const name = b.textContent.trim();
+          const desc = span ? span.textContent.replace(/^—\s*/, '').trim() : '';
+          parsed.push({
+            id: idCounter++,
+            category: currentCat,
+            name: name,
+            description: desc
+          });
+        }
+      });
+      if (parsed.length > 0) {
+        shameItems = parsed;
+        return shameItems;
+      }
+    } catch (e2) {
+      console.error('[Shame] Fallback parse failed:', e2);
+    }
+  }
+
   return [];
 }
 
@@ -95,26 +135,26 @@ export async function initShameBoard() {
 
   // Привязка вкладок категорий
   document.querySelectorAll('.shame-tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.onclick = () => {
       document.querySelectorAll('.shame-tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       activeFilter = btn.dataset.filter || 'all';
       render();
-    });
+    };
   });
 
   // Привязка живого поиска
   const searchInput = document.getElementById('shameSearchInput');
   const clearBtn = document.getElementById('shameSearchClear');
   if (searchInput) {
-    searchInput.addEventListener('input', e => {
+    searchInput.oninput = (e) => {
       searchQuery = e.target.value;
       if (clearBtn) clearBtn.style.display = searchQuery ? 'block' : 'none';
       render();
-    });
+    };
   }
   if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
+    clearBtn.onclick = () => {
       if (searchInput) {
         searchInput.value = '';
         searchQuery = '';
@@ -122,7 +162,7 @@ export async function initShameBoard() {
         searchInput.focus();
         render();
       }
-    });
+    };
   }
 
   render();
