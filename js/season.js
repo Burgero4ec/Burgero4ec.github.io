@@ -198,6 +198,13 @@ export async function fetchSeasonData() {
               ent.country = parts[parts.length - 1];
             }
           }
+          if (ent.type === 'autonomy' && ent.nickname && ent.nickname.includes('|')) {
+            const parts = ent.nickname.split('|').map(s => s.trim()).filter(Boolean);
+            if (parts.length > 1) {
+              ent.host_country = ent.host_country || ent.country || 'Россия';
+              ent.country = parts[parts.length - 1];
+            }
+          }
         }
       }
       if (!Object.keys(seasonData).length) {
@@ -253,7 +260,8 @@ export async function fetchSeasonData() {
         "СССР": { flag: "⚒️🟥", continent: "Европа", gdp: 2650000000000, population: 293000000 },
         "Дания": { flag: "🇩🇰", continent: "Европа", gdp: 348577000000, population: 5664000 },
         "Беларусь": { flag: "🇧🇾", continent: "Европа", gdp: 78810000000, population: 9477000 },
-        "Украина": { flag: "🇺🇦", continent: "Европа", gdp: 131805000000, population: 45271000 }
+        "Украина": { flag: "🇺🇦", continent: "Европа", gdp: 131805000000, population: 45271000 },
+        "Чечня": { flag: "🇷🇺", continent: "Европа", gdp: 301374024818, population: 1411052 }
       };
     }
 
@@ -299,17 +307,25 @@ export async function fetchSeasonData() {
             cName = orgName || (nick.includes('|') ? nick.split('|').pop().trim() : (p.country || nick || 'Организация'));
             flagEmoji = '🛡️';
           } else if (isAuto) {
-            hostCountry = p.country;
-            if (nick.includes('Гренландия') || nick.includes('🇬🇱')) { cName = 'Гренландия'; flagEmoji = '🇬🇱'; hostCountry = 'Дания'; }
+            hostCountry = p.country || 'Россия';
+            if (nick.includes('Чечня') || nick.includes('Чечен')) { cName = 'Чечня'; flagEmoji = '🇷🇺'; hostCountry = 'Россия'; }
+            else if (nick.includes('Гренландия') || nick.includes('🇬🇱')) { cName = 'Гренландия'; flagEmoji = '🇬🇱'; hostCountry = 'Дания'; }
             else if (nick.includes('Украинская ССР') || nick.includes('УССР')) { cName = 'Украинская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
             else if (nick.includes('Казахская ССР')) { cName = 'Казахская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
             else if (nick.includes('Литовская ССР')) { cName = 'Литовская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
             else if (nick.includes('Родезия')) { cName = 'Южная Родезия'; flagEmoji = '🇿🇼'; hostCountry = 'Великобритания'; }
             else if (nick.includes('Судан') || nick.includes('Англо-египетский')) { cName = 'Англо-египетский Судан'; flagEmoji = '🇸🇩'; hostCountry = 'Великобритания'; }
             else if (nick.includes('Алжир')) { cName = 'Алжир'; flagEmoji = '🇩🇿'; hostCountry = 'Франция'; }
+            else if (nick.includes('|')) {
+              const parts = nick.split('|').map(s => s.trim()).filter(Boolean);
+              if (parts.length > 1) {
+                cName = parts[parts.length - 1];
+                hostCountry = p.country || hostCountry;
+              }
+            }
           } else {
             // Независимые государства (с учетом отделения от Союза и ников)
-            if (nick.includes('Беларусь') || nick.includes('Беларус') || nick.includes('🇧🇾') || nick.startsWith('BY') || p.country === 'Белорусская ССР' || p.country === 'Беларусь' || p.username === 'ponzc') { 
+            if (nick.includes('Беларусь') || nick.includes('Беларус') || nick.includes('🇧🇾') || nick.startsWith('BY') || p.country === 'Белорусская ССР' || p.country === 'Беларусь') { 
               cName = 'Беларусь'; flagEmoji = '🇧🇾'; 
             }
             else if (nick.includes('Украина') || nick.includes('Украин') || nick.includes('🇺🇦') || nick.startsWith('UA') || p.country === 'Украинская ССР' || p.country === 'Украина' || p.username === 'ohixxx') { 

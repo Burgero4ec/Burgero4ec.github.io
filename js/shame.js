@@ -11,7 +11,8 @@ let isInitialized = false;
 
 const shameDataCache = {
   ponzc: null,
-  aytac: null
+  aytac: null,
+  kitaezik: null
 };
 
 export const PERSONA_CONFIGS = {
@@ -62,12 +63,59 @@ export const PERSONA_CONFIGS = {
       return '';
     }
   },
+  kitaezik: {
+    id: 'kitaezik',
+    name: 'Китаёзик',
+    alias: '@burgero4ec',
+    discordId: '758998250610360341',
+    avatar: 'https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=1024',
+    status: 'ДЕБАЖИТ НА ПРОДЕ',
+    statusClass: 'dot-pulse-cyan',
+    statusBorder: 'rgba(6, 182, 212, 0.55)',
+    statusBg: '#08171c',
+    statusColor: '#06b6d4',
+    glowColor: 'rgba(6, 182, 212, 0.18)',
+    cardBorder: 'rgba(6, 182, 212, 0.35)',
+    avatarRing: 'conic-gradient(from 0deg, #06b6d4, #3b82f6, #a855f7, #06b6d4, #22d3ee)',
+    badges: [
+      { class: 'badge-creator', icon: '#i-code', text: 'СОЗДАТЕЛЬ САЙТА' },
+      { class: 'badge-deputy', icon: '#i-shield', text: 'ЗАМ. РУКОВОДСТВА' },
+      { class: 'badge-debug', text: '⚡ МАСТЕР OPACITY: 0' },
+      { class: 'badge-record', text: '🍔 21 КУРЬЁЗ В MAIN' }
+    ],
+    bio: 'Создатель и архитектор официального веб-портала Global Lens. Человек, связавший воедино интерактивный 3D-глобус, экономику 28-го сезона, газетные архивы и секретный бункер CS2. По персональной просьбе Понза добровольно явился на собственную Доску Позора, увековечив легендарную битву с 15 !important, исчезающий текст и войну с авто-ботом за players.json.',
+    quoteTitle: 'ГЛАВНЫЙ ДЕВИЗ И ВЕРДИКТ:',
+    quoteText: '«Зачем нужны dev-ветки, если можно пушить сразу в main?»',
+    stats: [
+      { num: '21', numId: 'shameCountTotal', label: 'Всего курьёзов и багов' },
+      { num: '10', label: 'Фронтенд & CSS (1–10)' },
+      { num: '10', label: 'Git & Интриги (11–20)' },
+      { num: '100%', highlight: true, label: 'Фиксов прямо на проде' }
+    ],
+    searchPlaceholder: 'Поиск по курьёзам (opacity: 0, навбар, Odyssey, CS2, players.json)...',
+    tabs: [
+      { id: 'all', label: '⚡ Все (21)' },
+      { id: 'front', label: '💻 Фронтенд и CSS (1–10)' },
+      { id: 'git', label: '🚀 Git и Прод (11–20)' }
+    ],
+    filterItem: (item, filter) => {
+      if (filter === 'front') return item.id >= 1 && item.id <= 10;
+      if (filter === 'git') return item.id >= 11 && item.id <= 20;
+      return true;
+    },
+    getBadgeHtml: (item) => {
+      if (item.id === 0) return '<span class="shame-cat-tag special">АРХИТЕКТОР</span>';
+      if (item.id >= 1 && item.id <= 10) return '<span class="shame-cat-tag front">ФРОНТЕНД</span>';
+      if (item.id >= 11 && item.id <= 20) return '<span class="shame-cat-tag git">GIT & ПРОД</span>';
+      return '';
+    }
+  },
   aytac: {
     id: 'aytac',
     name: 'AytacOnan2 (Айтек)',
     alias: '@aytaconan2_',
     discordId: '484044030640914437',
-    avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/a85444c050d4e5b4c749d702ec5cbd69.png?size=1024',
+    avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/492785e7674353a297aa8fba3c2041bb.png?size=1024',
     status: 'В РЕЖИМЕ ВАЙБКОДИНГА',
     statusClass: 'dot-pulse-amber',
     statusBorder: 'rgba(245, 158, 11, 0.55)',
@@ -119,7 +167,7 @@ export async function loadShameData(personaKey = activePersona) {
     return shameDataCache[personaKey];
   }
 
-  const fileName = personaKey === 'aytac' ? 'data/awards_aytac.json' : 'data/awards_ponzc.json';
+  const fileName = personaKey === 'aytac' ? 'data/awards_aytac.json' : (personaKey === 'kitaezik' ? 'data/awards_kitaezik.json' : 'data/awards_ponzc.json');
 
   try {
     const res = await fetch(fileName);
@@ -203,7 +251,7 @@ export function renderProfileCard(persona) {
         <div class="shame-avatar-img-box">
           <img src="${persona.avatar}" alt="${esc(persona.name)}" class="shame-avatar-img" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='flex'">
           <div class="shame-avatar-fallback" style="display:none">
-            ${persona.id === 'aytac' ? '👑' : '💀'}
+            ${persona.id === 'aytac' ? '👑' : (persona.id === 'kitaezik' ? '🍔' : '💀')}
           </div>
         </div>
         <div class="shame-avatar-status" style="border-color:${persona.statusBorder};background:${persona.statusBg};color:${persona.statusColor}">

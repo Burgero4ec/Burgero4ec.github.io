@@ -120,12 +120,21 @@ let STAFF_MODAL_DATA = {
     subtitle: 'Полный список дел и обвинений',
     selector: '[data-discord-id="928360132482572371"] .award'
   },
+  kitaezik: {
+    title: 'Китаёзик',
+    role: 'СОЗДАТЕЛЬ САЙТА / ЗАМ. РУКОВОДСТВА',
+    badge: '🍔 21 КУРЬЁЗ В MAIN',
+    badgeClass: 'shame-badge',
+    avatar: 'https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=1024',
+    subtitle: 'Хроника разработки и боевые курьёзы в main',
+    selector: '[data-discord-id="758998250610360341"] .award'
+  },
   aytac: {
     title: 'AytacOnan2 (Айтек)',
     role: 'ОСНОВАТЕЛЬ / СОЗДАТЕЛЬ БОТА',
     badge: '⚡ ВЕЛИКИЙ ВАЙБКОДЕР (30 ГРЕХОВ)',
     badgeClass: 'shame-badge',
-    avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/a85444c050d4e5b4c749d702ec5cbd69.png?size=1024',
+    avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/492785e7674353a297aa8fba3c2041bb.png?size=1024',
     subtitle: 'Реестр багов, вайбкодинга и экономических диверсий',
     selector: '[data-discord-id="484044030640914437"] .award'
   }

@@ -68,7 +68,7 @@ export const COUNTRY_DEFAULT_FACTIONS = {
   'иран': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
   'приднестровье': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
   'гренландия': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'чечня': { faction: 'Нейтралитет', factions: [], color: '#4ade80' }
+  'чечня': { faction: 'ШОС', factions: ['ШОС'], color: '#f87171' }
 };
 
 /**
@@ -157,7 +157,9 @@ const FALLBACK_COORDINATES = {
   'гренландия': [74.1476, -41.0315],
   'дания': [56.278, 9.6227],
   'беларусь': [53.2974, 28.1961],
-  'украина': [48.6814, 30.3621]
+  'украина': [48.6814, 30.3621],
+  'чечня': [43.3179, 45.6982],
+  'чеченская республика': [43.3179, 45.6982]
 };
 
 // Нормализация названий
@@ -407,7 +409,7 @@ function resolvePlayerEntity(p) {
   // 2. Автономия Чечня (Россия)
   else if (nick.includes('Чечня') || nick.includes('Чечен')) {
     entityKey = 'Чечня';
-    geoTarget = 'Россия';
+    geoTarget = 'Чечня';
     flag = '🇷🇺';
     isAutonomy = true;
     sovereign = 'Россия';
@@ -658,7 +660,7 @@ function normalizeIncomingData(rawData) {
     }
 
     // Собираем зависимости автономий для метрополий (СССР, Великобритания, Франция, Дания)
-    const autonomiesBySovereign = { 'СССР': [], 'Великобритания': [], 'Франция': [], 'Дания': [] };
+    const autonomiesBySovereign = { 'СССР': [], 'Великобритания': [], 'Франция': [], 'Дания': [], 'Россия': [] };
     for (const ent of entitiesMap.values()) {
       if (ent.isAutonomy && ent.sovereign && autonomiesBySovereign[ent.sovereign]) {
         autonomiesBySovereign[ent.sovereign].push(ent.name);
