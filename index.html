@@ -719,7 +719,7 @@ div.scene-tooltip {
       <a class="nav-item" href="#" data-go="features"><svg class="ic"><use href="#i-star"/></svg>Возможности<span class="pill">Новое</span></a>
       <a class="nav-item" href="#" data-go="season"><svg class="ic"><use href="#i-map"/></svg>Текущий Сезон<span class="pill">S28</span></a>
       <a class="nav-item" href="#" data-go="staff"><svg class="ic"><use href="#i-users"/></svg>Состав Команды</a>
-      <a class="nav-item nav-item-shame" href="#" data-go="shame"><svg class="ic"><use href="#i-skull"/></svg>Доска позора<span class="pill pill-shame">200</span></a>
+      <a class="nav-item nav-item-shame" href="#" data-go="shame"><svg class="ic"><use href="#i-skull"/></svg>Доска позора<span class="pill pill-shame">230</span></a>
 
       <div class="nav-category-header nav-category-spacer">
         <svg class="nav-cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1051,7 +1051,7 @@ div.scene-tooltip {
       <div id="staffBody">
 <div class="sec-title"><svg class="ic"><use href="#i-crown"/></svg>ЛИДЕРСТВО / ОСНОВАТЕЛЬ</div>
 <article class="card" style="margin-top:0">
-<div class="member" data-discord-id="484044030640914437"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/484044030640914437/a85444c050d4e5b4c749d702ec5cbd69.png?size=1024" alt=""></span><div><b>AytacOnan2</b><span class="m-role">ОСНОВАТЕЛЬ</span><p>Владелец сервера. Создал бота, который делает всю тяжёлую работу. Просто хороший человек, без которого этого проекта не существовало бы.</p></div></div>
+<div class="member" data-discord-id="484044030640914437"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/484044030640914437/a85444c050d4e5b4c749d702ec5cbd69.png?size=1024" alt=""></span><div><b>AytacOnan2</b><span class="m-role">ОСНОВАТЕЛЬ</span><p>Владелец сервера. Создал бота, который делает всю тяжёлую работу. Просто хороший человек, без которого этого проекта не существовало бы. Почётный резидент <a href="#" data-go="shame" data-persona="aytac" style="color:#ef4444;text-decoration:underline">доски позора</a> за легендарный вайбкодинг.</p></div></div>
 </article>
 <div class="sec-title"><svg class="ic"><use href="#i-heart"/></svg>ПРИЗНАТЕЛЬНОСТЬ / ОТДЕЛЬНАЯ БЛАГОДАРНОСТЬ</div>
 <p class="lead" style="margin-top:0;margin-bottom:24px">Люди, внёсшие особый вклад в развитие проекта</p>
@@ -1152,11 +1152,35 @@ div.scene-tooltip {
       <div class="shame-header-banner">
         <div class="shame-tag"><span class="dot-pulse-red"></span>ОФИЦИАЛЬНЫЙ РЕЕСТР ПРОВАЛОВ И КУРЬЁЗОВ · GLOBAL LENS</div>
         <h1>Доска <em>Позора</em></h1>
-        <p class="lead">Персональная аллея курьёзов администратора всея сервера и верховного лудика Global Luds</p>
+        <p class="lead">Официальный зал славы, курьёзов, багов и легендарных провалов ключевых лиц Global Lens</p>
       </div>
 
-      <!-- ХИРО-ПРОФИЛЬ ПОНЗА -->
-      <div class="shame-profile-card">
+      <!-- ПЕРЕКЛЮЧАТЕЛЬ ПЕРСОН НА ДОСКЕ ПОЗОРА -->
+      <div class="shame-persona-switcher">
+        <button class="shame-persona-btn active" data-persona="ponzc" id="shamePersonaBtnPonzc">
+          <div class="persona-avatar-mini">
+            <img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=128" alt="Ponzc">
+          </div>
+          <div class="persona-meta">
+            <span class="persona-tag">ВЕРХОВНЫЙ ЛУДИК</span>
+            <b class="persona-name">𝕻𝖔𝖓𝖟𝖈</b>
+            <span class="persona-sub">200 орденов и курьёзов</span>
+          </div>
+        </button>
+        <button class="shame-persona-btn" data-persona="aytac" id="shamePersonaBtnAytac">
+          <div class="persona-avatar-mini">
+            <img src="https://cdn.discordapp.com/avatars/484044030640914437/a85444c050d4e5b4c749d702ec5cbd69.png?size=128" alt="AytacOnan2">
+          </div>
+          <div class="persona-meta">
+            <span class="persona-tag persona-tag-founder">ОСНОВАТЕЛЬ & БОТОДЕЛ</span>
+            <b class="persona-name">AytacOnan2 (Айтек)</b>
+            <span class="persona-sub">30 эпических грехов и багов</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- ХИРО-ПРОФИЛЬ (ОБНОВЛЯЕТСЯ ДИНАМИЧЕСКИ) -->
+      <div class="shame-profile-card" id="shameProfileCard">
         <div class="shame-profile-glow"></div>
         <div class="shame-profile-body">
           <!-- Аватарка с крутыми эффектами -->
@@ -1229,7 +1253,7 @@ div.scene-tooltip {
           <input type="text" id="shameSearchInput" placeholder="Поиск по 200 пунктам (тапочки, БТР, взятка, папаха)..." autocomplete="off">
           <button id="shameSearchClear" class="shame-clear-btn" aria-label="Очистить поиск" style="display:none">✕</button>
         </div>
-        <div class="shame-filter-tabs">
+        <div class="shame-filter-tabs" id="shameFilterTabs">
           <button class="shame-tab-btn active" data-filter="all">⚡ Все (200)</button>
           <button class="shame-tab-btn" data-filter="caucasus">🏔️ Кавказская Республика (1–100)</button>
           <button class="shame-tab-btn" data-filter="rusich">🛡️ БРН «Русич» (101–200)</button>

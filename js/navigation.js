@@ -103,7 +103,12 @@ export function initNavigation() {
     const el = e.target.closest('[data-go]');
     if (el) {
       e.preventDefault();
-      go(el.dataset.go);
+      const page = el.dataset.go;
+      const persona = el.dataset.persona || el.dataset.shamePersona;
+      go(page);
+      if (page === 'shame' && persona && typeof window.switchShamePersona === 'function') {
+        window.switchShamePersona(persona);
+      }
     }
   });
 

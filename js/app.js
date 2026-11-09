@@ -13,7 +13,7 @@ import { loadUpdates, loadPress, loadRules, loadFragment, initOrderToggles } fro
 import { initArchives, renderArchives, loadArchiveFile } from './archives.js';
 import { initDonatePhysics, initLanyard } from './donate.js';
 import { initGlobeNavigation } from './globe.js';
-import { initShameBoard } from './shame.js';
+import { initShameBoard, switchShamePersona } from './shame.js';
 
 // Экспорт глобальных функций в window для обратной совместимости с HTML onclick
 window.go = go;
@@ -35,6 +35,7 @@ window.toggleDrawer = toggleDrawer;
 window.loadSeason = loadSeason;
 window.animateStats = animateStats;
 window.initShameBoard = initShameBoard;
+window.switchShamePersona = switchShamePersona;
 
 // Инициализация при готовности DOM
 async function initApp() {

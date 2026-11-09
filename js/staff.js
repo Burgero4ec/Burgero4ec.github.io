@@ -119,6 +119,15 @@ let STAFF_MODAL_DATA = {
     avatar: 'https://cdn.discordapp.com/avatars/928360132482572371/75a6e47b610f5e5e0d0edf1e4d95e26b.png?size=1024',
     subtitle: 'Полный список дел и обвинений',
     selector: '[data-discord-id="928360132482572371"] .award'
+  },
+  aytac: {
+    title: 'AytacOnan2 (Айтек)',
+    role: 'ОСНОВАТЕЛЬ / СОЗДАТЕЛЬ БОТА',
+    badge: '⚡ ВЕЛИКИЙ ВАЙБКОДЕР (30 ГРЕХОВ)',
+    badgeClass: 'shame-badge',
+    avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/a85444c050d4e5b4c749d702ec5cbd69.png?size=1024',
+    subtitle: 'Реестр багов, вайбкодинга и экономических диверсий',
+    selector: '[data-discord-id="484044030640914437"] .award'
   }
 };
 
@@ -168,6 +177,12 @@ export function openStaffModal(key) {
         <div class="shame-banner-modal">
           <svg class="ic"><use href="#i-alert-circle"/></svg>
           <div><b>ОФИЦИАЛЬНАЯ ДОСКА ПОЗОРА:</b> Полный реестр курьёзов, сомнительных медалей и лудоманских выходок администратора. Главный лудик проекта под пристальным надзором!</div>
+        </div>
+      ` : ''}
+      ${key === 'aytac' ? `
+        <div class="shame-banner-modal" style="border-color:rgba(245,158,11,0.5);background:rgba(245,158,11,0.08)">
+          <svg class="ic" style="color:#f59e0b"><use href="#i-alert-circle"/></svg>
+          <div><b>ОФИЦИАЛЬНАЯ ДОСКА ПОЗОРА:</b> Реестр курьёзов, багов и великого вайбкодинга Отца Сервера. Священный Император Глобалленсии под пристальным надзором игроков!</div>
         </div>
       ` : ''}
       <div class="staff-items-container" id="staffItemsList">
