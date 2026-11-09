@@ -201,7 +201,10 @@ export function renderProfileCard(persona) {
         <div class="shame-avatar-ring" style="background: ${persona.avatarRing};"></div>
         <div class="shame-avatar-ring-outer"></div>
         <div class="shame-avatar-img-box">
-          <img src="${persona.avatar}" alt="${esc(persona.name)}" class="shame-avatar-img">
+          <img src="${persona.avatar}" alt="${esc(persona.name)}" class="shame-avatar-img" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='flex'">
+          <div class="shame-avatar-fallback" style="display:none">
+            ${persona.id === 'aytac' ? '👑' : '💀'}
+          </div>
         </div>
         <div class="shame-avatar-status" style="border-color:${persona.statusBorder};background:${persona.statusBg};color:${persona.statusColor}">
           <span class="${persona.statusClass}"></span> ${esc(persona.status)}
@@ -328,7 +331,7 @@ export async function switchShamePersona(personaKey) {
   searchQuery = '';
 
   // Обновляем кнопки переключателя
-  document.querySelectorAll('.shame-persona-btn').forEach(btn => {
+  document.querySelectorAll('.shame-persona-tab, .shame-persona-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.persona === personaKey);
   });
 
@@ -356,7 +359,7 @@ export async function initShameBoard() {
   const persona = PERSONA_CONFIGS[activePersona] || PERSONA_CONFIGS.ponzc;
 
   // Инициализация кнопок переключателя персон
-  document.querySelectorAll('.shame-persona-btn').forEach(btn => {
+  document.querySelectorAll('.shame-persona-tab, .shame-persona-btn').forEach(btn => {
     btn.onclick = () => {
       const p = btn.dataset.persona;
       if (p && p !== activePersona) {

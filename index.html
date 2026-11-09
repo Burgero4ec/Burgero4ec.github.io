@@ -1155,27 +1155,17 @@ div.scene-tooltip {
         <p class="lead">Официальный зал славы, курьёзов, багов и легендарных провалов ключевых лиц Global Lens</p>
       </div>
 
-      <!-- ПЕРЕКЛЮЧАТЕЛЬ ПЕРСОН НА ДОСКЕ ПОЗОРА -->
-      <div class="shame-persona-switcher">
-        <button class="shame-persona-btn active" data-persona="ponzc" id="shamePersonaBtnPonzc">
-          <div class="persona-avatar-mini">
-            <img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=128" alt="Ponzc">
-          </div>
-          <div class="persona-meta">
-            <span class="persona-tag">ВЕРХОВНЫЙ ЛУДИК</span>
-            <b class="persona-name">𝕻𝖔𝖓𝖟𝖈</b>
-            <span class="persona-sub">200 орденов и курьёзов</span>
-          </div>
+      <!-- КОМПАКТНЫЙ СЕГМЕНТИРОВАННЫЙ ПЕРЕКЛЮЧАТЕЛЬ -->
+      <div class="shame-persona-nav">
+        <button class="shame-persona-tab active" data-persona="ponzc" id="shamePersonaBtnPonzc">
+          <span class="persona-tab-emoji">💀</span>
+          <span class="persona-tab-name">𝕻𝖔𝖓𝖟𝖈</span>
+          <span class="persona-tab-badge">200</span>
         </button>
-        <button class="shame-persona-btn" data-persona="aytac" id="shamePersonaBtnAytac">
-          <div class="persona-avatar-mini">
-            <img src="https://cdn.discordapp.com/avatars/484044030640914437/a85444c050d4e5b4c749d702ec5cbd69.png?size=128" alt="AytacOnan2">
-          </div>
-          <div class="persona-meta">
-            <span class="persona-tag persona-tag-founder">ОСНОВАТЕЛЬ & БОТОДЕЛ</span>
-            <b class="persona-name">AytacOnan2 (Айтек)</b>
-            <span class="persona-sub">30 эпических грехов и багов</span>
-          </div>
+        <button class="shame-persona-tab" data-persona="aytac" id="shamePersonaBtnAytac">
+          <span class="persona-tab-emoji">👑</span>
+          <span class="persona-tab-name">Айтек</span>
+          <span class="persona-tab-badge pill-gold">30</span>
         </button>
       </div>
 
@@ -1188,7 +1178,8 @@ div.scene-tooltip {
             <div class="shame-avatar-ring"></div>
             <div class="shame-avatar-ring-outer"></div>
             <div class="shame-avatar-img-box">
-              <img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt="𝕻𝖔𝖓𝖟𝖈" class="shame-avatar-img">
+              <img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt="𝕻𝖔𝖓𝖟𝖈" class="shame-avatar-img" onerror="this.style.display='none';if(this.nextElementSibling)this.nextElementSibling.style.display='flex'">
+              <div class="shame-avatar-fallback" style="display:none">💀</div>
             </div>
             <div class="shame-avatar-status">
               <span class="dot-pulse-red"></span> ПОД НАДЗОРОМ
