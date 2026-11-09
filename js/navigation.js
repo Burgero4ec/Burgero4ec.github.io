@@ -79,6 +79,10 @@ export function go(rawId) {
     if (typeof window.renderCabinet === 'function') {
       window.renderCabinet();
     }
+  } else if (resolvedId === 'shame') {
+    if (typeof window.initShameBoard === 'function') {
+      window.initShameBoard();
+    }
   }
 
   // Запуск каскадной анимации появления элементов в стиле Odyssey

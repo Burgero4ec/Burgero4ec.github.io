@@ -714,6 +714,7 @@ div.scene-tooltip {
       <a class="nav-item" href="#" data-go="features"><svg class="ic"><use href="#i-star"/></svg>Возможности<span class="pill">Новое</span></a>
       <a class="nav-item" href="#" data-go="season"><svg class="ic"><use href="#i-map"/></svg>Текущий Сезон<span class="pill">S28</span></a>
       <a class="nav-item" href="#" data-go="staff"><svg class="ic"><use href="#i-users"/></svg>Состав Команды</a>
+      <a class="nav-item nav-item-shame" href="#" data-go="shame"><svg class="ic"><use href="#i-skull"/></svg>Доска позора<span class="pill pill-shame">200</span></a>
 
       <div class="nav-category-header nav-category-spacer">
         <svg class="nav-cat-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1058,11 +1059,7 @@ div.scene-tooltip {
 <article class="card" style="margin-top:0">
 <div class="member" data-discord-id="758998250610360341"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=1024" alt=""></span><div><b>Китаёзик</b><span class="m-role">ЗАМ. РУКОВОДСТВА</span><p>Создатель данного сайта и правая рука руководства. Держит в руках и код, и порядок.</p></div></div>
 <div class="member" data-discord-id="825769203347882042"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/825769203347882042/0e29d84c19de3e819e41e605d07743fa.png?size=1024" alt=""></span><div><b>Flowy 🌻</b><span class="m-role">АДМИНИСТРАТОР</span><p>Самый добрый и лучший человек в мире с большим сердцем. Всегда поможет, всегда поддержит.</p></div></div>
-<div class="member" data-discord-id="830428424677490728"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt=""></span><div><b>𝕻𝖔𝖓𝖟𝖈</b><span class="m-role">АДМИНИСТРАТОР</span><p>Администратор сервера Global Lens RP. Главный лудик проекта на Global Luds, обладатель персональной доски позора.</p><div class="member-actions-row" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-<button class="btn-achievements btn-shame" onclick="openStaffModal('ponzc')">
-<svg class="ic"><use href="#i-alert-circle"/></svg> Позорная доска (200)
-</button>
-</div></div></div>
+<div class="member" data-discord-id="830428424677490728"><span class="m-ava"><img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt=""></span><div><b>𝕻𝖔𝖓𝖟𝖈</b><span class="m-role">АДМИНИСТРАТОР</span><p>Администратор сервера Global Lens RP. Главный лудик проекта на Global Luds, обладатель персональной <a href="#" data-go="shame" style="color:#ef4444;text-decoration:underline">доски позора</a>.</p></div></div>
 
 </article>
 <div class="sec-title"><svg class="ic"><use href="#i-compass"/></svg>НАПРАВЛЕНИЯ / КУРАТОРЫ</div>
@@ -1141,6 +1138,101 @@ div.scene-tooltip {
 </article>
 </div>
 </div>
+    </section>
+
+    <!-- ДОСКА ПОЗОРА -->
+    <section class="page" id="page-shame">
+      <div class="shame-header-banner odyssey-item">
+        <div class="shame-tag"><span class="dot-pulse-red"></span>ОФИЦИАЛЬНЫЙ РЕЕСТР ПРОВАЛОВ И КУРЬЁЗОВ · GLOBAL LENS</div>
+        <h1>Доска <em>Позора</em></h1>
+        <p class="lead">Персональная аллея курьёзов администратора всея сервера и верховного лудика Global Luds</p>
+      </div>
+
+      <!-- ХИРО-ПРОФИЛЬ ПОНЗА -->
+      <div class="shame-profile-card odyssey-item">
+        <div class="shame-profile-glow"></div>
+        <div class="shame-profile-body">
+          <!-- Аватарка с крутыми эффектами -->
+          <div class="shame-avatar-wrapper">
+            <div class="shame-avatar-ring"></div>
+            <div class="shame-avatar-ring-outer"></div>
+            <div class="shame-avatar-img-box">
+              <img src="https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024" alt="𝕻𝖔𝖓𝖟𝖈" class="shame-avatar-img">
+            </div>
+            <div class="shame-avatar-status">
+              <span class="dot-pulse-red"></span> ПОД НАДЗОРОМ
+            </div>
+            <div class="shame-id-chip">ID: 830428424677490728</div>
+          </div>
+
+          <!-- Инфо-досье -->
+          <div class="shame-info">
+            <div class="shame-info-top">
+              <div class="shame-name-row">
+                <h2 class="shame-name">𝕻𝖔𝖓𝖟𝖈</h2>
+                <span class="shame-alias">@ponzc</span>
+              </div>
+              <div class="shame-badges-row">
+                <span class="shame-badge badge-admin"><svg class="ic"><use href="#i-crown"/></svg> АДМИНИСТРАТОР</span>
+                <span class="shame-badge badge-ludik">🎰 ГЛАВНЫЙ ЛУДИК</span>
+                <span class="shame-badge badge-cart"><svg class="ic"><use href="#i-compass"/></svg> КАРТОГРАФ</span>
+                <span class="shame-badge badge-record">💀 200 СТАТЕЙ И НАГРАД</span>
+              </div>
+            </div>
+
+            <p class="shame-bio">
+              Легендарный администратор проекта и бессменный покоритель рулеток Global Luds. Известен тактическими рейдами в тапочках, утерей плащ-палаток в бою, переговорами с пальмами и раздачей конфет сиротам перед телекамерами. За время службы удостоился 200 орденов, медалей и курьёзных знаков отличия в Кавказской Горской Республике и БРН «Русич».
+            </p>
+
+            <div class="shame-quote-box">
+              <svg class="ic quote-ic"><use href="#i-alert-circle"/></svg>
+              <div>
+                <b>ГЛАВНЫЙ ДЕВИЗ И ВЕРДИКТ:</b>
+                <span>«Доказал, что некоторые участники проекта также являются лудоманами»</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Статистика курьёзов -->
+        <div class="shame-stats-grid">
+          <div class="shame-stat-card">
+            <b class="shame-stat-num" id="shameCountTotal">200</b>
+            <span>Всего курьёзов и наград</span>
+          </div>
+          <div class="shame-stat-card">
+            <b class="shame-stat-num">100</b>
+            <span>Горская Республика (1–100)</span>
+          </div>
+          <div class="shame-stat-card">
+            <b class="shame-stat-num">100</b>
+            <span>БРН «Русич» (101–200)</span>
+          </div>
+          <div class="shame-stat-card">
+            <b class="shame-stat-num highlight">100%</b>
+            <span>Шанс слива в Global Luds</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ФИЛЬТРЫ И ЖИВОЙ ПОИСК -->
+      <div class="shame-toolbar odyssey-item">
+        <div class="shame-search-wrap">
+          <svg class="ic"><use href="#i-search"/></svg>
+          <input type="text" id="shameSearchInput" placeholder="Поиск по 200 пунктам (тапочки, БТР, взятка, папаха)..." autocomplete="off">
+          <button id="shameSearchClear" class="shame-clear-btn" aria-label="Очистить поиск" style="display:none">✕</button>
+        </div>
+        <div class="shame-filter-tabs">
+          <button class="shame-tab-btn active" data-filter="all">⚡ Все (200)</button>
+          <button class="shame-tab-btn" data-filter="caucasus">🏔️ Кавказская Республика (1–100)</button>
+          <button class="shame-tab-btn" data-filter="rusich">🛡️ БРН «Русич» (101–200)</button>
+        </div>
+      </div>
+
+      <!-- РЕЕСТР ПУНКТОВ (ГЕНЕРИРУЕТСЯ ИЗ JS/SHAME.JS) -->
+      <div class="shame-list-container odyssey-item" id="shameItemsGrid">
+        <p class="loading">Загрузка данных доски позора...</p>
+      </div>
     </section>
 
     <!-- КАБИНЕТ -->
@@ -1302,6 +1394,8 @@ div.scene-tooltip {
 
 <!-- SVG СПРАЙТ -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><path d="M8 20v2h8v-2M12 2a9 9 0 0 0-9 9c0 3.8 2.3 7 5.7 8.3v1.7a1 1 0 0 0 1 1h4.6a1 1 0 0 0 1-1v-1.7c3.4-1.3 5.7-4.5 5.7-8.3a9 9 0 0 0-9-9zM10 16h4"/></symbol>
+  <symbol id="i-alert-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></symbol>
   <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M12 11v5"/></symbol>
   <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>

@@ -13,6 +13,7 @@ import { loadUpdates, loadPress, loadRules, loadFragment, initOrderToggles } fro
 import { initArchives, renderArchives, loadArchiveFile } from './archives.js';
 import { initDonatePhysics, initLanyard } from './donate.js';
 import { initGlobeNavigation } from './globe.js';
+import { initShameBoard } from './shame.js';
 
 // Экспорт глобальных функций в window для обратной совместимости с HTML onclick
 window.go = go;
@@ -33,6 +34,7 @@ window.openDrawer = openDrawer;
 window.toggleDrawer = toggleDrawer;
 window.loadSeason = loadSeason;
 window.animateStats = animateStats;
+window.initShameBoard = initShameBoard;
 
 // Инициализация при готовности DOM
 async function initApp() {
@@ -86,6 +88,9 @@ async function initApp() {
   } else {
     decorateStaff();
   }
+
+  // 13. Доска позора Понза
+  initShameBoard();
 
   // 12. Первичный роутинг по хэшу URL (#season, #staff, #donate и т.д.)
   const hash = window.location.hash.replace(/^#/, '').trim();

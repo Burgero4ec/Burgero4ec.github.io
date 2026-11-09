@@ -1709,3 +1709,527 @@ model-viewer {
 
 
 
+
+/* ==========================================================================
+   ДОСКА ПОЗОРА (SHAME BOARD) ДЛЯ ПОНЗА
+   ========================================================================== */
+
+/* Ссылка в боковом меню */
+.nav-item-shame {
+  color: #fca5a5;
+  transition: all 0.2s ease;
+}
+.nav-item-shame:hover,
+.nav-item-shame.active {
+  color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.12) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+.nav-item-shame .ic {
+  color: #ef4444;
+}
+.pill-shame {
+  background: rgba(239, 68, 68, 0.18);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  font-weight: 800;
+  margin-left: auto;
+}
+
+/* Шапка раздела */
+.shame-header-banner {
+  margin-bottom: 24px;
+}
+.shame-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.dot-pulse-red {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 10px #ef4444;
+  animation: pulseRed 1.8s infinite;
+}
+@keyframes pulseRed {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+/* Хиро-карточка Понза */
+.shame-profile-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(239, 68, 68, 0.06) 0%, rgba(15, 23, 42, 0.7) 40%, rgba(10, 15, 25, 0.95) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  box-shadow: 0 10px 40px -10px rgba(239, 68, 68, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.shame-profile-glow {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.shame-profile-body {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .shame-profile-body {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+}
+
+/* Крутой блок аватарки */
+.shame-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shame-avatar-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #ef4444, #eab308, #ef4444, #f97316, #ef4444);
+  animation: shameSpin 8s linear infinite;
+  z-index: 1;
+  filter: blur(1.5px);
+  opacity: 0.85;
+}
+.shame-avatar-ring-outer {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px dashed rgba(239, 68, 68, 0.4);
+  animation: shameSpinRev 16s linear infinite;
+  z-index: 0;
+}
+@keyframes shameSpin {
+  100% { transform: rotate(360deg); }
+}
+@keyframes shameSpinRev {
+  100% { transform: rotate(-360deg); }
+}
+.shame-avatar-img-box {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #090d16;
+  z-index: 2;
+  overflow: hidden;
+  border: 3.5px solid #0b0f19;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.35);
+}
+.shame-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.shame-avatar-wrapper:hover .shame-avatar-img {
+  transform: scale(1.08);
+}
+.shame-avatar-status {
+  position: relative;
+  margin-top: 10px;
+  z-index: 3;
+  background: #190808;
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  color: #ef4444;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+.shame-id-chip {
+  margin-top: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted, #94a3b8);
+  letter-spacing: 0.05em;
+}
+
+/* Информация о Понзе */
+.shame-info {
+  flex: 1;
+}
+.shame-info-top {
+  margin-bottom: 12px;
+}
+.shame-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .shame-name-row {
+    justify-content: center;
+  }
+}
+.shame-name {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 30%, #fca5a5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.shame-alias {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #ef4444;
+  font-weight: 600;
+}
+.shame-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .shame-badges-row {
+    justify-content: center;
+  }
+}
+.shame-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+}
+.shame-badge .ic {
+  width: 14px;
+  height: 14px;
+}
+.shame-badge.badge-admin {
+  background: rgba(234, 179, 8, 0.12);
+  border: 1px solid rgba(234, 179, 8, 0.4);
+  color: #eab308;
+}
+.shame-badge.badge-ludik {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #ef4444;
+}
+.shame-badge.badge-cart {
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #60a5fa;
+}
+.shame-badge.badge-record {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+}
+
+.shame-bio {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-dim, #cbd5e1);
+  margin: 12px 0 16px;
+}
+
+.shame-quote-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(239, 68, 68, 0.09);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-left: 3px solid #ef4444;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #fca5a5;
+  line-height: 1.5;
+}
+.shame-quote-box .quote-ic {
+  width: 18px;
+  height: 18px;
+  color: #ef4444;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.shame-quote-box b {
+  color: #ef4444;
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+
+/* Статистика */
+.shame-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+@media (max-width: 768px) {
+  .shame-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.shame-stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.shame-stat-card:hover {
+  background: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+.shame-stat-num {
+  display: block;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--text, #fff);
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.shame-stat-num.highlight {
+  color: #ef4444;
+  text-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+.shame-stat-card span {
+  font-size: 11px;
+  color: var(--text-muted, #94a3b8);
+}
+
+/* Панель поиска и фильтров */
+.shame-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.shame-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+}
+.shame-search-wrap .ic {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #64748b;
+  pointer-events: none;
+}
+.shame-search-wrap input {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text, #fff);
+  padding: 10px 38px 10px 40px;
+  border-radius: 10px;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.shame-search-wrap input:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+  background: rgba(15, 23, 42, 0.95);
+}
+.shame-clear-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+.shame-clear-btn:hover {
+  color: #ef4444;
+}
+
+.shame-filter-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.shame-tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-dim, #cbd5e1);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.shame-tab-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+.shame-tab-btn.active {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.25);
+}
+
+/* Сетка карточек позора */
+.shame-list-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+@media (max-width: 900px) {
+  .shame-list-container {
+    grid-template-columns: 1fr;
+  }
+}
+.shame-card {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: all 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+.shame-card:hover {
+  background: rgba(239, 68, 68, 0.05);
+  border-color: rgba(239, 68, 68, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -5px rgba(239, 68, 68, 0.18);
+}
+.shame-card.shame-special {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(234, 179, 8, 0.08) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+}
+.shame-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.shame-card-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+.shame-cat-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.shame-cat-tag.special {
+  background: rgba(234, 179, 8, 0.15);
+  color: #eab308;
+  border: 1px solid rgba(234, 179, 8, 0.4);
+}
+.shame-cat-tag.caucasus {
+  background: rgba(249, 115, 22, 0.12);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+.shame-cat-tag.rusich {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.shame-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.shame-card-desc {
+  font-size: 12.5px;
+  color: var(--text-dim, #cbd5e1);
+  line-height: 1.5;
+}
+
+.shame-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  color: var(--text-muted, #94a3b8);
+}
+.shame-empty .ic {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 12px;
+  color: #64748b;
+}
+.shame-empty b {
+  display: block;
+  font-size: 16px;
+  color: var(--text, #fff);
+  margin-bottom: 6px;
+}
