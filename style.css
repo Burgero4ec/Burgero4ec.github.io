@@ -1781,6 +1781,7 @@ model-viewer {
 
 /* Компактный сегментированный переключатель персон на доске позора */
 .shame-persona-nav {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1789,7 +1790,8 @@ model-viewer {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 5px;
-  max-width: 380px;
+  max-width: 480px;
+  width: fit-content;
   margin: 0 auto 28px;
   backdrop-filter: blur(12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
@@ -1797,10 +1799,60 @@ model-viewer {
 @media (max-width: 480px) {
   .shame-persona-nav {
     max-width: 100%;
+    width: 100%;
+    gap: 4px;
+    padding: 4px;
   }
 }
+
+/* Скользящий плавающий индикатор переключения (Glider) */
+.shame-persona-glider {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: calc(100% - 10px);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  background: rgba(239, 68, 68, 0.16);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 0.34s cubic-bezier(0.2, 0.85, 0.25, 1.15),
+              width 0.34s cubic-bezier(0.2, 0.85, 0.25, 1.15),
+              opacity 0.22s ease,
+              background 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  will-change: transform, width, opacity;
+}
+
+.shame-persona-glider.ready {
+  opacity: 1;
+}
+
+.shame-persona-glider[data-persona="ponzc"] {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.55);
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.shame-persona-glider[data-persona="kitaezik"] {
+  background: rgba(6, 182, 212, 0.18);
+  border-color: rgba(6, 182, 212, 0.55);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.shame-persona-glider[data-persona="aytac"] {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
 .shame-persona-tab {
   flex: 1;
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1814,29 +1866,99 @@ model-viewer {
   font-size: 13.5px;
   font-weight: 800;
   cursor: pointer;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.22s ease, transform 0.14s ease;
   user-select: none;
+  white-space: nowrap;
 }
+
+@media (max-width: 480px) {
+  .shame-persona-tab {
+    padding: 8px 10px;
+    font-size: 12.5px;
+    gap: 6px;
+  }
+}
+
 .shame-persona-tab:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
+  color: #f1f5f9;
 }
+
+.shame-persona-tab:active {
+  transform: scale(0.95);
+}
+
 .shame-persona-tab.active {
   color: #ffffff;
+}
+
+/* Статический фоллбэк для табов, если глайдер ещё не инициализировался JS */
+.shame-persona-nav:not(.glider-active) .shame-persona-tab.active {
   background: rgba(239, 68, 68, 0.16);
   border-color: rgba(239, 68, 68, 0.45);
   box-shadow: 0 4px 16px rgba(239, 68, 68, 0.25);
 }
-.shame-persona-tab[data-persona="kitaezik"].active {
+.shame-persona-nav:not(.glider-active) .shame-persona-tab[data-persona="kitaezik"].active {
   background: rgba(6, 182, 212, 0.16);
   border-color: rgba(6, 182, 212, 0.5);
   box-shadow: 0 4px 16px rgba(6, 182, 212, 0.25);
 }
+.shame-persona-nav:not(.glider-active) .shame-persona-tab[data-persona="aytac"].active {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+}
+
+.persona-tab-emoji {
+  font-size: 16px;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.shame-persona-tab.active .persona-tab-emoji {
+  animation: tabEmojiPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes tabEmojiPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35) rotate(-10deg); }
+  75% { transform: scale(0.95) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.persona-tab-name {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.persona-tab-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shame-persona-tab.active .persona-tab-badge {
+  transform: scale(1.05);
+}
+
 .persona-tab-badge.pill-cyan {
   background: rgba(6, 182, 212, 0.2);
   color: #67e8f9;
   border-color: rgba(6, 182, 212, 0.35);
 }
+
+.persona-tab-badge.pill-gold {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
 .dot-pulse-cyan {
   width: 7px;
   height: 7px;
@@ -1850,33 +1972,35 @@ model-viewer {
   50% { opacity: 0.45; transform: scale(0.85); box-shadow: 0 0 3px #06b6d4; }
 }
 
-.shame-persona-tab[data-persona="aytac"].active {
-  background: rgba(245, 158, 11, 0.16);
-  border-color: rgba(245, 158, 11, 0.5);
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+/* Анимация плавного переключения контента досье и карточек */
+.shame-card-enter {
+  animation: shameCardFadeIn 0.36s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.persona-tab-emoji {
-  font-size: 16px;
-  line-height: 1;
+
+@keyframes shameCardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.988);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
-.persona-tab-name {
-  font-weight: 800;
-  letter-spacing: -0.01em;
+
+.shame-grid-enter {
+  animation: shameGridFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.persona-tab-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 800;
-  padding: 2px 7px;
-  border-radius: 999px;
-  background: rgba(239, 68, 68, 0.2);
-  color: #fca5a5;
-  border: 1px solid rgba(239, 68, 68, 0.3);
-}
-.persona-tab-badge.pill-gold {
-  background: rgba(245, 158, 11, 0.2);
-  color: #fcd34d;
-  border-color: rgba(245, 158, 11, 0.35);
+
+@keyframes shameGridFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dot-pulse-amber {

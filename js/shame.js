@@ -372,20 +372,58 @@ export async function renderCards() {
   }).join('');
 }
 
+export function updateShameGlider(personaKey = activePersona, animate = true) {
+  const nav = document.getElementById('shamePersonaNav');
+  const glider = document.getElementById('shamePersonaGlider');
+  if (!nav || !glider) return;
+
+  const targetTab = nav.querySelector(`.shame-persona-tab[data-persona="${personaKey}"]`);
+  if (!targetTab) return;
+
+  // Если секция скрыта (display: none), offsetWidth будет 0 — отложим расчет
+  if (targetTab.offsetWidth === 0) return;
+
+  if (!animate) {
+    glider.style.transition = 'none';
+  } else {
+    glider.style.transition = '';
+  }
+
+  const left = targetTab.offsetLeft;
+  const top = targetTab.offsetTop;
+  const width = targetTab.offsetWidth;
+  const height = targetTab.offsetHeight;
+
+  glider.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+  glider.style.width = `${width}px`;
+  glider.style.height = `${height}px`;
+  glider.setAttribute('data-persona', personaKey);
+  glider.classList.add('ready');
+  nav.classList.add('glider-active');
+
+  if (!animate) {
+    void glider.offsetHeight; // force reflow
+    glider.style.transition = '';
+  }
+}
+
 export async function switchShamePersona(personaKey) {
   if (!PERSONA_CONFIGS[personaKey]) return;
   activePersona = personaKey;
   activeFilter = 'all';
   searchQuery = '';
 
-  // Обновляем кнопки переключателя
+  // 1. Плавная скользящая анимация переключения бегунка (Glider)
+  updateShameGlider(personaKey, true);
+
+  // 2. Обновляем активные классы кнопок
   document.querySelectorAll('.shame-persona-tab, .shame-persona-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.persona === personaKey);
   });
 
   const persona = PERSONA_CONFIGS[personaKey];
 
-  // Сброс поля поиска
+  // 3. Сброс поля поиска
   const searchInput = document.getElementById('shameSearchInput');
   const clearBtn = document.getElementById('shameSearchClear');
   if (searchInput) {
@@ -394,10 +432,31 @@ export async function switchShamePersona(personaKey) {
   }
   if (clearBtn) clearBtn.style.display = 'none';
 
-  // Рендерим шапку профиля, вкладки и карточки
+  // 4. Рендерим шапку профиля, вкладки и карточки
   renderProfileCard(persona);
   renderFilterTabs(persona);
   await renderCards();
+
+  // 5. Запуск анимаций переключения контента досье и карточек
+  const card = document.getElementById('shameProfileCard');
+  const grid = document.getElementById('shameItemsGrid');
+  const tabs = document.getElementById('shameFilterTabs');
+
+  if (card) {
+    card.classList.remove('shame-card-enter');
+    void card.offsetWidth;
+    card.classList.add('shame-card-enter');
+  }
+  if (tabs) {
+    tabs.classList.remove('shame-card-enter');
+    void tabs.offsetWidth;
+    tabs.classList.add('shame-card-enter');
+  }
+  if (grid) {
+    grid.classList.remove('shame-grid-enter');
+    void grid.offsetWidth;
+    grid.classList.add('shame-grid-enter');
+  }
 }
 
 export async function initShameBoard() {
@@ -443,8 +502,29 @@ export async function initShameBoard() {
   renderProfileCard(persona);
   renderFilterTabs(persona);
   await renderCards();
+
+  // Инициализируем позицию скользящего глайдера
+  requestAnimationFrame(() => {
+    updateShameGlider(activePersona, false);
+  });
+
+  // Автоподстройка глайдера при ресайзе окна
+  if (!window._shameResizeAttached) {
+    window._shameResizeAttached = true;
+    window.addEventListener('resize', () => {
+      updateShameGlider(activePersona, false);
+    });
+    const nav = document.getElementById('shamePersonaNav');
+    if (nav && window.ResizeObserver) {
+      const ro = new ResizeObserver(() => {
+        updateShameGlider(activePersona, false);
+      });
+      ro.observe(nav);
+    }
+  }
 }
 
 // Экспорт в глобальное пространство window
 window.initShameBoard = initShameBoard;
 window.switchShamePersona = switchShamePersona;
+window.updateShameGlider = updateShameGlider;

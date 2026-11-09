@@ -83,6 +83,11 @@ export function go(rawId) {
     if (typeof window.initShameBoard === 'function') {
       window.initShameBoard();
     }
+    requestAnimationFrame(() => {
+      if (typeof window.updateShameGlider === 'function') {
+        window.updateShameGlider(undefined, false);
+      }
+    });
   }
 
   // Запуск каскадной анимации появления элементов в стиле Odyssey
