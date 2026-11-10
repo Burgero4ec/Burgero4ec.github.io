@@ -12,7 +12,8 @@ let isInitialized = false;
 const shameDataCache = {
   ponzc: null,
   aytac: null,
-  kitaezik: null
+  kitaezik: null,
+  qwertx: null
 };
 
 export const PERSONA_CONFIGS = {
@@ -159,6 +160,55 @@ export const PERSONA_CONFIGS = {
       if (item.id >= 21 && item.id <= 30) return '<span class="shame-cat-tag emperor">ИМПЕРАТОР</span>';
       return '';
     }
+  },
+  qwertx: {
+    id: 'qwertx',
+    name: 'ℚ𝕎𝔼ℝ𝕋𝕏',
+    alias: '@qwertx',
+    discordId: '1066701976949239905',
+    avatar: 'https://cdn.discordapp.com/avatars/1066701976949239905/d99b9aa9ae64e50db02a59e027222752.png?size=1024',
+    status: 'ПАЛ В ОБОРОНЕ',
+    statusClass: 'dot-pulse-purple',
+    statusBorder: 'rgba(168, 85, 247, 0.55)',
+    statusBg: '#150a21',
+    statusColor: '#c084fc',
+    glowColor: 'rgba(168, 85, 247, 0.2)',
+    cardBorder: 'rgba(168, 85, 247, 0.35)',
+    avatarRing: 'conic-gradient(from 0deg, #a855f7, #ec4899, #8b5cf6, #3b82f6, #a855f7)',
+    badges: [
+      { class: 'badge-deputy', icon: '#i-shield', text: 'ЗАМ. КУРАТОРА' },
+      { class: 'badge-scale', icon: '#i-scale', text: '⚖️ ОПРАВДАН СУДОМ' },
+      { class: 'badge-record', text: '📜 200 СТАТЕЙ ТРИБУНАЛА' },
+      { class: 'badge-medal', icon: '#i-star', text: '🎖️ МЕДАЛЬ ЗА ОБОРОНУ' }
+    ],
+    bio: 'Легендарный бывший зам. куратора политологов. Прошёл через беспрецедентный судебный процесс из 200 тяжелейших статей трибунала и был полностью оправдан верховным судом проекта. Однако главную битву проиграл в реале: ушёл из проекта, пав смертью храбрых при обороне от отношений с девушкой.',
+    quoteTitle: 'ГЛАВНЫЙ ДЕВИЗ И ВЕРДИКТ:',
+    quoteText: '«Ушёл, пав смертью храбрых при обороне от отношений с девушкой»',
+    stats: [
+      { num: '201', numId: 'shameCountTotal', label: 'Всего статей и наград' },
+      { num: '200', label: 'Статей трибунала (1–200)' },
+      { num: '1', label: 'Высшая боевая медаль (201)' },
+      { num: '100%', highlight: true, label: 'Оборона от отношений' }
+    ],
+    searchPlaceholder: 'Поиск по статьям и наградам (геноцид, скот, оборона, мигрант)...',
+    tabs: [
+      { id: 'all', label: '⚡ Все (201)' },
+      { id: 'tribunal', label: '⚖️ Трибунал (1–200)' },
+      { id: 'medal', label: '🎖️ Медаль (201)' }
+    ],
+    filterItem: (item, filter) => {
+      if (filter === 'tribunal') return item.id >= 1 && item.id <= 200;
+      if (filter === 'medal') return item.id === 201 || item.id === 0;
+      return true;
+    },
+    getBadgeHtml: (item) => {
+      if (item.id === 0) return '<span class="shame-cat-tag special">ВЕРДИКТ</span>';
+      if (item.id === 201) return '<span class="shame-cat-tag medal" style="background:rgba(168,85,247,0.22);color:#c084fc;border:1px solid rgba(168,85,247,0.45)">🎖️ ВЫСШАЯ МЕДАЛЬ</span>';
+      if (item.id === 200) return '<span class="shame-cat-tag red" style="background:rgba(239,68,68,0.2);color:#f87171;border:1px solid rgba(239,68,68,0.45)">СТАТЬЯ 200</span>';
+      if (item.id <= 50) return '<span class="shame-cat-tag qwertx-tribunal" style="background:rgba(239,68,68,0.14);color:#f87171;border:1px solid rgba(239,68,68,0.3)">ТРИБУНАЛ</span>';
+      if (item.id <= 150) return '<span class="shame-cat-tag qwertx-offense" style="background:rgba(245,158,11,0.14);color:#fbbf24;border:1px solid rgba(245,158,11,0.3)">ОБВИНЕНИЕ</span>';
+      return '<span class="shame-cat-tag qwertx-heavy" style="background:rgba(168,85,247,0.14);color:#c084fc;border:1px solid rgba(168,85,247,0.3)">ТЯЖКАЯ СТАТЬЯ</span>';
+    }
   }
 };
 
@@ -167,14 +217,24 @@ export async function loadShameData(personaKey = activePersona) {
     return shameDataCache[personaKey];
   }
 
-  const fileName = personaKey === 'aytac' ? 'data/awards_aytac.json' : (personaKey === 'kitaezik' ? 'data/awards_kitaezik.json' : 'data/awards_ponzc.json');
+  const fileNames = {
+    aytac: 'data/awards_aytac.json',
+    kitaezik: 'data/awards_kitaezik.json',
+    qwertx: 'data/accusations_qwertx.json',
+    ponzc: 'data/awards_ponzc.json'
+  };
+  const fileName = fileNames[personaKey] || 'data/awards_ponzc.json';
 
   try {
     const res = await fetch(fileName);
     if (res.ok) {
       const data = await res.json();
       if (data && data.items && data.items.length) {
-        shameDataCache[personaKey] = data.items;
+        shameDataCache[personaKey] = data.items.map(it => ({
+          ...it,
+          name: it.name || it.title || '',
+          description: it.description || ''
+        }));
         return shameDataCache[personaKey];
       }
     }

@@ -1795,13 +1795,13 @@ model-viewer {
 .shame-persona-nav {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 4px;
   background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 14px;
   padding: 4px;
-  max-width: 460px;
+  max-width: 580px;
   width: 100%;
   margin: 0 auto 28px;
   backdrop-filter: blur(14px);
@@ -1856,6 +1856,12 @@ model-viewer {
   box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
+.shame-persona-glider[data-persona="qwertx"] {
+  background: rgba(168, 85, 247, 0.18);
+  border-color: rgba(168, 85, 247, 0.55);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
 .shame-persona-tab {
   width: 100%;
   min-width: 0; /* Равномерное деление колонок grid без распирания */
@@ -1908,6 +1914,11 @@ model-viewer {
   background: rgba(245, 158, 11, 0.16);
   border-color: rgba(245, 158, 11, 0.5);
   box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+}
+.shame-persona-nav:not(.glider-active) .shame-persona-tab[data-persona="qwertx"].active {
+  background: rgba(168, 85, 247, 0.16);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.25);
 }
 
 .persona-tab-emoji {
@@ -1968,6 +1979,12 @@ model-viewer {
   background: rgba(245, 158, 11, 0.2);
   color: #fcd34d;
   border-color: rgba(245, 158, 11, 0.35);
+}
+
+.persona-tab-badge.pill-purple {
+  background: rgba(168, 85, 247, 0.2);
+  color: #d8b4fe;
+  border-color: rgba(168, 85, 247, 0.35);
 }
 
 /* Мобильная адаптация для смартфонов (до 480px) */
@@ -2076,6 +2093,20 @@ model-viewer {
   animation: pulseAmber 1.8s infinite;
 }
 @keyframes pulseAmber {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+.dot-pulse-purple {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a855f7;
+  box-shadow: 0 0 10px #a855f7;
+  animation: pulsePurple 1.8s infinite;
+}
+@keyframes pulsePurple {
   0% { transform: scale(0.9); opacity: 0.6; }
   50% { transform: scale(1.3); opacity: 1; }
   100% { transform: scale(0.9); opacity: 0.6; }
