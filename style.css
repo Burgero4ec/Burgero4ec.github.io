@@ -1783,9 +1783,8 @@ model-viewer {
 /* Компактный сегментированный переключатель персон на доске позора */
 .shame-persona-nav {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 4px;
   background: rgba(15, 23, 42, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -1797,12 +1796,14 @@ model-viewer {
   backdrop-filter: blur(14px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* Скользящий плавающий индикатор переключения (Glider) */
 .shame-persona-glider {
   position: absolute;
-  top: 0;
+  top: 4px;
+  bottom: 4px;
   left: 0;
   margin: 0;
   box-sizing: border-box;
@@ -1815,7 +1816,6 @@ model-viewer {
   box-shadow: 0 4px 18px rgba(239, 68, 68, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   transition: transform 0.32s cubic-bezier(0.2, 0.85, 0.25, 1.15),
               width 0.32s cubic-bezier(0.2, 0.85, 0.25, 1.15),
-              height 0.2s ease,
               opacity 0.2s ease,
               background 0.3s ease,
               border-color 0.3s ease,
@@ -1846,15 +1846,15 @@ model-viewer {
 }
 
 .shame-persona-tab {
-  flex: 1 1 0;
-  min-width: 0; /* Разрешаем flex-элементам пропорционально ужиматься */
+  width: 100%;
+  min-width: 0; /* Равномерное деление колонок grid без распирания */
   position: relative;
   z-index: 2;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 8px 12px;
+  gap: 6px;
+  padding: 8px 10px;
   border-radius: 10px;
   border: 1px solid transparent;
   background: transparent;
@@ -1969,10 +1969,12 @@ model-viewer {
     border-radius: 12px;
   }
   .shame-persona-glider {
+    top: 3px;
+    bottom: 3px;
     border-radius: 9px;
   }
   .shame-persona-tab {
-    padding: 7px 6px;
+    padding: 7px 4px;
     font-size: 11.5px;
     gap: 4px;
     border-radius: 9px;
@@ -1982,7 +1984,7 @@ model-viewer {
   }
   .persona-tab-badge {
     font-size: 9.5px;
-    padding: 1px 4.5px;
+    padding: 1px 4px;
   }
 }
 
@@ -1990,12 +1992,16 @@ model-viewer {
 @media (max-width: 360px) {
   .shame-persona-nav {
     gap: 2px;
-    padding: 2px;
+    padding: 2.5px;
+  }
+  .shame-persona-glider {
+    top: 2.5px;
+    bottom: 2.5px;
   }
   .shame-persona-tab {
-    padding: 6px 3px;
+    padding: 6px 2px;
     font-size: 10.5px;
-    gap: 2.5px;
+    gap: 2px;
   }
   .persona-tab-emoji {
     font-size: 12px;
