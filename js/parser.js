@@ -10,9 +10,14 @@ export function inline(s) {
   s = esc(s);
   s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
   s = s.replace(/\|\|([\s\S]+?)\|\|/g, '<span class="spoiler">$1</span>');
+  // Markdown ссылки вида [текст](https://...)
+  s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (m, txt, url) => {
+    return '<a href="' + safeUrl(url) + '" target="_blank" rel="noopener noreferrer">' + txt + '</a>';
+  });
   s = s.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   s = s.replace(/__([^_]+)__/g, '<u>$1</u>');
+  s = s.replace(/(^|[^_])_([^_]+)_(?![_a-zA-Z0-9])/g, '$1<em>$2</em>');
   s = s.replace(/~~([^~]+)~~/g, '<s>$1</s>');
   s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
   s = s.replace(/(https?:\/\/[^\s<]+)/g, (m, url) => {
@@ -61,7 +66,7 @@ export function renderMarkdown(raw) {
       continue;
     }
 
-    if (/^─+$/.test(t)) {
+    if (/^(?:─+|---+|\*\*\*+|___+)\s*$/.test(t)) {
       closeList();
       html += '<div class="dc-divider"></div>';
       continue;
@@ -71,9 +76,19 @@ export function renderMarkdown(raw) {
       html += '<div class="dc-gap"></div>';
       continue;
     }
+    if (t.startsWith('> ')) {
+      closeList();
+      html += '<blockquote class="dc-quote">' + inline(t.slice(2)) + '</blockquote>';
+      continue;
+    }
     if (t.startsWith('-# ')) {
       closeList();
       html += '<div class="small-text">' + inline(t.slice(3)) + '</div>';
+      continue;
+    }
+    if (t.startsWith('#### ')) {
+      closeList();
+      html += '<div class="dc-h3">' + inline(t.slice(5)) + '</div>';
       continue;
     }
     if (t.startsWith('### ')) {
@@ -92,7 +107,7 @@ export function renderMarkdown(raw) {
       continue;
     }
 
-    const ulm = t.match(/^[-*] (.+)/);
+    const ulm = t.match(/^[-*+] (.+)/);
     if (ulm) {
       if (listType !== 'ul') {
         closeList();
@@ -124,14 +139,5 @@ export function renderMarkdown(raw) {
 }
 
 export function md(t) {
-  if (!t) return '';
-  return t.split(/\r?\n/).map(line => {
-    const l = line.trim();
-    if (!l) return '';
-    if (l.startsWith('### ')) return '<h4>' + esc(l.slice(4)) + '</h4>';
-    if (l.startsWith('## ')) return '<h4>' + esc(l.slice(3)) + '</h4>';
-    if (l.startsWith('# ')) return '<h3>' + esc(l.slice(2)) + '</h3>';
-    if (/^[-*] /.test(l)) return '<p style="margin-left:16px">— ' + esc(l.slice(2)) + '</p>';
-    return '<p>' + esc(l) + '</p>';
-  }).join('');
+  return renderMarkdown(t);
 }

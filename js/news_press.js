@@ -128,25 +128,87 @@ export async function loadPress() {
 }
 
 export function md(t) {
-  return t.split(/\r?\n/).map(line => {
-    const l = line.trim();
-    if (!l) return '';
-    if (l.startsWith('### ')) return '<h4>' + esc(l.slice(4)) + '</h4>';
-    if (l.startsWith('## ')) return '<h4>' + esc(l.slice(3)) + '</h4>';
-    if (l.startsWith('# ')) return '<h3>' + esc(l.slice(2)) + '</h3>';
-    if (/^[-*] /.test(l)) return '<p style="margin-left:16px">— ' + esc(l.slice(2)) + '</p>';
-    return '<p>' + esc(l) + '</p>';
-  }).join('');
+  return renderMarkdown(t);
 }
+
+const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 export async function loadRules(key, elId) {
   const el = document.getElementById(elId);
   if (!el) return;
+
+  const cacheKey = `gl_rules_${key}`;
+  const timeKey = `gl_rules_time_${key}`;
+  const localFile = key === 'bot' ? 'data/rules_bot.md' : 'data/rules_privacy.md';
+  const remoteUrl = GH_URLS[key];
+
+  let cachedText = null;
+  let lastChecked = 0;
   try {
-    const r = await fetch(GH_URLS[key]);
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    el.innerHTML = md(await r.text());
-  } catch (e) {
+    cachedText = localStorage.getItem(cacheKey);
+    lastChecked = parseInt(localStorage.getItem(timeKey) || '0', 10);
+  } catch (e) {}
+
+  const renderContent = (text) => {
+    el.innerHTML = renderMarkdown(text);
+    refreshOdysseyElements(el);
+  };
+
+  // 1. Мгновенно рендерим из кэша localStorage, если он есть
+  if (cachedText) {
+    renderContent(cachedText);
+  }
+
+  const now = Date.now();
+  const needsCheck = !cachedText || !lastChecked || (now - lastChecked > ONE_WEEK_MS);
+
+  if (needsCheck) {
+    // Выполняем проверку обновления раз в неделю
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+      let r = null;
+      try {
+        r = await fetch(remoteUrl, { signal: controller.signal });
+      } catch (netErr) {
+        r = await fetch(localFile + '?t=' + now);
+      } finally {
+        clearTimeout(timeoutId);
+      }
+
+      if (r && r.ok) {
+        const text = await r.text();
+        if (text && text.trim()) {
+          try {
+            localStorage.setItem(cacheKey, text);
+            localStorage.setItem(timeKey, String(now));
+          } catch (eStore) {}
+          renderContent(text);
+          return;
+        }
+      }
+    } catch (err) {
+      console.warn(`[Rules] Weekly sync for ${key} failed, falling back:`, err);
+    }
+  }
+
+  // 2. Если кэша не было (первый запуск) или сеть не ответила — читаем локальный файл
+  if (!el.children.length || el.querySelector('.loading')) {
+    try {
+      const rLocal = await fetch(localFile + '?t=' + now);
+      if (rLocal.ok) {
+        const text = await rLocal.text();
+        try {
+          localStorage.setItem(cacheKey, text);
+          localStorage.setItem(timeKey, String(now));
+        } catch (e) {}
+        renderContent(text);
+        return;
+      }
+    } catch (eLocal) {}
+  }
+
+  if (!el.children.length || el.querySelector('.loading')) {
     el.innerHTML = '<p class="loading">Не удалось загрузить правила. Проверьте подключение к сети.</p>';
   }
 }

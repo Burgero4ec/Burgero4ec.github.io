@@ -339,6 +339,17 @@ blockquote { border-left: 3px solid var(--acc2); background: var(--acc-soft); pa
 .rule ul { margin: 0 0 8px 18px; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .pun { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--red); background: rgba(248,113,113,.08); border: 1px solid rgba(248,113,113,.3); padding: 3px 9px; border-radius: 6px; }
 
+/* Правила бота и приватность */
+#rulesBotBody, #rulesPrivacyBody { line-height: 1.75; }
+#rulesBotBody .dc-h1, #rulesPrivacyBody .dc-h1 { margin: 8px 0 16px; font-size: 21px; }
+#rulesBotBody .dc-h2, #rulesPrivacyBody .dc-h2 { margin: 24px 0 12px; font-size: 17px; border-left: 3px solid var(--acc); padding-left: 12px; }
+#rulesBotBody .dc-h3, #rulesPrivacyBody .dc-h3 { margin: 18px 0 10px; font-size: 15px; color: var(--text); }
+#rulesBotBody .dc-p, #rulesPrivacyBody .dc-p { font-size: 14.5px; line-height: 1.75; }
+#rulesBotBody .dc-list, #rulesPrivacyBody .dc-list { margin: 10px 0 14px 22px; font-size: 14px; line-height: 1.75; }
+#rulesBotBody .dc-divider, #rulesPrivacyBody .dc-divider { height: 1px; background: none; border-top: 1px dashed var(--line2); margin: 20px 0; }
+#rulesBotBody em, #rulesPrivacyBody em { color: var(--dim); }
+#rulesBotBody strong, #rulesPrivacyBody strong { color: var(--text); font-weight: 700; }
+
 /* ===== ОБНОВЛЕНИЯ / ПРЕССА ===== */
 .updates-list { display: flex; flex-direction: column; gap: 20px; }
 .update-card { background: var(--card); border: 1px solid var(--line); border-top: 2px solid var(--acc2); border-radius: 12px; padding: 22px 28px; }
