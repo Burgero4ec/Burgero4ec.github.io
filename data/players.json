@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-10T19:21:34.324681+00:00",
+  "updated_at": "2026-11-10T19:51:35.052831+00:00",
   "total_active_players": 28,
   "total_non_staff_players": 15,
   "total_staff_who_play": 13,
@@ -1744,24 +1744,27 @@
         "КНДР"
       ],
       "country": "КНДР",
-      "balance": 0,
-      "profit": 101592768,
-      "gdp": 1500000000,
-      "gdp_ppp": 8250000000,
-      "population": 28000,
-      "birth_rate": 9.7,
+      "balance": 98287152664,
+      "profit": 3413225662,
+      "gdp": 78827295065,
+      "gdp_ppp": 315309180260,
+      "population": 25415260,
+      "birth_rate": 14.2,
       "support": 50.0,
-      "resource_index": 6.0,
+      "resource_index": 5.0,
       "corruption": 10.0,
-      "level": "Разрушенная",
-      "ideology": {},
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
       "taxes": {
         "nds": 20,
         "ndfl": 20
       },
       "specialization": "Не выбрано",
-      "reforms": "$750 000 000 / $750 000 000",
-      "investments": "$750 000 000 / $750 000 000",
+      "reforms": "$39 413 647 532 / $39 413 647 532",
+      "investments": "$39 413 647 532 / $39 413 647 532",
       "categories": [
         "Государство",
         "ООН",

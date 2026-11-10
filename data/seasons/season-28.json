@@ -66,7 +66,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-10T19:21:34.324681+00:00",
+  "updated_at": "2026-11-10T19:51:35.052831+00:00",
   "totalActivePlayers": 28,
   "entities": {
     "1334532453238440000": {
@@ -344,24 +344,27 @@
       "country": "КНДР",
       "player": "joskipisk0trias",
       "nickname": "🇰🇵 | КНДР",
-      "balance": 0,
-      "profit": 101592768,
-      "gdp": 1500000000,
-      "gdp_ppp": 8250000000,
-      "population": 28000,
-      "birth_rate": 9.7,
+      "balance": 98287152664,
+      "profit": 3413225662,
+      "gdp": 78827295065,
+      "gdp_ppp": 315309180260,
+      "population": 25415260,
+      "birth_rate": 14.2,
       "support": 50.0,
-      "resource_index": 6.0,
+      "resource_index": 5.0,
       "corruption": 10.0,
-      "level": "Разрушенная",
-      "ideology": {},
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
       "taxes": {
         "nds": 20,
         "ndfl": 20
       },
       "specialization": "Не выбрано",
-      "reforms": "$750 000 000 / $750 000 000",
-      "investments": "$750 000 000 / $750 000 000",
+      "reforms": "$39 413 647 532 / $39 413 647 532",
+      "investments": "$39 413 647 532 / $39 413 647 532",
       "is_staff": true,
       "roles": [
         "Лицензия КНДР",
