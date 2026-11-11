@@ -66,7 +66,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-11T17:49:56.323885+00:00",
+  "updated_at": "2026-11-11T17:51:09.203805+00:00",
   "totalActivePlayers": 28,
   "entities": {
     "1334532453238440000": {
@@ -105,14 +105,14 @@
       "player": "ponzc",
       "nickname": "🇷🇺 | Чечня",
       "balance": 517049096379,
-      "profit": 8221710531,
-      "gdp": 535445771446,
-      "gdp_ppp": 1338614428615,
+      "profit": 8762409595,
+      "gdp": 615762637162,
+      "gdp_ppp": 1539406592905,
       "population": 1469409,
       "birth_rate": 29.0,
       "support": 71.6,
       "resource_index": 4.0,
-      "corruption": 35.7,
+      "corruption": 36.0,
       "level": "Сильная",
       "ideology": {},
       "taxes": {
@@ -120,8 +120,8 @@
         "ndfl": 30
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$267 722 885 723 / $267 722 885 723",
-      "investments": "$267 722 885 723 / $267 722 885 723",
+      "reforms": "$307 881 318 581 / $307 881 318 581",
+      "investments": "$307 881 318 581 / $307 881 318 581",
       "is_staff": true,
       "roles": [
         "Лицензия Россия",
@@ -304,14 +304,14 @@
       "player": "_ashkoo139",
       "nickname": "🇷🇺 | Дагестан",
       "balance": 49453720808,
-      "profit": 1855950026,
-      "gdp": 16763388171,
-      "gdp_ppp": 75435246769,
+      "profit": 1955434109,
+      "gdp": 19277896396,
+      "gdp_ppp": 86750533782,
       "population": 2916208,
       "birth_rate": 19.5,
       "support": 48.5,
       "resource_index": 4.0,
-      "corruption": 11.1,
+      "corruption": 11.4,
       "level": "Слабая",
       "ideology": {},
       "taxes": {
@@ -319,8 +319,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$8 381 694 085 / $8 381 694 085",
-      "investments": "$8 381 694 085 / $8 381 694 085",
+      "reforms": "$9 638 948 198 / $9 638 948 198",
+      "investments": "$9 638 948 198 / $9 638 948 198",
       "is_staff": true,
       "roles": [
         "Лицензия Россия",
@@ -558,15 +558,15 @@
       "country": "Россия",
       "player": "elwey4194",
       "nickname": "🇷🇺 | Россия",
-      "balance": 25164892591742,
-      "profit": 1437562836865,
-      "gdp": 48263246495918,
-      "gdp_ppp": 53089571145509,
-      "population": 327837762,
+      "balance": 16727194059238,
+      "profit": 1476047404807,
+      "gdp": 54865363172563,
+      "gdp_ppp": 60351899489819,
+      "population": 333645348,
       "birth_rate": 59.6,
       "support": 100.0,
       "resource_index": 1.0,
-      "corruption": 13.2,
+      "corruption": 15.8,
       "level": "Глобальный Гегемон",
       "ideology": {
         "state": "Смешанная республика",
@@ -577,8 +577,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$24 131 623 247 959 / $24 131 623 247 959",
-      "investments": "$24 048 794 821 113 / $24 131 623 247 959",
+      "reforms": "$2 774 091 396 365 / $27 432 681 586 281",
+      "investments": "$27 349 853 159 435 / $27 432 681 586 281",
       "is_staff": true,
       "roles": [
         "ШОС",
