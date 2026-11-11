@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-11T18:19:56.444816+00:00",
+  "updated_at": "2026-11-11T18:49:56.180152+00:00",
   "total_active_players": 28,
   "total_non_staff_players": 15,
   "total_staff_who_play": 13,
@@ -20,7 +20,7 @@
     "MPRI": 1,
     "Коста-Рика": 1,
     "США": 2,
-    "КНДР": 1,
+    "Лихтенштейн": 1,
     "Нигерия": 1,
     "Израиль": 1,
     "Испания": 1,
@@ -1734,16 +1734,16 @@
     {
       "id": "1133677481694601216",
       "username": "joskipisk0trias",
-      "display_name": "🇰🇵 | КНДР",
-      "nickname": "🇰🇵 | КНДР",
-      "avatar_url": "https://cdn.discordapp.com/guilds/1209153077651963924/users/1133677481694601216/avatars/a_d7c34d79b45de39ce3f696d2e22a38bb.gif?size=1024",
+      "display_name": "🇱🇮 | Лихтенштейн",
+      "nickname": "🇱🇮 | Лихтенштейн",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1133677481694601216/74fedf53078f1953e8bd5aab907c37f3.png?size=1024",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "КНДР"
+        "Лихтенштейн"
       ],
-      "country": "КНДР",
+      "country": "Лихтенштейн",
       "balance": 98287152664,
       "profit": 6354539431,
       "gdp": 78827295065,
@@ -1774,8 +1774,8 @@
       ],
       "roles": [
         {
-          "id": "1569782317466263694",
-          "name": "Лицензия КНДР"
+          "id": "1570144704513970339",
+          "name": "Лицензия Лихтенштейн"
         },
         {
           "id": "1359429737574830251",
