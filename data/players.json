@@ -1,10 +1,10 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-11T19:19:56.697838+00:00",
+  "updated_at": "2026-11-12T12:18:40.015234+00:00",
   "total_active_players": 28,
-  "total_non_staff_players": 15,
-  "total_staff_who_play": 13,
+  "total_non_staff_players": 14,
+  "total_staff_who_play": 14,
   "stats": {
     "registered": 28,
     "states": 19,
@@ -29,7 +29,7 @@
     "Польша": 1,
     "Гренландия": 1,
     "DynCorp": 1,
-    "Бразилия": 1,
+    "КНР": 1,
     "Вагнер": 1,
     "Украина": 1,
     "Новая Зеландия": 1,
@@ -623,64 +623,6 @@
         {
           "id": "1282721540554887179",
           "name": "Server Booster"
-        }
-      ]
-    },
-    {
-      "id": "1568332330714660908",
-      "username": "thenevernext",
-      "display_name": "👤 | Вагнер",
-      "nickname": "👤 | Вагнер",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1568332330714660908/e9361b411660a6d36b43b37bc6d1736a.png?size=1024",
-      "is_staff": false,
-      "is_registered": true,
-      "entity_type": "ЧВК",
-      "countries": [
-        "Вагнер"
-      ],
-      "country": "Вагнер",
-      "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
-      "categories": [
-        "ЧВК"
-      ],
-      "roles": [
-        {
-          "id": "1246817935297613905",
-          "name": "• Зарегистрированный"
-        },
-        {
-          "id": "1465442608707932180",
-          "name": "Ивенты"
-        },
-        {
-          "id": "1359429686500921447",
-          "name": "Новости"
-        },
-        {
-          "id": "1359429648890728488",
-          "name": "Обновления"
-        },
-        {
-          "id": "1233388420915658865",
-          "name": "Частная"
-        },
-        {
-          "id": "1233388184407375912",
-          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -1877,10 +1819,6 @@
           "name": "Лицензия Нигерия"
         },
         {
-          "id": "1567293752253485136",
-          "name": "Лицензия Литва"
-        },
-        {
           "id": "1359429737574830251",
           "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
         },
@@ -2678,16 +2616,16 @@
     {
       "id": "1060644884781994126",
       "username": "chaim1ch",
-      "display_name": "🇧🇷 | Бразилия",
-      "nickname": "🇧🇷 | Бразилия",
+      "display_name": "🇨🇳 | КНР",
+      "nickname": "🇨🇳 | КНР",
       "avatar_url": "https://cdn.discordapp.com/avatars/1060644884781994126/f7d46af850285d12cd1d58f8e6884f19.png?size=1024",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Бразилия"
+        "КНР"
       ],
-      "country": "Бразилия",
+      "country": "КНР",
       "balance": 429963446922,
       "profit": 5430314356,
       "gdp": 2211492000000,
@@ -2717,8 +2655,8 @@
       ],
       "roles": [
         {
-          "id": "1569067755045392558",
-          "name": "Лицензия Бразилия"
+          "id": "1570340194979418184",
+          "name": "Лицензия КНР"
         },
         {
           "id": "1359429737574830251",
@@ -2776,7 +2714,7 @@
       "display_name": "👤 | Вагнер",
       "nickname": "👤 | Вагнер",
       "avatar_url": "https://cdn.discordapp.com/avatars/1568332330714660908/e9361b411660a6d36b43b37bc6d1736a.png?size=1024",
-      "is_staff": false,
+      "is_staff": true,
       "is_registered": true,
       "entity_type": "ЧВК",
       "countries": [
@@ -2825,6 +2763,14 @@
         {
           "id": "1233388184407375912",
           "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209154572417769543",
+          "name": "Персонал"
+        },
+        {
+          "id": "1459155798415376384",
+          "name": "• Технолог"
         }
       ]
     },
