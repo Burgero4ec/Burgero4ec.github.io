@@ -66,7 +66,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-12T12:19:49.326699+00:00",
+  "updated_at": "2026-11-12T12:48:40.079198+00:00",
   "totalActivePlayers": 28,
   "entities": {
     "1334532453238440000": {
@@ -388,15 +388,15 @@
       "country": "Нигерия",
       "player": "aytaconan2_",
       "nickname": "🇳🇬 | Нигерия",
-      "balance": 178263341723,
-      "profit": 59770675296,
-      "gdp": 3628879588324,
-      "gdp_ppp": 5806207341318,
-      "population": 379591959,
+      "balance": 0,
+      "profit": 66209460342,
+      "gdp": 4140690389121,
+      "gdp_ppp": 6625104622593,
+      "population": 403801083,
       "birth_rate": 121.2,
       "support": 50.0,
       "resource_index": 4.0,
-      "corruption": 28.6,
+      "corruption": 35.2,
       "level": "Великая держава",
       "ideology": {
         "state": "Парламентская республика",
@@ -407,8 +407,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 814 439 794 162 / $1 814 439 794 162",
-      "investments": "$1 814 439 794 162 / $1 814 439 794 162",
+      "reforms": "$553 868 747 753 / $2 070 345 194 560",
+      "investments": "$2 070 345 194 560 / $2 070 345 194 560",
       "is_staff": true,
       "roles": [
         "Лицензия Нигерия",
