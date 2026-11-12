@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-12T18:18:42.409682+00:00",
+  "updated_at": "2026-11-12T18:19:51.241934+00:00",
   "total_active_players": 28,
   "total_non_staff_players": 14,
   "total_staff_who_play": 14,
@@ -359,7 +359,7 @@
       "username": "felixsaturn",
       "display_name": "🇰🇳 | Сент-Китс и Невис",
       "nickname": "🇰🇳 | Сент-Китс и Невис",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1301926132274303052/b174fdc2ca6bbcc42fe34c2b6af9792c.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1301926132274303052/6faaa05d2cec6a6dc2ca9030c2f60006.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -1173,24 +1173,27 @@
         "Россия"
       ],
       "country": "Россия",
-      "balance": 1901489501797,
-      "profit": null,
-      "gdp": 640232155487,
-      "gdp_ppp": 1600580388717,
-      "population": 1478513,
-      "birth_rate": 29.0,
-      "support": 77.4,
+      "balance": 1500000000,
+      "profit": 70661970,
+      "gdp": 1262500000,
+      "gdp_ppp": 6943750000,
+      "population": 504498,
+      "birth_rate": 9.8,
+      "support": 50.0,
       "resource_index": 4.0,
-      "corruption": 42.1,
-      "level": "Сильная",
-      "ideology": {},
-      "taxes": {
-        "nds": 30,
-        "ndfl": 30
+      "corruption": 21.0,
+      "level": "Разрушенная",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$320 116 077 743 / $320 116 077 743",
-      "investments": "$320 116 077 743 / $320 116 077 743",
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$631 250 000 / $631 250 000",
+      "investments": "$631 250 000 / $631 250 000",
       "categories": [
         "Автономия",
         "Альянс"
@@ -1686,24 +1689,27 @@
         "Лихтенштейн"
       ],
       "country": "Лихтенштейн",
-      "balance": 11001895931,
-      "profit": 4980301817,
-      "gdp": 45929539033,
-      "gdp_ppp": 206682925648,
-      "population": 2965344,
-      "birth_rate": 20.5,
-      "support": 51.9,
-      "resource_index": 4.0,
-      "corruption": 4.7,
-      "level": "Слабая",
-      "ideology": {},
-      "taxes": {
-        "nds": 35,
-        "ndfl": 35
+      "balance": 0,
+      "profit": 179434895,
+      "gdp": 5639158290,
+      "gdp_ppp": 28195791450,
+      "population": 34256,
+      "birth_rate": 10.0,
+      "support": 50.0,
+      "resource_index": 7.0,
+      "corruption": 10.0,
+      "level": "Кризисная",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$2 819 216 565 / $22 964 769 516",
-      "investments": "$22 964 769 516 / $22 964 769 516",
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$2 819 579 145 / $2 819 579 145",
+      "investments": "$2 819 579 145 / $2 819 579 145",
       "categories": [
         "Государство",
         "ООН",
@@ -1784,26 +1790,26 @@
       ],
       "country": "Нигерия",
       "balance": 0,
-      "profit": 179434895,
-      "gdp": 5639158290,
-      "gdp_ppp": 28195791450,
-      "population": 34256,
-      "birth_rate": 10.0,
+      "profit": 66209460342,
+      "gdp": 4140690389121,
+      "gdp_ppp": 6625104622593,
+      "population": 403801083,
+      "birth_rate": 121.2,
       "support": 50.0,
-      "resource_index": 7.0,
-      "corruption": 10.0,
-      "level": "Кризисная",
+      "resource_index": 4.0,
+      "corruption": 35.2,
+      "level": "Великая держава",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Парламентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 25,
+        "ndfl": 25
       },
-      "specialization": "Не выбрано",
-      "reforms": "$2 819 579 145 / $2 819 579 145",
-      "investments": "$2 819 579 145 / $2 819 579 145",
+      "specialization": "Промышленный хаб",
+      "reforms": "$553 868 747 753 / $2 070 345 194 560",
+      "investments": "$2 070 345 194 560 / $2 070 345 194 560",
       "categories": [
         "Государство",
         "ООН",
@@ -2247,7 +2253,7 @@
       "username": "felixsaturn",
       "display_name": "🇰🇳 | Сент-Китс и Невис",
       "nickname": "🇰🇳 | Сент-Китс и Невис",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1301926132274303052/b174fdc2ca6bbcc42fe34c2b6af9792c.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1301926132274303052/6faaa05d2cec6a6dc2ca9030c2f60006.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
