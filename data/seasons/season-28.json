@@ -4,7 +4,7 @@
   "status": "active",
   "startDate": "2026-10-01",
   "totalArticles": 48,
-  "totalNations": 25,
+  "totalNations": 24,
   "keyEvents": [
     {
       "id": "s28-ev-1",
@@ -66,8 +66,8 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-12T18:48:40.729726+00:00",
-  "totalActivePlayers": 28,
+  "updated_at": "2026-11-13T12:36:56.488527+00:00",
+  "totalActivePlayers": 26,
   "entities": {
     "1334532453238440000": {
       "type": "organization",
@@ -97,45 +97,6 @@
         "Персонал",
         "• Картограф",
         "• Военный ведущий"
-      ]
-    },
-    "830428424677490728": {
-      "type": "autonomy",
-      "country": "Россия",
-      "player": "ponzc",
-      "nickname": "🇷🇺 | Чечня",
-      "balance": 1500000000,
-      "profit": 70661970,
-      "gdp": 1262500000,
-      "gdp_ppp": 6943750000,
-      "population": 504498,
-      "birth_rate": 9.8,
-      "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 21.0,
-      "level": "Разрушенная",
-      "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
-      },
-      "taxes": {
-        "nds": 20,
-        "ndfl": 20
-      },
-      "specialization": "Не выбрано",
-      "reforms": "$631 250 000 / $631 250 000",
-      "investments": "$631 250 000 / $631 250 000",
-      "is_staff": true,
-      "roles": [
-        "Лицензия Россия",
-        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
-        "• Зарегистрированный",
-        "Новости",
-        "Обновления",
-        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "•⠀⠀⠀⠀⠀Автономия⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "Персонал",
-        "• Администратор"
       ]
     },
     "967200323909349396": {
@@ -782,9 +743,9 @@
     },
     "1060644884781994126": {
       "type": "country",
-      "country": "КНР",
+      "country": "Германия",
       "player": "chaim1ch",
-      "nickname": "🇨🇳 | КНР",
+      "nickname": "🇩🇪 | Германия",
       "balance": 1495963401078,
       "profit": null,
       "gdp": 37858043519413,
@@ -808,7 +769,7 @@
       "investments": "$18 929 021 759 706 / $18 929 021 759 706",
       "is_staff": true,
       "roles": [
-        "Лицензия КНР",
+        "Лицензия Германия",
         "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
         "• Зарегистрированный",
         "Ивенты",
@@ -821,38 +782,6 @@
         "Персонал",
         "• Технолог",
         "• Анкетолог"
-      ]
-    },
-    "1568332330714660908": {
-      "type": "organization",
-      "country": "Вагнер",
-      "player": "thenevernext",
-      "nickname": "👤 | Вагнер",
-      "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
-      "is_staff": true,
-      "roles": [
-        "• Зарегистрированный",
-        "Ивенты",
-        "Новости",
-        "Обновления",
-        "Частная",
-        "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "Персонал",
-        "• Технолог"
       ]
     },
     "1482440823378280654": {
