@@ -364,7 +364,7 @@ export async function renderCabinet() {
           <h3><svg class="ic"><use href="#i-user"/></svg>Вход в Личный кабинет</h3>
           <span class="pill" style="font-size:11px;padding:4px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;letter-spacing:0.08em;font-weight:700;border:1px solid rgba(74,222,128,0.35);background:rgba(74,222,128,0.08);color:#4ade80;box-shadow:0 0 12px rgba(74,222,128,0.12)">
             <i class="dot pulse" style="width:6px;height:6px;background:#4ade80"></i>
-            Сезон 28
+            Сезон 31
           </span>
         </div>
         <p style="margin-top:10px;color:var(--dim);font-size:14px;line-height:1.5">
@@ -493,7 +493,7 @@ export async function renderCabinet() {
           </div>
         </div>
         <p style="color:var(--text);font-size:14px;line-height:1.6;margin:0 0 10px">
-          Вы успешно авторизованы как <b>${esc(u.name)}</b>. В текущем 28 сезоне за вашим Discord ID (${esc(u.id)}) активное государство или организация пока не закреплены.
+          Вы успешно авторизованы как <b>${esc(u.name)}</b>. В текущем 31 сезоне за вашим Discord ID (${esc(u.id)}) активное государство или организация пока не закреплены.
         </p>
         <p style="color:var(--dim);font-size:13px;line-height:1.5;margin:0 0 16px">
           При получении лицензии на сервере данные подтянутся автоматически по вашему Discord ID.
@@ -521,7 +521,7 @@ export async function renderCabinet() {
         <div class="card">
           <h3>${flagOf(me.country)} ${esc(me.country)}</h3>
           <div class="kv"><span>Тип</span><b>${typeNames[me.type] || me.type}</b></div>
-          <div class="kv"><span>Статус</span><b style="color:var(--green)">✓ Зарегистрирован в 28 сезоне</b></div>
+          <div class="kv"><span>Статус</span><b style="color:var(--green)">✓ Зарегистрирован в 31 сезоне</b></div>
           ${staffTitle ? `<div class="kv"><span>Статус на сервере</span><b style="color:var(--yellow)">${esc(staffTitle)}</b></div>` : ''}
           ${(me.categories && me.categories.length) ? `<div class="kv"><span>Категории</span><b>${esc(me.categories.join(' · '))}</b></div>` : ''}
           ${me.org_type ? `<div class="kv"><span>Форма</span><b>${esc(me.org_type)}</b></div>` : ''}
@@ -536,7 +536,7 @@ export async function renderCabinet() {
         <div class="card">
           <h3>💳 Игровые лицензии и действия</h3>
           <div class="user-roles-list" style="display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 16px">
-            <span class="badge" style="background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.3);color:#4ade80;padding:4px 8px;border-radius:6px;font-size:12px">✓ Лицензия Сезона 28</span>
+            <span class="badge" style="background:rgba(74,222,128,0.12);border:1px solid rgba(74,222,128,0.3);color:#4ade80;padding:4px 8px;border-radius:6px;font-size:12px">✓ Лицензия Сезона 31</span>
             ${pLive && pLive.roles ? pLive.roles.map(r => `<span class="badge" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:4px 8px;border-radius:6px;font-size:12px">${esc(r.name)}</span>`).join('') : ''}
           </div>
           <div class="cta-row" style="justify-content:flex-start;margin-top:14px;gap:8px;flex-wrap:wrap">

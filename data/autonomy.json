@@ -1,0 +1,389 @@
+{
+    "Аландские острова": {
+        "gdp": 1550000000,
+        "population": 30100,
+        "parent_country": "Финляндия",
+        "birth_rate": 9.5,
+        "resource_index": 6,
+        "continent": "Европа",
+        "flag": "🇦🇽"
+    },
+    "Бангсаморо": {
+        "gdp": 4900000000,
+        "population": 4400000,
+        "parent_country": "Филиппины",
+        "birth_rate": 26.0,
+        "resource_index": 4,
+        "continent": "Азия",
+        "flag": "🇵🇭"
+    },
+    "Бермудские острова": {
+        "gdp": 6890000000,
+        "population": 63900,
+        "parent_country": "Великобритания",
+        "birth_rate": 8.5,
+        "resource_index": 7,
+        "continent": "Северная Америка",
+        "flag": "🇧🇲"
+    },
+    "Виргинские острова": {
+        "gdp": 4200000000,
+        "population": 87100,
+        "parent_country": "США",
+        "birth_rate": 11.5,
+        "resource_index": 6,
+        "continent": "Северная Америка",
+        "flag": "🇻🇮"
+    },
+    "Внутренняя Монголия": {
+        "gdp": 251600000000,
+        "population": 24050000,
+        "parent_country": "КНР",
+        "birth_rate": 6.6,
+        "resource_index": 2,
+        "continent": "Азия",
+        "flag": "🇨🇳"
+    },
+    "Гагаузия": {
+        "gdp": 380000000,
+        "population": 135000,
+        "parent_country": "Молдова",
+        "birth_rate": 9.8,
+        "resource_index": 6,
+        "continent": "Европа",
+        "flag": "🇲🇩"
+    },
+    "Гонконг": {
+        "gdp": 344940000000,
+        "population": 7480000,
+        "parent_country": "КНР",
+        "birth_rate": 5.8,
+        "resource_index": 7,
+        "continent": "Азия",
+        "flag": "🇭🇰"
+    },
+    "Горный Бадахшан": {
+        "gdp": 260000000,
+        "population": 227000,
+        "parent_country": "Таджикистан",
+        "birth_rate": 21.0,
+        "resource_index": 6,
+        "continent": "Азия",
+        "flag": "🇹🇯"
+    },
+    "Гренландия": {
+        "gdp": 3080000000,
+        "population": 56300,
+        "parent_country": "Дания",
+        "birth_rate": 14.8,
+        "resource_index": 3,
+        "continent": "Северная Америка",
+        "flag": "🇬🇱"
+    },
+    "Гуам": {
+        "gdp": 5890000000,
+        "population": 168000,
+        "parent_country": "США",
+        "birth_rate": 17.5,
+        "resource_index": 6,
+        "continent": "Австралия и Океания",
+        "flag": "🇬🇺"
+    },
+    "Гуанси-Чжуанский район": {
+        "gdp": 321000000000,
+        "population": 50130000,
+        "parent_country": "КНР",
+        "birth_rate": 10.8,
+        "resource_index": 4,
+        "continent": "Азия",
+        "flag": "🇨🇳"
+    },
+    "Дагестан": {
+        "gdp": 10200000000,
+        "population": 3130000,
+        "parent_country": "Россия",
+        "birth_rate": 14.7,
+        "resource_index": 4,
+        "continent": "Европа",
+        "flag": "🇷🇺"
+    },
+    "Кабардино-Балкария": {
+        "gdp": 2470000000,
+        "population": 869000,
+        "parent_country": "Россия",
+        "birth_rate": 12.2,
+        "resource_index": 4,
+        "continent": "Европа",
+        "flag": "🇷🇺"
+    },
+    "Каракалпакстан": {
+        "gdp": 2220000000,
+        "population": 1910000,
+        "parent_country": "Узбекистан",
+        "birth_rate": 21.5,
+        "resource_index": 4,
+        "continent": "Азия",
+        "flag": "🇺🇿"
+    },
+    "Каталония": {
+        "gdp": 255800000000,
+        "population": 7720000,
+        "parent_country": "Испания",
+        "birth_rate": 7.5,
+        "resource_index": 5,
+        "continent": "Европа",
+        "flag": "🇪🇸"
+    },
+    "Квебек": {
+        "gdp": 336300000000,
+        "population": 8570000,
+        "parent_country": "Канада",
+        "birth_rate": 9.5,
+        "resource_index": 2,
+        "continent": "Северная Америка",
+        "flag": "🇨🇦"
+    },
+    "Коми": {
+        "gdp": 9130000000,
+        "population": 813000,
+        "parent_country": "Россия",
+        "birth_rate": 9.3,
+        "resource_index": 2,
+        "continent": "Европа",
+        "flag": "🇷🇺"
+    },
+    "Курдистан": {
+        "gdp": 20000000000,
+        "population": 5500000,
+        "parent_country": "Ирак",
+        "birth_rate": 27.5,
+        "resource_index": 3,
+        "continent": "Азия",
+        "flag": "🇮🇶"
+    },
+    "Макао": {
+        "gdp": 25340000000,
+        "population": 682000,
+        "parent_country": "КНР",
+        "birth_rate": 8.1,
+        "resource_index": 7,
+        "continent": "Азия",
+        "flag": "🇲🇴"
+    },
+    "Нахичевань": {
+        "gdp": 1710000000,
+        "population": 461000,
+        "parent_country": "Азербайджан",
+        "birth_rate": 12.0,
+        "resource_index": 5,
+        "continent": "Азия",
+        "flag": "🇦🇿"
+    },
+    "Нинся-Хуэйский автономный район": {
+        "gdp": 56800000000,
+        "population": 7200000,
+        "parent_country": "КНР",
+        "birth_rate": 11.6,
+        "resource_index": 4,
+        "continent": "Азия",
+        "flag": "🇨🇳"
+    },
+    "Новая Каледония": {
+        "gdp": 9440000000,
+        "population": 271000,
+        "parent_country": "Франция",
+        "birth_rate": 14.5,
+        "resource_index": 3,
+        "continent": "Австралия и Океания",
+        "flag": "🇳🇨"
+    },
+    "Норфолк": {
+        "gdp": 80000000,
+        "population": 2200,
+        "parent_country": "Австралия",
+        "birth_rate": 9.0,
+        "resource_index": 7,
+        "continent": "Австралия и Океания",
+        "flag": "🇳🇫"
+    },
+    "Остров Пасхи": {
+        "gdp": 55000000,
+        "population": 8000,
+        "parent_country": "Чили",
+        "birth_rate": 12.5,
+        "resource_index": 7,
+        "continent": "Южная Америка",
+        "flag": "🇨🇱"
+    },
+    "Пуэрто-Рико": {
+        "gdp": 103140000000,
+        "population": 3280000,
+        "parent_country": "США",
+        "birth_rate": 5.8,
+        "resource_index": 6,
+        "continent": "Северная Америка",
+        "flag": "🇵🇷"
+    },
+    "Республика Сербская": {
+        "gdp": 6490000000,
+        "population": 1136000,
+        "parent_country": "Босния и Герцеговина",
+        "birth_rate": 8.1,
+        "resource_index": 4,
+        "continent": "Европа",
+        "flag": "🇧🇦"
+    },
+    "Северная Осетия": {
+        "gdp": 2510000000,
+        "population": 693000,
+        "parent_country": "Россия",
+        "birth_rate": 12.4,
+        "resource_index": 4,
+        "continent": "Европа",
+        "flag": "🇷🇺"
+    },
+    "Синьцзян": {
+        "gdp": 200000000000,
+        "population": 25850000,
+        "parent_country": "КНР",
+        "birth_rate": 8.1,
+        "resource_index": 2,
+        "continent": "Азия",
+        "flag": "🇨🇳"
+    },
+    "Тибет": {
+        "gdp": 27580000000,
+        "population": 3650000,
+        "parent_country": "КНР",
+        "birth_rate": 13.8,
+        "resource_index": 4,
+        "continent": "Азия",
+        "flag": "🇨🇳"
+    },
+    "Фарерские острова": {
+        "gdp": 3260000000,
+        "population": 52500,
+        "parent_country": "Дания",
+        "birth_rate": 13.0,
+        "resource_index": 5,
+        "continent": "Европа",
+        "flag": "🇫🇴"
+    },
+    "Фолклендские острова": {
+        "gdp": 320000000,
+        "population": 3400,
+        "parent_country": "Великобритания",
+        "birth_rate": 10.0,
+        "resource_index": 4,
+        "continent": "Южная Америка",
+        "flag": "🇫🇰"
+    },
+    "Французская Полинезия": {
+        "gdp": 5810000000,
+        "population": 280000,
+        "parent_country": "Франция",
+        "birth_rate": 13.2,
+        "resource_index": 6,
+        "continent": "Австралия и Океания",
+        "flag": "🇵🇫"
+    },
+    "Чечня": {
+        "gdp": 3510000000,
+        "population": 1490000,
+        "parent_country": "Россия",
+        "birth_rate": 20.1,
+        "resource_index": 4,
+        "continent": "Европа",
+        "flag": "🇷🇺"
+    },
+    "Чукотка": {
+        "gdp": 1660000000,
+        "population": 49500,
+        "parent_country": "Россия",
+        "birth_rate": 10.8,
+        "resource_index": 3,
+        "continent": "Азия",
+        "flag": "🇷🇺"
+    },
+    "Шотландия": {
+        "gdp": 215700000000,
+        "population": 5466000,
+        "parent_country": "Великобритания",
+        "birth_rate": 8.6,
+        "resource_index": 3,
+        "continent": "Европа",
+        "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿"
+    },
+    "Шпицберген": {
+        "gdp": 110000000,
+        "population": 2900,
+        "parent_country": "Норвегия",
+        "birth_rate": 0.0,
+        "resource_index": 3,
+        "continent": "Европа",
+        "flag": "🇸🇯"
+    },
+    "Якутия": {
+        "gdp": 15810000000,
+        "population": 982000,
+        "parent_country": "Россия",
+        "birth_rate": 13.4,
+        "resource_index": 1,
+        "continent": "Азия",
+        "flag": "🇷🇺"
+    },
+    "Техас": {
+        "gdp": 1789000000000,
+        "population": 29180000,
+        "parent_country": "США",
+        "birth_rate": 12.6,
+        "resource_index": 2,
+        "continent": "Северная Америка",
+        "flag": "🇺🇸"
+    },
+    "Калифорния": {
+        "gdp": 3020000000000,
+        "population": 39500000,
+        "parent_country": "США",
+        "birth_rate": 10.6,
+        "resource_index": 3,
+        "continent": "Северная Америка",
+        "flag": "🇺🇸"
+    },
+    "Аляска": {
+        "gdp": 50500000000,
+        "population": 733000,
+        "parent_country": "США",
+        "birth_rate": 12.9,
+        "resource_index": 1,
+        "continent": "Северная Америка",
+        "flag": "🇺🇸"
+    },
+    "Тыва": {
+        "gdp": 1150000000,
+        "population": 330000,
+        "parent_country": "Россия",
+        "birth_rate": 20.0,
+        "resource_index": 4,
+        "continent": "Азия",
+        "flag": "🇷🇺"
+    },
+    "Карелия": {
+        "gdp": 4510000000,
+        "population": 609000,
+        "parent_country": "Россия",
+        "birth_rate": 8.3,
+        "resource_index": 4,
+        "continent": "Европа",
+        "flag": "🇷🇺"
+    },
+    "АР Крым": {
+        "gdp": 7150000000,
+        "population": 1912000,
+        "parent_country": "Россия",
+        "birth_rate": 9.8,
+        "resource_index": 5,
+        "continent": "Европа",
+        "flag": "🇷🇺"
+   }
+}

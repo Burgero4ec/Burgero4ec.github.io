@@ -1,0 +1,1642 @@
+{
+    "США": {
+        "gdp": 21350000000000,
+        "population": 331500000,
+        "continent": "Северная Америка",
+        "birth_rate": 11.0,
+        "resource_index": 2,
+        "flag": "🇺🇸"
+    },
+    "Ирак": {
+        "gdp": 180900000000,
+        "population": 40400000,
+        "continent": "Азия",
+        "birth_rate": 27.5,
+        "resource_index": 3,
+        "flag": "🇮🇶"
+    },
+    "Египет": {
+        "gdp": 383300000000,
+        "population": 100604000,
+        "continent": "Африка",
+        "birth_rate": 22.5,
+        "resource_index": 5,
+        "flag": "🇪🇬"
+    },
+    "Куба": {
+        "gdp": 107350000000,
+        "population": 11060000,
+        "continent": "Северная Америка",
+        "birth_rate": 9.8,
+        "resource_index": 5,
+        "flag": "🇨🇺"
+    },
+    "Россия": {
+        "gdp": 1483000000000,
+        "population": 146000000,
+        "continent": "Европа",
+        "birth_rate": 9.8,
+        "resource_index": 1,
+        "flag": "🇷🇺"
+    },
+    "КНР": {
+        "gdp": 14720000000000,
+        "population": 1426000000,
+        "continent": "Азия",
+        "birth_rate": 8.5,
+        "resource_index": 3,
+        "flag": "🇨🇳"
+    },
+    "Индия": {
+        "gdp": 2607000000000,
+        "population": 1400000000,
+        "continent": "Азия",
+        "birth_rate": 16.6,
+        "resource_index": 5,
+        "flag": "🇮🇳"
+    },
+    "Великобритания": {
+        "gdp": 2697000000000,
+        "population": 67330000,
+        "continent": "Европа",
+        "birth_rate": 10.2,
+        "resource_index": 4,
+        "flag": "🇬🇧"
+    },
+    "Канада": {
+        "gdp": 2697000000000,
+        "population": 65900000,
+        "continent": "Северная Америка",
+        "birth_rate": 9.4,
+        "resource_index": 2,
+        "flag": "🇨🇦"
+    },
+    "Италия": {
+        "gdp": 1907000000000,
+        "population": 59900000,
+        "continent": "Европа",
+        "birth_rate": 6.8,
+        "resource_index": 5,
+        "flag": "🇮🇹"
+    },
+    "Бразилия": {
+        "gdp": 1447000000000,
+        "population": 213000000,
+        "continent": "Южная Америка",
+        "birth_rate": 13.1,
+        "resource_index": 2,
+        "flag": "🇧🇷"
+    },
+    "Австралия": {
+        "gdp": 1324000000000,
+        "population": 25700000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 11.4,
+        "resource_index": 2,
+        "flag": "🇦🇺"
+    },
+    "Испания": {
+        "gdp": 1248000000000,
+        "population": 47600000,
+        "continent": "Европа",
+        "birth_rate": 7.1,
+        "resource_index": 4,
+        "flag": "🇪🇸"
+    },
+    "Мексика": {
+        "gdp": 1076000000000,
+        "population": 128900000,
+        "continent": "Северная Америка",
+        "birth_rate": 16.3,
+        "resource_index": 4,
+        "flag": "🇲🇽"
+    },
+    "Индонезия": {
+        "gdp": 1059000000000,
+        "population": 273500000,
+        "continent": "Азия",
+        "birth_rate": 16.4,
+        "resource_index": 4,
+        "flag": "🇮🇩"
+    },
+    "Республика Южная Осетия": {
+        "gdp": 500000000,
+        "population": 50000,
+        "continent": "Азия",
+        "birth_rate": 10.8,
+        "resource_index": 6,
+        "flag": "⬜🟥🟨"
+    },
+    "Республика Абхазия": {
+        "gdp": 600000000,
+        "population": 250000,
+        "continent": "Азия",
+        "birth_rate": 10.2,
+        "resource_index": 5,
+        "flag": "🟩⬜🟩"
+    },
+    "Западная Сахара (САДР)": {
+        "gdp": 300000000,
+        "population": 600000,
+        "continent": "Африка",
+        "birth_rate": 17.5,
+        "resource_index": 5,
+        "flag": "🇪🇭"
+    },
+    "Государство Палестина": {
+        "gdp": 800000,
+        "population": 5200000000,
+        "continent": "Азия",
+        "birth_rate": 28.5,
+        "resource_index": 6,
+        "flag": "🇵🇸"
+    },
+    "Косово": {
+        "gdp": 7800000000000,
+        "population": 1800000,
+        "continent": "Европа",
+        "birth_rate": 11.2,
+        "resource_index": 5,
+        "flag": "🇽🇰"
+    },
+    "Тайвань (Китайская Республика)": {
+        "gdp": 669000000000,
+        "population": 23600000,
+        "continent": "Азия",
+        "birth_rate": 6.0,
+        "resource_index": 6,
+        "flag": "🇹🇼"
+    },
+    "Габон": {
+        "gdp": 16800000000,
+        "population": 2300000,
+        "continent": "Африка",
+        "birth_rate": 29.3,
+        "resource_index": 5,
+        "flag": "🇬🇦"
+    },
+    "Гаити": {
+        "gdp": 13400000000,
+        "population": 11400000,
+        "continent": "Северная Америка",
+        "birth_rate": 23.0,
+        "resource_index": 6,
+        "flag": "🇭🇹"
+    },
+    "Гайана": {
+        "gdp": 5500000000,
+        "population": 790000,
+        "continent": "Южная Америка",
+        "birth_rate": 19.8,
+        "resource_index": 5,
+        "flag": "🇬🇾"
+    },
+    "Гамбия": {
+        "gdp": 1900000000,
+        "population": 2420000,
+        "continent": "Африка",
+        "birth_rate": 32.5,
+        "resource_index": 6,
+        "flag": "🇬🇲"
+    },
+    "Гана": {
+        "gdp": 68400000000,
+        "population": 31100000,
+        "continent": "Африка",
+        "birth_rate": 28.1,
+        "resource_index": 5,
+        "flag": "🇬🇭"
+    },
+    "Гватемала": {
+        "gdp": 77600000000,
+        "population": 17900000,
+        "continent": "Северная Америка",
+        "birth_rate": 22.8,
+        "resource_index": 5,
+        "flag": "🇬🇹"
+    },
+    "Гвинея": {
+        "gdp": 15500000000,
+        "population": 13100000,
+        "continent": "Африка",
+        "birth_rate": 35.8,
+        "resource_index": 5,
+        "flag": "🇬🇳"
+    },
+    "Гвинея-Бисау": {
+        "gdp": 1600000000,
+        "population": 2000000,
+        "continent": "Африка",
+        "birth_rate": 33.7,
+        "resource_index": 6,
+        "flag": "🇬🇼"
+    },
+    "Германия": {
+        "gdp": 3800000000000,
+        "population": 83200000,
+        "continent": "Европа",
+        "birth_rate": 9.3,
+        "resource_index": 4,
+        "flag": "🇩🇪"
+    },
+    "Гондурас": {
+        "gdp": 25100000000,
+        "population": 10000000,
+        "continent": "Северная Америка",
+        "birth_rate": 21.0,
+        "resource_index": 5,
+        "flag": "🇭🇳"
+    },
+    "Гренада": {
+        "gdp": 1100000000,
+        "population": 1100000,
+        "continent": "Северная Америка",
+        "birth_rate": 15.6,
+        "resource_index": 6,
+        "flag": "🇬🇩"
+    },
+    "Греция": {
+        "gdp": 189400000000,
+        "population": 10700000,
+        "continent": "Европа",
+        "birth_rate": 7.9,
+        "resource_index": 5,
+        "flag": "🇬🇷"
+    },
+    "Грузия": {
+        "gdp": 15800000000,
+        "population": 3700000,
+        "continent": "Азия",
+        "birth_rate": 12.0,
+        "resource_index": 5,
+        "flag": "🇬🇪"
+    },
+    "Дания": {
+        "gdp": 355700000000,
+        "population": 5830000,
+        "continent": "Европа",
+        "birth_rate": 10.4,
+        "resource_index": 5,
+        "flag": "🇩🇰"
+    },
+    "Джибути": {
+        "gdp": 3500000000,
+        "population": 990000,
+        "continent": "Африка",
+        "birth_rate": 20.8,
+        "resource_index": 7,
+        "flag": "🇩🇯"
+    },
+    "Доминика": {
+        "gdp": 500000000,
+        "population": 72000,
+        "continent": "Северная Америка",
+        "birth_rate": 14.5,
+        "resource_index": 6,
+        "flag": "🇩🇲"
+    },
+    "Маврикий": {
+        "gdp": 10500000000,
+        "population": 1270000,
+        "continent": "Африка",
+        "birth_rate": 10.0,
+        "resource_index": 7,
+        "flag": "🇲🇺"
+    },
+    "Мавритания": {
+        "gdp": 8100000000,
+        "population": 4650000,
+        "continent": "Африка",
+        "birth_rate": 32.5,
+        "resource_index": 5,
+        "flag": "🇲🇷"
+    },
+    "Мадагаскар": {
+        "gdp": 13700000000,
+        "population": 28000000,
+        "continent": "Африка",
+        "birth_rate": 31.0,
+        "resource_index": 5,
+        "flag": "🇲🇬"
+    },
+    "Малави": {
+        "gdp": 12600000000,
+        "population": 19100000,
+        "continent": "Африка",
+        "birth_rate": 32.7,
+        "resource_index": 5,
+        "flag": "🇲🇼"
+    },
+    "Малайзия": {
+        "gdp": 337000000000,
+        "population": 32400000,
+        "continent": "Азия",
+        "birth_rate": 14.7,
+        "resource_index": 4,
+        "flag": "🇲🇾"
+    },
+    "Мали": {
+        "gdp": 17300000000,
+        "population": 20300000,
+        "continent": "Африка",
+        "birth_rate": 41.5,
+        "resource_index": 5,
+        "flag": "🇲🇱"
+    },
+    "Мальдивы": {
+        "gdp": 4600000000,
+        "population": 520000,
+        "continent": "Азия",
+        "birth_rate": 13.6,
+        "resource_index": 7,
+        "flag": "🇲🇻"
+    },
+    "Мальта": {
+        "gdp": 14700000000,
+        "population": 520000,
+        "continent": "Европа",
+        "birth_rate": 8.6,
+        "resource_index": 7,
+        "flag": "🇲🇹"
+    },
+    "Марокко": {
+        "gdp": 112900000000,
+        "population": 36900000000,
+        "continent": "Африка",
+        "birth_rate": 17.5,
+        "resource_index": 5,
+        "flag": "🇲🇦"
+    },
+    "Маршалловы Острова": {
+        "gdp": 240000000,
+        "population": 59000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 19.5,
+        "resource_index": 7,
+        "flag": "🇲🇭"
+    },
+    "Микронезия": {
+        "gdp": 400000000,
+        "population": 116000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 21.0,
+        "resource_index": 7,
+        "flag": "🇫🇲"
+    },
+    "Мозамбик": {
+        "gdp": 16800000000,
+        "population": 31300000,
+        "continent": "Африка",
+        "birth_rate": 37.0,
+        "resource_index": 4,
+        "flag": "🇲🇿"
+    },
+    "Молдова": {
+        "gdp": 11500000000,
+        "population": 2600000,
+        "continent": "Европа",
+        "birth_rate": 10.0,
+        "resource_index": 5,
+        "flag": "🇲🇩"
+    },
+    "Монако": {
+        "gdp": 7200000000,
+        "population": 39000,
+        "continent": "Европа",
+        "birth_rate": 5.9,
+        "resource_index": 7,
+        "flag": "🇲🇨"
+    },
+    "Монголия": {
+        "gdp": 13800000000,
+        "population": 3300000,
+        "continent": "Азия",
+        "birth_rate": 22.8,
+        "resource_index": 4,
+        "flag": "🇲🇳"
+    },
+    "Мьянма": {
+        "gdp": 76200000000,
+        "population": 54400000,
+        "continent": "Азия",
+        "birth_rate": 17.0,
+        "resource_index": 5,
+        "flag": "🇲🇲"
+    },
+    "Намибия": {
+        "gdp": 10700000000,
+        "population": 2500000,
+        "continent": "Африка",
+        "birth_rate": 27.2,
+        "resource_index": 5,
+        "flag": "🇳🇦"
+    },
+    "Науру": {
+        "gdp": 130000000,
+        "population": 11000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 27.5,
+        "resource_index": 7,
+        "flag": "🇳🇷"
+    },
+    "Непал": {
+        "gdp": 33600000000,
+        "population": 29400000,
+        "continent": "Азия",
+        "birth_rate": 19.5,
+        "resource_index": 5,
+        "flag": "🇳🇵"
+    },
+    "Нигер": {
+        "gdp": 13700000000,
+        "population": 24200000,
+        "continent": "Африка",
+        "birth_rate": 45.5,
+        "resource_index": 5,
+        "flag": "🇳🇪"
+    },
+    "Нигерия": {
+        "gdp": 432300000000,
+        "population": 206000000,
+        "continent": "Африка",
+        "birth_rate": 36.6,
+        "resource_index": 4,
+        "flag": "🇳🇳"
+    },
+    "Нидерланды": {
+        "gdp": 913900000000,
+        "population": 17400000,
+        "continent": "Европа",
+        "birth_rate": 9.7,
+        "resource_index": 5,
+        "flag": "🇳🇱"
+    },
+    "Никарагуа": {
+        "gdp": 12600000000,
+        "population": 6700000,
+        "continent": "Северная Америка",
+        "birth_rate": 19.5,
+        "resource_index": 5,
+        "flag": "🇳🇮"
+    },
+    "Новая Зеландия": {
+        "gdp": 212500000000,
+        "population": 5100000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 11.5,
+        "resource_index": 4,
+        "flag": "🇳🇿"
+    },
+    "Норвегия": {
+        "gdp": 362000000000,
+        "population": 5400000,
+        "continent": "Европа",
+        "birth_rate": 10.1,
+        "resource_index": 3,
+        "flag": "🇳🇴"
+    },
+    "ОАЭ": {
+        "gdp": 358900000000,
+        "population": 9900000,
+        "continent": "Азия",
+        "birth_rate": 10.2,
+        "resource_index": 4,
+        "flag": "🇦🇪"
+    },
+    "Оман": {
+        "gdp": 76300000000,
+        "population": 5100000,
+        "continent": "Азия",
+        "birth_rate": 18.2,
+        "resource_index": 4,
+        "flag": "🇴🇲"
+    },
+    "Пакистан": {
+        "gdp": 263700000000,
+        "population": 220900000,
+        "continent": "Азия",
+        "birth_rate": 27.5,
+        "resource_index": 5,
+        "flag": "🇵🇰"
+    },
+    "Палау": {
+        "gdp": 268000000,
+        "population": 18000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 11.0,
+        "resource_index": 7,
+        "flag": "🇵🇼"
+    },
+    "Панама": {
+        "gdp": 52900000000,
+        "population": 4300000,
+        "continent": "Северная Америка",
+        "birth_rate": 18.2,
+        "resource_index": 5,
+        "flag": "🇵🇦"
+    },
+    "Папуа — Новая Гвинея": {
+        "gdp": 24600000000,
+        "population": 9000000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 26.5,
+        "resource_index": 4,
+        "flag": "🇵🇬"
+    },
+    "Парагвай": {
+        "gdp": 35000000000,
+        "population": 7100000,
+        "continent": "Южная Америка",
+        "birth_rate": 19.5,
+        "resource_index": 5,
+        "flag": "🇵🇾"
+    },
+    "Перу": {
+        "gdp": 202000000000,
+        "population": 33000000,
+        "continent": "Южная Америка",
+        "birth_rate": 17.5,
+        "resource_index": 4,
+        "flag": "🇵🇪"
+    },
+    "Польша": {
+        "gdp": 599000000000,
+        "population": 38300000,
+        "continent": "Европа",
+        "birth_rate": 9.5,
+        "resource_index": 4,
+        "flag": "🇵🇱"
+    },
+    "Португалия": {
+        "gdp": 231000000000,
+        "population": 10300000,
+        "continent": "Европа",
+        "birth_rate": 8.2,
+        "resource_index": 5,
+        "flag": "🇵🇹"
+    },
+    "Руанда": {
+        "gdp": 10300000000,
+        "population": 13000000,
+        "continent": "Африка",
+        "birth_rate": 30.5,
+        "resource_index": 6,
+        "flag": "🇷🇼"
+    },
+    "Румыния": {
+        "gdp": 248000000000,
+        "population": 19300000,
+        "continent": "Европа",
+        "birth_rate": 9.6,
+        "resource_index": 5,
+        "flag": "🇷🇴"
+    },
+    "Сальвадор": {
+        "gdp": 24600000000,
+        "population": 6500000,
+        "continent": "Северная Америка",
+        "birth_rate": 16.5,
+        "resource_index": 6,
+        "flag": "🇸🇻"
+    },
+    "Самоа": {
+        "gdp": 800000000,
+        "population": 200000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 23.5,
+        "resource_index": 6,
+        "flag": "🇼🇸"
+    },
+    "Сан-Марино": {
+        "gdp": 1500000000,
+        "population": 34000,
+        "continent": "Европа",
+        "birth_rate": 6.8,
+        "resource_index": 7,
+        "flag": "🇸🇲"
+    },
+    "Сан-Томе и Принсипи": {
+        "gdp": 500000000,
+        "population": 220000,
+        "continent": "Африка",
+        "birth_rate": 30.2,
+        "resource_index": 7,
+        "flag": "🇸🇹"
+    },
+    "Саудовская Аравия": {
+        "gdp": 700100000000,
+        "population": 34800000,
+        "continent": "Азия",
+        "birth_rate": 17.5,
+        "resource_index": 4,
+        "flag": "🇸🇦"
+    },
+    "Северная Македония": {
+        "gdp": 12300000000,
+        "population": 2080000000,
+        "continent": "Европа",
+        "birth_rate": 9.2,
+        "resource_index": 5,
+        "flag": "🇲🇰"
+    },
+    "Сейшельские Острова": {
+        "gdp": 1100000000,
+        "population": 98000,
+        "continent": "Африка",
+        "birth_rate": 15.5,
+        "resource_index": 7,
+        "flag": "🇸🇨"
+    },
+    "Сенегал": {
+        "gdp": 24000000000,
+        "population": 16700000,
+        "continent": "Африка",
+        "birth_rate": 33.2,
+        "resource_index": 6,
+        "flag": "🇸🇳"
+    },
+    "Сент-Винсент и Гренадины": {
+        "gdp": 800000000,
+        "population": 110000,
+        "continent": "Северная Америка",
+        "birth_rate": 13.5,
+        "resource_index": 6,
+        "flag": "🇻🇨"
+    },
+    "Сент-Китс и Невис": {
+        "gdp": 960000000,
+        "population": 53000,
+        "continent": "Северная Америка",
+        "birth_rate": 12.0,
+        "resource_index": 6,
+        "flag": "🇰🇳"
+    },
+    "Сент-Люсия": {
+        "gdp": 1800000000,
+        "population": 183000,
+        "continent": "Северная Америка",
+        "birth_rate": 12.5,
+        "resource_index": 6,
+        "flag": "🇱🇨"
+    },
+    "Сербия": {
+        "gdp": 53000000000,
+        "population": 6700000,
+        "continent": "Европа",
+        "birth_rate": 9.1,
+        "resource_index": 5,
+        "flag": "🇷🇸"
+    },
+    "Сингапур": {
+        "gdp": 340000000000,
+        "population": 5700000,
+        "continent": "Азия",
+        "birth_rate": 8.5,
+        "resource_index": 7,
+        "flag": "🇸🇬"
+    },
+    "Сирия": {
+        "gdp": 40400000000,
+        "population": 17500000,
+        "continent": "Азия",
+        "birth_rate": 22.0,
+        "resource_index": 5,
+        "flag": "🇸🇾"
+    },
+    "Словакия": {
+        "gdp": 104000000000,
+        "population": 5400000,
+        "continent": "Европа",
+        "birth_rate": 10.5,
+        "resource_index": 5,
+        "flag": "🇸🇰"
+    },
+    "Словения": {
+        "gdp": 56700000000,
+        "population": 2100000,
+        "continent": "Европа",
+        "birth_rate": 9.5,
+        "resource_index": 5,
+        "flag": "🇸🇮"
+    },
+    "Соломоновы Острова": {
+        "gdp": 1600000000,
+        "population": 700000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 28.0,
+        "resource_index": 6,
+        "flag": "🇸🇧"
+    },
+    "Сомали": {
+        "gdp": 5300000000,
+        "population": 15900000,
+        "continent": "Африка",
+        "birth_rate": 42.0,
+        "resource_index": 6,
+        "flag": "🇸🇴"
+    },
+    "Судан": {
+        "gdp": 27800000,
+        "population": 44900000,
+        "continent": "Африка",
+        "birth_rate": 32.5,
+        "resource_index": 5,
+        "flag": "🇸🇩"
+    },
+    "Суринам": {
+        "gdp": 2800000000,
+        "population": 590000,
+        "continent": "Южная Америка",
+        "birth_rate": 17.5,
+        "resource_index": 5,
+        "flag": "🇸🇷"
+    },
+    "Таджикистан": {
+        "gdp": 8100000000,
+        "population": 9500000,
+        "continent": "Азия",
+        "birth_rate": 28.5,
+        "resource_index": 5,
+        "flag": "🇹🇯"
+    },
+    "Танзания": {
+        "gdp": 64400000000,
+        "population": 59700000,
+        "continent": "Африка",
+        "birth_rate": 35.5,
+        "resource_index": 5,
+        "flag": "🇹🇿"
+    },
+    "Таиланд": {
+        "gdp": 501800000000,
+        "population": 69800000,
+        "continent": "Азия",
+        "birth_rate": 9.5,
+        "resource_index": 5,
+        "flag": "🇹🇭"
+    },
+    "Того": {
+        "gdp": 7600000000,
+        "population": 8300000,
+        "continent": "Африка",
+        "birth_rate": 32.5,
+        "resource_index": 6,
+        "flag": "🇹🇬"
+    },
+    "Тонга": {
+        "gdp": 500000000,
+        "population": 105000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 23.0,
+        "resource_index": 6,
+        "flag": "🇹🇴"
+    },
+    "Тринидад и Тобаго": {
+        "gdp": 21400000000,
+        "population": 1400000,
+        "continent": "Северная Америка",
+        "birth_rate": 11.5,
+        "resource_index": 4,
+        "flag": "🇹🇹"
+    },
+    "Тунис": {
+        "gdp": 39200000000,
+        "population": 11800000,
+        "continent": "Африка",
+        "birth_rate": 16.5,
+        "resource_index": 5,
+        "flag": "🇹🇳"
+    },
+    "Туркмения": {
+        "gdp": 45200000000,
+        "population": 6000000,
+        "continent": "Азия",
+        "birth_rate": 22.0,
+        "resource_index": 4,
+        "flag": "🇹🇲"
+    },
+    "Турция": {
+        "gdp": 720100000000,
+        "population": 84300000,
+        "continent": "Азия",
+        "birth_rate": 15.5,
+        "resource_index": 4,
+        "flag": "🇹🇷"
+    },
+    "Уганда": {
+        "gdp": 37400000000,
+        "population": 45700000,
+        "continent": "Африка",
+        "birth_rate": 36.5,
+        "resource_index": 5,
+        "flag": "🇺🇬"
+    },
+    "Узбекистан": {
+        "gdp": 57900000000,
+        "population": 33900000,
+        "continent": "Азия",
+        "birth_rate": 23.5,
+        "resource_index": 5,
+        "flag": "🇺🇿"
+    },
+    "Украина": {
+        "gdp": 155600000000,
+        "population": 41700000,
+        "continent": "Европа",
+        "birth_rate": 7.8,
+        "resource_index": 4,
+        "flag": "🇺🇦"
+    },
+    "Уругвай": {
+        "gdp": 53600000000,
+        "population": 3500000,
+        "continent": "Южная Америка",
+        "birth_rate": 13.5,
+        "resource_index": 5,
+        "flag": "🇺🇾"
+    },
+    "Фиджи": {
+        "gdp": 4300000000,
+        "population": 896000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 19.5,
+        "resource_index": 6,
+        "flag": "🇫🇯"
+    },
+    "Филиппины": {
+        "gdp": 367400000000,
+        "population": 109600000,
+        "continent": "Азия",
+        "birth_rate": 20.0,
+        "resource_index": 5,
+        "flag": "🇵🇭"
+    },
+    "Финляндия": {
+        "gdp": 270700000000,
+        "population": 5500000,
+        "continent": "Европа",
+        "birth_rate": 8.4,
+        "resource_index": 4,
+        "flag": "🇫🇮"
+    },
+    "Франция": {
+        "gdp": 2716000000000,
+        "population": 67400000,
+        "continent": "Европа",
+        "birth_rate": 10.9,
+        "resource_index": 4,
+        "flag": "🇫🇷"
+    },
+    "Хорватия": {
+        "gdp": 56800000000,
+        "population": 4000000,
+        "continent": "Европа",
+        "birth_rate": 8.9,
+        "resource_index": 5,
+        "flag": "🇭🇷"
+    },
+    "ЦАР": {
+        "gdp": 2300000000,
+        "population": 4800000,
+        "continent": "Африка",
+        "birth_rate": 34.5,
+        "resource_index": 5,
+        "flag": "🇨🇫"
+    },
+    "Чад": {
+        "gdp": 10300000000,
+        "population": 16400000,
+        "continent": "Африка",
+        "birth_rate": 42.0,
+        "resource_index": 5,
+        "flag": "🇹🇩"
+    },
+    "Черногория": {
+        "gdp": 5500000000,
+        "population": 620000,
+        "continent": "Европа",
+        "birth_rate": 11.2,
+        "resource_index": 5,
+        "flag": "🇲🇪"
+    },
+    "Чехия": {
+        "gdp": 251000000000,
+        "population": 10700000,
+        "continent": "Европа",
+        "birth_rate": 10.3,
+        "resource_index": 5,
+        "flag": "🇨🇿"
+    },
+    "Чили": {
+        "gdp": 252000000000,
+        "population": 19100000,
+        "continent": "Южная Америка",
+        "birth_rate": 12.2,
+        "resource_index": 4,
+        "flag": "🇨🇱"
+    },
+    "Швейцария": {
+        "gdp": 824700000000,
+        "population": 8600000,
+        "continent": "Европа",
+        "birth_rate": 10.0,
+        "resource_index": 6,
+        "flag": "🇨🇭"
+    },
+    "Швеция": {
+        "gdp": 541000000000,
+        "population": 10300000,
+        "continent": "Европа",
+        "birth_rate": 10.9,
+        "resource_index": 4,
+        "flag": "🇸🇪"
+    },
+    "Шри-Ланка": {
+        "gdp": 81300000000,
+        "population": 21900000,
+        "continent": "Азия",
+        "birth_rate": 15.5,
+        "resource_index": 5,
+        "flag": "🇱🇰"
+    },
+    "Эквадор": {
+        "gdp": 98800000000,
+        "population": 17600000,
+        "continent": "Южная Америка",
+        "birth_rate": 19.2,
+        "resource_index": 5,
+        "flag": "🇪🇨"
+    },
+    "Экваториальная Гвинея": {
+        "gdp": 10000000000,
+        "population": 1400000,
+        "continent": "Африка",
+        "birth_rate": 32.5,
+        "resource_index": 5,
+        "flag": "🇬🇶"
+    },
+    "Эритрея": {
+        "gdp": 2100000000,
+        "population": 3500000,
+        "continent": "Африка",
+        "birth_rate": 29.5,
+        "resource_index": 6,
+        "flag": "🇪🇷"
+    },
+    "Эсватини": {
+        "gdp": 4400000000,
+        "population": 1200000,
+        "continent": "Африка",
+        "birth_rate": 26.0,
+        "resource_index": 6,
+        "flag": "🇸🇿"
+    },
+    "Эстония": {
+        "gdp": 31000000000,
+        "population": 1300000,
+        "continent": "Европа",
+        "birth_rate": 9.9,
+        "resource_index": 5,
+        "flag": "🇪🇪"
+    },
+    "Эфиопия": {
+        "gdp": 96000000000,
+        "population": 114000000,
+        "continent": "Африка",
+        "birth_rate": 31.5,
+        "resource_index": 5,
+        "flag": "🇪🇹"
+    },
+    "Южная Корея": {
+        "gdp": 1631000000000,
+        "population": 51800000,
+        "continent": "Азия",
+        "birth_rate": 5.3,
+        "resource_index": 6,
+        "flag": "🇰🇷"
+    },
+    "Южный Судан": {
+        "gdp": 3700000000,
+        "population": 11200000,
+        "continent": "Африка",
+        "birth_rate": 29.0,
+        "resource_index": 5,
+        "flag": "🇸🇸"
+    },
+    "Ямайка": {
+        "gdp": 13800000000,
+        "population": 2900000,
+        "continent": "Северная Америка",
+        "birth_rate": 12.0,
+        "resource_index": 5,
+        "flag": "🇯🇲"
+    },
+    "Япония": {
+        "gdp": 5065000000000,
+        "population": 125800000,
+        "continent": "Азия",
+        "birth_rate": 7.0,
+        "resource_index": 6,
+        "flag": "🇯🇵"
+    },
+    "Литва": {
+        "gdp": 57410000000,
+        "population": 2811000,
+        "continent": "Европа",
+        "birth_rate": 9.0,
+        "resource_index": 5,
+        "flag": "🇱🇹"
+    },
+    "Латвия": {
+        "gdp": 33380000000,
+        "population": 1900000,
+        "continent": "Европа",
+        "birth_rate": 9.2,
+        "resource_index": 5,
+        "flag": "🇱🇻"
+    },
+    "Лаос": {
+        "gdp": 18980000000,
+        "population": 7347000,
+        "continent": "Азия",
+        "birth_rate": 23.0,
+        "resource_index": 5,
+        "flag": "🇱🇦"
+    },
+    "Ливия": {
+        "gdp": 46850000000,
+        "population": 7045000,
+        "continent": "Африка",
+        "birth_rate": 18.0,
+        "resource_index": 4,
+        "flag": "🇱🇾"
+    },
+    "Албания": {
+        "gdp": 14700000000,
+        "population": 2840000,
+        "continent": "Европа",
+        "birth_rate": 10.2,
+        "resource_index": 6,
+        "flag": "🇦🇱"
+    },
+    "Азербайджан": {
+        "gdp": 42600000000,
+        "population": 10090000,
+        "continent": "Азия",
+        "birth_rate": 12.5,
+        "resource_index": 4,
+        "flag": "🇦🇿"
+    },
+    "Бангладеш": {
+        "gdp": 373090000000,
+        "population": 166300000,
+        "continent": "Азия",
+        "birth_rate": 17.8,
+        "resource_index": 6,
+        "flag": "🇧🇩"
+    },
+    "Бахрейн": {
+        "gdp": 35840000000,
+        "population": 1470000,
+        "continent": "Азия",
+        "birth_rate": 12.5,
+        "resource_index": 4,
+        "flag": "🇧🇭"
+    },
+    "Белиз": {
+        "gdp": 2080000000,
+        "population": 400000,
+        "continent": "Северная Америка",
+        "birth_rate": 19.5,
+        "resource_index": 5,
+        "flag": "🇧🇿"
+    },
+    "Афганистан": {
+        "gdp": 19810000000,
+        "population": 38930000,
+        "continent": "Азия",
+        "birth_rate": 31.5,
+        "resource_index": 5,
+        "flag": "🇦🇫"
+    },
+    "Болгария": {
+        "gdp": 69110000000,
+        "population": 6950000,
+        "continent": "Европа",
+        "birth_rate": 8.5,
+        "resource_index": 5,
+        "flag": "🇧🇬"
+    },
+    "Ботсвана": {
+        "gdp": 17620000000,
+        "population": 2350000,
+        "continent": "Африка",
+        "birth_rate": 24.0,
+        "resource_index": 5,
+        "flag": "🇧🇼"
+    },
+    "Бруней": {
+        "gdp": 11370000000,
+        "population": 440000,
+        "continent": "Азия",
+        "birth_rate": 14.2,
+        "resource_index": 4,
+        "flag": "🇧🇳"
+    },
+    "Буркина-Фасо": {
+        "gdp": 17900000000,
+        "population": 20900000,
+        "continent": "Африка",
+        "birth_rate": 36.5,
+        "resource_index": 6,
+        "flag": "🇧🇫"
+    },
+    "Венгрия": {
+        "gdp": 157300000000,
+        "population": 9770000,
+        "continent": "Европа",
+        "birth_rate": 9.6,
+        "resource_index": 5,
+        "flag": "🇭🇺"
+    },
+    "Исландия": {
+        "gdp": 21630000000,
+        "population": 366400,
+        "continent": "Европа",
+        "birth_rate": 11.5,
+        "resource_index": 5,
+        "flag": "🇮🇸"
+    },
+    "Кипр": {
+        "gdp": 25560000000,
+        "population": 1302247,
+        "continent": "Европа",
+        "birth_rate": 9.8,
+        "resource_index": 6,
+        "flag": "🇨🇾"
+    },
+    "Кения": {
+        "gdp": 100600000000,
+        "population": 51460000,
+        "continent": "Африка",
+        "birth_rate": 28.5,
+        "resource_index": 5,
+        "flag": "🇰🇪"
+    },
+    "ДР Конго": {
+        "gdp": 48792000000,
+        "population": 89600000,
+        "continent": "Африка",
+        "birth_rate": 40.5,
+        "resource_index": 3,
+        "flag": "🇨🇩"
+    },
+    "Кыргыстан": {
+        "gdp": 8270000000,
+        "population": 6727000,
+        "continent": "Азия",
+        "birth_rate": 24.5,
+        "resource_index": 5,
+        "flag": "🇰🇬"
+    },
+    "Казахстан": {
+        "gdp": 171100000000,
+        "population": 19480000,
+        "continent": "Азия",
+        "birth_rate": 21.5,
+        "resource_index": 3,
+        "flag": "🇰🇿"
+    },
+    "Израиль": {
+        "gdp": 411730000000,
+        "population": 8800000,
+        "continent": "Азия",
+        "birth_rate": 19.5,
+        "resource_index": 6,
+        "flag": "🇮🇱"
+    },
+    "Люксембург": {
+        "gdp": 73700000000,
+        "population": 626000,
+        "continent": "Европа",
+        "birth_rate": 10.2,
+        "resource_index": 6,
+        "flag": "🇱🇺"
+    },
+    "ЮАР": {
+        "gdp": 338000000000,
+        "population": 60560000,
+        "continent": "Африка",
+        "birth_rate": 19.5,
+        "resource_index": 3,
+        "flag": "🇿🇦"
+    },
+    "Кувейт": {
+        "gdp": 111045000000,
+        "population": 4464000,
+        "continent": "Азия",
+        "birth_rate": 12.0,
+        "resource_index": 4,
+        "flag": "🇰🇼"
+    },
+    "Ливан": {
+        "gdp": 21780000000,
+        "population": 6825000,
+        "continent": "Азия",
+        "birth_rate": 16.5,
+        "resource_index": 6,
+        "flag": "🇱🇧"
+    },
+    "Либерия": {
+        "gdp": 5170000000,
+        "population": 507000,
+        "continent": "Африка",
+        "birth_rate": 31.5,
+        "resource_index": 5,
+        "flag": "🇱🇷"
+    },
+    "Лесото": {
+        "gdp": 2300000000,
+        "population": 2300000,
+        "continent": "Африка",
+        "birth_rate": 26.0,
+        "resource_index": 6,
+        "flag": "🇱🇸"
+    },
+    "Сьерра-Леоне": {
+        "gdp": 3970000000,
+        "population": 8276000,
+        "continent": "Африка",
+        "birth_rate": 32.0,
+        "resource_index": 5,
+        "flag": "🇸🇱"
+    },
+    "Алжир": {
+        "gdp": 16490000000,
+        "population": 44040000,
+        "continent": "Африка",
+        "birth_rate": 21.5,
+        "resource_index": 4,
+        "flag": "🇩🇿"
+    },
+    "Коста-Рика": {
+        "gdp": 62400000000,
+        "population": 5034000,
+        "continent": "Северная Америка",
+        "birth_rate": 13.5,
+        "resource_index": 5,
+        "flag": "🇨🇷"
+    },
+    "Кот-д’Ивуар": {
+        "gdp": 63000000000,
+        "population": 28920000,
+        "continent": "Африка",
+        "birth_rate": 34.0,
+        "resource_index": 5,
+        "flag": "🇨🇮"
+    },
+    "Соломоновы острова": {
+        "gdp": 1536000000,
+        "population": 744000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 29.0,
+        "resource_index": 6,
+        "flag": "🇸🇧"
+    },
+    "Тувалу": {
+        "gdp": 62280312,
+        "population": 9800,
+        "continent": "Австралия и Океания",
+        "birth_rate": 22.5,
+        "resource_index": 7,
+        "flag": "🇹🇻"
+    },
+    "Туркменистан": {
+        "gdp": 45820000000,
+        "population": 6118000,
+        "continent": "Азия",
+        "birth_rate": 23.5,
+        "resource_index": 4,
+        "flag": "🇹🇲"
+    },
+    "Иордания": {
+        "gdp": 43700000000,
+        "population": 10870000,
+        "continent": "Азия",
+        "birth_rate": 21.5,
+        "resource_index": 6,
+        "flag": "🇯🇴"
+    },
+    "Иран": {
+        "gdp": 262000000000,
+        "population": 87720000,
+        "continent": "Азия",
+        "birth_rate": 14.5,
+        "resource_index": 3,
+        "flag": "🇮🇷"
+    },
+    "КНДР": {
+        "gdp": 34919000000,
+        "population": 15831000,
+        "continent": "Азия",
+        "birth_rate": 13.5,
+        "resource_index": 5,
+        "flag": "🇰🇵"
+    },
+    "ДНР": {
+        "gdp": 3741000000,
+        "population": 2200000,
+        "continent": "Европа",
+        "birth_rate": 8.5,
+        "resource_index": 4,
+        "flag": "⬛🟦🟥"
+    },
+    "ЛНР": {
+        "gdp": 3000000000,
+        "population": 1400000,
+        "continent": "Европа",
+        "birth_rate": 8.0,
+        "resource_index": 4,
+        "flag": "🟦🟥⬛"
+    },
+    "Ватикан": {
+        "gdp": 19800000,
+        "population": 880,
+        "continent": "Европа",
+        "birth_rate": 0.0,
+        "resource_index": 7,
+        "flag": "🇻🇦"
+    },
+    "Беларусь": {
+        "gdp": 61370000000,
+        "population": 9380000,
+        "continent": "Европа",
+        "birth_rate": 9.3,
+        "resource_index": 5,
+        "flag": "🇧🇾"
+    },
+    "Палестина": {
+        "gdp": 15530000000,
+        "population": 4830000,
+        "continent": "Азия",
+        "birth_rate": 29.0,
+        "resource_index": 6,
+        "flag": "🇵🇸"
+    },
+    "Ангола": {
+        "gdp": 48500000000,
+        "population": 33450000,
+        "continent": "Африка",
+        "birth_rate": 40.0,
+        "resource_index": 4,
+        "flag": "🇦🇴"
+    },
+    "Лихтенштейн": {
+        "gdp": 6406000000,
+        "population": 38900,
+        "continent": "Европа",
+        "birth_rate": 9.8,
+        "resource_index": 7,
+        "flag": "🇱🇮"
+    },
+    "Тайвань": {
+        "gdp": 676700000000,
+        "population": 23500000,
+        "continent": "Азия",
+        "birth_rate": 6.5,
+        "resource_index": 6,
+        "flag": "🇹🇼"
+    },
+    "Австрия": {
+        "gdp": 434400000000,
+        "population": 8917000,
+        "continent": "Европа",
+        "birth_rate": 9.5,
+        "resource_index": 5,
+        "flag": "🇦🇹"
+    },
+    "Ирландия": {
+        "gdp": 436600000000,
+        "population": 5040000,
+        "continent": "Европа",
+        "birth_rate": 11.2,
+        "resource_index": 5,
+        "flag": "🇮🇪"
+    },
+    "Южная Осетия": {
+        "gdp": 100000000,
+        "population": 56700,
+        "continent": "Азия",
+        "birth_rate": 10.8,
+        "resource_index": 6,
+        "flag": "⬜🟥🟨"
+    },
+    "Абхазия": {
+        "gdp": 816000000,
+        "population": 245400,
+        "continent": "Азия",
+        "birth_rate": 10.2,
+        "resource_index": 5,
+        "flag": "🟩⬜🟩"
+    },
+    "Аргентина": {
+        "gdp": 385700000000,
+        "population": 45190000,
+        "continent": "Южная Америка",
+        "birth_rate": 16.5,
+        "resource_index": 3,
+        "flag": "🇦🇷"
+    },
+    "Бельгия": {
+        "gdp": 482100000000,
+        "population": 11520000,
+        "continent": "Европа",
+        "birth_rate": 10.0,
+        "resource_index": 6,
+        "flag": "🇧🇪"
+    },
+    "Армения": {
+        "gdp": 12600000000,
+        "population": 2960000,
+        "continent": "Азия",
+        "birth_rate": 11.5,
+        "resource_index": 5,
+        "flag": "🇦🇲"
+    },
+    "Боливия": {
+        "gdp": 40895322844,
+        "population": 11510000,
+        "continent": "Южная Америка",
+        "birth_rate": 21.0,
+        "resource_index": 4,
+        "flag": "🇧🇴"
+    },
+    "Венесуэла": {
+        "gdp": 106000000000,
+        "population": 28515000,
+        "continent": "Южная Америка",
+        "birth_rate": 17.5,
+        "resource_index": 3,
+        "flag": "🇻🇪"
+    },
+    "Вьетнам": {
+        "gdp": 271000000000,
+        "population": 97340000,
+        "continent": "Азия",
+        "birth_rate": 16.0,
+        "resource_index": 5,
+        "flag": "🇻🇳"
+    },
+    "Колумбия": {
+        "gdp": 271000000000,
+        "population": 50900000,
+        "continent": "Южная Америка",
+        "birth_rate": 14.5,
+        "resource_index": 4,
+        "flag": "🇨🇴"
+    },
+    "Катар": {
+        "gdp": 146000000000,
+        "population": 2881000,
+        "continent": "Азия",
+        "birth_rate": 9.5,
+        "resource_index": 4,
+        "flag": "🇶🇦"
+    },
+    "Андорра": {
+        "gdp": 2891001149,
+        "population": 77380,
+        "continent": "Европа",
+        "birth_rate": 7.0,
+        "resource_index": 7,
+        "flag": "🇦🇩"
+    },
+    "Багамы": {
+        "gdp": 10000000000,
+        "population": 391377,
+        "continent": "Северная Америка",
+        "birth_rate": 11.5,
+        "resource_index": 6,
+        "flag": "🇧🇸"
+    },
+    "Бенин": {
+        "gdp": 15651545209,
+        "population": 13070169,
+        "continent": "Африка",
+        "birth_rate": 35.5,
+        "resource_index": 6,
+        "flag": "🇧🇯"
+    },
+    "Бутан": {
+        "gdp": 2434000000,
+        "population": 767376,
+        "continent": "Азия",
+        "birth_rate": 16.0,
+        "resource_index": 5,
+        "flag": "🇧🇹"
+    },
+    "Замбия": {
+        "gdp": 19320000000,
+        "population": 18500000,
+        "continent": "Африка",
+        "birth_rate": 34.5,
+        "resource_index": 5,
+        "flag": "🇿🇲"
+    },
+    "Йемен": {
+        "gdp": 17970000000,
+        "population": 30000000,
+        "continent": "Азия",
+        "birth_rate": 29.0,
+        "resource_index": 5,
+        "flag": "🇾🇪"
+    },
+    "Барбадос": {
+        "gdp": 4660000000,
+        "population": 287000,
+        "continent": "Северная Америка",
+        "birth_rate": 10.5,
+        "resource_index": 6,
+        "flag": "🇧🇧"
+    },
+    "Босния и Герцеговина": {
+        "gdp": 20050000000,
+        "population": 3300000,
+        "continent": "Европа",
+        "birth_rate": 8.0,
+        "resource_index": 5,
+        "flag": "🇧🇦"
+    },
+    "Бурунди": {
+        "gdp": 3380000000,
+        "population": 11890000,
+        "continent": "Африка",
+        "birth_rate": 38.0,
+        "resource_index": 6,
+        "flag": "🇧🇮"
+    },
+    "Вануату": {
+        "gdp": 900000000,
+        "population": 300000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 29.0,
+        "resource_index": 6,
+        "flag": "🇻🇺"
+    },
+    "Восточный Тимор": {
+        "gdp": 3000000000,
+        "population": 1318000,
+        "continent": "Азия",
+        "birth_rate": 29.0,
+        "resource_index": 5,
+        "flag": "🇹🇱"
+    },
+    "Зимбабве": {
+        "gdp": 21500000000,
+        "population": 14860000,
+        "continent": "Африка",
+        "birth_rate": 30.5,
+        "resource_index": 5,
+        "flag": "🇿🇼"
+    },
+    "Кабо-Верде": {
+        "gdp": 2040000000,
+        "population": 550000,
+        "continent": "Африка",
+        "birth_rate": 18.5,
+        "resource_index": 7,
+        "flag": "🇨🇻"
+    },
+    "Коморы": {
+        "gdp": 1200000000,
+        "population": 870000,
+        "continent": "Африка",
+        "birth_rate": 31.0,
+        "resource_index": 7,
+        "flag": "🇰🇲"
+    },
+    "Доминиканская Республика": {
+        "gdp": 88940000000,
+        "population": 10850000,
+        "continent": "Северная Америка",
+        "birth_rate": 18.5,
+        "resource_index": 5,
+        "flag": "🇩🇴"
+    },
+    "Кирибати": {
+        "gdp": 220000000,
+        "population": 120000,
+        "continent": "Австралия и Океания",
+        "birth_rate": 27.0,
+        "resource_index": 7,
+        "flag": "🇰🇮"
+    },
+    "Камерун": {
+        "gdp": 40863000000,
+        "population": 27745000,
+        "continent": "Африка",
+        "birth_rate": 35.0,
+        "resource_index": 5,
+        "flag": "🇨🇲"
+    }
+}

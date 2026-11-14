@@ -1,0 +1,202 @@
+{
+    "Academi": {
+        "country": "США",
+        "type": "Государственная",
+        "flag": "🇺🇸"
+    },
+    "Редут": {
+        "country": "Россия",
+        "type": "Государственная",
+        "flag": "🇷🇺"
+    },
+    "Патриот": {
+        "country": "Россия",
+        "type": "Государственная",
+        "flag": "🇷🇺"
+    },
+    "Русич": {
+        "country": "Россия",
+        "type": "Государственная",
+        "flag": "🇷🇺"
+    },
+    "G4S": {
+        "country": "Великобритания",
+        "type": "Государственная",
+        "flag": "🇬🇧"
+    },
+    "GEOS": {
+        "country": "Франция",
+        "type": "Государственная",
+        "flag": "🇫🇷"
+    },
+    "Paladin Group": {
+        "country": "Австралия",
+        "type": "Государственная",
+        "flag": "🇦🇺"
+    },
+    "Asgaard": {
+        "country": "Германия",
+        "type": "Государственная",
+        "flag": "🇩🇪"
+    },
+    "UC GLOBAL": {
+        "country": "Испания",
+        "type": "Государственная",
+        "flag": "🇪🇸"
+    },
+    "Executive Outcomes": {
+        "country": "Ангола",
+        "type": "Государственная",
+        "flag": "🇦🇴"
+    },
+    "Northbridge Services Group": {
+        "country": "Доминикана",
+        "type": "Государственная",
+        "flag": "🇩🇴"
+    },
+    "Huaxin Zhongan": {
+        "country": "КНР",
+        "type": "Государственная",
+        "flag": "🇨🇳"
+    },
+    "DeWe Security": {
+        "country": "КНР",
+        "type": "Государственная",
+        "flag": "🇨🇳"
+    },
+    "Draken International": {
+        "country": "США",
+        "type": "Государственная",
+        "flag": "🇺🇸"
+    },
+    "GardService": {
+        "country": "Беларусь",
+        "type": "Государственная",
+        "flag": "🇧🇾"
+    },
+    "Global CST": {
+        "country": "Израиль",
+        "type": "Государственная",
+        "flag": "🇮🇱"
+    },
+    "STTEP": {
+        "country": "ЮАР",
+        "type": "Государственная",
+        "flag": "🇿🇦"
+    },
+    "SADAT": {
+        "country": "Турция",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "Вагнер": {
+        "country": "Россия",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "GardaWorld": {
+        "country": "Канада",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "Erinys": {
+        "country": "Великобритания",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "DynCorp": {
+        "country": "США",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "Triple Canopy": {
+        "country": "США",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "Aegis Defence Services": {
+        "country": "Великобритания",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "РСБ-Групп": {
+        "country": "Россия",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "MPRI": {
+        "country": "США",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "Defion Internacional": {
+        "country": "Перу",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "Unity Resources Group": {
+        "country": "Австралия",
+        "type": "Частная",
+        "flag": "👤"
+    },
+    "ООН": {
+        "country": "США",
+        "type": "Международная",
+        "flag": "🇺🇳"
+    },
+    "GIGN": {
+        "country": "Франция",
+        "type": "Спецназ",
+        "flag": "🇫🇷"
+    },
+    "SEAL Team Six": {
+        "country": "США",
+        "type": "Спецназ",
+        "flag": "🇺🇸"
+    },
+    "Special Air Service": {
+        "country": "Великобритания",
+        "type": "Спецназ",
+        "flag": "🇬🇧"
+    },
+    "Сайерет Маткаль": {
+        "country": "Израиль",
+        "type": "Спецназ",
+        "flag": "🇮🇱"
+    },
+    "GSG 9": {
+        "country": "Германия",
+        "type": "Спецназ",
+        "flag": "🇩🇪"
+    },
+    "ЦСН «Альфа»": {
+        "country": "Россия",
+        "type": "Спецназ",
+        "flag": "🇷🇺"
+    },
+    "ЦСО «Альфа»": {
+        "country": "Украина",
+        "type": "Спецназ",
+        "flag": "🇺🇦"
+    },
+    "JW GROM": {
+        "country": "Польша",
+        "type": "Спецназ",
+        "flag": "🇵🇱"
+    },
+    "GIS": {
+        "country": "Италия",
+        "type": "Спецназ",
+        "flag": "🇮🇹"
+    },
+    "Recces": {
+        "country": "ЮАР",
+        "type": "Спецназ",
+        "flag": "🇿🇦"
+    },
+    "BOPE": {
+        "country": "Бразилия",
+        "type": "Спецназ",
+        "flag": "🇧🇷"
+    }
+}

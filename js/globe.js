@@ -158,6 +158,48 @@ const FALLBACK_COORDINATES = {
   'дания': [56.278, 9.6227],
   'беларусь': [53.2974, 28.1961],
   'украина': [48.6814, 30.3621],
+  // Автономии и специальные регионы
+  'аландские острова': [60.1785, 19.9156],
+  'бангсаморо': [7.2047, 124.2494],
+  'бермудские острова': [32.3078, -64.7505],
+  'виргинские острова': [18.3358, -64.8963],
+  'внутренняя монголия': [44.0935, 113.9448],
+  'гагаузия': [46.3000, 28.6000],
+  'гонконг': [22.3193, 114.1694],
+  'горный бадахшан': [38.1667, 72.5000],
+  'гуам': [13.4443, 144.7937],
+  'гуанси-чжуанский район': [23.5523, 108.7888],
+  'дагестан': [42.9849, 47.5046],
+  'кабардино-балкария': [43.4853, 43.6071],
+  'каракалпакстан': [43.7000, 59.0000],
+  'каталония': [41.5912, 1.5209],
+  'квебек': [52.9399, -73.5491],
+  'коми': [64.2500, 54.5000],
+  'курдистан': [36.1901, 44.0091],
+  'макао': [22.1987, 113.5439],
+  'нахичевань': [39.2089, 45.4122],
+  'нинся-хуэйский автономный район': [37.2692, 106.1655],
+  'новая каледония': [-20.9043, 165.6180],
+  'норфолк': [-29.0408, 167.9547],
+  'остров пасхи': [-27.1127, -109.3497],
+  'пуэрто-рико': [18.2208, -66.5901],
+  'республика сербская': [44.7758, 17.1856],
+  'северная осетия': [43.0367, 44.6678],
+  'синьцзян': [43.7930, 87.6271],
+  'тибет': [31.6927, 88.0924],
+  'фарерские острова': [61.8926, -6.9118],
+  'фолклендские острова': [-51.7963, -59.5236],
+  'французская полинезия': [-17.6797, -149.4068],
+  'чукотка': [66.5622, -171.1776],
+  'шотландия': [56.4907, -4.2026],
+  'шпицберген': [78.2232, 15.6267],
+  'якутия': [62.0397, 129.7422],
+  'техас': [31.9686, -99.9018],
+  'калифорния': [36.7783, -119.4179],
+  'аляска': [64.2008, -149.4937],
+  'тыва': [51.7197, 94.4378],
+  'карелия': [61.7849, 34.3469],
+  'ар крым': [44.9521, 34.1024],
   'чечня': [43.3179, 45.6982],
   'чеченская республика': [43.3179, 45.6982]
 };
@@ -298,18 +340,59 @@ async function ensureGlobeLibrary() {
 }
 
 /**
- * Загрузка базы стран countries2014.json
+ * Загрузка базы стран (countries2020.json, autonomy.json, pmc.json)
  */
 async function loadCountriesDatabase() {
+  countriesDb = {};
+  
+  // 1. Страны (2020 с fallback на 2014)
   try {
-    const res = await fetch('countries2014.json');
+    let res = await fetch('countries2020.json');
+    if (!res.ok) res = await fetch('data/countries2020.json');
+    if (!res.ok) res = await fetch('countries2014.json');
     if (res.ok) {
       countriesDb = await res.json();
     }
   } catch (err) {
-    console.warn('[Globe] countries2014.json fetch fallback:', err);
-    countriesDb = {};
+    try {
+      const res2 = await fetch('countries2014.json');
+      if (res2.ok) countriesDb = await res2.json();
+    } catch (err2) {
+      console.warn('[Globe] countries DB fetch fallback:', err2);
+    }
   }
+
+  // 2. Автономии
+  try {
+    let resAuto = await fetch('autonomy.json');
+    if (!resAuto.ok) resAuto = await fetch('data/autonomy.json');
+    if (resAuto.ok) {
+      const autoData = await resAuto.json();
+      for (const [k, v] of Object.entries(autoData)) {
+        if (!countriesDb[k]) {
+          countriesDb[k] = { ...v, is_autonomy: true };
+        } else {
+          Object.assign(countriesDb[k], v, { is_autonomy: true });
+        }
+      }
+    }
+  } catch (eAuto) {}
+
+  // 3. ЧВК и организации
+  try {
+    let resPmc = await fetch('pmc.json');
+    if (!resPmc.ok) resPmc = await fetch('data/pmc.json');
+    if (resPmc.ok) {
+      const pmcData = await resPmc.json();
+      for (const [k, v] of Object.entries(pmcData)) {
+        if (!countriesDb[k]) {
+          countriesDb[k] = { ...v, is_organization: true };
+        } else {
+          Object.assign(countriesDb[k], v, { is_organization: true });
+        }
+      }
+    }
+  } catch (ePmc) {}
 }
 
 /**
@@ -734,29 +817,27 @@ function normalizeIncomingData(rawData) {
 
   for (const [key, val] of Object.entries(rawData)) {
     if (!val || typeof val !== 'object') continue;
-    if (val.country && typeof val.country === 'string') {
-      list.push({
-        name: val.country,
-        flag: val.flag || null,
-        player: val.player || val.leader || key,
-        faction: val.faction || null,
-        faction_color: val.faction_color || null,
-        role: val.type || val.status || null,
-        gdp: val.gdp || null,
-        population: val.population || null
-      });
-    } else {
-      list.push({
-        name: key,
-        flag: val.flag || null,
-        faction: val.faction || val.alliance || null,
-        faction_color: val.faction_color || val.color || null,
-        player: val.player || val.leader || null,
-        role: val.role || val.status || null,
-        gdp: val.gdp || null,
-        population: val.population || null
-      });
-    }
+    const isNumericKey = /^\d+$/.test(key);
+    const entityName = isNumericKey && val.country ? val.country : (val.name || key);
+    const host = val.parent_country || (isNumericKey ? null : val.country) || null;
+    const isAuto = Boolean(val.parent_country || val.is_autonomy || (countriesDb[entityName]?.is_autonomy));
+    const isPmc = Boolean(val.type === 'Частная' || val.type === 'Государственная' || val.is_organization || (countriesDb[entityName]?.is_organization));
+
+    list.push({
+      name: entityName,
+      geoTarget: val.geoTarget || (isNumericKey ? entityName : (host || entityName)),
+      flag: val.flag || (countriesDb[entityName]?.flag) || null,
+      player: isNumericKey ? (val.player || val.leader || key) : (val.player || val.leader || null),
+      faction: val.faction || val.alliance || null,
+      faction_color: val.faction_color || val.color || null,
+      role: val.type || val.role || val.status || (isPmc ? 'ЧВК' : (isAuto ? 'Автономия' : null)),
+      gdp: val.gdp || (countriesDb[entityName]?.gdp) || null,
+      population: val.population || (countriesDb[entityName]?.population) || null,
+      parent_country: host,
+      sovereign: host,
+      isAutonomy: isAuto,
+      isPmc: isPmc
+    });
   }
 
   return list;
@@ -835,9 +916,14 @@ function applyCountriesData(countriesList) {
 
   for (const item of countriesList) {
     if (!item.name) continue;
-    const targetQuery = item.geoTarget || item.name;
-    const feat = findFeature(targetQuery);
-    const dbItem = countriesDb[item.name] || (feat ? countriesDb[feat.properties?.name_ru] : null);
+    const dbItem = countriesDb[item.name] || null;
+    const parent = item.parent_country || item.host_country || dbItem?.parent_country || dbItem?.country;
+    const targetQuery = item.geoTarget || parent || item.name;
+    let feat = findFeature(item.geoTarget || item.name);
+    if (!feat && parent) {
+      feat = findFeature(parent);
+    }
+    const resolvedDb = dbItem || (feat ? countriesDb[feat.properties?.name_ru] : null);
 
     // Определяем флаг
     let flag = item.flag;
@@ -1170,6 +1256,9 @@ function showCountryCard(country) {
       statusEl.textContent = `Союзная республика СССР`;
     } else if (country.isAutonomy && country.sovereign) {
       statusEl.textContent = `Автономия (${country.sovereign})`;
+    } else if (country.isPmc) {
+      const pmcType = (country.entityTypes && country.entityTypes[0]) || 'ЧВК';
+      statusEl.textContent = `${pmcType}` + (country.sovereign ? ` (${country.sovereign})` : '');
     } else if (country.autonomies && country.autonomies.length) {
       statusEl.textContent = `Метрополия · +${country.autonomies.length} авт.`;
     } else {

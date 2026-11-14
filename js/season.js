@@ -182,7 +182,10 @@ export async function fetchSeasonData() {
     // Проверяем наличие файла сезона с данными стран
     let seasonData = {};
     try {
-      const s28 = await fetchJson('data/seasons/season-28.json');
+      let s28 = await fetchJson('data/seasons/season-31.json');
+      if (!s28) {
+        s28 = await fetchJson('data/seasons/season-28.json');
+      }
       if (s28) {
         if (s28.entities && typeof s28.entities === 'object' && Object.keys(s28.entities).length > 0) {
           seasonData = { ...s28.entities };
