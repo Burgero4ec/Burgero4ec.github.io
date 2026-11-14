@@ -86,12 +86,15 @@ export function openCountryModal(key) {
   // Быстрые карточки показателей
   const statsBox = document.getElementById('cmStatsGrid');
   if (statsBox) {
-    const gdpVal = d.gdp != null ? ('$' + fmtNum(d.gdp)) : (d.base_gdp ? ('$' + fmtNum(d.base_gdp)) : '—');
+    const gdpVal = d.gdp != null && d.gdp > 0 ? ('$' + fmtNum(d.gdp)) : (d.base_gdp ? ('$' + fmtNum(d.base_gdp)) : '—');
+    const popVal = d.population != null && d.population > 0 ? fmtNum(d.population) : '—';
+    const birthVal = d.birth_rate != null ? d.birth_rate + '‰' : '—';
+    const resVal = d.resource_index != null ? d.resource_index : '—';
     statsBox.innerHTML = `
       <div class="cm-stat"><span>ВВП (Номинал)</span><b>${gdpVal}</b></div>
-      <div class="cm-stat"><span>Население</span><b>${fmtNum(d.population)}</b></div>
-      <div class="cm-stat"><span>Рождаемость</span><b>${d.birth_rate != null ? d.birth_rate + '‰' : '—'}</b></div>
-      <div class="cm-stat"><span>Ресурс. индекс</span><b>${d.resource_index != null ? d.resource_index : '—'}</b></div>
+      <div class="cm-stat"><span>Население</span><b>${popVal}</b></div>
+      <div class="cm-stat"><span>Рождаемость</span><b>${birthVal}</b></div>
+      <div class="cm-stat"><span>Ресурс. индекс</span><b>${resVal}</b></div>
     `;
   }
 
@@ -100,6 +103,9 @@ export function openCountryModal(key) {
   const addRow = (k, v) => {
     if (v) detailsHtml += `<div class="kv"><span>${k}</span><b>${v}</b></div>`;
   };
+
+  if (d.parent_country || d.host_country) addRow('Метрополия / Базирование', esc(d.parent_country || d.host_country));
+  if (d.org_type || d.type === 'Частная' || d.type === 'Государственная') addRow('Тип формирования', esc(d.org_type || d.type));
 
   if (d.balance != null) addRow('Бюджет / Баланс', '$' + fmtNum(d.balance));
   if (d.profit != null) addRow('Прибыль', '$' + fmtNum(d.profit) + ' / час');
@@ -228,9 +234,73 @@ export async function fetchSeasonData() {
 
     let countriesData = {};
     try {
-      countriesData = await fetchJson('countries2014.json');
+      countriesData = await fetchJson('countries2020.json');
     } catch (e4) {
-      countriesData = {};
+      try {
+        countriesData = await fetchJson('data/countries2020.json');
+      } catch (e4b) {
+        try {
+          countriesData = await fetchJson('countries2014.json');
+        } catch (e4c) {
+          countriesData = {};
+        }
+      }
+    }
+
+    let autonomyData = {};
+    try {
+      autonomyData = await fetchJson('autonomy.json');
+    } catch (eAuto) {
+      try {
+        autonomyData = await fetchJson('data/autonomy.json');
+      } catch (eAuto2) {
+        autonomyData = {};
+      }
+    }
+
+    let pmcData = {};
+    try {
+      pmcData = await fetchJson('pmc.json');
+    } catch (ePmc) {
+      try {
+        pmcData = await fetchJson('data/pmc.json');
+      } catch (ePmc2) {
+        pmcData = {};
+      }
+    }
+
+    // Интегрируем автономии в общую базу стран
+    for (const [aName, a] of Object.entries(autonomyData)) {
+      if (!a || typeof a !== 'object') continue;
+      const parentFlag = countriesData[a.parent_country]?.flag;
+      countriesData[aName] = {
+        name: aName,
+        flag: a.flag || parentFlag || '🏳️',
+        continent: a.continent || (countriesData[a.parent_country]?.continent) || 'Прочие',
+        gdp: a.gdp,
+        population: a.population,
+        birth_rate: a.birth_rate,
+        resource_index: a.resource_index,
+        parent_country: a.parent_country,
+        host_country: a.parent_country,
+        is_autonomy: true,
+        type: 'autonomy'
+      };
+    }
+
+    // Интегрируем ЧВК и организации в общую базу
+    for (const [pName, p] of Object.entries(pmcData)) {
+      if (!p || typeof p !== 'object') continue;
+      countriesData[pName] = {
+        name: pName,
+        flag: p.flag || '🛡️',
+        continent: 'Организации',
+        country: p.country,
+        host_country: p.country,
+        org_type: p.type,
+        is_organization: true,
+        type: 'organization'
+      };
     }
 
     // Если данные заблокированы политикой file:///, используем встроенный базовый состав
@@ -295,35 +365,72 @@ export async function fetchSeasonData() {
           let flagEmoji = null;
 
           const nick = (p.nickname || p.display_name || '').trim();
-          const isOrg = p.entity_type === 'ЧВК' || p.entity_type === 'Организация' || (p.categories && (p.categories.includes('ЧВК') || p.categories.includes('Организация')));
-          const isAuto = p.entity_type === 'Автономия' || (p.categories && p.categories.includes('Автономия'));
+          const nickLower = nick.toLowerCase();
+          const pCountry = p.country || '';
 
-          if (isOrg) {
-            let orgName = p.country;
-            if (nick.includes('|')) {
-              const parts = nick.split('|').map(s => s.trim()).filter(Boolean);
-              if (parts.length > 1 && (p.country === 'США' || p.country === 'Россия' || !p.country)) {
-                orgName = parts[parts.length - 1];
-                hostCountry = p.country || 'США';
+          // Проверяем принадлежность к ЧВК
+          let matchedPmc = pmcData[pCountry] || pmcData[cName];
+          if (!matchedPmc) {
+            for (const [pKey, pVal] of Object.entries(pmcData)) {
+              if (nickLower.includes(pKey.toLowerCase())) {
+                matchedPmc = pVal;
+                cName = pKey;
+                break;
               }
             }
-            cName = orgName || (nick.includes('|') ? nick.split('|').pop().trim() : (p.country || nick || 'Организация'));
-            flagEmoji = '🛡️';
+          }
+
+          // Проверяем принадлежность к автономиям
+          let matchedAuto = autonomyData[pCountry] || autonomyData[cName];
+          if (!matchedAuto) {
+            for (const [aKey, aVal] of Object.entries(autonomyData)) {
+              if (nickLower.includes(aKey.toLowerCase())) {
+                matchedAuto = aVal;
+                cName = aKey;
+                break;
+              }
+            }
+          }
+
+          const isOrg = p.entity_type === 'ЧВК' || p.entity_type === 'Организация' || (p.categories && (p.categories.includes('ЧВК') || p.categories.includes('Организация'))) || Boolean(matchedPmc);
+          const isAuto = p.entity_type === 'Автономия' || (p.categories && p.categories.includes('Автономия')) || Boolean(matchedAuto);
+
+          if (isOrg) {
+            let orgName = cName;
+            if (matchedPmc) {
+              hostCountry = matchedPmc.country || 'США';
+              flagEmoji = matchedPmc.flag || '🛡️';
+            } else {
+              if (nick.includes('|')) {
+                const parts = nick.split('|').map(s => s.trim()).filter(Boolean);
+                if (parts.length > 1 && (p.country === 'США' || p.country === 'Россия' || !p.country)) {
+                  orgName = parts[parts.length - 1];
+                  hostCountry = p.country || 'США';
+                }
+              }
+              cName = orgName || (nick.includes('|') ? nick.split('|').pop().trim() : (p.country || nick || 'Организация'));
+              flagEmoji = '🛡️';
+            }
           } else if (isAuto) {
-            hostCountry = p.country || 'Россия';
-            if (nick.includes('Чечня') || nick.includes('Чечен')) { cName = 'Чечня'; flagEmoji = '🇷🇺'; hostCountry = 'Россия'; }
-            else if (nick.includes('Гренландия') || nick.includes('🇬🇱')) { cName = 'Гренландия'; flagEmoji = '🇬🇱'; hostCountry = 'Дания'; }
-            else if (nick.includes('Украинская ССР') || nick.includes('УССР')) { cName = 'Украинская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
-            else if (nick.includes('Казахская ССР')) { cName = 'Казахская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
-            else if (nick.includes('Литовская ССР')) { cName = 'Литовская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
-            else if (nick.includes('Родезия')) { cName = 'Южная Родезия'; flagEmoji = '🇿🇼'; hostCountry = 'Великобритания'; }
-            else if (nick.includes('Судан') || nick.includes('Англо-египетский')) { cName = 'Англо-египетский Судан'; flagEmoji = '🇸🇩'; hostCountry = 'Великобритания'; }
-            else if (nick.includes('Алжир')) { cName = 'Алжир'; flagEmoji = '🇩🇿'; hostCountry = 'Франция'; }
-            else if (nick.includes('|')) {
-              const parts = nick.split('|').map(s => s.trim()).filter(Boolean);
-              if (parts.length > 1) {
-                cName = parts[parts.length - 1];
-                hostCountry = p.country || hostCountry;
+            if (matchedAuto) {
+              hostCountry = matchedAuto.parent_country || 'Россия';
+              flagEmoji = matchedAuto.flag || '🏳️';
+            } else {
+              hostCountry = p.country || 'Россия';
+              if (nick.includes('Чечня') || nick.includes('Чечен')) { cName = 'Чечня'; flagEmoji = '🇷🇺'; hostCountry = 'Россия'; }
+              else if (nick.includes('Гренландия') || nick.includes('🇬🇱')) { cName = 'Гренландия'; flagEmoji = '🇬🇱'; hostCountry = 'Дания'; }
+              else if (nick.includes('Украинская ССР') || nick.includes('УССР')) { cName = 'Украинская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
+              else if (nick.includes('Казахская ССР')) { cName = 'Казахская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
+              else if (nick.includes('Литовская ССР')) { cName = 'Литовская ССР'; flagEmoji = '⚒️🟥'; hostCountry = 'СССР'; }
+              else if (nick.includes('Родезия')) { cName = 'Южная Родезия'; flagEmoji = '🇿🇼'; hostCountry = 'Великобритания'; }
+              else if (nick.includes('Судан') || nick.includes('Англо-египетский')) { cName = 'Англо-египетский Судан'; flagEmoji = '🇸🇩'; hostCountry = 'Великобритания'; }
+              else if (nick.includes('Алжир')) { cName = 'Алжир'; flagEmoji = '🇩🇿'; hostCountry = 'Франция'; }
+              else if (nick.includes('|')) {
+                const parts = nick.split('|').map(s => s.trim()).filter(Boolean);
+                if (parts.length > 1) {
+                  cName = parts[parts.length - 1];
+                  hostCountry = p.country || hostCountry;
+                }
               }
             }
           } else {
@@ -367,8 +474,10 @@ export async function fetchSeasonData() {
             gdp: p.gdp || seasonData[id]?.gdp || cc.gdp || (isOrg ? 0 : 20387000000),
             gdp_ppp: p.gdp_ppp || seasonData[id]?.gdp_ppp || null,
             population: p.population || seasonData[id]?.population || cc.population || (isOrg ? 0 : 8575000),
-            birth_rate: p.birth_rate != null ? p.birth_rate : (seasonData[id]?.birth_rate ?? null),
-            resource_index: p.resource_index != null ? p.resource_index : (seasonData[id]?.resource_index ?? null),
+            birth_rate: p.birth_rate != null ? p.birth_rate : (seasonData[id]?.birth_rate ?? cc.birth_rate ?? null),
+            resource_index: p.resource_index != null ? p.resource_index : (seasonData[id]?.resource_index ?? cc.resource_index ?? null),
+            org_type: p.org_type || matchedPmc?.type || cc.org_type || null,
+            parent_country: hostCountry || cc.parent_country || null,
             balance: p.balance != null ? p.balance : (seasonData[id]?.balance || 0),
             profit: p.profit != null ? p.profit : (seasonData[id]?.profit ?? null),
             level: p.level || seasonData[id]?.level || null,
@@ -457,33 +566,61 @@ export async function loadSeason() {
     orgs.sort(ru);
     autos.sort(ru);
 
-    const taken = new Set(states.map(s => s.name));
+    const taken = new Set([...states.map(s => s.name), ...orgs.map(o => o.name), ...autos.map(a => a.name)]);
+
     const FREE = Object.values(C)
       .filter(c => c && c.name && !taken.has(c.name))
-      .map(c => ({
-        key: 'f' + c.name,
-        name: c.name,
-        flagHtml: renderFlag(c.flag, c.name),
-        continent: c.continent || 'Прочие',
-        typeLabel: '',
-        data: c,
-        playerId: null
-      }));
+      .map(c => {
+        let cat = 'country';
+        let typeLbl = 'Государство';
+        if (c.is_organization || c.continent === 'Организации' || c.type === 'organization') {
+          cat = 'organization';
+          typeLbl = 'ЧВК' + (c.org_type ? ' · ' + c.org_type : '') + (c.host_country ? ' (' + c.host_country + ')' : '');
+        } else if (c.is_autonomy || c.parent_country || c.type === 'autonomy') {
+          cat = 'autonomy';
+          typeLbl = 'Автономия · ' + (c.parent_country || '');
+        }
+        return {
+          key: 'f_' + c.name,
+          name: c.name,
+          flagHtml: renderFlag(c.flag, c.name),
+          continent: c.continent || (c.parent_country && C[c.parent_country]?.continent) || 'Прочие',
+          category: cat,
+          typeLabel: typeLbl,
+          data: c,
+          playerId: null
+        };
+      });
+
+    const freeStates = FREE.filter(c => c.category === 'country');
+    const freeAutos = FREE.filter(c => c.category === 'autonomy');
+    const freeOrgs = FREE.filter(c => c.category === 'organization');
 
     if (!getMapInfo()) {
-      countUpAll('countries', states.length);
-      countUpAll('orgs', orgs.length);
-      countUpAll('autos', autos.length);
+      countUpAll('countries', states.length || freeStates.length);
+      countUpAll('orgs', orgs.length || freeOrgs.length);
+      countUpAll('autos', autos.length || freeAutos.length);
     }
 
-    function renderFree(q) {
+    let currentCategory = 'all';
+
+    function renderFree(q, cat) {
+      if (cat !== undefined) currentCategory = cat;
       q = (q || '').trim().toLowerCase();
-      const list = FREE.filter(c => c.name && c.name.toLowerCase().includes(q));
+      let list = FREE;
+      if (currentCategory !== 'all') {
+        list = list.filter(c => c.category === currentCategory);
+      }
+      if (q) {
+        list = list.filter(c => c.name && c.name.toLowerCase().includes(q));
+      }
+
       const by = {};
       list.forEach(c => {
-        (by[c.continent] = by[c.continent] || []).push(c);
+        const groupKey = c.category === 'organization' ? 'Организации и ЧВК' : (c.continent || 'Прочие');
+        (by[groupKey] = by[groupKey] || []).push(c);
       });
-      const order = ['Европа', 'Азия', 'Африка', 'Северная Америка', 'Южная Америка', 'Австралия и Океания'];
+      const order = ['Европа', 'Азия', 'Африка', 'Северная Америка', 'Южная Америка', 'Австралия и Океания', 'Организации и ЧВК'];
       const conts = Object.keys(by).sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
 
       const fc = document.getElementById('freeCount'), fg = document.getElementById('freeGroups');
@@ -503,23 +640,40 @@ export async function loadSeason() {
 
     body.innerHTML = `
       <div class="sec-title"><svg class="ic"><use href="#i-globe"/></svg>ГОСУДАРСТВА <span class="sec-counter">${states.length}</span></div>
-      <div class="grid-3 season-grid">${states.map(seasonCard).join('') || '<p class="loading">Нет данных.</p>'}</div>
+      <div class="grid-3 season-grid">${states.map(seasonCard).join('') || '<p class="loading">В текущий момент нет активных регистраций государств.</p>'}</div>
       
       <div class="sec-title"><svg class="ic"><use href="#i-shield"/></svg>ОРГАНИЗАЦИИ <span class="sec-counter">${orgs.length}</span></div>
-      <div class="grid-3 season-grid">${orgs.map(seasonCard).join('') || '<p class="loading">Нет данных.</p>'}</div>
+      <div class="grid-3 season-grid">${orgs.map(seasonCard).join('') || '<p class="loading">В текущий момент нет активных регистраций организаций.</p>'}</div>
       
       <div class="sec-title"><svg class="ic"><use href="#i-map"/></svg>АВТОНОМИИ <span class="sec-counter">${autos.length}</span></div>
-      <div class="grid-3 season-grid">${autos.map(seasonCard).join('') || '<p class="loading">Нет данных.</p>'}</div>
+      <div class="grid-3 season-grid">${autos.map(seasonCard).join('') || '<p class="loading">В текущий момент нет активных регистраций автономий.</p>'}</div>
       
-      <div class="sec-title"><svg class="ic"><use href="#i-compass"/></svg>СВОБОДНЫЕ СТРАНЫ — <span id="freeCount">${FREE.length}</span></div>
+      <div class="sec-title"><svg class="ic"><use href="#i-compass"/></svg>РЕЕСТР ДЛЯ РЕГИСТРАЦИИ (2020) — <span id="freeCount">${FREE.length}</span></div>
+      <div class="shame-filter-tabs" style="margin-bottom:14px">
+        <button class="season-tab-btn active" data-cat="all">Все (${FREE.length})</button>
+        <button class="season-tab-btn" data-cat="country">Государства (${freeStates.length})</button>
+        <button class="season-tab-btn" data-cat="autonomy">Автономии (${freeAutos.length})</button>
+        <button class="season-tab-btn" data-cat="organization">ЧВК / Орг. (${freeOrgs.length})</button>
+      </div>
       <div class="search-wrap">
         <svg class="ic"><use href="#i-search"/></svg>
-        <input id="countrySearch" class="search-input" type="text" placeholder="Поиск свободной страны...">
+        <input id="countrySearch" class="search-input" type="text" placeholder="Поиск сущности для регистрации...">
       </div>
       <div id="freeGroups"></div>
     `;
 
     renderFree('');
+
+    const catBtns = body.querySelectorAll('.season-tab-btn');
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const q = (document.getElementById('countrySearch')?.value || '').trim();
+        renderFree(q, btn.dataset.cat);
+      });
+    });
+
     const se = document.getElementById('countrySearch');
     if (se) {
       let searchTimer = null;
