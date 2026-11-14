@@ -1,0 +1,138 @@
+{
+  "season": 28,
+  "title": "Сезон 28: Противостояние Блоков и Новая Геополитика",
+  "status": "active",
+  "startDate": "2026-10-01",
+  "totalArticles": 48,
+  "totalNations": 0,
+  "keyEvents": [
+    {
+      "id": "s28-ev-1",
+      "date": "2026-10-01",
+      "title": "Официальный запуск 28-го сезона Global Lens",
+      "category": "Geopolitics",
+      "summary": "Начало геополитического сезона, распределение лицензий стран и регистрация союзных республик."
+    },
+    {
+      "id": "s28-ev-2",
+      "date": "2026-10-04",
+      "title": "Демаркация границ ГДР и ФРГ",
+      "category": "Diplomacy",
+      "summary": "Фиксация суверенного статуса Германской Демократической Республики и Федеративной Республики Германия."
+    },
+    {
+      "id": "s28-ev-3",
+      "date": "2026-10-06",
+      "title": "Запуск интерактивной 3D-картографии Global Lens",
+      "category": "Technology",
+      "summary": "Синхронизация состава активных участников и союзных республик на 3D сфере Земли."
+    }
+  ],
+  "factions": [
+    {
+      "tag": "OGB",
+      "name": "ОГБ",
+      "powerIndex": 95,
+      "color": "#38bdf8"
+    },
+    {
+      "tag": "OECD",
+      "name": "ОЭСР",
+      "powerIndex": 92,
+      "color": "#fbbf24"
+    },
+    {
+      "tag": "LEP",
+      "name": "ЛЭП",
+      "powerIndex": 84,
+      "color": "#c084fc"
+    },
+    {
+      "tag": "SCO",
+      "name": "ШОС",
+      "powerIndex": 88,
+      "color": "#f87171"
+    },
+    {
+      "tag": "AXIS",
+      "name": "Ось сопротивления",
+      "powerIndex": 72,
+      "color": "#fb923c"
+    },
+    {
+      "tag": "NEUTRAL",
+      "name": "Нейтралитет",
+      "powerIndex": 60,
+      "color": "#4ade80"
+    }
+  ],
+  "updated_at": "2026-11-14T11:58:05.939649+00:00",
+  "totalActivePlayers": 0,
+  "entities": {},
+  "official_organizations": {
+    "private": [
+      "Academi",
+      "Draken International",
+      "DynCorp",
+      "Triple Canopy",
+      "MPRI",
+      "G4S",
+      "Aegis Defence Services",
+      "Erinys",
+      "GEOS",
+      "Paladin Group",
+      "Unity Resources Group",
+      "Asgaard",
+      "UC GLOBAL",
+      "Global CST",
+      "STTEP",
+      "Executive Outcomes",
+      "GardaWorld",
+      "Defion Internacional"
+    ],
+    "state": [
+      "Вагнер",
+      "Патриот",
+      "Редут",
+      "RSB-Group",
+      "GardService",
+      "Huaxin Zhongan",
+      "DeWe Security",
+      "SADAT"
+    ],
+    "international": [
+      "ООН"
+    ]
+  },
+  "official_autonomies": [
+    "Украинская ССР",
+    "Казахская ССР",
+    "Белорусская ССР",
+    "Узбекская ССР",
+    "Азербайджанская ССР",
+    "Грузинская ССР",
+    "Молдавская ССР",
+    "Армянская ССР",
+    "Туркменская ССР",
+    "Таджикская ССР",
+    "Киргизская ССР",
+    "Британский Гонконг",
+    "Пуэрто-Рико",
+    "Реюньон",
+    "Гваделупа",
+    "Мартиника",
+    "Макао",
+    "Новая Каледония",
+    "Французская Полинезия",
+    "Бермудские Острова",
+    "Нидерландские Антильские острова",
+    "Гуам",
+    "Американские Виргинские острова",
+    "Французская Гвиана",
+    "Гренландия",
+    "Фарерские острова",
+    "Аруба",
+    "Острова Кайман",
+    "Гибралтар"
+  ]
+}
