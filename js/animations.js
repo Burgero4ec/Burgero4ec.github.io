@@ -43,7 +43,10 @@ export function refreshOdysseyElements(root = document) {
     '.hero',
     '.about-split',
     '.grid-3 > article',
-    '.grid-2 > article'
+    '.grid-2 > article',
+    '.shame-card',
+    '.shame-profile-card',
+    '.shame-stat-card'
   ];
 
   const elements = root.querySelectorAll(selectors.join(', '));
@@ -73,7 +76,7 @@ export function triggerOdysseyPageReveal(pageEl) {
   }
   pageEl.dataset.odysseyRevealed = 'true';
 
-  const items = pageEl.querySelectorAll('.card, .c-card, .stat, .stats-col, .sec-title, .folder, .member, .update-card, .hero');
+  const items = pageEl.querySelectorAll('.card, .c-card, .stat, .stats-col, .sec-title, .folder, .member, .update-card, .hero, .shame-card, .shame-profile-card, .shame-stat-card');
   items.forEach((el, i) => {
     el.classList.add('odyssey-item');
     const delay = Math.min(i * 0.035, 0.3);

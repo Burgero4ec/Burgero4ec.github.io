@@ -217,19 +217,48 @@ export async function fetchSeasonData() {
         }
       }
       if (!Object.keys(seasonData).length) {
-        const s26 = await fetchJson('data/seasons/season-26.json');
-        if (s26 && Object.values(s26).some(v => v && (v.country || v.type === 'country'))) {
-          seasonData = s26;
-        } else {
-          seasonData = await fetchJson('data/seasons/season-25.json');
+        let playersDoc = null;
+        try {
+          playersDoc = await fetchJson('players.json');
+        } catch (_) {
+          try {
+            playersDoc = await fetchJson('data/players.json');
+          } catch (__) {}
+        }
+        if (playersDoc && Array.isArray(playersDoc.all_players) && playersDoc.all_players.length > 0) {
+          let pIdx = 1;
+          for (const p of playersDoc.all_players) {
+            const cName = p.country || (p.countries && p.countries[0]);
+            if (!cName) continue;
+            let eType = 'country';
+            if (p.entity_type === 'Автономия') eType = 'autonomy';
+            else if (p.entity_type === 'ЧВК' || p.entity_type === 'Организация') eType = 'organization';
+            seasonData[p.id || String(pIdx++)] = {
+              type: eType,
+              country: cName,
+              ruler: p.nickname || p.display_name || p.username,
+              player: p.username,
+              player_id: p.id,
+              gdp: p.gdp || 0,
+              gdp_ppp: p.gdp_ppp || 0,
+              population: p.population || 0,
+              balance: p.balance || 0,
+              profit: p.profit,
+              birth_rate: p.birth_rate,
+              resource_index: p.resource_index,
+              corruption: p.corruption,
+              level: p.level,
+              ideology: p.ideology,
+              taxes: p.taxes,
+              specialization: p.specialization,
+              reforms: p.reforms,
+              investments: p.investments
+            };
+          }
         }
       }
     } catch (e2) {
-      try {
-        seasonData = await fetchJson('data/seasons/season-25.json');
-      } catch (e3) {
-        seasonData = {};
-      }
+      seasonData = {};
     }
 
     let countriesData = {};

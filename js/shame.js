@@ -286,6 +286,10 @@ export function renderProfileCard(persona) {
   const card = document.getElementById('shameProfileCard');
   if (!card) return;
 
+  card.classList.remove('shame-card-enter');
+  void card.offsetWidth;
+  card.classList.add('shame-card-enter');
+
   card.style.borderColor = persona.cardBorder || 'rgba(239, 68, 68, 0.3)';
 
   const badgesHtml = (persona.badges || []).map(b => `
@@ -294,8 +298,8 @@ export function renderProfileCard(persona) {
     </span>
   `).join('');
 
-  const statsHtml = (persona.stats || []).map(st => `
-    <div class="shame-stat-card">
+  const statsHtml = (persona.stats || []).map((st, sIdx) => `
+    <div class="shame-stat-card" style="--stat-i: ${sIdx}">
       <b class="shame-stat-num ${st.highlight ? 'highlight' : ''}" ${st.numId ? `id="${st.numId}"` : ''}>${st.num}</b>
       <span>${esc(st.label)}</span>
     </div>
@@ -404,6 +408,10 @@ export async function renderCards() {
     countTotalEl.textContent = items.length;
   }
 
+  container.classList.remove('shame-grid-enter');
+  void container.offsetWidth;
+  container.classList.add('shame-grid-enter');
+
   if (!filtered.length) {
     container.innerHTML = `
       <div class="shame-empty">
@@ -415,12 +423,13 @@ export async function renderCards() {
     return;
   }
 
-  container.innerHTML = filtered.map(it => {
+  container.innerHTML = filtered.map((it, idx) => {
     const isSpecial = it.id === 0;
     const catBadge = persona.getBadgeHtml ? persona.getBadgeHtml(it) : '';
+    const delayIdx = Math.min(idx, 28);
 
     return `
-      <div class="shame-card ${isSpecial ? 'shame-special' : ''}">
+      <div class="shame-card ${isSpecial ? 'shame-special' : ''}" style="--card-i: ${delayIdx}">
         <div class="shame-card-head">
           <span class="shame-card-num">#${it.id === 0 ? '★' : it.id}</span>
           ${catBadge}
@@ -473,6 +482,11 @@ export async function switchShamePersona(personaKey) {
   activePersona = personaKey;
   activeFilter = 'all';
   searchQuery = '';
+
+  const pageShame = document.getElementById('page-shame');
+  if (pageShame) {
+    pageShame.setAttribute('data-persona', personaKey);
+  }
 
   // 1. Плавная скользящая анимация переключения бегунка (Glider)
   updateShameGlider(personaKey, true);
