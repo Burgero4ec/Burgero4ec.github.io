@@ -4,7 +4,7 @@
   "status": "scheduled",
   "startDate": "2026-11-15",
   "totalArticles": 0,
-  "totalNations": 22,
+  "totalNations": 21,
   "keyEvents": [
     {
       "id": "s31-ev-1",
@@ -52,8 +52,8 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-15T16:27:47.522498+00:00",
-  "totalActivePlayers": 23,
+  "updated_at": "2026-11-15T16:56:47.957503+00:00",
+  "totalActivePlayers": 22,
   "entities": {
     "1334532453238440000": {
       "type": "country",
@@ -304,12 +304,12 @@
       "player": "_ashkoo139",
       "nickname": "🇷🇺 | Россия",
       "balance": 36705425486,
-      "profit": 13256724876,
+      "profit": 20964877065,
       "gdp": 1560786250000,
       "gdp_ppp": 2965493875000,
       "population": 146167927,
       "birth_rate": 19.8,
-      "support": 54.6,
+      "support": 57.8,
       "resource_index": 1.0,
       "corruption": 0.3,
       "level": "Передовая",
@@ -318,14 +318,15 @@
         "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Не выбрано",
       "reforms": "$780 393 125 000 / $780 393 125 000",
       "investments": "$660 393 125 000 / $780 393 125 000",
       "is_staff": true,
       "roles": [
+        "БРИКС",
         "Лидер: СНГ",
         "СНГ",
         "Лидер: ОДКБ",
@@ -487,12 +488,12 @@
       "country": "Ирландия",
       "player": "perikkl",
       "nickname": "🇮🇪 | Ирландия",
-      "balance": 9337777466,
+      "balance": 9187777466,
       "profit": 5482923127,
       "gdp": 437569450267,
       "gdp_ppp": 1400222240854,
       "population": 5042507,
-      "birth_rate": 11.2,
+      "birth_rate": 11.8,
       "support": 53.2,
       "resource_index": 5.0,
       "corruption": 0.0,
@@ -652,45 +653,6 @@
         "• Политолог",
         "• Модератор",
         "• Куратор"
-      ]
-    },
-    "1375902253415665804": {
-      "type": "country",
-      "country": "Турция",
-      "player": "kraivoxthebest",
-      "nickname": "🇹🇷 | Турция",
-      "balance": 5007322578,
-      "profit": 4241838404,
-      "gdp": 720100000000,
-      "gdp_ppp": 1800250000000,
-      "population": 84387009,
-      "birth_rate": 15.5,
-      "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 10.8,
-      "level": "Сильная",
-      "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
-      },
-      "taxes": {
-        "nds": 20,
-        "ndfl": 20
-      },
-      "specialization": "Не выбрано",
-      "reforms": "$360 050 000 000 / $360 050 000 000",
-      "investments": "$360 050 000 000 / $360 050 000 000",
-      "is_staff": false,
-      "roles": [
-        "Лицензия Турция",
-        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
-        "• Зарегистрированный",
-        "Новости",
-        "Обновления",
-        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "Участник ООН",
-        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     },
     "1327423107648192526": {
@@ -940,6 +902,8 @@
       "investments": "$7 443 230 505 000 / $7 743 230 505 000",
       "is_staff": true,
       "roles": [
+        "Лидер: БРИКС",
+        "БРИКС",
         "Лидер: ШОС",
         "ШОС",
         "Лицензия КНР",
