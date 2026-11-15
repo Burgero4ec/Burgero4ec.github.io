@@ -477,11 +477,36 @@ function resolvePlayerEntity(p) {
   let flag = extractFlagFromDisplay(nick);
   let isAutonomy = entityType === 'Автономия' || p.entity_type === 'Автономия';
   let sovereign = null;
-  let isPmc = entityType === 'ЧВК' || p.entity_type === 'ЧВК';
+  let isPmc = entityType === 'ЧВК' || p.entity_type === 'ЧВК' || (Array.isArray(p.categories) && p.categories.includes('ЧВК')) || Boolean(countriesDb[rawCountry]?.is_organization || countriesDb[rawCountry]?.org_type);
   let isLeader = entityType === 'Государство';
 
+  // 0. ЧВК и частные/государственные военные компании (НЕ имеют суверенных полигонов!)
+  if (isPmc) {
+    let orgName = rawCountry;
+    let host = null;
+    if (nick.includes('|')) {
+      const parts = nick.split('|').map(s => s.trim()).filter(Boolean);
+      if (parts.length > 1) {
+        orgName = parts[parts.length - 1];
+        if (rawCountry && rawCountry !== orgName) {
+          host = rawCountry;
+        }
+      }
+    }
+    const dbEntry = countriesDb[orgName] || countriesDb[rawCountry];
+    if (dbEntry) {
+      host = host || dbEntry.country || dbEntry.host_country;
+      flag = flag || dbEntry.flag;
+    }
+    entityKey = orgName || rawCountry || 'ЧВК';
+    geoTarget = null; // ЧВК не владеют полигонами стран!
+    sovereign = host || null;
+    isPmc = true;
+    isLeader = false;
+    isAutonomy = false;
+  }
   // 1. Автономия Гренландия (Дания)
-  if (nick.includes('Гренландия') || nick.includes('🇬🇱')) {
+  else if (nick.includes('Гренландия') || nick.includes('🇬🇱')) {
     entityKey = 'Гренландия';
     geoTarget = 'Гренландия';
     flag = '🇬🇱';
@@ -742,11 +767,17 @@ function normalizeIncomingData(rawData) {
       });
     }
 
-    // Собираем зависимости автономий для метрополий (СССР, Великобритания, Франция, Дания)
+    // Собираем зависимости автономий и ЧВК для метрополий/государств базирования
     const autonomiesBySovereign = { 'СССР': [], 'Великобритания': [], 'Франция': [], 'Дания': [], 'Россия': [] };
+    const pmcsBySovereign = {};
     for (const ent of entitiesMap.values()) {
-      if (ent.isAutonomy && ent.sovereign && autonomiesBySovereign[ent.sovereign]) {
+      if (ent.isAutonomy && ent.sovereign) {
+        if (!autonomiesBySovereign[ent.sovereign]) autonomiesBySovereign[ent.sovereign] = [];
         autonomiesBySovereign[ent.sovereign].push(ent.name);
+      }
+      if (ent.isPmc && ent.sovereign) {
+        if (!pmcsBySovereign[ent.sovereign]) pmcsBySovereign[ent.sovereign] = [];
+        pmcsBySovereign[ent.sovereign].push(ent.name);
       }
     }
 
@@ -783,7 +814,9 @@ function normalizeIncomingData(rawData) {
         categories: Array.from(item.categories || []),
         isAutonomy: item.isAutonomy || false,
         sovereign: item.sovereign || null,
-        autonomies: autonomiesBySovereign[entityName] || []
+        isPmc: item.isPmc || false,
+        autonomies: autonomiesBySovereign[entityName] || [],
+        pmcs: pmcsBySovereign[entityName] || []
       });
     }
 
@@ -883,6 +916,11 @@ export async function loadActiveCountries(sourcePath = currentSource, isSilent =
     select.value = sourcePath;
   }
 
+  // Гарантируем предварительную загрузку базы стран/автономий/ЧВК
+  if (!countriesDb || Object.keys(countriesDb).length === 0) {
+    await loadCountriesDatabase();
+  }
+
   try {
     const fetchUrl = sourcePath.startsWith('blob:') ? sourcePath : `${sourcePath}?_t=${Date.now()}`;
     const res = await fetch(fetchUrl, { cache: 'no-store' });
@@ -919,9 +957,11 @@ function applyCountriesData(countriesList) {
     const dbItem = countriesDb[item.name] || null;
     const parent = item.parent_country || item.host_country || dbItem?.parent_country || dbItem?.country;
     const targetQuery = item.geoTarget || parent || item.name;
-    let feat = findFeature(item.geoTarget || item.name);
-    if (!feat && parent) {
-      feat = findFeature(parent);
+    
+    // Внимание: ЧВК никогда не получают суверенные полигоны стран!
+    let feat = null;
+    if (!item.isPmc) {
+      feat = findFeature(item.geoTarget || item.name);
     }
     const resolvedDb = dbItem || (feat ? countriesDb[feat.properties?.name_ru] : null);
 
@@ -973,8 +1013,10 @@ function applyCountriesData(countriesList) {
       entityTypes: item.entityTypes || [],
       categories: item.categories || [],
       isAutonomy: item.isAutonomy || false,
-      sovereign: item.sovereign || null,
+      sovereign: item.sovereign || parent || null,
+      isPmc: item.isPmc || false,
       autonomies: item.autonomies || [],
+      pmcs: item.pmcs || [],
       role: item.role || (item.isAutonomy ? `Автономия (${item.sovereign})` : (item.playerCount > 1 ? `${item.playerCount} игроков` : 'Активен')),
       status: item.isAutonomy ? `Автономия (${item.sovereign})` : (item.status || 'В игре'),
       gdp: item.gdp ?? dbItem?.gdp ?? null,
@@ -995,9 +1037,19 @@ function applyCountriesData(countriesList) {
     };
 
     setSafe(normName(item.name), countryRecord);
-    if (item.geoTarget) setSafe(normName(item.geoTarget), countryRecord);
-    if (feat?.properties?.name_ru) setSafe(normName(feat.properties.name_ru), countryRecord);
-    if (feat?.properties?.iso2) setSafe(feat.properties.iso2.toLowerCase(), countryRecord);
+    if (item.geoTarget && !item.isPmc) setSafe(normName(item.geoTarget), countryRecord);
+
+    // Привязываем полигон к сущности ТОЛЬКО если это не ЧВК и имя совпадает с именем сущности/geoTarget,
+    // чтобы ЧВК или вложенные автономии не перезаписывали родительское государство!
+    if (!item.isPmc && feat?.properties) {
+      const featRu = normName(feat.properties.name_ru);
+      const targetNorm = normName(item.geoTarget || item.name);
+      const itemNorm = normName(item.name);
+      if (featRu === targetNorm || featRu === itemNorm) {
+        if (feat.properties.name_ru) setSafe(normName(feat.properties.name_ru), countryRecord);
+        if (feat.properties.iso2) setSafe(feat.properties.iso2.toLowerCase(), countryRecord);
+      }
+    }
 
     if (coords && !countryRecord.isUnionTerritory) {
       htmlMarkers.push(countryRecord);
@@ -1263,7 +1315,11 @@ function showCountryCard(country) {
       statusEl.textContent = `Метрополия · +${country.autonomies.length} авт.`;
     } else {
       const types = country.entityTypes && country.entityTypes.length ? country.entityTypes.join(', ') : 'Государство';
-      statusEl.textContent = `${types} · ${country.playerCount || 1} игр.`;
+      let extra = '';
+      if (country.pmcs && country.pmcs.length) {
+        extra = ` · ЧВК: ${country.pmcs.join(', ')}`;
+      }
+      statusEl.textContent = `${types} · ${country.playerCount || 1} игр.${extra}`;
     }
   }
 
@@ -1682,6 +1738,7 @@ function setupGlobeControls() {
 // Экспорт для доступа из консоли и внешних модулей
 window.reloadGlobeCountries = () => loadActiveCountries(currentSource);
 window.setGlobeSource = (path) => loadActiveCountries(path);
+window.getActiveCountriesMap = () => activeCountriesMap;
 window.focusGlobeCountry = (name) => {
   const c = activeCountriesMap.get(normName(name));
   if (c) focusCountry(c);
