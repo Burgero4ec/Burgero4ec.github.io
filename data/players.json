@@ -1,17 +1,17 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-15T14:02:12.767491+00:00",
-  "total_active_players": 15,
-  "total_non_staff_players": 5,
-  "total_staff_who_play": 10,
+  "updated_at": "2026-11-15T14:02:55.650143+00:00",
+  "total_active_players": 18,
+  "total_non_staff_players": 6,
+  "total_staff_who_play": 12,
   "stats": {
-    "registered": 15,
-    "states": 14,
+    "registered": 18,
+    "states": 16,
     "autonomies": 0,
-    "pmc": 1,
-    "un_members": 14,
-    "alliance_members": 14
+    "pmc": 2,
+    "un_members": 16,
+    "alliance_members": 16
   },
   "countries_count": {
     "Франция": 1,
@@ -22,9 +22,11 @@
     "Азербайджан": 1,
     "Мексика": 1,
     "Ирландия": 1,
-    "Украина": 1,
+    "Израиль": 1,
+    "Украина": 2,
     "Турция": 1,
     "Вагнер": 1,
+    "Исландия": 1,
     "Великобритания": 1,
     "Иран": 1,
     "КНР": 1,
@@ -161,18 +163,18 @@
       ]
     },
     {
-      "id": "1111768367670509603",
-      "username": "lirozit",
-      "display_name": "🇬🇧 | Великобритания",
-      "nickname": "🇬🇧 | Великобритания",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1111768367670509603/b883f3aa4db2810c0958ed8f5aa8f8e3.png?size=1024",
+      "id": "1127720130885992510",
+      "username": "i_have_no_brains",
+      "display_name": "🇮🇸 | Исландия",
+      "nickname": "🇮🇸 | Исландия",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1127720130885992510/ef0bb31a3ea19d51925739123ea3ed0b.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Великобритания"
+        "Исландия"
       ],
-      "country": "Великобритания",
+      "country": "Исландия",
       "balance": 0,
       "profit": null,
       "gdp": null,
@@ -188,6 +190,89 @@
       "specialization": null,
       "reforms": null,
       "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571525859997651036",
+          "name": "Лицензия Исландия"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "1111768367670509603",
+      "username": "lirozit",
+      "display_name": "🇬🇧 | Великобритания",
+      "nickname": "🇬🇧 | Великобритания",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1111768367670509603/b883f3aa4db2810c0958ed8f5aa8f8e3.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Великобритания"
+      ],
+      "country": "Великобритания",
+      "balance": 0,
+      "profit": 5775432857,
+      "gdp": 2697000000000,
+      "gdp_ppp": 5124300000000,
+      "population": 67330000,
+      "birth_rate": 10.2,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.0,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$1 348 500 000 000 / $1 348 500 000 000",
+      "investments": "$1 348 500 000 000 / $1 348 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -256,20 +341,26 @@
       ],
       "country": "Иран",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 2646639935,
+      "gdp": 262000000000,
+      "gdp_ppp": 838400000000,
+      "population": 87747145,
+      "birth_rate": 14.5,
+      "support": 50.0,
+      "resource_index": 3.0,
+      "corruption": 10.3,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$131 000 000 000 / $131 000 000 000",
+      "investments": "$131 000 000 000 / $131 000 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -321,20 +412,26 @@
       ],
       "country": "ЛНР",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 107991124,
+      "gdp": 3000000000,
+      "gdp_ppp": 15000000000,
+      "population": 1400000,
+      "birth_rate": 8.0,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.0,
+      "level": "Кризисная",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$1 500 000 000 / $1 500 000 000",
+      "investments": "$1 500 000 000 / $1 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -388,7 +485,7 @@
       ],
       "country": "Франция",
       "balance": 0,
-      "profit": 5816120000,
+      "profit": 6487166000,
       "gdp": 2716000000000,
       "gdp_ppp": 5160400000000,
       "population": 67400000,
@@ -398,8 +495,8 @@
       "corruption": 10.0,
       "level": "Передовая",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
         "nds": 20,
@@ -567,20 +664,26 @@
       ],
       "country": "Япония",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 975374285,
+      "gdp": 5065000000000,
+      "gdp_ppp": 7091000000000,
+      "population": 125800000,
+      "birth_rate": 7.0,
+      "support": 50.0,
+      "resource_index": 6.0,
+      "corruption": 10.0,
+      "level": "Высокоразвитая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$2 532 500 000 000 / $2 532 500 000 000",
+      "investments": "$2 532 500 000 000 / $2 532 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -652,20 +755,26 @@
       ],
       "country": "Россия",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 6652356551,
+      "gdp": 1483000000000,
+      "gdp_ppp": 2817700000000,
+      "population": 146000000,
+      "birth_rate": 9.8,
+      "support": 50.0,
+      "resource_index": 1.0,
+      "corruption": 10.0,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$741 500 000 000 / $741 500 000 000",
+      "investments": "$741 500 000 000 / $741 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -759,20 +868,26 @@
       ],
       "country": "США",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 24915450000,
+      "gdp": 21350000000000,
+      "gdp_ppp": 26687500000000,
+      "population": 331500000,
+      "birth_rate": 11.0,
+      "support": 50.0,
+      "resource_index": 2.0,
+      "corruption": 10.0,
+      "level": "Сверхдержава",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$10 675 000 000 000 / $10 675 000 000 000",
+      "investments": "$10 675 000 000 000 / $10 675 000 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -862,20 +977,26 @@
       ],
       "country": "Азербайджан",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 24915450000,
+      "gdp": 21350000000000,
+      "gdp_ppp": 26687500000000,
+      "population": 331500000,
+      "birth_rate": 11.0,
+      "support": 50.0,
+      "resource_index": 2.0,
+      "corruption": 10.0,
+      "level": "Сверхдержава",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$10 675 000 000 000 / $10 675 000 000 000",
+      "investments": "$10 675 000 000 000 / $10 675 000 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -939,20 +1060,26 @@
       ],
       "country": "Мексика",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 4095408247,
+      "gdp": 1076000000000,
+      "gdp_ppp": 2044400000000,
+      "population": 128900000,
+      "birth_rate": 16.3,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.0,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$538 000 000 000 / $538 000 000 000",
+      "investments": "$538 000 000 000 / $538 000 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1024,20 +1151,26 @@
       ],
       "country": "Ирландия",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 3615880653,
+      "gdp": 436600000000,
+      "gdp_ppp": 1397120000000,
+      "population": 5040000,
+      "birth_rate": 11.2,
+      "support": 50.0,
+      "resource_index": 5.0,
+      "corruption": 10.0,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$218 300 000 000 / $218 300 000 000",
+      "investments": "$218 300 000 000 / $218 300 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1100,6 +1233,105 @@
       ]
     },
     {
+      "id": "1119969034629304341",
+      "username": "elwey4194",
+      "display_name": "🇮🇱 | Израиль",
+      "nickname": "🇮🇱 | Израиль",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1119969034629304341/49c2a5a0cae150dc997c04d3e08535b7.png?size=1024",
+      "is_staff": true,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Израиль"
+      ],
+      "country": "Израиль",
+      "balance": 0,
+      "profit": 3273353426,
+      "gdp": 411730000000,
+      "gdp_ppp": 1317536000000,
+      "population": 8800000,
+      "birth_rate": 19.5,
+      "support": 50.0,
+      "resource_index": 6.0,
+      "corruption": 10.0,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$205 865 000 000 / $205 865 000 000",
+      "investments": "$205 865 000 000 / $205 865 000 000",
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571525735942717550",
+          "name": "Лицензия Израиль"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1258520284160331788",
+          "name": "Ядерная держава"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209154572417769543",
+          "name": "Персонал"
+        },
+        {
+          "id": "1459155798415376384",
+          "name": "• Технолог"
+        },
+        {
+          "id": "1209196451339698206",
+          "name": "• Политолог"
+        }
+      ]
+    },
+    {
       "id": "1532495116747538538",
       "username": "marsgooddayevery",
       "display_name": "🇺🇦 | Украина",
@@ -1113,20 +1345,26 @@
       ],
       "country": "Украина",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 1921893237,
+      "gdp": 155600000000,
+      "gdp_ppp": 622400000000,
+      "population": 41700000,
+      "birth_rate": 7.8,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.0,
+      "level": "Устойчивая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$77 800 000 000 / $77 800 000 000",
+      "investments": "$77 800 000 000 / $77 800 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1322,18 +1560,18 @@
       ]
     },
     {
-      "id": "1111768367670509603",
-      "username": "lirozit",
-      "display_name": "🇬🇧 | Великобритания",
-      "nickname": "🇬🇧 | Великобритания",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1111768367670509603/b883f3aa4db2810c0958ed8f5aa8f8e3.png?size=1024",
+      "id": "1127720130885992510",
+      "username": "i_have_no_brains",
+      "display_name": "🇮🇸 | Исландия",
+      "nickname": "🇮🇸 | Исландия",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1127720130885992510/ef0bb31a3ea19d51925739123ea3ed0b.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Великобритания"
+        "Исландия"
       ],
-      "country": "Великобритания",
+      "country": "Исландия",
       "balance": 0,
       "profit": null,
       "gdp": null,
@@ -1349,6 +1587,89 @@
       "specialization": null,
       "reforms": null,
       "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571525859997651036",
+          "name": "Лицензия Исландия"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "1111768367670509603",
+      "username": "lirozit",
+      "display_name": "🇬🇧 | Великобритания",
+      "nickname": "🇬🇧 | Великобритания",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1111768367670509603/b883f3aa4db2810c0958ed8f5aa8f8e3.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Великобритания"
+      ],
+      "country": "Великобритания",
+      "balance": 0,
+      "profit": 5775432857,
+      "gdp": 2697000000000,
+      "gdp_ppp": 5124300000000,
+      "population": 67330000,
+      "birth_rate": 10.2,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.0,
+      "level": "Передовая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$1 348 500 000 000 / $1 348 500 000 000",
+      "investments": "$1 348 500 000 000 / $1 348 500 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1417,20 +1738,26 @@
       ],
       "country": "Иран",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 2646639935,
+      "gdp": 262000000000,
+      "gdp_ppp": 838400000000,
+      "population": 87747145,
+      "birth_rate": 14.5,
+      "support": 50.0,
+      "resource_index": 3.0,
+      "corruption": 10.3,
+      "level": "Развивающаяся",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$131 000 000 000 / $131 000 000 000",
+      "investments": "$131 000 000 000 / $131 000 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1469,18 +1796,18 @@
       ]
     },
     {
-      "id": "1137392083821416478",
-      "username": "naebni_govna_olyx",
-      "display_name": "🇨🇳 | КНР",
-      "nickname": "🇨🇳 | КНР",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1137392083821416478/88edfe7f716069a7b5f5f6974187fecd.png?size=1024",
+      "id": "1038163713397620758",
+      "username": "svvayl",
+      "display_name": "🇺🇦 | ЦСО «Альфа»",
+      "nickname": "🇺🇦 | ЦСО «Альфа»",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1038163713397620758/b2e3f2ab7b40542573b67acbf014f3cb.png?size=1024",
       "is_staff": true,
       "is_registered": true,
-      "entity_type": "Государство",
+      "entity_type": "ЧВК",
       "countries": [
-        "КНР"
+        "Украина"
       ],
-      "country": "КНР",
+      "country": "Украина",
       "balance": 0,
       "profit": null,
       "gdp": null,
@@ -1496,6 +1823,66 @@
       "specialization": null,
       "reforms": null,
       "investments": null,
+      "categories": [
+        "ЧВК"
+      ],
+      "roles": [
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209154572417769543",
+          "name": "Персонал"
+        },
+        {
+          "id": "1209196451339698206",
+          "name": "• Политолог"
+        },
+        {
+          "id": "1571190842939547688",
+          "name": "айтек говна наделал"
+        }
+      ]
+    },
+    {
+      "id": "1137392083821416478",
+      "username": "naebni_govna_olyx",
+      "display_name": "🇨🇳 | КНР",
+      "nickname": "🇨🇳 | КНР",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1137392083821416478/88edfe7f716069a7b5f5f6974187fecd.png?size=1024",
+      "is_staff": true,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "КНР"
+      ],
+      "country": "КНР",
+      "balance": 0,
+      "profit": 11893760000,
+      "gdp": 14720000000000,
+      "gdp_ppp": 18400000000000,
+      "population": 1426000000,
+      "birth_rate": 8.5,
+      "support": 50.0,
+      "resource_index": 3.0,
+      "corruption": 10.0,
+      "level": "Сверхдержава",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$7 360 000 000 000 / $7 360 000 000 000",
+      "investments": "$7 360 000 000 000 / $7 360 000 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -1584,20 +1971,26 @@
       ],
       "country": "ЛНР",
       "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "profit": 107991124,
+      "gdp": 3000000000,
+      "gdp_ppp": 15000000000,
+      "population": 1400000,
+      "birth_rate": 8.0,
+      "support": 50.0,
+      "resource_index": 4.0,
+      "corruption": 10.0,
+      "level": "Кризисная",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$1 500 000 000 / $1 500 000 000",
+      "investments": "$1 500 000 000 / $1 500 000 000",
       "categories": [
         "Государство",
         "ООН",
