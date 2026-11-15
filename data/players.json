@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-15T20:37:02.213273+00:00",
+  "updated_at": "2026-11-15T21:06:05.480566+00:00",
   "total_active_players": 23,
   "total_non_staff_players": 10,
   "total_staff_who_play": 13,
@@ -1510,15 +1510,15 @@
         "Азербайджан"
       ],
       "country": "Азербайджан",
-      "balance": 0,
-      "profit": 2601445337,
+      "balance": 7049318183,
+      "profit": 2586311051,
       "gdp": 43132574028,
       "gdp_ppp": 194096583126,
-      "population": 10104608,
+      "population": 10112452,
       "birth_rate": 13.7,
       "support": 52.3,
       "resource_index": 4.0,
-      "corruption": 0.6,
+      "corruption": 1.0,
       "level": "Слабая",
       "ideology": {
         "state": "Президентская республика",

@@ -52,7 +52,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-15T20:37:02.213273+00:00",
+  "updated_at": "2026-11-15T21:06:05.480566+00:00",
   "totalActivePlayers": 23,
   "entities": {
     "1334532453238440000": {
@@ -365,15 +365,15 @@
       "country": "Азербайджан",
       "player": "aytaconan2_",
       "nickname": "🇦🇿 | Азербайджан",
-      "balance": 0,
-      "profit": 2601445337,
+      "balance": 7049318183,
+      "profit": 2586311051,
       "gdp": 43132574028,
       "gdp_ppp": 194096583126,
-      "population": 10104608,
+      "population": 10112452,
       "birth_rate": 13.7,
       "support": 52.3,
       "resource_index": 4.0,
-      "corruption": 0.6,
+      "corruption": 1.0,
       "level": "Слабая",
       "ideology": {
         "state": "Президентская республика",
