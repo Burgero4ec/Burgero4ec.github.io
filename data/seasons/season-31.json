@@ -52,7 +52,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-15T19:29:43.241987+00:00",
+  "updated_at": "2026-11-15T19:38:03.160585+00:00",
   "totalActivePlayers": 23,
   "entities": {
     "1334532453238440000": {
@@ -575,13 +575,13 @@
       "country": "Украина",
       "player": "marsgooddayevery",
       "nickname": "🇺🇦 | Украина",
-      "balance": 17995287957,
-      "profit": 5369259194,
-      "gdp": 177193796415,
-      "gdp_ppp": 708775185660,
+      "balance": 99043287957,
+      "profit": 6622276326,
+      "gdp": 178091396415,
+      "gdp_ppp": 712365585660,
       "population": 41735161,
       "birth_rate": 7.8,
-      "support": 40.6,
+      "support": 36.8,
       "resource_index": 4.0,
       "corruption": 0.6,
       "level": "Устойчивая",
@@ -594,8 +594,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$88 596 898 207 / $88 596 898 207",
-      "investments": "$0 / $88 596 898 207",
+      "reforms": "$89 045 698 207 / $89 045 698 207",
+      "investments": "$448 800 000 / $89 045 698 207",
       "is_staff": true,
       "roles": [
         "СНГ",
