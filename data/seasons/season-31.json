@@ -4,7 +4,7 @@
   "status": "scheduled",
   "startDate": "2026-11-15",
   "totalArticles": 0,
-  "totalNations": 17,
+  "totalNations": 20,
   "keyEvents": [
     {
       "id": "s31-ev-1",
@@ -52,35 +52,35 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-15T14:02:55.650143+00:00",
-  "totalActivePlayers": 18,
+  "updated_at": "2026-11-15T14:26:47.700269+00:00",
+  "totalActivePlayers": 21,
   "entities": {
     "1334532453238440000": {
       "type": "country",
       "country": "Франция",
       "player": "vaelite.",
       "nickname": "🇫🇷 | Франция",
-      "balance": 0,
-      "profit": 6487166000,
-      "gdp": 2716000000000,
-      "gdp_ppp": 5160400000000,
-      "population": 67400000,
+      "balance": 36655692033,
+      "profit": 30852357246,
+      "gdp": 2728898962500,
+      "gdp_ppp": 5184908028750,
+      "population": 67485522,
       "birth_rate": 10.9,
       "support": 51.8,
       "resource_index": 4.0,
-      "corruption": 10.0,
+      "corruption": 2.7,
       "level": "Передовая",
       "ideology": {
         "state": "Смешанная республика",
         "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
-      "specialization": "Не выбрано",
-      "reforms": "$1 358 000 000 000 / $1 358 000 000 000",
-      "investments": "$1 358 000 000 000 / $1 358 000 000 000",
+      "specialization": "Промышленный хаб",
+      "reforms": "$1 364 449 481 250 / $1 364 449 481 250",
+      "investments": "$1 364 449 481 250 / $1 364 449 481 250",
       "is_staff": true,
       "roles": [
         "Лицензия Франция",
@@ -102,27 +102,27 @@
       "country": "Беларусь",
       "player": "ponzc",
       "nickname": "🇧🇾 | Беларусь",
-      "balance": 0,
-      "profit": 800268167,
-      "gdp": 61370000000,
-      "gdp_ppp": 245480000000,
-      "population": 9380000,
+      "balance": 18358145140,
+      "profit": 285360977,
+      "gdp": 62092500000,
+      "gdp_ppp": 248370000000,
+      "population": 9385938,
       "birth_rate": 9.3,
       "support": 50.0,
       "resource_index": 5.0,
-      "corruption": 10.0,
+      "corruption": 10.8,
       "level": "Устойчивая",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 30,
+        "ndfl": 30
       },
-      "specialization": "Не выбрано",
-      "reforms": "$30 685 000 000 / $30 685 000 000",
-      "investments": "$30 685 000 000 / $30 685 000 000",
+      "specialization": "Промышленный хаб",
+      "reforms": "$31 046 250 000 / $31 046 250 000",
+      "investments": "$31 046 250 000 / $31 046 250 000",
       "is_staff": true,
       "roles": [
         "Лицензия Беларусь",
@@ -136,6 +136,80 @@
         "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         "Персонал",
         "• Администратор"
+      ]
+    },
+    "784140901600591963": {
+      "type": "country",
+      "country": "ЛНР",
+      "player": "50175079",
+      "nickname": "🟦🟥⬛ | ЛНР",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "is_staff": false,
+      "roles": [
+        "Лицензия ЛНР",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "Ивенты",
+        "Новости",
+        "Обновления",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+      ]
+    },
+    "916907042545999883": {
+      "type": "country",
+      "country": "Непал",
+      "player": "jakiro5.5",
+      "nickname": "🇳🇵 | Непал",
+      "balance": 604951823,
+      "profit": 563191075,
+      "gdp": 33600000000,
+      "gdp_ppp": 151200000000,
+      "population": 29424833,
+      "birth_rate": 19.5,
+      "support": 50.0,
+      "resource_index": 5.0,
+      "corruption": 10.5,
+      "level": "Слабая",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Не выбрано"
+      },
+      "taxes": {
+        "nds": 20,
+        "ndfl": 20
+      },
+      "specialization": "Не выбрано",
+      "reforms": "$16 800 000 000 / $16 800 000 000",
+      "investments": "$16 800 000 000 / $16 800 000 000",
+      "is_staff": false,
+      "roles": [
+        "Лицензия Непал",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "Ивенты",
+        "Новости",
+        "Обновления",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     },
     "955060237449166938": {
@@ -185,15 +259,15 @@
       "country": "Россия",
       "player": "_ashkoo139",
       "nickname": "🇷🇺 | Россия",
-      "balance": 0,
-      "profit": 6652356551,
-      "gdp": 1483000000000,
-      "gdp_ppp": 2817700000000,
+      "balance": 428710000000,
+      "profit": 8780498202,
+      "gdp": 1539354000000,
+      "gdp_ppp": 2924772600000,
       "population": 146000000,
-      "birth_rate": 9.8,
+      "birth_rate": 11.0,
       "support": 50.0,
       "resource_index": 1.0,
-      "corruption": 10.0,
+      "corruption": 0.0,
       "level": "Передовая",
       "ideology": {
         "state": "Не выбрано",
@@ -204,8 +278,8 @@
         "ndfl": 20
       },
       "specialization": "Не выбрано",
-      "reforms": "$741 500 000 000 / $741 500 000 000",
-      "investments": "$741 500 000 000 / $741 500 000 000",
+      "reforms": "$769 677 000 000 / $769 677 000 000",
+      "investments": "$649 677 000 000 / $769 677 000 000",
       "is_staff": true,
       "roles": [
         "Лицензия Россия",
@@ -232,8 +306,8 @@
       "country": "США",
       "player": "joskipisk0trias",
       "nickname": "🇺🇸 | США",
-      "balance": 0,
-      "profit": 24915450000,
+      "balance": 4697000000000,
+      "profit": 84948874500,
       "gdp": 21350000000000,
       "gdp_ppp": 26687500000000,
       "population": 331500000,
@@ -243,14 +317,14 @@
       "corruption": 10.0,
       "level": "Сверхдержава",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Смешанная республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
-      "specialization": "Не выбрано",
+      "specialization": "Промышленный хаб",
       "reforms": "$10 675 000 000 000 / $10 675 000 000 000",
       "investments": "$10 675 000 000 000 / $10 675 000 000 000",
       "is_staff": true,
@@ -278,27 +352,27 @@
       "country": "Азербайджан",
       "player": "aytaconan2_",
       "nickname": "🇦🇿 | Азербайджан",
-      "balance": 0,
-      "profit": 24915450000,
-      "gdp": 21350000000000,
-      "gdp_ppp": 26687500000000,
-      "population": 331500000,
-      "birth_rate": 11.0,
+      "balance": 8531547,
+      "profit": 1617994951,
+      "gdp": 42686190000,
+      "gdp_ppp": 192087855000,
+      "population": 10093064,
+      "birth_rate": 12.5,
       "support": 50.0,
-      "resource_index": 2.0,
-      "corruption": 10.0,
-      "level": "Сверхдержава",
+      "resource_index": 4.0,
+      "corruption": 10.3,
+      "level": "Слабая",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 30,
+        "ndfl": 30
       },
-      "specialization": "Не выбрано",
-      "reforms": "$10 675 000 000 000 / $10 675 000 000 000",
-      "investments": "$10 675 000 000 000 / $10 675 000 000 000",
+      "specialization": "Промышленный хаб",
+      "reforms": "$21 343 095 000 / $21 343 095 000",
+      "investments": "$21 343 095 000 / $21 343 095 000",
       "is_staff": true,
       "roles": [
         "Лицензия Азербайджан",
@@ -448,7 +522,7 @@
       "player": "marsgooddayevery",
       "nickname": "🇺🇦 | Украина",
       "balance": 0,
-      "profit": 1921893237,
+      "profit": 3466129839,
       "gdp": 155600000000,
       "gdp_ppp": 622400000000,
       "population": 41700000,
@@ -462,8 +536,8 @@
         "economy": "Не выбрано"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
       "specialization": "Не выбрано",
       "reforms": "$77 800 000 000 / $77 800 000 000",
@@ -587,6 +661,44 @@
         "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     },
+    "1060644884781994126": {
+      "type": "country",
+      "country": "Чехия",
+      "player": "chaim1ch",
+      "nickname": "🇨🇿 | Чехия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "is_staff": true,
+      "roles": [
+        "Лицензия Чехия",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "Ивенты",
+        "Новости",
+        "Обновления",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Персонал",
+        "• Технолог",
+        "• Анкетолог",
+        "Ивентер"
+      ]
+    },
     "1111768367670509603": {
       "type": "country",
       "country": "Великобритания",
@@ -633,15 +745,15 @@
       "country": "Иран",
       "player": "sparkling_seahorse_33427",
       "nickname": "🇮🇷 | Иран",
-      "balance": 0,
-      "profit": 2646639935,
+      "balance": 3104741128,
+      "profit": 2624953239,
       "gdp": 262000000000,
       "gdp_ppp": 838400000000,
-      "population": 87747145,
+      "population": 87778278,
       "birth_rate": 14.5,
       "support": 50.0,
       "resource_index": 3.0,
-      "corruption": 10.3,
+      "corruption": 10.5,
       "level": "Развивающаяся",
       "ideology": {
         "state": "Не выбрано",
@@ -700,7 +812,7 @@
       "player": "naebni_govna_olyx",
       "nickname": "🇨🇳 | КНР",
       "balance": 0,
-      "profit": 11893760000,
+      "profit": 19156225280,
       "gdp": 14720000000000,
       "gdp_ppp": 18400000000000,
       "population": 1426000000,
@@ -710,14 +822,14 @@
       "corruption": 10.0,
       "level": "Сверхдержава",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
         "nds": 20,
         "ndfl": 20
       },
-      "specialization": "Не выбрано",
+      "specialization": "Промышленный хаб",
       "reforms": "$7 360 000 000 000 / $7 360 000 000 000",
       "investments": "$7 360 000 000 000 / $7 360 000 000 000",
       "is_staff": true,
@@ -768,13 +880,13 @@
       "investments": "$1 935 967 500 / $1 935 967 500",
       "is_staff": false,
       "roles": [
+        "Лицензия ДНР",
         "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
         "• Зарегистрированный",
         "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         "Участник ООН",
         "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-        "Лицензия ДНР"
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     }
   },
