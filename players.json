@@ -1,21 +1,22 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-15T14:27:53.536886+00:00",
-  "total_active_players": 21,
-  "total_non_staff_players": 8,
+  "updated_at": "2026-11-15T14:56:47.881583+00:00",
+  "total_active_players": 22,
+  "total_non_staff_players": 9,
   "total_staff_who_play": 13,
   "stats": {
-    "registered": 21,
-    "states": 19,
+    "registered": 22,
+    "states": 20,
     "autonomies": 0,
     "pmc": 2,
-    "un_members": 19,
-    "alliance_members": 19
+    "un_members": 20,
+    "alliance_members": 20
   },
   "countries_count": {
     "Франция": 1,
     "Беларусь": 1,
+    "Египет": 1,
     "ЛНР": 1,
     "Непал": 1,
     "Япония": 1,
@@ -36,6 +37,75 @@
     "ДНР": 1
   },
   "non_staff_players": [
+    {
+      "id": "967200323909349396",
+      "username": "hanslanda_0272",
+      "display_name": "🇪🇬 | Египет",
+      "nickname": "🇪🇬 | Египет",
+      "avatar_url": "https://cdn.discordapp.com/avatars/967200323909349396/6c7a33dea1d82fe4db580df323bcb744.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Египет"
+      ],
+      "country": "Египет",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571539366420021339",
+          "name": "Лицензия Египет"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
     {
       "id": "784140901600591963",
       "username": "50175079",
@@ -826,6 +896,75 @@
       ]
     },
     {
+      "id": "967200323909349396",
+      "username": "hanslanda_0272",
+      "display_name": "🇪🇬 | Египет",
+      "nickname": "🇪🇬 | Египет",
+      "avatar_url": "https://cdn.discordapp.com/avatars/967200323909349396/6c7a33dea1d82fe4db580df323bcb744.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Египет"
+      ],
+      "country": "Египет",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571539366420021339",
+          "name": "Лицензия Египет"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
       "id": "784140901600591963",
       "username": "50175079",
       "display_name": "🟦🟥⬛ | ЛНР",
@@ -1483,7 +1622,7 @@
       "username": "perikkl",
       "display_name": "🇮🇪 | Ирландия",
       "nickname": "🇮🇪 | Ирландия",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1119919252485443686/9ba5d58b622c69c1705d53c1088a4318.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1119919252485443686/6f4930021c411ee67e27c6955a7c3e96.png?size=1024",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
@@ -1686,9 +1825,9 @@
       ],
       "country": "Украина",
       "balance": 0,
-      "profit": 4993163866,
-      "gdp": 155600000000,
-      "gdp_ppp": 622400000000,
+      "profit": 5395015255,
+      "gdp": 169604000000,
+      "gdp_ppp": 678416000000,
       "population": 41700000,
       "birth_rate": 7.8,
       "support": 52.3,
@@ -1704,8 +1843,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$77 800 000 000 / $77 800 000 000",
-      "investments": "$77 800 000 000 / $77 800 000 000",
+      "reforms": "$84 802 000 000 / $84 802 000 000",
+      "investments": "$7 002 000 000 / $84 802 000 000",
       "categories": [
         "Государство",
         "ООН",
@@ -2308,15 +2447,15 @@
         "КНР"
       ],
       "country": "КНР",
-      "balance": 1737000,
-      "profit": 255205608252,
-      "gdp": 15463727910000,
-      "gdp_ppp": 19329659887500,
-      "population": 1426000000,
+      "balance": 5612904,
+      "profit": 307608590361,
+      "gdp": 15486461010000,
+      "gdp_ppp": 19358076262500,
+      "population": 1426375166,
       "birth_rate": 8.5,
       "support": 50.0,
       "resource_index": 3.0,
-      "corruption": 10.0,
+      "corruption": 0.2,
       "level": "Сверхдержава",
       "ideology": {
         "state": "Смешанная республика",
@@ -2327,8 +2466,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$7 731 863 955 000 / $7 731 863 955 000",
-      "investments": "$7 731 863 955 000 / $7 731 863 955 000",
+      "reforms": "$7 743 230 505 000 / $7 743 230 505 000",
+      "investments": "$7 743 230 505 000 / $7 743 230 505 000",
       "categories": [
         "Государство",
         "ООН",

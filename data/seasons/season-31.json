@@ -4,7 +4,7 @@
   "status": "scheduled",
   "startDate": "2026-11-15",
   "totalArticles": 0,
-  "totalNations": 20,
+  "totalNations": 21,
   "keyEvents": [
     {
       "id": "s31-ev-1",
@@ -52,8 +52,8 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-15T14:27:53.536886+00:00",
-  "totalActivePlayers": 21,
+  "updated_at": "2026-11-15T14:56:47.881583+00:00",
+  "totalActivePlayers": 22,
   "entities": {
     "1334532453238440000": {
       "type": "country",
@@ -136,6 +136,38 @@
         "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         "Персонал",
         "• Администратор"
+      ]
+    },
+    "967200323909349396": {
+      "type": "country",
+      "country": "Египет",
+      "player": "hanslanda_0272",
+      "nickname": "🇪🇬 | Египет",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "is_staff": false,
+      "roles": [
+        "Лицензия Египет",
+        "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀",
+        "• Зарегистрированный",
+        "Новости",
+        "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "Участник ООН",
+        "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
       ]
     },
     "784140901600591963": {
@@ -528,9 +560,9 @@
       "player": "marsgooddayevery",
       "nickname": "🇺🇦 | Украина",
       "balance": 0,
-      "profit": 4993163866,
-      "gdp": 155600000000,
-      "gdp_ppp": 622400000000,
+      "profit": 5395015255,
+      "gdp": 169604000000,
+      "gdp_ppp": 678416000000,
       "population": 41700000,
       "birth_rate": 7.8,
       "support": 52.3,
@@ -546,8 +578,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$77 800 000 000 / $77 800 000 000",
-      "investments": "$77 800 000 000 / $77 800 000 000",
+      "reforms": "$84 802 000 000 / $84 802 000 000",
+      "investments": "$7 002 000 000 / $84 802 000 000",
       "is_staff": true,
       "roles": [
         "Лицензия Украина",
@@ -829,15 +861,15 @@
       "country": "КНР",
       "player": "naebni_govna_olyx",
       "nickname": "🇨🇳 | КНР",
-      "balance": 1737000,
-      "profit": 255205608252,
-      "gdp": 15463727910000,
-      "gdp_ppp": 19329659887500,
-      "population": 1426000000,
+      "balance": 5612904,
+      "profit": 307608590361,
+      "gdp": 15486461010000,
+      "gdp_ppp": 19358076262500,
+      "population": 1426375166,
       "birth_rate": 8.5,
       "support": 50.0,
       "resource_index": 3.0,
-      "corruption": 10.0,
+      "corruption": 0.2,
       "level": "Сверхдержава",
       "ideology": {
         "state": "Смешанная республика",
@@ -848,8 +880,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$7 731 863 955 000 / $7 731 863 955 000",
-      "investments": "$7 731 863 955 000 / $7 731 863 955 000",
+      "reforms": "$7 743 230 505 000 / $7 743 230 505 000",
+      "investments": "$7 743 230 505 000 / $7 743 230 505 000",
       "is_staff": true,
       "roles": [
         "Лицензия КНР",
