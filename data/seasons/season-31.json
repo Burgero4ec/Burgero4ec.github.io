@@ -52,7 +52,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-15T20:10:31.104851+00:00",
+  "updated_at": "2026-11-15T20:11:29.743193+00:00",
   "totalActivePlayers": 23,
   "entities": {
     "1334532453238440000": {
@@ -60,27 +60,24 @@
       "country": "Франция",
       "player": "vaelite.",
       "nickname": "🇫🇷 | Франция",
-      "balance": 23721536,
-      "profit": 41581744676,
-      "gdp": 2784697630761,
-      "gdp_ppp": 5290925498445,
-      "population": 67557999,
-      "birth_rate": 10.9,
-      "support": 58.6,
+      "balance": 156622530,
+      "profit": 163822701,
+      "gdp": 3871935000,
+      "gdp_ppp": 19359675000,
+      "population": 2200507,
+      "birth_rate": 8.8,
+      "support": 49.3,
       "resource_index": 4.0,
-      "corruption": 3.3,
-      "level": "Передовая",
-      "ideology": {
-        "state": "Смешанная республика",
-        "economy": "Смешанная экономика"
-      },
+      "corruption": 0.0,
+      "level": "Кризисная",
+      "ideology": {},
       "taxes": {
-        "nds": 35,
-        "ndfl": 35
+        "nds": 20,
+        "ndfl": 20
       },
-      "specialization": "Промышленный хаб",
-      "reforms": "$1 392 348 815 380 / $1 392 348 815 380",
-      "investments": "$1 081 673 815 380 / $1 392 348 815 380",
+      "specialization": "Не выбрано",
+      "reforms": "$1 935 967 500 / $1 935 967 500",
+      "investments": "$1 935 967 500 / $1 935 967 500",
       "is_staff": true,
       "roles": [
         "Лицензия Франция",
@@ -140,27 +137,27 @@
       "country": "ЛНР",
       "player": "50175079",
       "nickname": "🟦🟥⬛ | ЛНР",
-      "balance": 120887252,
-      "profit": 107653852,
-      "gdp": 3000000000,
-      "gdp_ppp": 15000000000,
-      "population": 1400261,
-      "birth_rate": 8.0,
+      "balance": 0,
+      "profit": 8267739622,
+      "gdp": 383465600000,
+      "gdp_ppp": 1227089920000,
+      "population": 100792020,
+      "birth_rate": 22.5,
       "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 10.3,
-      "level": "Кризисная",
+      "resource_index": 5.0,
+      "corruption": 11.1,
+      "level": "Развивающаяся",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Президентская республика",
+        "economy": "Рыночная экономика"
       },
       "taxes": {
-        "nds": 20,
-        "ndfl": 20
+        "nds": 35,
+        "ndfl": 35
       },
-      "specialization": "Не выбрано",
-      "reforms": "$1 500 000 000 / $1 500 000 000",
-      "investments": "$1 500 000 000 / $1 500 000 000",
+      "specialization": "Промышленный хаб",
+      "reforms": "$191 732 800 000 / $191 732 800 000",
+      "investments": "$167 041 200 320 / $191 732 800 000",
       "is_staff": false,
       "roles": [
         "Лицензия ЛНР",
