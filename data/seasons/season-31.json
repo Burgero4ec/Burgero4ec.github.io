@@ -52,7 +52,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-16T07:57:01.292830+00:00",
+  "updated_at": "2026-11-16T08:02:27.655001+00:00",
   "totalActivePlayers": 25,
   "entities": {
     "1334532453238440000": {
@@ -480,21 +480,27 @@
       "country": "Германия",
       "player": "coolman20047",
       "nickname": "🇩🇪 | Германия",
-      "balance": 0,
-      "profit": null,
-      "gdp": null,
-      "gdp_ppp": null,
-      "population": null,
-      "birth_rate": null,
-      "support": null,
-      "resource_index": null,
-      "corruption": null,
-      "level": null,
-      "ideology": null,
-      "taxes": null,
-      "specialization": null,
-      "reforms": null,
-      "investments": null,
+      "balance": 353906096,
+      "profit": 14559354583,
+      "gdp": 3801088850000,
+      "gdp_ppp": 6081742160000,
+      "population": 83225652,
+      "birth_rate": 9.3,
+      "support": 51.2,
+      "resource_index": 4.0,
+      "corruption": 10.4,
+      "level": "Великая держава",
+      "ideology": {
+        "state": "Не выбрано",
+        "economy": "Смешанная экономика"
+      },
+      "taxes": {
+        "nds": 25,
+        "ndfl": 25
+      },
+      "specialization": "Промышленный хаб",
+      "reforms": "$1 900 544 425 000 / $1 900 544 425 000",
+      "investments": "$1 900 544 425 000 / $1 900 544 425 000",
       "is_staff": false,
       "roles": [
         "Лицензия Германия",
