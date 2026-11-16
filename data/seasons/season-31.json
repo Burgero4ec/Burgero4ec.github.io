@@ -52,7 +52,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-16T13:06:05.650535+00:00",
+  "updated_at": "2026-11-16T13:36:05.642817+00:00",
   "totalActivePlayers": 25,
   "entities": {
     "1334532453238440000": {
@@ -180,15 +180,15 @@
       "country": "Того",
       "player": "jakiro5.5",
       "nickname": "🇹🇬 | Того",
-      "balance": 10133170,
-      "profit": 205512288,
-      "gdp": 7609000000,
-      "gdp_ppp": 38045000000,
-      "population": 8305674,
+      "balance": 11488832,
+      "profit": 209063386,
+      "gdp": 7621000000,
+      "gdp_ppp": 38105000000,
+      "population": 8312282,
       "birth_rate": 32.5,
       "support": 50.0,
       "resource_index": 6.0,
-      "corruption": 10.3,
+      "corruption": 10.5,
       "level": "Кризисная",
       "ideology": {
         "state": "Парламентская республика",
@@ -199,8 +199,8 @@
         "ndfl": 20
       },
       "specialization": "Торговая республика",
-      "reforms": "$3 804 500 000 / $3 804 500 000",
-      "investments": "$3 804 500 000 / $3 804 500 000",
+      "reforms": "$3 810 500 000 / $3 810 500 000",
+      "investments": "$3 810 500 000 / $3 810 500 000",
       "is_staff": false,
       "roles": [
         "Лицензия Того",
@@ -486,9 +486,9 @@
       "player": "coolman20047",
       "nickname": "🇩🇪 | Германия",
       "balance": 296763131,
-      "profit": 19331058283,
-      "gdp": 3803088050000,
-      "gdp_ppp": 6084940880000,
+      "profit": 20361665124,
+      "gdp": 4033194982698,
+      "gdp_ppp": 6453111972316,
       "population": 83270295,
       "birth_rate": 9.3,
       "support": 55.1,
@@ -504,8 +504,8 @@
         "ndfl": 25
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$1 901 544 025 000 / $1 901 544 025 000",
-      "investments": "$1 901 544 025 000 / $1 901 544 025 000",
+      "reforms": "$2 016 597 491 349 / $2 016 597 491 349",
+      "investments": "$99 039 718 861 / $2 016 597 491 349",
       "is_staff": false,
       "roles": [
         "Лицензия Германия",
@@ -650,16 +650,16 @@
       "country": "Украина",
       "player": "marsgooddayevery",
       "nickname": "🇺🇦 | Украина",
-      "balance": 65275244,
-      "profit": 21295045913,
-      "gdp": 191900235210,
-      "gdp_ppp": 767600940840,
-      "population": 41819955,
+      "balance": 108061680835,
+      "profit": 21424912248,
+      "gdp": 209819264240,
+      "gdp_ppp": 671421645568,
+      "population": 41859563,
       "birth_rate": 7.8,
       "support": 40.3,
       "resource_index": 4.0,
-      "corruption": 2.2,
-      "level": "Устойчивая",
+      "corruption": 3.0,
+      "level": "Развивающаяся",
       "ideology": {
         "state": "Парламентская монархия",
         "economy": "Смешанная экономика"
@@ -669,8 +669,8 @@
         "ndfl": 35
       },
       "specialization": "Промышленный хаб",
-      "reforms": "$95 950 117 605 / $95 950 117 605",
-      "investments": "$95 950 117 605 / $95 950 117 605",
+      "reforms": "$104 909 632 120 / $104 909 632 120",
+      "investments": "$9 071 666 872 / $104 909 632 120",
       "is_staff": true,
       "roles": [
         "СНГ",
