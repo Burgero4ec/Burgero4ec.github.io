@@ -52,7 +52,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-16T15:36:05.757403+00:00",
+  "updated_at": "2026-11-16T16:06:20.075179+00:00",
   "totalActivePlayers": 26,
   "entities": {
     "1334532453238440000": {
@@ -180,27 +180,27 @@
       "country": "Того",
       "player": "jakiro5.5",
       "nickname": "🇹🇬 | Того",
-      "balance": 120887252,
-      "profit": 107653852,
-      "gdp": 3000000000,
-      "gdp_ppp": 15000000000,
-      "population": 1400261,
-      "birth_rate": 8.0,
-      "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 10.3,
+      "balance": 10685089,
+      "profit": 238628282,
+      "gdp": 7621000000,
+      "gdp_ppp": 38105000000,
+      "population": 8325780,
+      "birth_rate": 32.5,
+      "support": 51.8,
+      "resource_index": 6.0,
+      "corruption": 0.1,
       "level": "Кризисная",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Парламентская республика",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
         "nds": 20,
         "ndfl": 20
       },
-      "specialization": "Не выбрано",
-      "reforms": "$1 500 000 000 / $1 500 000 000",
-      "investments": "$1 500 000 000 / $1 500 000 000",
+      "specialization": "Торговая республика",
+      "reforms": "$3 810 500 000 / $3 810 500 000",
+      "investments": "$3 310 500 000 / $3 810 500 000",
       "is_staff": false,
       "roles": [
         "Лицензия Того",
@@ -883,27 +883,27 @@
       "country": "Беларусь",
       "player": "victor_1917",
       "nickname": "🇧🇾 | Беларусь",
-      "balance": 41374417566,
-      "profit": 1331154641,
-      "gdp": 62092500000,
-      "gdp_ppp": 248370000000,
-      "population": 9392928,
+      "balance": 40536315941,
+      "profit": 1419905958,
+      "gdp": 62212700000,
+      "gdp_ppp": 248850800000,
+      "population": 9395022,
       "birth_rate": 9.3,
       "support": 50.0,
       "resource_index": 5.0,
-      "corruption": 10.0,
+      "corruption": 10.3,
       "level": "Устойчивая",
       "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
+        "state": "Теократия",
+        "economy": "Смешанная экономика"
       },
       "taxes": {
         "nds": 20,
         "ndfl": 20
       },
       "specialization": "Не выбрано",
-      "reforms": "$31 046 250 000 / $31 046 250 000",
-      "investments": "$31 046 250 000 / $31 046 250 000",
+      "reforms": "$31 106 350 000 / $31 106 350 000",
+      "investments": "$31 106 350 000 / $31 106 350 000",
       "is_staff": false,
       "roles": [
         "Лицензия Беларусь",
