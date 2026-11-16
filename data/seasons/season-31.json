@@ -52,7 +52,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-16T08:06:05.794054+00:00",
+  "updated_at": "2026-11-16T08:36:05.409755+00:00",
   "totalActivePlayers": 25,
   "entities": {
     "1334532453238440000": {
@@ -180,15 +180,15 @@
       "country": "Непал",
       "player": "jakiro5.5",
       "nickname": "🇳🇵 | Непал",
-      "balance": 113642651,
-      "profit": 1080511965,
-      "gdp": 34265250000,
-      "gdp_ppp": 154193625000,
-      "population": 29730069,
-      "birth_rate": 19.6,
+      "balance": 242604614,
+      "profit": 1112597256,
+      "gdp": 34339625000,
+      "gdp_ppp": 154528312500,
+      "population": 29754308,
+      "birth_rate": 19.7,
       "support": 50.7,
       "resource_index": 5.0,
-      "corruption": 2.1,
+      "corruption": 2.2,
       "level": "Слабая",
       "ideology": {
         "state": "Парламентская республика",
@@ -199,8 +199,8 @@
         "ndfl": 20
       },
       "specialization": "Аграрная держава",
-      "reforms": "$17 132 625 000 / $17 132 625 000",
-      "investments": "$16 582 625 000 / $17 132 625 000",
+      "reforms": "$17 169 812 500 / $17 169 812 500",
+      "investments": "$16 619 812 500 / $17 169 812 500",
       "is_staff": false,
       "roles": [
         "ШОС",
