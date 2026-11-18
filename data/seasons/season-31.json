@@ -52,7 +52,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-18T18:49:47.797875+00:00",
+  "updated_at": "2026-11-18T19:19:47.794542+00:00",
   "totalActivePlayers": 28,
   "entities": {
     "1170359740249948181": {
@@ -346,15 +346,15 @@
       "country": "США",
       "player": "joskipisk0trias",
       "nickname": "🇺🇸 | США",
-      "balance": 0,
-      "profit": 413616813588,
+      "balance": 1511395420955,
+      "profit": 408068900995,
       "gdp": 28342716700711,
       "gdp_ppp": 31176988370782,
-      "population": 388478491,
+      "population": 390392933,
       "birth_rate": 22.9,
       "support": 51.5,
       "resource_index": 2.0,
-      "corruption": 3.0,
+      "corruption": 5.6,
       "level": "Глобальный Гегемон",
       "ideology": {
         "state": "Смешанная республика",
@@ -779,7 +779,7 @@
       "country": "Индия",
       "player": "bludebaff",
       "nickname": "🇮🇳 | Индия",
-      "balance": 98670633258,
+      "balance": 661170633258,
       "profit": 14861430385,
       "gdp": 2922077365649,
       "gdp_ppp": 5551946994733,
