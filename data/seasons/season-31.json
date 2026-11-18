@@ -52,7 +52,7 @@
       "color": "#4ade80"
     }
   ],
-  "updated_at": "2026-11-18T12:36:00.598889+00:00",
+  "updated_at": "2026-11-18T13:04:34.288395+00:00",
   "totalActivePlayers": 34,
   "entities": {
     "1170359740249948181": {
@@ -60,15 +60,15 @@
       "country": "Южная Корея",
       "player": "otkrilochko_78228",
       "nickname": "🇰🇷 | Южная Корея",
-      "balance": 320579527983,
-      "profit": 8672859292,
-      "gdp": 2137196853220,
-      "gdp_ppp": 4060674021118,
-      "population": 59819318,
+      "balance": 332479256121,
+      "profit": 8607224510,
+      "gdp": 2138421167134,
+      "gdp_ppp": 4063000217554,
+      "population": 59828399,
       "birth_rate": 5.3,
       "support": 51.2,
       "resource_index": 6.0,
-      "corruption": 6.4,
+      "corruption": 6.7,
       "level": "Передовая",
       "ideology": {
         "state": "Смешанная республика",
@@ -79,8 +79,8 @@
         "ndfl": 35
       },
       "specialization": "Технологический лидер",
-      "reforms": "$954 933 913 404 / $1 068 598 426 610",
-      "investments": "$1 068 598 426 610 / $1 068 598 426 610",
+      "reforms": "$955 546 070 361 / $1 069 210 583 567",
+      "investments": "$1 069 210 583 567 / $1 069 210 583 567",
       "is_staff": false,
       "roles": [
         "Лицензия Южная Корея",
