@@ -1,45 +1,202 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-17T19:37:52.255221+00:00",
-  "total_active_players": 26,
-  "total_non_staff_players": 13,
+  "updated_at": "2026-11-18T12:34:33.833355+00:00",
+  "total_active_players": 34,
+  "total_non_staff_players": 21,
   "total_staff_who_play": 13,
   "stats": {
-    "registered": 26,
-    "states": 22,
+    "registered": 34,
+    "states": 28,
     "autonomies": 2,
-    "pmc": 2,
-    "un_members": 22,
-    "alliance_members": 24
+    "pmc": 4,
+    "un_members": 28,
+    "alliance_members": 30
   },
   "countries_count": {
+    "Южная Корея": 1,
     "Франция": 1,
+    "Тайвань": 1,
     "Египет": 1,
     "ЛНР": 1,
-    "Того": 1,
+    "Украина": 2,
     "Турция": 1,
+    "Испания": 2,
     "Япония": 1,
-    "Россия": 1,
+    "Россия": 2,
     "США": 1,
     "Азербайджан": 1,
-    "Мексика": 1,
     "Германия": 1,
+    "Соломоновы острова": 1,
     "Ирландия": 1,
+    "Армения": 1,
     "Израиль": 1,
     "Польша": 1,
-    "Украина": 2,
-    "Испания": 1,
+    "Academi": 1,
     "Вагнер": 1,
     "КНДР": 1,
-    "КНР": 2,
+    "Индия": 1,
+    "Австралия": 1,
     "Сербия": 1,
+    "Италия": 1,
     "Беларусь": 1,
     "Великобритания": 1,
     "Иран": 1,
+    "Сирия": 1,
+    "КНР": 1,
     "ДНР": 1
   },
   "non_staff_players": [
+    {
+      "id": "1170359740249948181",
+      "username": "otkrilochko_78228",
+      "display_name": "🇰🇷 | Южная Корея",
+      "nickname": "🇰🇷 | Южная Корея",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1170359740249948181/923848364ddf7ef05ee5aaabb124f3f1.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Южная Корея"
+      ],
+      "country": "Южная Корея",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1572019669857206342",
+          "name": "Лицензия Южная Корея"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "1000640216664658010",
+      "username": "vova_abh_ss",
+      "display_name": "🇹🇼 | Тайвань",
+      "nickname": "🇹🇼 | Тайвань",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1000640216664658010/66f0053bb3443181e851dc4be38808bb.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Тайвань"
+      ],
+      "country": "Тайвань",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571983719437176933",
+          "name": "Лицензия Тайвань"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
     {
       "id": "967200323909349396",
       "username": "hanslanda_0272",
@@ -201,16 +358,16 @@
     {
       "id": "916907042545999883",
       "username": "jakiro5.5",
-      "display_name": "🇹🇬 | Того",
-      "nickname": "🇹🇬 | Того",
+      "display_name": "🇺🇦 | Украина",
+      "nickname": "🇺🇦 | Украина",
       "avatar_url": "https://cdn.discordapp.com/avatars/916907042545999883/c9ef4d3dce344db012b17febab3dc9c7.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Того"
+        "Украина"
       ],
-      "country": "Того",
+      "country": "Украина",
       "balance": 10685089,
       "profit": 238628282,
       "gdp": 7621000000,
@@ -240,8 +397,8 @@
       ],
       "roles": [
         {
-          "id": "1571858957587316880",
-          "name": "Лицензия Того"
+          "id": "1572267662279446629",
+          "name": "Лицензия Украина"
         },
         {
           "id": "1359429737574830251",
@@ -323,6 +480,10 @@
       ],
       "roles": [
         {
+          "id": "1571934399044518079",
+          "name": "ЕС"
+        },
+        {
           "id": "1571782127366709252",
           "name": "Лицензия Турция"
         },
@@ -353,6 +514,61 @@
         {
           "id": "1209166398748631050",
           "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "1531974876955672632",
+      "username": "filetia._01629",
+      "display_name": "🇪🇸 | Каталония",
+      "nickname": "🇪🇸 | Каталония",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1531974876955672632/1aecba6016327e6279f2d29e2356c6e3.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Автономия",
+      "countries": [
+        "Испания"
+      ],
+      "country": "Испания",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Автономия",
+        "Альянс"
+      ],
+      "roles": [
+        {
+          "id": "1571600763883491440",
+          "name": "Лицензия Испания"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1438562020516692009",
+          "name": "•⠀⠀⠀⠀⠀Автономия⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -394,9 +610,18 @@
         "Государство",
         "ООН",
         "Альянс",
+        "Лидер альянса",
         "Участник ООН"
       ],
       "roles": [
+        {
+          "id": "1571934400600342661",
+          "name": "Лидер: ЕС"
+        },
+        {
+          "id": "1571934399044518079",
+          "name": "ЕС"
+        },
         {
           "id": "1571781177818488903",
           "name": "Лицензия Германия"
@@ -412,6 +637,156 @@
         {
           "id": "1359429648890728488",
           "name": "Обновления"
+        },
+        {
+          "id": "1259799685871177739",
+          "name": "Лидер альянса"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "1197560940661571597",
+      "username": "egorpro0753",
+      "display_name": "🇸🇧 | Соломоновы острова",
+      "nickname": "🇸🇧 | Соломоновы острова",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1197560940661571597/6920adc6538a5b9f0101923eccd49c21.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Соломоновы острова"
+      ],
+      "country": "Соломоновы острова",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571945720230051930",
+          "name": "Лицензия Соломоновы острова"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "1511435357160210643",
+      "username": "farinik",
+      "display_name": "🇦🇲 | Армения",
+      "nickname": "🇦🇲 | Армения",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1511435357160210643/5a8ed10171202de532ae43c6734db8bf.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Армения"
+      ],
+      "country": "Армения",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571987068438052930",
+          "name": "Лицензия Армения"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
         },
         {
           "id": "1209166926408843304",
@@ -511,6 +886,118 @@
         {
           "id": "1209166398748631050",
           "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "901051402799964201",
+      "username": "loshara_hatred",
+      "display_name": "🇷🇺 | Русич",
+      "nickname": "🇷🇺 | Русич",
+      "avatar_url": "https://cdn.discordapp.com/avatars/901051402799964201/0f89c22e5d92bf2c69b24acda9136c9f.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "ЧВК",
+      "countries": [
+        "Россия"
+      ],
+      "country": "Россия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "ЧВК"
+      ],
+      "roles": [
+        {
+          "id": "1571524799379939408",
+          "name": "Лицензия Россия"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1233388519171428385",
+          "name": "Государственная"
+        },
+        {
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "675659630348730384",
+      "username": "vanoreg",
+      "display_name": "🇺🇦 | ЦСО «Альфа»",
+      "nickname": "🇺🇦 | ЦСО «Альфа»",
+      "avatar_url": "https://cdn.discordapp.com/avatars/675659630348730384/cd107a56c138894b9cdd806fa61e8fc2.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "ЧВК",
+      "countries": [
+        "Украина"
+      ],
+      "country": "Украина",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "ЧВК"
+      ],
+      "roles": [
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -735,11 +1222,88 @@
       ]
     },
     {
+      "id": "829727977696395266",
+      "username": "bomblyiraq",
+      "display_name": "🇮🇹 | Италия",
+      "nickname": "🇮🇹 | Италия",
+      "avatar_url": "https://cdn.discordapp.com/avatars/829727977696395266/5c49b67a63081074605caf75b6e79cd3.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Италия"
+      ],
+      "country": "Италия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1572568172777832468",
+          "name": "Лицензия Италия"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
       "id": "1455162651138330675",
-      "username": "victor_1917",
+      "username": "vita23222",
       "display_name": "🇧🇾 | Беларусь",
       "nickname": "🇧🇾 | Беларусь",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1455162651138330675/a38e77ffc449d0779dc07f3c58030665.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1455162651138330675/316668925e6719a2060e3ccda2d78081.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -852,6 +1416,10 @@
       ],
       "roles": [
         {
+          "id": "1571934399044518079",
+          "name": "ЕС"
+        },
+        {
           "id": "1571525644309893290",
           "name": "Лицензия Великобритания"
         },
@@ -947,6 +1515,10 @@
           "name": "Лицензия Иран"
         },
         {
+          "id": "1571524799379939408",
+          "name": "Лицензия Россия"
+        },
+        {
           "id": "1359429737574830251",
           "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
         },
@@ -1009,7 +1581,7 @@
       ],
       "roles": [
         {
-          "id": "1571525597581279292",
+          "id": "1572267662279446629",
           "name": "Лицензия Украина"
         },
         {
@@ -1033,8 +1605,81 @@
   ],
   "all_players": [
     {
+      "id": "1170359740249948181",
+      "username": "otkrilochko_78228",
+      "display_name": "🇰🇷 | Южная Корея",
+      "nickname": "🇰🇷 | Южная Корея",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1170359740249948181/923848364ddf7ef05ee5aaabb124f3f1.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Южная Корея"
+      ],
+      "country": "Южная Корея",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1572019669857206342",
+          "name": "Лицензия Южная Корея"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
       "id": "1334532453238440000",
-      "username": "vaelite.",
+      "username": "whylite.com",
       "display_name": "🇫🇷 | Франция",
       "nickname": "🇫🇷 | Франция",
       "avatar_url": "https://cdn.discordapp.com/avatars/1334532453238440000/1819072df09617eaeeee629485aef10e.png?size=1024",
@@ -1121,6 +1766,83 @@
         {
           "id": "1441914402491203616",
           "name": "• Военный ведущий"
+        }
+      ]
+    },
+    {
+      "id": "1000640216664658010",
+      "username": "vova_abh_ss",
+      "display_name": "🇹🇼 | Тайвань",
+      "nickname": "🇹🇼 | Тайвань",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1000640216664658010/66f0053bb3443181e851dc4be38808bb.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Тайвань"
+      ],
+      "country": "Тайвань",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571983719437176933",
+          "name": "Лицензия Тайвань"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -1285,16 +2007,16 @@
     {
       "id": "916907042545999883",
       "username": "jakiro5.5",
-      "display_name": "🇹🇬 | Того",
-      "nickname": "🇹🇬 | Того",
+      "display_name": "🇺🇦 | Украина",
+      "nickname": "🇺🇦 | Украина",
       "avatar_url": "https://cdn.discordapp.com/avatars/916907042545999883/c9ef4d3dce344db012b17febab3dc9c7.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
       "countries": [
-        "Того"
+        "Украина"
       ],
-      "country": "Того",
+      "country": "Украина",
       "balance": 10685089,
       "profit": 238628282,
       "gdp": 7621000000,
@@ -1324,8 +2046,8 @@
       ],
       "roles": [
         {
-          "id": "1571858957587316880",
-          "name": "Лицензия Того"
+          "id": "1572267662279446629",
+          "name": "Лицензия Украина"
         },
         {
           "id": "1359429737574830251",
@@ -1407,6 +2129,10 @@
       ],
       "roles": [
         {
+          "id": "1571934399044518079",
+          "name": "ЕС"
+        },
+        {
           "id": "1571782127366709252",
           "name": "Лицензия Турция"
         },
@@ -1441,11 +2167,66 @@
       ]
     },
     {
+      "id": "1531974876955672632",
+      "username": "filetia._01629",
+      "display_name": "🇪🇸 | Каталония",
+      "nickname": "🇪🇸 | Каталония",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1531974876955672632/1aecba6016327e6279f2d29e2356c6e3.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Автономия",
+      "countries": [
+        "Испания"
+      ],
+      "country": "Испания",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Автономия",
+        "Альянс"
+      ],
+      "roles": [
+        {
+          "id": "1571600763883491440",
+          "name": "Лицензия Испания"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1438562020516692009",
+          "name": "•⠀⠀⠀⠀⠀Автономия⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
       "id": "955060237449166938",
       "username": "zenithxclown",
       "display_name": "🇯🇵 | Япония",
       "nickname": "🇯🇵 | Япония",
-      "avatar_url": "https://cdn.discordapp.com/avatars/955060237449166938/cd5a0ee0e54dd8a6718715e1c37272a0.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/955060237449166938/2a6a57fc5e7f62e1393157835cd581fe.png?size=1024",
       "is_staff": true,
       "is_registered": true,
       "entity_type": "Государство",
@@ -1594,6 +2375,10 @@
         {
           "id": "1571558590702166229",
           "name": "ОДКБ"
+        },
+        {
+          "id": "1571525363379736686",
+          "name": "Лицензия Иран"
         },
         {
           "id": "1571524799379939408",
@@ -1879,97 +2664,6 @@
       ]
     },
     {
-      "id": "743237681424629780",
-      "username": "woiserr",
-      "display_name": "🇲🇽 | Мексика",
-      "nickname": "🇲🇽 | Мексика",
-      "avatar_url": "https://cdn.discordapp.com/avatars/743237681424629780/3a152771fb9ecb89650db814226948ce.png?size=1024",
-      "is_staff": true,
-      "is_registered": true,
-      "entity_type": "Государство",
-      "countries": [
-        "Мексика"
-      ],
-      "country": "Мексика",
-      "balance": 0,
-      "profit": 7749512508,
-      "gdp": 1076000000000,
-      "gdp_ppp": 2044400000000,
-      "population": 128900000,
-      "birth_rate": 16.3,
-      "support": 50.0,
-      "resource_index": 4.0,
-      "corruption": 10.0,
-      "level": "Передовая",
-      "ideology": {
-        "state": "Не выбрано",
-        "economy": "Не выбрано"
-      },
-      "taxes": {
-        "nds": 38,
-        "ndfl": 37
-      },
-      "specialization": "Не выбрано",
-      "reforms": "$538 000 000 000 / $538 000 000 000",
-      "investments": "$538 000 000 000 / $538 000 000 000",
-      "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН"
-      ],
-      "roles": [
-        {
-          "id": "1571525286292365314",
-          "name": "Лицензия Мексика"
-        },
-        {
-          "id": "1359429737574830251",
-          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1246817935297613905",
-          "name": "• Зарегистрированный"
-        },
-        {
-          "id": "1359429648890728488",
-          "name": "Обновления"
-        },
-        {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209154572417769543",
-          "name": "Персонал"
-        },
-        {
-          "id": "1276659666562187375",
-          "name": "Выговор: 1/3"
-        },
-        {
-          "id": "1209196451339698206",
-          "name": "• Политолог"
-        },
-        {
-          "id": "1246844097222807564",
-          "name": "• Зам. куратор"
-        }
-      ]
-    },
-    {
       "id": "1527721674139500594",
       "username": "coolman20047",
       "display_name": "🇩🇪 | Германия",
@@ -2007,9 +2701,18 @@
         "Государство",
         "ООН",
         "Альянс",
+        "Лидер альянса",
         "Участник ООН"
       ],
       "roles": [
+        {
+          "id": "1571934400600342661",
+          "name": "Лидер: ЕС"
+        },
+        {
+          "id": "1571934399044518079",
+          "name": "ЕС"
+        },
         {
           "id": "1571781177818488903",
           "name": "Лицензия Германия"
@@ -2021,6 +2724,87 @@
         {
           "id": "1246817935297613905",
           "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1259799685871177739",
+          "name": "Лидер альянса"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
+      "id": "1197560940661571597",
+      "username": "egorpro0753",
+      "display_name": "🇸🇧 | Соломоновы острова",
+      "nickname": "🇸🇧 | Соломоновы острова",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1197560940661571597/6920adc6538a5b9f0101923eccd49c21.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Соломоновы острова"
+      ],
+      "country": "Соломоновы острова",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571945720230051930",
+          "name": "Лицензия Соломоновы острова"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
         },
         {
           "id": "1359429648890728488",
@@ -2086,6 +2870,10 @@
       ],
       "roles": [
         {
+          "id": "1571934399044518079",
+          "name": "ЕС"
+        },
+        {
           "id": "1571781177818488903",
           "name": "Лицензия Германия"
         },
@@ -2140,6 +2928,75 @@
         {
           "id": "1209196451339698206",
           "name": "• Политолог"
+        }
+      ]
+    },
+    {
+      "id": "1511435357160210643",
+      "username": "farinik",
+      "display_name": "🇦🇲 | Армения",
+      "nickname": "🇦🇲 | Армения",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1511435357160210643/5a8ed10171202de532ae43c6734db8bf.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Армения"
+      ],
+      "country": "Армения",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1571987068438052930",
+          "name": "Лицензия Армения"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -2328,16 +3185,16 @@
     {
       "id": "1532495116747538538",
       "username": "marsgooddayevery",
-      "display_name": "🇺🇦 | Украина",
-      "nickname": "🇺🇦 | Украина",
+      "display_name": "🇺🇸 | Academi",
+      "nickname": "🇺🇸 | Academi",
       "avatar_url": "https://cdn.discordapp.com/avatars/1532495116747538538/37a766344135141532998edab493f0f6.png?size=1024",
       "is_staff": true,
       "is_registered": true,
-      "entity_type": "Государство",
+      "entity_type": "ЧВК",
       "countries": [
-        "Украина"
+        "Academi"
       ],
-      "country": "Украина",
+      "country": "Academi",
       "balance": 0,
       "profit": 24186384575,
       "gdp": 221761020615,
@@ -2360,19 +3217,12 @@
       "reforms": "$94 533 829 472 / $110 880 510 307",
       "investments": "$15 042 545 059 / $110 880 510 307",
       "categories": [
-        "Государство",
-        "ООН",
-        "Альянс",
-        "Участник ООН"
+        "ЧВК"
       ],
       "roles": [
         {
-          "id": "1571559786456162304",
-          "name": "СНГ"
-        },
-        {
-          "id": "1571525597581279292",
-          "name": "Лицензия Украина"
+          "id": "1571525015923466431",
+          "name": "Лицензия США"
         },
         {
           "id": "1359429737574830251",
@@ -2395,20 +3245,12 @@
           "name": "Обновления"
         },
         {
-          "id": "1209166926408843304",
-          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1233388519171428385",
+          "name": "Государственная"
         },
         {
-          "id": "1209607235978797168",
-          "name": "Участник ООН"
-        },
-        {
-          "id": "1209166875632599081",
-          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
-        },
-        {
-          "id": "1209166398748631050",
-          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         },
         {
           "id": "1209154572417769543",
@@ -2425,6 +3267,64 @@
         {
           "id": "1209196179485630524",
           "name": "• Куратор"
+        }
+      ]
+    },
+    {
+      "id": "901051402799964201",
+      "username": "loshara_hatred",
+      "display_name": "🇷🇺 | Русич",
+      "nickname": "🇷🇺 | Русич",
+      "avatar_url": "https://cdn.discordapp.com/avatars/901051402799964201/0f89c22e5d92bf2c69b24acda9136c9f.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "ЧВК",
+      "countries": [
+        "Россия"
+      ],
+      "country": "Россия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "ЧВК"
+      ],
+      "roles": [
+        {
+          "id": "1571524799379939408",
+          "name": "Лицензия Россия"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1233388519171428385",
+          "name": "Государственная"
+        },
+        {
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -2470,6 +3370,10 @@
       ],
       "roles": [
         {
+          "id": "1571934399044518079",
+          "name": "ЕС"
+        },
+        {
           "id": "1571600763883491440",
           "name": "Лицензия Испания"
         },
@@ -2504,6 +3408,60 @@
         {
           "id": "1209196499611951104",
           "name": "• Модератор"
+        }
+      ]
+    },
+    {
+      "id": "675659630348730384",
+      "username": "vanoreg",
+      "display_name": "🇺🇦 | ЦСО «Альфа»",
+      "nickname": "🇺🇦 | ЦСО «Альфа»",
+      "avatar_url": "https://cdn.discordapp.com/avatars/675659630348730384/cd107a56c138894b9cdd806fa61e8fc2.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "ЧВК",
+      "countries": [
+        "Украина"
+      ],
+      "country": "Украина",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "ЧВК"
+      ],
+      "roles": [
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1233388184407375912",
+          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         }
       ]
     },
@@ -2645,18 +3603,125 @@
       ]
     },
     {
+      "id": "1227256760914415657",
+      "username": "bludebaff",
+      "display_name": "🇮🇳 | Индия",
+      "nickname": "🇮🇳 | Индия",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1227256760914415657/a_2e3b07630471a727da9bd15ec850e145.gif?size=1024",
+      "is_staff": true,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Индия"
+      ],
+      "country": "Индия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН",
+        "Server Booster",
+        "Пенсия"
+      ],
+      "roles": [
+        {
+          "id": "1572017587527749803",
+          "name": "Лицензия Индия"
+        },
+        {
+          "id": "1571565458505867464",
+          "name": "БРИКС"
+        },
+        {
+          "id": "1571560116753399859",
+          "name": "ШОС"
+        },
+        {
+          "id": "1571525015923466431",
+          "name": "Лицензия США"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1258520284160331788",
+          "name": "Ядерная держава"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1434263388581527602",
+          "name": "Пенсия"
+        },
+        {
+          "id": "1282721540554887179",
+          "name": "Server Booster"
+        },
+        {
+          "id": "1209154572417769543",
+          "name": "Персонал"
+        },
+        {
+          "id": "1209196451339698206",
+          "name": "• Политолог"
+        },
+        {
+          "id": "1209196499611951104",
+          "name": "• Модератор"
+        }
+      ]
+    },
+    {
       "id": "1060644884781994126",
       "username": "chaim1ch",
-      "display_name": "🇭🇰 | САР Гонконг",
-      "nickname": "🇭🇰 | САР Гонконг",
+      "display_name": "🇦🇺 | Австралия",
+      "nickname": "🇦🇺 | Австралия",
       "avatar_url": "https://cdn.discordapp.com/avatars/1060644884781994126/f7d46af850285d12cd1d58f8e6884f19.png?size=1024",
       "is_staff": true,
       "is_registered": true,
-      "entity_type": "Автономия",
+      "entity_type": "Государство",
       "countries": [
-        "КНР"
+        "Австралия"
       ],
-      "country": "КНР",
+      "country": "Австралия",
       "balance": 4467587204,
       "profit": 4402790391,
       "gdp": 345597386672,
@@ -2676,13 +3741,15 @@
       "reforms": "$172 798 693 336 / $172 798 693 336",
       "investments": "$172 798 693 336 / $172 798 693 336",
       "categories": [
-        "Автономия",
-        "Альянс"
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
       ],
       "roles": [
         {
-          "id": "1571525705076969593",
-          "name": "Лицензия КНР"
+          "id": "1572328632385409024",
+          "name": "Лицензия Австралия"
         },
         {
           "id": "1359429737574830251",
@@ -2709,8 +3776,16 @@
           "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         },
         {
-          "id": "1438562020516692009",
-          "name": "•⠀⠀⠀⠀⠀Автономия⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         },
         {
           "id": "1209154572417769543",
@@ -2814,11 +3889,88 @@
       ]
     },
     {
+      "id": "829727977696395266",
+      "username": "bomblyiraq",
+      "display_name": "🇮🇹 | Италия",
+      "nickname": "🇮🇹 | Италия",
+      "avatar_url": "https://cdn.discordapp.com/avatars/829727977696395266/5c49b67a63081074605caf75b6e79cd3.png?size=1024",
+      "is_staff": false,
+      "is_registered": true,
+      "entity_type": "Государство",
+      "countries": [
+        "Италия"
+      ],
+      "country": "Италия",
+      "balance": 0,
+      "profit": null,
+      "gdp": null,
+      "gdp_ppp": null,
+      "population": null,
+      "birth_rate": null,
+      "support": null,
+      "resource_index": null,
+      "corruption": null,
+      "level": null,
+      "ideology": null,
+      "taxes": null,
+      "specialization": null,
+      "reforms": null,
+      "investments": null,
+      "categories": [
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
+      ],
+      "roles": [
+        {
+          "id": "1572568172777832468",
+          "name": "Лицензия Италия"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1246817935297613905",
+          "name": "• Зарегистрированный"
+        },
+        {
+          "id": "1465442608707932180",
+          "name": "Ивенты"
+        },
+        {
+          "id": "1359429686500921447",
+          "name": "Новости"
+        },
+        {
+          "id": "1359429648890728488",
+          "name": "Обновления"
+        },
+        {
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        }
+      ]
+    },
+    {
       "id": "1455162651138330675",
-      "username": "victor_1917",
+      "username": "vita23222",
       "display_name": "🇧🇾 | Беларусь",
       "nickname": "🇧🇾 | Беларусь",
-      "avatar_url": "https://cdn.discordapp.com/avatars/1455162651138330675/a38e77ffc449d0779dc07f3c58030665.png?size=1024",
+      "avatar_url": "https://cdn.discordapp.com/avatars/1455162651138330675/316668925e6719a2060e3ccda2d78081.png?size=1024",
       "is_staff": false,
       "is_registered": true,
       "entity_type": "Государство",
@@ -2931,6 +4083,10 @@
       ],
       "roles": [
         {
+          "id": "1571934399044518079",
+          "name": "ЕС"
+        },
+        {
           "id": "1571525644309893290",
           "name": "Лицензия Великобритания"
         },
@@ -3026,6 +4182,10 @@
           "name": "Лицензия Иран"
         },
         {
+          "id": "1571524799379939408",
+          "name": "Лицензия Россия"
+        },
+        {
           "id": "1359429737574830251",
           "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
         },
@@ -3054,16 +4214,16 @@
     {
       "id": "1038163713397620758",
       "username": "svvayl",
-      "display_name": "🇺🇦 | ССО «Альфа»",
-      "nickname": "🇺🇦 | ССО «Альфа»",
+      "display_name": "🇸🇾 | Сирия",
+      "nickname": "🇸🇾 | Сирия",
       "avatar_url": "https://cdn.discordapp.com/avatars/1038163713397620758/b2e3f2ab7b40542573b67acbf014f3cb.png?size=1024",
       "is_staff": true,
       "is_registered": true,
-      "entity_type": "ЧВК",
+      "entity_type": "Государство",
       "countries": [
-        "Украина"
+        "Сирия"
       ],
-      "country": "Украина",
+      "country": "Сирия",
       "balance": 0,
       "profit": null,
       "gdp": null,
@@ -3080,16 +4240,51 @@
       "reforms": null,
       "investments": null,
       "categories": [
-        "ЧВК"
+        "Государство",
+        "ООН",
+        "Альянс",
+        "Участник ООН"
       ],
       "roles": [
+        {
+          "id": "1572322163967394023",
+          "name": "Лицензия Сирия"
+        },
+        {
+          "id": "1571560116753399859",
+          "name": "ШОС"
+        },
+        {
+          "id": "1571558590702166229",
+          "name": "ОДКБ"
+        },
+        {
+          "id": "1571524799379939408",
+          "name": "Лицензия Россия"
+        },
+        {
+          "id": "1359429737574830251",
+          "name": "• ⠀⠀⠀⠀⠀Лицензия ⠀⠀⠀⠀⠀"
+        },
         {
           "id": "1246817935297613905",
           "name": "• Зарегистрированный"
         },
         {
-          "id": "1233388184407375912",
-          "name": "• ⠀⠀⠀⠀⠀ЧВК⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+          "id": "1209166926408843304",
+          "name": "• ⠀⠀⠀⠀⠀Альянс⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209607235978797168",
+          "name": "Участник ООН"
+        },
+        {
+          "id": "1209166875632599081",
+          "name": "• ⠀⠀⠀⠀⠀ООН⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+        },
+        {
+          "id": "1209166398748631050",
+          "name": "•⠀⠀⠀⠀⠀Государство⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
         },
         {
           "id": "1209154572417769543",
@@ -3271,7 +4466,7 @@
       ],
       "roles": [
         {
-          "id": "1571525597581279292",
+          "id": "1572267662279446629",
           "name": "Лицензия Украина"
         },
         {
