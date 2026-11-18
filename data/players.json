@@ -1,7 +1,7 @@
 {
   "guild_id": "1209153077651963924",
   "guild_name": "Global Lens RP",
-  "updated_at": "2026-11-18T19:49:48.005156+00:00",
+  "updated_at": "2026-11-18T20:19:53.588228+00:00",
   "total_active_players": 28,
   "total_non_staff_players": 16,
   "total_staff_who_play": 12,
@@ -1873,6 +1873,10 @@
         {
           "id": "1209196499611951104",
           "name": "• Модератор"
+        },
+        {
+          "id": "1246844097222807564",
+          "name": "• Зам. куратор"
         }
       ]
     },
