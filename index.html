@@ -734,7 +734,7 @@ div.scene-tooltip {
       <a class="nav-item" href="#" data-go="cabinet"><svg class="ic"><use href="#i-user"/></svg><span id="cabinetLabel">Личный кабинет</span></a>
       <a class="nav-item" href="#" data-go="press"><svg class="ic"><use href="#i-news"/></svg>Пресса</a>
       <a class="nav-item" href="#" data-go="donate"><svg class="ic"><use href="#i-bag"/></svg>Донат магазин</a>
-      <a class="nav-item" href="#" data-go="archives"><svg class="ic"><use href="#i-archive"/></svg>Архивы</a>
+      <a class="nav-item" href="#" data-go="wiki"><svg class="ic"><use href="#i-book"/></svg>Вики</a>
     </nav>
 
     <div class="side-bottom">
@@ -1358,27 +1358,107 @@ div.scene-tooltip {
       </article>
     </section>
 
-    <!-- АРХИВЫ -->
-    <section class="page" id="page-archives">
-      <h1>Архивы <em>сезонов</em></h1>
-      <p class="lead">Новости стран, организаций и события прошлых сезонов</p>
-      <div class="arch-controls">
-        <input id="archSearch" class="arch-input" style="min-width:230px" placeholder="Поиск: ник, содержание, дата...">
-        <select id="archSeason" class="arch-select"></select>
-        <select id="archKind" class="arch-select">
-          <option value="all">Все файлы</option>
-          <option value="countries">📺 Новости стран</option>
-          <option value="orgs">👥 Новости организаций</option>
-          <option value="events">🗽 События</option>
-        </select>
-        <div class="order-toggle" data-for="archives" style="margin:0">
-          <button data-order="desc" class="active">↓ Новые сверху</button>
-          <button data-order="asc">↑ Старые сверху</button>
-        </div>
+    <!-- ВИКИ И АРХИВЫ -->
+    <section class="page" id="page-wiki">
+      <h1>Вики <em>и Архивы</em></h1>
+      <p class="lead">Летопись, база знаний мира Global Lens RP и архивные хроники сезонов</p>
+
+      <div class="wiki-main-tabs" role="tablist">
+        <button class="wiki-tab-btn active" id="wikiTabLoreBtn" type="button" role="tab" aria-selected="true" data-wiki-tab="lore">
+          <svg class="ic"><use href="#i-book"/></svg>
+          <span>База знаний и Лор</span>
+        </button>
+        <button class="wiki-tab-btn" id="wikiTabArchBtn" type="button" role="tab" aria-selected="false" data-wiki-tab="archives">
+          <svg class="ic"><use href="#i-archive"/></svg>
+          <span>Архивы сезонов</span>
+        </button>
       </div>
-      <div class="folder-grid" id="archFolders"></div>
-      <div class="updates-stats" id="archStats"></div>
-      <div class="updates-list" id="archBody"><p class="loading">Откройте папку сезона или задайте поиск.</p></div>
+
+      <!-- Вкладка: База знаний и Лор -->
+      <div class="wiki-subview" id="wikiViewLore">
+        <div class="wiki-stat-strip">
+          <div class="wiki-stat-cell">
+            <span class="wiki-stat-value" id="statArticles">21</span>
+            <span class="wiki-stat-label">статей в энциклопедии</span>
+          </div>
+          <div class="wiki-stat-cell">
+            <span class="wiki-stat-value">30+</span>
+            <span class="wiki-stat-label">игроков в сводке</span>
+          </div>
+          <div class="wiki-stat-cell">
+            <span class="wiki-stat-value">S31</span>
+            <span class="wiki-stat-label">текущий сезон</span>
+          </div>
+          <div class="wiki-stat-cell">
+            <span class="wiki-stat-value" id="statQuotes">21</span>
+            <span class="wiki-stat-label">редакционных цитат</span>
+          </div>
+        </div>
+
+        <div class="wiki-search-row">
+          <div class="wiki-search-box">
+            <svg class="ic"><use href="#i-search"/></svg>
+            <input id="wikiSearch" type="search" placeholder="Поиск по статьям, событиям, личностям и тегам..." autocomplete="off">
+          </div>
+          <button class="wiki-btn-quiet" id="wikiRandomBtn" type="button">
+            <svg class="ic"><use href="#i-sparkles"/></svg>
+            <span>Случайная статья</span>
+          </button>
+        </div>
+
+        <div class="wiki-filters" id="wikiFilters" role="group" aria-label="Фильтр статей по категориям"></div>
+
+        <div class="wiki-featured-wrap">
+          <div class="wiki-sec-header">
+            <div class="wiki-sec-title"><svg class="ic"><use href="#i-star"/></svg> РЕДАКЦИОННЫЙ ВЫБОР · ИЗБРАННАЯ СТАТЬЯ</div>
+            <span class="wiki-sec-badge">01 / ТОП НЕДЕЛИ</span>
+          </div>
+          <article class="wiki-featured-card" id="featuredCard"></article>
+        </div>
+
+        <div class="wiki-sec-header">
+          <div class="wiki-sec-title"><svg class="ic"><use href="#i-book"/></svg> КАТАЛОГ СТАТЕЙ · АРХИВ МИРА</div>
+          <span class="wiki-result-count" id="wikiResultCount"></span>
+        </div>
+        <div class="wiki-grid" id="wikiArticleGrid"></div>
+        <p class="wiki-empty-state" id="wikiEmptyState" style="display:none">По данному запросу статей не найдено. Попробуйте изменить ключевые слова.</p>
+
+        <div class="wiki-sec-header" style="margin-top:48px">
+          <div class="wiki-sec-title"><svg class="ic"><use href="#i-history"/></svg> ЗАПИСИ ПО ГОДАМ · ХРОНИКА СЕЗОНОВ</div>
+          <span class="wiki-sec-badge">АРХИВНЫЕ ВЕХИ</span>
+        </div>
+        <div class="wiki-timeline" id="wikiTimeline"></div>
+
+        <div class="wiki-sec-header" style="margin-top:48px">
+          <div class="wiki-sec-title"><svg class="ic"><use href="#i-bulb"/></svg> ФАКТЫ И ЗАМЕТКИ · ЗНАЕТЕ ЛИ ВЫ, ЧТО...</div>
+          <span class="wiki-sec-badge">ИЗ ЛЕТОПИСИ</span>
+        </div>
+        <div class="wiki-facts-grid" id="wikiFactsGrid"></div>
+      </div>
+
+      <!-- Вкладка: Архивы прошлых сезонов -->
+      <div class="wiki-subview" id="wikiViewArchives" style="display:none">
+        <div class="arch-controls">
+          <input id="archSearch" class="arch-input" style="min-width:230px" placeholder="Поиск: ник, содержание, дата...">
+          <select id="archSeason" class="arch-select"></select>
+          <select id="archKind" class="arch-select">
+            <option value="all">Все файлы</option>
+            <option value="countries">📺 Новости стран</option>
+            <option value="orgs">👥 Новости организаций</option>
+            <option value="events">🗽 События</option>
+          </select>
+          <div class="order-toggle" data-for="archives" style="margin:0">
+            <button data-order="desc" class="active">↓ Новые сверху</button>
+            <button data-order="asc">↑ Старые сверху</button>
+          </div>
+        </div>
+        <div class="folder-grid" id="archFolders"></div>
+        <div class="updates-stats" id="archStats"></div>
+        <div class="updates-list" id="archBody"><p class="loading">Откройте папку сезона или задайте поиск.</p></div>
+      </div>
+
+      <!-- Невидимый элемент-заглушка для обратной совместимости -->
+      <div id="page-archives" style="display:none"></div>
     </section>
 
   </main>
@@ -1429,8 +1509,27 @@ div.scene-tooltip {
   </div>
 </div>
 
+<!-- МОДАЛЬНОЕ ОКНО ЧТЕНИЯ СТАТЬИ ВИКИ -->
+<div class="staff-modal-overlay" id="wikiReaderModal" role="dialog" aria-modal="true" aria-labelledby="wikiReaderTitle" style="display:none">
+  <div class="staff-modal-card wiki-reader-card">
+    <div class="staff-modal-header">
+      <div class="cm-header-left">
+        <div class="wiki-modal-orb" id="wikiReaderIcon">📖</div>
+        <div class="cm-title-box">
+          <h2 id="wikiReaderTitle">Загрузка статьи...</h2>
+          <div class="cm-sub" id="wikiReaderSub">Летопись Global Lens RP</div>
+        </div>
+      </div>
+      <button class="cm-close" id="wikiReaderClose" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="staff-modal-body wiki-reader-body" id="wikiReaderBody">
+    </div>
+  </div>
+</div>
+
 <!-- SVG СПРАЙТ -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></symbol>
     <symbol id="i-skull" viewBox="0 0 24 24"><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><path d="M8 20v2h8v-2M12 2a9 9 0 0 0-9 9c0 3.8 2.3 7 5.7 8.3v1.7a1 1 0 0 0 1 1h4.6a1 1 0 0 0 1-1v-1.7c3.4-1.3 5.7-4.5 5.7-8.3a9 9 0 0 0-9-9zM10 16h4"/></symbol>
   <symbol id="i-alert-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></symbol>

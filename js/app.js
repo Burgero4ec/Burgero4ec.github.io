@@ -14,6 +14,7 @@ import { initArchives, renderArchives, loadArchiveFile } from './archives.js';
 import { initDonatePhysics, initLanyard } from './donate.js';
 import { initGlobeNavigation } from './globe.js';
 import { initShameBoard, switchShamePersona } from './shame.js';
+import { initWiki, switchWikiTab, openWikiArticle, closeWikiReader } from './wiki.js';
 
 // Экспорт глобальных функций в window для обратной совместимости с HTML onclick
 window.go = go;
@@ -36,6 +37,9 @@ window.loadSeason = loadSeason;
 window.animateStats = animateStats;
 window.initShameBoard = initShameBoard;
 window.switchShamePersona = switchShamePersona;
+window.switchWikiTab = switchWikiTab;
+window.openWikiArticle = openWikiArticle;
+window.closeWikiReader = closeWikiReader;
 
 // Инициализация при готовности DOM
 async function initApp() {
@@ -92,6 +96,9 @@ async function initApp() {
 
   // 13. Доска позора Понза
   initShameBoard();
+
+  // 14. Вики и база знаний
+  initWiki();
 
   // 12. Первичный роутинг по хэшу URL (#season, #staff, #donate и т.д.)
   const hash = window.location.hash.replace(/^#/, '').trim();

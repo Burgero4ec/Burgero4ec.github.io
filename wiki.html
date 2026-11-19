@@ -2,89 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0811">
-  <meta name="description" content="Проверяемая энциклопедия мира Global Lens RP: сезоны, карта, государства и хроника проекта.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="ГлобалЛенсВики — энциклопедия Global Lens RP">
-  <meta property="og:description" content="История игрового мира, его карта и подтверждённые источниками события.">
-  <title>ГлобалЛенсВики — энциклопедия Global Lens RP</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/wiki.css">
-  <script type="module" src="js/wiki.js"></script>
+  <meta http-equiv="refresh" content="0; url=index.html#wiki">
+  <title>Перенаправление в Вики Global Lens RP...</title>
+  <script>
+    window.location.replace('index.html#wiki');
+  </script>
 </head>
-<body>
-  <div class="wiki-shell">
-    <header class="wiki-header">
-      <a class="wiki-brand" href="wiki.html" aria-label="ГлобалЛенсВики — главная">
-        <span class="brand-mark" aria-hidden="true">GL</span>
-        <span>ГлобалЛенс<span class="brand-accent">Вики</span><small>АРХИВ ИГРОВОГО МИРА</small></span>
-      </a>
-      <nav class="header-actions" aria-label="Основная навигация">
-        <a class="header-link" href="index.html">← На главный сайт</a>
-        <button class="button button-quiet" id="randomTop" type="button"><span aria-hidden="true">✳</span> Случайная статья</button>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero" aria-labelledby="heroTitle">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="pulse-dot"></span> НЕОФИЦИАЛЬНАЯ ЛЕТОПИСЬ · СЕЗОН 31</p>
-          <h1 id="heroTitle">Энциклопедия мира <span>Global Lens RP</span></h1>
-          <p class="hero-lead">История сервера, его войны, суды политологов и черты в ведомостях — аккуратно разложенные по источникам, а не по громкости спора.</p>
-          <div class="hero-ctas">
-            <a class="button button-primary" href="#articles">Исследовать архив <span aria-hidden="true">↘</span></a>
-            <button class="button button-glass" id="randomHero" type="button">Открыть случайную статью</button>
-          </div>
-        </div>
-        <div class="hero-orbit" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core"><span class="orbit-core-label">GL</span></div><i class="orbit-star star-one"></i><i class="orbit-star star-two"></i><i class="orbit-star star-three"></i></div>
-      </section>
-
-      <section class="stat-strip" aria-label="Сводка энциклопедии">
-        <div class="stat-cell"><span class="stat-value" id="statArticles">—</span><span class="stat-label">статей в архиве</span></div>
-        <div class="stat-cell"><span class="stat-value">30</span><span class="stat-label">игроков в сводке</span></div>
-        <div class="stat-cell"><span class="stat-value">31</span><span class="stat-label">текущий сезон</span></div>
-        <div class="stat-cell"><span class="stat-value" id="statQuotes">—</span><span class="stat-label">редакционных цитат</span></div>
-      </section>
-
-      <section class="search-section" aria-label="Поиск по энциклопедии">
-        <div class="search-box"><span class="search-icon" aria-hidden="true">⌕</span><label class="sr-only" for="wikiSearch">Поиск по статьям и тегам</label><input id="wikiSearch" type="search" placeholder="Найти событие, страну или личность…" autocomplete="off"><kbd>/</kbd></div>
-        <p class="search-hint">Поиск по заголовкам, описаниям и категориям</p>
-      </section>
-
-      <section class="featured-section" aria-labelledby="featuredHeading">
-        <div class="section-heading"><div><p class="eyebrow">РЕДАКЦИОННЫЙ ВЫБОР</p><h2 id="featuredHeading">Избранная статья</h2></div><span class="section-index">01 / НА ЭТОЙ НЕДЕЛЕ</span></div>
-        <article class="featured-card" id="featuredCard"></article>
-      </section>
-
-      <section class="articles-section" id="articles" aria-labelledby="articlesHeading">
-        <div class="section-heading"><div><p class="eyebrow">КАТАЛОГ МАТЕРИАЛОВ</p><h2 id="articlesHeading">Архив мира</h2></div><span class="result-count" id="resultCount" aria-live="polite"></span></div>
-        <div class="filters" id="filters" role="group" aria-label="Фильтр статей"></div>
-        <div class="article-grid" id="articleGrid"></div>
-        <p class="empty-state" id="emptyState" hidden>По этому запросу пока ничего не найдено. Попробуйте другой термин.</p>
-      </section>
-
-      <section class="timeline-section" aria-labelledby="timelineHeading">
-        <div class="section-heading"><div><p class="eyebrow">ЗАПИСИ ПО ГОДАМ И СЕЗОНАМ</p><h2 id="timelineHeading">Хроника сезонов</h2></div><span class="section-index">АРХИВНЫЕ ВЕХИ</span></div>
-        <div class="timeline" id="timeline"></div>
-        <p class="source-note">Показаны сезоны, для которых доступны отдельные файлы данных. Хронология военных и политических событий будет расширяться по мере проверки источников.</p>
-      </section>
-
-      <section class="facts-section" aria-labelledby="factsHeading">
-        <div class="section-heading"><div><p class="eyebrow">МАЛЕНЬКИЕ ЗАМЕТКИ ИЗ БОЛЬШОГО МИРА</p><h2 id="factsHeading">Знаете ли вы, что…</h2></div><span class="section-index">ИЗ АРХИВА</span></div>
-        <div class="facts-grid" id="factsGrid"></div>
-      </section>
-
-      <aside class="editorial-note"><span class="note-icon" aria-hidden="true">i</span><p><strong>О точности летописи.</strong> Числа и сюжеты сверяются с опубликованными игровыми данными и датированными записями. Если источники пока не подтверждают красивую легенду, она остаётся легендой — не статьёй.</p></aside>
-    </main>
-
-    <footer class="wiki-footer"><a class="wiki-brand footer-brand" href="wiki.html"><span class="brand-mark" aria-hidden="true">GL</span><span>ГлобалЛенс<span class="brand-accent">Вики</span></span></a><p>Игровая история — сноска к настоящей дружбе.</p><a href="index.html">Вернуться на Global Lens ↗</a></footer>
+<body style="background:#07100a;color:#4ade80;font-family:'Nunito',sans-serif;display:grid;place-items:center;height:100vh;margin:0;">
+  <div style="text-align:center;">
+    <p style="font-size:18px;font-weight:700;">Переход в раздел Вики портала Global Lens RP...</p>
+    <a href="index.html#wiki" style="color:#4ade80;text-decoration:underline;">Нажмите сюда, если переход не произошёл автоматически</a>
   </div>
-
-  <dialog class="reader-dialog" id="readerDialog" aria-labelledby="readerTitle">
-    <div class="reader-frame"><div class="reader-topline"><span class="reader-mark">GL / АРХИВ</span><button class="reader-close" id="readerClose" type="button" aria-label="Закрыть статью">Закрыть <span aria-hidden="true">×</span></button></div><article id="readerContent"></article></div>
-  </dialog>
 </body>
 </html>

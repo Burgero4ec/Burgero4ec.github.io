@@ -12,7 +12,10 @@ const PAGE_ALIASES = {
   boost: 'donate',
   prices: 'donate',
   shop: 'donate',
-  store: 'donate'
+  store: 'donate',
+  archives: 'wiki',
+  archive: 'wiki',
+  lore: 'wiki'
 };
 
 export function closeDrawer() {
@@ -88,6 +91,16 @@ export function go(rawId) {
         window.updateShameGlider(undefined, false);
       }
     });
+  } else if (resolvedId === 'wiki') {
+    if (id === 'archives' || id === 'archive') {
+      if (typeof window.switchWikiTab === 'function') {
+        window.switchWikiTab('archives');
+      }
+    } else if (id === 'lore' || id === 'wiki') {
+      if (typeof window.switchWikiTab === 'function') {
+        window.switchWikiTab('lore');
+      }
+    }
   }
 
   // Запуск каскадной анимации появления элементов в стиле Odyssey
