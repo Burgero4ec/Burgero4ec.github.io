@@ -3,7 +3,6 @@
  */
 
 import { LORE, TIMELINE } from './wiki-data.js';
-import { renderArchives } from './archives.js';
 
 const CATEGORIES = [
   { id: 'all',    label: 'Все статьи',          icon: '✳' },
@@ -21,7 +20,6 @@ const state = {
   query: ''
 };
 
-let archivesLoadedOnce = false;
 
 function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, char => ({
@@ -117,19 +115,7 @@ export function switchWikiTab(tabName, animate = true) {
 
   if (activeView) {
     activeView.style.display = 'block';
-    if (animate) {
-      activeView.classList.remove('wiki-view-enter');
-      void activeView.offsetWidth; // перезапуск CSS анимации
-      activeView.classList.add('wiki-view-enter');
-    }
-  }
-
-  // Загружаем архивы только при первом переходе (последующие переключения происходят мгновенно из памяти)
-  if (targetTab === 'archives' && !archivesLoadedOnce) {
-    archivesLoadedOnce = true;
-    if (typeof renderArchives === 'function') {
-      renderArchives();
-    }
+    activeView.classList.remove('wiki-view-enter');
   }
 }
 
@@ -421,19 +407,6 @@ export function initWiki() {
     updateWikiGlider(state.activeTab, false);
   });
 
-  // Фоновая предзагрузка архивов при простое, чтобы переход на вкладку архивов был мгновенным
-  const preheatArchives = () => {
-    if (!archivesLoadedOnce && typeof renderArchives === 'function') {
-      archivesLoadedOnce = true;
-      renderArchives();
-    }
-  };
-
-  if (typeof requestIdleCallback === 'function') {
-    requestIdleCallback(preheatArchives, { timeout: 1500 });
-  } else {
-    setTimeout(preheatArchives, 600);
-  }
 }
 
 // Экспорт в window для глобального доступа
