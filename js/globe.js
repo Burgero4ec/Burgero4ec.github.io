@@ -22,53 +22,71 @@ let pollTimer = null;
 let hoveredCountryName = null;
 let activeFactionFilter = null; // Текущий выбранный альянс для фильтрации/подсветки
 
-// Фракционные цвета по умолчанию для альянсов 28-го сезона
+// Фракционные цвета по умолчанию для альянсов 31-го сезона Global Lens
 export const FACTION_COLORS = {
+  'ОДТО': '#06b6d4',
+  'ТЭС': '#10b981',
+  'НАТО': '#3b82f6',
+  'ЕС': '#eab308',
+  'ШОС': '#ef4444',
+  'БРИКС': '#f59e0b',
+  'Ось сопротивления': '#f97316',
+  'Ось Сопротивления': '#f97316',
+  'Ось сопротивление': '#f97316',
+  'ОДКБ': '#e11d48',
+  'СНГ': '#8b5cf6',
   'ОГБ': '#38bdf8',
   'ОЭСР': '#fbbf24',
   'ЛЭП': '#c084fc',
-  'ШОС': '#f87171',
-  'Ось сопротивления': '#fb923c',
-  'Ось сопротивление': '#fb923c',
-  'Нейтралитет': '#4ade80',
-  'default': '#4ade80'
+  'Нейтралитет': '#94a3b8',
+  'default': '#94a3b8'
 };
 
-// Привязка стран к альянсам 28-го сезона Global Lens
+// Привязка стран к альянсам 31-го сезона Global Lens
 export const COUNTRY_DEFAULT_FACTIONS = {
-  // ОГБ (Организация Глобальной Безопасности)
-  'сша': { faction: 'ОГБ', factions: ['ОГБ', 'ОЭСР'], color: '#38bdf8' },
-  'великобритания': { faction: 'ЛЭП', factions: ['ЛЭП', 'ОГБ'], color: '#c084fc' },
-  'австралия': { faction: 'ОГБ', factions: ['ОГБ'], color: '#38bdf8' },
+  // ОДТО & ТЭС
+  'индия': { faction: 'ОДТО', factions: ['ОДТО', 'ТЭС', 'ШОС'], color: '#06b6d4' },
+  'южная корея': { faction: 'ОДТО', factions: ['ОДТО'], color: '#06b6d4' },
+  'австралия': { faction: 'ОДТО', factions: ['ОДТО', 'ТЭС'], color: '#06b6d4' },
+  'тайвань': { faction: 'ОДТО', factions: ['ОДТО', 'ТЭС'], color: '#06b6d4' },
 
-  // ОЭСР (Организация Экономического Сотрудничества и Развития)
-  'япония': { faction: 'ОЭСР', factions: ['ОЭСР'], color: '#fbbf24' },
-  'израиль': { faction: 'ОЭСР', factions: ['ОЭСР'], color: '#fbbf24' },
-  'азербайджан': { faction: 'ОЭСР', factions: ['ОЭСР'], color: '#fbbf24' },
+  // НАТО
+  'сша': { faction: 'НАТО', factions: ['НАТО'], color: '#3b82f6' },
 
-  // ШОС (Шанхайская организация сотрудничества)
-  'россия': { faction: 'ШОС', factions: ['ШОС'], color: '#f87171' },
-  'китай': { faction: 'ШОС', factions: ['ШОС'], color: '#f87171' },
-  'кнр': { faction: 'ШОС', factions: ['ШОС'], color: '#f87171' },
+  // ЕС
+  'германия': { faction: 'ЕС', factions: ['ЕС'], color: '#eab308' },
+  'великобритания': { faction: 'ЕС', factions: ['ЕС'], color: '#eab308' },
+  'турция': { faction: 'ЕС', factions: ['ЕС'], color: '#eab308' },
+  'ирландия': { faction: 'ЕС', factions: ['ЕС'], color: '#eab308' },
+  'испания': { faction: 'ЕС', factions: ['ЕС'], color: '#eab308' },
+  'франция': { faction: 'ЕС', factions: ['ЕС'], color: '#eab308' },
+  'польша': { faction: 'ЕС', factions: ['ЕС'], color: '#eab308' },
+  'румыния': { faction: 'ЕС', factions: ['ЕС'], color: '#eab308' },
 
-  // Ось сопротивления
-  'пакистан': { faction: 'Ось сопротивления', factions: ['Ось сопротивления'], color: '#fb923c' },
+  // ШОС & БРИКС
+  'китай': { faction: 'ШОС', factions: ['ШОС', 'БРИКС'], color: '#ef4444' },
+  'кнр': { faction: 'ШОС', factions: ['ШОС', 'БРИКС'], color: '#ef4444' },
+  'россия': { faction: 'ШОС', factions: ['ШОС', 'БРИКС', 'ОДКБ', 'СНГ'], color: '#ef4444' },
+  'азербайджан': { faction: 'ШОС', factions: ['ШОС', 'СНГ'], color: '#ef4444' },
+  'сирия': { faction: 'ШОС', factions: ['ШОС', 'ОДКБ'], color: '#ef4444' },
+
+  // Ось Сопротивления
+  'иран': { faction: 'Ось Сопротивления', factions: ['Ось Сопротивления', 'ШОС'], color: '#f97316' },
 
   // Нейтралитет / Вне блоков
-  'бразилия': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'норвегия': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'франция': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'польша': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'румыния': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'коста-рика': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'перу': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'новая зеландия': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'нигерия': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'сент-китс и невис': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'иран': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'приднестровье': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'гренландия': { faction: 'Нейтралитет', factions: [], color: '#4ade80' },
-  'чечня': { faction: 'ШОС', factions: ['ШОС'], color: '#f87171' }
+  'бразилия': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'норвегия': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'япония': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'израиль': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'пакистан': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'коста-рика': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'перу': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'новая зеландия': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'нигерия': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'сент-китс и невис': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'приднестровье': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'гренландия': { faction: 'Нейтралитет', factions: [], color: '#94a3b8' },
+  'чечня': { faction: 'ШОС', factions: ['ШОС'], color: '#ef4444' }
 };
 
 /**
@@ -78,25 +96,38 @@ export function extractFactionsFromPlayer(p, countryName = '') {
   const roles = (p?.roles || []).map(r => (typeof r === 'string' ? r : (r && r.name) || '')).filter(Boolean);
   const found = [];
   let isLeader = false;
-  let leaderOf = null;
+  const leaderOfAlliances = [];
+
+  const KNOWN_ALLIANCES = [
+    'ОДТО', 'ТЭС', 'НАТО', 'ЕС', 'ШОС', 'БРИКС', 'Ось Сопротивления',
+    'ОДКБ', 'СНГ', 'ОГБ', 'ОЭСР', 'ЛЭП'
+  ];
 
   for (const r of roles) {
     if (r.startsWith('Лидер: ')) {
       isLeader = true;
-      const a = r.replace('Лидер: ', '').trim();
-      const canon = (a === 'Ось сопротивление' ? 'Ось сопротивления' : a);
-      leaderOf = canon;
-      if (!found.includes(canon)) found.unshift(canon);
-    } else if (r === 'ОГБ' || r === 'ОЭСР' || r === 'ЛЭП' || r === 'ШОС') {
-      if (!found.includes(r)) found.push(r);
-    } else if (r === 'Ось сопротивление' || r === 'Ось сопротивления') {
-      const canon = 'Ось сопротивления';
-      if (!found.includes(canon)) found.push(canon);
+      let a = r.replace('Лидер: ', '').trim();
+      if (a.toLowerCase() === 'ось сопротивление') a = 'Ось Сопротивления';
+      if (!leaderOfAlliances.includes(a)) leaderOfAlliances.push(a);
+      if (!found.includes(a)) found.unshift(a);
+    } else {
+      for (const al of KNOWN_ALLIANCES) {
+        if (r.toLowerCase() === al.toLowerCase() || (al === 'Ось Сопротивления' && r.toLowerCase() === 'ось сопротивление')) {
+          if (!found.includes(al)) found.push(al);
+        }
+      }
     }
   }
 
+  const qNorm = normName(countryName);
+  if (qNorm === 'индия') {
+    if (!found.includes('ТЭС')) found.push('ТЭС');
+    if (!leaderOfAlliances.includes('ТЭС')) leaderOfAlliances.push('ТЭС');
+    if (!found.includes('ОДТО')) found.unshift('ОДТО');
+    if (!leaderOfAlliances.includes('ОДТО')) leaderOfAlliances.push('ОДТО');
+  }
+
   if (found.length === 0 && countryName) {
-    const qNorm = normName(countryName);
     const def = COUNTRY_DEFAULT_FACTIONS[qNorm];
     if (def) {
       if (def.factions && def.factions.length) {
@@ -108,14 +139,15 @@ export function extractFactionsFromPlayer(p, countryName = '') {
   }
 
   const primary = found.length > 0 ? found[0] : 'Нейтралитет';
-  const color = FACTION_COLORS[primary] || '#4ade80';
+  const color = FACTION_COLORS[primary] || '#94a3b8';
 
   return {
     faction: primary,
     factions: found.length > 0 ? found : ['Нейтралитет'],
     faction_color: color,
-    isAllianceLeader: isLeader,
-    leaderOf: leaderOf
+    isAllianceLeader: isLeader || leaderOfAlliances.length > 0,
+    leaderOf: leaderOfAlliances.length > 0 ? leaderOfAlliances[0] : null,
+    leaderOfAlliances: leaderOfAlliances
   };
 }
 
@@ -1195,6 +1227,29 @@ export function toggleFactionFilter(faction) {
         b.classList.remove('active');
       }
     });
+
+    // Плавный перелёт камеры к лидеру или первой стране выбранного альянса
+    if (activeFactionFilter && activeFactionFilter !== 'all' && activeFactionFilter !== 'Нейтралитет' && globeInstance) {
+      const normF = normName(activeFactionFilter);
+      let target = null;
+      for (const c of activeCountriesMap.values()) {
+        if (c && (c.leaderOfAlliances?.map(normName).includes(normF) || normName(c.leaderOf || '') === normF)) {
+          target = c;
+          break;
+        }
+      }
+      if (!target) {
+        for (const c of activeCountriesMap.values()) {
+          if (c && (normName(c.faction || '') === normF || c.factions?.map(normName).includes(normF))) {
+            target = c;
+            break;
+          }
+        }
+      }
+      if (target && target.lat != null && target.lng != null) {
+        globeInstance.pointOfView({ lat: target.lat, lng: target.lng, altitude: 2.0 }, 1000);
+      }
+    }
   }
 
   // Обновляем полигоны на глобусе
@@ -1270,11 +1325,45 @@ function showCountryCard(country) {
 
   if (flagEl) flagEl.textContent = country.flag || '🏳️';
   if (nameEl) nameEl.textContent = country.name;
-  if (factionEl) {
+
+  const factionsWrap = document.getElementById('cardFactionsWrap');
+  const alDossierBtn = document.getElementById('cardAllianceDossierBtn');
+  const allAlliances = (country.factions && country.factions.length > 0)
+    ? country.factions.filter(f => f !== 'Нейтралитет')
+    : (country.faction && country.faction !== 'Нейтралитет' ? [country.faction] : []);
+
+  if (factionsWrap) {
+    if (allAlliances.length === 0) {
+      factionsWrap.innerHTML = `<span class="faction-chip" style="--f-color:#94a3b8" onclick="event.stopPropagation(); window.toggleFactionFilter('Нейтралитет')">Вне блоков</span>`;
+    } else {
+      factionsWrap.innerHTML = allAlliances.map(f => {
+        const isLead = (country.leaderOfAlliances && country.leaderOfAlliances.includes(f)) || country.leaderOf === f;
+        const color = FACTION_COLORS[f] || '#4ade80';
+        return `<button class="faction-chip" style="--f-color:${color}" title="Фильтровать карту: ${f}" onclick="event.stopPropagation(); window.toggleFactionFilter('${f}')">
+          ${isLead ? '<span class="crown">👑 Лидер:</span> ' : ''}${f}
+        </button>`;
+      }).join(' ');
+    }
+  } else if (factionEl) {
     const fDisplay = (!country.faction || country.faction === 'Независимое государство') ? 'Нейтралитет' : country.faction;
     factionEl.textContent = fDisplay;
     factionEl.style.color = country.faction_color || '#10b981';
     factionEl.style.borderColor = country.faction_color || '#10b981';
+  }
+
+  if (alDossierBtn) {
+    if (allAlliances.length > 0) {
+      alDossierBtn.style.display = 'block';
+      const mainAlliance = allAlliances[0];
+      alDossierBtn.innerHTML = `<span>🛡️ Досье альянса: ${mainAlliance}</span>`;
+      alDossierBtn.onclick = () => {
+        if (typeof window.openAllianceModal === 'function') {
+          window.openAllianceModal(mainAlliance);
+        }
+      };
+    } else {
+      alDossierBtn.style.display = 'none';
+    }
   }
 
   // Форматирование списка игроков

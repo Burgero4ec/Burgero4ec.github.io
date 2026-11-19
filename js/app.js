@@ -15,11 +15,15 @@ import { initDonatePhysics, initLanyard } from './donate.js';
 import { initGlobeNavigation } from './globe.js';
 import { initShameBoard, switchShamePersona } from './shame.js';
 import { initWiki, switchWikiTab, updateWikiGlider, openWikiArticle, closeWikiReader } from './wiki.js';
+import { openAllianceModal, closeAllianceModal, showAllianceOnGlobe } from './alliances.js';
 
 // Экспорт глобальных функций в window для обратной совместимости с HTML onclick
 window.go = go;
 window.openCountryModal = openCountryModal;
 window.closeCountryModal = closeCountryModal;
+window.openAllianceModal = openAllianceModal;
+window.closeAllianceModal = closeAllianceModal;
+window.showAllianceOnGlobe = showAllianceOnGlobe;
 window.openStaffModal = openStaffModal;
 window.closeStaffModal = closeStaffModal;
 window.discordLogin = discordLogin;

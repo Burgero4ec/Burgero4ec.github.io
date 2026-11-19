@@ -563,6 +563,26 @@ div.scene-tooltip {
   border-color: #4ade80 !important;
   box-shadow: 0 0 16px rgba(74, 222, 128, 0.6) !important;
 }
+.l-pill.cyan.active {
+  border-color: #06b6d4 !important;
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.6) !important;
+}
+.l-pill.emerald.active {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.6) !important;
+}
+.l-pill.yellow.active {
+  border-color: #eab308 !important;
+  box-shadow: 0 0 16px rgba(234, 179, 8, 0.6) !important;
+}
+.l-pill.ruby.active {
+  border-color: #e11d48 !important;
+  box-shadow: 0 0 16px rgba(225, 29, 72, 0.6) !important;
+}
+.l-pill.gray.active {
+  border-color: #94a3b8 !important;
+  box-shadow: 0 0 16px rgba(148, 163, 184, 0.6) !important;
+}
 
 .globe-flag-pin.pin-highlighted {
   z-index: 20 !important;
@@ -604,6 +624,11 @@ div.scene-tooltip {
 .l-pill.orange .dot { background: #fb923c; box-shadow: 0 0 6px #fb923c; }
 .l-pill.purple .dot { background: #c084fc; box-shadow: 0 0 6px #c084fc; }
 .l-pill.green .dot { background: #4ade80; box-shadow: 0 0 6px #4ade80; }
+.l-pill.cyan .dot { background: #06b6d4; box-shadow: 0 0 6px #06b6d4; }
+.l-pill.emerald .dot { background: #10b981; box-shadow: 0 0 6px #10b981; }
+.l-pill.yellow .dot { background: #eab308; box-shadow: 0 0 6px #eab308; }
+.l-pill.ruby .dot { background: #e11d48; box-shadow: 0 0 6px #e11d48; }
+.l-pill.gray .dot { background: #94a3b8; box-shadow: 0 0 6px #94a3b8; }
 
 .viewer-bottom-controls {
   display: flex;
@@ -853,7 +878,9 @@ div.scene-tooltip {
               <span class="country-card-flag" id="cardFlag">🏳️</span>
               <div class="country-card-title-group">
                 <h4 id="cardName">Государство</h4>
-                <span class="country-card-faction" id="cardFaction">Фракция</span>
+                <div id="cardFactionsWrap" class="country-card-factions-wrap">
+                  <span class="country-card-faction" id="cardFaction">Фракция</span>
+                </div>
               </div>
             </div>
             <div class="country-card-grid">
@@ -882,6 +909,9 @@ div.scene-tooltip {
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </button>
+              <button class="country-dossier-btn" id="cardAllianceDossierBtn" style="display:none;margin-top:6px;background:rgba(6,182,212,0.12);border-color:#06b6d4;color:#06b6d4">
+                <span>🛡️ Досье альянса</span>
+              </button>
             </div>
           </div>
 
@@ -889,12 +919,15 @@ div.scene-tooltip {
           <div class="schema-legend-bar">
             <div class="legend-pills">
               <button class="l-pill active" data-faction="all">Все</button>
-              <button class="l-pill blue" data-faction="ОГБ"><span class="dot"></span> ОГБ</button>
-              <button class="l-pill amber" data-faction="ОЭСР"><span class="dot"></span> ОЭСР</button>
-              <button class="l-pill purple" data-faction="ЛЭП"><span class="dot"></span> ЛЭП</button>
-              <button class="l-pill red" data-faction="ШОС"><span class="dot"></span> ШОС</button>
-              <button class="l-pill orange" data-faction="Ось сопротивления"><span class="dot"></span> Ось сопротивления</button>
-              <button class="l-pill green" data-faction="Нейтралитет"><span class="dot"></span> Нейтралы</button>
+              <button class="l-pill cyan" data-faction="ОДТО" title="Организация Договора Тихоокеанской Обороны"><span class="dot"></span> ОДТО</button>
+              <button class="l-pill emerald" data-faction="ТЭС" title="Тихоокеанское экономическое сообщество"><span class="dot"></span> ТЭС</button>
+              <button class="l-pill blue" data-faction="НАТО" title="Североатлантический альянс"><span class="dot"></span> НАТО</button>
+              <button class="l-pill yellow" data-faction="ЕС" title="Европейский союз"><span class="dot"></span> ЕС</button>
+              <button class="l-pill red" data-faction="ШОС" title="Шанхайская организация сотрудничества"><span class="dot"></span> ШОС</button>
+              <button class="l-pill amber" data-faction="БРИКС" title="БРИКС"><span class="dot"></span> БРИКС</button>
+              <button class="l-pill orange" data-faction="Ось Сопротивления" title="Ось Сопротивления"><span class="dot"></span> Ось Сопротивления</button>
+              <button class="l-pill ruby" data-faction="ОДКБ" title="Организация Договора о коллективной безопасности"><span class="dot"></span> ОДКБ</button>
+              <button class="l-pill gray" data-faction="Нейтралитет" title="Вне блоков"><span class="dot"></span> Нейтралы</button>
             </div>
             <div class="viewer-bottom-controls">
               <button class="globe-ctrl-btn active" id="globeRotateToggle" title="Включить / остановить авто-вращение">⏸ Вращение</button>
@@ -1484,6 +1517,27 @@ div.scene-tooltip {
       <div class="cm-status-bar" id="cmStatus"></div>
       <div class="cm-stats-row" id="cmStatsGrid"></div>
       <div class="cm-details-box" id="cmDetailsList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО АЛЬЯНСА / БЛОКА -->
+<div class="country-modal-overlay" id="allianceModal" role="dialog" aria-modal="true" aria-labelledby="amName" style="display:none;">
+  <div class="country-modal-card">
+    <div class="cm-header">
+      <div class="cm-header-left">
+        <div class="cm-flag-large" id="amIcon" style="font-size:28px;display:flex;align-items:center;justify-content:center;border-color:#4ade80;">🛡️</div>
+        <div class="cm-title-box">
+          <h2 id="amName">Альянс</h2>
+          <div class="cm-sub" id="amSub">Тип формирования · Сезон 31</div>
+        </div>
+      </div>
+      <button class="cm-close" onclick="closeAllianceModal()" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="cm-body">
+      <div class="cm-status-bar" id="amStatusBar"></div>
+      <div class="cm-stats-row" id="amStatsGrid"></div>
+      <div class="cm-details-box" id="amDetailsList"></div>
     </div>
   </div>
 </div>

@@ -6,6 +6,7 @@ import { SPEC_NAMES, API_BASE } from './config.js';
 import { playerMeta } from './auth.js';
 import { countUpAll, getMapInfo } from './stats.js';
 import { refreshOdysseyElements } from './animations.js';
+import { computeAlliancesData, renderSeasonAlliancesCards, setCachedAlliancesData } from './alliances.js';
 
 export let SEASON_DATA_STORE = {};
 
@@ -125,24 +126,40 @@ export function openCountryModal(key) {
   }
   if (d.reforms) addRow('Реформы', esc(d.reforms));
   if (d.investments) addRow('Инвестиции', esc(d.investments));
+  const KNOWN_ALLIANCES = ['ОДТО', 'ТЭС', 'НАТО', 'ЕС', 'ШОС', 'БРИКС', 'Ось Сопротивления', 'ОДКБ', 'СНГ', 'ОГБ', 'ОЭСР', 'ЛЭП'];
   const roles = (d.roles || []).map(r => (typeof r === 'string' ? r : (r && r.name) || '')).filter(Boolean);
   const countryAlliances = [];
+  const leaderAlliances = [];
+
   for (const r of roles) {
     if (r.startsWith('Лидер: ')) {
-      const aName = r.replace('Лидер: ', '').trim();
-      const canon = (aName === 'Ось сопротивление' ? 'Ось сопротивления' : aName);
-      if (!countryAlliances.some(a => a.startsWith(canon))) {
-        countryAlliances.unshift(canon + ' (Лидер альянса)');
+      let aName = r.replace('Лидер: ', '').trim();
+      if (aName.toLowerCase() === 'ось сопротивление') aName = 'Ось Сопротивления';
+      if (!leaderAlliances.includes(aName)) leaderAlliances.push(aName);
+      if (!countryAlliances.includes(aName)) countryAlliances.unshift(aName);
+    } else {
+      for (const al of KNOWN_ALLIANCES) {
+        if (r.toLowerCase() === al.toLowerCase() || (al === 'Ось Сопротивления' && r.toLowerCase() === 'ось сопротивление')) {
+          if (!countryAlliances.includes(al)) countryAlliances.push(al);
+        }
       }
-    } else if (['ОГБ', 'ОЭСР', 'ЛЭП', 'ШОС'].includes(r)) {
-      if (!countryAlliances.some(a => a.startsWith(r))) countryAlliances.push(r);
-    } else if (r === 'Ось сопротивление' || r === 'Ось сопротивления') {
-      const canon = 'Ось сопротивления';
-      if (!countryAlliances.some(a => a.startsWith(canon))) countryAlliances.push(canon);
     }
   }
+
+  const qCountryNorm = normName(o.name || d.country || '');
+  if (qCountryNorm === 'индия') {
+    if (!countryAlliances.includes('ТЭС')) countryAlliances.push('ТЭС');
+    if (!leaderAlliances.includes('ТЭС')) leaderAlliances.push('ТЭС');
+    if (!countryAlliances.includes('ОДТО')) countryAlliances.unshift('ОДТО');
+    if (!leaderAlliances.includes('ОДТО')) leaderAlliances.push('ОДТО');
+  }
+
   if (countryAlliances.length > 0) {
-    addRow('Военно-политический альянс', esc(countryAlliances.join(', ')));
+    const badgesHtml = countryAlliances.map(al => {
+      const isLead = leaderAlliances.includes(al);
+      return `<button class="al-modal-member-pill" style="margin:2px 4px 2px 0;cursor:pointer" onclick="closeCountryModal(); window.openAllianceModal('${esc(al)}')">${isLead ? '👑 Лидер: ' : ''}${esc(al)}</button>`;
+    }).join(' ');
+    detailsHtml += `<div class="kv" style="align-items:flex-start"><span>Членство в альянсах</span><div style="display:flex;flex-wrap:wrap;gap:4px">${badgesHtml}</div></div>`;
   } else if (d.alliance_type) {
     if (d.alliance_type.military) addRow('Военный блок', esc(d.alliance_type.military));
     if (d.alliance_type.economic) addRow('Экономический блок', esc(d.alliance_type.economic));
@@ -667,7 +684,14 @@ export async function loadSeason() {
       refreshOdysseyElements(fg);
     }
 
+    const alliancesList = computeAlliancesData(S, C);
+    setCachedAlliancesData(alliancesList);
+    const alliancesHtml = renderSeasonAlliancesCards(alliancesList);
+
     body.innerHTML = `
+      <div class="sec-title"><svg class="ic"><use href="#i-shield"/></svg>ВОЕННО-ПОЛИТИЧЕСКИЕ И ЭКОНОМИЧЕСКИЕ АЛЬЯНСЫ <span class="sec-counter">${alliancesList.length}</span></div>
+      <div class="grid-3 season-grid" style="margin-bottom:28px">${alliancesHtml}</div>
+
       <div class="sec-title"><svg class="ic"><use href="#i-globe"/></svg>ГОСУДАРСТВА <span class="sec-counter">${states.length}</span></div>
       <div class="grid-3 season-grid">${states.map(seasonCard).join('') || '<p class="loading">В текущий момент нет активных регистраций государств.</p>'}</div>
       

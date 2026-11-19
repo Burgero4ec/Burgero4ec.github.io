@@ -3424,3 +3424,324 @@ model-viewer {
   }
 }
 
+
+
+/* ===== АЛЬЯНСЫ И ВОЕННО-ПОЛИТИЧЕСКИЕ БЛОКИ (СЕЗОН 31) ===== */
+.alliance-card {
+  position: relative;
+  background: rgba(14, 23, 19, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--al-color, #4ade80);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+.alliance-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--al-color, #4ade80);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(74, 222, 128, 0.15);
+}
+.al-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.al-head-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.al-icon {
+  font-size: 22px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+.al-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+.al-tag {
+  font-size: 11px;
+  color: var(--al-color, #4ade80);
+  font-weight: 600;
+}
+.al-full-name {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 1px;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.al-type-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  border: 1px solid currentColor;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.al-type-cyan { color: #06b6d4; background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.35); }
+.al-type-emerald { color: #10b981; background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.35); }
+.al-type-blue { color: #3b82f6; background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.35); }
+.al-type-yellow { color: #eab308; background: rgba(234, 179, 8, 0.12); border-color: rgba(234, 179, 8, 0.35); }
+.al-type-red { color: #ef4444; background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); }
+.al-type-amber { color: #f59e0b; background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.35); }
+.al-type-orange { color: #f97316; background: rgba(249, 115, 22, 0.12); border-color: rgba(249, 115, 22, 0.35); }
+.al-type-ruby { color: #e11d48; background: rgba(225, 29, 72, 0.12); border-color: rgba(225, 29, 72, 0.35); }
+
+.al-leader-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #cbd5e1;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.al-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: #64748b;
+}
+.al-leader-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #f1f5f9;
+}
+.al-player {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.al-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.al-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+}
+.al-stat span {
+  font-size: 10px;
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+}
+.al-stat b {
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  color: #f8fafc;
+}
+
+.al-members-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.al-members-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.al-member-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.al-member-chip:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--al-color, #4ade80);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.al-member-chip img, .al-member-chip .c-flag-img {
+  width: 14px;
+  height: 10px;
+  object-fit: cover;
+  border-radius: 1px;
+}
+
+.al-card-footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.al-btn-dossier, .al-btn-globe {
+  flex: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.al-btn-dossier {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+.al-btn-dossier:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+.al-btn-globe {
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid var(--al-color, #4ade80);
+  color: var(--al-color, #4ade80);
+}
+.al-btn-globe:hover {
+  background: var(--al-color, #4ade80);
+  color: #020704;
+  box-shadow: 0 0 12px var(--al-color, #4ade80);
+}
+
+/* Модальное окно альянса */
+.al-modal-leader-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  color: #f8fafc;
+}
+.crown-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: #fbbf24;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.player-sub {
+  font-size: 11px;
+  color: #94a3b8;
+}
+.al-modal-members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.al-modal-member-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.al-modal-member-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #4ade80;
+  color: #fff;
+  transform: translateY(-1px);
+}
+.al-modal-doctrine-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  margin-top: 6px;
+}
+.al-globe-jump-btn {
+  width: 100%;
+  padding: 10px 18px;
+  background: rgba(74, 222, 128, 0.15);
+  border: 1px solid #4ade80;
+  color: #4ade80;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.al-globe-jump-btn:hover {
+  background: #4ade80;
+  color: #020704;
+  box-shadow: 0 0 18px rgba(74, 222, 128, 0.6);
+}
+
+/* Мульти-бейджи альянсов в HUD глобуса */
+.country-card-factions-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 4px;
+}
+.faction-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  border: 1px solid var(--f-color, #4ade80);
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--f-color, #4ade80);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.faction-chip:hover {
+  background: var(--f-color, #4ade80);
+  color: #020704;
+  transform: translateY(-1px);
+}
+.faction-chip .crown {
+  color: #fbbf24;
+  font-weight: 700;
+}
