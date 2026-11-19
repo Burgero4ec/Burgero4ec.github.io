@@ -108,8 +108,45 @@ export const ALLIANCES_MASTER = [
     leaderFlag: '🇷🇺',
     defaultMembers: ['Россия', 'Сирия'],
     description: 'Региональная военно-политическая организация коллективной безопасности на постсоветском пространстве с взаимными гарантиями защиты суверенитета.'
+  },
+  {
+    tag: 'CIS',
+    name: 'СНГ',
+    fullName: 'Содружество Независимых Государств',
+    type: 'Региональный и экономический',
+    color: '#8b5cf6',
+    pillClass: 'purple',
+    icon: '🌐',
+    leader: 'Россия',
+    leaderFlag: '🇷🇺',
+    defaultMembers: ['Россия', 'Азербайджан'],
+    description: 'Региональная межгосударственная организация, содействующая всестороннему сотрудничеству, таможенно-логистическим коридорам и поддержанию геополитической стабильности на постсоветском пространстве.'
   }
 ];
+
+export const ALLIANCE_ALIASES = {
+  'снг': 'CIS',
+  'cis': 'CIS',
+  'одкб': 'CSTO',
+  'csto': 'CSTO',
+  'odkb': 'CSTO',
+  'одто': 'ODTO',
+  'odto': 'ODTO',
+  'тэс': 'PEC',
+  'pec': 'PEC',
+  'нато': 'NATO',
+  'nato': 'NATO',
+  'ес': 'EU',
+  'eu': 'EU',
+  'шос': 'SCO',
+  'sco': 'SCO',
+  'брикс': 'BRICS',
+  'brics': 'BRICS',
+  'ось': 'AXIS',
+  'axis': 'AXIS',
+  'осьсопротивления': 'AXIS',
+  'осьсопротивление': 'AXIS'
+};
 
 export const ALLIANCE_LOOKUP = {};
 for (const a of ALLIANCES_MASTER) {
@@ -281,13 +318,21 @@ export function setCachedAlliancesData(data) {
 }
 
 export function openAllianceModal(allianceName) {
-  const norm = normName(allianceName);
+  const rawNorm = normName(allianceName);
+  const tagAlias = ALLIANCE_ALIASES[rawNorm] ? normName(ALLIANCE_ALIASES[rawNorm]) : null;
+  const match = (a) => {
+    if (!a) return false;
+    const an = normName(a.name);
+    const at = normName(a.tag);
+    return an === rawNorm || at === rawNorm || (tagAlias && (an === tagAlias || at === tagAlias));
+  };
+
   let al = null;
   if (cachedAlliancesData) {
-    al = cachedAlliancesData.find(a => normName(a.name) === norm || normName(a.tag) === norm);
+    al = cachedAlliancesData.find(match);
   }
   if (!al) {
-    al = ALLIANCES_MASTER.find(a => normName(a.name) === norm || normName(a.tag) === norm);
+    al = ALLIANCES_MASTER.find(match);
   }
   if (!al) return;
 
@@ -338,7 +383,7 @@ export function openAllianceModal(allianceName) {
 
   addRow('Официальное название', esc(al.fullName));
   addRow('Классификация союза', esc(al.type));
-  addRow('Страна-учредитель / Лидер', `${renderFlag(al.leaderFlag, al.leaderCountry)} ${esc(al.leaderCountry)}`);
+  addRow('Страна-учредитель / Лидер', `<span class="al-lead-row">${renderFlag(al.leaderFlag, al.leaderCountry)} <span>${esc(al.leaderCountry)}</span></span>`);
 
   // Участники
   if (al.members && al.members.length) {

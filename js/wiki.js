@@ -250,6 +250,64 @@ function renderFacts() {
   `).join('');
 }
 
+export const KNOWN_MENTIONS = {
+  '_ashkoo139': { name: '_ashkoo139', display: '@_ashkoo139', avatar: 'https://cdn.discordapp.com/avatars/1170359740249948181/923848364ddf7ef05ee5aaabb124f3f1.png', key: 'ashkoo139', country: 'Россия' },
+  'ashkoo139': { name: '_ashkoo139', display: '@_ashkoo139', avatar: 'https://cdn.discordapp.com/avatars/1170359740249948181/923848364ddf7ef05ee5aaabb124f3f1.png', key: 'ashkoo139', country: 'Россия' },
+  'bludebaff': { name: 'bludebaff', display: '@bludebaff', avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/08e1a1b1a7837851e44f0b2f6efba227.png', key: 'bludebaff', country: 'Индия' },
+  'ponzc': { name: 'ponzc', display: '@ponzc', avatar: 'https://cdn.discordapp.com/avatars/830428424677490728/6263ae7ec80a0684bfce6cefbdfaa1b9.png', key: 'ponzc' },
+  'qwertx': { name: 'qwertx', display: '@qwertx', avatar: 'https://cdn.discordapp.com/avatars/1066701976949239905/7eb872a08892f3964ff0fb70ca8c42b6.png', key: 'qwertx' },
+  'kitaezik': { name: 'kitaezik', display: '@kitaezik', avatar: 'https://cdn.discordapp.com/avatars/758998250610360341/39f0ea77a941655bebb4663e27301c27.png', key: 'kitaezik' },
+  'aytac': { name: 'aytac', display: '@aytac', avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/08e1a1b1a7837851e44f0b2f6efba227.png', key: 'aytac' },
+  'aytaconan2': { name: 'aytaconan2', display: '@aytaconan2', avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/08e1a1b1a7837851e44f0b2f6efba227.png', key: 'aytac' },
+  'dyrm9': { name: 'dyrm9', display: '@dyrm9', avatar: 'https://cdn.discordapp.com/embed/avatars/2.png', key: 'dyrm9' },
+  'zarplata': { name: 'zarplata', display: '@zarplata', avatar: 'https://cdn.discordapp.com/embed/avatars/4.png', key: 'zarplata', country: 'Сирия' },
+  'xil3dd': { name: 'xil3dd', display: '@xil3dd', avatar: 'https://cdn.discordapp.com/embed/avatars/1.png', key: 'xil3dd' },
+  'yabl1ch': { name: 'yabl1ch', display: '@yabl1ch', avatar: 'https://cdn.discordapp.com/avatars/800254982641025056/a_b7cf2697a0bf9961da88b56d3ea74720.png', key: 'yabl1ch', country: 'США' },
+  'laybay': { name: 'laybay', display: '@laybay', avatar: 'https://cdn.discordapp.com/embed/avatars/5.png', key: 'laybay', country: 'Австралия' },
+  'otkrilochko_78228': { name: 'otkrilochko_78228', display: '@otkrilochko_78228', avatar: 'https://cdn.discordapp.com/avatars/1170359740249948181/923848364ddf7ef05ee5aaabb124f3f1.png', key: 'otkrilochko_78228', country: 'Южная Корея' }
+};
+
+export function formatWikiText(text) {
+  if (!text) return '';
+  let out = esc(text);
+
+  out = out.replace(/@([a-zA-Z0-9_\-]+)/g, (match, username) => {
+    const norm = username.toLowerCase();
+    const meta = KNOWN_MENTIONS[norm] || {
+      name: username,
+      display: '@' + username,
+      avatar: 'https://cdn.discordapp.com/embed/avatars/0.png',
+      key: username
+    };
+
+    return `<span class="wiki-player-tag" data-player="${esc(meta.key)}" title="Открыть досье ${esc(meta.display)}" onclick="event.stopPropagation(); window.openPlayerDossier('${esc(meta.key)}')"><img class="wiki-player-avatar" src="${meta.avatar}" alt="${esc(meta.name)}" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'"><span class="wiki-player-name">${esc(meta.display)}</span></span>`;
+  });
+
+  return out;
+}
+
+window.openPlayerDossier = function(rawKey) {
+  const norm = String(rawKey || '').toLowerCase().replace(/[@\s]/g, '');
+  if (norm === 'qwertx') {
+    if (typeof window.openStaffModal === 'function') return window.openStaffModal('qwertx');
+  }
+  if (norm === 'ponzc') {
+    if (typeof window.openStaffModal === 'function') return window.openStaffModal('ponzc');
+  }
+  if (norm === 'xil3dd') {
+    if (typeof window.openStaffModal === 'function') return window.openStaffModal('xil3dd');
+  }
+
+  const meta = KNOWN_MENTIONS[norm];
+  if (meta && meta.country && typeof window.openCountryModal === 'function') {
+    return window.openCountryModal(meta.country);
+  }
+
+  if (typeof window.go === 'function') {
+    window.go('staff');
+  }
+};
+
 export function openWikiArticle(id) {
   const art = LORE.find(item => item.id === id);
   if (!art) return;
@@ -269,7 +327,7 @@ export function openWikiArticle(id) {
   const sectionsHtml = (art.sections || []).map(sec => `
     <section>
       <h3>${esc(sec.heading)}</h3>
-      <p>${esc(sec.text)}</p>
+      <p>${formatWikiText(sec.text)}</p>
     </section>
   `).join('');
 
@@ -277,14 +335,14 @@ export function openWikiArticle(id) {
     <div class="wiki-reader-facts-box">
       <h4>КЛЮЧЕВЫЕ ТЕЗИСЫ</h4>
       <ul>
-        ${art.facts.map(f => `<li>${esc(f)}</li>`).join('')}
+        ${art.facts.map(f => `<li>${formatWikiText(f)}</li>`).join('')}
       </ul>
     </div>
   ` : '';
 
   body.innerHTML = `
-    <p style="font-size:16px;color:#cbd5e1;font-weight:600;margin-bottom:16px;">${esc(art.excerpt)}</p>
-    <blockquote>«${esc(art.quote)}»</blockquote>
+    <p style="font-size:16px;color:#cbd5e1;font-weight:600;margin-bottom:16px;line-height:1.6">${formatWikiText(art.excerpt)}</p>
+    <blockquote>«${formatWikiText(art.quote)}»</blockquote>
     ${sectionsHtml}
     ${factsHtml}
     <div class="wiki-reader-source">

@@ -110,13 +110,9 @@ export function renderArchFolders() {
 export function initArchControls() {
   const sel = document.getElementById('archSeason');
   if (sel) {
-    sel.innerHTML = `
-      <option value="22" selected>Сезон 22 (рекомендуется)</option>
-      <option value="21">Сезон 21</option>
-      <option value="20">Сезон 20</option>
-      <option value="19">Сезон 19</option>
-      <option value="2">Сезон 2</option>
-      <option value="1">Сезон 1</option>
+    sel.innerHTML = `${ARCHIVE_SEASONS.map(season => `
+      <option value="${season}" ${String(archState.season) === String(season) ? 'selected' : ''}>Сезон ${season}</option>
+    `).join('')}
       <option value="all">Все сезоны (пакетная загрузка)</option>
     `;
 

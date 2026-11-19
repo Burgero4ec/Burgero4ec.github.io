@@ -8,6 +8,7 @@
 import { WORLD_GEO } from './world_geo.js';
 import { emojiToCountryCode } from './season.js';
 import { KNOWN_PLAYERS } from './config.js';
+import { esc } from './utils.js';
 
 // Глобальное состояние глобуса
 let globeInstance = null;
@@ -1339,7 +1340,7 @@ function showCountryCard(country) {
       factionsWrap.innerHTML = allAlliances.map(f => {
         const isLead = (country.leaderOfAlliances && country.leaderOfAlliances.includes(f)) || country.leaderOf === f;
         const color = FACTION_COLORS[f] || '#4ade80';
-        return `<button class="faction-chip" style="--f-color:${color}" title="Фильтровать карту: ${f}" onclick="event.stopPropagation(); window.toggleFactionFilter('${f}')">
+        return `<button class="faction-chip" style="--f-color:${color}" title="Открыть досье альянса: ${f}" onclick="event.stopPropagation(); window.openAllianceModal('${f}')">
           ${isLead ? '<span class="crown">👑 Лидер:</span> ' : ''}${f}
         </button>`;
       }).join(' ');
@@ -1354,15 +1355,14 @@ function showCountryCard(country) {
   if (alDossierBtn) {
     if (allAlliances.length > 0) {
       alDossierBtn.style.display = 'block';
-      const mainAlliance = allAlliances[0];
-      alDossierBtn.innerHTML = `<span>🛡️ Досье альянса: ${mainAlliance}</span>`;
-      alDossierBtn.onclick = () => {
-        if (typeof window.openAllianceModal === 'function') {
-          window.openAllianceModal(mainAlliance);
-        }
-      };
+      alDossierBtn.innerHTML = allAlliances.map(a => `
+        <button class="country-dossier-btn" style="margin-top:6px;width:100%" onclick="window.openAllianceModal('${esc(a)}')">
+          <span>🛡️ Досье альянса: ${esc(a)}</span>
+        </button>
+      `).join('');
     } else {
       alDossierBtn.style.display = 'none';
+      alDossierBtn.innerHTML = '';
     }
   }
 
