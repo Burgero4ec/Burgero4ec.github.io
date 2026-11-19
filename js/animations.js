@@ -46,7 +46,12 @@ export function refreshOdysseyElements(root = document) {
     '.grid-2 > article',
     '.shame-card',
     '.shame-profile-card',
-    '.shame-stat-card'
+    '.shame-stat-card',
+    '.wiki-card',
+    '.wiki-featured-card',
+    '.wiki-stat-cell',
+    '.wiki-timeline-item',
+    '.wiki-fact-card'
   ];
 
   const elements = root.querySelectorAll(selectors.join(', '));
@@ -76,7 +81,7 @@ export function triggerOdysseyPageReveal(pageEl) {
   }
   pageEl.dataset.odysseyRevealed = 'true';
 
-  const items = pageEl.querySelectorAll('.card, .c-card, .stat, .stats-col, .sec-title, .folder, .member, .update-card, .hero, .shame-card, .shame-profile-card, .shame-stat-card');
+  const items = pageEl.querySelectorAll('.card, .c-card, .stat, .stats-col, .sec-title, .folder, .member, .update-card, .hero, .shame-card, .shame-profile-card, .shame-stat-card, .wiki-card, .wiki-featured-card, .wiki-stat-cell, .wiki-timeline-item, .wiki-fact-card');
   items.forEach((el, i) => {
     el.classList.add('odyssey-item');
     const delay = Math.min(i * 0.035, 0.3);

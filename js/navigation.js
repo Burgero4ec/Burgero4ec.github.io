@@ -94,13 +94,18 @@ export function go(rawId) {
   } else if (resolvedId === 'wiki') {
     if (id === 'archives' || id === 'archive') {
       if (typeof window.switchWikiTab === 'function') {
-        window.switchWikiTab('archives');
+        window.switchWikiTab('archives', false);
       }
     } else if (id === 'lore' || id === 'wiki') {
       if (typeof window.switchWikiTab === 'function') {
-        window.switchWikiTab('lore');
+        window.switchWikiTab('lore', false);
       }
     }
+    requestAnimationFrame(() => {
+      if (typeof window.updateWikiGlider === 'function') {
+        window.updateWikiGlider(undefined, false);
+      }
+    });
   }
 
   // Запуск каскадной анимации появления элементов в стиле Odyssey

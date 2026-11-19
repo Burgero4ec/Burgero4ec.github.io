@@ -14,7 +14,7 @@ import { initArchives, renderArchives, loadArchiveFile } from './archives.js';
 import { initDonatePhysics, initLanyard } from './donate.js';
 import { initGlobeNavigation } from './globe.js';
 import { initShameBoard, switchShamePersona } from './shame.js';
-import { initWiki, switchWikiTab, openWikiArticle, closeWikiReader } from './wiki.js';
+import { initWiki, switchWikiTab, updateWikiGlider, openWikiArticle, closeWikiReader } from './wiki.js';
 
 // Экспорт глобальных функций в window для обратной совместимости с HTML onclick
 window.go = go;
@@ -38,6 +38,7 @@ window.animateStats = animateStats;
 window.initShameBoard = initShameBoard;
 window.switchShamePersona = switchShamePersona;
 window.switchWikiTab = switchWikiTab;
+window.updateWikiGlider = updateWikiGlider;
 window.openWikiArticle = openWikiArticle;
 window.closeWikiReader = closeWikiReader;
 

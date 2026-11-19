@@ -1363,14 +1363,17 @@ div.scene-tooltip {
       <h1>Вики <em>и Архивы</em></h1>
       <p class="lead">Летопись, база знаний мира Global Lens RP и архивные хроники сезонов</p>
 
-      <div class="wiki-main-tabs" role="tablist">
+      <div class="wiki-main-tabs" id="wikiMainTabs" role="tablist">
+        <div class="wiki-tab-glider" id="wikiTabGlider"></div>
         <button class="wiki-tab-btn active" id="wikiTabLoreBtn" type="button" role="tab" aria-selected="true" data-wiki-tab="lore">
           <svg class="ic"><use href="#i-book"/></svg>
           <span>База знаний и Лор</span>
+          <span class="wiki-tab-badge">21</span>
         </button>
         <button class="wiki-tab-btn" id="wikiTabArchBtn" type="button" role="tab" aria-selected="false" data-wiki-tab="archives">
           <svg class="ic"><use href="#i-archive"/></svg>
           <span>Архивы сезонов</span>
+          <span class="wiki-tab-badge">S1–S24</span>
         </button>
       </div>
 

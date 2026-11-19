@@ -1,5 +1,5 @@
 /**
- * wiki.js - База знаний, энциклопедия и лор Global Lens RP + переключение на архивы
+ * wiki.js - База знаний, энциклопедия и лор Global Lens RP + плавная анимация переключения на архивы
  */
 
 import { LORE, TIMELINE } from './wiki-data.js';
@@ -31,7 +31,56 @@ function esc(value) {
   })[char]);
 }
 
-export function switchWikiTab(tabName) {
+/**
+ * Плавный скользящий бегунок переключения вкладок (Glider)
+ */
+export function updateWikiGlider(tabName = state.activeTab, animate = true) {
+  if (typeof window === 'undefined') return;
+  const nav = document.getElementById('wikiMainTabs');
+  const glider = document.getElementById('wikiTabGlider');
+  if (!nav || !glider) return;
+
+  const targetTab = nav.querySelector(`.wiki-tab-btn[data-wiki-tab="${tabName}"]`);
+  if (!targetTab) return;
+
+  // Если вкладка скрыта (например, открыта другая страница портала), откладываем расчет
+  if (targetTab.offsetWidth === 0) {
+    requestAnimationFrame(() => {
+      const retryTab = nav.querySelector(`.wiki-tab-btn[data-wiki-tab="${tabName}"]`);
+      if (retryTab && retryTab.offsetWidth > 0) {
+        updateWikiGlider(tabName, false);
+      }
+    });
+    return;
+  }
+
+  if (!animate) {
+    glider.style.transition = 'none';
+  } else {
+    glider.style.transition = '';
+  }
+
+  const navRect = nav.getBoundingClientRect();
+  const tabRect = targetTab.getBoundingClientRect();
+
+  const left = tabRect.left - navRect.left - (nav.clientLeft || 0);
+  const width = tabRect.width;
+
+  glider.style.transform = `translate3d(${left}px, 0, 0)`;
+  glider.style.width = `${width}px`;
+  glider.classList.add('ready');
+  nav.classList.add('glider-active');
+
+  if (!animate) {
+    void glider.offsetHeight; // reflow
+    glider.style.transition = '';
+  }
+}
+
+/**
+ * Переключение между подразделами "База знаний и Лор" и "Архивы сезонов"
+ */
+export function switchWikiTab(tabName, animate = true) {
   const targetTab = tabName === 'archives' ? 'archives' : 'lore';
   state.activeTab = targetTab;
 
@@ -40,33 +89,43 @@ export function switchWikiTab(tabName) {
   const loreView = document.getElementById('wikiViewLore');
   const archView = document.getElementById('wikiViewArchives');
 
-  if (targetTab === 'archives') {
-    if (archBtn) {
-      archBtn.classList.add('active');
-      archBtn.setAttribute('aria-selected', 'true');
-    }
-    if (loreBtn) {
-      loreBtn.classList.remove('active');
-      loreBtn.setAttribute('aria-selected', 'false');
-    }
-    if (archView) archView.style.display = 'block';
-    if (loreView) loreView.style.display = 'none';
+  // 1. Анимируем скользящий бегунок
+  updateWikiGlider(targetTab, animate);
 
-    // Загрузить / обновить архивы
+  const activeBtn = targetTab === 'archives' ? archBtn : loreBtn;
+  const inactiveBtn = targetTab === 'archives' ? loreBtn : archBtn;
+  const activeView = targetTab === 'archives' ? archView : loreView;
+  const inactiveView = targetTab === 'archives' ? loreView : archView;
+
+  if (activeBtn) {
+    activeBtn.classList.add('active');
+    activeBtn.setAttribute('aria-selected', 'true');
+  }
+  if (inactiveBtn) {
+    inactiveBtn.classList.remove('active');
+    inactiveBtn.setAttribute('aria-selected', 'false');
+  }
+
+  // 2. Плавная анимация переключения контента вкладок
+  if (inactiveView) {
+    inactiveView.style.display = 'none';
+    inactiveView.classList.remove('wiki-view-enter');
+  }
+
+  if (activeView) {
+    activeView.style.display = 'block';
+    if (animate) {
+      activeView.classList.remove('wiki-view-enter');
+      void activeView.offsetWidth; // перезапуск CSS анимации
+      activeView.classList.add('wiki-view-enter');
+    }
+  }
+
+  // Если открываем вкладку архивов — загружаем / обновляем список
+  if (targetTab === 'archives') {
     if (typeof renderArchives === 'function') {
       renderArchives();
     }
-  } else {
-    if (loreBtn) {
-      loreBtn.classList.add('active');
-      loreBtn.setAttribute('aria-selected', 'true');
-    }
-    if (archBtn) {
-      archBtn.classList.remove('active');
-      archBtn.setAttribute('aria-selected', 'false');
-    }
-    if (loreView) loreView.style.display = 'block';
-    if (archView) archView.style.display = 'none';
   }
 }
 
@@ -121,8 +180,8 @@ function renderArticles() {
     emptyState.style.display = list.length === 0 ? 'block' : 'none';
   }
 
-  grid.innerHTML = list.map(art => `
-    <div class="wiki-card" data-wiki-article="${esc(art.id)}" role="button" tabindex="0">
+  grid.innerHTML = list.map((art, index) => `
+    <div class="wiki-card" data-wiki-article="${esc(art.id)}" role="button" tabindex="0" style="--card-delay:${Math.min(index * 35, 350)}ms">
       <div class="wiki-card-top">
         <div class="wiki-card-icon">${esc(art.icon || '📖')}</div>
         <div class="wiki-card-cat">${esc(art.categoryLabel)}</div>
@@ -273,10 +332,10 @@ export function initWiki() {
   const loreBtn = document.getElementById('wikiTabLoreBtn');
   const archBtn = document.getElementById('wikiTabArchBtn');
   if (loreBtn) {
-    loreBtn.addEventListener('click', () => switchWikiTab('lore'));
+    loreBtn.addEventListener('click', () => switchWikiTab('lore', true));
   }
   if (archBtn) {
-    archBtn.addEventListener('click', () => switchWikiTab('archives'));
+    archBtn.addEventListener('click', () => switchWikiTab('archives', true));
   }
 
   // Фильтры категорий
@@ -341,17 +400,28 @@ export function initWiki() {
     }
   });
 
+  // Автоматический перерасчет бегунка при изменении размеров экрана
+  window.addEventListener('resize', () => {
+    updateWikiGlider(state.activeTab, false);
+  });
+
   // Отрисовка всех секций
   renderFilters();
   renderFeatured();
   renderArticles();
   renderTimeline();
   renderFacts();
+
+  // Инициализация позиции бегунка
+  requestAnimationFrame(() => {
+    updateWikiGlider(state.activeTab, false);
+  });
 }
 
 // Экспорт в window для глобального доступа
 if (typeof window !== 'undefined') {
   window.switchWikiTab = switchWikiTab;
+  window.updateWikiGlider = updateWikiGlider;
   window.openWikiArticle = openWikiArticle;
   window.closeWikiReader = closeWikiReader;
 }
