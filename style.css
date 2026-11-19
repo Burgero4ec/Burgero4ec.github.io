@@ -2748,15 +2748,12 @@ model-viewer {
   z-index: 1;
   background: var(--acc-soft);
   border: 1px solid var(--acc-border);
-  box-shadow: 0 0 18px var(--acc-glow), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  transition: transform 0.32s cubic-bezier(0.2, 0.85, 0.25, 1.15),
-              width 0.32s cubic-bezier(0.2, 0.85, 0.25, 1.15),
-              opacity 0.2s ease,
-              background 0.3s ease,
-              border-color 0.3s ease,
-              box-shadow 0.3s ease;
+  box-shadow: 0 0 16px var(--acc-glow), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.12s ease;
   opacity: 0;
-  will-change: transform, width, opacity;
+  will-change: transform, width;
 }
 
 .wiki-tab-glider.ready {
@@ -2778,7 +2775,7 @@ model-viewer {
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
-  transition: color 0.2s ease, transform 0.15s ease;
+  transition: color 0.15s ease;
   user-select: none;
   white-space: nowrap;
 }
@@ -2787,7 +2784,7 @@ model-viewer {
   width: 17px;
   height: 17px;
   color: var(--dim);
-  transition: color 0.2s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: color 0.15s ease, transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .wiki-tab-btn:hover {
@@ -2804,7 +2801,7 @@ model-viewer {
 
 .wiki-tab-btn.active .ic {
   color: var(--acc);
-  transform: scale(1.15);
+  transform: scale(1.12);
 }
 
 .wiki-tab-badge {
@@ -2816,7 +2813,7 @@ model-viewer {
   background: rgba(255, 255, 255, 0.06);
   color: var(--dim);
   border: 1px solid var(--line2);
-  transition: all 0.25s ease;
+  transition: all 0.15s ease;
 }
 
 .wiki-tab-btn.active .wiki-tab-badge {
@@ -2832,64 +2829,19 @@ model-viewer {
   box-shadow: 0 0 14px var(--acc-glow);
 }
 
-/* ===== ПЛАВНЫЕ АНИМАЦИИ ПЕРЕКЛЮЧЕНИЯ ПОДКАТАЛОГОВ (SUBVIEWS) ===== */
+/* ===== БЫСТРЫЕ И ЧЁТКИЕ АНИМАЦИИ ПЕРЕКЛЮЧЕНИЯ ПОДКАТАЛОГОВ (SUBVIEWS) ===== */
 .wiki-subview {
   width: 100%;
 }
 
 .wiki-view-enter {
-  animation: wikiViewFadeIn 0.36s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: wikiViewFast 0.14s ease-out both;
 }
 
-@keyframes wikiViewFadeIn {
+@keyframes wikiViewFast {
   0% {
     opacity: 0;
-    transform: translateY(16px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Каскадное появление блоков внутри активной подвкладки */
-.wiki-view-enter .wiki-stat-strip {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.02s both;
-}
-.wiki-view-enter .wiki-search-row {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
-}
-.wiki-view-enter .wiki-filters {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
-}
-.wiki-view-enter .wiki-featured-wrap {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.11s both;
-}
-.wiki-view-enter .wiki-grid {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
-}
-.wiki-view-enter .wiki-timeline {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.17s both;
-}
-.wiki-view-enter .wiki-facts-grid {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.20s both;
-}
-
-/* Для вкладки Архивов */
-.wiki-view-enter .arch-controls {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.03s both;
-}
-.wiki-view-enter .folder-grid {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.07s both;
-}
-.wiki-view-enter .updates-list {
-  animation: wikiItemStagger 0.36s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
-}
-
-@keyframes wikiItemStagger {
-  0% {
-    opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(4px);
   }
   100% {
     opacity: 1;
@@ -3183,18 +3135,6 @@ model-viewer {
   cursor: pointer;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   min-height: 250px;
-  animation: wikiCardRise 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: var(--card-delay, 0ms);
-}
-@keyframes wikiCardRise {
-  0% {
-    opacity: 0;
-    transform: translateY(14px) scale(0.985);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
 }
 .wiki-card:hover {
   transform: translateY(-3px);

@@ -21,6 +21,8 @@ const state = {
   query: ''
 };
 
+let archivesLoadedOnce = false;
+
 function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, char => ({
     '&': '&amp;',
@@ -82,6 +84,7 @@ export function updateWikiGlider(tabName = state.activeTab, animate = true) {
  */
 export function switchWikiTab(tabName, animate = true) {
   const targetTab = tabName === 'archives' ? 'archives' : 'lore';
+  if (state.activeTab === targetTab) return;
   state.activeTab = targetTab;
 
   const loreBtn = document.getElementById('wikiTabLoreBtn');
@@ -89,7 +92,7 @@ export function switchWikiTab(tabName, animate = true) {
   const loreView = document.getElementById('wikiViewLore');
   const archView = document.getElementById('wikiViewArchives');
 
-  // 1. Анимируем скользящий бегунок
+  // 1. Анимируем скользящий бегунок (быстро и чётко)
   updateWikiGlider(targetTab, animate);
 
   const activeBtn = targetTab === 'archives' ? archBtn : loreBtn;
@@ -106,7 +109,7 @@ export function switchWikiTab(tabName, animate = true) {
     inactiveBtn.setAttribute('aria-selected', 'false');
   }
 
-  // 2. Плавная анимация переключения контента вкладок
+  // 2. Мгновенное переключение с быстрым и плавным fade
   if (inactiveView) {
     inactiveView.style.display = 'none';
     inactiveView.classList.remove('wiki-view-enter');
@@ -121,8 +124,9 @@ export function switchWikiTab(tabName, animate = true) {
     }
   }
 
-  // Если открываем вкладку архивов — загружаем / обновляем список
-  if (targetTab === 'archives') {
+  // Загружаем архивы только при первом переходе (последующие переключения происходят мгновенно из памяти)
+  if (targetTab === 'archives' && !archivesLoadedOnce) {
+    archivesLoadedOnce = true;
     if (typeof renderArchives === 'function') {
       renderArchives();
     }
@@ -180,8 +184,8 @@ function renderArticles() {
     emptyState.style.display = list.length === 0 ? 'block' : 'none';
   }
 
-  grid.innerHTML = list.map((art, index) => `
-    <div class="wiki-card" data-wiki-article="${esc(art.id)}" role="button" tabindex="0" style="--card-delay:${Math.min(index * 35, 350)}ms">
+  grid.innerHTML = list.map(art => `
+    <div class="wiki-card" data-wiki-article="${esc(art.id)}" role="button" tabindex="0">
       <div class="wiki-card-top">
         <div class="wiki-card-icon">${esc(art.icon || '📖')}</div>
         <div class="wiki-card-cat">${esc(art.categoryLabel)}</div>
@@ -416,6 +420,20 @@ export function initWiki() {
   requestAnimationFrame(() => {
     updateWikiGlider(state.activeTab, false);
   });
+
+  // Фоновая предзагрузка архивов при простое, чтобы переход на вкладку архивов был мгновенным
+  const preheatArchives = () => {
+    if (!archivesLoadedOnce && typeof renderArchives === 'function') {
+      archivesLoadedOnce = true;
+      renderArchives();
+    }
+  };
+
+  if (typeof requestIdleCallback === 'function') {
+    requestIdleCallback(preheatArchives, { timeout: 1500 });
+  } else {
+    setTimeout(preheatArchives, 600);
+  }
 }
 
 // Экспорт в window для глобального доступа
