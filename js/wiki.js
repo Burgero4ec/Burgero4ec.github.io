@@ -293,13 +293,21 @@ export function openWikiArticle(id) {
   `;
 
   modal.style.display = 'flex';
+  requestAnimationFrame(() => {
+    modal.classList.add('active');
+  });
   document.body.classList.add('modal-open');
 }
 
 export function closeWikiReader() {
   const modal = document.getElementById('wikiReaderModal');
   if (modal) {
-    modal.style.display = 'none';
+    modal.classList.remove('active');
+    setTimeout(() => {
+      if (!modal.classList.contains('active')) {
+        modal.style.display = 'none';
+      }
+    }, 220);
     document.body.classList.remove('modal-open');
   }
 }
@@ -365,6 +373,16 @@ export function initWiki() {
     if (trigger) {
       e.preventDefault();
       openWikiArticle(trigger.dataset.wikiArticle);
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const trigger = document.activeElement ? document.activeElement.closest('[data-wiki-article]') : null;
+      if (trigger) {
+        e.preventDefault();
+        openWikiArticle(trigger.dataset.wikiArticle);
+      }
     }
   });
 
