@@ -190,61 +190,29 @@ export async function handleLogin() {
     }
   }
 
-  // 3. Проверяем токен от бота в URL query (?token=... или ?auth=...)
-  if (!window.glUser) {
-    const params = new URLSearchParams(location.search);
-    const botToken = params.get('token') || params.get('auth') || params.get('t');
-    if (botToken) {
-      history.replaceState(null, '', location.pathname + location.hash);
-      try {
-        // Base64 JSON токен
-        try {
-          const decoded = JSON.parse(atob(botToken));
-          if (decoded && (decoded.id || decoded.user_id)) {
-            const uId = String(decoded.id || decoded.user_id);
-            const pm = playerMeta(uId);
-            window.glUser = {
-              id: uId,
-              name: decoded.name || decoded.username || pm.name,
-              avatar: decoded.avatar || decoded.avatar_url || pm.avatar
-            };
-            localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-            localStorage.setItem('gl-auth-source', 'bot');
-          }
-        } catch (eDec) {
-          if (/^\d+$/.test(botToken)) {
-            const pm = playerMeta(botToken);
-            window.glUser = {
-              id: botToken,
-              name: pm.name || ('Игрок #' + botToken.slice(-4)),
-              avatar: pm.avatar || defaultAvatar(botToken)
-            };
-            localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-            localStorage.setItem('gl-auth-source', 'bot');
-          }
-        }
-      } catch (e) {}
-    }
+  // 3. Безопасность: очищаем любые входящие query-параметры (?token=, ?auth=), запрещая обход авторизации
+  if (location.search && (location.search.includes('token=') || location.search.includes('auth=') || location.search.includes('t='))) {
+    history.replaceState(null, '', location.pathname + location.hash);
   }
 
-  // 4. Очищаем старые принудительные авто-логины (Китаёзик), чтобы не мешать настоящему входу
+  // 4. Строгая валидация сессии: доверяем ТОЛЬКО проверенному Discord OAuth
   try {
-    const saved = JSON.parse(localStorage.getItem('gl-user'));
     const source = localStorage.getItem('gl-auth-source');
-    if (saved && saved.id === '758998250610360341' && source !== 'discord-oauth' && source !== 'manual') {
+    const token = localStorage.getItem('gl-discord-token');
+    const saved = JSON.parse(localStorage.getItem('gl-user'));
+
+    if (source !== 'discord-oauth' || !token || !saved || !saved.id) {
+      // Аннулируем любые неподтвержденные, ручные или поддельные сессии
       localStorage.removeItem('gl-user');
       localStorage.removeItem('gl-auth-source');
+      localStorage.removeItem('gl-discord-token');
+      localStorage.removeItem('gl-session');
+      window.glUser = null;
+    } else {
+      window.glUser = saved;
     }
-  } catch (e) {}
-
-  // 5. Проверяем сохранённую сессию (если пользователь авторизовался)
-  if (!window.glUser) {
-    try {
-      const saved = JSON.parse(localStorage.getItem('gl-user'));
-      if (saved && saved.id) {
-        window.glUser = saved;
-      }
-    } catch (e) {}
+  } catch (e) {
+    window.glUser = null;
   }
 
   syncUserUI();
@@ -258,88 +226,6 @@ export async function handleLogin() {
     renderCabinet();
   });
 }
-
-export function selectCabinetUser(id) {
-  if (!id) return;
-  const pm = playerMeta(String(id));
-  const p = getPlayerById(id);
-  window.glUser = {
-    id: String(id),
-    name: pm.name || (p && (p.username || p.display_name)) || 'Игрок',
-    avatar: pm.avatar || (p && p.avatar_url) || defaultAvatar(String(id))
-  };
-  try {
-    localStorage.setItem('gl-user', JSON.stringify(window.glUser));
-    localStorage.setItem('gl-auth-source', 'manual');
-  } catch (e) {}
-  syncUserUI();
-  decorateStaff();
-  renderCabinet();
-}
-window.selectCabinetUser = selectCabinetUser;
-
-export function openPlayerPickerModal() {
-  let modal = document.getElementById('playerPickerModal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'playerPickerModal';
-    modal.className = 'country-modal-overlay';
-    modal.innerHTML = `
-      <div class="country-modal-card" style="max-width:540px">
-        <div class="cm-header">
-          <div class="cm-header-left">
-            <h2 style="font-size:18px"><svg class="ic"><use href="#i-users"/></svg> Выбор досье игрока</h2>
-          </div>
-          <button class="cm-close" onclick="document.getElementById('playerPickerModal').classList.remove('active')">✕</button>
-        </div>
-        <div class="cm-body" style="padding:16px 20px">
-          <div class="search-wrap" style="margin-bottom:14px">
-            <svg class="ic"><use href="#i-search"/></svg>
-            <input id="pickerPlayerSearch" class="search-input" placeholder="Поиск по нику, стране или Discord ID...">
-          </div>
-          <div id="pickerPlayersList" style="max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:8px"></div>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-  }
-
-  const listEl = modal.querySelector('#pickerPlayersList');
-  const searchEl = modal.querySelector('#pickerPlayerSearch');
-  const players = Object.values(PLAYERS_BY_ID);
-
-  function renderList(query = '') {
-    const q = (query || '').toLowerCase().trim();
-    const filtered = players.filter(p => {
-      const pm = playerMeta(String(p.id));
-      const str = [p.id, p.username, p.country, p.nickname, pm.name].join(' ').toLowerCase();
-      return str.includes(q);
-    });
-
-    listEl.innerHTML = filtered.map(p => {
-      const pm = playerMeta(String(p.id));
-      const isCur = window.glUser && String(window.glUser.id) === String(p.id);
-      return `
-        <div class="l-pill" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;cursor:pointer;background:rgba(255,255,255,0.04);border:1px solid ${isCur ? 'var(--green)' : 'rgba(255,255,255,0.1)'}" onclick="window.selectCabinetUser('${p.id}');document.getElementById('playerPickerModal').classList.remove('active')">
-          <div style="display:flex;align-items:center;gap:10px">
-            <img src="${pm.avatar}" style="width:30px;height:30px;border-radius:50%" alt="">
-            <div>
-              <b style="font-size:13.5px;color:#fff">${esc(pm.name)}</b>
-              <div style="font-size:11px;color:var(--dim)">${esc(p.country || 'Участник')} · ID: ${p.id}</div>
-            </div>
-          </div>
-          <span class="badge" style="background:${isCur ? 'var(--green)' : 'rgba(74,222,128,0.12)'};color:${isCur ? '#000' : '#4ade80'}">${isCur ? 'Активен' : 'Открыть'}</span>
-        </div>
-      `;
-    }).join('') || '<p class="loading">Ничего не найдено</p>';
-  }
-
-  renderList();
-  searchEl.value = '';
-  searchEl.oninput = () => renderList(searchEl.value);
-  modal.classList.add('active');
-}
-window.openPlayerPickerModal = openPlayerPickerModal;
 
 export function discordLogout() {
   localStorage.removeItem('gl-user');
@@ -600,8 +486,6 @@ export async function testPlayersWebhook() {
 
 // Привязка глобальных функций для разметки onclick
 window.renderCabinet = renderCabinet;
-window.selectCabinetUser = selectCabinetUser;
-window.openPlayerPickerModal = openPlayerPickerModal;
 window.discordLogout = discordLogout;
 window.discordLogin = discordLogin;
 window.testPlayersWebhook = testPlayersWebhook;
