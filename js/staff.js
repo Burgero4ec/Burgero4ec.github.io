@@ -134,7 +134,7 @@ let STAFF_MODAL_DATA = {
     role: 'ЗАМ. КУРАТОРА ПОЛИТОЛОГОВ',
     badge: '⚖️ СУД ЕГО ОПРАВДАЛ',
     badgeClass: 'verdict-acquitted',
-    avatar: 'https://cdn.discordapp.com/avatars/1066701976949239905/d99b9aa9ae64e50db02a59e027222752.png?size=1024',
+    avatar: 'https://cdn.discordapp.com/avatars/1066701976949239905/d99b9aa9ae64e50db02a59e027222752.png?size=128',
     subtitle: 'Полный список обвинений (200 пунктов)',
     selector: '[data-discord-id="1066701976949239905"] details.long-list .award'
   },
@@ -143,7 +143,7 @@ let STAFF_MODAL_DATA = {
     role: 'АДМИНИСТРАТОР / ГЛАВНЫЙ ЛУДИК',
     badge: '💀 ДОСКА ПОЗОРА (200 ПУНКТОВ)',
     badgeClass: 'shame-badge',
-    avatar: 'https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=1024',
+    avatar: 'https://cdn.discordapp.com/avatars/830428424677490728/3f56105a102a8ede36259e2ab9ca5051.png?size=128',
     subtitle: 'Официальная позорная доска и боевые курьёзы (200 пунктов)',
     selector: '[data-discord-id="830428424677490728"] .award'
   },
@@ -152,7 +152,7 @@ let STAFF_MODAL_DATA = {
     role: 'КУРАТОР МОДЕРАТОРОВ',
     badge: '📜 200 СТАТЕЙ И ПРЕСТУПЛЕНИЙ',
     badgeClass: 'accusations-badge',
-    avatar: 'https://cdn.discordapp.com/avatars/928360132482572371/75a6e47b610f5e5e0d0edf1e4d95e26b.png?size=1024',
+    avatar: 'https://cdn.discordapp.com/avatars/928360132482572371/75a6e47b610f5e5e0d0edf1e4d95e26b.png?size=128',
     subtitle: 'Полный список дел и обвинений',
     selector: '[data-discord-id="928360132482572371"] .award'
   },
@@ -161,7 +161,7 @@ let STAFF_MODAL_DATA = {
     role: 'СОЗДАТЕЛЬ САЙТА / ЗАМ. РУКОВОДСТВА',
     badge: '🍔 21 КУРЬЁЗ В MAIN',
     badgeClass: 'shame-badge',
-    avatar: 'https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=1024',
+    avatar: 'https://cdn.discordapp.com/avatars/758998250610360341/1adf1b36f84e13b6cd282910b79d9648.png?size=128',
     subtitle: 'Хроника разработки и боевые курьёзы в main',
     selector: '[data-discord-id="758998250610360341"] .award'
   },
@@ -170,7 +170,7 @@ let STAFF_MODAL_DATA = {
     role: 'ОСНОВАТЕЛЬ / СОЗДАТЕЛЬ БОТА',
     badge: '⚡ ВЕЛИКИЙ ВАЙБКОДЕР (30 ГРЕХОВ)',
     badgeClass: 'shame-badge',
-    avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/492785e7674353a297aa8fba3c2041bb.png?size=1024',
+    avatar: 'https://cdn.discordapp.com/avatars/484044030640914437/492785e7674353a297aa8fba3c2041bb.png?size=128',
     subtitle: 'Реестр багов, вайбкодинга и экономических диверсий',
     selector: '[data-discord-id="484044030640914437"] .award'
   }

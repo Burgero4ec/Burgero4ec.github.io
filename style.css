@@ -1,5 +1,5 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-:root { --card:#10151b; --line:#1c2420; --line2:#26332b; --text:#e9eee9; --muted:#9aa89e; --dim:#6b7a70; --yellow:#eab308; --red:#f87171; }
+:root { --card:#10151b; --line:#1c2420; --line2:#26332b; --text:#e9eee9; --muted:#9aa89e; --dim:#8fa496; --yellow:#eab308; --red:#f87171; }
 [data-theme="green"]  { --bg:#07100a; --side:#08130c; --acc:#4ade80; --acc2:#22c55e; --acc-soft:rgba(74,222,128,.10); --acc-border:rgba(74,222,128,.35); --acc-glow:rgba(74,222,128,.35); --bg-glow:rgba(74,222,128,.08); --bg-glow-strong:rgba(74,222,128,.18); }
 [data-theme="blue"]   { --bg:#060a12; --side:#070d18; --acc:#60a5fa; --acc2:#3b82f6; --acc-soft:rgba(96,165,250,.10); --acc-border:rgba(96,165,250,.35); --acc-glow:rgba(96,165,250,.35); --bg-glow:rgba(96,165,250,.08); --bg-glow-strong:rgba(96,165,250,.18); }
 [data-theme="orange"] { --bg:#110a06; --side:#150c07; --acc:#fb923c; --acc2:#f97316; --acc-soft:rgba(251,146,60,.10); --acc-border:rgba(251,146,60,.35); --acc-glow:rgba(251,146,60,.35); --bg-glow:rgba(251,146,60,.08); --bg-glow-strong:rgba(251,146,60,.18); }
@@ -191,6 +191,53 @@ html[data-theme="orange"] .logo-badge .logo-blue { display: none; }
   opacity: 1;
   box-shadow: 0 0 20px var(--faction-glow, rgba(74, 222, 128, 0.6)), 0 6px 16px rgba(0, 0, 0, 0.9);
 }
+
+/* Компактный режим для плотных зон (Ватикан, НР, Чечня, Приднестровье и др.) в отдалении */
+.globe-flag-pin.pin-compact:not(:hover) .flag-label,
+.globe-flag-pin.pin-compact:not(:hover) .flag-count-pill {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  transition: max-width 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.globe-flag-pin.pin-compact .flag-pin-badge {
+  padding: 2.5px 6px;
+}
+
+/* При наведении или при зуме камера раскрывает полный текст */
+.globe-flag-pin:hover .flag-label,
+.globe-flag-pin:hover .flag-count-pill,
+.globe-zoomed-in .globe-flag-pin.pin-compact .flag-label,
+.globe-zoomed-in .globe-flag-pin.pin-compact .flag-count-pill {
+  max-width: 140px;
+  opacity: 1;
+}
+
+.globe-flag-pin:hover {
+  z-index: 1000 !important;
+}
+
+.globe-flag-pin:hover .flag-pin-badge {
+  transform: translate(-50%, -14px) scale(1.18) !important;
+  box-shadow: 0 0 25px var(--faction-glow, rgba(74, 222, 128, 0.8)), 0 8px 24px rgba(0, 0, 0, 0.95) !important;
+  background: rgba(6, 12, 18, 0.98);
+  border-width: 1.5px;
+}
+
+/* Смещение по осям для предотвращения наложения соседей */
+.globe-flag-pin.pin-offset-up .flag-pin-badge { transform: translate(-50%, -18px); }
+.globe-flag-pin.pin-offset-down .flag-pin-badge { transform: translate(-50%, 6px); }
+.globe-flag-pin.pin-offset-right .flag-pin-badge { transform: translate(10px, -50%); }
+.globe-flag-pin.pin-offset-left .flag-pin-badge { transform: translate(calc(-100% - 10px), -50%); }
+
+.globe-flag-pin.pin-offset-up:hover .flag-pin-badge { transform: translate(-50%, -22px) scale(1.18); }
+.globe-flag-pin.pin-offset-down:hover .flag-pin-badge { transform: translate(-50%, 8px) scale(1.18); }
+.globe-flag-pin.pin-offset-right:hover .flag-pin-badge { transform: translate(12px, -50%) scale(1.18); }
+.globe-flag-pin.pin-offset-left:hover .flag-pin-badge { transform: translate(calc(-100% - 12px), -50%) scale(1.18); }
 #globeCanvas > div > div:not(.scene-tooltip) {
   z-index: 10 !important;
 }
@@ -519,6 +566,9 @@ body.menu-open .drawer-overlay {
 @media (max-width: 1200px) {
   .main { padding: 36px 32px; max-width: 100%; }
   .stats-split { gap: 18px; }
+}
+@media (max-width: 1120px) {
+  .stats-split { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width: 960px) {
   .layout { flex-direction: column; }
@@ -3456,6 +3506,8 @@ model-viewer {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+  flex: 1;
 }
 .al-icon {
   font-size: 22px;
@@ -3467,6 +3519,7 @@ model-viewer {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
+  flex-shrink: 0;
 }
 .al-title {
   font-family: 'JetBrains Mono', monospace;
@@ -3483,7 +3536,7 @@ model-viewer {
   font-size: 11px;
   color: #94a3b8;
   margin-top: 1px;
-  max-width: 220px;
+  max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -3498,6 +3551,8 @@ model-viewer {
   text-transform: uppercase;
   letter-spacing: 0.3px;
   white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-start;
 }
 .al-type-cyan { color: #06b6d4; background: rgba(6, 182, 212, 0.12); border-color: rgba(6, 182, 212, 0.35); }
 .al-type-emerald { color: #10b981; background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.35); }
@@ -3507,6 +3562,7 @@ model-viewer {
 .al-type-amber { color: #f59e0b; background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.35); }
 .al-type-orange { color: #f97316; background: rgba(249, 115, 22, 0.12); border-color: rgba(249, 115, 22, 0.35); }
 .al-type-ruby { color: #e11d48; background: rgba(225, 29, 72, 0.12); border-color: rgba(225, 29, 72, 0.35); }
+.al-type-purple { color: #a855f7; background: rgba(168, 85, 247, 0.12); border-color: rgba(168, 85, 247, 0.35); }
 
 .al-leader-row {
   display: flex;
@@ -3657,15 +3713,20 @@ model-viewer {
 }
 .al-modal-leader-chip .c-flag-img,
 .al-lead-row .c-flag-img,
-.al-modal-member-pill .c-flag-img {
-  width: 24px;
-  height: 16px;
-  object-fit: cover;
-  border-radius: 3px;
+.al-modal-member-pill .c-flag-img,
+#allianceModal img.c-flag-img,
+#countryModal .kv img.c-flag-img,
+.al-modal-leader-chip img,
+.al-lead-row img,
+.al-modal-member-pill img {
+  width: 24px !important;
+  height: 16px !important;
+  object-fit: cover !important;
+  border-radius: 3px !important;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 2px 4px rgba(0, 0, 0, 0.4);
   display: inline-block;
   vertical-align: middle;
-  flex-shrink: 0;
+  flex-shrink: 0 !important;
 }
 .crown-badge {
   font-family: 'JetBrains Mono', monospace;

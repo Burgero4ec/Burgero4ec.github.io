@@ -262,9 +262,9 @@ export function renderSeasonAlliancesCards(alliancesList) {
         <div class="al-card-head">
           <div class="al-head-left">
             <span class="al-icon">${al.icon}</span>
-            <div>
+            <div style="min-width: 0; flex: 1;">
               <div class="al-title">${esc(al.name)} <span class="al-tag">(${esc(al.tag)})</span></div>
-              <div class="al-full-name">${esc(al.fullName)}</div>
+              <div class="al-full-name" title="${esc(al.fullName)}">${esc(al.fullName)}</div>
             </div>
           </div>
           <span class="al-type-badge al-type-${al.pillClass}">${esc(al.type)}</span>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/">
 <!-- Основные мета-теги -->
 <title>Global Lens — мир без фильтров и клише | Официальный портал</title>
 <meta name="description" content="Официальный сайт проекта Global Lens: правила сервера, геополитика, военное дело, статистика игроков, информация о сезонах и актуальный статус.">
@@ -45,9 +46,7 @@
   }
 }
 </script>
-<link rel="stylesheet" href="style.css">  
-<script src="js/libs/globe.gl.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+<link rel="stylesheet" href="style.css">
 <style>
 /* === Геополитическая схема государств на 3D Глобусе (Векторные контуры) === */
 .state-schema-container {
@@ -684,7 +683,7 @@ div.scene-tooltip {
 
 <!-- Мобильная шапка (видна только на экранах ≤960px) -->
 <header class="mobile-header">
-  <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+  <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню навигации" aria-expanded="false">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
   </button>
   <div class="mobile-brand">
@@ -1404,6 +1403,16 @@ div.scene-tooltip {
           </div>
           <div class="small-text" style="color:#94a3b8;font-style:italic;line-height:1.55;background:rgba(255,255,255,0.03);padding:10px 14px;border-radius:8px;border-left:3px solid #f87171;">
             По всем вопросам касательно бронирования — обращайтесь в поддержку к руководству или непосредственно в поддержку на бронирования, если это происходит во время процесса бронирования.
+          </div>
+
+          <!-- Кнопки действий: связь и проверка баланса -->
+          <div class="donate-cta-wrap" style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;">
+            <a class="cta fill" href="https://discord.gg/edPpSRmRNu" target="_blank" rel="noopener" style="background:#5865F2;border-color:#5865F2;">
+              <svg class="ic"><use href="#i-discord"/></svg> Открыть тикет на покупку в Discord
+            </a>
+            <a class="cta outline" href="#" data-go="cabinet">
+              <svg class="ic"><use href="#i-user"/></svg> Мой баланс кредитов
+            </a>
           </div>
         </div>
       </article>

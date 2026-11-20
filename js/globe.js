@@ -1163,12 +1163,69 @@ function applyCountriesData(countriesList) {
     countEl.textContent = `${totalCount} стран`;
   }
 
+// Расчёт сферического расстояния между координатами на Земле (в км)
+function geoDistanceKm(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+// Приоритетные державы, чьи имена всегда выводятся на глобальном плане
+const MAJOR_POWERS = new Set([
+  'россия', 'сша', 'китай', 'кнр', 'индия', 'германия', 'франция',
+  'великобритания', 'турция', 'иран', 'австралия', 'бразилия', 'япония'
+]);
+
+// Алгоритм умного разведения меток и предотвращения наложений в плотных кластерах (Европа, Ближний Восток, Азия)
+function declutterMarkers(markers) {
+  const offsets = ['pin-offset-up', 'pin-offset-right', 'pin-offset-left', 'pin-offset-down'];
+
+  markers.forEach(m => {
+    const norm = normName(m.name);
+    m.isMajor = MAJOR_POWERS.has(norm);
+    m.isCompact = false;
+    m.staggerOffset = 'pin-offset-center';
+  });
+
+  for (let i = 0; i < markers.length; i++) {
+    const m1 = markers[i];
+    let closeCount = 0;
+
+    for (let j = 0; j < markers.length; j++) {
+      if (i === j) continue;
+      const m2 = markers[j];
+      const dist = geoDistanceKm(m1.lat, m1.lng, m2.lat, m2.lng);
+
+      // Если метки находятся ближе 850 км друг к другу (плотный регион)
+      if (dist < 850) {
+        closeCount++;
+        // Если это микрорегион/анклав или сосед имеет больший приоритет:
+        if (!m1.isMajor && (m2.isMajor || (m2.playerCount || 1) > (m1.playerCount || 1) || j < i)) {
+          m1.isCompact = true;
+        }
+      }
+    }
+
+    if (closeCount > 0) {
+      m1.staggerOffset = offsets[i % offsets.length];
+    }
+  }
+}
+
   // Обновляем слои на 3D-глобусе
   if (globeInstance) {
     // 1. Обновляем полигоны (контуры и высоты)
     globeInstance.polygonsData([...allFeatures]);
 
-    // 2. Обновляем флаги-метки
+    // 2. Умное разведение и устранение наложений меток
+    declutterMarkers(htmlMarkers);
+
+    // 3. Обновляем флаги-метки
     globeInstance.htmlElementsData(htmlMarkers);
   }
 }
@@ -1180,6 +1237,13 @@ function createFlagMarkerElement(country) {
   const wrapper = document.createElement('div');
   wrapper.className = 'globe-flag-pin';
   wrapper.setAttribute('data-country', country.name);
+
+  if (country.isCompact) {
+    wrapper.classList.add('pin-compact');
+  }
+  if (country.staggerOffset) {
+    wrapper.classList.add(country.staggerOffset);
+  }
 
   if (activeFactionFilter) {
     if (country.faction === activeFactionFilter) {
@@ -1685,6 +1749,13 @@ export async function initGlobeNavigation() {
     controls.addEventListener('start', () => {
       controls.autoRotate = false;
       if (resumeRotateTimer) clearTimeout(resumeRotateTimer);
+    });
+    controls.addEventListener('change', () => {
+      if (globeInstance) {
+        const pov = globeInstance.pointOfView();
+        const isZoomedIn = pov && pov.altitude <= 1.65;
+        container.classList.toggle('globe-zoomed-in', isZoomedIn);
+      }
     });
     controls.addEventListener('end', () => {
       if (!isAutoRotating) return;

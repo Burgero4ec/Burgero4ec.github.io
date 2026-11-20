@@ -69,6 +69,30 @@ export function safeUrl(url) {
   return '#';
 }
 
+const JSON_FETCH_CACHE = new Map();
+
+/**
+ * Единый дедупликатор JSON-запросов: исключает повторную загрузку players.json,
+ * season-31.json, pmc.json и др. при одновременном обращении разных модулей
+ */
+export function fetchJson(url, options = {}) {
+  const cacheKey = String(url || '').split('?')[0];
+  if (!options.bypassCache && JSON_FETCH_CACHE.has(cacheKey)) {
+    return JSON_FETCH_CACHE.get(cacheKey);
+  }
+  const p = fetch(url, options)
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
+    .catch(err => {
+      JSON_FETCH_CACHE.delete(cacheKey);
+      throw err;
+    });
+  JSON_FETCH_CACHE.set(cacheKey, p);
+  return p;
+}
+
 export function renderError(msg, retryFnName) {
   return (
     '<div class="error-box">' +

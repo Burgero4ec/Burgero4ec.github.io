@@ -2,7 +2,7 @@
  * auth.js - Авторизация через Discord OAuth2, личный кабинет игрока и синхронизация профиля
  */
 import { esc, fmtNum, trimDeep, readLS, defaultAvatar, userAvatar } from './utils.js';
-import { API_BASE, DISCORD_CLIENT_ID, AUTH_TOKENS_URL, PLAYERS_URL, KNOWN_PLAYERS, SPEC_NAMES, BOT_DM_URL } from './config.js';
+import { API_BASE, DISCORD_CLIENT_ID, PLAYERS_URL, KNOWN_PLAYERS, SPEC_NAMES, BOT_DM_URL } from './config.js';
 import { fetchSeasonData } from './season.js';
 import { decorateStaff } from './staff.js';
 import { go } from './navigation.js';
@@ -10,12 +10,27 @@ import { go } from './navigation.js';
 let PLAYERS = null;
 export let PLAYERS_BY_ID = {};
 
+export function generateOAuthState() {
+  const array = new Uint8Array(16);
+  if (window.crypto && window.crypto.getRandomValues) {
+    window.crypto.getRandomValues(array);
+  } else {
+    for (let i = 0; i < 16; i++) array[i] = Math.floor(Math.random() * 256);
+  }
+  const state = Array.from(array, b => b.toString(16).padStart(2, '0')).join('');
+  try {
+    sessionStorage.setItem('gl-oauth-state', state);
+  } catch (e) {}
+  return state;
+}
+
 export function getDiscordOAuthUrl() {
   const origin = window.location.origin;
   const path = window.location.pathname.replace(/\/index\.html$/, '');
   const cleanUrl = (origin + path).replace(/\/?$/, '/');
   const redirectUri = encodeURIComponent(cleanUrl);
-  return `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&response_type=token&scope=identify&redirect_uri=${redirectUri}`;
+  const state = generateOAuthState();
+  return `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&response_type=token&scope=identify&state=${state}&redirect_uri=${redirectUri}`;
 }
 
 export function discordLogin() {
@@ -159,16 +174,29 @@ export async function handleLogin() {
     }
   } catch (e) {}
 
-  // 2. Проверяем OAuth access_token от Discord в hash URL (#access_token=...)
+  // 2. Проверяем OAuth access_token от Discord в hash URL (#access_token=...) с обязательной проверкой state (CSRF защита)
   if (location.hash && location.hash.includes('access_token=')) {
     const hashStr = location.hash.replace(/^#/, '');
     const p = new URLSearchParams(hashStr);
     const token = p.get('access_token');
+    const returnedState = p.get('state');
+    let savedState = null;
+    try {
+      savedState = sessionStorage.getItem('gl-oauth-state');
+      sessionStorage.removeItem('gl-oauth-state');
+    } catch (e) {}
+
+    // Мгновенно вычищаем токен из URL браузера во избежание утечки в историю и referrer
+    history.replaceState(null, '', location.pathname + '#cabinet');
+
     if (token) {
-      try {
-        localStorage.setItem('gl-discord-token', token);
-        history.replaceState(null, '', location.pathname + '#cabinet');
-      } catch (e) {}
+      if (savedState && returnedState !== savedState) {
+        console.warn('[Global Lens Security] Отклонен access_token с несовпадающим state (защита от Login CSRF).');
+      } else {
+        try {
+          localStorage.setItem('gl-discord-token', token);
+        } catch (e) {}
+      }
     }
   }
 

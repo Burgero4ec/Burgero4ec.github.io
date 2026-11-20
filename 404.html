@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="green">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 // Сектор не найден — Global Lens</title>
+<base href="/">
+<meta name="description" content="Запрошенный сектор не найден или расформирован в рамках геополитической базы Global Lens RP.">
+<meta name="theme-color" content="#4ade80">
+<link rel="icon" type="image/svg+xml" href="LXR.svg">
+<link rel="icon" type="image/png" href="planeta.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07100a;
+    --card: #10151b;
+    --line: #1c2420;
+    --text: #e9eee9;
+    --dim: #8fa496;
+    --acc: #4ade80;
+    --acc-glow: rgba(74, 222, 128, 0.4);
+    --red: #f87171;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 24px;
+  }
+  
+  /* Фоновая космическая сетка */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      linear-gradient(to right, rgba(74, 222, 128, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(74, 222, 128, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Виньетка и сканлайн */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(3, 8, 5, 0.88) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .err-container {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    width: 100%;
+    background: rgba(16, 21, 27, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    border-radius: 20px;
+    padding: 44px 36px;
+    box-shadow: 0 0 50px rgba(74, 222, 128, 0.08), 0 20px 40px rgba(0, 0, 0, 0.6);
+    text-align: center;
+  }
+
+  /* Радарный сканер */
+  .radar-wrap {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 28px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(74, 222, 128, 0.35);
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.06) 0%, rgba(7, 16, 10, 0.8) 70%);
+    box-shadow: 0 0 30px rgba(74, 222, 128, 0.12);
+    overflow: hidden;
+  }
+  .radar-ring {
+    position: absolute;
+    inset: 22px;
+    border-radius: 50%;
+    border: 1px dashed rgba(74, 222, 128, 0.25);
+  }
+  .radar-cross-h, .radar-cross-v {
+    position: absolute;
+    background: rgba(74, 222, 128, 0.2);
+  }
+  .radar-cross-h { top: 50%; left: 0; right: 0; height: 1px; }
+  .radar-cross-v { left: 50%; top: 0; bottom: 0; width: 1px; }
+  .radar-sweep {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0deg, transparent 280deg, rgba(74, 222, 128, 0.45) 360deg);
+    animation: sweep 3s linear infinite;
+  }
+  .radar-ping {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--red);
+    top: 36%;
+    left: 64%;
+    animation: ping 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes sweep {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes ping {
+    0% { transform: scale(0.8); opacity: 0.4; }
+    100% { transform: scale(1.4); opacity: 1; }
+  }
+
+  /* Глитч 404 */
+  .err-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 78px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-bottom: 8px;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 0 25px rgba(74, 222, 128, 0.35);
+  }
+  .err-code span { color: var(--acc); }
+
+  .err-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .err-badge .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--red);
+    animation: ping 1s infinite alternate;
+  }
+
+  .err-title {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .err-desc {
+    font-size: 15px;
+    color: var(--dim);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Терминальная телеметрия */
+  .telemetry {
+    background: rgba(7, 16, 10, 0.7);
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--dim);
+    text-align: left;
+    margin-bottom: 30px;
+    line-height: 1.7;
+  }
+  .telemetry b { color: var(--acc); font-weight: 600; }
+
+  /* Кнопки возврата */
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--acc);
+    color: #051208;
+    box-shadow: 0 0 20px var(--acc-glow);
+    border: 1px solid var(--acc);
+  }
+  .btn-primary:hover {
+    background: #6ee7b7;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(74, 222, 128, 0.6);
+  }
+  .btn-outline {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+  }
+  .btn-outline:hover {
+    background: rgba(74, 222, 128, 0.1);
+    border-color: var(--acc);
+    color: var(--acc);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .err-container { padding: 32px 20px; }
+    .err-code { font-size: 60px; }
+    .err-title { font-size: 22px; }
+    .btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="err-container">
+  <!-- Радарный сканер орбиты -->
+  <div class="radar-wrap" aria-hidden="true">
+    <div class="radar-ring"></div>
+    <div class="radar-cross-h"></div>
+    <div class="radar-cross-v"></div>
+    <div class="radar-sweep"></div>
+    <div class="radar-ping"></div>
+  </div>
+
+  <div class="err-badge">
+    <span class="dot"></span> СИГНАЛ ПОТЕРЯН // ОРБИТА НЕ НАЙДЕНА
+  </div>
+
+  <h1 class="err-code">4<span>0</span>4</h1>
+
+  <h2 class="err-title">Сектор вне зоны покрытия</h2>
+  <p class="err-desc">
+    Координаты не зафиксированы на спутниковой геополитической карте Global Lens. Возможно, суверенитет был утрачен или ссылка вела на расформированный архив.
+  </p>
+
+  <!-- Бортовой журнал телеметрии -->
+  <div class="telemetry">
+    <div>[ СТАТУС ]: <b>ТРЕВОГА // МАРШРУТ АННУЛИРОВАН</b></div>
+    <div>[ ГЛОБУС ]: <b>СЕЗОН 31 · 2020 ГОД</b></div>
+    <div>[ ТЕЛЕМЕТРИЯ ]: <b>ORBIT_LOSS_ERR_404_NOT_FOUND</b></div>
+    <div>[ РЕКОМЕНДАЦИЯ ]: <b>ВЕРНУТЬСЯ НА ОФИЦИАЛЬНУЮ ТРАЕКТОРИЮ</b></div>
+  </div>
+
+  <div class="actions">
+    <a href="/" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      В Главный Штаб
+    </a>
+    <a href="/season" class="btn btn-outline">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+      Карта Сезона 31
+    </a>
+    <a href="/wiki" class="btn btn-outline">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      База Знаний (Вики)
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

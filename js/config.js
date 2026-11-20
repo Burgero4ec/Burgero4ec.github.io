@@ -10,7 +10,6 @@ export const GH_URLS = {
 
 export const API_BASE = '';
 export const DISCORD_CLIENT_ID = '1125471835924992150';
-export const AUTH_TOKENS_URL = 'auth_tokens.json';
 export const BOT_DM_URL = 'https://discord.com/users/1406960264275824670';
 export const PLAYERS_URL = 'players.json';
 

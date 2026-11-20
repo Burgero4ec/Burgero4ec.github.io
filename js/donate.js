@@ -211,13 +211,41 @@ class DonateSparkFX {
 
 export let resetDonatePhysics = null;
 
-export function initDonatePhysics() {
+async function ensureMatterLibrary() {
+  if (typeof window.Matter !== 'undefined') return;
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector('script[src*="matter.min.js"]');
+    if (existing) {
+      existing.addEventListener('load', resolve);
+      existing.addEventListener('error', reject);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js';
+    script.onload = () => resolve();
+    script.onerror = (e) => {
+      console.warn('[Donate] CDN matter.js failed to load:', e);
+      reject(e);
+    };
+    document.head.appendChild(script);
+  });
+}
+
+export async function initDonatePhysics() {
   const container = document.getElementById('donateFalling');
   const textEl = document.getElementById('fallingText');
   const resetBtn = document.getElementById('fallingReset');
   const soundBtn = document.getElementById('fallingSound');
   const fxCanvas = document.getElementById('fallingFxCanvas');
-  if (!container || !textEl || typeof window.Matter === 'undefined') return;
+  if (!container || !textEl) return;
+
+  try {
+    await ensureMatterLibrary();
+  } catch (e) {
+    return;
+  }
+
+  if (typeof window.Matter === 'undefined') return;
 
   // Защита от повторной инициализации
   if (container.dataset.physicsInit === 'true') return;

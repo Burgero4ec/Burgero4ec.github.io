@@ -20,14 +20,20 @@ const PAGE_ALIASES = {
 
 export function closeDrawer() {
   document.body.classList.remove('menu-open');
+  const toggleBtn = document.getElementById('menuToggle');
+  if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
 }
 
 export function openDrawer() {
   document.body.classList.add('menu-open');
+  const toggleBtn = document.getElementById('menuToggle');
+  if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
 }
 
 export function toggleDrawer() {
-  document.body.classList.toggle('menu-open');
+  const isOpen = document.body.classList.toggle('menu-open');
+  const toggleBtn = document.getElementById('menuToggle');
+  if (toggleBtn) toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 export function go(rawId) {
@@ -238,4 +244,15 @@ export function initNavigation() {
   if (startRoute) {
     go(startRoute);
   }
+
+  // Закрытие модальных окон и мобильного меню по клавише Escape
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      if (typeof window.closeCountryModal === 'function') window.closeCountryModal();
+      if (typeof window.closeStaffModal === 'function') window.closeStaffModal();
+      if (typeof window.closeAllianceModal === 'function') window.closeAllianceModal();
+      if (typeof window.closeWikiReader === 'function') window.closeWikiReader();
+      closeDrawer();
+    }
+  });
 }

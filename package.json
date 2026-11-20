@@ -1,0 +1,14 @@
+{
+  "name": "global-lens-portal",
+  "version": "1.0.0",
+  "description": "Global Lens Web Portal",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve . -l 8000",
+    "serve": "python -m http.server 8000",
+    "test": "node scripts/check-integrity.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
