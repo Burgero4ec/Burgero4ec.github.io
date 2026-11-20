@@ -10,20 +10,27 @@
 <!-- Зелёный цвет темы для эмбедов Discord/Telegram -->
 <meta name="theme-color" content="#4ade80">
 
+<link rel="canonical" href="https://global-lens.xyz/">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
 <!-- Open Graph (Discord, Telegram, VK и др.) -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://burgero4ec.github.io/">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://global-lens.xyz/">
 <meta property="og:site_name" content="Global Lens">
-<meta property="og:title" content="Global Lens — мир без фильтров и клише">
-<meta property="og:description" content="Правила сервера, геополитика, статистика игроков, актуальный статус и информация о сезонах.">
-<meta property="og:image" content="https://burgero4ec.github.io/assets/logo-green.webp">
+<meta property="og:title" content="Global Lens — мир без фильтров и клише | Официальный портал">
+<meta property="og:description" content="Официальный портал проекта Global Lens: военно-политическое моделирование, карта Сезона 31 (2020 год), альянсы, статистика игроков, база знаний и правила.">
+<meta property="og:image" content="https://global-lens.xyz/assets/logo-green.webp">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
 <meta property="og:image:alt" content="Логотип Global Lens">
 
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://global-lens.xyz/">
 <meta name="twitter:title" content="Global Lens — мир без фильтров и клише">
-<meta name="twitter:description" content="Правила сервера, геополитика, статистика игроков, актуальный статус и информация о сезонах.">
-<meta name="twitter:image" content="https://burgero4ec.github.io/assets/logo-green.webp">
+<meta name="twitter:description" content="Военно-политическое моделирование, карта Сезона 31 (2020 год), альянсы, статистика игроков, база знаний и правила.">
+<meta name="twitter:image" content="https://global-lens.xyz/assets/logo-green.webp">
 
 <link rel="icon" type="image/svg+xml" href="LXR.svg">
 <link rel="icon" type="image/png" href="planeta.png">
@@ -688,7 +695,7 @@ div.scene-tooltip {
     </div>
     <div class="mobile-title"><span class="logo-title">GLOBAL <span>LENS</span></span></div>
   </div>
-  <div class="status-card" style="margin:0;padding:6px 10px;font-size:11px"><span class="dot pulse" style="width:6px;height:6px"></span>S28</div>
+  <div class="status-card" style="margin:0;padding:6px 10px;font-size:11px"><span class="dot pulse" style="width:6px;height:6px"></span>S31</div>
 </header>
 
 <div class="layout">
@@ -810,7 +817,7 @@ div.scene-tooltip {
           <div class="stats three">
             <div class="stat"><b data-stat="discord_members">0</b><span>Участников</span></div>
             <div class="stat"><b data-stat="staff">0</b><span>Персонал</span></div>
-            <div class="stat"><b data-count="30">0</b><span>Сезонов</span></div>
+            <div class="stat"><b data-count="31">0</b><span>Сезонов</span></div>
           </div>
         </div>
         <div class="stats-col">
@@ -846,12 +853,15 @@ div.scene-tooltip {
               <div class="globe-source-select-wrap">
                 <svg class="ic mini"><use href="#i-scroll"/></svg>
                 <select id="globeSourceSelect" class="globe-source-select" title="Выберите файл со странами">
+                  <option value="data/seasons/season-31.json">data/seasons/season-31.json (Сезон 31 - 2020)</option>
                   <option value="players.json" selected>players.json (Активные игроки)</option>
                   <option value="countries2020.json">countries2020.json (2020 База - 205 стран)</option>
                   <option value="autonomy.json">autonomy.json (43 Автономии)</option>
                   <option value="pmc.json">pmc.json (40 ЧВК / Организаций)</option>
                   <option value="data/active_countries.json">data/active_countries.json</option>
-                  <option value="data/seasons/season-25.json">data/seasons/season-25.json</option>
+                  <option value="data/seasons/season-28.json">data/seasons/season-28.json (Сезон 28)</option>
+                  <option value="data/seasons/season-26.json">data/seasons/season-26.json (Сезон 26)</option>
+                  <option value="data/seasons/season-25.json">data/seasons/season-25.json (Сезон 25)</option>
                   <option value="countries2014.json">countries2014.json (2014 База)</option>
                   <option value="custom">📁 Выбрать файл...</option>
                 </select>

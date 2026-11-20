@@ -31,6 +31,8 @@ auth_tokens.json
 # Editors
 .vscode/
 .idea/
+.claude/
+start_claude.bat
 *.swp
 *.swo
 

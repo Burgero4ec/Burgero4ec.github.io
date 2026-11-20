@@ -114,9 +114,21 @@ export function go(rawId) {
   // Мгновенный скролл наверх (без лагов перерисовки)
   window.scrollTo(0, 0);
 
-  // Обновляем хэш без перезагрузки
+  // Обновляем URL: на веб-сервере с поддержкой SPA (global-lens.xyz) используем чистые маршруты,
+  // на статическом хостинге (GitHub Pages / file:) сохраняем совместимость с #хэшем
   try {
-    history.pushState(null, '', '#' + id);
+    const isDomain = window.location.hostname === 'global-lens.xyz' ||
+                     window.location.hostname === 'www.global-lens.xyz' ||
+                     window.location.hostname === 'localhost' ||
+                     window.location.hostname === '127.0.0.1';
+    if (window.location.protocol.startsWith('http') && isDomain) {
+      const cleanPath = (resolvedId === 'home') ? '/' : '/' + resolvedId;
+      if (window.location.pathname !== cleanPath || window.location.hash) {
+        history.pushState({ page: resolvedId }, '', cleanPath);
+      }
+    } else {
+      history.pushState({ page: resolvedId }, '', '#' + id);
+    }
   } catch (e) {}
 }
 
@@ -195,7 +207,19 @@ export function initNavigation() {
     }
   }, { passive: true });
 
-  // Реакция на изменение хэша в браузере (кнопки назад/вперед и внешние ссылки)
+  // Реакция на изменение истории браузера (кнопки назад/вперед)
+  window.addEventListener('popstate', (e) => {
+    if (e.state && e.state.page) {
+      go(e.state.page);
+      return;
+    }
+    const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/')[0];
+    const rawHash = (window.location.hash || '').replace(/^[#/]+/, '').trim();
+    const route = rawHash || (rawPath && !rawPath.includes('.') && rawPath !== 'index.html' ? rawPath : 'home');
+    go(route);
+  });
+
+  // Реакция на изменение хэша в браузере (внешние ссылки и закладки)
   window.addEventListener('hashchange', () => {
     const rawHash = (window.location.hash || '').replace(/^[#/]+/, '').trim();
     if (rawHash) {
@@ -203,11 +227,14 @@ export function initNavigation() {
     }
   });
 
-  // Проверка стартового маршрута (хэш, search query или pathname)
+  // Проверка стартового маршрута (хэш, search query или clean pathname)
   const urlParams = new URLSearchParams(window.location.search);
   const queryRoute = urlParams.get('page') || urlParams.get('tab') || urlParams.get('p') || (window.location.search.replace(/^\?/, '').split('&')[0]);
   const rawHash = (window.location.hash || '').replace(/^[#/]+/, '').trim();
-  const startRoute = rawHash || queryRoute;
+  const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/')[0];
+  const validPath = (rawPath && !rawPath.includes('.') && rawPath !== 'index.html') ? rawPath : null;
+
+  const startRoute = rawHash || queryRoute || validPath || 'home';
   if (startRoute) {
     go(startRoute);
   }

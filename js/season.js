@@ -205,15 +205,15 @@ export async function fetchSeasonData() {
     // Проверяем наличие файла сезона с данными стран
     let seasonData = {};
     try {
-      let s28 = await fetchJson('data/seasons/season-31.json');
-      if (!s28) {
-        s28 = await fetchJson('data/seasons/season-28.json');
+      let sCurrent = await fetchJson('data/seasons/season-31.json');
+      if (!sCurrent) {
+        sCurrent = await fetchJson('data/seasons/season-28.json');
       }
-      if (s28) {
-        if (s28.entities && typeof s28.entities === 'object' && Object.keys(s28.entities).length > 0) {
-          seasonData = { ...s28.entities };
-        } else if (Object.values(s28).some(v => v && (v.country || v.type === 'country'))) {
-          seasonData = s28;
+      if (sCurrent) {
+        if (sCurrent.entities && typeof sCurrent.entities === 'object' && Object.keys(sCurrent.entities).length > 0) {
+          seasonData = { ...sCurrent.entities };
+        } else if (Object.values(sCurrent).some(v => v && (v.country || v.type === 'country'))) {
+          seasonData = sCurrent;
         }
         for (const ent of Object.values(seasonData)) {
           if (!ent || typeof ent !== 'object') continue;
@@ -384,7 +384,7 @@ export async function fetchSeasonData() {
       };
     }
 
-    // Интеграция актуальных регистраций игроков (Сезон 28) из data/players.json
+    // Интеграция актуальных регистраций игроков (Сезон 31) из data/players.json
     try {
       let r = await fetch('data/players.json?t=' + Date.now());
       if (!r.ok) r = await fetch('players.json?t=' + Date.now());
@@ -687,6 +687,14 @@ export async function loadSeason() {
     const alliancesList = computeAlliancesData(S, C);
     setCachedAlliancesData(alliancesList);
     const alliancesHtml = renderSeasonAlliancesCards(alliancesList);
+
+    // Синхронизируем показатели сводки Сезона 31 на главной странице
+    if (states.length > 0 || orgs.length > 0 || autos.length > 0) {
+      countUpAll('countries', states.length);
+      countUpAll('orgs', orgs.length);
+      countUpAll('autos', autos.length);
+      countUpAll('players', states.length + orgs.length + autos.length);
+    }
 
     body.innerHTML = `
       <div class="sec-title"><svg class="ic"><use href="#i-shield"/></svg>ВОЕННО-ПОЛИТИЧЕСКИЕ И ЭКОНОМИЧЕСКИЕ АЛЬЯНСЫ <span class="sec-counter">${alliancesList.length}</span></div>

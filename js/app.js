@@ -44,12 +44,13 @@ window.updateWikiGlider = updateWikiGlider;
 window.openWikiArticle = openWikiArticle;
 window.closeWikiReader = closeWikiReader;
 
-// Инициализация при готовности DOM
-async function initApp() {
+// Инициализация при готовности DOM (мгновенный рендер без блокировок сети)
+function initApp() {
   // 1. Темы оформления
   initThemes();
 
-  // 2. Навигация и мобильное выдвижное меню
+  // 2. Навигация и маршрутизация (чистые URL, хэши, мобильное меню)
+  // Запускает начальный роут (/season, /wiki, /staff и т.д.) сразу же
   initNavigation();
 
   // 3. Анимации появления блоков в стиле Odyssey
@@ -65,24 +66,35 @@ async function initApp() {
   initDonatePhysics();
   initLanyard();
 
-  // 7. Авторизация Discord и профиль игрока
-  await handleLogin();
+  // 7. Доска позора Понза
+  initShameBoard();
 
-  // 8. Живая статистика сервера и карты
+  // 8. Вики и база знаний
+  initWiki();
+
+  // 9. Живая статистика сервера и карты (быстрый fallback/кэш)
   loadMapInfo();
   initGlobeNavigation();
 
-  // 9. Загрузка базы игроков, сезона и состава команды
+  // 10. Фоновая неблокирующая авторизация Discord OAuth
+  // Ни в коем случае не ждем сеть перед показом интерфейса: авторизация обновляет UI по готовности
+  handleLogin().catch(e => {
+    console.warn('[Global Lens] Async auth background warning:', e);
+  });
+
+  // 11. Фоновая загрузка базы игроков, сезона и состава команды
   loadPlayers().then(() => {
     loadSeason();
     decorateStaff();
+  }).catch(e => {
+    console.warn('[Global Lens] Players/Season async load warning:', e);
   });
 
-  // 10. Загрузка ленты обновлений и прессы
+  // 12. Фоновая загрузка ленты обновлений и прессы
   loadUpdates();
   loadPress();
 
-  // 11. Загрузка правил и фрагментов
+  // 13. Фоновая загрузка правил и фрагментов
   loadRules('bot', 'rulesBotBody');
   loadRules('privacy', 'rulesPrivacyBody');
   loadFragment('rules_server_content.html', 'rulesServerBody');
@@ -95,20 +107,6 @@ async function initApp() {
     });
   } else {
     decorateStaff();
-  }
-
-  // 13. Доска позора Понза
-  initShameBoard();
-
-  // 14. Вики и база знаний
-  initWiki();
-
-  // 12. Первичный роутинг по хэшу URL (#season, #staff, #donate и т.д.)
-  const hash = window.location.hash.replace(/^#/, '').trim();
-  if (hash && document.getElementById('page-' + hash)) {
-    go(hash);
-  } else {
-    animateStats();
   }
 
   // Обновляем регистрацию элементов в анимациях Odyssey после завершения рендера

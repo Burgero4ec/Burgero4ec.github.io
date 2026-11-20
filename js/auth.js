@@ -144,7 +144,22 @@ export function syncUserUI() {
 }
 
 export async function handleLogin() {
-  // 1. Проверяем OAuth access_token от Discord в hash URL (#access_token=...)
+  // 1. Мгновенная гидратация из кэша (0 мс): если есть сохраненная сессия Discord OAuth,
+  // сразу же отображаем имя и аватар без ожидания сети
+  try {
+    const source = localStorage.getItem('gl-auth-source');
+    const token = localStorage.getItem('gl-discord-token');
+    const savedStr = localStorage.getItem('gl-user');
+    if (source === 'discord-oauth' && token && savedStr) {
+      const saved = JSON.parse(savedStr);
+      if (saved && saved.id) {
+        window.glUser = saved;
+        syncUserUI();
+      }
+    }
+  } catch (e) {}
+
+  // 2. Проверяем OAuth access_token от Discord в hash URL (#access_token=...)
   if (location.hash && location.hash.includes('access_token=')) {
     const hashStr = location.hash.replace(/^#/, '');
     const p = new URLSearchParams(hashStr);
@@ -157,7 +172,12 @@ export async function handleLogin() {
     }
   }
 
-  // 2. Если есть токен авторизации Discord — запрашиваем профиль пользователя через Discord API
+  // 3. Безопасность: очищаем любые входящие query-параметры (?token=, ?auth=), запрещая обход авторизации
+  if (location.search && (location.search.includes('token=') || location.search.includes('auth=') || location.search.includes('t='))) {
+    history.replaceState(null, '', location.pathname + location.hash);
+  }
+
+  // 4. Фоновая верификация токена через Discord API без блокировки рендеринга страницы
   let dToken = null;
   try {
     dToken = localStorage.getItem('gl-discord-token');
@@ -183,36 +203,21 @@ export async function handleLogin() {
       } else {
         localStorage.removeItem('gl-discord-token');
         localStorage.removeItem('gl-user');
+        localStorage.removeItem('gl-auth-source');
+        localStorage.removeItem('gl-session');
         window.glUser = null;
       }
     } catch (e) {
-      console.warn('[Global Lens] Discord API fetch error:', e);
+      console.warn('[Global Lens] Async Discord API fetch warning:', e);
     }
-  }
-
-  // 3. Безопасность: очищаем любые входящие query-параметры (?token=, ?auth=), запрещая обход авторизации
-  if (location.search && (location.search.includes('token=') || location.search.includes('auth=') || location.search.includes('t='))) {
-    history.replaceState(null, '', location.pathname + location.hash);
-  }
-
-  // 4. Строгая валидация сессии: доверяем ТОЛЬКО проверенному Discord OAuth
-  try {
+  } else {
+    // Если токена нет — очищаем возможные мусорные записи
     const source = localStorage.getItem('gl-auth-source');
-    const token = localStorage.getItem('gl-discord-token');
-    const saved = JSON.parse(localStorage.getItem('gl-user'));
-
-    if (source !== 'discord-oauth' || !token || !saved || !saved.id) {
-      // Аннулируем любые неподтвержденные, ручные или поддельные сессии
+    if (source !== 'discord-oauth') {
       localStorage.removeItem('gl-user');
       localStorage.removeItem('gl-auth-source');
-      localStorage.removeItem('gl-discord-token');
-      localStorage.removeItem('gl-session');
       window.glUser = null;
-    } else {
-      window.glUser = saved;
     }
-  } catch (e) {
-    window.glUser = null;
   }
 
   syncUserUI();
