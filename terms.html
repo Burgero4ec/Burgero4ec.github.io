@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="green">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Условия использования // Terms of Service — Global Lens RP</title>
+<base href="/">
+<meta name="description" content="Условия использования Discord-бота и веб-сервисов проекта Global Lens RP.">
+<meta name="theme-color" content="#4ade80">
+<link rel="icon" type="image/svg+xml" href="LXR.svg">
+<link rel="icon" type="image/png" href="planeta.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07100a;
+    --card: #10151b;
+    --card-hover: #151c24;
+    --line: #1c2420;
+    --text: #e9eee9;
+    --text-muted: #8fa496;
+    --acc: #4ade80;
+    --acc-glow: rgba(74, 222, 128, 0.4);
+    --border: rgba(74, 222, 128, 0.22);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 32px 20px 60px;
+    line-height: 1.65;
+  }
+  
+  /* Фоновая космическая сетка */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      linear-gradient(to right, rgba(74, 222, 128, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(74, 222, 128, 0.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, transparent 30%, rgba(3, 8, 5, 0.9) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    width: 100%;
+    background: rgba(16, 21, 27, 0.92);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 48px 40px;
+    box-shadow: 0 0 60px rgba(74, 222, 128, 0.08), 0 25px 50px rgba(0, 0, 0, 0.7);
+  }
+
+  .header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--acc);
+    background: rgba(74, 222, 128, 0.1);
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--acc);
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+  }
+  .nav-btn:hover {
+    background: var(--acc);
+    color: #07100a;
+    box-shadow: 0 0 20px var(--acc-glow);
+    transform: translateY(-1px);
+  }
+
+  .content-section {
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--acc);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2::before {
+    content: '//';
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  p {
+    margin-bottom: 14px;
+    color: #cfd8d1;
+    font-size: 15px;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 16px;
+    padding-left: 4px;
+  }
+
+  li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    color: #cfd8d1;
+    font-size: 15px;
+  }
+  li::before {
+    content: '▹';
+    position: absolute;
+    left: 4px;
+    color: var(--acc);
+    font-weight: bold;
+  }
+
+  .info-box {
+    background: rgba(74, 222, 128, 0.05);
+    border-left: 3px solid var(--acc);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: #d8e2da;
+    font-size: 14px;
+  }
+
+  .footer-links {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .footer-links a {
+    color: var(--acc);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 32px 20px; }
+    h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div>
+      <div class="brand-badge">⚡ Global Lens RP • Legal Document</div>
+      <h1>Условия использования</h1>
+      <div class="subtitle">Terms of Service • Последнее обновление: 21 ноября 2026 г.</div>
+    </div>
+    <a href="/" class="nav-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      На главную
+    </a>
+  </div>
+
+  <div class="content-section">
+    <h2>1. Общие положения (Introduction)</h2>
+    <p>Настоящие Условия использования регулируют порядок взаимодействия пользователей с Discord-приложением <strong>Global Lens</strong> (включая ботов «Zarplata» и «Global Lens BOT») и официальным сайтом проекта <strong>global-lens.xyz</strong>.</p>
+    <p>Добавляя приложение на свой сервер, взаимодействуя с его командами или используя функции сайта, вы подтверждаете полное согласие с данными Условиями, а также с официальными <a href="https://discord.com/terms" target="_blank" style="color:var(--acc);">Условиями использования Discord</a> и <a href="https://discord.com/guidelines" target="_blank" style="color:var(--acc);">Правилами сообщества Discord</a>.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>2. Описание сервиса (Service Description)</h2>
+    <p>Приложение Global Lens создано для автоматизации игрового процесса военно-политического RP-проекта. Основные функции включают:</p>
+    <ul>
+      <li>Учет игровых экономик, виртуального ВВП и населения игровых государств;</li>
+      <li>Расчет и начисление игровой зарплаты и наград персоналу и участникам;</li>
+      <li>Проведение мини-игр и викторин с использованием виртуальной игровой валюты;</li>
+      <li>Синхронизацию списков игроков, автономий и альянсов с интерактивной 3D-картой мира на сайте.</li>
+    </ul>
+    <div class="info-box">
+      <strong>Важное замечание:</strong> Любые валюты, кредиты, балансы или очки в боте являются исключительно внутриигровыми виртуальными показателями, не имеют реальной денежной стоимости и не могут быть обменены на реальные финансовые средства.
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>3. Правила использования (Acceptable Use)</h2>
+    <p>При использовании сервиса строго запрещается:</p>
+    <ul>
+      <li>Использовать уязвимости, баги или недокументированные возможности бота в корыстных целях без сообщения администрации;</li>
+      <li>Осуществлять спам запросами к командам бота с целью создания отказов в обслуживании (DoS);</li>
+      <li>Осуществлять реверс-инжиниринг закрытых частей API бота или попытки несанкционированного доступа к серверной инфраструктуре;</li>
+      <li>Использовать приложение для распространения оскорбительного контента, вредоносного ПО или материалов, нарушающих законодательство.</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h2>4. Ограничение ответственности (Limitation of Liability)</h2>
+    <p>Сервис предоставляется по принципу <strong>«как есть» (AS IS)</strong>. Разработчики и администрация Global Lens прилагают все усилия для обеспечения непрерывной и стабильной работы, однако не несут ответственности за возможные временные сбои, вызванные неполадками хостинга, перебоями в работе сети Discord или форс-мажорными обстоятельствами.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>5. Прекращение доступа (Termination)</h2>
+    <p>Администрация проекта оставляет за собой право в одностороннем порядке временно или навсегда ограничить доступ конкретного пользователя или Discord-гильдии к командам приложения в случае грубого нарушения настоящих Условий или правил Discord.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>6. Контакты и обратная связь (Contacts)</h2>
+    <p>По любым вопросам, связанным с работой бота или условиями использования, вы можете обратиться:</p>
+    <ul>
+      <li>Официальный Discord-сервер: <a href="https://discord.gg/globallens" target="_blank" style="color:var(--acc);">discord.gg/globallens</a></li>
+      <li>Электронная почта поддержки: <a href="mailto:global_lenz.rp@bk.ru" style="color:var(--acc);">global_lenz.rp@bk.ru</a></li>
+      <li>Официальный веб-сайт: <a href="https://global-lens.xyz" style="color:var(--acc);">global-lens.xyz</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-links">
+    <div>© 2024–2026 Global Lens RP. Все права защищены.</div>
+    <div>
+      <a href="/privacy.html">Политика конфиденциальности</a> • 
+      <a href="/">Главная страница</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

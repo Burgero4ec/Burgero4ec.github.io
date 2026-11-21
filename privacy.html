@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="green">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика конфиденциальности // Privacy Policy — Global Lens RP</title>
+<base href="/">
+<meta name="description" content="Политика конфиденциальности и обработки данных Discord-бота и веб-сервисов проекта Global Lens RP.">
+<meta name="theme-color" content="#4ade80">
+<link rel="icon" type="image/svg+xml" href="LXR.svg">
+<link rel="icon" type="image/png" href="planeta.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07100a;
+    --card: #10151b;
+    --line: #1c2420;
+    --text: #e9eee9;
+    --text-muted: #8fa496;
+    --acc: #4ade80;
+    --acc-glow: rgba(74, 222, 128, 0.4);
+    --border: rgba(74, 222, 128, 0.22);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 32px 20px 60px;
+    line-height: 1.65;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      linear-gradient(to right, rgba(74, 222, 128, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(74, 222, 128, 0.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, transparent 30%, rgba(3, 8, 5, 0.9) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    width: 100%;
+    background: rgba(16, 21, 27, 0.92);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 48px 40px;
+    box-shadow: 0 0 60px rgba(74, 222, 128, 0.08), 0 25px 50px rgba(0, 0, 0, 0.7);
+  }
+
+  .header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--acc);
+    background: rgba(74, 222, 128, 0.1);
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--acc);
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+  }
+  .nav-btn:hover {
+    background: var(--acc);
+    color: #07100a;
+    box-shadow: 0 0 20px var(--acc-glow);
+    transform: translateY(-1px);
+  }
+
+  .content-section {
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--acc);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2::before {
+    content: '//';
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  p {
+    margin-bottom: 14px;
+    color: #cfd8d1;
+    font-size: 15px;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 16px;
+    padding-left: 4px;
+  }
+
+  li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    color: #cfd8d1;
+    font-size: 15px;
+  }
+  li::before {
+    content: '▹';
+    position: absolute;
+    left: 4px;
+    color: var(--acc);
+    font-weight: bold;
+  }
+
+  .info-box {
+    background: rgba(74, 222, 128, 0.05);
+    border-left: 3px solid var(--acc);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: #d8e2da;
+    font-size: 14px;
+  }
+
+  .footer-links {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .footer-links a {
+    color: var(--acc);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 32px 20px; }
+    h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div>
+      <div class="brand-badge">🔒 Global Lens RP • Privacy & Security</div>
+      <h1>Политика конфиденциальности</h1>
+      <div class="subtitle">Privacy Policy • Последнее обновление: 21 ноября 2026 г.</div>
+    </div>
+    <a href="/" class="nav-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      На главную
+    </a>
+  </div>
+
+  <div class="content-section">
+    <h2>1. Введение (Introduction)</h2>
+    <p>Настоящая Политика конфиденциальности описывает, какие данные собираются, как они используются и защищаются при работе с Discord-приложением <strong>Global Lens</strong> и официальным сайтом <strong>global-lens.xyz</strong>.</p>
+    <p>Мы уважаем право пользователей на конфиденциальность и обрабатываем только минимально необходимый объем общедоступных технических данных в полном соответствии с <a href="https://discord.com/developers/docs/policies-and-agreements/developer-policy" target="_blank" style="color:var(--acc);">Discord Developer Policy</a>.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>2. Какие данные мы собираем (Data We Collect)</h2>
+    <p>Для обеспечения работы игровых механик сервер сохраняет следующие данные:</p>
+    <ul>
+      <li><strong>Идентификаторы Discord:</strong> User ID (числовой идентификатор пользователя) для привязки игрового профиля, страны, баланса и ролей;</li>
+      <li><strong>Имена пользователей:</strong> Username и серверный Nickname для отображения в таблицах лидеров, на карте и в списках игроков;</li>
+      <li><strong>Игровые показатели (RP Data):</strong> Название закрепленного государства/автономии, виртуальный ВВП, численность населения, начисленная игровая зарплата, статистика активности;</li>
+      <li><strong>Технические идентификаторы сервера:</strong> Guild ID и Channel ID для маршрутизации команд и доставки отчетов.</li>
+    </ul>
+    <div class="info-box">
+      <strong>Мы категорически НЕ собираем:</strong> личные сообщения (DM), пароли, адреса электронной почты, платежные реквизиты, IP-адреса пользователей Discord или любые конфиденциальные личные сведения.
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>3. Цели сбора данных (Purpose of Data Collection)</h2>
+    <p>Собранные данные используются исключительно для:</p>
+    <ul>
+      <li>Поддержания игрового цикла RP-проекта (расчет бюджета государств, распределение зарплат персоналу);</li>
+      <li>Отображения актуальной информации об игроках и странах на интерактивном сайте <a href="https://global-lens.xyz" target="_blank" style="color:var(--acc);">global-lens.xyz</a>;</li>
+      <li>Синхронизации игровых ролей и предотвращения нечестной игры (модерация и аудит).</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h2>4. Хранение и безопасность (Data Storage & Security)</h2>
+    <p>Данные хранятся на выделенном сервере проекта под управлением защищенных баз данных (SQLite и JSON) с ограничением прямого доступа. Доступ к серверу имеют только авторизованные разработчики через защищенные ключи шифрования.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>5. Передача третьим лицам (Third-Party Disclosure)</h2>
+    <p>Мы никогда не продаем, не сдаем в аренду и не передаем пользовательские данные сторонним коммерческим или рекламным организациям. Все игровые профили являются частью открытого игрового мира и видны другим участникам проекта.</p>
+  </div>
+
+  <div class="content-section">
+    <h2>6. Удаление данных (Data Deletion Rights)</h2>
+    <p>Каждый пользователь имеет право запросить полное удаление своего игрового профиля и связанных с ним данных из базы бота и сайта. Для этого достаточно:</p>
+    <ul>
+      <li>Создать тикет в техническую поддержку на сервере Discord: <a href="https://discord.gg/globallens" target="_blank" style="color:var(--acc);">discord.gg/globallens</a>;</li>
+      <li>Или отправить запрос на почту: <a href="mailto:global_lenz.rp@bk.ru" style="color:var(--acc);">global_lenz.rp@bk.ru</a> с указанием вашего Discord User ID.</li>
+    </ul>
+    <p>Данные удаляются в течение 48 часов с момента подтверждения владения аккаунтом.</p>
+  </div>
+
+  <div class="footer-links">
+    <div>© 2024–2026 Global Lens RP. Все права защищены.</div>
+    <div>
+      <a href="/terms.html">Условия использования</a> • 
+      <a href="/">Главная страница</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
